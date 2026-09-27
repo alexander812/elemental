@@ -15,12 +15,14 @@
     "storybook": "lerna run storybook --scope=@elemental/ui-kit --stream"
   },
   "devDependencies": {
-    "@esbuild/darwin-x64": "^0.28.2",
-    "@rollup/rollup-darwin-x64": "^4.0.0",
     "@storybook/react-vite": "^9.1.20",
     "lerna": "^8.2.0"
   },
   "overrides": {
     "esbuild": "^0.28.2"
+  },
+  "optionalDependencies": {
+    "@esbuild/darwin-x64": "^0.28.2",
+    "@rollup/rollup-darwin-x64": "^4.0.0"
   }
 }
