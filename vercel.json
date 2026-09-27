@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build --workspace @elemental/app",
-  "installCommand": "npm install",
+  "installCommand": "npm ci",
   "outputDirectory": "app/dist",
   "framework": null
 }

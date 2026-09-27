@@ -17,8 +17,5 @@
   "devDependencies": {
     "@storybook/react-vite": "^9.1.20",
     "lerna": "^8.2.0"
-  },
-  "overrides": {
-    "esbuild": "^0.28.2"
   }
 }

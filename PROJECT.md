@@ -17,7 +17,7 @@ PROJECT.md                # этот файл
 - `app`: React 19, Vite 8 (rolldown), TypeScript, Effector 23 + effector-react, CSS Modules + PostCSS (pcss), `@fontsource-variable/inter`.
 - `ui-kit`: Vite 7 + Storybook 9 (`@storybook/react-vite`), `postcss-nested`, `classnames`.
 - Пакеты отдаются исходниками (`main/types: ./src/index.ts`), без шага сборки.
-- Платформенные пакеты (`@esbuild/darwin-x64`, `@rollup/rollup-*` и т.п.) нельзя указывать прямыми зависимостями (в т.ч. в `optionalDependencies`) — npm на Vercel падает с `EBADPLATFORM`. Их установку обеспечивает полный `package-lock.json` через optional-зависимости самих esbuild/rollup/rolldown/lightningcss; в корне остаются `overrides.esbuild`.
+- Платформенные бинарники (esbuild, rollup, rolldown, lightningcss) ставятся только через optional-зависимости самих пакетов из полного lockfile; `overrides` в корне нет.
 
 ## Команды
 
@@ -34,9 +34,9 @@ npm run storybook      # Storybook ui-kit (порт 8080)
 
 ## Деплой (Vercel)
 
-- Настройки проекта: Root Directory — корень репозитория; сборка описана в корневом `vercel.json` (`buildCommand: npm run build --workspace @elemental/app`, `outputDirectory: app/dist`, `framework: null`). Node 22.
+- Настройки проекта: Root Directory — корень репозитория; сборка описана в корневом `vercel.json` (`installCommand: npm ci`, `buildCommand: npm run build --workspace @elemental/app`, `outputDirectory: app/dist`, `framework: null`). Node 22.
 - Критично: `package-lock.json` обязан содержать платформенные optional-пакеты (`node_modules/rolldown`, `node_modules/lightningcss-*`, `@rolldown/binding-*`, `@rollup/rollup-*`, `@esbuild/*`). Если их нет, чистая установка на Linux оставляет Vite 8 без `rolldown` и сборка падает (`ERR_MODULE_NOT_FOUND: Cannot find package 'rolldown'`).
-- Прямые darwin-зависимости держать только в `optionalDependencies`; в `dependencies`/`devDependencies` npm на Linux падает с `EBADPLATFORM`.
+- Нельзя добавлять платформенные пакеты прямыми зависимостями и нельзя использовать `overrides` (например, для esbuild): на чужой платформе npm падает с `EBADPLATFORM` на платформенных optional-пакетах. Платформы обеспечивает только полный lockfile.
 - Проверка целостности lock: `grep -c '"node_modules/rolldown"' package-lock.json` и `grep -c 'lightningcss-linux-x64-gnu' package-lock.json` (должны быть > 0).
 - Пересоздавать lock только в чистой копии репозитория без `node_modules` (`npm install`), после чего проверять сценарий Vercel: свежая копия → `npm ci` → `npm run build --workspace @elemental/app` → `app/dist/index.html`.
 
