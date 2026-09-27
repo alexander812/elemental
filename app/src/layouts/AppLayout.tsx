@@ -1,0 +1,120 @@
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import type { ReactNode } from 'react';
+
+import { useUnit } from 'effector-react';
+
+import { IconMenu, IconViewList } from '@elemental/icons';
+
+import { CardCreateView } from '../features/card-create/ui/CardCreateView';
+import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView';
+import { CardsView } from '../features/cards/ui/CardsView';
+import { goToRoot, pushScreen, transitionEnded, $screen, $stack, $transition } from '../features/navigation/store';
+import type { Screen } from '../features/navigation/store';
+import { SetCreateView } from '../features/set-create/ui/SetCreateView';
+import { LanguagesView } from '../features/settings/ui/LanguagesView';
+import { MenuView } from '../features/settings/ui/MenuView';
+import { ThemeView } from '../features/settings/ui/ThemeView';
+import { SetsView } from '../features/sets/ui/SetsView';
+
+import classes from './AppLayout.module.pcss';
+
+function renderScreen(screen: Screen): ReactNode {
+  switch (screen.name) {
+    case 'sets':
+      return <SetsView />;
+    case 'set-create':
+      return <SetCreateView />;
+    case 'cards':
+      return <CardsView key={screen.setId} setId={screen.setId} />;
+    case 'card-create':
+      return <CardCreateView setId={screen.setId} />;
+    case 'cards-restore':
+      return <CardsRestoreView key={screen.setId} setId={screen.setId} />;
+    case 'menu':
+      return <MenuView />;
+    case 'theme':
+      return <ThemeView />;
+    case 'languages':
+      return <LanguagesView />;
+  }
+}
+
+function AppFooter() {
+  const screen = useUnit($screen);
+
+  const isSetsActive = screen.name === 'sets';
+  const isMenuActive = screen.name === 'menu' || screen.name === 'theme' || screen.name === 'languages';
+
+  const handleSets = () => {
+    if (screen.name === 'sets') return;
+    goToRoot();
+  };
+
+  const handleMenu = () => {
+    if (screen.name === 'menu' || screen.name === 'theme' || screen.name === 'languages') return;
+    pushScreen({ name: 'menu' });
+  };
+
+  return (
+    <div className={classes.footer}>
+      <button
+        className={`${classes.footerButton} ${isSetsActive ? classes.footerButtonActive : ''}`}
+        type="button"
+        onClick={handleSets}
+      >
+        <IconViewList fontSize={24} />
+        Наборы
+      </button>
+      <button
+        className={`${classes.footerButton} ${isMenuActive ? classes.footerButtonActive : ''}`}
+        type="button"
+        onClick={handleMenu}
+      >
+        <IconMenu fontSize={24} />
+        Меню
+      </button>
+    </div>
+  );
+}
+
+export function AppLayout() {
+  const stack = useUnit($stack);
+  const screen = useUnit($screen);
+  const transition = useUnit($transition);
+
+  const mainRef = useRef<HTMLElement>(null);
+
+  const entering = transition.kind === 'push';
+  const leavingScreen = transition.kind === 'pop' ? transition.screen : null;
+
+  useLayoutEffect(() => {
+    mainRef.current?.scrollTo({ top: 0 });
+  }, [screen]);
+
+  useEffect(() => {
+    if (!leavingScreen) return;
+
+    const timer = setTimeout(() => transitionEnded(), 400);
+
+    return () => clearTimeout(timer);
+  }, [leavingScreen]);
+
+  return (
+    <div className={classes.app}>
+      <main className={classes.main} ref={mainRef}>
+        <div
+          key={`${stack.length}-${screen.name}`}
+          className={`${classes.screen} ${entering ? classes.screenEntering : ''}`}
+        >
+          {renderScreen(screen)}
+        </div>
+        {leavingScreen && (
+          <div className={classes.screenExiting} onAnimationEnd={() => transitionEnded()}>
+            {renderScreen(leavingScreen)}
+          </div>
+        )}
+      </main>
+      <AppFooter />
+    </div>
+  );
+}

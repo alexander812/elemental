@@ -1,0 +1,83 @@
+.typography {
+  font-family: var(--font-main);
+  font-style: normal;
+  text-rendering: geometricprecision;
+
+  &[data-size='XXL'] {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  &[data-size='XL'] {
+    font-size: 27px;
+    line-height: 1.333;
+  }
+
+  &[data-size='L'] {
+    font-size: 21px;
+    line-height: 1.333;
+  }
+
+  &[data-size='M'] {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  &[data-size='M Compact'] {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  &[data-size='S'] {
+    font-size: 14px;
+    line-height: 1.428;
+  }
+
+  &[data-size='S Compact'] {
+    font-size: 14px;
+    line-height: 1.142;
+  }
+
+  &[data-size='XS'] {
+    font-size: 12px;
+    line-height: 1.333;
+  }
+
+  &[data-size='XXS'] {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  &[data-style='Medium'] {
+    font-weight: 500;
+  }
+
+  &[data-style='Mono Num'] {
+    font-weight: 500;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  &[data-style='Address'] {
+    font-weight: 500;
+    font-variant-numeric: slashed-zero;
+    font-feature-settings: 'calt' off;
+  }
+
+  &[data-style='CAPS'] {
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &[data-style='Strikethrough'] {
+    font-weight: 500;
+    text-decoration-line: line-through;
+  }
+
+  &[data-style='Underlined'] {
+    font-weight: 500;
+    text-decoration-color: rgb(var(--contrast-tertiary-rgb), 25%);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-underline-position: from-font;
+  }
+}

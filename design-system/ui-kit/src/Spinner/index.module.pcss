@@ -1,0 +1,83 @@
+.host {
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 1em;
+  height: 1em;
+  padding: 4px;
+  user-select: none;
+}
+
+.hostColorInherit {
+  color: inherit;
+}
+
+.hostColorNeutral {
+  color: var(--contrast-secondary);
+}
+
+.hostColorAccent {
+  color: var(--accent-bg-default);
+}
+
+.bar {
+  flex-basis: 25%;
+  height: 100%;
+  border-radius: 1px;
+  opacity: 0;
+  background-color: currentColor;
+}
+
+.bar:nth-child(1) {
+  animation-name: wave;
+  animation-duration: 1050ms;
+  animation-iteration-count: infinite;
+}
+
+.bar:nth-child(2) {
+  animation-name: wave;
+  animation-duration: 1050ms;
+  animation-delay: 150ms;
+  animation-iteration-count: infinite;
+}
+
+.bar:nth-child(3) {
+  animation-name: wave;
+  animation-duration: 1050ms;
+  animation-delay: 300ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes wave {
+  0% {
+    opacity: 0.1;
+  }
+
+  14.3% {
+    opacity: 0.1;
+  }
+
+  28.6% {
+    opacity: 1;
+  }
+
+  42.9% {
+    opacity: 0.6;
+  }
+
+  57.1% {
+    opacity: 0.2;
+  }
+
+  71.4% {
+    opacity: 0.1;
+  }
+
+  85.7% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}

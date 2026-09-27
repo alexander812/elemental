@@ -1,0 +1,170 @@
+.host {
+  --border-width: 1px;
+
+  box-sizing: border-box;
+  min-width: 0;
+  border: var(--border-width) solid var(--card-border);
+}
+
+.hostClipContent {
+  overflow: hidden;
+}
+
+.hostNoBorder {
+  border: none !important;
+}
+
+.hostElevated {
+  box-shadow: 0 12px 24px 0 rgb(0, 0, 0, 12%);
+}
+
+.hostDisabled {
+  opacity: 0.4;
+  background-color: var(--card-bg-inactive);
+}
+
+.hostClickable {
+  transition: background-color 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.hostColorPrimary {
+  background: var(--card-bg-default);
+}
+
+.hostClickable.hostColorPrimary {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--card-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--card-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--card-bg-active);
+  }
+}
+
+.hostColorAccent {
+  background-color: var(--accent-bg-default);
+}
+
+.hostClickable.hostColorAccent {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--accent-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--accent-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--accent-bg-active);
+  }
+}
+
+.hostColorPositiveTransparent {
+  background-color: var(--positive-transparent);
+}
+
+.hostColorInput {
+  border: var(--border-width) solid var(--input-border);
+  background-color: var(--input-bg-default);
+}
+
+.hostColorInactive {
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg-inactive);
+}
+
+.hostClickable.hostColorInput {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--input-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--input-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--input-bg-active);
+  }
+}
+
+.hostColorControl {
+  border: var(--border-width) solid var(--control-border);
+  background-color: var(--control-bg-default);
+}
+
+.hostClickable.hostColorControl {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--control-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--control-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--control-bg-active);
+  }
+}
+
+.hostColorSurfaceElevation1 {
+  border: var(--border-width) solid var(--contrast-quaternary);
+  background-color: var(--surface-elevation-1);
+}
+
+.hostClickable.hostColorSurfaceElevation1 {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--surface-elevation-2);
+    }
+  }
+
+  &:active {
+    background-color: var(--surface-elevation-2);
+  }
+
+  &.hostActive {
+    background-color: var(--surface-elevation-2);
+  }
+}
+
+.hostColorSurfaceElevation2 {
+  background-color: var(--surface-elevation-2);
+}
+
+.hostColorSurfaceCanvas {
+  background-color: var(--surface-canvas);
+}
+
+.hostColorTransparent {
+  border: solid 1px var(--card-border);
+  background-color: transparent;
+}
+
+.hostClickable.hostColorTransparent {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--card-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--card-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--card-bg-active);
+  }
+}

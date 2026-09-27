@@ -1,0 +1,69 @@
+.host {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.inlineContainer {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-inline-start: 12px;
+  padding-inline-end: 12px;
+  transition: padding 0ms linear;
+}
+
+.inlineContainerStartPadding {
+  padding-inline-start: 16px;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+}
+
+.startBlock,
+.endBlock {
+  display: flex;
+  position: relative;
+  z-index: 200;
+  flex-direction: row;
+  flex-shrink: 1;
+  align-items: center;
+}
+
+.startBlock {
+  justify-content: flex-start;
+}
+
+.endBlock {
+  justify-content: flex-end;
+}
+
+.content {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  align-items: center;
+  overflow: hidden;
+}
+
+.centeredContent {
+  display: flex;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: padding 150ms ease-in-out;
+}

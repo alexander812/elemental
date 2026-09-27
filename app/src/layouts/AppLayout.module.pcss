@@ -1,0 +1,101 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--surface-canvas);
+}
+
+.main {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: clip;
+  overscroll-behavior: contain;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.screenEntering {
+  animation: slide-in-left 280ms ease;
+}
+
+.screenExiting {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface-canvas);
+  pointer-events: none;
+  animation: slide-out-right 280ms ease forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screenEntering,
+  .screenExiting {
+    animation: none;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-shrink: 0;
+  border-top: 1px solid var(--contrast-quaternary);
+  background: var(--surface-elevation-1);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.footerButton {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 0 12px;
+  border: none;
+  background: none;
+  color: var(--contrast-tertiary);
+  font-family: var(--font-main);
+  font-size: 12px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    background: var(--control-bg-hover);
+  }
+}
+
+.footerButtonActive {
+  color: var(--accent-text-and-icons);
+}

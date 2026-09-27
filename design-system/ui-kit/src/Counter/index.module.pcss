@@ -1,0 +1,88 @@
+:root {
+  --counter-height: 16px;
+}
+
+.host {
+  display: inline-flex;
+  z-index: 1;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  min-width: 16px;
+  height: var(--counter-height);
+  padding: 0 4px;
+  overflow: hidden;
+  transform-origin: center;
+  transition:
+    background 150ms ease-in-out,
+    color 150ms ease-in-out;
+  animation: roundPop 250ms ease-out;
+  border-radius: var(--corner-radius-xs);
+  background: var(--accent-bg-default);
+  color: var(--accent-over);
+}
+
+/* Color */
+.hostColorAccent {
+  background: var(--accent-bg-default);
+  color: var(--accent-over);
+}
+
+.hostColorPositive {
+  background: var(--positive-bg-default);
+  color: var(--positive-over);
+}
+
+.hostColorWarning {
+  background: var(--warning-bg-default);
+  color: var(--warning-over);
+}
+
+.hostColorNegative {
+  background: var(--negative-bg-default);
+  color: var(--negative-over);
+}
+
+.hostColorContrastPrimary {
+  background: var(--contrast-primary);
+  color: var(--surface-canvas);
+}
+
+.hostColorContrastSecondary {
+  background: var(--contrast-secondary);
+  color: var(--surface-canvas);
+}
+
+.hostColorContrastTertiary {
+  background: var(--contrast-tertiary);
+  color: var(--surface-canvas);
+}
+
+.hostColorContrastQuaternary {
+  background: var(--contrast-quaternary);
+  color: var(--contrast-tertiary);
+}
+
+.hostColorSurfaceElevation {
+  background: var(--surface-elevation-3);
+  color: var(--contrast-primary);
+}
+
+@keyframes roundPop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.disabled {
+  opacity: 0.4;
+}

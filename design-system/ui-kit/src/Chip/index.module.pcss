@@ -1,0 +1,314 @@
+.host {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  align-items: center;
+  width: max-content;
+  margin: 0;
+  transition:
+    color 150ms ease-in-out,
+    background-color 150ms ease-in-out,
+    border-color 150ms ease-in-out;
+  outline: 0; /* We disable the focus ring for mouse, touch and keyboard users. */
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  appearance: none; /* Reset */
+  -webkit-tap-highlight-color: transparent; /* Remove grey highlight in iOS Safari */
+
+  &::-moz-focus-inner {
+    border-style: none; /* Remove Firefox dotted outline. */
+  }
+}
+
+/* Contained */
+.hostVariantContained {
+  &.hostColorPrimary {
+    border: 1px solid var(--accent-bg-default);
+    background-color: var(--accent-bg-default);
+    color: var(--accent-over);
+  }
+
+  &.hostColorPrimary.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--accent-bg-hover);
+        background-color: var(--accent-bg-hover);
+      }
+    }
+
+    &:active {
+      border-color: var(--accent-bg-active);
+      background-color: var(--accent-bg-active);
+    }
+  }
+
+  &.hostColorSecondary {
+    border: 1px solid var(--control-border);
+    background-color: var(--control-bg-default);
+    color: var(--contrast-primary);
+  }
+
+  &.hostColorSecondary.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--control-bg-hover);
+      }
+    }
+
+    &:active {
+      background-color: var(--control-bg-inactive);
+    }
+  }
+
+  &.hostColorTertiary {
+    border: 1px solid var(--contrast-secondary);
+    background-color: var(--control-bg-default);
+    color: var(--contrast-primary);
+  }
+
+  &:disabled {
+    border: 1px solid var(--contrast-quaternary);
+    background: none;
+    color: var(--contrast-tertiary);
+    cursor: default;
+  }
+}
+
+/* Outlined */
+.hostVariantOutlined {
+  &.hostColorPrimary {
+    border: 1px solid var(--accent-bg-default);
+    background-color: transparent;
+    color: var(--accent-over);
+  }
+
+  &.hostColorPrimary.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--accent-bg-hover);
+        background-color: var(--accent-bg-hover);
+      }
+    }
+
+    &:active {
+      border-color: var(--accent-bg-active);
+      background-color: var(--accent-bg-active);
+    }
+  }
+
+  &.hostColorSecondary {
+    border: 1px solid var(--contrast-quaternary);
+    background-color: transparent;
+    color: var(--contrast-primary);
+  }
+
+  &.hostColorSecondary.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--control-border);
+        background-color: var(--control-bg-hover);
+      }
+    }
+
+    &:active {
+      border-color: var(--control-border);
+      background-color: var(--control-bg-inactive);
+    }
+  }
+
+  &.hostColorTertiary {
+    border: 1px solid var(--contrast-secondary);
+    background-color: transparent;
+    color: var(--contrast-primary);
+  }
+
+  &.hostColorTertiary.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--contrast-secondary);
+        background-color: var(--control-bg-hover);
+      }
+    }
+
+    &:active {
+      border-color: var(--contrast-secondary);
+      background-color: var(--control-bg-inactive);
+    }
+  }
+
+  &:disabled {
+    border: 1px solid var(--contrast-quaternary);
+    background: none;
+    color: var(--contrast-tertiary);
+    cursor: default;
+  }
+}
+
+.content {
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  transition: opacity 150ms ease-in-out;
+}
+
+.hostLoading .content {
+  opacity: 0;
+}
+
+[data-focus-visible='true'] .host:focus-visible::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  left: -3px;
+  border: 1px solid var(--accent-bg-default);
+  border-radius: inherit;
+  user-select: none;
+}
+
+.hostSizeS {
+  height: 20px;
+  padding: 1px 8px;
+  border-radius: var(--corner-radius-m);
+}
+
+.hostSizeM {
+  height: 32px;
+  padding: 3px 12px;
+  border-radius: calc(var(--corner-radius-m) * 2);
+}
+
+.hostSizeM.hostWithStartIcon {
+  padding-inline-start: 8px;
+}
+
+.hostSizeM.hostWithEndIcon {
+  padding-inline-end: 8px;
+}
+
+.hostSizeS.hostWithStartIcon {
+  padding-inline-start: 4px;
+}
+
+.hostSizeS.hostWithEndIcon {
+  padding-inline-end: 4px;
+}
+
+.hostWithCounter {
+  padding-inline-end: 8px;
+}
+
+.endBlock {
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  &.endBlockWithCounter {
+    gap: 4px;
+  }
+}
+
+.hostWithCloseIcon {
+  padding-inline-end: 32px;
+}
+
+.closeIcon {
+  display: flex;
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  font-size: 16px;
+
+  @media (hover: hover) and (pointer: fine) {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--card-bg-hover);
+    }
+  }
+}
+
+.closeIconDisabled {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.icon {
+  display: inline-flex;
+}
+
+.hostSizeM .icon {
+  font-size: 24px;
+}
+
+.hostSizeS .icon {
+  font-size: 16px;
+}
+
+.iconShowOnHover {
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width ease-out 300ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .host:hover .iconShowOnHover {
+    max-width: 24px;
+  }
+}
+
+.host:active .iconShowOnHover {
+  max-width: 24px;
+}
+
+.spinner {
+  display: flex;
+  position: absolute;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 100%;
+  animation: spinnerFadeIn 100ms ease-in-out;
+  cursor: wait;
+  inset-inline-start: 0;
+}
+
+@keyframes spinnerFadeIn {
+  from {
+    transform: scale(1.25);
+    transform-origin: center center;
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    transform-origin: center center;
+    opacity: 1;
+  }
+}

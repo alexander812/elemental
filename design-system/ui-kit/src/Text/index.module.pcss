@@ -1,0 +1,39 @@
+.text {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  white-space: pre-line;
+
+  &[data-overflow='ellipsis'] {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &[data-overflow='nowrap'] {
+    white-space: nowrap;
+  }
+
+  &[data-overflow='anywhere'] {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  &[data-align='start'] {
+    text-align: start;
+  }
+
+  &[data-align='center'] {
+    text-align: center;
+  }
+
+  &[data-align='end'] {
+    text-align: end;
+  }
+
+  a {
+    color: var(--accent-text-and-icons);
+  }
+}

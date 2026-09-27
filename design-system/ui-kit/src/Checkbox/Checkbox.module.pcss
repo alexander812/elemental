@@ -1,0 +1,115 @@
+.host {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+/* Content */
+.itemContent {
+  display: inline-grid;
+  grid-auto-flow: column;
+  place-content: flex-start;
+  align-items: flex-start;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+  -webkit-tap-highlight-color: transparent; /* Remove grey highlight in iOS Safari */
+}
+
+.itemContentDisabled {
+  cursor: not-allowed;
+}
+
+/* Native input */
+.itemNativeInput {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+}
+
+.labelContainer {
+  display: inline-grid;
+  grid-auto-flow: row;
+  min-height: 24px;
+  color: var(--contrast-primary);
+  text-align: start;
+  vertical-align: top;
+  gap: 4px;
+}
+
+/* Icon */
+.itemFakeInput {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition:
+    background-color 250ms ease-out,
+    border-color 250ms ease-out;
+  border: 2px solid var(--contrast-quaternary);
+  border-radius: 6px;
+  background-color: var(--control-bg-default);
+  pointer-events: none;
+}
+
+[data-focus-visible='true'] .itemNativeInput:focus-visible + .itemFakeInput::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border: 2px solid var(--accent-text-and-icons);
+  border-radius: 10px;
+  user-select: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .itemContent:not(.itemContentDisabled):hover .itemFakeInput {
+    background-color: var(--control-bg-hover);
+  }
+
+  .itemNativeInput:checked:hover + .itemFakeInput {
+    background-color: var(--accent-bg-hover);
+  }
+}
+
+/* Check mark */
+.itemFakeInput::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 10px;
+  transform: rotate(45deg) scale(0);
+  transition:
+    opacity 250ms ease-out,
+    transform 250ms ease-out;
+  margin-top: -2px;
+  border: solid var(--accent-over);
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+}
+
+.itemNativeInput:checked:not(:disabled) + .itemFakeInput {
+  border-color: var(--accent-bg-default);
+  background-color: var(--accent-bg-default);
+}
+
+.itemNativeInput:disabled + .itemFakeInput {
+  background-color: var(--control-bg-inactive);
+}
+
+.itemNativeInput:checked + .itemFakeInput::after {
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+}

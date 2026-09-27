@@ -1,0 +1,56 @@
+.host {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  align-items: center;
+  cursor: default;
+
+  &.hostSelected {
+    background-color: var(--control-bg-active);
+  }
+
+  &.hostDisabled {
+    opacity: 0.4;
+    background-color: var(--control-bg-default);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &.hostClickable {
+    transition:
+      background-color 100ms ease-in-out,
+      opacity 100ms ease-in-out,
+      opacity;
+
+    @media (hover: hover) and (pointer: fine) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--control-bg-hover);
+      }
+    }
+
+    &:active {
+      background-color: var(--control-bg-active);
+    }
+  }
+}
+
+[data-focus-visible='true'] .host:focus-visible {
+  border: none;
+  outline: none;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 2px solid var(--accent-bg-default);
+    border-radius: var(--corner-radius-s);
+    user-select: none;
+  }
+}
