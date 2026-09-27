@@ -17,7 +17,7 @@ PROJECT.md                # этот файл
 - `app`: React 19, Vite 8 (rolldown), TypeScript, Effector 23 + effector-react, CSS Modules + PostCSS (pcss), `@fontsource-variable/inter`.
 - `ui-kit`: Vite 7 + Storybook 9 (`@storybook/react-vite`), `postcss-nested`, `classnames`.
 - Пакеты отдаются исходниками (`main/types: ./src/index.ts`), без шага сборки.
-- В корневом `package.json` платформенные `@esbuild/darwin-x64` и `@rollup/rollup-darwin-x64` лежат в `optionalDependencies` (на Linux/Vercel они пропускаются без ошибки EBADPLATFORM, на macOS доустанавливаются), плюс `overrides.esbuild`.
+- Платформенные пакеты (`@esbuild/darwin-x64`, `@rollup/rollup-*` и т.п.) нельзя указывать прямыми зависимостями (в т.ч. в `optionalDependencies`) — npm на Vercel падает с `EBADPLATFORM`. Их установку обеспечивает полный `package-lock.json` через optional-зависимости самих esbuild/rollup/rolldown/lightningcss; в корне остаются `overrides.esbuild`.
 
 ## Команды
 
