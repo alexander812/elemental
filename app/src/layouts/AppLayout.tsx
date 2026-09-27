@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 import { useUnit } from 'effector-react';
 
-import { IconMenu, IconViewList } from '@elemental/icons';
+import { IconSettings, IconViewList } from '@elemental/icons';
 
 import { CardCreateView } from '../features/card-create/ui/CardCreateView';
 import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView';
@@ -30,7 +30,7 @@ function renderScreen(screen: Screen): ReactNode {
       return <CardCreateView setId={screen.setId} />;
     case 'cards-restore':
       return <CardsRestoreView key={screen.setId} setId={screen.setId} />;
-    case 'menu':
+    case 'settings':
       return <MenuView />;
     case 'theme':
       return <ThemeView />;
@@ -43,7 +43,7 @@ function AppFooter() {
   const screen = useUnit($screen);
 
   const isSetsActive = screen.name === 'sets';
-  const isMenuActive = screen.name === 'menu' || screen.name === 'theme' || screen.name === 'languages';
+  const isMenuActive = screen.name === 'settings' || screen.name === 'theme' || screen.name === 'languages';
 
   const handleSets = () => {
     if (screen.name === 'sets') return;
@@ -51,8 +51,8 @@ function AppFooter() {
   };
 
   const handleMenu = () => {
-    if (screen.name === 'menu' || screen.name === 'theme' || screen.name === 'languages') return;
-    pushScreen({ name: 'menu' });
+    if (screen.name === 'settings' || screen.name === 'theme' || screen.name === 'languages') return;
+    pushScreen({ name: 'settings' });
   };
 
   return (
@@ -70,8 +70,8 @@ function AppFooter() {
         type="button"
         onClick={handleMenu}
       >
-        <IconMenu fontSize={24} />
-        Меню
+        <IconSettings fontSize={24} />
+        Настройки
       </button>
     </div>
   );

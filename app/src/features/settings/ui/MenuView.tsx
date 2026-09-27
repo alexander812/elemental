@@ -6,7 +6,7 @@ import { popScreen, pushScreen } from '../../navigation/store';
 export function MenuView() {
   return (
     <Box grow height="100%">
-      <Header back text="Меню" onBackClick={() => popScreen()} />
+      <Header back text="Настройки" onBackClick={() => popScreen()} />
       <Box grow padding="m">
         <Stack spacing="s">
           <Card padding="0">

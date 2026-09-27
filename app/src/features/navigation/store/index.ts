@@ -8,7 +8,7 @@ export type Screen =
   | { name: 'cards'; setId: string }
   | { name: 'card-create'; setId: string }
   | { name: 'cards-restore'; setId: string }
-  | { name: 'menu' }
+  | { name: 'settings' }
   | { name: 'theme' }
   | { name: 'languages' };
 

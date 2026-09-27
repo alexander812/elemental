@@ -3,7 +3,7 @@ import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react';
 
 import { useUnit } from 'effector-react';
 
-import { IconCheckSmall, IconClose, IconMenu, IconPlusBig, IconTasks, IconTrash } from '@elemental/icons';
+import { IconCheckSmall, IconClose, IconPlusBig, IconSettings, IconTasks, IconTrash } from '@elemental/icons';
 import { Box, Button, ButtonIcon, Card, Chip, EmptyScreen, Header, Spinner, Stack, Text } from '@elemental/ui-kit';
 
 import type { CardSet } from '../../../lib/types';
@@ -40,10 +40,12 @@ type SetRowProps = {
   dragOffsetY: number;
   shift: number;
   reorderActive: boolean;
+  settle: boolean;
   open: boolean;
   onReorderStart: (rowId: string, index: number, pointerId: number) => void;
   onReorderMove: (pointerId: number, dy: number) => void;
   onReorderEnd: (rowId: string) => void;
+  onReorderCancel: () => void;
   onDelete: (setId: string) => void;
   onOpen: (setId: string | null) => void;
   onTap: (set: CardSet) => void;
@@ -56,10 +58,12 @@ function SetRow({
   dragOffsetY,
   shift,
   reorderActive,
+  settle,
   open,
   onReorderStart,
   onReorderMove,
   onReorderEnd,
+  onReorderCancel,
   onDelete,
   onOpen,
   onTap,
@@ -134,6 +138,18 @@ function SetRow({
     if (phase === 'pending') {
       const moveX = event.clientX - x;
       const moveY = event.clientY - y;
+      const vertical = Math.abs(moveY) > Math.abs(moveX);
+
+      // mouse/pen: start reordering right away on vertical movement
+      if (event.pointerType === 'mouse' && vertical && Math.abs(moveY) > MOVE_SLOP) {
+        clearTimer();
+        suppressClickRef.current = true;
+        setPhase('reorder');
+        onReorderStart(set.id, index, event.pointerId);
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+        onReorderMove(event.pointerId, moveY);
+        return;
+      }
 
       if (Math.abs(moveX) > MOVE_SLOP && Math.abs(moveX) > Math.abs(moveY)) {
         clearTimer();
@@ -196,6 +212,13 @@ function SetRow({
     clearTimer();
     lastTouchRef.current = Date.now();
     suppressClickRef.current = true;
+
+    if (phase === 'reorder') {
+      setPhase('idle');
+      onReorderCancel();
+      return;
+    }
+
     setPhase('idle');
     setDx(0);
   };
@@ -206,7 +229,7 @@ function SetRow({
     position: 'relative',
     height: ROW_HEIGHT,
     transform: isDragged ? `translateY(${dragOffsetY}px)` : `translateY(${shift}px)`,
-    transition: isDragged ? 'none' : 'transform 160ms ease',
+    transition: isDragged || settle ? 'none' : 'transform 160ms ease',
     zIndex: isDragged ? 3 : 1,
   };
 
@@ -214,9 +237,11 @@ function SetRow({
     position: 'relative',
     zIndex: 1,
     transform: `translateX(${dx}px) scale(${isDragged ? 1.03 : 1})`,
-    transition: isDragged ? 'none' : 'transform 160ms ease',
+    transition: isDragged || settle ? 'none' : 'transform 160ms ease',
     height: '100%',
     touchAction: isDragged ? 'none' : 'pan-y',
+    userSelect: 'none',
+    WebkitUserSelect: 'none',
     boxShadow: isDragged ? '0 12px 24px 0 rgb(0, 0, 0, 24%)' : void 0,
   };
 
@@ -244,6 +269,7 @@ function SetRow({
       </div>
       <div
         style={contentStyle}
+        onDragStart={(event) => event.preventDefault()}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -282,7 +308,22 @@ export function SetsView() {
   const loading = useUnit($setsLoading);
 
   const [drag, setDrag] = useState<DragState | null>(null);
+  const [settle, setSettle] = useState(false);
   const [openRowId, setOpenRowId] = useState<string | null>(null);
+
+  const dragRef = useRef<DragState | null>(null);
+  const settleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const updateDrag = (next: DragState | null) => {
+    dragRef.current = next;
+    setDrag(next);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     fetchSetsFx();
@@ -318,36 +359,53 @@ export function SetsView() {
   const handleReorderStart = (rowId: string, index: number, pointerId: number) => {
     setTouchBlocked(true);
     setOpenRowId(null);
-    setDrag({ rowId, index, pointerId, offsetY: 0, targetSlot: index });
+    updateDrag({ rowId, index, pointerId, offsetY: 0, targetSlot: index });
   };
 
   const handleReorderMove = (pointerId: number, dy: number) => {
-    setDrag((state) => {
-      if (!state || state.pointerId !== pointerId) return state;
+    const state = dragRef.current;
+    if (!state || state.pointerId !== pointerId) return;
 
-      const targetSlot = clamp(
-        Math.round((state.index * ROW_STEP + dy) / ROW_STEP),
-        0,
-        visible.length - 1,
-      );
+    const targetSlot = clamp(
+      Math.round((state.index * ROW_STEP + dy) / ROW_STEP),
+      0,
+      visible.length - 1,
+    );
 
-      return { ...state, offsetY: dy, targetSlot };
-    });
+    updateDrag({ ...state, offsetY: dy, targetSlot });
   };
 
   const handleReorderEnd = (rowId: string) => {
     setTouchBlocked(false);
 
-    setDrag((state) => {
-      if (state && state.rowId === rowId && state.targetSlot !== state.index) {
-        const ids = visible.map((set) => set.id);
-        const [moved] = ids.splice(state.index, 1);
-        ids.splice(state.targetSlot, 0, moved);
-        reorderSetsFx(ids);
-      }
+    const state = dragRef.current;
+    if (!state || state.rowId !== rowId) return;
 
-      return null;
-    });
+    if (state.targetSlot === state.index) {
+      updateDrag(null);
+      return;
+    }
+
+    const ids = visible.map((set) => set.id);
+    const [moved] = ids.splice(state.index, 1);
+    ids.splice(state.targetSlot, 0, moved);
+
+    const applySettle = () => {
+      if (dragRef.current !== state) return;
+
+      if (settleTimerRef.current) clearTimeout(settleTimerRef.current);
+      setSettle(true);
+      updateDrag(null);
+      settleTimerRef.current = setTimeout(() => setSettle(false), 100);
+    };
+
+    // keep the row in place until the new order arrives, then swap without transition
+    reorderSetsFx(ids).then(applySettle, applySettle);
+  };
+
+  const handleReorderCancel = () => {
+    setTouchBlocked(false);
+    updateDrag(null);
   };
 
   const handleDelete = (setId: string) => {
@@ -402,10 +460,10 @@ export function SetsView() {
       <Header
         endToolbar={
           <ButtonIcon
-            ariaLabel="Меню"
-            icon={<IconMenu fontSize={24} />}
+            ariaLabel="Настройки"
+            icon={<IconSettings fontSize={24} />}
             variant="flat"
-            onClick={() => pushScreen({ name: 'menu' })}
+            onClick={() => pushScreen({ name: 'settings' })}
           />
         }
         text="Elemental lang"
@@ -429,10 +487,12 @@ export function SetsView() {
                 index={index}
                 open={openRowId === set.id}
                 reorderActive={!!drag}
+                settle={settle}
                 set={set}
                 shift={shift}
                 onDelete={handleDelete}
                 onOpen={setOpenRowId}
+                onReorderCancel={handleReorderCancel}
                 onReorderEnd={handleReorderEnd}
                 onReorderMove={handleReorderMove}
                 onReorderStart={handleReorderStart}
