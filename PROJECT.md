@@ -32,6 +32,13 @@ npm run storybook      # Storybook ui-kit (порт 8080)
 
 Проверка прод-сборки: `cd app && npx vite build && npx vite preview --port 4173`.
 
+## Деплой (Vercel)
+
+- Настройки проекта: Root Directory — корень репозитория; сборка описана в корневом `vercel.json` (`buildCommand: npm run build --workspace @elemental/app`, `outputDirectory: app/dist`, `framework: null`). Node 22.
+- Критично: `package-lock.json` обязан содержать платформенные optional-пакеты (`node_modules/rolldown`, `node_modules/lightningcss-*`, `@rolldown/binding-*`, `@rollup/rollup-*`, `@esbuild/*`). Если их нет, чистая установка на Linux оставляет Vite 8 без `rolldown` и сборка падает (`ERR_MODULE_NOT_FOUND: Cannot find package 'rolldown'`).
+- Проверка целостности lock: `grep -c '"node_modules/rolldown"' package-lock.json` и `grep -c 'lightningcss-linux-x64-gnu' package-lock.json` (должны быть > 0).
+- Пересоздавать lock только в чистой копии репозитория без `node_modules` (`npm install`), после чего проверять сценарий Vercel: свежая копия → `npm ci` → `npm run build --workspace @elemental/app` → `app/dist/index.html`.
+
 ## Архитектура приложения (`app/src`)
 
 ```
