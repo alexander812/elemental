@@ -426,10 +426,18 @@ export function SetsView() {
     pushScreen({ name: 'set-create' });
   };
 
+  const logo = (
+    <img
+      alt=""
+      src={`${import.meta.env.BASE_URL}favicon.svg`}
+      style={{ display: 'block', width: 32, height: 32, marginInlineEnd: 10 }}
+    />
+  );
+
   if (loading) {
     return (
       <Box grow height="100%">
-        <Header text="Elemental lang" />
+        <Header startToolbar={logo} text="Lexi" />
         <Stack grow verticalAlign="center" horizontalAlign="center" height="100%">
           <Spinner size="l" />
         </Stack>
@@ -440,7 +448,7 @@ export function SetsView() {
   if (visible.length === 0) {
     return (
       <Box grow height="100%">
-        <Header text="Elemental lang" />
+        <Header startToolbar={logo} text="Lexi" />
         <EmptyScreen
           action={
             <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
@@ -466,7 +474,8 @@ export function SetsView() {
             onClick={() => pushScreen({ name: 'settings' })}
           />
         }
-        text="Elemental lang"
+        startToolbar={logo}
+        text="Lexi"
       />
       <Box grow padding="m">
         <div style={{ display: 'flex', flexDirection: 'column', gap: ROW_GAP }}>

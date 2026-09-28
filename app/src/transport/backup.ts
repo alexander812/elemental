@@ -180,7 +180,7 @@ export function downloadBackup(content: string): void {
   const url = URL.createObjectURL(new Blob([content], { type: 'application/json' }));
   const link = document.createElement('a');
 
-  link.download = `elemental-backup-${stamp}.json`;
+  link.download = `lexi-backup-${stamp}.json`;
   link.href = url;
   document.body.appendChild(link);
   link.click();

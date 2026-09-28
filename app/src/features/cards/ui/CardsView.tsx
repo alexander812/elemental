@@ -323,6 +323,7 @@ export function CardsView({ setId }: { setId: string }) {
 
   const finishedUnlearned = !isLearnedFilter && allSwiped && unlearnedCount === 0;
   const finishedWithRestart = !isLearnedFilter && allSwiped && unlearnedCount > 0;
+  const finishedLearned = isLearnedFilter && allSwiped && learnedCount > 0;
 
   return (
     <Box grow height="100%">
@@ -423,6 +424,16 @@ export function CardsView({ setId }: { setId: string }) {
               <Text align="center" color="contrast-secondary" variant="S / Medium">
                 Все карточки выучены
               </Text>
+              <Button variant="secondary" onClick={handleNextSet}>
+                Перейти к следующему набору
+              </Button>
+            </Stack>
+          ) : finishedLearned ? (
+            <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
+              <Text align="center" color="contrast-secondary" variant="S / Medium">
+                Вы посмотрели все выученные карточки
+              </Text>
+              <Button onClick={handleRestart}>Повторить</Button>
               <Button variant="secondary" onClick={handleNextSet}>
                 Перейти к следующему набору
               </Button>
