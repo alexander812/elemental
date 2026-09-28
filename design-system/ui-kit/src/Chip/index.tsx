@@ -18,6 +18,7 @@ type ChipVariant = 'contained' | 'outlined';
 type JSXButtonProps = JSX.IntrinsicElements['button'];
 
 type ChipProps = {
+  checked?: boolean;
   color?: ChipColor;
   counter?: number | undefined;
   counterColor?: CounterColor;
@@ -72,6 +73,7 @@ const Chip = memo(
   forwardRef<HTMLButtonElement, ChipProps>(
     (
       {
+        checked,
         color = 'secondary',
         counter,
         counterColor = 'accent',
@@ -119,6 +121,7 @@ const Chip = memo(
             hostColorClasses[color],
             hostVariantClasses[variant],
             {
+              [classes.hostChecked]: checked,
               [classes.hostWithCloseIcon]: Boolean(onClose),
               [classes.hostWithCounter]: hasCounter,
               [classes.hostWithEndIcon]: Boolean(endIcon),
@@ -127,6 +130,7 @@ const Chip = memo(
             loading && classes.hostLoading,
           )}
           data-test={dataTest}
+          aria-pressed={checked}
           disabled={loading || disabled}
           ref={ref}
           type="button"

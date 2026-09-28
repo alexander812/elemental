@@ -71,6 +71,28 @@
     color: var(--contrast-primary);
   }
 
+  &.hostChecked {
+    border-color: var(--accent-bg-default);
+    background-color: var(--accent-bg-default);
+    color: var(--accent-over);
+  }
+
+  &.hostChecked.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--accent-bg-hover);
+        background-color: var(--accent-bg-hover);
+      }
+    }
+
+    &:active {
+      border-color: var(--accent-bg-active);
+      background-color: var(--accent-bg-active);
+    }
+  }
+
   &:disabled {
     border: 1px solid var(--contrast-quaternary);
     background: none;
@@ -144,6 +166,28 @@
     &:active {
       border-color: var(--contrast-secondary);
       background-color: var(--control-bg-inactive);
+    }
+  }
+
+  &.hostChecked {
+    border-color: var(--accent-bg-default);
+    background-color: var(--accent-bg-default);
+    color: var(--accent-over);
+  }
+
+  &.hostChecked.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--accent-bg-hover);
+        background-color: var(--accent-bg-hover);
+      }
+    }
+
+    &:active {
+      border-color: var(--accent-bg-active);
+      background-color: var(--accent-bg-active);
     }
   }
 

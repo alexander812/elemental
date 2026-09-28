@@ -37,7 +37,7 @@
   overflow: hidden;
   background: var(--surface-canvas);
   pointer-events: none;
-  animation: slide-out-right 280ms ease forwards;
+  animation: slide-out-left 280ms ease forwards;
 }
 
 @keyframes slide-in-left {
@@ -50,13 +50,13 @@
   }
 }
 
-@keyframes slide-out-right {
+@keyframes slide-out-left {
   from {
     transform: translateX(0);
   }
 
   to {
-    transform: translateX(100%);
+    transform: translateX(-100%);
   }
 }
 

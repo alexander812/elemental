@@ -34,12 +34,14 @@ import { goToRoot, popScreen, pushScreen } from '../../navigation/store';
 import {
   deleteCardFx,
   deleteCardsFx,
+  deleteSetFx,
   fetchSetsFx,
   setCardLearnedFx,
   $sets,
   $setsLoading,
 } from '../../sets/store';
 import { $originalLang, $translationLang } from '../../theme/store';
+import { speakFx } from '../store';
 import { FlashCard } from './FlashCard';
 import type { DragPos, Leaving } from './FlashCard';
 
@@ -60,8 +62,11 @@ export function CardsView({ setId }: { setId: string }) {
   const [excluded, setExcluded] = useState<ReadonlySet<string>>(() => new Set());
   const [flipped, setFlipped] = useState<Record<string, boolean>>({});
   const [menuOpen, setMenuOpen] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [drag, setDrag] = useState<DragPos | null>(null);
   const [leaving, setLeaving] = useState<Leaving | null>(null);
+
+  const deleteSetPending = useUnit(deleteSetFx.pending);
 
   const dragRef = useRef<DragPos | null>(null);
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -290,6 +295,15 @@ export function CardsView({ setId }: { setId: string }) {
     pushScreen({ name: 'card-create', setId });
   };
 
+  const handleAddText = () => {
+    pushScreen({ name: 'text-add', setId });
+  };
+
+  const handleConfirmDeleteSet = async () => {
+    await deleteSetFx(setId);
+    goToRoot();
+  };
+
   if (!set) {
     return (
       <Box grow height="100%">
@@ -321,6 +335,11 @@ export function CardsView({ setId }: { setId: string }) {
             </Menu.Trigger>
             <Menu.Content>
               <Menu.Item
+                icon={<IconPlusBig fontSize={16} />}
+                label="Добавить текст"
+                onClick={handleAddText}
+              />
+              <Menu.Item
                 icon={<IconTrash fontSize={16} />}
                 label="Удалить все карточки"
                 onClick={handleDeleteAll}
@@ -329,6 +348,11 @@ export function CardsView({ setId }: { setId: string }) {
                 icon={<IconRestore fontSize={16} />}
                 label="Восстановить удалённые"
                 onClick={handleRestoreDeleted}
+              />
+              <Menu.Item
+                icon={<IconTrash fontSize={16} />}
+                label="Удалить весь набор"
+                onClick={() => setConfirmDelete(true)}
               />
             </Menu.Content>
           </Menu.Root>
@@ -360,7 +384,19 @@ export function CardsView({ setId }: { setId: string }) {
             </Button>
           </Stack>
 
-          {noCards ? (
+          {confirmDelete ? (
+            <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
+              <Text align="center" color="contrast-secondary" variant="S / Medium">
+                Удалить набор «{set.name}» со всеми карточками?
+              </Text>
+              <Button color="negative" loading={deleteSetPending} onClick={handleConfirmDeleteSet}>
+                Удалить
+              </Button>
+              <Button variant="secondary" onClick={() => setConfirmDelete(false)}>
+                Отмена
+              </Button>
+            </Stack>
+          ) : noCards ? (
             <EmptyScreen
               action={
                 <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddWord}>
@@ -399,14 +435,17 @@ export function CardsView({ setId }: { setId: string }) {
                 const card = byId.get(id);
                 if (!card) return null;
 
+                const front = getCardText(card, originalLang);
+                const back = getCardText(card, translationLang);
+
                 return (
                   <FlashCard
                     key={id}
-                    backText={getCardText(card, translationLang).text}
+                    backText={back.text}
                     depth={index}
                     drag={index === 0 ? drag : null}
                     flipped={!!flipped[id]}
-                    frontText={getCardText(card, originalLang).text}
+                    frontText={front.text}
                     interactive={index === 0}
                     leaving={leaving?.id === id ? leaving : null}
                     onFlip={handleFlip}
@@ -414,13 +453,15 @@ export function CardsView({ setId }: { setId: string }) {
                     onPointerDown={handlePointerDown}
                     onPointerMove={handlePointerMove}
                     onPointerUp={handlePointerUp}
+                    onSpeakBack={() => speakFx(back)}
+                    onSpeakFront={() => speakFx(front)}
                   />
                 );
               })}
             </Box>
           )}
 
-          {!noCards && (
+          {!noCards && !confirmDelete && (
             <Stack direction="row" horizontalAlign="center" spacing="m" verticalAlign="center">
               <Stack direction="row" spacing="xs" verticalAlign="center">
                 <IconArrowLeft color="var(--positive-text-and-icons)" fontSize={16} />
@@ -443,7 +484,7 @@ export function CardsView({ setId }: { setId: string }) {
             </Stack>
           )}
 
-          {!noCards && (
+          {!noCards && !confirmDelete && (
             <Button fullWidth startIcon={<IconPlusBig fontSize={16} />} variant="secondary" onClick={handleAddWord}>
               Добавить слово
             </Button>

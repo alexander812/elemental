@@ -1,4 +1,4 @@
-import { IconChevronRight, IconPalette, IconTranslate } from '@elemental/icons';
+import { IconChevronRight, IconDownload, IconPalette, IconTranslate } from '@elemental/icons';
 import { Box, Card, Header, ListItem, Stack, Text } from '@elemental/ui-kit';
 
 import { popScreen, pushScreen } from '../../navigation/store';
@@ -29,6 +29,18 @@ export function MenuView() {
               <ListItem.StartBlock
                 icon={<IconTranslate fontSize={24} color="var(--accent-text-and-icons)" />}
                 title={<Text variant="M / Medium">Языки</Text>}
+              />
+              <ListItem.EndBlock
+                content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+              />
+            </ListItem>
+            <ListItem
+              data={{ screen: 'data' }}
+              onClick={() => pushScreen({ name: 'data' })}
+            >
+              <ListItem.StartBlock
+                icon={<IconDownload fontSize={24} color="var(--accent-text-and-icons)" />}
+                title={<Text variant="M / Medium">Данные</Text>}
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}

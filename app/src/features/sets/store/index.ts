@@ -2,7 +2,9 @@ import { createEffect, createStore } from 'effector';
 
 import type { LanguageCode } from '../../../lib/languages';
 import * as setsApi from '../../../transport/sets';
-import type { CardSet } from '../../../transport/sets';
+import type { CardSet, CardTexts } from '../../../transport/sets';
+import { importBackupFx } from '../../backup/store';
+import { deleteLanguageFx } from '../../languages/store';
 
 export const fetchSetsFx = createEffect(() => setsApi.fetchSets());
 
@@ -11,6 +13,8 @@ export const createSetFx = createEffect((name: string) => setsApi.createSet(name
 export const setSetActiveFx = createEffect((payload: { setId: string; active: boolean }) =>
   setsApi.setSetActive(payload.setId, payload.active),
 );
+
+export const deleteSetFx = createEffect((setId: string) => setsApi.deleteSet(setId));
 
 export const reorderSetsFx = createEffect((ids: string[]) => setsApi.reorderSets(ids));
 
@@ -26,6 +30,10 @@ export const addCardFx = createEffect(
       [payload.originalLang]: payload.original,
       [payload.translationLang]: payload.translation,
     }),
+);
+
+export const addCardsFx = createEffect((payload: { setId: string; texts: CardTexts[] }) =>
+  setsApi.addCards(payload.setId, payload.texts),
 );
 
 export const setCardLearnedFx = createEffect(
@@ -51,15 +59,19 @@ export const $sets = createStore<CardSet[]>([])
       fetchSetsFx.doneData,
       createSetFx.doneData,
       setSetActiveFx.doneData,
+      deleteSetFx.doneData,
       reorderSetsFx.doneData,
       addCardFx.doneData,
+      addCardsFx.doneData,
       setCardLearnedFx.doneData,
       deleteCardFx.doneData,
       deleteCardsFx.doneData,
       restoreCardsFx.doneData,
     ],
     (_, sets) => sets,
-  );
+  )
+  .on(deleteLanguageFx.doneData, (_, { sets }) => sets)
+  .on(importBackupFx.doneData, (_, { sets }) => sets);
 
 export const $setsLoading = createStore(false)
   .on(fetchSetsFx, () => true)

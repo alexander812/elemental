@@ -7,12 +7,14 @@ import { Box, Button, Card, Checkbox, EmptyScreen, Header, Stack } from '@elemen
 
 import { getCardText } from '../../../lib/cards';
 import { getLanguageName } from '../../../lib/languages';
+import { $languages } from '../../languages/store';
 import { popScreen } from '../../navigation/store';
 import { restoreCardsFx, $sets } from '../../sets/store';
 import { $originalLang } from '../../theme/store';
 
 export function CardsRestoreView({ setId }: { setId: string }) {
   const sets = useUnit($sets);
+  const languages = useUnit($languages);
   const originalLang = useUnit($originalLang);
   const pending = useUnit(restoreCardsFx.pending);
 
@@ -69,7 +71,7 @@ export function CardsRestoreView({ setId }: { setId: string }) {
                       key={card.id}
                       checked={selected.has(card.id)}
                       label={text}
-                      subLabel={getLanguageName(lang)}
+                      subLabel={getLanguageName(lang, languages)}
                       onChange={() => toggle(card.id)}
                     />
                   );

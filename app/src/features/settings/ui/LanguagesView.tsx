@@ -1,23 +1,27 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useUnit } from 'effector-react';
 
 import { Box, Button, Card, FormHelperText, Header, Select, Stack, Text } from '@elemental/ui-kit';
 
-import { LANGUAGES } from '../../../lib/languages';
 import type { LanguageCode } from '../../../lib/languages';
-import { popScreen } from '../../navigation/store';
+import { $languages } from '../../languages/store';
+import { popScreen, pushScreen } from '../../navigation/store';
 import { setLanguagesFx, $originalLang, $translationLang } from '../../theme/store';
 
-const options = LANGUAGES.map((language) => ({ label: language.name, value: language.code }));
-
 export function LanguagesView() {
+  const languages = useUnit($languages);
   const storedOriginalLang = useUnit($originalLang);
   const storedTranslationLang = useUnit($translationLang);
   const pending = useUnit(setLanguagesFx.pending);
 
   const [originalLang, setOriginalLang] = useState<LanguageCode>(storedOriginalLang);
   const [translationLang, setTranslationLang] = useState<LanguageCode>(storedTranslationLang);
+
+  const options = useMemo(
+    () => languages.map((language) => ({ label: language.name, value: language.code })),
+    [languages],
+  );
 
   const sameLanguages = originalLang === translationLang;
   const changed = originalLang !== storedOriginalLang || translationLang !== storedTranslationLang;
@@ -66,6 +70,13 @@ export function LanguagesView() {
           )}
           <Button disabled={!canApply} fullWidth loading={pending} onClick={handleApply}>
             Применить
+          </Button>
+          <Button
+            fullWidth
+            variant="secondary"
+            onClick={() => pushScreen({ name: 'languages-list' })}
+          >
+            Добавить или удалить язык
           </Button>
         </Stack>
       </Box>

@@ -1,8 +1,12 @@
 import { useMemo } from 'react';
 import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react';
 
-import { IconCheck, IconRefresh, IconTrash } from '@elemental/icons';
+import { IconCheck, IconRefresh, IconSound, IconTrash } from '@elemental/icons';
 import { Stack, Text } from '@elemental/ui-kit';
+
+import { canSpeak } from '../../../transport/speech';
+
+import classes from './FlashCard.module.pcss';
 
 export type Leaving = {
   id: string;
@@ -35,6 +39,8 @@ export type FlashCardProps = {
   onPointerUp: (event: ReactPointerEvent<HTMLDivElement>) => void;
   onPointerCancel: () => void;
   onFlip: () => void;
+  onSpeakBack: () => void;
+  onSpeakFront: () => void;
 };
 
 export function FlashCard({
@@ -50,6 +56,8 @@ export function FlashCard({
   onPointerUp,
   onPointerCancel,
   onFlip,
+  onSpeakBack,
+  onSpeakFront,
 }: FlashCardProps) {
   const isTop = depth === 0;
 
@@ -125,6 +133,23 @@ export function FlashCard({
         : { bottom: 24, left: '50%', transform: 'translateX(-50%)', color: 'var(--negative-text-and-icons)', opacity: upBadgeOpacity }),
   });
 
+  const showSound = isTop && !leaving && interactive && canSpeak();
+
+  const soundButton = (onSpeak: () => void) => (
+    <button
+      aria-label="Озвучить"
+      className={classes.soundButton}
+      type="button"
+      onClick={(event) => {
+        event.stopPropagation();
+        onSpeak();
+      }}
+      onPointerDown={(event) => event.stopPropagation()}
+    >
+      <IconSound fontSize={24} />
+    </button>
+  );
+
   return (
     <div
       style={wrapperStyle}
@@ -151,6 +176,7 @@ export function FlashCard({
                 нажмите, чтобы перевернуть
               </Text>
             </Stack>
+            {showSound ? soundButton(onSpeakFront) : null}
           </div>
           <div
             style={{
@@ -169,6 +195,7 @@ export function FlashCard({
                 {backText}
               </Text>
             </Stack>
+            {showSound ? soundButton(onSpeakBack) : null}
           </div>
           {isTop && !leaving && (
             <>

@@ -8,9 +8,14 @@ export type Screen =
   | { name: 'cards'; setId: string }
   | { name: 'card-create'; setId: string }
   | { name: 'cards-restore'; setId: string }
+  | { name: 'text-add'; setId: string }
+  | { name: 'words-translate'; setId: string }
   | { name: 'settings' }
   | { name: 'theme' }
-  | { name: 'languages' };
+  | { name: 'languages' }
+  | { name: 'languages-list' }
+  | { name: 'language-add' }
+  | { name: 'data' };
 
 export type Transition =
   | { kind: 'none' }
@@ -19,6 +24,7 @@ export type Transition =
 
 export const pushScreen = createEvent<Screen>();
 export const popScreen = createEvent();
+export const popTo = createEvent<Screen['name']>();
 export const goToRoot = createEvent();
 export const transitionEnded = createEvent();
 
@@ -45,6 +51,23 @@ export const $nav = createStore<NavState>({
       transition: { kind: 'pop', screen: state.stack[state.stack.length - 1] },
     };
   })
+  .on(popTo, (state, name) => {
+    let index = -1;
+
+    for (let i = state.stack.length - 1; i >= 0; i -= 1) {
+      if (state.stack[i].name === name) {
+        index = i;
+        break;
+      }
+    }
+
+    if (index < 0 || index === state.stack.length - 1) return state;
+
+    return {
+      stack: state.stack.slice(0, index + 1),
+      transition: { kind: 'pop', screen: state.stack[state.stack.length - 1] },
+    };
+  })
   .on(goToRoot, (state) => {
     if (state.stack.length <= 1) return state;
 
@@ -62,4 +85,5 @@ export const $canGoBack = $stack.map((stack) => stack.length > 1);
 
 pushScreen.watch(suppressNextGhostClick);
 popScreen.watch(suppressNextGhostClick);
+popTo.watch(suppressNextGhostClick);
 goToRoot.watch(suppressNextGhostClick);
