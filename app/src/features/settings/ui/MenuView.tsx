@@ -1,4 +1,4 @@
-import { IconChevronRight, IconSettings, IconTranslate } from '@elemental/icons';
+import { IconChevronRight, IconPalette, IconTranslate } from '@elemental/icons';
 import { Box, Card, Header, ListItem, Stack, Text } from '@elemental/ui-kit';
 
 import { popScreen, pushScreen } from '../../navigation/store';
@@ -15,7 +15,7 @@ export function MenuView() {
               onClick={() => pushScreen({ name: 'theme' })}
             >
               <ListItem.StartBlock
-                icon={<IconSettings fontSize={24} color="var(--accent-text-and-icons)" />}
+                icon={<IconPalette fontSize={24} color="var(--accent-text-and-icons)" />}
                 title={<Text variant="M / Medium">Тема</Text>}
               />
               <ListItem.EndBlock
