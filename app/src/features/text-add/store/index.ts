@@ -2,6 +2,7 @@ import { createEffect, createEvent, createStore, sample } from 'effector';
 
 import type { LanguageCode } from '../../../lib/languages';
 import { uid } from '../../../lib/uid';
+import { scanText } from '../../../transport/ocr';
 import { translateText } from '../../../transport/translate';
 
 export type WordPair = {
@@ -40,8 +41,25 @@ export const pairTranslationChanged = createEvent<{ id: string; value: string }>
 export const pairTranslated = createEvent<{ id: string; translation: string }>();
 export const resetTextAdd = createEvent();
 
+export const scanTextFx = createEffect((lang: LanguageCode) => scanText(lang));
+
+export const $scanFailed = createStore(false)
+  .on(scanTextFx, () => false)
+  .on(scanTextFx.doneData, (_, result) => !result.cancelled && result.text.trim().length === 0)
+  .on(scanTextFx.fail, () => true)
+  .reset(resetTextAdd);
+
 export const $text = createStore('')
   .on(textChanged, (_, text) => text)
+  .on(scanTextFx.doneData, (text, result) => {
+    const scanned = result.text.trim();
+
+    if (!scanned) return text;
+
+    const current = text.trimEnd();
+
+    return current.length > 0 ? `${current}\n${scanned}` : scanned;
+  })
   .reset(resetTextAdd);
 
 export const $step = createStore<'input' | 'words'>('input')

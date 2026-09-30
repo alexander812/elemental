@@ -63,13 +63,14 @@ layouts/AppLayout.tsx    # стек экранов, анимации перех�
 features/<feature>/
   store/index.ts         # Effector: createEffect над transport, $stores на .doneData
   ui/*.tsx               # компоненты фичи
-transport/*.ts           # чистые async-функции (localStorage через lib/storage, перевод через translate.ts, озвучка через speech.ts)
+transport/*.ts           # чистые async-функции (localStorage через lib/storage, перевод через translate.ts, озвучка через speech.ts, OCR через ocr.ts)
 lib/
   storage.ts             # load/save/remove, префикс ключей "app."
   uid.ts                 # uid(): crypto.randomUUID с фолбэком (нужен на HTTP вне localhost)
   types.ts               # Card, CardSet, Settings, ThemeName
   languages.ts           # каталог языков (LANGUAGES_CATALOG, DEFAULT_LANGUAGES), LanguageCode, дефолты, getLanguageName
   ghostClick.ts          # подавитель «призрачных» кликов после тач-навигации
+  nativeBridge.ts        # клиент моста в Android-обёртку: window.AndroidBridge, callNative, isNativeBridgeAvailable
 ```
 
 Паттерн: UI читает сторы через `useUnit`; любое действие — вызов `*Fx`; транспорт знает только пути к данным. Комментарии в коде не приняты.
@@ -115,7 +116,7 @@ Settings  { theme: 'dark' | 'light', originalLang, translationLang }
 - **Создание набора** (`features/set-create`): имя → «Применить».
 - **Карточки** (`features/cards/ui/CardsView.tsx` + `FlashCard.tsx`): колода до 3 карточек, тап — флип (CSS 3D), стороны берутся из `texts` по языкам настроек, свайпы: влево «выучено», вправо «позже», вверх «удалить» (порог 110px), подписи-подсказки жестов; на видимой стороне верхней карточки — кнопки с иконками: «Изменить» открывает `card-create{setId, cardId}` с предзаполненными текстами карточки, и звука (показывается, только если доступен `speechSynthesis`): озвучивает текст этой стороны (`speakFx` → `transport/speech.ts`, Web Speech API, локаль по ISO-коду языка); клик не переворачивает карточку и не начинает свайп (stopPropagation на pointerdown/click); фильтры «выучено/не выучено» с количеством; меню «…»: «Добавить текст», «Удалить все карточки» (мягко, по текущему фильтру), «Восстановить удалённые», «Удалить весь набор» (безвозвратно: `deleteSetFx` удаляет набор с карточками, перед этим — инлайн-подтверждение в области колоды, затем `goToRoot`); выпадающее меню лежит выше карточек (в ui-kit `Header` блоки шапки имеют z-index 200); пустые состояния и финалы: «Начать сначала» (когда всё просмотрено, но есть невыученные), «Все карточки выучены» + «Перейти к следующему набору»; в фильтре «выучено» после просмотра всех выученных — «Повторить» (сбрасывает сессию просмотра), а если выученных нет — пустой экран «Нет выученных карточек».
 - **Восстановление** (`features/cards/ui/CardsRestoreView.tsx`): список удалённых карточек — слева Checkbox, справа текст на текущем языке оригинала + название языка; кнопка «Восстановить» активна при выборе; после восстановления — возврат на экран карточек, карточки снова невыученные.
-- **Добавить текст** (`features/text-add`): пункт «Добавить текст» в меню «…» набора. Экран `text-add`: `Textarea`, по кнопке «Разобрать» текст превращается в чипы-слова (`Chip` с `checked`; слова режутся по пробелам, пунктуация по краям обрезается, дубликаты без учёта регистра убираются), выбор слов тапом, «Обработать» → экран `words-translate`. Там пары полей оригинал/перевод и кнопка «Перевести все» (`translateAllFx` последовательно переводит все пары с непустым оригиналом через тот же `transport/translate.ts`), ошибки — подсказкой, «Добавить» → `addCardsFx` (батч `transport/sets.addCards`) и `popTo('cards')`. Выбор слов сохраняется при возврате назад (`popScreen`), состояние сбрасывается при новом входе в `text-add`.
+- **Добавить текст** (`features/text-add`): пункт «Добавить текст» в меню «…» набора. Экран `text-add`: `Textarea` и кнопка «Сканировать текст» — показывается только в Android-приложении (когда доступен `window.nativeBridge`), вызывает `scanTextFx` → `transport/ocr.ts` → нативную камеру с Tesseract, распознанный текст дописывается в поле; по кнопке «Разобрать» текст превращается в чипы-слова (`Chip` с `checked`; слова режутся по пробелам, пунктуация по краям обрезается, дубликаты без учёта регистра убираются), выбор слов тапом, «Обработать» → экран `words-translate`. Там пары полей оригинал/перевод и кнопка «Перевести все» (`translateAllFx` последовательно переводит все пары с непустым оригиналом через тот же `transport/translate.ts`), ошибки — подсказкой, «Добавить» → `addCardsFx` (батч `transport/sets.addCards`) и `popTo('cards')`. Выбор слов сохраняется при возврате назад (`popScreen`), состояние сбрасывается при новом входе в `text-add`.
 - **Добавление и редактирование слова** (`features/card-create`): два поля (оригинал/перевод) с языками в подписи, «Сохранить». В режиме редактирования (`cardId` в экране) поля предзаполнены текстами карточки, заголовок «Изменить слово», сохранение — `updateCardFx` → `transport/sets.updateCard` (тексты под текущими языками), иначе — `addCardFx`. Рядом с полем оригинала — круглая кнопка с иконкой перевода: вызывает `translateFx` → `transport/translate.ts` (Google `translate_a/single`, `client=gtx`, без ключа и бэкенда) и подставляет результат в поле перевода; пока идёт запрос — лоадер на кнопке, при ошибке — подсказка «введите перевод вручную»; перевод можно править, API понимает и слова, и фразы.
 - **Настройки** (`features/settings/ui/MenuView.tsx`, экран `settings`): пункты «Тема», «Языки» и «Данные».
 - **Тема** (`features/settings/ui/ThemeView.tsx`): светлая/тёмная.
@@ -142,6 +143,12 @@ Settings  { theme: 'dark' | 'light', originalLang, translationLang }
 - Токены: `src/tokens/colors.json` (dark/light), `corners.json`, `fonts.json`; `npm run generate-tokens` → `tokens.css` + `src/tokens/types.ts`. Стили используют CSS-переменные (`var(--accent-bg-default)` и т.п.).
 - Темизация: `ThemeProvider` (root + themeName) проставляет переменные темы на `document.body`; переключение — `$theme` в `features/theme/store` (persist в `app.settings`).
 - Иконки в компонентах ui-kit — через `IconsProvider`/`useIcon`, приложение передаёт карту из `app/src/icons.tsx`.
+
+## Android-обёртка
+
+- `/Users/a.smirnov/p/lexi-android` — отдельный репозиторий (создан из шаблона `/Users/a.smirnov/p/android-webview-template`): WebView-обёртка Lexi с мостом `vibrate`/`deviceInfo`/`scanText`, OCR на Tesseract4Android (вшиты ru/en, остальные языки скачиваются при первом использовании).
+- URL веб-приложения настраивается в `app/webview.properties` (debug → `webview.devUrl`, release → `webview.prodUrl` = GitHub Pages).
+- Кнопка «Сканировать текст» на экране `text-add` работает через `lib/nativeBridge.ts`; в браузере она скрыта.
 
 ## Проверка изменений
 

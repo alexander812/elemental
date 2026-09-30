@@ -2,16 +2,22 @@ import { useEffect, useRef } from 'react';
 
 import { useUnit } from 'effector-react';
 
-import { Box, Button, Chip, Header, Stack, Text, Textarea } from '@elemental/ui-kit';
+import { IconScan } from '@elemental/icons';
 
+import { Box, Button, Chip, FormHelperText, Header, Stack, Text, Textarea } from '@elemental/ui-kit';
+
+import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
 import { popScreen, pushScreen, $transition } from '../../navigation/store';
+import { $originalLang } from '../../theme/store';
 import {
   pairsCreated,
   resetTextAdd,
+  scanTextFx,
   textChanged,
   textEditRequested,
   textParsed,
   wordToggled,
+  $scanFailed,
   $selected,
   $step,
   $text,
@@ -24,6 +30,11 @@ export function TextAddView({ setId }: { setId: string }) {
   const words = useUnit($words);
   const selected = useUnit($selected);
   const transition = useUnit($transition);
+  const originalLang = useUnit($originalLang);
+  const scanPending = useUnit(scanTextFx.pending);
+  const scanFailed = useUnit($scanFailed);
+
+  const scanAvailable = isNativeBridgeAvailable();
 
   const shouldResetRef = useRef(transition.kind === 'push');
 
@@ -52,6 +63,21 @@ export function TextAddView({ setId }: { setId: string }) {
               value={text}
               onChange={textChanged}
             />
+            {scanAvailable ? (
+              <Button
+                disabled={scanPending}
+                fullWidth
+                loading={scanPending}
+                startIcon={<IconScan fontSize={24} />}
+                variant="secondary"
+                onClick={() => scanTextFx(originalLang)}
+              >
+                Сканировать текст
+              </Button>
+            ) : null}
+            {scanFailed ? (
+              <FormHelperText variant="error">Не удалось распознать текст</FormHelperText>
+            ) : null}
             <Button disabled={!canParse} fullWidth onClick={() => textParsed()}>
               Разобрать
             </Button>
