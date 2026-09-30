@@ -6,7 +6,7 @@ export type Screen =
   | { name: 'sets' }
   | { name: 'set-create' }
   | { name: 'cards'; setId: string }
-  | { name: 'card-create'; setId: string }
+  | { name: 'card-create'; setId: string; cardId?: string }
   | { name: 'cards-restore'; setId: string }
   | { name: 'text-add'; setId: string }
   | { name: 'words-translate'; setId: string }

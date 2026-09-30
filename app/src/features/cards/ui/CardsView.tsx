@@ -295,6 +295,10 @@ export function CardsView({ setId }: { setId: string }) {
     pushScreen({ name: 'card-create', setId });
   };
 
+  const handleEditCard = (cardId: string) => {
+    pushScreen({ name: 'card-create', setId, cardId });
+  };
+
   const handleAddText = () => {
     pushScreen({ name: 'text-add', setId });
   };
@@ -460,6 +464,7 @@ export function CardsView({ setId }: { setId: string }) {
                     interactive={index === 0}
                     leaving={leaving?.id === id ? leaving : null}
                     onFlip={handleFlip}
+                    onEdit={() => handleEditCard(id)}
                     onPointerCancel={handlePointerCancel}
                     onPointerDown={handlePointerDown}
                     onPointerMove={handlePointerMove}

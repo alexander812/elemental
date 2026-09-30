@@ -32,7 +32,7 @@ function renderScreen(screen: Screen): ReactNode {
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />;
     case 'card-create':
-      return <CardCreateView setId={screen.setId} />;
+      return <CardCreateView cardId={screen.cardId} setId={screen.setId} />;
     case 'cards-restore':
       return <CardsRestoreView key={screen.setId} setId={screen.setId} />;
     case 'text-add':

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react';
+import type { CSSProperties, PointerEvent as ReactPointerEvent, ReactElement } from 'react';
 
-import { IconCheck, IconRefresh, IconSound, IconTrash } from '@elemental/icons';
+import { IconCheck, IconEdit, IconRefresh, IconSound, IconTrash } from '@elemental/icons';
 import { Stack, Text } from '@elemental/ui-kit';
 
 import { canSpeak } from '../../../transport/speech';
@@ -39,6 +39,7 @@ export type FlashCardProps = {
   onPointerUp: (event: ReactPointerEvent<HTMLDivElement>) => void;
   onPointerCancel: () => void;
   onFlip: () => void;
+  onEdit: () => void;
   onSpeakBack: () => void;
   onSpeakFront: () => void;
 };
@@ -56,6 +57,7 @@ export function FlashCard({
   onPointerUp,
   onPointerCancel,
   onFlip,
+  onEdit,
   onSpeakBack,
   onSpeakFront,
 }: FlashCardProps) {
@@ -133,21 +135,28 @@ export function FlashCard({
         : { bottom: 24, left: '50%', transform: 'translateX(-50%)', color: 'var(--negative-text-and-icons)', opacity: upBadgeOpacity }),
   });
 
-  const showSound = isTop && !leaving && interactive && canSpeak();
+  const showActions = isTop && !leaving && interactive;
 
-  const soundButton = (onSpeak: () => void) => (
+  const actionButton = (label: string, icon: ReactElement, onClick: () => void) => (
     <button
-      aria-label="Озвучить"
-      className={classes.soundButton}
+      aria-label={label}
+      className={classes.actionButton}
       type="button"
       onClick={(event) => {
         event.stopPropagation();
-        onSpeak();
+        onClick();
       }}
       onPointerDown={(event) => event.stopPropagation()}
     >
-      <IconSound fontSize={24} />
+      {icon}
     </button>
+  );
+
+  const cardActions = (onSpeak: () => void) => (
+    <div className={classes.cardActions}>
+      {actionButton('Изменить', <IconEdit fontSize={24} />, onEdit)}
+      {canSpeak() ? actionButton('Озвучить', <IconSound fontSize={24} />, onSpeak) : null}
+    </div>
   );
 
   return (
@@ -176,7 +185,7 @@ export function FlashCard({
                 нажмите, чтобы перевернуть
               </Text>
             </Stack>
-            {showSound ? soundButton(onSpeakFront) : null}
+            {showActions ? cardActions(onSpeakFront) : null}
           </div>
           <div
             style={{
@@ -195,7 +204,7 @@ export function FlashCard({
                 {backText}
               </Text>
             </Stack>
-            {showSound ? soundButton(onSpeakBack) : null}
+            {showActions ? cardActions(onSpeakBack) : null}
           </div>
           {isTop && !leaving && (
             <>

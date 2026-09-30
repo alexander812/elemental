@@ -173,6 +173,30 @@ export async function addCard(setId: string, texts: CardTexts): Promise<CardSet[
   return addCards(setId, [texts]);
 }
 
+export async function updateCard(
+  setId: string,
+  cardId: string,
+  texts: CardTexts,
+): Promise<CardSet[]> {
+  const sets = readSets();
+
+  return writeSets(
+    patchSet(sets, setId, (set) => ({
+      ...set,
+      cards: set.cards.map((card) =>
+        card.id === cardId
+          ? {
+              ...card,
+              texts: Object.fromEntries(
+                Object.entries(texts).map(([lang, text]) => [lang, text?.trim() ?? '']),
+              ) as CardTexts,
+            }
+          : card,
+      ),
+    })),
+  );
+}
+
 export async function setCardLearned(
   setId: string,
   cardId: string,

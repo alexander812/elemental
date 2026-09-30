@@ -36,6 +36,11 @@ export const addCardsFx = createEffect((payload: { setId: string; texts: CardTex
   setsApi.addCards(payload.setId, payload.texts),
 );
 
+export const updateCardFx = createEffect(
+  (payload: { setId: string; cardId: string; texts: CardTexts }) =>
+    setsApi.updateCard(payload.setId, payload.cardId, payload.texts),
+);
+
 export const setCardLearnedFx = createEffect(
   (payload: { setId: string; cardId: string; learned: boolean }) =>
     setsApi.setCardLearned(payload.setId, payload.cardId, payload.learned),
@@ -63,6 +68,7 @@ export const $sets = createStore<CardSet[]>([])
       reorderSetsFx.doneData,
       addCardFx.doneData,
       addCardsFx.doneData,
+      updateCardFx.doneData,
       setCardLearnedFx.doneData,
       deleteCardFx.doneData,
       deleteCardsFx.doneData,

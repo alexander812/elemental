@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 
 import { useUnit } from 'effector-react';
@@ -10,21 +10,29 @@ import { Box, Button, ButtonIcon, Header, InputText, Stack } from '@elemental/ui
 import { getLanguageName } from '../../../lib/languages';
 import { $languages } from '../../languages/store';
 import { popScreen } from '../../navigation/store';
-import { addCardFx } from '../../sets/store';
+import { $sets, addCardFx, updateCardFx } from '../../sets/store';
 import { $originalLang, $translationLang } from '../../theme/store';
 import { translateFx } from '../store';
 
-export function CardCreateView({ setId }: { setId: string }) {
+export function CardCreateView({ setId, cardId }: { setId: string; cardId?: string }) {
   const languages = useUnit($languages);
+  const sets = useUnit($sets);
   const originalLang = useUnit($originalLang);
   const translationLang = useUnit($translationLang);
   const pending = useUnit(addCardFx.pending);
+  const updatePending = useUnit(updateCardFx.pending);
   const translationPending = useUnit(translateFx.pending);
 
-  const [original, setOriginal] = useState('');
-  const [translation, setTranslation] = useState('');
+  const card = useMemo(
+    () => (cardId ? sets.find((item) => item.id === setId)?.cards.find((item) => item.id === cardId) : undefined),
+    [sets, setId, cardId],
+  );
+
+  const [original, setOriginal] = useState(() => card?.texts[originalLang] ?? '');
+  const [translation, setTranslation] = useState(() => card?.texts[translationLang] ?? '');
   const [translationFailed, setTranslationFailed] = useState(false);
 
+  const isEditing = Boolean(card);
   const canTranslate = original.trim().length > 0;
   const canSave = canTranslate && translation.trim().length > 0;
 
@@ -56,13 +64,26 @@ export function CardCreateView({ setId }: { setId: string }) {
 
     if (!canSave) return;
 
-    await addCardFx({ setId, original, translation, originalLang, translationLang });
+    if (isEditing && card) {
+      await updateCardFx({
+        setId,
+        cardId: card.id,
+        texts: { ...card.texts, [originalLang]: original, [translationLang]: translation },
+      });
+    } else {
+      await addCardFx({ setId, original, translation, originalLang, translationLang });
+    }
+
     popScreen();
   };
 
   return (
     <Box grow height="100%">
-      <Header back text="Добавить слово" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={isEditing ? 'Изменить слово' : 'Добавить слово'}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         <form onSubmit={handleSubmit}>
           <Stack spacing="l">
@@ -98,7 +119,12 @@ export function CardCreateView({ setId }: { setId: string }) {
               value={translation}
               onChange={handleTranslationChange}
             />
-            <Button disabled={!canSave} fullWidth loading={pending} type="submit">
+            <Button
+              disabled={!canSave}
+              fullWidth
+              loading={pending || updatePending}
+              type="submit"
+            >
               Сохранить
             </Button>
           </Stack>
