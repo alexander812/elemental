@@ -3,8 +3,11 @@ import type { LanguageCode } from '../lib/languages';
 const SPEECH_LANG: Record<string, string> = {
   ru: 'ru-RU',
   en: 'en-US',
+  es: 'es-ES',
+  fr: 'fr-FR',
+  it: 'it-IT',
   zh: 'zh-CN',
-  pt: 'pt-BR',
+  de: 'de-DE',
 };
 
 export function canSpeak(): boolean {
