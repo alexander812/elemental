@@ -93,6 +93,54 @@ sample({
   target: $selected,
 });
 
+type WordsMerge = {
+  merged: string;
+  removed: Set<string>;
+  nextWords: string[];
+};
+
+const mergeWordsInRange = (words: string[], passed: string[]): WordsMerge | null => {
+  const indices = passed
+    .map((word) => words.indexOf(word))
+    .filter((index) => index !== -1)
+    .sort((a, b) => a - b);
+
+  if (indices.length < 2) return null;
+
+  const first = indices[0];
+  const last = indices[indices.length - 1];
+
+  if (first === last) return null;
+
+  const removedWords = words.slice(first, last + 1);
+  const merged = removedWords.join(' ');
+
+  return {
+    merged,
+    removed: new Set(removedWords),
+    nextWords: [...words.slice(0, first), merged, ...words.slice(last + 1)],
+  };
+};
+
+export const wordsMerged = createEvent<string[]>();
+
+const wordsMergeComputed = createEvent<WordsMerge | null>();
+
+sample({
+  clock: wordsMerged,
+  source: $words,
+  fn: (words, passed) => mergeWordsInRange(words, passed),
+  target: wordsMergeComputed,
+});
+
+$words.on(wordsMergeComputed, (words, result) => result?.nextWords ?? words);
+
+$selected.on(wordsMergeComputed, (selected, result) =>
+  result
+    ? [...selected.filter((word) => !result.removed.has(word)), result.merged]
+    : selected,
+);
+
 export const $pairs = createStore<WordPair[]>([])
   .on(pairOriginalChanged, (pairs, { id, value }) =>
     pairs.map((pair) => (pair.id === id ? { ...pair, original: value } : pair)),

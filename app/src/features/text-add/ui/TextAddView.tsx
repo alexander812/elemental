@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { PointerEvent as ReactPointerEvent } from 'react';
 
 import { useUnit } from 'effector-react';
 
 import { IconScan } from '@elemental/icons';
 
-import { Box, Button, Chip, FormHelperText, Header, Stack, Text, Textarea } from '@elemental/ui-kit';
+import { Box, Button, FormHelperText, Header, Stack, Text, Textarea } from '@elemental/ui-kit';
 
 import { DEFAULT_ORIGINAL_LANG } from '../../../lib/languages';
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
@@ -18,12 +19,26 @@ import {
   textEditRequested,
   textParsed,
   wordToggled,
+  wordsMerged,
   $scanFailed,
   $selected,
   $step,
   $text,
   $words,
 } from '../store';
+
+import classes from './TextAddView.module.pcss';
+
+const DRAG_SLOP = 8;
+
+type ChipDrag = {
+  active: boolean;
+  pointerId: number;
+  startWord: string;
+  startX: number;
+  startY: number;
+  words: string[];
+};
 
 export function TextAddView({ setId }: { setId: string }) {
   const text = useUnit($text);
@@ -37,6 +52,12 @@ export function TextAddView({ setId }: { setId: string }) {
   const scanPending = useUnit(scanTextFx.pending);
   const scanFailed = useUnit($scanFailed);
 
+  const [dragWords, setDragWords] = useState<string[]>([]);
+
+  const dragRef = useRef<ChipDrag | null>(null);
+  const suppressClickRef = useRef(false);
+  const touchBlockerRef = useRef<((event: TouchEvent) => void) | null>(null);
+
   const scanAvailable = isNativeBridgeAvailable();
 
   const shouldResetRef = useRef(transition.kind === 'push');
@@ -44,6 +65,115 @@ export function TextAddView({ setId }: { setId: string }) {
   useEffect(() => {
     if (shouldResetRef.current) resetTextAdd();
   }, []);
+
+  const setTouchBlocked = (blocked: boolean) => {
+    if (blocked) {
+      if (!touchBlockerRef.current) {
+        touchBlockerRef.current = (event: TouchEvent) => {
+          event.preventDefault();
+        };
+        document.addEventListener('touchmove', touchBlockerRef.current, { passive: false });
+      }
+    } else if (touchBlockerRef.current) {
+      document.removeEventListener('touchmove', touchBlockerRef.current);
+      touchBlockerRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => setTouchBlocked(false);
+  }, []);
+
+  const findWordAt = (clientX: number, clientY: number): string | null => {
+    const element = document.elementFromPoint(clientX, clientY);
+    const word = element?.closest<HTMLElement>('[data-word]');
+
+    return word?.dataset.word ?? null;
+  };
+
+  const handleWordPointerDown = (event: ReactPointerEvent<HTMLButtonElement>, word: string) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+    suppressClickRef.current = false;
+    dragRef.current = {
+      active: false,
+      pointerId: event.pointerId,
+      startWord: word,
+      startX: event.clientX,
+      startY: event.clientY,
+      words: [],
+    };
+  };
+
+  const handlePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+
+    if (!drag || drag.pointerId !== event.pointerId) return;
+
+    if (!drag.active) {
+      const moveX = event.clientX - drag.startX;
+      const moveY = event.clientY - drag.startY;
+
+      if (Math.hypot(moveX, moveY) < DRAG_SLOP) return;
+
+      if (event.pointerType !== 'mouse' && Math.abs(moveY) > Math.abs(moveX)) {
+        dragRef.current = null;
+        setDragWords([]);
+        suppressClickRef.current = true;
+        return;
+      }
+
+      drag.active = true;
+      drag.words = [drag.startWord];
+      setDragWords([drag.startWord]);
+      setTouchBlocked(true);
+      event.currentTarget.setPointerCapture?.(event.pointerId);
+    }
+
+    const word = findWordAt(event.clientX, event.clientY);
+
+    if (word && !drag.words.includes(word)) {
+      drag.words.push(word);
+      setDragWords([...drag.words]);
+    }
+  };
+
+  const handlePointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+
+    if (!drag || drag.pointerId !== event.pointerId) return;
+
+    dragRef.current = null;
+    setDragWords([]);
+
+    if (!drag.active) return;
+
+    setTouchBlocked(false);
+    suppressClickRef.current = true;
+
+    if (drag.words.length > 1) {
+      wordsMerged(drag.words);
+    }
+  };
+
+  const handlePointerCancel = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+
+    if (!drag || drag.pointerId !== event.pointerId) return;
+
+    dragRef.current = null;
+    setDragWords([]);
+    setTouchBlocked(false);
+  };
+
+  const handleWordClick = (word: string) => {
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false;
+      return;
+    }
+
+    wordToggled(word);
+  };
 
   const canParse = text.trim().length > 0;
   const canProcess = selected.length > 0;
@@ -54,10 +184,10 @@ export function TextAddView({ setId }: { setId: string }) {
   };
 
   return (
-    <Box grow height="100%">
+    <div className={classes.root}>
       <Header back text="Добавить текст" onBackClick={() => popScreen()} />
-      <Box grow padding="m">
-        {step === 'input' ? (
+      {step === 'input' ? (
+        <Box grow padding="m">
           <Stack spacing="l">
             <Textarea
               fullWidth
@@ -85,22 +215,40 @@ export function TextAddView({ setId }: { setId: string }) {
               Разобрать
             </Button>
           </Stack>
-        ) : (
-          <Stack spacing="l">
-            <Stack direction="row" spacing="s" wrap="wrap">
-              {words.map((word) => (
-                <Chip
-                  key={word}
-                  checked={selected.includes(word)}
-                  label={word}
-                  onClick={() => wordToggled(word)}
-                />
-              ))}
-            </Stack>
+        </Box>
+      ) : (
+        <div className={classes.layout}>
+          <div
+            className={classes.wordsScroll}
+            onPointerCancel={handlePointerCancel}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+          >
+            <div className={classes.words}>
+              {words.map((word) => {
+                const checked = selected.includes(word) || dragWords.includes(word);
+
+                return (
+                  <button
+                    key={word}
+                    aria-pressed={checked}
+                    className={checked ? `${classes.word} ${classes.wordChecked}` : classes.word}
+                    data-word={word}
+                    type="button"
+                    onClick={() => handleWordClick(word)}
+                    onPointerDown={(event) => handleWordPointerDown(event, word)}
+                  >
+                    {word}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          <div className={classes.footer}>
             <Text color="contrast-secondary" variant="XS / Medium">
               {selected.length > 0
                 ? `Выбрано слов: ${selected.length}`
-                : 'Нажмите на слова, для которых нужно создать карточки'}
+                : 'Нажмите на слова или проведите пальцем по соседним, чтобы объединить их в выражение'}
             </Text>
             <Button disabled={!canProcess} fullWidth onClick={handleProcess}>
               Обработать
@@ -108,9 +256,9 @@ export function TextAddView({ setId }: { setId: string }) {
             <Button fullWidth variant="secondary" onClick={() => textEditRequested()}>
               Изменить текст
             </Button>
-          </Stack>
-        )}
-      </Box>
-    </Box>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
