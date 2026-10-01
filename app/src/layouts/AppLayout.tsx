@@ -18,6 +18,7 @@ import { ThemeView } from '../features/settings/ui/ThemeView';
 import { SetsView } from '../features/sets/ui/SetsView';
 import { TextAddView } from '../features/text-add/ui/TextAddView';
 import { WordsTranslateView } from '../features/text-add/ui/WordsTranslateView';
+import { VoicesView } from '../features/voices/ui/VoicesView';
 
 import classes from './AppLayout.module.pcss';
 
@@ -43,6 +44,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <ThemeView />;
     case 'languages':
       return <LanguagesView />;
+    case 'voices':
+      return <VoicesView />;
     case 'data':
       return <DataView />;
   }
@@ -53,6 +56,7 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'settings' ||
     name === 'theme' ||
     name === 'languages' ||
+    name === 'voices' ||
     name === 'data'
   );
 }

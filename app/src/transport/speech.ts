@@ -38,15 +38,23 @@ function speakInBrowser(query: string, lang: LanguageCode): void {
   synthesis.speak(utterance);
 }
 
-export function speak(text: string, lang: LanguageCode): void {
+export function speak(text: string, lang: LanguageCode): Promise<void> {
   const query = text.trim();
 
-  if (!query) return;
+  if (!query) return Promise.resolve();
 
   if (isNativeBridgeAvailable()) {
-    callNative('speak', { text: query, lang }).catch(() => {});
-    return;
+    return callNative('speak', { text: query, lang }).then(
+      () => undefined,
+      (error: unknown) => {
+        console.warn('[speech] native speak failed', error);
+
+        throw error;
+      },
+    );
   }
 
   speakInBrowser(query, lang);
+
+  return Promise.resolve();
 }

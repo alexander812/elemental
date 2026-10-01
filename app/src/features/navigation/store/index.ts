@@ -13,6 +13,7 @@ export type Screen =
   | { name: 'settings' }
   | { name: 'theme' }
   | { name: 'languages' }
+  | { name: 'voices' }
   | { name: 'data' };
 
 export type Transition =

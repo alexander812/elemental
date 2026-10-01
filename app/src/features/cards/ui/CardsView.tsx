@@ -22,6 +22,7 @@ import {
   Button,
   ButtonIcon,
   EmptyScreen,
+  FormHelperText,
   Header,
   Menu,
   Spinner,
@@ -43,7 +44,7 @@ import {
   $sets,
   $setsLoading,
 } from '../../sets/store';
-import { speakFx } from '../store';
+import { speakFx, $speakFailed } from '../store';
 import { FlashCard } from './FlashCard';
 import type { DragPos, Leaving } from './FlashCard';
 
@@ -51,6 +52,15 @@ const SWIPE_THRESHOLD = 110;
 const UP_THRESHOLD = 110;
 const LEAVE_MS = 260;
 const DECK_DEPTH = 3;
+
+const SPEAK_ERRORS: Record<string, string> = {
+  language_not_supported: 'Нет голоса для этого языка',
+  speech_unavailable: 'Озвучка недоступна на устройстве',
+  voice_missing: 'Скачайте голос в Настройки → Озвучка',
+  unknown_method: 'Обновите приложение',
+};
+
+const speakErrorText = (error: Error) => SPEAK_ERRORS[error.message] ?? 'Не удалось озвучить';
 
 type Filter = 'learned' | 'unlearned';
 
@@ -67,6 +77,7 @@ export function CardsView({ setId }: { setId: string }) {
   const [leaving, setLeaving] = useState<Leaving | null>(null);
 
   const deleteSetPending = useUnit(deleteSetFx.pending);
+  const speakFailed = useUnit($speakFailed);
 
   const dragRef = useRef<DragPos | null>(null);
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -490,6 +501,10 @@ export function CardsView({ setId }: { setId: string }) {
               })}
             </Box>
           )}
+
+          {speakFailed ? (
+            <FormHelperText variant="error">{speakErrorText(speakFailed)}</FormHelperText>
+          ) : null}
 
           {!noCards && !confirmDelete && (
             <Stack direction="row" horizontalAlign="center" spacing="m" verticalAlign="center">

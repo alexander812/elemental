@@ -1,9 +1,12 @@
-import { IconChevronRight, IconDownload, IconPalette, IconTranslate } from '@elemental/icons';
+import { IconChevronRight, IconDownload, IconPalette, IconSound, IconTranslate } from '@elemental/icons';
 import { Box, Card, Header, ListItem, Stack, Text } from '@elemental/ui-kit';
 
+import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
 import { popScreen, pushScreen } from '../../navigation/store';
 
 export function MenuView() {
+  const voiceManagerAvailable = isNativeBridgeAvailable();
+
   return (
     <Box grow height="100%">
       <Header back text="Настройки" onBackClick={() => popScreen()} />
@@ -34,6 +37,20 @@ export function MenuView() {
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
               />
             </ListItem>
+            {voiceManagerAvailable ? (
+              <ListItem
+                data={{ screen: 'voices' }}
+                onClick={() => pushScreen({ name: 'voices' })}
+              >
+                <ListItem.StartBlock
+                  icon={<IconSound fontSize={24} color="var(--accent-text-and-icons)" />}
+                  title={<Text variant="M / Medium">Озвучка</Text>}
+                />
+                <ListItem.EndBlock
+                  content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+                />
+              </ListItem>
+            ) : null}
             <ListItem
               data={{ screen: 'data' }}
               onClick={() => pushScreen({ name: 'data' })}
