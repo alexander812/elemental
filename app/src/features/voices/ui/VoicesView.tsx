@@ -21,10 +21,9 @@ import {
 const formatSize = (sizeBytes: number) => `${Math.round(sizeBytes / 1024 / 1024)} МБ`;
 
 const VOICE_ERRORS: Record<string, string> = {
-  download_failed: 'Не удалось скачать голос',
-  download_incomplete: 'Загрузка прервалась, попробуйте ещё раз',
+  voice_incomplete: 'Загрузка не завершилась, попробуйте ещё раз',
   storage_unavailable: 'Недостаточно места на устройстве',
-  extract_failed: 'Не удалось распаковать голос',
+  asset_extract_failed: 'Не удалось установить голосовой движок',
 };
 
 export function VoicesView() {
@@ -88,7 +87,7 @@ export function VoicesView() {
         </Stack>
         {voice.error ? (
           <FormHelperText variant="error">
-            {VOICE_ERRORS[voice.error] ?? 'Не удалось скачать голос'}
+            {VOICE_ERRORS[voice.error] ?? `Не удалось скачать голос: ${voice.error}`}
           </FormHelperText>
         ) : null}
       </Card>
