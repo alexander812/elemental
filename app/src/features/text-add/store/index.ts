@@ -76,11 +76,36 @@ sample({
   target: $words,
 });
 
-export const $selected = createStore<string[]>([])
-  .on(wordToggled, (selected, word) =>
-    selected.includes(word) ? selected.filter((item) => item !== word) : [...selected, word],
-  )
-  .reset(resetTextAdd);
+export const $selected = createStore<string[]>([]).reset(resetTextAdd);
+
+type WordToggle = {
+  selected: string[];
+  words: string[];
+};
+
+const wordToggleComputed = createEvent<WordToggle>();
+
+sample({
+  clock: wordToggled,
+  source: { selected: $selected, words: $words },
+  fn: ({ selected, words }, word) => {
+    if (!selected.includes(word)) {
+      return { selected: [...selected, word], words };
+    }
+
+    return {
+      selected: selected.filter((item) => item !== word),
+      words: word.includes(' ')
+        ? words.flatMap((item) => (item === word ? word.split(' ') : [item]))
+        : words,
+    };
+  },
+  target: wordToggleComputed,
+});
+
+$words.on(wordToggleComputed, (_, result) => result.words);
+
+$selected.on(wordToggleComputed, (_, result) => result.selected);
 
 sample({
   clock: textParsed,

@@ -31,6 +31,7 @@ import {
 } from '@elemental/ui-kit';
 
 import { getCardText } from '../../../lib/cards';
+import type { LanguageCode } from '../../../lib/languages';
 import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../../../lib/languages';
 import type { Card as CardModel } from '../../../lib/types';
 import { vibrateLong, vibrateShort } from '../../../transport/haptics';
@@ -44,7 +45,8 @@ import {
   $sets,
   $setsLoading,
 } from '../../sets/store';
-import { speakFx, $speakFailed } from '../store';
+import type { RecognitionSide } from '../store';
+import { recognizeFx, speakFx, $pronunciation, $recognizeFailed, $speakFailed } from '../store';
 import { FlashCard } from './FlashCard';
 import type { DragPos, Leaving } from './FlashCard';
 
@@ -62,6 +64,26 @@ const SPEAK_ERRORS: Record<string, string> = {
 
 const speakErrorText = (error: Error) => SPEAK_ERRORS[error.message] ?? 'Не удалось озвучить';
 
+const RECOGNIZE_ERRORS: Record<string, string> = {
+  'audio-capture': 'Микрофон недоступен',
+  'no-speech': 'Ничего не расслышали, попробуйте ещё',
+  'not-allowed': 'Разрешите доступ к микрофону',
+  'service-not-allowed': 'Распознавание речи недоступно',
+  audio_error: 'Микрофон недоступен',
+  busy: 'Подождите, распознавание уже идёт',
+  network: 'Нет соединения для распознавания',
+  no_speech: 'Ничего не расслышали, попробуйте ещё',
+  not_available: 'Распознавание речи недоступно',
+  permission_denied: 'Разрешите доступ к микрофону',
+  recognition_unavailable: 'Распознавание речи недоступно',
+  timeout: 'Не удалось расслышать фразу',
+};
+
+const recognizeErrorText = (error: Error) =>
+  RECOGNIZE_ERRORS[error.message] ?? 'Не удалось распознать речь';
+
+const now = (): number => Date.now();
+
 type Filter = 'learned' | 'unlearned';
 
 export function CardsView({ setId }: { setId: string }) {
@@ -78,6 +100,9 @@ export function CardsView({ setId }: { setId: string }) {
 
   const deleteSetPending = useUnit(deleteSetFx.pending);
   const speakFailed = useUnit($speakFailed);
+  const pronunciation = useUnit($pronunciation);
+  const recognizeFailed = useUnit($recognizeFailed);
+  const recognizing = useUnit(recognizeFx.pending);
 
   const dragRef = useRef<DragPos | null>(null);
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -134,6 +159,13 @@ export function CardsView({ setId }: { setId: string }) {
 
   const allSwiped = displayedQueue.length === 0;
   const noCards = set ? set.cards.every((card) => card.deleted) : true;
+
+  const topFlipped = topCard ? Boolean(flipped[topCard.id]) : false;
+  const currentSide: RecognitionSide = topFlipped ? 'back' : 'front';
+  const feedback =
+    pronunciation && topCard && pronunciation.cardId === topCard.id && pronunciation.side === currentSide
+      ? pronunciation
+      : null;
 
   const commitLeave = (action: Leaving['action'], cardId: string) => {
     setLeaving(null);
@@ -194,11 +226,11 @@ export function CardsView({ setId }: { setId: string }) {
     if (leaving || !topCard || displayedQueue.length === 0) return;
 
     if (event.pointerType === 'touch') {
-      lastTouchRef.current = Date.now();
+      lastTouchRef.current = now();
     } else if (event.pointerType === 'mouse') {
       if (event.button !== 0) return;
       // compatibility mouse events fired right after a touch gesture
-      if (Date.now() - lastTouchRef.current < 700) return;
+      if (now() - lastTouchRef.current < 700) return;
     }
 
     const next: DragPos = {
@@ -237,7 +269,7 @@ export function CardsView({ setId }: { setId: string }) {
     const state = dragRef.current;
 
     if (event.pointerType === 'touch') {
-      lastTouchRef.current = Date.now();
+      lastTouchRef.current = now();
     }
 
     if (!state || state.pointerId !== event.pointerId) return;
@@ -265,7 +297,7 @@ export function CardsView({ setId }: { setId: string }) {
   };
 
   const handlePointerCancel = () => {
-    lastTouchRef.current = Date.now();
+    lastTouchRef.current = now();
     dragRef.current = null;
     setDrag(null);
   };
@@ -313,6 +345,12 @@ export function CardsView({ setId }: { setId: string }) {
 
   const handleEditCard = (cardId: string) => {
     pushScreen({ name: 'card-create', setId, cardId });
+  };
+
+  const handleRecognize = (side: RecognitionSide, text: string, lang: LanguageCode) => {
+    if (!topCard) return;
+
+    recognizeFx({ cardId: topCard.id, lang, side, text });
   };
 
   const handleAddText = () => {
@@ -494,13 +532,40 @@ export function CardsView({ setId }: { setId: string }) {
                     onPointerDown={handlePointerDown}
                     onPointerMove={handlePointerMove}
                     onPointerUp={handlePointerUp}
+                    onRecognizeBack={() => handleRecognize('back', back.text, back.lang)}
+                    onRecognizeFront={() => handleRecognize('front', front.text, front.lang)}
                     onSpeakBack={() => speakFx(back)}
                     onSpeakFront={() => speakFx(front)}
+                    recognizing={recognizing}
                   />
                 );
               })}
             </Box>
           )}
+
+          {recognizing ? (
+            <FormHelperText variant="neutral">Слушаю…</FormHelperText>
+          ) : feedback ? (
+            <Stack horizontalAlign="center" spacing="xs">
+              <FormHelperText variant={feedback.assessment.verdict === 'good' ? 'success' : 'warning'}>
+                {feedback.assessment.verdict === 'good' ? 'Отлично!' : 'Попробуйте ещё'}
+              </FormHelperText>
+              <Stack direction="row" horizontalAlign="center" spacing="xs" wrap="wrap">
+                {feedback.assessment.words.map((word, index) => (
+                  <Text
+                    key={`${word.text}-${index}`}
+                    color={word.matched ? 'positive-text-and-icons' : 'warning-text-and-icons'}
+                    variant="S / Medium"
+                  >
+                    {word.text}
+                  </Text>
+                ))}
+              </Stack>
+              <FormHelperText variant="neutral">Услышано: «{feedback.assessment.transcript}»</FormHelperText>
+            </Stack>
+          ) : recognizeFailed ? (
+            <FormHelperText variant="error">{recognizeErrorText(recognizeFailed)}</FormHelperText>
+          ) : null}
 
           {speakFailed ? (
             <FormHelperText variant="error">{speakErrorText(speakFailed)}</FormHelperText>

@@ -163,7 +163,7 @@ export async function createSet(payload: {
   originalLang: LanguageCode;
   translationLang: LanguageCode;
   cards: CardPair[];
-}): Promise<CardSet[]> {
+}): Promise<{ setId: string; sets: CardSet[] }> {
   const sets = readSets();
   const maxOrder = sets.reduce((max, set) => Math.max(max, set.order), 0);
   const newSet: CardSet = {
@@ -178,7 +178,7 @@ export async function createSet(payload: {
     ),
   };
 
-  return writeSets([...sets, newSet]);
+  return { setId: newSet.id, sets: writeSets([...sets, newSet]) };
 }
 
 export async function updateSet(payload: {

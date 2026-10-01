@@ -78,7 +78,6 @@ export const $sets = createStore<CardSet[]>([])
   .on(
     [
       fetchSetsFx.doneData,
-      createSetFx.doneData,
       updateSetFx.doneData,
       setSetActiveFx.doneData,
       deleteSetFx.doneData,
@@ -93,6 +92,7 @@ export const $sets = createStore<CardSet[]>([])
     ],
     (_, sets) => sets,
   )
+  .on(createSetFx.doneData, (_, { sets }) => sets)
   .on(importBackupFx.doneData, (_, { sets }) => sets);
 
 export const $setsLoading = createStore(false)

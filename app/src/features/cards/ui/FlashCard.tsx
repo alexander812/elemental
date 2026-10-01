@@ -1,9 +1,17 @@
 import { useMemo } from 'react';
 import type { CSSProperties, PointerEvent as ReactPointerEvent, ReactElement } from 'react';
 
-import { IconCheck, IconEdit, IconRefresh, IconSound, IconTrash } from '@elemental/icons';
+import {
+  IconCheck,
+  IconEdit,
+  IconMicrophone,
+  IconRefresh,
+  IconSound,
+  IconTrash,
+} from '@elemental/icons';
 import { Stack, Text } from '@elemental/ui-kit';
 
+import { canRecognize } from '../../../transport/recognition';
 import { canSpeak } from '../../../transport/speech';
 
 import classes from './FlashCard.module.pcss';
@@ -40,8 +48,11 @@ export type FlashCardProps = {
   onPointerCancel: () => void;
   onFlip: () => void;
   onEdit: () => void;
+  onRecognizeBack: () => void;
+  onRecognizeFront: () => void;
   onSpeakBack: () => void;
   onSpeakFront: () => void;
+  recognizing: boolean;
 };
 
 export function FlashCard({
@@ -58,8 +69,11 @@ export function FlashCard({
   onPointerCancel,
   onFlip,
   onEdit,
+  onRecognizeBack,
+  onRecognizeFront,
   onSpeakBack,
   onSpeakFront,
+  recognizing,
 }: FlashCardProps) {
   const isTop = depth === 0;
 
@@ -137,10 +151,16 @@ export function FlashCard({
 
   const showActions = isTop && !leaving && interactive;
 
-  const actionButton = (label: string, icon: ReactElement, onClick: () => void) => (
+  const actionButton = (
+    label: string,
+    icon: ReactElement,
+    onClick: () => void,
+    state?: { active?: boolean; disabled?: boolean },
+  ) => (
     <button
       aria-label={label}
-      className={classes.actionButton}
+      className={`${classes.actionButton} ${state?.active ? classes.actionButtonActive : ''}`}
+      disabled={state?.disabled}
       type="button"
       onClick={(event) => {
         event.stopPropagation();
@@ -152,9 +172,15 @@ export function FlashCard({
     </button>
   );
 
-  const cardActions = (onSpeak: () => void) => (
+  const cardActions = (onSpeak: () => void, onRecognize: () => void) => (
     <div className={classes.cardActions}>
       {actionButton('Изменить', <IconEdit fontSize={24} />, onEdit)}
+      {canRecognize()
+        ? actionButton('Проверить произношение', <IconMicrophone fontSize={24} />, onRecognize, {
+            active: recognizing,
+            disabled: recognizing,
+          })
+        : null}
       {canSpeak() ? actionButton('Озвучить', <IconSound fontSize={24} />, onSpeak) : null}
     </div>
   );
@@ -185,7 +211,7 @@ export function FlashCard({
                 нажмите, чтобы перевернуть
               </Text>
             </Stack>
-            {showActions ? cardActions(onSpeakFront) : null}
+            {showActions ? cardActions(onSpeakFront, onRecognizeFront) : null}
           </div>
           <div
             style={{
@@ -204,7 +230,7 @@ export function FlashCard({
                 {backText}
               </Text>
             </Stack>
-            {showActions ? cardActions(onSpeakBack) : null}
+            {showActions ? cardActions(onSpeakBack, onRecognizeBack) : null}
           </div>
           {isTop && !leaving && (
             <>

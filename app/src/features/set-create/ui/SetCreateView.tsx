@@ -24,7 +24,7 @@ import { getLanguageName } from '../../../lib/languages';
 import type { LanguageCode } from '../../../lib/languages';
 import { uid } from '../../../lib/uid';
 import { $languages } from '../../languages/store';
-import { popScreen } from '../../navigation/store';
+import { popScreen, pushScreen } from '../../navigation/store';
 import { createSetFx, updateSetFx, $sets } from '../../sets/store';
 import { $originalLang, $translationLang } from '../../theme/store';
 import { translatePairsFx } from '../store';
@@ -182,16 +182,20 @@ export function SetCreateView({ setId }: { setId?: string }) {
           translation,
         })),
       });
-    } else {
-      await createSetFx({
-        name,
-        originalLang,
-        translationLang,
-        cards: filled.map(({ original, translation }) => ({ original, translation })),
-      });
+
+      popScreen();
+      return;
     }
 
+    const { setId: createdSetId } = await createSetFx({
+      name,
+      originalLang,
+      translationLang,
+      cards: filled.map(({ original, translation }) => ({ original, translation })),
+    });
+
     popScreen();
+    pushScreen({ name: 'cards', setId: createdSetId });
   };
 
   if (isEditing && !set) {
@@ -297,6 +301,15 @@ export function SetCreateView({ setId }: { setId?: string }) {
             ) : null}
 
             <Button
+              fullWidth
+              startIcon={<IconPlusBig fontSize={16} />}
+              variant="secondary"
+              onClick={handleAddPair}
+            >
+              Добавить слово
+            </Button>
+
+            <Button
               disabled={!canTranslate}
               fullWidth
               loading={translatePending}
@@ -305,15 +318,6 @@ export function SetCreateView({ setId }: { setId?: string }) {
               onClick={handleTranslateAll}
             >
               Перевести все
-            </Button>
-
-            <Button
-              fullWidth
-              startIcon={<IconPlusBig fontSize={16} />}
-              variant="secondary"
-              onClick={handleAddPair}
-            >
-              Добавить слово
             </Button>
 
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">

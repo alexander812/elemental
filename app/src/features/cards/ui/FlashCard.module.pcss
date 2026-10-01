@@ -28,4 +28,25 @@
     background: rgb(127 127 127 / 24%);
     opacity: 1;
   }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.actionButtonActive {
+  color: var(--negative-text-and-icons);
+  opacity: 1;
+  animation: microphonePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes microphonePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
 }
