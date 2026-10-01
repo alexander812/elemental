@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "dev": "lerna run dev --scope=@elemental/app --stream",
+    "dev:host": "lerna run dev:host --scope=@elemental/app --stream",
     "build": "lerna run build --stream",
     "lint": "lerna run lint --stream",
     "typecheck": "lerna run typecheck --stream",

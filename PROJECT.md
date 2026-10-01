@@ -23,6 +23,7 @@ PROJECT.md                # этот файл
 
 ```bash
 npm run dev            # dev-сервер приложения
+npm run dev:host       # dev-сервер с --host (доступ по Wi-Fi сети)
 npm run build          # сборка приложения (tsc -b + vite build)
 npm run lint           # eslint приложения
 npm run typecheck      # tsc по всем пакетам
