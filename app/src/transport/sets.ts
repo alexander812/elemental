@@ -1,8 +1,14 @@
-import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../lib/languages';
+import { remapTexts } from '../lib/cards';
+import {
+  DEFAULT_ORIGINAL_LANG,
+  DEFAULT_TRANSLATION_LANG,
+  LANGUAGES_CATALOG,
+} from '../lib/languages';
 import type { LanguageCode } from '../lib/languages';
 import { load, save } from '../lib/storage';
 import type { Card, CardSet, CardTexts } from '../lib/types';
 import { uid } from '../lib/uid';
+import { readSettings } from './settings';
 
 export type { Card, CardSet, CardTexts } from '../lib/types';
 
@@ -19,12 +25,17 @@ const WEEKDAYS: [string, string][] = [
   ['Воскресенье', 'Sunday'],
 ];
 
-function createCard(original: string, translation: string): Card {
+function createCard(
+  originalLang: LanguageCode,
+  translationLang: LanguageCode,
+  original: string,
+  translation: string,
+): Card {
   return {
     id: uid(),
     texts: {
-      [DEFAULT_ORIGINAL_LANG]: original,
-      [DEFAULT_TRANSLATION_LANG]: translation,
+      [originalLang]: original.trim(),
+      [translationLang]: translation.trim(),
     },
     learned: false,
     deleted: false,
@@ -38,7 +49,11 @@ function seedSets(): CardSet[] {
       name: 'Дни недели',
       active: true,
       order: 0,
-      cards: WEEKDAYS.map(([original, translation]) => createCard(original, translation)),
+      originalLang: DEFAULT_ORIGINAL_LANG,
+      translationLang: DEFAULT_TRANSLATION_LANG,
+      cards: WEEKDAYS.map(([original, translation]) =>
+        createCard(DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG, original, translation),
+      ),
     },
   ];
 }
@@ -78,16 +93,42 @@ export function migrateCard(card: LegacyCard): Card {
   };
 }
 
+export type LegacySet = Omit<CardSet, 'originalLang' | 'translationLang'> & {
+  originalLang?: LanguageCode;
+  translationLang?: LanguageCode;
+};
+
+export function migrateSet(
+  set: LegacySet,
+  fallbackOriginal: LanguageCode = DEFAULT_ORIGINAL_LANG,
+  fallbackTranslation: LanguageCode = DEFAULT_TRANSLATION_LANG,
+): CardSet {
+  const originalLang = set.originalLang ?? fallbackOriginal;
+  const safeFallback =
+    fallbackTranslation === originalLang
+      ? (LANGUAGES_CATALOG.find((language) => language.code !== originalLang)?.code ??
+        DEFAULT_TRANSLATION_LANG)
+      : fallbackTranslation;
+  const translationLang =
+    set.translationLang && set.translationLang !== originalLang
+      ? set.translationLang
+      : safeFallback;
+
+  return { ...set, originalLang, translationLang, cards: set.cards.map(migrateCard) };
+}
+
 function readSets(): CardSet[] {
   const seeded = load<boolean>(SEEDED_KEY, false);
-  const sets = seeded ? load<CardSet[]>(SETS_KEY, []) : seedSets();
+  const sets = seeded ? load<LegacySet[]>(SETS_KEY, []) : seedSets();
 
   if (!seeded) {
     save(SETS_KEY, sets);
     save(SEEDED_KEY, true);
   }
 
-  return sets.map((set) => ({ ...set, cards: set.cards.map(migrateCard) }));
+  const settings = readSettings();
+
+  return sets.map((set) => migrateSet(set, settings.originalLang, settings.translationLang));
 }
 
 function writeSets(sets: CardSet[]): CardSet[] {
@@ -108,18 +149,93 @@ export async function replaceSets(sets: CardSet[]): Promise<CardSet[]> {
   return writeSets(sets);
 }
 
-export async function createSet(name: string): Promise<CardSet[]> {
+export type CardPair = {
+  original: string;
+  translation: string;
+};
+
+export type CardEditPair = CardPair & {
+  cardId?: string;
+};
+
+export async function createSet(payload: {
+  name: string;
+  originalLang: LanguageCode;
+  translationLang: LanguageCode;
+  cards: CardPair[];
+}): Promise<CardSet[]> {
   const sets = readSets();
   const maxOrder = sets.reduce((max, set) => Math.max(max, set.order), 0);
   const newSet: CardSet = {
     id: uid(),
-    name: name.trim(),
+    name: payload.name.trim(),
     active: true,
     order: maxOrder + 1,
-    cards: [],
+    originalLang: payload.originalLang,
+    translationLang: payload.translationLang,
+    cards: payload.cards.map((card) =>
+      createCard(payload.originalLang, payload.translationLang, card.original, card.translation),
+    ),
   };
 
   return writeSets([...sets, newSet]);
+}
+
+export async function updateSet(payload: {
+  setId: string;
+  name: string;
+  originalLang: LanguageCode;
+  translationLang: LanguageCode;
+  pairs: CardEditPair[];
+}): Promise<CardSet[]> {
+  const sets = readSets();
+  const pairByCardId = new Map(
+    payload.pairs
+      .filter((pair) => pair.cardId !== undefined)
+      .map((pair) => [pair.cardId as string, pair]),
+  );
+  const newCards = payload.pairs
+    .filter((pair) => pair.cardId === undefined)
+    .map((pair) =>
+      createCard(payload.originalLang, payload.translationLang, pair.original, pair.translation),
+    );
+
+  return writeSets(
+    patchSet(sets, payload.setId, (set) => {
+      const languagesChanged =
+        set.originalLang !== payload.originalLang ||
+        set.translationLang !== payload.translationLang;
+
+      const cards = set.cards.map((card) => {
+        const pair = pairByCardId.get(card.id);
+
+        if (pair) {
+          return {
+            ...card,
+            texts: {
+              [payload.originalLang]: pair.original.trim(),
+              [payload.translationLang]: pair.translation.trim(),
+            },
+          };
+        }
+
+        if (!languagesChanged) return card;
+
+        return {
+          ...card,
+          texts: remapTexts(card.texts, payload.originalLang, payload.translationLang),
+        };
+      });
+
+      return {
+        ...set,
+        name: payload.name.trim(),
+        originalLang: payload.originalLang,
+        translationLang: payload.translationLang,
+        cards: [...cards, ...newCards],
+      };
+    }),
+  );
 }
 
 export async function setSetActive(setId: string, active: boolean): Promise<CardSet[]> {
@@ -130,17 +246,6 @@ export async function setSetActive(setId: string, active: boolean): Promise<Card
 export async function deleteSet(setId: string): Promise<CardSet[]> {
   const sets = readSets();
   return writeSets(sets.filter((set) => set.id !== setId));
-}
-
-export async function removeCardsWithLanguage(code: LanguageCode): Promise<CardSet[]> {
-  const sets = readSets();
-
-  return writeSets(
-    sets.map((set) => ({
-      ...set,
-      cards: set.cards.filter((card) => card.texts[code] === undefined),
-    })),
-  );
 }
 
 export async function reorderSets(ids: string[]): Promise<CardSet[]> {

@@ -4,7 +4,7 @@ import { suppressNextGhostClick } from '../../../lib/ghostClick';
 
 export type Screen =
   | { name: 'sets' }
-  | { name: 'set-create' }
+  | { name: 'set-create'; setId?: string }
   | { name: 'cards'; setId: string }
   | { name: 'card-create'; setId: string; cardId?: string }
   | { name: 'cards-restore'; setId: string }
@@ -13,8 +13,6 @@ export type Screen =
   | { name: 'settings' }
   | { name: 'theme' }
   | { name: 'languages' }
-  | { name: 'languages-list' }
-  | { name: 'language-add' }
   | { name: 'data' };
 
 export type Transition =

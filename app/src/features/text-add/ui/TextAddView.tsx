@@ -6,9 +6,10 @@ import { IconScan } from '@elemental/icons';
 
 import { Box, Button, Chip, FormHelperText, Header, Stack, Text, Textarea } from '@elemental/ui-kit';
 
+import { DEFAULT_ORIGINAL_LANG } from '../../../lib/languages';
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
 import { popScreen, pushScreen, $transition } from '../../navigation/store';
-import { $originalLang } from '../../theme/store';
+import { $sets } from '../../sets/store';
 import {
   pairsCreated,
   resetTextAdd,
@@ -30,7 +31,9 @@ export function TextAddView({ setId }: { setId: string }) {
   const words = useUnit($words);
   const selected = useUnit($selected);
   const transition = useUnit($transition);
-  const originalLang = useUnit($originalLang);
+  const sets = useUnit($sets);
+  const originalLang =
+    sets.find((item) => item.id === setId)?.originalLang ?? DEFAULT_ORIGINAL_LANG;
   const scanPending = useUnit(scanTextFx.pending);
   const scanFailed = useUnit($scanFailed);
 

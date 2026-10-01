@@ -2,13 +2,29 @@ import { createEffect, createStore } from 'effector';
 
 import type { LanguageCode } from '../../../lib/languages';
 import * as setsApi from '../../../transport/sets';
-import type { CardSet, CardTexts } from '../../../transport/sets';
+import type { CardEditPair, CardPair, CardSet, CardTexts } from '../../../transport/sets';
 import { importBackupFx } from '../../backup/store';
-import { deleteLanguageFx } from '../../languages/store';
 
 export const fetchSetsFx = createEffect(() => setsApi.fetchSets());
 
-export const createSetFx = createEffect((name: string) => setsApi.createSet(name));
+export const createSetFx = createEffect(
+  (payload: {
+    name: string;
+    originalLang: LanguageCode;
+    translationLang: LanguageCode;
+    cards: CardPair[];
+  }) => setsApi.createSet(payload),
+);
+
+export const updateSetFx = createEffect(
+  (payload: {
+    setId: string;
+    name: string;
+    originalLang: LanguageCode;
+    translationLang: LanguageCode;
+    pairs: CardEditPair[];
+  }) => setsApi.updateSet(payload),
+);
 
 export const setSetActiveFx = createEffect((payload: { setId: string; active: boolean }) =>
   setsApi.setSetActive(payload.setId, payload.active),
@@ -63,6 +79,7 @@ export const $sets = createStore<CardSet[]>([])
     [
       fetchSetsFx.doneData,
       createSetFx.doneData,
+      updateSetFx.doneData,
       setSetActiveFx.doneData,
       deleteSetFx.doneData,
       reorderSetsFx.doneData,
@@ -76,7 +93,6 @@ export const $sets = createStore<CardSet[]>([])
     ],
     (_, sets) => sets,
   )
-  .on(deleteLanguageFx.doneData, (_, { sets }) => sets)
   .on(importBackupFx.doneData, (_, { sets }) => sets);
 
 export const $setsLoading = createStore(false)

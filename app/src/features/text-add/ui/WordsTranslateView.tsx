@@ -4,11 +4,14 @@ import { IconTranslate } from '@elemental/icons';
 
 import { Box, Button, Divider, FormHelperText, Header, InputText, Stack } from '@elemental/ui-kit';
 
-import { getLanguageName } from '../../../lib/languages';
+import {
+  DEFAULT_ORIGINAL_LANG,
+  DEFAULT_TRANSLATION_LANG,
+  getLanguageName,
+} from '../../../lib/languages';
 import { $languages } from '../../languages/store';
 import { popScreen, popTo } from '../../navigation/store';
-import { addCardsFx } from '../../sets/store';
-import { $originalLang, $translationLang } from '../../theme/store';
+import { addCardsFx, $sets } from '../../sets/store';
 import {
   pairOriginalChanged,
   pairTranslationChanged,
@@ -24,8 +27,10 @@ export function WordsTranslateView({ setId }: { setId: string }) {
   const translating = useUnit(translateAllFx.pending);
   const adding = useUnit(addCardsFx.pending);
   const languages = useUnit($languages);
-  const originalLang = useUnit($originalLang);
-  const translationLang = useUnit($translationLang);
+  const sets = useUnit($sets);
+  const set = sets.find((item) => item.id === setId);
+  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG;
+  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG;
 
   const canTranslate = pairs.some((pair) => pair.original.trim().length > 0);
   const canAdd =

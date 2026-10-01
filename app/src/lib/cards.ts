@@ -1,5 +1,16 @@
 import type { LanguageCode } from './languages';
-import type { Card } from './types';
+import type { Card, CardTexts } from './types';
+
+export function remapTexts(
+  texts: CardTexts,
+  originalLang: LanguageCode,
+  translationLang: LanguageCode,
+): CardTexts {
+  return {
+    [originalLang]: texts[originalLang] ?? '',
+    [translationLang]: texts[translationLang] ?? '',
+  };
+}
 
 export function getCardText(card: Card, preferred: LanguageCode): { lang: LanguageCode; text: string } {
   const text = card.texts[preferred];

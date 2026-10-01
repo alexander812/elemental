@@ -7,18 +7,19 @@ import { IconTranslate } from '@elemental/icons';
 
 import { Box, Button, ButtonIcon, Header, InputText, Stack } from '@elemental/ui-kit';
 
-import { getLanguageName } from '../../../lib/languages';
+import {
+  DEFAULT_ORIGINAL_LANG,
+  DEFAULT_TRANSLATION_LANG,
+  getLanguageName,
+} from '../../../lib/languages';
 import { $languages } from '../../languages/store';
 import { popScreen } from '../../navigation/store';
 import { $sets, addCardFx, updateCardFx } from '../../sets/store';
-import { $originalLang, $translationLang } from '../../theme/store';
 import { translateFx } from '../store';
 
 export function CardCreateView({ setId, cardId }: { setId: string; cardId?: string }) {
   const languages = useUnit($languages);
   const sets = useUnit($sets);
-  const originalLang = useUnit($originalLang);
-  const translationLang = useUnit($translationLang);
   const pending = useUnit(addCardFx.pending);
   const updatePending = useUnit(updateCardFx.pending);
   const translationPending = useUnit(translateFx.pending);
@@ -27,6 +28,10 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
     () => (cardId ? sets.find((item) => item.id === setId)?.cards.find((item) => item.id === cardId) : undefined),
     [sets, setId, cardId],
   );
+
+  const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId]);
+  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG;
+  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG;
 
   const [original, setOriginal] = useState(() => card?.texts[originalLang] ?? '');
   const [translation, setTranslation] = useState(() => card?.texts[translationLang] ?? '');
@@ -68,7 +73,7 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
       await updateCardFx({
         setId,
         cardId: card.id,
-        texts: { ...card.texts, [originalLang]: original, [translationLang]: translation },
+        texts: { [originalLang]: original, [translationLang]: translation },
       });
     } else {
       await addCardFx({ setId, original, translation, originalLang, translationLang });

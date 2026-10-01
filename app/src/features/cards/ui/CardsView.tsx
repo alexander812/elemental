@@ -10,6 +10,7 @@ import {
   IconCheck,
   IconCheckSmall,
   IconClose,
+  IconEdit,
   IconEducation,
   IconMoreHorizontal,
   IconPlusBig,
@@ -29,7 +30,9 @@ import {
 } from '@elemental/ui-kit';
 
 import { getCardText } from '../../../lib/cards';
+import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../../../lib/languages';
 import type { Card as CardModel } from '../../../lib/types';
+import { vibrateLong, vibrateShort } from '../../../transport/haptics';
 import { goToRoot, popScreen, pushScreen } from '../../navigation/store';
 import {
   deleteCardFx,
@@ -40,7 +43,6 @@ import {
   $sets,
   $setsLoading,
 } from '../../sets/store';
-import { $originalLang, $translationLang } from '../../theme/store';
 import { speakFx } from '../store';
 import { FlashCard } from './FlashCard';
 import type { DragPos, Leaving } from './FlashCard';
@@ -55,8 +57,6 @@ type Filter = 'learned' | 'unlearned';
 export function CardsView({ setId }: { setId: string }) {
   const sets = useUnit($sets);
   const setsLoading = useUnit($setsLoading);
-  const originalLang = useUnit($originalLang);
-  const translationLang = useUnit($translationLang);
 
   const [filter, setFilter] = useState<Filter>('unlearned');
   const [excluded, setExcluded] = useState<ReadonlySet<string>>(() => new Set());
@@ -84,6 +84,8 @@ export function CardsView({ setId }: { setId: string }) {
   }, []);
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId]);
+  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG;
+  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG;
   const byId = useMemo(() => {
     const map = new Map<string, CardModel>();
     set?.cards.forEach((card) => map.set(card.id, card));
@@ -151,6 +153,9 @@ export function CardsView({ setId }: { setId: string }) {
 
   const startLeave = (action: Leaving['action'], dragPos: DragPos) => {
     if (!topCard) return;
+
+    if (action === 'later') vibrateShort();
+    if (action === 'learned') vibrateLong();
 
     const leave: Leaving = {
       id: topCard.id,
@@ -303,6 +308,10 @@ export function CardsView({ setId }: { setId: string }) {
     pushScreen({ name: 'text-add', setId });
   };
 
+  const handleEditSet = () => {
+    pushScreen({ name: 'set-create', setId });
+  };
+
   const handleConfirmDeleteSet = async () => {
     await deleteSetFx(setId);
     goToRoot();
@@ -339,6 +348,11 @@ export function CardsView({ setId }: { setId: string }) {
               <ButtonIcon ariaLabel="Меню" icon={<IconMoreHorizontal fontSize={24} />} variant="flat" />
             </Menu.Trigger>
             <Menu.Content>
+              <Menu.Item
+                icon={<IconEdit fontSize={16} />}
+                label="Редактировать"
+                onClick={handleEditSet}
+              />
               <Menu.Item
                 icon={<IconPlusBig fontSize={16} />}
                 label="Добавить текст"

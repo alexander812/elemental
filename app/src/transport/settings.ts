@@ -14,8 +14,12 @@ export const DEFAULT_SETTINGS: Settings = {
   translationLang: DEFAULT_TRANSLATION_LANG,
 };
 
-export async function fetchSettings(): Promise<Settings> {
+export function readSettings(): Settings {
   return { ...DEFAULT_SETTINGS, ...load<Partial<Settings>>(SETTINGS_KEY, {}) };
+}
+
+export async function fetchSettings(): Promise<Settings> {
+  return readSettings();
 }
 
 export async function saveSettings(patch: Partial<Settings>): Promise<Settings> {

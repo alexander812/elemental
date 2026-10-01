@@ -12,8 +12,6 @@ import { CardsView } from '../features/cards/ui/CardsView';
 import { goToRoot, pushScreen, transitionEnded, $screen, $stack, $transition } from '../features/navigation/store';
 import type { Screen } from '../features/navigation/store';
 import { SetCreateView } from '../features/set-create/ui/SetCreateView';
-import { LanguageAddView } from '../features/settings/ui/LanguageAddView';
-import { LanguagesListView } from '../features/settings/ui/LanguagesListView';
 import { LanguagesView } from '../features/settings/ui/LanguagesView';
 import { MenuView } from '../features/settings/ui/MenuView';
 import { ThemeView } from '../features/settings/ui/ThemeView';
@@ -28,7 +26,7 @@ function renderScreen(screen: Screen): ReactNode {
     case 'sets':
       return <SetsView />;
     case 'set-create':
-      return <SetCreateView />;
+      return <SetCreateView setId={screen.setId} />;
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />;
     case 'card-create':
@@ -45,10 +43,6 @@ function renderScreen(screen: Screen): ReactNode {
       return <ThemeView />;
     case 'languages':
       return <LanguagesView />;
-    case 'languages-list':
-      return <LanguagesListView />;
-    case 'language-add':
-      return <LanguageAddView />;
     case 'data':
       return <DataView />;
   }
@@ -59,8 +53,6 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'settings' ||
     name === 'theme' ||
     name === 'languages' ||
-    name === 'languages-list' ||
-    name === 'language-add' ||
     name === 'data'
   );
 }

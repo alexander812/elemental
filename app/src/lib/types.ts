@@ -14,6 +14,8 @@ export interface CardSet {
   name: string;
   active: boolean;
   order: number;
+  originalLang: LanguageCode;
+  translationLang: LanguageCode;
   cards: Card[];
 }
 

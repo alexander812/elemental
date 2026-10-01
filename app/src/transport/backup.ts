@@ -1,15 +1,13 @@
 import {
-  DEFAULT_LANGUAGES,
   DEFAULT_ORIGINAL_LANG,
-  DEFAULT_TRANSLATION_LANG,
+  LANGUAGES_CATALOG,
 } from '../lib/languages';
 import type { Language } from '../lib/languages';
 import type { CardSet, CardTexts, Settings } from '../lib/types';
 import { uid } from '../lib/uid';
-import { fetchLanguages, replaceLanguages } from './languages';
 import { fetchSettings, saveSettings } from './settings';
-import { fetchSets, migrateCard, replaceSets } from './sets';
-import type { LegacyCard } from './sets';
+import { fetchSets, migrateCard, migrateSet, replaceSets } from './sets';
+import type { LegacyCard, LegacySet } from './sets';
 
 export type BackupData = {
   version: number;
@@ -53,7 +51,7 @@ const parseLegacyCard = (value: unknown): LegacyCard | null => {
   };
 };
 
-const parseSets = (value: unknown): CardSet[] => {
+const parseSets = (value: unknown, settings: Settings): CardSet[] => {
   if (!Array.isArray(value)) throw new Error('invalid backup: sets');
 
   return value.map((raw, index) => {
@@ -67,53 +65,35 @@ const parseSets = (value: unknown): CardSet[] => {
           .filter((card) => Object.values(card.texts).some((text) => (text ?? '').trim().length > 0))
       : [];
 
-    return {
+    const set: LegacySet = {
       id: typeof raw.id === 'string' && raw.id ? raw.id : uid(),
       name: typeof raw.name === 'string' && raw.name.trim() ? raw.name.trim() : `Набор ${index + 1}`,
       active: raw.active !== false,
       order: typeof raw.order === 'number' ? raw.order : index,
+      originalLang: typeof raw.originalLang === 'string' ? raw.originalLang : undefined,
+      translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
       cards,
     };
+
+    return migrateSet(set, settings.originalLang, settings.translationLang);
   });
 };
 
-const parseLanguages = (value: unknown): Language[] => {
-  if (!Array.isArray(value)) return DEFAULT_LANGUAGES;
+const CATALOG_CODES = new Set(LANGUAGES_CATALOG.map((language) => language.code));
 
-  const seen = new Set<string>();
-  const languages = value
-    .map((raw) => (isRecord(raw) ? { code: raw.code, name: raw.name } : null))
-    .filter(
-      (item): item is { code: string; name: string } =>
-        item !== null &&
-        typeof item.code === 'string' &&
-        item.code.length > 0 &&
-        typeof item.name === 'string' &&
-        item.name.length > 0,
-    )
-    .filter((item) => {
-      if (seen.has(item.code)) return false;
-
-      seen.add(item.code);
-      return true;
-    })
-    .map((item) => ({ code: item.code, name: item.name }));
-
-  return languages.length >= 2 ? languages : DEFAULT_LANGUAGES;
-};
-
-const parseSettings = (value: unknown, languages: Language[]): Settings => {
+const parseSettings = (value: unknown): Settings => {
   const raw = isRecord(value) ? value : {};
-  const codes = new Set(languages.map((language) => language.code));
-  const fallback = languages[0]?.code ?? DEFAULT_ORIGINAL_LANG;
 
   const originalLang =
-    typeof raw.originalLang === 'string' && codes.has(raw.originalLang) ? raw.originalLang : fallback;
-  const candidates = languages.filter((language) => language.code !== originalLang);
-  const translationFallback = candidates[0]?.code ?? DEFAULT_TRANSLATION_LANG;
+    typeof raw.originalLang === 'string' && CATALOG_CODES.has(raw.originalLang)
+      ? raw.originalLang
+      : DEFAULT_ORIGINAL_LANG;
+  const translationFallback =
+    LANGUAGES_CATALOG.find((language) => language.code !== originalLang)?.code ??
+    originalLang;
   const translationLang =
     typeof raw.translationLang === 'string' &&
-    codes.has(raw.translationLang) &&
+    CATALOG_CODES.has(raw.translationLang) &&
     raw.translationLang !== originalLang
       ? raw.translationLang
       : translationFallback;
@@ -135,40 +115,38 @@ export function parseBackup(raw: string): BackupData {
   }
 
   if (Array.isArray(parsed)) {
+    const settings = parseSettings(undefined);
+
     return {
       version: 1,
       exportedAt: new Date().toISOString(),
-      sets: parseSets(parsed),
-      languages: DEFAULT_LANGUAGES,
-      settings: parseSettings(undefined, DEFAULT_LANGUAGES),
+      sets: parseSets(parsed, settings),
+      languages: LANGUAGES_CATALOG,
+      settings,
     };
   }
 
   if (!isRecord(parsed)) throw new Error('invalid backup: root');
 
-  const languages = parseLanguages(parsed.languages);
+  const settings = parseSettings(parsed.settings);
 
   return {
     version: 1,
     exportedAt: new Date().toISOString(),
-    sets: parseSets(parsed.sets),
-    languages,
-    settings: parseSettings(parsed.settings, languages),
+    sets: parseSets(parsed.sets, settings),
+    languages: LANGUAGES_CATALOG,
+    settings,
   };
 }
 
 export async function createBackup(): Promise<string> {
-  const [sets, languages, settings] = await Promise.all([
-    fetchSets(),
-    fetchLanguages(),
-    fetchSettings(),
-  ]);
+  const [sets, settings] = await Promise.all([fetchSets(), fetchSettings()]);
 
   const data: BackupData = {
     version: 1,
     exportedAt: new Date().toISOString(),
     sets,
-    languages,
+    languages: LANGUAGES_CATALOG,
     settings,
   };
 
@@ -191,7 +169,6 @@ export function downloadBackup(content: string): void {
 
 export async function applyBackup(data: BackupData): Promise<BackupData> {
   await replaceSets(data.sets);
-  await replaceLanguages(data.languages);
   await saveSettings(data.settings);
 
   return data;

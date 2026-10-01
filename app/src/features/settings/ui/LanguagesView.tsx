@@ -6,7 +6,7 @@ import { Box, Button, Card, FormHelperText, Header, Select, Stack, Text } from '
 
 import type { LanguageCode } from '../../../lib/languages';
 import { $languages } from '../../languages/store';
-import { popScreen, pushScreen } from '../../navigation/store';
+import { popScreen } from '../../navigation/store';
 import { setLanguagesFx, $originalLang, $translationLang } from '../../theme/store';
 
 export function LanguagesView() {
@@ -71,13 +71,9 @@ export function LanguagesView() {
           <Button disabled={!canApply} fullWidth loading={pending} onClick={handleApply}>
             Применить
           </Button>
-          <Button
-            fullWidth
-            variant="secondary"
-            onClick={() => pushScreen({ name: 'languages-list' })}
-          >
-            Добавить или удалить язык
-          </Button>
+          <Text align="center" color="contrast-tertiary" variant="XS / Medium">
+            Используются по умолчанию при создании набора
+          </Text>
         </Stack>
       </Box>
     </Box>
