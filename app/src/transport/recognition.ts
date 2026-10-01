@@ -1,5 +1,5 @@
 import type { LanguageCode } from '../lib/languages';
-import { callNative, isNativeBridgeAvailable } from '../lib/nativeBridge';
+import { callNative, callNativeSync, isNativeBridgeAvailable } from '../lib/nativeBridge';
 
 import { SPEECH_LANG } from './speech';
 
@@ -68,7 +68,11 @@ const getRecognitionConstructor = (): BrowserRecognitionConstructor | null => {
 };
 
 export function canRecognize(): boolean {
-  return isNativeBridgeAvailable() || Boolean(getRecognitionConstructor());
+  if (isNativeBridgeAvailable()) {
+    return callNativeSync<boolean>('hasRecognition') ?? true;
+  }
+
+  return Boolean(getRecognitionConstructor());
 }
 
 function recognizeInBrowser(lang: LanguageCode): Promise<RecognitionResult> {

@@ -73,10 +73,11 @@ const RECOGNIZE_ERRORS: Record<string, string> = {
   busy: 'Подождите, распознавание уже идёт',
   network: 'Нет соединения для распознавания',
   no_speech: 'Ничего не расслышали, попробуйте ещё',
-  not_available: 'Распознавание речи недоступно',
+  not_available: 'Распознавание речи недоступно на устройстве',
   permission_denied: 'Разрешите доступ к микрофону',
   recognition_unavailable: 'Распознавание речи недоступно',
   timeout: 'Не удалось расслышать фразу',
+  unknown_method: 'Обновите приложение',
 };
 
 const recognizeErrorText = (error: Error) =>
