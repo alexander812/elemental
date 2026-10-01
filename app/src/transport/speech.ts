@@ -1,4 +1,5 @@
 import type { LanguageCode } from '../lib/languages';
+import { callNative, isNativeBridgeAvailable } from '../lib/nativeBridge';
 
 const SPEECH_LANG: Record<string, string> = {
   ru: 'ru-RU',
@@ -10,14 +11,16 @@ const SPEECH_LANG: Record<string, string> = {
   de: 'de-DE',
 };
 
-export function canSpeak(): boolean {
+function canBrowserSpeak(): boolean {
   return typeof window !== 'undefined' && 'speechSynthesis' in window;
 }
 
-export function speak(text: string, lang: LanguageCode): void {
-  const query = text.trim();
+export function canSpeak(): boolean {
+  return isNativeBridgeAvailable() || canBrowserSpeak();
+}
 
-  if (!query || !canSpeak()) return;
+function speakInBrowser(query: string, lang: LanguageCode): void {
+  if (!canBrowserSpeak()) return;
 
   const synthesis = window.speechSynthesis;
 
@@ -33,4 +36,17 @@ export function speak(text: string, lang: LanguageCode): void {
   if (voice) utterance.voice = voice;
 
   synthesis.speak(utterance);
+}
+
+export function speak(text: string, lang: LanguageCode): void {
+  const query = text.trim();
+
+  if (!query) return;
+
+  if (isNativeBridgeAvailable()) {
+    callNative('speak', { text: query, lang }).catch(() => {});
+    return;
+  }
+
+  speakInBrowser(query, lang);
 }
