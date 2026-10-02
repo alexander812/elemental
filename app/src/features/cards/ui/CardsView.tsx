@@ -46,7 +46,14 @@ import {
   $setsLoading,
 } from '../../sets/store';
 import type { RecognitionSide } from '../store';
-import { recognizeFx, speakFx, $pronunciation, $recognizeFailed, $speakFailed } from '../store';
+import {
+  recognizeFx,
+  speakFx,
+  $asrStatus,
+  $pronunciation,
+  $recognizeFailed,
+  $speakFailed,
+} from '../store';
 import { FlashCard } from './FlashCard';
 import type { DragPos, Leaving } from './FlashCard';
 
@@ -69,8 +76,11 @@ const RECOGNIZE_ERRORS: Record<string, string> = {
   'no-speech': 'Ничего не расслышали, попробуйте ещё',
   'not-allowed': 'Разрешите доступ к микрофону',
   'service-not-allowed': 'Распознавание речи недоступно',
+  asr_download_failed: 'Не удалось скачать распознавание речи',
   audio_error: 'Микрофон недоступен',
+  audio_unavailable: 'Микрофон недоступен',
   busy: 'Подождите, распознавание уже идёт',
+  language_not_supported: 'Для этого языка офлайн-распознавание недоступно',
   network: 'Нет соединения для распознавания',
   no_speech: 'Ничего не расслышали, попробуйте ещё',
   not_available: 'Распознавание речи недоступно на устройстве',
@@ -103,6 +113,7 @@ export function CardsView({ setId }: { setId: string }) {
   const speakFailed = useUnit($speakFailed);
   const pronunciation = useUnit($pronunciation);
   const recognizeFailed = useUnit($recognizeFailed);
+  const asrStatus = useUnit($asrStatus);
   const recognizing = useUnit(recognizeFx.pending);
 
   const dragRef = useRef<DragPos | null>(null);
@@ -545,7 +556,13 @@ export function CardsView({ setId }: { setId: string }) {
           )}
 
           {recognizing ? (
-            <FormHelperText variant="neutral">Слушаю…</FormHelperText>
+            asrStatus?.downloading ? (
+              <FormHelperText variant="neutral">
+                Загружаю распознавание речи… {Math.round(asrStatus.progress * 100)}%
+              </FormHelperText>
+            ) : (
+              <FormHelperText variant="neutral">Слушаю…</FormHelperText>
+            )
           ) : feedback ? (
             <Stack horizontalAlign="center" spacing="xs">
               <FormHelperText variant={feedback.assessment.verdict === 'good' ? 'success' : 'warning'}>

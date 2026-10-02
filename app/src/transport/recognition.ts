@@ -9,6 +9,14 @@ export type RecognitionResult = {
   transcript: string;
 };
 
+export type AsrStatus = {
+  downloading: boolean;
+  error: string | null;
+  installed: boolean;
+  progress: number;
+  sizeBytes: number;
+};
+
 type BrowserAlternative = {
   confidence: number;
   transcript: string;
@@ -147,6 +155,12 @@ function recognizeInBrowser(lang: LanguageCode): Promise<RecognitionResult> {
       finish(() => reject(error instanceof Error ? error : new Error('recognition_failed')));
     }
   });
+}
+
+export function fetchAsrStatus(): Promise<AsrStatus | null> {
+  if (!isNativeBridgeAvailable()) return Promise.resolve(null);
+
+  return callNative<AsrStatus>('asrStatus', {}).then((status) => status ?? null);
 }
 
 export function recognize(lang: LanguageCode): Promise<RecognitionResult> {

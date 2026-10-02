@@ -1,9 +1,11 @@
-import { createEffect, createStore, sample } from 'effector';
+import { createEffect, createEvent, createStore, sample } from 'effector';
 
 import type { LanguageCode } from '../../../lib/languages';
+import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
 import type { PronunciationAssessment } from '../../../lib/pronunciation';
 import { assessPronunciation } from '../../../lib/pronunciation';
-import { recognize } from '../../../transport/recognition';
+import type { AsrStatus } from '../../../transport/recognition';
+import { fetchAsrStatus, recognize } from '../../../transport/recognition';
 import { speak } from '../../../transport/speech';
 
 export const speakFx = createEffect((payload: { text: string; lang: LanguageCode }) =>
@@ -29,10 +31,30 @@ export type PronunciationFeedback = {
   side: RecognitionSide;
 };
 
-export const recognizeFx = createEffect(async ({ lang, text }: RecognizePayload) => {
-  const result = await recognize(lang);
+export const asrStatusReceived = createEvent<AsrStatus | null>();
 
-  return assessPronunciation(text, result.transcript);
+export const $asrStatus = createStore<AsrStatus | null>(null).on(
+  asrStatusReceived,
+  (_, status) => status,
+);
+
+export const recognizeFx = createEffect(async ({ lang, text }: RecognizePayload) => {
+  const polling = isNativeBridgeAvailable()
+    ? setInterval(() => {
+        fetchAsrStatus()
+          .then((status) => asrStatusReceived(status))
+          .catch(() => asrStatusReceived(null));
+      }, 800)
+    : null;
+
+  try {
+    const result = await recognize(lang);
+
+    return assessPronunciation(text, result.transcript);
+  } finally {
+    if (polling) clearInterval(polling);
+    asrStatusReceived(null);
+  }
 });
 
 export const $pronunciation = createStore<PronunciationFeedback | null>(null)
