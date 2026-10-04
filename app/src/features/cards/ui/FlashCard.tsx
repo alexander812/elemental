@@ -40,7 +40,8 @@ export type DragPos = {
 }
 
 export type CheckStatus = {
-  kind: 'success' | 'error'
+  dots?: boolean
+  kind: 'listening' | 'success' | 'error'
   message: string
 }
 
@@ -248,8 +249,20 @@ export function FlashCard({
   }
 
   const statusHelper = checkStatus ? (
-    <FormHelperText rounded variant={checkStatus.kind === 'success' ? 'success' : 'error'}>
+    <FormHelperText
+      rounded
+      variant={
+        checkStatus.kind === 'listening' ? 'neutral' : checkStatus.kind === 'success' ? 'success' : 'error'
+      }
+    >
       {checkStatus.message}
+      {checkStatus.dots ? (
+        <span className={classes.listeningDots}>
+          <span className={classes.listeningDot}>.</span>
+          <span className={classes.listeningDot}>.</span>
+          <span className={classes.listeningDot}>.</span>
+        </span>
+      ) : null}
     </FormHelperText>
   ) : null
 
@@ -301,9 +314,11 @@ export function FlashCard({
           {canRecognize() ? (
             <button
               aria-label={recognizing ? 'Остановить запись' : 'Проверить произношение'}
-              className={`${classes.checkButton} ${checkStateClass(voiceCheck)} ${
-                recognizing ? classes.checkButtonPulse : ''
-              }`}
+              className={`${classes.checkButton} ${
+                recognizing && voiceCheck === null
+                  ? classes.checkButtonListening
+                  : checkStateClass(voiceCheck)
+              } ${recognizing ? classes.checkButtonPulse : ''}`}
               type="button"
               onClick={(event) => {
                 event.stopPropagation()

@@ -14,6 +14,7 @@ import {
   IconEducation,
   IconMoreHorizontal,
   IconPlusBig,
+  IconRefresh,
   IconRestore,
   IconTrash,
 } from '@elemental/icons'
@@ -22,9 +23,9 @@ import {
   Button,
   ButtonIcon,
   EmptyScreen,
-  FormHelperText,
   Header,
   Menu,
+  Modal,
   Spinner,
   Stack,
   Text,
@@ -43,6 +44,7 @@ import {
   deleteCardsFx,
   deleteSetFx,
   fetchSetsFx,
+  resetSetFx,
   setCardLearnedFx,
   updateCardChecksFx,
   $sets,
@@ -102,11 +104,14 @@ export function CardsView({ setId }: { setId: string }) {
   const [flipped, setFlipped] = useState<Record<string, boolean>>({})
   const [menuOpen, setMenuOpen] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
+  const [confirmReset, setConfirmReset] = useState(false)
   const [drag, setDrag] = useState<DragPos | null>(null)
   const [leaving, setLeaving] = useState<Leaving | null>(null)
   const [checkStatus, setCheckStatus] = useState<(CheckStatus & { cardId: string }) | null>(null)
+  const [listeningCardId, setListeningCardId] = useState<string | null>(null)
 
   const deleteSetPending = useUnit(deleteSetFx.pending)
+  const resetPending = useUnit(resetSetFx.pending)
   const asrStatus = useUnit($asrStatus)
   const recognizing = useUnit(recognizeFx.pending)
   const learnAfterChecks = useUnit($learnAfterChecks)
@@ -361,6 +366,16 @@ export function CardsView({ setId }: { setId: string }) {
     setExcluded(new Set())
   }
 
+  const handleConfirmReset = async () => {
+    cancelAutoLearn()
+    await resetSetFx(setId)
+    setConfirmReset(false)
+    setCheckStatus(null)
+    setFlipped({})
+    setExcluded(new Set())
+    setFilter('unlearned')
+  }
+
   const handleNextSet = () => {
     if (!set) {
       goToRoot()
@@ -400,6 +415,7 @@ export function CardsView({ setId }: { setId: string }) {
     if (!expected) return
 
     unlockSounds()
+    setListeningCardId(topCard.id)
 
     try {
       const assessment = await recognizeFx({
@@ -439,6 +455,8 @@ export function CardsView({ setId }: { setId: string }) {
         'error',
         recognizeErrorText(error instanceof Error ? error : new Error('recognition_failed'))
       )
+    } finally {
+      setListeningCardId(null)
     }
   }
 
@@ -550,6 +568,11 @@ export function CardsView({ setId }: { setId: string }) {
                 onClick={handleRestoreDeleted}
               />
               <Menu.Item
+                icon={<IconRefresh fontSize={16} />}
+                label="Сбросить"
+                onClick={() => setConfirmReset(true)}
+              />
+              <Menu.Item
                 icon={<IconTrash fontSize={16} />}
                 label="Удалить весь набор"
                 onClick={() => setConfirmDelete(true)}
@@ -659,7 +682,15 @@ export function CardsView({ setId }: { setId: string }) {
                     checkStatus={
                       checkStatus?.cardId === id
                         ? { kind: checkStatus.kind, message: checkStatus.message }
-                        : null
+                        : listeningCardId === id
+                          ? {
+                              dots: !asrStatus?.downloading,
+                              kind: 'listening',
+                              message: asrStatus?.downloading
+                                ? `Загружаю распознавание речи… ${Math.round(asrStatus.progress * 100)}%`
+                                : 'говорите',
+                            }
+                          : null
                     }
                     depth={index}
                     drag={index === 0 ? drag : null}
@@ -685,12 +716,6 @@ export function CardsView({ setId }: { setId: string }) {
               })}
             </Box>
           )}
-
-          {recognizing && asrStatus?.downloading ? (
-            <FormHelperText variant="neutral">
-              Загружаю распознавание речи… {Math.round(asrStatus.progress * 100)}%
-            </FormHelperText>
-          ) : null}
 
           {!noCards && !confirmDelete && (
             <Stack direction="row" horizontalAlign="center" spacing="m" verticalAlign="center">
@@ -727,6 +752,20 @@ export function CardsView({ setId }: { setId: string }) {
           )}
         </Stack>
       </Box>
+
+      <Modal open={confirmReset} onClose={() => setConfirmReset(false)}>
+        <Stack spacing="m" horizontalAlign="center">
+          <Text align="center" variant="S / Medium">
+            Вы уверены, что хотите сбросить этот набор к первоначальному состоянию?
+          </Text>
+          <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
+            Да
+          </Button>
+          <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
+            Отмена
+          </Button>
+        </Stack>
+      </Modal>
     </Box>
   )
 }

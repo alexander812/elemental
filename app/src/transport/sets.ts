@@ -373,6 +373,23 @@ export async function deleteCards(setId: string, learned: boolean): Promise<Card
   )
 }
 
+export async function resetSet(setId: string): Promise<CardSet[]> {
+  const sets = readSets()
+
+  return writeSets(
+    patchSet(sets, setId, (set) => ({
+      ...set,
+      cards: set.cards.map((card) => ({
+        ...card,
+        learned: false,
+        deleted: false,
+        voiceCheck: null,
+        writeCheck: null,
+      })),
+    })),
+  )
+}
+
 export async function restoreCards(setId: string, cardIds: string[]): Promise<CardSet[]> {
   const sets = readSets()
   const ids = new Set(cardIds)

@@ -82,6 +82,8 @@ export const restoreCardsFx = createEffect((payload: { setId: string; cardIds: s
   setsApi.restoreCards(payload.setId, payload.cardIds)
 )
 
+export const resetSetFx = createEffect((setId: string) => setsApi.resetSet(setId))
+
 export const $sets = createStore<CardSet[]>([])
   .on(
     [
@@ -98,6 +100,7 @@ export const $sets = createStore<CardSet[]>([])
       deleteCardFx.doneData,
       deleteCardsFx.doneData,
       restoreCardsFx.doneData,
+      resetSetFx.doneData,
     ],
     (_, sets) => sets
   )

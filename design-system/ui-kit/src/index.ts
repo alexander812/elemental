@@ -25,6 +25,8 @@ export type { ColorToken, Padding } from './internal/types';
 export { calculateSize, mapColor, pxToRem, pxToRemWithUnit, spacingToNumber } from './internal/utils';
 export { ListItem } from './ListItem';
 export { Menu } from './Menu';
+export { Modal } from './Modal';
+export type { ModalProps } from './Modal';
 export { Radio } from './Radio';
 export { Select } from './Select';
 export type { SelectOption, SelectProps, SelectSize } from './Select';
