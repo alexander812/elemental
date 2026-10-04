@@ -33,13 +33,15 @@ export function WordsTranslateView({ setId }: { setId: string }) {
   const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG;
   const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG;
 
-  const canTranslate = pairs.some((pair) => pair.original.trim().length > 0);
+  const canTranslate = pairs.some(
+    (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0,
+  );
   const canAdd =
     pairs.length > 0 &&
     pairs.every((pair) => pair.original.trim().length > 0 && pair.translation.trim().length > 0);
 
   const handleTranslateAll = () => {
-    translateAllFx({ pairs, from: originalLang, to: translationLang });
+    translateAllFx({ pairs, originalLang, translationLang });
   };
 
   const handleAdd = async () => {

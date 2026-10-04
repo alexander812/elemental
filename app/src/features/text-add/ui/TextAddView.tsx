@@ -5,10 +5,24 @@ import { useUnit } from 'effector-react';
 
 import { IconScan } from '@elemental/icons';
 
-import { Box, Button, FormHelperText, Header, Stack, Text, Textarea } from '@elemental/ui-kit';
+import {
+  Box,
+  Button,
+  FormHelperText,
+  Header,
+  Select,
+  Stack,
+  Text,
+  Textarea,
+} from '@elemental/ui-kit';
 
-import { DEFAULT_ORIGINAL_LANG } from '../../../lib/languages';
+import {
+  DEFAULT_ORIGINAL_LANG,
+  DEFAULT_TRANSLATION_LANG,
+  getLanguageName,
+} from '../../../lib/languages';
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
+import { $languages } from '../../languages/store';
 import { popScreen, pushScreen, $transition } from '../../navigation/store';
 import { $sets } from '../../sets/store';
 import {
@@ -17,6 +31,7 @@ import {
   scanTextFx,
   textChanged,
   textEditRequested,
+  textLangChanged,
   textParsed,
   wordToggled,
   wordsMerged,
@@ -24,6 +39,7 @@ import {
   $selected,
   $step,
   $text,
+  $textLang,
   $words,
 } from '../store';
 
@@ -47,8 +63,17 @@ export function TextAddView({ setId }: { setId: string }) {
   const selected = useUnit($selected);
   const transition = useUnit($transition);
   const sets = useUnit($sets);
-  const originalLang =
-    sets.find((item) => item.id === setId)?.originalLang ?? DEFAULT_ORIGINAL_LANG;
+  const languages = useUnit($languages);
+  const storedTextLang = useUnit($textLang);
+  const set = sets.find((item) => item.id === setId);
+  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG;
+  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG;
+  const textLang = storedTextLang ?? originalLang;
+  const textField = textLang === translationLang ? 'translation' : 'original';
+  const langOptions = [
+    { label: `Оригинал · ${getLanguageName(originalLang, languages)}`, value: originalLang },
+    { label: `Перевод · ${getLanguageName(translationLang, languages)}`, value: translationLang },
+  ];
   const scanPending = useUnit(scanTextFx.pending);
   const scanFailed = useUnit($scanFailed);
 
@@ -179,7 +204,7 @@ export function TextAddView({ setId }: { setId: string }) {
   const canProcess = selected.length > 0;
 
   const handleProcess = () => {
-    pairsCreated();
+    pairsCreated(textField);
     pushScreen({ name: 'words-translate', setId });
   };
 
@@ -196,6 +221,17 @@ export function TextAddView({ setId }: { setId: string }) {
               value={text}
               onChange={textChanged}
             />
+            <Stack spacing="s">
+              <Text color="contrast-secondary" variant="XS / Medium">
+                Язык текста
+              </Text>
+              <Select
+                fullWidth
+                options={langOptions}
+                value={textLang}
+                onChange={textLangChanged}
+              />
+            </Stack>
             {scanAvailable ? (
               <Button
                 disabled={scanPending}
@@ -203,7 +239,7 @@ export function TextAddView({ setId }: { setId: string }) {
                 loading={scanPending}
                 startIcon={<IconScan fontSize={24} />}
                 variant="secondary"
-                onClick={() => scanTextFx(originalLang)}
+                onClick={() => scanTextFx(textLang)}
               >
                 Сканировать текст
               </Button>

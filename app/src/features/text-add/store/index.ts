@@ -35,10 +35,15 @@ export const textChanged = createEvent<string>();
 export const textParsed = createEvent();
 export const textEditRequested = createEvent();
 export const wordToggled = createEvent<string>();
-export const pairsCreated = createEvent();
+export const textLangChanged = createEvent<LanguageCode>();
+export const pairsCreated = createEvent<'original' | 'translation'>();
 export const pairOriginalChanged = createEvent<{ id: string; value: string }>();
 export const pairTranslationChanged = createEvent<{ id: string; value: string }>();
-export const pairTranslated = createEvent<{ id: string; translation: string }>();
+export const pairTranslated = createEvent<{
+  field: 'original' | 'translation';
+  id: string;
+  value: string;
+}>();
 export const resetTextAdd = createEvent();
 
 export const scanTextFx = createEffect((lang: LanguageCode) => scanText(lang));
@@ -65,6 +70,10 @@ export const $text = createStore('')
 export const $step = createStore<'input' | 'words'>('input')
   .on(textParsed, () => 'words' as const)
   .on(textEditRequested, () => 'input' as const)
+  .reset(resetTextAdd);
+
+export const $textLang = createStore<LanguageCode | null>(null)
+  .on(textLangChanged, (_, lang) => lang)
   .reset(resetTextAdd);
 
 export const $words = createStore<string[]>([]).reset(resetTextAdd);
@@ -173,30 +182,49 @@ export const $pairs = createStore<WordPair[]>([])
   .on(pairTranslationChanged, (pairs, { id, value }) =>
     pairs.map((pair) => (pair.id === id ? { ...pair, translation: value } : pair)),
   )
-  .on(pairTranslated, (pairs, { id, translation }) =>
-    pairs.map((pair) => (pair.id === id ? { ...pair, translation } : pair)),
+  .on(pairTranslated, (pairs, { field, id, value }) =>
+    pairs.map((pair) => (pair.id === id ? { ...pair, [field]: value } : pair)),
   )
   .reset(resetTextAdd);
 
 sample({
   clock: pairsCreated,
   source: $selected,
-  fn: (words) => words.map((word) => ({ id: uid(), original: word, translation: '' })),
+  fn: (words, field) =>
+    words.map((word) => ({
+      id: uid(),
+      original: field === 'original' ? word : '',
+      translation: field === 'translation' ? word : '',
+    })),
   target: $pairs,
 });
 
 export const translateAllFx = createEffect(
-  async ({ pairs, from, to }: { pairs: WordPair[]; from: LanguageCode; to: LanguageCode }) => {
+  async ({
+    originalLang,
+    pairs,
+    translationLang,
+  }: {
+    originalLang: LanguageCode;
+    pairs: WordPair[];
+    translationLang: LanguageCode;
+  }) => {
     let failed = false;
 
     for (const pair of pairs) {
-      const text = pair.original.trim();
+      const original = pair.original.trim();
+      const translation = pair.translation.trim();
 
-      if (!text) continue;
+      if (!original && !translation) continue;
 
       try {
-        const translation = await translateText(text, from, to);
-        pairTranslated({ id: pair.id, translation });
+        if (original) {
+          const value = await translateText(original, originalLang, translationLang);
+          pairTranslated({ field: 'translation', id: pair.id, value });
+        } else {
+          const value = await translateText(translation, translationLang, originalLang);
+          pairTranslated({ field: 'original', id: pair.id, value });
+        }
       } catch {
         failed = true;
       }
