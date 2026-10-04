@@ -1,6 +1,6 @@
 export interface Language {
-  code: string;
-  name: string;
+  code: string
+  name: string
 }
 
 export const LANGUAGES_CATALOG: Language[] = [
@@ -11,12 +11,12 @@ export const LANGUAGES_CATALOG: Language[] = [
   { code: 'it', name: 'Italiano' },
   { code: 'zh', name: '中文' },
   { code: 'de', name: 'Deutsch' },
-];
+]
 
-export type LanguageCode = string;
+export type LanguageCode = string
 
-export const DEFAULT_ORIGINAL_LANG: LanguageCode = 'ru';
-export const DEFAULT_TRANSLATION_LANG: LanguageCode = 'en';
+export const DEFAULT_ORIGINAL_LANG: LanguageCode = 'ru'
+export const DEFAULT_TRANSLATION_LANG: LanguageCode = 'en'
 
 export const getLanguageName = (code: LanguageCode, languages: Language[]): string =>
-  languages.find((language) => language.code === code)?.name ?? code;
+  languages.find((language) => language.code === code)?.name ?? code

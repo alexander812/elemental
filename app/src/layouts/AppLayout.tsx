@@ -1,56 +1,63 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
-import type { ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react'
+import type { ReactNode } from 'react'
 
-import { useUnit } from 'effector-react';
+import { useUnit } from 'effector-react'
 
-import { IconSettings, IconViewList } from '@elemental/icons';
+import { IconSettings, IconViewList } from '@elemental/icons'
 
-import { DataView } from '../features/backup/ui/DataView';
-import { CardCreateView } from '../features/card-create/ui/CardCreateView';
-import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView';
-import { CardsView } from '../features/cards/ui/CardsView';
-import { ChecksView } from '../features/settings/ui/ChecksView';
-import { goToRoot, pushScreen, transitionEnded, $screen, $stack, $transition } from '../features/navigation/store';
-import type { Screen } from '../features/navigation/store';
-import { SetCreateView } from '../features/set-create/ui/SetCreateView';
-import { LanguagesView } from '../features/settings/ui/LanguagesView';
-import { MenuView } from '../features/settings/ui/MenuView';
-import { ThemeView } from '../features/settings/ui/ThemeView';
-import { SetsView } from '../features/sets/ui/SetsView';
-import { TextAddView } from '../features/text-add/ui/TextAddView';
-import { WordsTranslateView } from '../features/text-add/ui/WordsTranslateView';
-import { VoicesView } from '../features/voices/ui/VoicesView';
+import { DataView } from '../features/backup/ui/DataView'
+import { CardCreateView } from '../features/card-create/ui/CardCreateView'
+import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
+import { CardsView } from '../features/cards/ui/CardsView'
+import { ChecksView } from '../features/settings/ui/ChecksView'
+import {
+  goToRoot,
+  pushScreen,
+  transitionEnded,
+  $screen,
+  $stack,
+  $transition,
+} from '../features/navigation/store'
+import type { Screen } from '../features/navigation/store'
+import { SetCreateView } from '../features/set-create/ui/SetCreateView'
+import { LanguagesView } from '../features/settings/ui/LanguagesView'
+import { MenuView } from '../features/settings/ui/MenuView'
+import { ThemeView } from '../features/settings/ui/ThemeView'
+import { SetsView } from '../features/sets/ui/SetsView'
+import { TextAddView } from '../features/text-add/ui/TextAddView'
+import { WordsTranslateView } from '../features/text-add/ui/WordsTranslateView'
+import { VoicesView } from '../features/voices/ui/VoicesView'
 
-import classes from './AppLayout.module.pcss';
+import classes from './AppLayout.module.pcss'
 
 function renderScreen(screen: Screen): ReactNode {
   switch (screen.name) {
     case 'sets':
-      return <SetsView />;
+      return <SetsView />
     case 'set-create':
-      return <SetCreateView setId={screen.setId} />;
+      return <SetCreateView setId={screen.setId} />
     case 'cards':
-      return <CardsView key={screen.setId} setId={screen.setId} />;
+      return <CardsView key={screen.setId} setId={screen.setId} />
     case 'card-create':
-      return <CardCreateView cardId={screen.cardId} setId={screen.setId} />;
+      return <CardCreateView cardId={screen.cardId} setId={screen.setId} />
     case 'cards-restore':
-      return <CardsRestoreView key={screen.setId} setId={screen.setId} />;
+      return <CardsRestoreView key={screen.setId} setId={screen.setId} />
     case 'text-add':
-      return <TextAddView key={screen.setId} setId={screen.setId} />;
+      return <TextAddView key={screen.setId} setId={screen.setId} />
     case 'words-translate':
-      return <WordsTranslateView key={screen.setId} setId={screen.setId} />;
+      return <WordsTranslateView key={screen.setId} setId={screen.setId} />
     case 'settings':
-      return <MenuView />;
+      return <MenuView />
     case 'theme':
-      return <ThemeView />;
+      return <ThemeView />
     case 'languages':
-      return <LanguagesView />;
+      return <LanguagesView />
     case 'voices':
-      return <VoicesView />;
+      return <VoicesView />
     case 'checks':
-      return <ChecksView />;
+      return <ChecksView />
     case 'data':
-      return <DataView />;
+      return <DataView />
   }
 }
 
@@ -62,24 +69,24 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'voices' ||
     name === 'checks' ||
     name === 'data'
-  );
+  )
 }
 
 function AppFooter() {
-  const screen = useUnit($screen);
+  const screen = useUnit($screen)
 
-  const isSetsActive = screen.name === 'sets';
-  const isMenuActive = isSettingsScreen(screen.name);
+  const isSetsActive = screen.name === 'sets'
+  const isMenuActive = isSettingsScreen(screen.name)
 
   const handleSets = () => {
-    if (screen.name === 'sets') return;
-    goToRoot();
-  };
+    if (screen.name === 'sets') return
+    goToRoot()
+  }
 
   const handleMenu = () => {
-    if (isSettingsScreen(screen.name)) return;
-    pushScreen({ name: 'settings' });
-  };
+    if (isSettingsScreen(screen.name)) return
+    pushScreen({ name: 'settings' })
+  }
 
   return (
     <div className={classes.footer}>
@@ -100,30 +107,30 @@ function AppFooter() {
         Настройки
       </button>
     </div>
-  );
+  )
 }
 
 export function AppLayout() {
-  const stack = useUnit($stack);
-  const screen = useUnit($screen);
-  const transition = useUnit($transition);
+  const stack = useUnit($stack)
+  const screen = useUnit($screen)
+  const transition = useUnit($transition)
 
-  const mainRef = useRef<HTMLElement>(null);
+  const mainRef = useRef<HTMLElement>(null)
 
-  const entering = transition.kind === 'push';
-  const leavingScreen = transition.kind === 'pop' ? transition.screen : null;
+  const entering = transition.kind === 'push'
+  const leavingScreen = transition.kind === 'pop' ? transition.screen : null
 
   useLayoutEffect(() => {
-    mainRef.current?.scrollTo({ top: 0 });
-  }, [screen]);
+    mainRef.current?.scrollTo({ top: 0 })
+  }, [screen])
 
   useEffect(() => {
-    if (!leavingScreen) return;
+    if (!leavingScreen) return
 
-    const timer = setTimeout(() => transitionEnded(), 400);
+    const timer = setTimeout(() => transitionEnded(), 400)
 
-    return () => clearTimeout(timer);
-  }, [leavingScreen]);
+    return () => clearTimeout(timer)
+  }, [leavingScreen])
 
   return (
     <div className={classes.app}>
@@ -142,5 +149,5 @@ export function AppLayout() {
       </main>
       <AppFooter />
     </div>
-  );
+  )
 }

@@ -1,21 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
-import type { FocusEvent } from 'react';
+import { useEffect, useRef, useState } from 'react'
+import type { FocusEvent } from 'react'
 
-import { IconMicrophone } from '@elemental/icons';
+import { IconMicrophone } from '@elemental/icons'
 
-import { InputText } from '@elemental/ui-kit';
-import type { InputTextProps } from '@elemental/ui-kit';
+import { InputText } from '@elemental/ui-kit'
+import type { InputTextProps } from '@elemental/ui-kit'
 
-import type { LanguageCode } from '../../../lib/languages';
-import { canRecognize, cancelRecognition, recognize } from '../../../transport/recognition';
+import type { LanguageCode } from '../../../lib/languages'
+import { canRecognize, cancelRecognition, recognize } from '../../../transport/recognition'
 
-import classes from './InputWithVoice.module.pcss';
+import classes from './InputWithVoice.module.pcss'
 
 export type InputWithVoiceProps = Omit<InputTextProps, 'endIcon' | 'onChange' | 'value'> & {
-  lang: LanguageCode;
-  onChange: (value: string) => void;
-  value: string;
-};
+  lang: LanguageCode
+  onChange: (value: string) => void
+  value: string
+}
 
 const RECOGNIZE_ERRORS: Record<string, string> = {
   'audio-capture': 'Микрофон недоступен',
@@ -34,61 +34,61 @@ const RECOGNIZE_ERRORS: Record<string, string> = {
   recognition_unavailable: 'Распознавание речи недоступно',
   timeout: 'Не удалось расслышать фразу',
   unknown_method: 'Обновите приложение',
-};
+}
 
 const recognizeErrorText = (error: Error) =>
-  RECOGNIZE_ERRORS[error.message] ?? 'Не удалось распознать речь';
+  RECOGNIZE_ERRORS[error.message] ?? 'Не удалось распознать речь'
 
 const isRecognizeCancelled = (error: unknown) =>
-  error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted');
+  error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted')
 
 export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoiceProps) {
-  const [focused, setFocused] = useState(false);
-  const [listening, setListening] = useState(false);
-  const [recognizeFailed, setRecognizeFailed] = useState<Error | null>(null);
+  const [focused, setFocused] = useState(false)
+  const [listening, setListening] = useState(false)
+  const [recognizeFailed, setRecognizeFailed] = useState<Error | null>(null)
 
-  const valueRef = useRef(value);
-  const sessionRef = useRef(0);
+  const valueRef = useRef(value)
+  const sessionRef = useRef(0)
 
   useEffect(() => {
-    valueRef.current = value;
-  }, [value]);
+    valueRef.current = value
+  }, [value])
 
   const handleRecognize = async () => {
-    if (rest.disabled) return;
+    if (rest.disabled) return
 
     if (listening) {
-      sessionRef.current += 1;
-      cancelRecognition();
-      setListening(false);
-      setRecognizeFailed(null);
-      return;
+      sessionRef.current += 1
+      cancelRecognition()
+      setListening(false)
+      setRecognizeFailed(null)
+      return
     }
 
-    sessionRef.current += 1;
-    const session = sessionRef.current;
+    sessionRef.current += 1
+    const session = sessionRef.current
 
-    setListening(true);
-    setRecognizeFailed(null);
+    setListening(true)
+    setRecognizeFailed(null)
 
     try {
-      const result = await recognize(lang);
-      const text = result.transcript.trim();
+      const result = await recognize(lang)
+      const text = result.transcript.trim()
 
-      if (sessionRef.current !== session) return;
+      if (sessionRef.current !== session) return
 
       if (text) {
-        const current = valueRef.current.trimEnd();
-        onChange(current.length > 0 ? `${current} ${text}` : text);
+        const current = valueRef.current.trimEnd()
+        onChange(current.length > 0 ? `${current} ${text}` : text)
       }
     } catch (error) {
-      if (sessionRef.current !== session || isRecognizeCancelled(error)) return;
+      if (sessionRef.current !== session || isRecognizeCancelled(error)) return
 
-      setRecognizeFailed(error instanceof Error ? error : new Error('recognition_failed'));
+      setRecognizeFailed(error instanceof Error ? error : new Error('recognition_failed'))
     } finally {
-      if (sessionRef.current === session) setListening(false);
+      if (sessionRef.current === session) setListening(false)
     }
-  };
+  }
 
   const microphone =
     focused && canRecognize() ? (
@@ -102,15 +102,15 @@ export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoic
       >
         <IconMicrophone fontSize={20} />
       </button>
-    ) : null;
+    ) : null
 
-  const handleFocus = () => setFocused(true);
+  const handleFocus = () => setFocused(true)
 
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
-    if (event.currentTarget.contains(event.relatedTarget as Node | null)) return;
+    if (event.currentTarget.contains(event.relatedTarget as Node | null)) return
 
-    setFocused(false);
-  };
+    setFocused(false)
+  }
 
   return (
     <div
@@ -127,5 +127,5 @@ export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoic
         onChange={onChange}
       />
     </div>
-  );
+  )
 }

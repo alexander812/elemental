@@ -11,6 +11,7 @@ type FormHelperTextVariant = 'error' | 'neutral' | 'success' | 'warning';
 
 type FormHelperTextProps = PropsWithChildren<{
   dataTest?: string;
+  rounded?: boolean;
   variant?: FormHelperTextVariant;
 }>;
 
@@ -22,9 +23,14 @@ const hostVariantClasses: Record<FormHelperTextVariant, string> = {
 };
 
 export const FormHelperText: FC<FormHelperTextProps> = memo(
-  ({ children, dataTest = 'FormHelperText', variant = 'neutral' }) => {
+  ({ children, dataTest = 'FormHelperText', rounded = false, variant = 'neutral' }) => {
     return (
-      <div className={classNames(classes.host, hostVariantClasses[variant])} data-test={dataTest}>
+      <div
+        className={classNames(classes.host, hostVariantClasses[variant], {
+          [classes.hostRounded]: rounded,
+        })}
+        data-test={dataTest}
+      >
         <Text as="span" inline variant="XS / Medium">
           {children}
         </Text>

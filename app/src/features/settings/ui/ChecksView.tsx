@@ -1,12 +1,12 @@
-import { useUnit } from 'effector-react';
+import { useUnit } from 'effector-react'
 
-import { Box, Card, Header, Stack, Switch, Text } from '@elemental/ui-kit';
+import { Box, Card, Header, Stack, Switch, Text } from '@elemental/ui-kit'
 
-import { popScreen } from '../../navigation/store';
-import { $learnAfterChecks, setLearnAfterChecksFx } from '../../theme/store';
+import { popScreen } from '../../navigation/store'
+import { $learnAfterChecks, setLearnAfterChecksFx } from '../../theme/store'
 
 export function ChecksView() {
-  const learnAfterChecks = useUnit($learnAfterChecks);
+  const learnAfterChecks = useUnit($learnAfterChecks)
 
   return (
     <Box grow height="100%">
@@ -27,5 +27,5 @@ export function ChecksView() {
         </Stack>
       </Box>
     </Box>
-  );
+  )
 }

@@ -1,81 +1,81 @@
 type BridgeResponse = {
-  ok: boolean;
-  data?: unknown;
-  error?: string;
-};
+  ok: boolean
+  data?: unknown
+  error?: string
+}
 
 type AndroidBridge = {
-  call: (requestId: string, method: string, paramsJson: string) => void;
-};
+  call: (requestId: string, method: string, paramsJson: string) => void
+}
 
 type PendingCall = {
-  resolve: (value: unknown) => void;
-  reject: (error: Error) => void;
-};
+  resolve: (value: unknown) => void
+  reject: (error: Error) => void
+}
 
 declare global {
   interface Window {
-    AndroidBridge?: AndroidBridge;
-    __nativeBridgeResolve?: (requestId: string, payloadJson: string) => void;
+    AndroidBridge?: AndroidBridge
+    __nativeBridgeResolve?: (requestId: string, payloadJson: string) => void
   }
 }
 
-const androidBridge = window.AndroidBridge;
-const pending = new Map<string, PendingCall>();
-let sequence = 0;
+const androidBridge = window.AndroidBridge
+const pending = new Map<string, PendingCall>()
+let sequence = 0
 
 const nextRequestId = (): string => {
-  sequence += 1;
+  sequence += 1
 
-  return `req-${Date.now()}-${sequence}`;
-};
+  return `req-${Date.now()}-${sequence}`
+}
 
 if (androidBridge) {
   window.__nativeBridgeResolve = (requestId, payloadJson) => {
-    const call = pending.get(requestId);
+    const call = pending.get(requestId)
 
-    if (!call) return;
+    if (!call) return
 
-    pending.delete(requestId);
+    pending.delete(requestId)
 
-    let response: BridgeResponse;
+    let response: BridgeResponse
 
     try {
-      response = JSON.parse(payloadJson) as BridgeResponse;
+      response = JSON.parse(payloadJson) as BridgeResponse
     } catch {
-      response = { ok: false, error: 'invalid_payload' };
+      response = { ok: false, error: 'invalid_payload' }
     }
 
     if (response.ok) {
-      call.resolve(response.data ?? null);
+      call.resolve(response.data ?? null)
     } else {
-      call.reject(new Error(response.error ?? 'native_error'));
+      call.reject(new Error(response.error ?? 'native_error'))
     }
-  };
+  }
 }
 
-export const isNativeBridgeAvailable = (): boolean => Boolean(androidBridge);
+export const isNativeBridgeAvailable = (): boolean => Boolean(androidBridge)
 
 export const callNative = <T>(method: string, params: Record<string, unknown> = {}): Promise<T> => {
-  if (!androidBridge) return Promise.reject(new Error('bridge_unavailable'));
+  if (!androidBridge) return Promise.reject(new Error('bridge_unavailable'))
 
   return new Promise<T>((resolve, reject) => {
-    const requestId = nextRequestId();
+    const requestId = nextRequestId()
 
-    pending.set(requestId, { resolve: resolve as (value: unknown) => void, reject });
-    androidBridge.call(requestId, method, JSON.stringify(params));
-  });
-};
+    pending.set(requestId, { resolve: resolve as (value: unknown) => void, reject })
+    androidBridge.call(requestId, method, JSON.stringify(params))
+  })
+}
 
 export const callNativeSync = <T>(method: string): T | undefined => {
-  const bridge = window.AndroidBridge as (AndroidBridge & Record<string, unknown>) | undefined;
-  const fn = bridge?.[method];
+  const bridge = window.AndroidBridge as (AndroidBridge & Record<string, unknown>) | undefined
+  const fn = bridge?.[method]
 
-  if (typeof fn !== 'function') return undefined;
+  if (typeof fn !== 'function') return undefined
 
   try {
-    return (fn as () => T)();
+    return (fn as () => T)()
   } catch {
-    return undefined;
+    return undefined
   }
-};
+}

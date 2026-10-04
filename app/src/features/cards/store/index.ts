@@ -1,65 +1,65 @@
-import { createEffect, createEvent, createStore, sample } from 'effector';
+import { createEffect, createEvent, createStore, sample } from 'effector'
 
-import type { LanguageCode } from '../../../lib/languages';
-import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
-import type { PronunciationAssessment } from '../../../lib/pronunciation';
-import { assessPronunciation } from '../../../lib/pronunciation';
-import type { AsrStatus } from '../../../transport/recognition';
-import { cancelRecognition, fetchAsrStatus, recognize } from '../../../transport/recognition';
-import { speak } from '../../../transport/speech';
+import type { LanguageCode } from '../../../lib/languages'
+import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
+import type { PronunciationAssessment } from '../../../lib/pronunciation'
+import { assessPronunciation } from '../../../lib/pronunciation'
+import type { AsrStatus } from '../../../transport/recognition'
+import { cancelRecognition, fetchAsrStatus, recognize } from '../../../transport/recognition'
+import { speak } from '../../../transport/speech'
 
 export const speakFx = createEffect((payload: { text: string; lang: LanguageCode }) =>
-  speak(payload.text, payload.lang),
-);
+  speak(payload.text, payload.lang)
+)
 
 export const $speakFailed = createStore<Error | null>(null)
   .on(speakFx, () => null)
-  .on(speakFx.fail, (_, { error }) => error);
+  .on(speakFx.fail, (_, { error }) => error)
 
-export type RecognitionSide = 'front' | 'back';
+export type RecognitionSide = 'front' | 'back'
 
 export type RecognizePayload = {
-  cardId: string;
-  lang: LanguageCode;
-  side: RecognitionSide;
-  text: string;
-};
+  cardId: string
+  lang: LanguageCode
+  side: RecognitionSide
+  text: string
+}
 
 export type PronunciationFeedback = {
-  assessment: PronunciationAssessment;
-  cardId: string;
-  side: RecognitionSide;
-};
+  assessment: PronunciationAssessment
+  cardId: string
+  side: RecognitionSide
+}
 
-export const asrStatusReceived = createEvent<AsrStatus | null>();
+export const asrStatusReceived = createEvent<AsrStatus | null>()
 
 export const $asrStatus = createStore<AsrStatus | null>(null).on(
   asrStatusReceived,
-  (_, status) => status,
-);
+  (_, status) => status
+)
 
 export const recognizeFx = createEffect(async ({ lang, text }: RecognizePayload) => {
   const polling = isNativeBridgeAvailable()
     ? setInterval(() => {
         fetchAsrStatus()
           .then((status) => asrStatusReceived(status))
-          .catch(() => asrStatusReceived(null));
+          .catch(() => asrStatusReceived(null))
       }, 800)
-    : null;
+    : null
 
   try {
-    const result = await recognize(lang);
+    const result = await recognize(lang)
 
-    return assessPronunciation(text, result.transcript);
+    return assessPronunciation(text, result.transcript)
   } finally {
-    if (polling) clearInterval(polling);
-    asrStatusReceived(null);
+    if (polling) clearInterval(polling)
+    asrStatusReceived(null)
   }
-});
+})
 
 export const $pronunciation = createStore<PronunciationFeedback | null>(null)
   .on(recognizeFx, () => null)
-  .on(recognizeFx.fail, () => null);
+  .on(recognizeFx.fail, () => null)
 
 sample({
   clock: recognizeFx.done,
@@ -69,16 +69,16 @@ sample({
     side: params.side,
   }),
   target: $pronunciation,
-});
+})
 
 export const cancelRecognizeFx = createEffect(() => {
-  cancelRecognition();
-});
+  cancelRecognition()
+})
 
 export const isRecognizeCancelled = (error: unknown) =>
-  error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted');
+  error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted')
 
 export const $recognizeFailed = createStore<Error | null>(null)
   .on(recognizeFx, () => null)
   .on(recognizeFx.done, () => null)
-  .on(recognizeFx.fail, (_, { error }) => (isRecognizeCancelled(error) ? null : error));
+  .on(recognizeFx.fail, (_, { error }) => (isRecognizeCancelled(error) ? null : error))

@@ -7,8 +7,8 @@ import {
   IconClose,
   IconSettings,
   IconViewList,
-} from '@elemental/icons';
-import type { SupportedIconsMap } from '@elemental/ui-kit';
+} from '@elemental/icons'
+import type { SupportedIconsMap } from '@elemental/ui-kit'
 
 export const icons: SupportedIconsMap = {
   arrowDown: ({ size }) => (
@@ -21,4 +21,4 @@ export const icons: SupportedIconsMap = {
   close: ({ size }) => <IconClose fontSize={size} />,
   search: ({ size }) => <IconSettings fontSize={size} />,
   user: ({ size }) => <IconViewList fontSize={size} />,
-};
+}

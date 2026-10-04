@@ -67,6 +67,10 @@
   &:active {
     background: rgb(127 127 127 / 24%);
   }
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 .checkButtonIdle {
@@ -95,7 +99,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 240px;
+  max-width: 300px;
   gap: 8px;
 }
 
@@ -115,27 +119,6 @@
 
   &:focus {
     border-color: var(--accent-bg-default);
-  }
-}
-
-.checkOk {
-  flex-shrink: 0;
-  height: 40px;
-  padding: 0 16px;
-  transition: opacity 150ms ease-in-out;
-  border: none;
-  border-radius: 10px;
-  background: var(--accent-bg-default);
-  color: var(--accent-over);
-  font-family: var(--font-main);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: default;
   }
 }
 

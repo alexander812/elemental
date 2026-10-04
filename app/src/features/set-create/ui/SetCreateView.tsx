@@ -1,9 +1,9 @@
-import { useMemo, useState } from 'react';
-import type { FormEvent } from 'react';
+import { useMemo, useState } from 'react'
+import type { FormEvent } from 'react'
 
-import { useUnit } from 'effector-react';
+import { useUnit } from 'effector-react'
 
-import { IconEducation, IconPlusBig, IconSwapVert, IconTranslate } from '@elemental/icons';
+import { IconEducation, IconPlusBig, IconSwapVert, IconTranslate } from '@elemental/icons'
 
 import {
   Box,
@@ -17,48 +17,48 @@ import {
   Select,
   Stack,
   Text,
-} from '@elemental/ui-kit';
+} from '@elemental/ui-kit'
 
-import { remapTexts } from '../../../lib/cards';
-import { getLanguageName } from '../../../lib/languages';
-import type { LanguageCode } from '../../../lib/languages';
-import { uid } from '../../../lib/uid';
-import { InputWithVoice } from '../../../shared/ui/InputWithVoice';
-import { $languages } from '../../languages/store';
-import { popScreen, pushScreen } from '../../navigation/store';
-import { createSetFx, updateSetFx, $sets } from '../../sets/store';
-import { $originalLang, $translationLang } from '../../theme/store';
-import { translatePairsFx } from '../store';
+import { remapTexts } from '../../../lib/cards'
+import { getLanguageName } from '../../../lib/languages'
+import type { LanguageCode } from '../../../lib/languages'
+import { uid } from '../../../lib/uid'
+import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
+import { $languages } from '../../languages/store'
+import { popScreen, pushScreen } from '../../navigation/store'
+import { createSetFx, updateSetFx, $sets } from '../../sets/store'
+import { $originalLang, $translationLang } from '../../theme/store'
+import { translatePairsFx } from '../store'
 
 type PairDraft = {
-  id: string;
-  cardId?: string;
-  original: string;
-  translation: string;
-};
+  id: string
+  cardId?: string
+  original: string
+  translation: string
+}
 
-const createEmptyPair = (): PairDraft => ({ id: uid(), original: '', translation: '' });
+const createEmptyPair = (): PairDraft => ({ id: uid(), original: '', translation: '' })
 
 export function SetCreateView({ setId }: { setId?: string }) {
-  const sets = useUnit($sets);
-  const languages = useUnit($languages);
-  const settingsOriginalLang = useUnit($originalLang);
-  const settingsTranslationLang = useUnit($translationLang);
-  const createPending = useUnit(createSetFx.pending);
-  const updatePending = useUnit(updateSetFx.pending);
-  const translatePending = useUnit(translatePairsFx.pending);
+  const sets = useUnit($sets)
+  const languages = useUnit($languages)
+  const settingsOriginalLang = useUnit($originalLang)
+  const settingsTranslationLang = useUnit($translationLang)
+  const createPending = useUnit(createSetFx.pending)
+  const updatePending = useUnit(updateSetFx.pending)
+  const translatePending = useUnit(translatePairsFx.pending)
 
   const set = useMemo(
     () => (setId ? sets.find((item) => item.id === setId) : undefined),
-    [sets, setId],
-  );
-  const isEditing = setId !== undefined;
+    [sets, setId]
+  )
+  const isEditing = setId !== undefined
 
-  const [name, setName] = useState(() => set?.name ?? '');
-  const [originalLang, setOriginalLang] = useState(() => set?.originalLang ?? settingsOriginalLang);
+  const [name, setName] = useState(() => set?.name ?? '')
+  const [originalLang, setOriginalLang] = useState(() => set?.originalLang ?? settingsOriginalLang)
   const [translationLang, setTranslationLang] = useState(
-    () => set?.translationLang ?? settingsTranslationLang,
-  );
+    () => set?.translationLang ?? settingsTranslationLang
+  )
   const [pairs, setPairs] = useState<PairDraft[]>(() => {
     const existing = set
       ? set.cards
@@ -69,107 +69,107 @@ export function SetCreateView({ setId }: { setId?: string }) {
             original: card.texts[set.originalLang] ?? '',
             translation: card.texts[set.translationLang] ?? '',
           }))
-      : [];
+      : []
 
-    return existing.length > 0 ? existing : [createEmptyPair()];
-  });
+    return existing.length > 0 ? existing : [createEmptyPair()]
+  })
 
-  const [translateFailed, setTranslateFailed] = useState(false);
+  const [translateFailed, setTranslateFailed] = useState(false)
 
-  const sameLanguages = originalLang === translationLang;
-  const canApply = name.trim().length > 0 && !sameLanguages;
+  const sameLanguages = originalLang === translationLang
+  const canApply = name.trim().length > 0 && !sameLanguages
   const canTranslate = pairs.some(
-    (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0,
-  );
-  const pending = createPending || updatePending;
+    (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0
+  )
+  const pending = createPending || updatePending
 
   const options = useMemo(
     () => languages.map((language) => ({ label: language.name, value: language.code })),
-    [languages],
-  );
+    [languages]
+  )
 
   const originalOptions = useMemo(
     () => options.map((option) => ({ ...option, disabled: option.value === translationLang })),
-    [options, translationLang],
-  );
+    [options, translationLang]
+  )
   const translationOptions = useMemo(
     () => options.map((option) => ({ ...option, disabled: option.value === originalLang })),
-    [options, originalLang],
-  );
+    [options, originalLang]
+  )
 
   const applyLanguages = (nextOriginal: LanguageCode, nextTranslation: LanguageCode) => {
-    setTranslateFailed(false);
+    setTranslateFailed(false)
     setPairs((prev) =>
       prev.map((pair) => {
         const texts = remapTexts(
           { [originalLang]: pair.original, [translationLang]: pair.translation },
           nextOriginal,
-          nextTranslation,
-        );
+          nextTranslation
+        )
 
         return {
           ...pair,
           original: texts[nextOriginal] ?? '',
           translation: texts[nextTranslation] ?? '',
-        };
-      }),
-    );
-    setOriginalLang(nextOriginal);
-    setTranslationLang(nextTranslation);
-  };
+        }
+      })
+    )
+    setOriginalLang(nextOriginal)
+    setTranslationLang(nextTranslation)
+  }
 
   const handleOriginalChange = (value: string) => {
-    applyLanguages(value, translationLang);
-  };
+    applyLanguages(value, translationLang)
+  }
 
   const handleTranslationChange = (value: string) => {
-    applyLanguages(originalLang, value);
-  };
+    applyLanguages(originalLang, value)
+  }
 
   const handleSwap = () => {
-    applyLanguages(translationLang, originalLang);
-  };
+    applyLanguages(translationLang, originalLang)
+  }
 
   const handlePairChange = (id: string, field: 'original' | 'translation', value: string) => {
-    setTranslateFailed(false);
-    setPairs((prev) => prev.map((pair) => (pair.id === id ? { ...pair, [field]: value } : pair)));
-  };
+    setTranslateFailed(false)
+    setPairs((prev) => prev.map((pair) => (pair.id === id ? { ...pair, [field]: value } : pair)))
+  }
 
   const handleAddPair = () => {
-    setPairs((prev) => [...prev, createEmptyPair()]);
-  };
+    setPairs((prev) => [...prev, createEmptyPair()])
+  }
 
   const handleTranslateAll = async () => {
-    if (!canTranslate) return;
+    if (!canTranslate) return
 
-    setTranslateFailed(false);
+    setTranslateFailed(false)
 
-    const { failed, results } = await translatePairsFx({ pairs, originalLang, translationLang });
+    const { failed, results } = await translatePairsFx({ pairs, originalLang, translationLang })
 
     if (results.length > 0) {
       setPairs((prev) =>
         prev.map((pair) => {
-          const result = results.find((item) => item.id === pair.id);
+          const result = results.find((item) => item.id === pair.id)
 
-          return result ? { ...pair, [result.field]: result.value } : pair;
-        }),
-      );
+          return result ? { ...pair, [result.field]: result.value } : pair
+        })
+      )
     }
 
-    setTranslateFailed(failed);
-  };
+    setTranslateFailed(failed)
+  }
 
   const handleSubmit = async (event: FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    if (!canApply) return;
+    if (!canApply) return
 
     const filled = pairs.filter(
       (pair) =>
         pair.cardId !== undefined ||
         pair.original.trim().length > 0 ||
-        pair.translation.trim().length > 0,
-    );
+        pair.translation.trim().length > 0
+    )
 
     if (isEditing && set) {
       await updateSetFx({
@@ -182,10 +182,10 @@ export function SetCreateView({ setId }: { setId?: string }) {
           original,
           translation,
         })),
-      });
+      })
 
-      popScreen();
-      return;
+      popScreen()
+      return
     }
 
     const { setId: createdSetId } = await createSetFx({
@@ -193,11 +193,11 @@ export function SetCreateView({ setId }: { setId?: string }) {
       originalLang,
       translationLang,
       cards: filled.map(({ original, translation }) => ({ original, translation })),
-    });
+    })
 
-    popScreen();
-    pushScreen({ name: 'cards', setId: createdSetId });
-  };
+    popScreen()
+    pushScreen({ name: 'cards', setId: createdSetId })
+  }
 
   if (isEditing && !set) {
     return (
@@ -205,7 +205,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
         <Header back text="Изменить набор" onBackClick={() => popScreen()} />
         <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Набор не найден" />
       </Box>
-    );
+    )
   }
 
   return (
@@ -330,5 +330,5 @@ export function SetCreateView({ setId }: { setId?: string }) {
         </form>
       </Box>
     </Box>
-  );
+  )
 }

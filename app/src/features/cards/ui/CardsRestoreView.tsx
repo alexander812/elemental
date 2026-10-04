@@ -1,47 +1,47 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react'
 
-import { useUnit } from 'effector-react';
+import { useUnit } from 'effector-react'
 
-import { IconEducation, IconRestore } from '@elemental/icons';
-import { Box, Button, Card, Checkbox, EmptyScreen, Header, Stack } from '@elemental/ui-kit';
+import { IconEducation, IconRestore } from '@elemental/icons'
+import { Box, Button, Card, Checkbox, EmptyScreen, Header, Stack } from '@elemental/ui-kit'
 
-import { getCardText } from '../../../lib/cards';
-import { DEFAULT_ORIGINAL_LANG, getLanguageName } from '../../../lib/languages';
-import { $languages } from '../../languages/store';
-import { popScreen } from '../../navigation/store';
-import { restoreCardsFx, $sets } from '../../sets/store';
+import { getCardText } from '../../../lib/cards'
+import { DEFAULT_ORIGINAL_LANG, getLanguageName } from '../../../lib/languages'
+import { $languages } from '../../languages/store'
+import { popScreen } from '../../navigation/store'
+import { restoreCardsFx, $sets } from '../../sets/store'
 
 export function CardsRestoreView({ setId }: { setId: string }) {
-  const sets = useUnit($sets);
-  const languages = useUnit($languages);
-  const pending = useUnit(restoreCardsFx.pending);
+  const sets = useUnit($sets)
+  const languages = useUnit($languages)
+  const pending = useUnit(restoreCardsFx.pending)
 
-  const [selected, setSelected] = useState<ReadonlySet<string>>(() => new Set());
+  const [selected, setSelected] = useState<ReadonlySet<string>>(() => new Set())
 
-  const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId]);
-  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG;
-  const deletedCards = useMemo(() => set?.cards.filter((card) => card.deleted) ?? [], [set]);
+  const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
+  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG
+  const deletedCards = useMemo(() => set?.cards.filter((card) => card.deleted) ?? [], [set])
 
   const toggle = (cardId: string) => {
     setSelected((prev) => {
-      const next = new Set(prev);
+      const next = new Set(prev)
 
       if (next.has(cardId)) {
-        next.delete(cardId);
+        next.delete(cardId)
       } else {
-        next.add(cardId);
+        next.add(cardId)
       }
 
-      return next;
-    });
-  };
+      return next
+    })
+  }
 
   const handleRestore = () => {
-    if (selected.size === 0) return;
+    if (selected.size === 0) return
 
-    restoreCardsFx({ setId, cardIds: [...selected] });
-    popScreen();
-  };
+    restoreCardsFx({ setId, cardIds: [...selected] })
+    popScreen()
+  }
 
   if (!set) {
     return (
@@ -49,7 +49,7 @@ export function CardsRestoreView({ setId }: { setId: string }) {
         <Header back text="Восстановить удалённые" onBackClick={() => popScreen()} />
         <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Набор не найден" />
       </Box>
-    );
+    )
   }
 
   return (
@@ -57,13 +57,17 @@ export function CardsRestoreView({ setId }: { setId: string }) {
       <Header back text="Восстановить удалённые" onBackClick={() => popScreen()} />
       <Box grow padding="m">
         {deletedCards.length === 0 ? (
-          <EmptyScreen fullHeight icon={<IconRestore fontSize={24} />} text="Нет удалённых карточек" />
+          <EmptyScreen
+            fullHeight
+            icon={<IconRestore fontSize={24} />}
+            text="Нет удалённых карточек"
+          />
         ) : (
           <Stack spacing="l" height="100%">
             <Card padding="m">
               <Stack spacing="l">
                 {deletedCards.map((card) => {
-                  const { lang, text } = getCardText(card, originalLang);
+                  const { lang, text } = getCardText(card, originalLang)
 
                   return (
                     <Checkbox
@@ -73,16 +77,21 @@ export function CardsRestoreView({ setId }: { setId: string }) {
                       subLabel={getLanguageName(lang, languages)}
                       onChange={() => toggle(card.id)}
                     />
-                  );
+                  )
                 })}
               </Stack>
             </Card>
-            <Button disabled={selected.size === 0} fullWidth loading={pending} onClick={handleRestore}>
+            <Button
+              disabled={selected.size === 0}
+              fullWidth
+              loading={pending}
+              onClick={handleRestore}
+            >
               Восстановить
             </Button>
           </Stack>
         )}
       </Box>
     </Box>
-  );
+  )
 }

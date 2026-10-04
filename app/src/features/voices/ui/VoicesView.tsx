@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-import { useUnit } from 'effector-react';
+import { useUnit } from 'effector-react'
 
-import { Box, Button, Card, FormHelperText, Header, Stack, Text } from '@elemental/ui-kit';
+import { Box, Button, Card, FormHelperText, Header, Stack, Text } from '@elemental/ui-kit'
 
-import { getLanguageName } from '../../../lib/languages';
-import type { VoiceStatus } from '../../../transport/voices';
-import { $languages } from '../../languages/store';
-import { popScreen } from '../../navigation/store';
+import { getLanguageName } from '../../../lib/languages'
+import type { VoiceStatus } from '../../../transport/voices'
+import { $languages } from '../../languages/store'
+import { popScreen } from '../../navigation/store'
 import {
   deleteVoiceFx,
   downloadVoiceFx,
@@ -16,45 +16,45 @@ import {
   $voiceManagerAvailable,
   $voices,
   $voicesDownloading,
-} from '../store';
+} from '../store'
 
-const formatSize = (sizeBytes: number) => `${Math.round(sizeBytes / 1024 / 1024)} МБ`;
+const formatSize = (sizeBytes: number) => `${Math.round(sizeBytes / 1024 / 1024)} МБ`
 
 const VOICE_ERRORS: Record<string, string> = {
   voice_incomplete: 'Загрузка не завершилась, попробуйте ещё раз',
   storage_unavailable: 'Недостаточно места на устройстве',
   asset_extract_failed: 'Не удалось установить голосовой движок',
-};
+}
 
 export function VoicesView() {
-  const languages = useUnit($languages);
-  const voices = useUnit($voices);
-  const available = useUnit($voiceManagerAvailable);
-  const downloading = useUnit($voicesDownloading);
+  const languages = useUnit($languages)
+  const voices = useUnit($voices)
+  const available = useUnit($voiceManagerAvailable)
+  const downloading = useUnit($voicesDownloading)
 
-  const [deletingLang, setDeletingLang] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (available) voicesRequested();
-  }, [available]);
+  const [deletingLang, setDeletingLang] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!downloading) return;
+    if (available) voicesRequested()
+  }, [available])
 
-    const timer = setInterval(() => fetchVoicesFx(), 1000);
+  useEffect(() => {
+    if (!downloading) return
 
-    return () => clearInterval(timer);
-  }, [downloading]);
+    const timer = setInterval(() => fetchVoicesFx(), 1000)
+
+    return () => clearInterval(timer)
+  }, [downloading])
 
   const handleDelete = (lang: string) => {
-    setDeletingLang(lang);
+    setDeletingLang(lang)
     deleteVoiceFx(lang)
       .catch(() => undefined)
-      .finally(() => setDeletingLang(null));
-  };
+      .finally(() => setDeletingLang(null))
+  }
 
   const renderVoice = (voice: VoiceStatus) => {
-    const deleting = deletingLang === voice.lang;
+    const deleting = deletingLang === voice.lang
 
     return (
       <Card key={voice.lang} padding="l">
@@ -91,8 +91,8 @@ export function VoicesView() {
           </FormHelperText>
         ) : null}
       </Card>
-    );
-  };
+    )
+  }
 
   return (
     <Box grow height="100%">
@@ -109,5 +109,5 @@ export function VoicesView() {
         </Stack>
       </Box>
     </Box>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-import { useUnit } from 'effector-react';
+import { useUnit } from 'effector-react'
 
-import { IconTranslate } from '@elemental/icons';
+import { IconTranslate } from '@elemental/icons'
 
-import { Box, Button, Divider, FormHelperText, Header, Stack } from '@elemental/ui-kit';
+import { Box, Button, Divider, FormHelperText, Header, Stack } from '@elemental/ui-kit'
 
 import {
   DEFAULT_ORIGINAL_LANG,
   DEFAULT_TRANSLATION_LANG,
   getLanguageName,
-} from '../../../lib/languages';
-import { InputWithVoice } from '../../../shared/ui/InputWithVoice';
-import { $languages } from '../../languages/store';
-import { popScreen, popTo } from '../../navigation/store';
-import { addCardsFx, $sets } from '../../sets/store';
+} from '../../../lib/languages'
+import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
+import { $languages } from '../../languages/store'
+import { popScreen, popTo } from '../../navigation/store'
+import { addCardsFx, $sets } from '../../sets/store'
 import {
   pairOriginalChanged,
   pairTranslationChanged,
@@ -20,32 +20,32 @@ import {
   translateAllFx,
   $pairs,
   $translateFailed,
-} from '../store';
+} from '../store'
 
 export function WordsTranslateView({ setId }: { setId: string }) {
-  const pairs = useUnit($pairs);
-  const translateFailed = useUnit($translateFailed);
-  const translating = useUnit(translateAllFx.pending);
-  const adding = useUnit(addCardsFx.pending);
-  const languages = useUnit($languages);
-  const sets = useUnit($sets);
-  const set = sets.find((item) => item.id === setId);
-  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG;
-  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG;
+  const pairs = useUnit($pairs)
+  const translateFailed = useUnit($translateFailed)
+  const translating = useUnit(translateAllFx.pending)
+  const adding = useUnit(addCardsFx.pending)
+  const languages = useUnit($languages)
+  const sets = useUnit($sets)
+  const set = sets.find((item) => item.id === setId)
+  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG
+  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG
 
   const canTranslate = pairs.some(
-    (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0,
-  );
+    (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0
+  )
   const canAdd =
     pairs.length > 0 &&
-    pairs.every((pair) => pair.original.trim().length > 0 && pair.translation.trim().length > 0);
+    pairs.every((pair) => pair.original.trim().length > 0 && pair.translation.trim().length > 0)
 
   const handleTranslateAll = () => {
-    translateAllFx({ pairs, originalLang, translationLang });
-  };
+    translateAllFx({ pairs, originalLang, translationLang })
+  }
 
   const handleAdd = async () => {
-    if (!canAdd) return;
+    if (!canAdd) return
 
     await addCardsFx({
       setId,
@@ -53,11 +53,11 @@ export function WordsTranslateView({ setId }: { setId: string }) {
         [originalLang]: pair.original,
         [translationLang]: pair.translation,
       })),
-    });
+    })
 
-    resetTextAdd();
-    popTo('cards');
-  };
+    resetTextAdd()
+    popTo('cards')
+  }
 
   return (
     <Box grow height="100%">
@@ -111,5 +111,5 @@ export function WordsTranslateView({ setId }: { setId: string }) {
         </Stack>
       </Box>
     </Box>
-  );
+  )
 }

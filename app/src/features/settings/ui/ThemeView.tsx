@@ -1,17 +1,17 @@
-import { useUnit } from 'effector-react';
+import { useUnit } from 'effector-react'
 
-import { Box, Card, Header, Radio, Stack } from '@elemental/ui-kit';
+import { Box, Card, Header, Radio, Stack } from '@elemental/ui-kit'
 
-import { popScreen } from '../../navigation/store';
-import { $theme, setThemeFx } from '../../theme/store';
-import type { ThemeName } from '../../../lib/types';
+import { popScreen } from '../../navigation/store'
+import { $theme, setThemeFx } from '../../theme/store'
+import type { ThemeName } from '../../../lib/types'
 
 export function ThemeView() {
-  const theme = useUnit($theme);
+  const theme = useUnit($theme)
 
   const handleChange = (value: string) => {
-    setThemeFx(value as ThemeName);
-  };
+    setThemeFx(value as ThemeName)
+  }
 
   return (
     <Box grow height="100%">
@@ -29,5 +29,5 @@ export function ThemeView() {
         </Stack>
       </Box>
     </Box>
-  );
+  )
 }
