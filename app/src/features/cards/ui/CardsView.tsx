@@ -47,6 +47,7 @@ import {
 } from '../../sets/store';
 import type { RecognitionSide } from '../store';
 import {
+  cancelRecognizeFx,
   recognizeFx,
   speakFx,
   $asrStatus,
@@ -360,6 +361,11 @@ export function CardsView({ setId }: { setId: string }) {
   };
 
   const handleRecognize = (side: RecognitionSide, text: string, lang: LanguageCode) => {
+    if (recognizing) {
+      cancelRecognizeFx();
+      return;
+    }
+
     if (!topCard) return;
 
     recognizeFx({ cardId: topCard.id, lang, side, text });

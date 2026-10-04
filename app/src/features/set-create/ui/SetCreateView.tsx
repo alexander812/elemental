@@ -23,6 +23,7 @@ import { remapTexts } from '../../../lib/cards';
 import { getLanguageName } from '../../../lib/languages';
 import type { LanguageCode } from '../../../lib/languages';
 import { uid } from '../../../lib/uid';
+import { InputWithVoice } from '../../../shared/ui/InputWithVoice';
 import { $languages } from '../../languages/store';
 import { popScreen, pushScreen } from '../../navigation/store';
 import { createSetFx, updateSetFx, $sets } from '../../sets/store';
@@ -273,17 +274,19 @@ export function SetCreateView({ setId }: { setId?: string }) {
                 {pairs.map((pair, index) => (
                   <Stack key={pair.id} spacing="s">
                     {index > 0 ? <Divider /> : null}
-                    <InputText
+                    <InputWithVoice
                       floatingLabel
                       fullWidth
+                      lang={originalLang}
                       placeholder={`Оригинал · ${getLanguageName(originalLang, languages)}`}
                       size="m"
                       value={pair.original}
                       onChange={(value) => handlePairChange(pair.id, 'original', value)}
                     />
-                    <InputText
+                    <InputWithVoice
                       floatingLabel
                       fullWidth
+                      lang={translationLang}
                       placeholder={`Перевод · ${getLanguageName(translationLang, languages)}`}
                       size="m"
                       value={pair.translation}

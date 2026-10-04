@@ -5,7 +5,7 @@ import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
 import type { PronunciationAssessment } from '../../../lib/pronunciation';
 import { assessPronunciation } from '../../../lib/pronunciation';
 import type { AsrStatus } from '../../../transport/recognition';
-import { fetchAsrStatus, recognize } from '../../../transport/recognition';
+import { cancelRecognition, fetchAsrStatus, recognize } from '../../../transport/recognition';
 import { speak } from '../../../transport/speech';
 
 export const speakFx = createEffect((payload: { text: string; lang: LanguageCode }) =>
@@ -71,7 +71,14 @@ sample({
   target: $pronunciation,
 });
 
+export const cancelRecognizeFx = createEffect(() => {
+  cancelRecognition();
+});
+
+const isRecognizeCancelled = (error: Error) =>
+  error.message === 'cancelled' || error.message === 'aborted';
+
 export const $recognizeFailed = createStore<Error | null>(null)
   .on(recognizeFx, () => null)
   .on(recognizeFx.done, () => null)
-  .on(recognizeFx.fail, (_, { error }) => error);
+  .on(recognizeFx.fail, (_, { error }) => (isRecognizeCancelled(error) ? null : error));

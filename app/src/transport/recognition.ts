@@ -56,6 +56,9 @@ type BrowserRecognitionConstructor = new () => BrowserRecognition;
 
 const RECOGNITION_TIMEOUT_MS = 10000;
 
+let activeRecognition: BrowserRecognition | null = null;
+const cancelledRecognitions = new WeakSet<BrowserRecognition>();
+
 const stopRecognition = (recognition: BrowserRecognition): void => {
   try {
     recognition.abort();
@@ -100,6 +103,8 @@ function recognizeInBrowser(lang: LanguageCode): Promise<RecognitionResult> {
 
       if (timeout) clearTimeout(timeout);
 
+      if (activeRecognition === recognition) activeRecognition = null;
+
       recognition.onresult = null;
       recognition.onerror = null;
       recognition.onend = null;
@@ -137,11 +142,15 @@ function recognizeInBrowser(lang: LanguageCode): Promise<RecognitionResult> {
     };
 
     recognition.onerror = (event) => {
-      finish(() => reject(new Error(event.error || 'recognition_failed')));
+      const reason = cancelledRecognitions.has(recognition)
+        ? 'cancelled'
+        : event.error || 'recognition_failed';
+
+      finish(() => reject(new Error(reason)));
     };
 
     recognition.onend = () => {
-      finish(() => reject(new Error('no-speech')));
+      finish(() => reject(new Error(cancelledRecognitions.has(recognition) ? 'cancelled' : 'no-speech')));
     };
 
     timeout = setTimeout(() => {
@@ -149,12 +158,29 @@ function recognizeInBrowser(lang: LanguageCode): Promise<RecognitionResult> {
       finish(() => reject(new Error('timeout')));
     }, RECOGNITION_TIMEOUT_MS);
 
+    activeRecognition = recognition;
+
     try {
       recognition.start();
     } catch (error) {
       finish(() => reject(error instanceof Error ? error : new Error('recognition_failed')));
     }
   });
+}
+
+export function cancelRecognition(): void {
+  if (isNativeBridgeAvailable()) {
+    callNative('cancelRecognizeSpeech', {}).catch(() => undefined);
+    return;
+  }
+
+  const recognition = activeRecognition;
+
+  if (!recognition) return;
+
+  activeRecognition = null;
+  cancelledRecognitions.add(recognition);
+  stopRecognition(recognition);
 }
 
 export function fetchAsrStatus(): Promise<AsrStatus | null> {

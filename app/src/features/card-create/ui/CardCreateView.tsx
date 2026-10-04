@@ -5,13 +5,14 @@ import { useUnit } from 'effector-react';
 
 import { IconTranslate } from '@elemental/icons';
 
-import { Box, Button, ButtonIcon, Header, InputText, Stack } from '@elemental/ui-kit';
+import { Box, Button, ButtonIcon, Header, Stack } from '@elemental/ui-kit';
 
 import {
   DEFAULT_ORIGINAL_LANG,
   DEFAULT_TRANSLATION_LANG,
   getLanguageName,
 } from '../../../lib/languages';
+import { InputWithVoice } from '../../../shared/ui/InputWithVoice';
 import { $languages } from '../../languages/store';
 import { popScreen } from '../../navigation/store';
 import { $sets, addCardFx, updateCardFx } from '../../sets/store';
@@ -93,10 +94,11 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
         <form onSubmit={handleSubmit}>
           <Stack spacing="l">
             <Stack direction="row" spacing="s" verticalAlign="center">
-              <InputText
+              <InputWithVoice
                 autoFocus
                 floatingLabel
                 fullWidth
+                lang={originalLang}
                 placeholder={`Оригинал · ${getLanguageName(originalLang, languages)}`}
                 size="m"
                 value={original}
@@ -113,12 +115,13 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
                 onClick={handleTranslate}
               />
             </Stack>
-            <InputText
+            <InputWithVoice
               floatingLabel
               fullWidth
               helperText={
                 translationFailed ? 'Не удалось перевести — введите перевод вручную' : undefined
               }
+              lang={translationLang}
               placeholder={`Перевод · ${getLanguageName(translationLang, languages)}`}
               size="m"
               value={translation}

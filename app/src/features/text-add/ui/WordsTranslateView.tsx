@@ -2,13 +2,14 @@ import { useUnit } from 'effector-react';
 
 import { IconTranslate } from '@elemental/icons';
 
-import { Box, Button, Divider, FormHelperText, Header, InputText, Stack } from '@elemental/ui-kit';
+import { Box, Button, Divider, FormHelperText, Header, Stack } from '@elemental/ui-kit';
 
 import {
   DEFAULT_ORIGINAL_LANG,
   DEFAULT_TRANSLATION_LANG,
   getLanguageName,
 } from '../../../lib/languages';
+import { InputWithVoice } from '../../../shared/ui/InputWithVoice';
 import { $languages } from '../../languages/store';
 import { popScreen, popTo } from '../../navigation/store';
 import { addCardsFx, $sets } from '../../sets/store';
@@ -64,17 +65,19 @@ export function WordsTranslateView({ setId }: { setId: string }) {
           {pairs.map((pair, index) => (
             <Stack key={pair.id} spacing="s">
               {index > 0 ? <Divider /> : null}
-              <InputText
+              <InputWithVoice
                 floatingLabel
                 fullWidth
+                lang={originalLang}
                 placeholder={`Оригинал · ${getLanguageName(originalLang, languages)}`}
                 size="m"
                 value={pair.original}
                 onChange={(value) => pairOriginalChanged({ id: pair.id, value })}
               />
-              <InputText
+              <InputWithVoice
                 floatingLabel
                 fullWidth
+                lang={translationLang}
                 placeholder={`Перевод · ${getLanguageName(translationLang, languages)}`}
                 size="m"
                 value={pair.translation}

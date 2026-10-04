@@ -142,6 +142,7 @@ export function FlashCard({
     fontSize: 20,
     fontWeight: 700,
     transition: 'opacity 80ms linear',
+    pointerEvents: 'none',
     ...(side === 'left'
       ? { top: 24, left: 24, transform: 'rotate(-12deg)', color: 'var(--positive-text-and-icons)', opacity: leftBadgeOpacity }
       : side === 'right'
@@ -176,10 +177,12 @@ export function FlashCard({
     <div className={classes.cardActions}>
       {actionButton('Изменить', <IconEdit fontSize={24} />, onEdit)}
       {canRecognize()
-        ? actionButton('Проверить произношение', <IconMicrophone fontSize={24} />, onRecognize, {
-            active: recognizing,
-            disabled: recognizing,
-          })
+        ? actionButton(
+            recognizing ? 'Остановить запись' : 'Проверить произношение',
+            <IconMicrophone fontSize={24} />,
+            onRecognize,
+            { active: recognizing },
+          )
         : null}
       {canSpeak() ? actionButton('Озвучить', <IconSound fontSize={24} />, onSpeak) : null}
     </div>

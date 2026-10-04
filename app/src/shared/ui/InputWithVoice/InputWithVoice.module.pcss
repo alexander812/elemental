@@ -1,0 +1,42 @@
+.mic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  transition:
+    color 150ms ease-in-out,
+    background-color 150ms ease-in-out;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--contrast-secondary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    background: var(--control-bg-hover);
+    color: var(--contrast-primary);
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.micActive {
+  color: var(--negative-text-and-icons);
+  animation: microphonePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes microphonePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
