@@ -1,0 +1,92 @@
+.host {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.itemContent {
+  display: inline-grid;
+  grid-auto-flow: column;
+  place-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.itemContentDisabled {
+  cursor: not-allowed;
+}
+
+.itemNativeInput {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 44px;
+  height: 26px;
+  margin: 0;
+  opacity: 0;
+}
+
+.itemFakeInput {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  align-items: center;
+  width: 44px;
+  height: 26px;
+  padding: 3px;
+  transition:
+    background-color 250ms ease-out,
+    border-color 250ms ease-out;
+  border: 2px solid var(--contrast-quaternary);
+  border-radius: 13px;
+  background-color: var(--control-bg-default);
+  pointer-events: none;
+}
+
+.itemThumb {
+  width: 16px;
+  height: 16px;
+  transition:
+    transform 250ms ease-out,
+    background-color 250ms ease-out;
+  border-radius: 50%;
+  background-color: var(--contrast-secondary);
+}
+
+[data-focus-visible='true'] .itemNativeInput:focus-visible + .itemFakeInput {
+  outline: 2px solid var(--accent-text-and-icons);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .itemContent:not(.itemContentDisabled):hover .itemFakeInput {
+    background-color: var(--control-bg-hover);
+  }
+}
+
+.itemNativeInput:checked:not(:disabled) + .itemFakeInput {
+  border-color: var(--accent-bg-default);
+  background-color: var(--accent-bg-default);
+}
+
+.itemNativeInput:checked + .itemFakeInput .itemThumb {
+  transform: translateX(18px);
+  background-color: var(--accent-over);
+}
+
+.itemNativeInput:disabled + .itemFakeInput {
+  background-color: var(--control-bg-inactive);
+}
+
+.labelContainer {
+  display: inline-grid;
+  grid-auto-flow: row;
+  color: var(--contrast-primary);
+  text-align: start;
+  vertical-align: top;
+  gap: 4px;
+}

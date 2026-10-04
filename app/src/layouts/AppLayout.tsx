@@ -9,6 +9,7 @@ import { DataView } from '../features/backup/ui/DataView';
 import { CardCreateView } from '../features/card-create/ui/CardCreateView';
 import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView';
 import { CardsView } from '../features/cards/ui/CardsView';
+import { ChecksView } from '../features/settings/ui/ChecksView';
 import { goToRoot, pushScreen, transitionEnded, $screen, $stack, $transition } from '../features/navigation/store';
 import type { Screen } from '../features/navigation/store';
 import { SetCreateView } from '../features/set-create/ui/SetCreateView';
@@ -46,6 +47,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <LanguagesView />;
     case 'voices':
       return <VoicesView />;
+    case 'checks':
+      return <ChecksView />;
     case 'data':
       return <DataView />;
   }
@@ -57,6 +60,7 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'theme' ||
     name === 'languages' ||
     name === 'voices' ||
+    name === 'checks' ||
     name === 'data'
   );
 }

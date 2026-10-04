@@ -30,6 +30,8 @@ export { Select } from './Select';
 export type { SelectOption, SelectProps, SelectSize } from './Select';
 export { Spinner } from './Spinner';
 export { Stack } from './Stack';
+export { Switch } from './Switch';
+export type { SwitchProps } from './Switch';
 export { Text } from './Text';
 export type { TextVariant } from './Text';
 export { Textarea } from './Textarea';

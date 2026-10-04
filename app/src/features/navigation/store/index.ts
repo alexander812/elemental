@@ -14,6 +14,7 @@ export type Screen =
   | { name: 'theme' }
   | { name: 'languages' }
   | { name: 'voices' }
+  | { name: 'checks' }
   | { name: 'data' };
 
 export type Transition =

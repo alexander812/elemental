@@ -7,6 +7,8 @@ export interface Card {
   texts: CardTexts;
   learned: boolean;
   deleted: boolean;
+  voiceCheck: boolean | null;
+  writeCheck: boolean | null;
 }
 
 export interface CardSet {
@@ -25,4 +27,5 @@ export interface Settings {
   theme: ThemeName;
   originalLang: LanguageCode;
   translationLang: LanguageCode;
+  learnAfterChecks: boolean;
 }

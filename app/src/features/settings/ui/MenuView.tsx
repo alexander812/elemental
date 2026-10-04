@@ -1,4 +1,11 @@
-import { IconChevronRight, IconDownload, IconPalette, IconSound, IconTranslate } from '@elemental/icons';
+import {
+  IconChevronRight,
+  IconDownload,
+  IconPalette,
+  IconSound,
+  IconTasks,
+  IconTranslate,
+} from '@elemental/icons';
 import { Box, Card, Header, ListItem, Stack, Text } from '@elemental/ui-kit';
 
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge';
@@ -51,6 +58,18 @@ export function MenuView() {
                 />
               </ListItem>
             ) : null}
+            <ListItem
+              data={{ screen: 'checks' }}
+              onClick={() => pushScreen({ name: 'checks' })}
+            >
+              <ListItem.StartBlock
+                icon={<IconTasks fontSize={24} color="var(--accent-text-and-icons)" />}
+                title={<Text variant="M / Medium">Проверки</Text>}
+              />
+              <ListItem.EndBlock
+                content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+              />
+            </ListItem>
             <ListItem
               data={{ screen: 'data' }}
               onClick={() => pushScreen({ name: 'data' })}

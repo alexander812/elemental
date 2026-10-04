@@ -12,6 +12,7 @@ export const DEFAULT_SETTINGS: Settings = {
   theme: 'dark',
   originalLang: DEFAULT_ORIGINAL_LANG,
   translationLang: DEFAULT_TRANSLATION_LANG,
+  learnAfterChecks: false,
 };
 
 export function readSettings(): Settings {
@@ -37,4 +38,8 @@ export async function saveLanguages(
   translationLang: LanguageCode,
 ): Promise<Settings> {
   return saveSettings({ originalLang, translationLang });
+}
+
+export async function saveLearnAfterChecks(learnAfterChecks: boolean): Promise<Settings> {
+  return saveSettings({ learnAfterChecks });
 }

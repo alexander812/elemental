@@ -40,6 +40,105 @@
   animation: microphonePulse 1.2s ease-in-out infinite;
 }
 
+.cardChecks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.checkButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  transition:
+    color 150ms ease-in-out,
+    border-color 150ms ease-in-out,
+    background-color 150ms ease-in-out;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    background: rgb(127 127 127 / 24%);
+  }
+}
+
+.checkButtonIdle {
+  border-color: currentColor;
+  color: inherit;
+  opacity: 0.6;
+}
+
+.checkButtonSuccess {
+  border-color: var(--positive-text-and-icons);
+  color: var(--positive-text-and-icons);
+  opacity: 1;
+}
+
+.checkButtonFailure {
+  border-color: var(--negative-text-and-icons);
+  color: var(--negative-text-and-icons);
+  opacity: 1;
+}
+
+.checkButtonPulse {
+  animation: microphonePulse 1.2s ease-in-out infinite;
+}
+
+.checkForm {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 240px;
+  gap: 8px;
+}
+
+.checkInput {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+  border: 2px solid var(--contrast-quaternary);
+  border-radius: 10px;
+  outline: none;
+  background: var(--surface-elevation-1);
+  color: var(--contrast-primary);
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 500;
+
+  &:focus {
+    border-color: var(--accent-bg-default);
+  }
+}
+
+.checkOk {
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 16px;
+  transition: opacity 150ms ease-in-out;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-bg-default);
+  color: var(--accent-over);
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
 @keyframes microphonePulse {
   0%,
   100% {

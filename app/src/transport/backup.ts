@@ -48,6 +48,8 @@ const parseLegacyCard = (value: unknown): LegacyCard | null => {
     texts,
     translation: typeof value.translation === 'string' ? value.translation : undefined,
     translationLang: typeof value.translationLang === 'string' ? value.translationLang : undefined,
+    voiceCheck: typeof value.voiceCheck === 'boolean' ? value.voiceCheck : null,
+    writeCheck: typeof value.writeCheck === 'boolean' ? value.writeCheck : null,
   };
 };
 
@@ -102,6 +104,7 @@ const parseSettings = (value: unknown): Settings => {
     theme: raw.theme === 'light' ? 'light' : 'dark',
     originalLang,
     translationLang,
+    learnAfterChecks: raw.learnAfterChecks === true,
   };
 };
 

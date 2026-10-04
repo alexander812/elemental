@@ -57,6 +57,14 @@ export const updateCardFx = createEffect(
     setsApi.updateCard(payload.setId, payload.cardId, payload.texts),
 );
 
+export const updateCardChecksFx = createEffect(
+  (payload: {
+    setId: string;
+    cardId: string;
+    checks: { voiceCheck?: boolean | null; writeCheck?: boolean | null };
+  }) => setsApi.updateCardChecks(payload.setId, payload.cardId, payload.checks),
+);
+
 export const setCardLearnedFx = createEffect(
   (payload: { setId: string; cardId: string; learned: boolean }) =>
     setsApi.setCardLearned(payload.setId, payload.cardId, payload.learned),
@@ -85,6 +93,7 @@ export const $sets = createStore<CardSet[]>([])
       addCardFx.doneData,
       addCardsFx.doneData,
       updateCardFx.doneData,
+      updateCardChecksFx.doneData,
       setCardLearnedFx.doneData,
       deleteCardFx.doneData,
       deleteCardsFx.doneData,

@@ -31,10 +31,11 @@ import {
 } from '@elemental/ui-kit';
 
 import { getCardText } from '../../../lib/cards';
-import type { LanguageCode } from '../../../lib/languages';
+import { isAnswerCorrect } from '../../../lib/checks';
 import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../../../lib/languages';
+import { playError, playSuccess, unlockSounds } from '../../../lib/sounds';
 import type { Card as CardModel } from '../../../lib/types';
-import { vibrateLong, vibrateShort } from '../../../transport/haptics';
+import { vibrateError, vibrateLong, vibrateShort, vibrateSuccess } from '../../../transport/haptics';
 import { goToRoot, popScreen, pushScreen } from '../../navigation/store';
 import {
   deleteCardFx,
@@ -42,12 +43,15 @@ import {
   deleteSetFx,
   fetchSetsFx,
   setCardLearnedFx,
+  updateCardChecksFx,
   $sets,
   $setsLoading,
 } from '../../sets/store';
+import { $learnAfterChecks } from '../../theme/store';
 import type { RecognitionSide } from '../store';
 import {
   cancelRecognizeFx,
+  isRecognizeCancelled,
   recognizeFx,
   speakFx,
   $asrStatus,
@@ -56,7 +60,7 @@ import {
   $speakFailed,
 } from '../store';
 import { FlashCard } from './FlashCard';
-import type { DragPos, Leaving } from './FlashCard';
+import type { CheckStatus, DragPos, Leaving } from './FlashCard';
 
 const SWIPE_THRESHOLD = 110;
 const UP_THRESHOLD = 110;
@@ -109,6 +113,7 @@ export function CardsView({ setId }: { setId: string }) {
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [drag, setDrag] = useState<DragPos | null>(null);
   const [leaving, setLeaving] = useState<Leaving | null>(null);
+  const [checkStatus, setCheckStatus] = useState<{ cardId: string; kind: CheckStatus } | null>(null);
 
   const deleteSetPending = useUnit(deleteSetFx.pending);
   const speakFailed = useUnit($speakFailed);
@@ -116,9 +121,13 @@ export function CardsView({ setId }: { setId: string }) {
   const recognizeFailed = useUnit($recognizeFailed);
   const asrStatus = useUnit($asrStatus);
   const recognizing = useUnit(recognizeFx.pending);
+  const learnAfterChecks = useUnit($learnAfterChecks);
 
   const dragRef = useRef<DragPos | null>(null);
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const checkStatusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoLearnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const topCardIdRef = useRef<string | null>(null);
   const movedRef = useRef(false);
   const lastTouchRef = useRef(0);
 
@@ -129,6 +138,8 @@ export function CardsView({ setId }: { setId: string }) {
   useEffect(() => {
     return () => {
       if (leavingTimerRef.current) clearTimeout(leavingTimerRef.current);
+      if (checkStatusTimerRef.current) clearTimeout(checkStatusTimerRef.current);
+      if (autoLearnTimerRef.current) clearTimeout(autoLearnTimerRef.current);
     };
   }, []);
 
@@ -156,6 +167,10 @@ export function CardsView({ setId }: { setId: string }) {
   );
 
   const topCard = displayedQueue[0] ? byId.get(displayedQueue[0]) : undefined;
+
+  useEffect(() => {
+    topCardIdRef.current = topCard?.id ?? null;
+  }, [topCard?.id]);
 
   const learnedCount = useMemo(
     () =>
@@ -207,14 +222,23 @@ export function CardsView({ setId }: { setId: string }) {
     }
   };
 
-  const startLeave = (action: Leaving['action'], dragPos: DragPos) => {
-    if (!topCard) return;
+  const cancelAutoLearn = () => {
+    if (!autoLearnTimerRef.current) return;
+
+    clearTimeout(autoLearnTimerRef.current);
+    autoLearnTimerRef.current = null;
+  };
+
+  const startLeave = (action: Leaving['action'], dragPos: DragPos, cardId = topCard?.id) => {
+    if (!cardId) return;
+
+    cancelAutoLearn();
 
     if (action === 'later') vibrateShort();
     if (action === 'learned') vibrateLong();
 
     const leave: Leaving = {
-      id: topCard.id,
+      id: cardId,
       action,
       x: action === 'learned' ? -500 : action === 'later' ? 500 : dragPos.x * 1.2,
       y: action === 'delete' ? -700 : dragPos.y * 0.9,
@@ -226,13 +250,38 @@ export function CardsView({ setId }: { setId: string }) {
     dragRef.current = null;
     setFlipped((prev) => {
       const next = { ...prev };
-      delete next[topCard.id];
+      delete next[cardId];
       return next;
     });
 
     leavingTimerRef.current = setTimeout(() => {
-      commitLeave(action, topCard.id);
+      commitLeave(action, cardId);
     }, LEAVE_MS);
+  };
+
+  const showCheckStatus = (cardId: string, kind: CheckStatus) => {
+    setCheckStatus({ cardId, kind });
+
+    if (checkStatusTimerRef.current) clearTimeout(checkStatusTimerRef.current);
+
+    checkStatusTimerRef.current = setTimeout(() => {
+      checkStatusTimerRef.current = null;
+      setCheckStatus(null);
+    }, 2000);
+  };
+
+  const scheduleAutoLearn = (cardId: string) => {
+    if (isLearnedFilter) return;
+
+    cancelAutoLearn();
+
+    autoLearnTimerRef.current = setTimeout(() => {
+      autoLearnTimerRef.current = null;
+
+      if (topCardIdRef.current !== cardId) return;
+
+      startLeave('learned', { x: 0, y: 0, startX: 0, startY: 0, pointerId: -1 }, cardId);
+    }, 2000);
   };
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
@@ -360,15 +409,79 @@ export function CardsView({ setId }: { setId: string }) {
     pushScreen({ name: 'card-create', setId, cardId });
   };
 
-  const handleRecognize = (side: RecognitionSide, text: string, lang: LanguageCode) => {
+  const handleVoiceCheck = async () => {
+    if (!topCard) return;
+
     if (recognizing) {
       cancelRecognizeFx();
       return;
     }
 
+    const expected = getCardText(topCard, translationLang).text.trim();
+
+    if (!expected) return;
+
+    unlockSounds();
+
+    try {
+      const assessment = await recognizeFx({
+        cardId: topCard.id,
+        lang: translationLang,
+        side: 'front',
+        text: expected,
+      });
+      const passed = assessment.verdict === 'good';
+
+      await updateCardChecksFx({ setId, cardId: topCard.id, checks: { voiceCheck: passed } });
+
+      if (passed) {
+        playSuccess();
+        vibrateSuccess();
+      } else {
+        playError();
+        vibrateError();
+      }
+
+      showCheckStatus(topCard.id, passed ? 'success' : 'error');
+
+      if (passed && learnAfterChecks && topCard.writeCheck === true) {
+        scheduleAutoLearn(topCard.id);
+      }
+    } catch (error) {
+      if (isRecognizeCancelled(error)) return;
+
+      playError();
+      vibrateError();
+      showCheckStatus(topCard.id, 'error');
+    }
+  };
+
+  const handleWriteCheck = async (value: string) => {
     if (!topCard) return;
 
-    recognizeFx({ cardId: topCard.id, lang, side, text });
+    const expected = getCardText(topCard, translationLang).text.trim();
+
+    if (!expected) return;
+
+    unlockSounds();
+
+    const passed = isAnswerCorrect(expected, value);
+
+    await updateCardChecksFx({ setId, cardId: topCard.id, checks: { writeCheck: passed } });
+
+    if (passed) {
+      playSuccess();
+      vibrateSuccess();
+    } else {
+      playError();
+      vibrateError();
+    }
+
+    showCheckStatus(topCard.id, passed ? 'success' : 'error');
+
+    if (passed && learnAfterChecks && topCard.voiceCheck === true) {
+      scheduleAutoLearn(topCard.id);
+    }
   };
 
   const handleAddText = () => {
@@ -538,23 +651,26 @@ export function CardsView({ setId }: { setId: string }) {
                   <FlashCard
                     key={id}
                     backText={back.text}
+                    checkStatus={checkStatus?.cardId === id ? checkStatus.kind : null}
                     depth={index}
                     drag={index === 0 ? drag : null}
                     flipped={!!flipped[id]}
                     frontText={front.text}
                     interactive={index === 0}
                     leaving={leaving?.id === id ? leaving : null}
-                    onFlip={handleFlip}
                     onEdit={() => handleEditCard(id)}
+                    onFlip={handleFlip}
                     onPointerCancel={handlePointerCancel}
                     onPointerDown={handlePointerDown}
                     onPointerMove={handlePointerMove}
                     onPointerUp={handlePointerUp}
-                    onRecognizeBack={() => handleRecognize('back', back.text, back.lang)}
-                    onRecognizeFront={() => handleRecognize('front', front.text, front.lang)}
                     onSpeakBack={() => speakFx(back)}
                     onSpeakFront={() => speakFx(front)}
+                    onVoiceCheck={handleVoiceCheck}
+                    onWriteCheck={handleWriteCheck}
                     recognizing={recognizing}
+                    voiceCheck={card.voiceCheck}
+                    writeCheck={card.writeCheck}
                   />
                 );
               })}

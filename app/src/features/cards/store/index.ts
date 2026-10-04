@@ -75,8 +75,8 @@ export const cancelRecognizeFx = createEffect(() => {
   cancelRecognition();
 });
 
-const isRecognizeCancelled = (error: Error) =>
-  error.message === 'cancelled' || error.message === 'aborted';
+export const isRecognizeCancelled = (error: unknown) =>
+  error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted');
 
 export const $recognizeFailed = createStore<Error | null>(null)
   .on(recognizeFx, () => null)

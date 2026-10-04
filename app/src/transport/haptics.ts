@@ -15,3 +15,11 @@ export function vibrateShort(): void {
 export function vibrateLong(): void {
   vibrate(SHORT_VIBRATION_MS * 2);
 }
+
+export function vibrateSuccess(): void {
+  vibrate(SHORT_VIBRATION_MS);
+}
+
+export function vibrateError(): void {
+  vibrate(SHORT_VIBRATION_MS * 3);
+}

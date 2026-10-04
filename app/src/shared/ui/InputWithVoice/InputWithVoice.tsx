@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import type { FocusEvent } from 'react';
 
 import { IconMicrophone } from '@elemental/icons';
 
@@ -42,6 +43,7 @@ const isRecognizeCancelled = (error: unknown) =>
   error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted');
 
 export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoiceProps) {
+  const [focused, setFocused] = useState(false);
   const [listening, setListening] = useState(false);
   const [recognizeFailed, setRecognizeFailed] = useState<Error | null>(null);
 
@@ -88,26 +90,42 @@ export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoic
     }
   };
 
-  const microphone = canRecognize() ? (
-    <button
-      aria-label={listening ? 'Остановить диктовку' : 'Продиктовать'}
-      className={`${classes.mic} ${listening ? classes.micActive : ''}`}
-      disabled={rest.disabled}
-      type="button"
-      onClick={handleRecognize}
-    >
-      <IconMicrophone fontSize={20} />
-    </button>
-  ) : null;
+  const microphone =
+    focused && canRecognize() ? (
+      <button
+        aria-label={listening ? 'Остановить диктовку' : 'Продиктовать'}
+        className={`${classes.mic} ${listening ? classes.micActive : ''}`}
+        disabled={rest.disabled}
+        type="button"
+        onClick={handleRecognize}
+        onPointerDown={(event) => event.preventDefault()}
+      >
+        <IconMicrophone fontSize={20} />
+      </button>
+    ) : null;
+
+  const handleFocus = () => setFocused(true);
+
+  const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (event.currentTarget.contains(event.relatedTarget as Node | null)) return;
+
+    setFocused(false);
+  };
 
   return (
-    <InputText
-      {...rest}
-      endIcon={microphone}
-      error={recognizeFailed ? recognizeErrorText(recognizeFailed) : rest.error}
-      helperText={recognizeFailed ? undefined : rest.helperText}
-      value={value}
-      onChange={onChange}
-    />
+    <div
+      className={`${classes.wrapper} ${rest.fullWidth ? classes.wrapperFullWidth : ''}`}
+      onBlur={handleBlur}
+      onFocus={handleFocus}
+    >
+      <InputText
+        {...rest}
+        endIcon={microphone}
+        error={recognizeFailed ? recognizeErrorText(recognizeFailed) : rest.error}
+        helperText={recognizeFailed ? undefined : rest.helperText}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 }

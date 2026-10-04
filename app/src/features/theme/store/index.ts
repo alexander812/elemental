@@ -14,14 +14,20 @@ export const setLanguagesFx = createEffect(
     settingsApi.saveLanguages(payload.originalLang, payload.translationLang),
 );
 
+export const setLearnAfterChecksFx = createEffect((value: boolean) =>
+  settingsApi.saveLearnAfterChecks(value),
+);
+
 export const $settings = createStore<Settings>(settingsApi.DEFAULT_SETTINGS)
   .on(fetchSettingsFx.doneData, (_, settings) => settings)
   .on(setThemeFx.doneData, (_, settings) => settings)
   .on(setLanguagesFx.doneData, (_, settings) => settings)
+  .on(setLearnAfterChecksFx.doneData, (_, settings) => settings)
   .on(importBackupFx.doneData, (_, { settings }) => settings);
 
 export const $theme = $settings.map((settings) => settings.theme);
 export const $originalLang = $settings.map((settings) => settings.originalLang);
 export const $translationLang = $settings.map((settings) => settings.translationLang);
+export const $learnAfterChecks = $settings.map((settings) => settings.learnAfterChecks);
 
 export const $settingsLoading = createStore(true).on(fetchSettingsFx.finally, () => false);

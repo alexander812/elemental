@@ -39,6 +39,8 @@ function createCard(
     },
     learned: false,
     deleted: false,
+    voiceCheck: null,
+    writeCheck: null,
   };
 }
 
@@ -67,7 +69,12 @@ export type LegacyCard = {
   texts?: CardTexts;
   translation?: string;
   translationLang?: LanguageCode;
+  voiceCheck?: boolean | null;
+  writeCheck?: boolean | null;
 };
+
+const parseCheck = (value: unknown): boolean | null =>
+  typeof value === 'boolean' ? value : null;
 
 export function migrateCard(card: LegacyCard): Card {
   if (card.texts) {
@@ -76,6 +83,8 @@ export function migrateCard(card: LegacyCard): Card {
       texts: card.texts,
       learned: card.learned,
       deleted: card.deleted ?? false,
+      voiceCheck: parseCheck(card.voiceCheck),
+      writeCheck: parseCheck(card.writeCheck),
     };
   }
 
@@ -90,6 +99,8 @@ export function migrateCard(card: LegacyCard): Card {
     texts: { [originalLang]: original, [translationLang]: translation },
     learned: card.learned,
     deleted: card.deleted ?? false,
+    voiceCheck: parseCheck(card.voiceCheck),
+    writeCheck: parseCheck(card.writeCheck),
   };
 }
 
@@ -269,6 +280,8 @@ export async function addCards(setId: string, texts: CardTexts[]): Promise<CardS
     ) as CardTexts,
     learned: false,
     deleted: false,
+    voiceCheck: null,
+    writeCheck: null,
   }));
 
   return writeSets(patchSet(sets, setId, (set) => ({ ...set, cards: [...set.cards, ...cards] })));
@@ -295,6 +308,29 @@ export async function updateCard(
               texts: Object.fromEntries(
                 Object.entries(texts).map(([lang, text]) => [lang, text?.trim() ?? '']),
               ) as CardTexts,
+            }
+          : card,
+      ),
+    })),
+  );
+}
+
+export async function updateCardChecks(
+  setId: string,
+  cardId: string,
+  checks: { voiceCheck?: boolean | null; writeCheck?: boolean | null },
+): Promise<CardSet[]> {
+  const sets = readSets();
+
+  return writeSets(
+    patchSet(sets, setId, (set) => ({
+      ...set,
+      cards: set.cards.map((card) =>
+        card.id === cardId
+          ? {
+              ...card,
+              voiceCheck: checks.voiceCheck === undefined ? card.voiceCheck : checks.voiceCheck,
+              writeCheck: checks.writeCheck === undefined ? card.writeCheck : checks.writeCheck,
             }
           : card,
       ),

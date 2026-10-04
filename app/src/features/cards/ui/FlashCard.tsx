@@ -1,15 +1,16 @@
-import { useMemo } from 'react';
-import type { CSSProperties, PointerEvent as ReactPointerEvent, ReactElement } from 'react';
+import { useMemo, useState } from 'react';
+import type { CSSProperties, FormEvent, PointerEvent as ReactPointerEvent, ReactElement } from 'react';
 
 import {
   IconCheck,
   IconEdit,
+  IconKeyboard,
   IconMicrophone,
   IconRefresh,
   IconSound,
   IconTrash,
 } from '@elemental/icons';
-import { Stack, Text } from '@elemental/ui-kit';
+import { FormHelperText, Stack, Text } from '@elemental/ui-kit';
 
 import { canRecognize } from '../../../transport/recognition';
 import { canSpeak } from '../../../transport/speech';
@@ -32,50 +33,61 @@ export type DragPos = {
   pointerId: number;
 };
 
+export type CheckStatus = 'success' | 'error';
+
 const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
 
 export type FlashCardProps = {
   backText: string;
+  checkStatus: CheckStatus | null;
   depth: number;
-  frontText: string;
-  flipped: boolean;
-  leaving: Leaving | null;
   drag: DragPos | null;
+  flipped: boolean;
+  frontText: string;
   interactive: boolean;
+  leaving: Leaving | null;
+  onEdit: () => void;
+  onFlip: () => void;
+  onPointerCancel: () => void;
   onPointerDown: (event: ReactPointerEvent<HTMLDivElement>) => void;
   onPointerMove: (event: ReactPointerEvent<HTMLDivElement>) => void;
   onPointerUp: (event: ReactPointerEvent<HTMLDivElement>) => void;
-  onPointerCancel: () => void;
-  onFlip: () => void;
-  onEdit: () => void;
-  onRecognizeBack: () => void;
-  onRecognizeFront: () => void;
   onSpeakBack: () => void;
   onSpeakFront: () => void;
+  onVoiceCheck: () => void;
+  onWriteCheck: (value: string) => void;
   recognizing: boolean;
+  voiceCheck: boolean | null;
+  writeCheck: boolean | null;
 };
 
 export function FlashCard({
   backText,
+  checkStatus,
   depth,
-  frontText,
-  flipped,
-  leaving,
   drag,
+  flipped,
+  frontText,
   interactive,
+  leaving,
+  onEdit,
+  onFlip,
+  onPointerCancel,
   onPointerDown,
   onPointerMove,
   onPointerUp,
-  onPointerCancel,
-  onFlip,
-  onEdit,
-  onRecognizeBack,
-  onRecognizeFront,
   onSpeakBack,
   onSpeakFront,
+  onVoiceCheck,
+  onWriteCheck,
   recognizing,
+  voiceCheck,
+  writeCheck,
 }: FlashCardProps) {
   const isTop = depth === 0;
+
+  const [writeOpen, setWriteOpen] = useState(false);
+  const [writeValue, setWriteValue] = useState('');
 
   const badgeOpacity = (value: number) => clamp01(value);
 
@@ -173,19 +185,96 @@ export function FlashCard({
     </button>
   );
 
-  const cardActions = (onSpeak: () => void, onRecognize: () => void) => (
+  const cardActions = (onSpeak: () => void) => (
     <div className={classes.cardActions}>
       {actionButton('Изменить', <IconEdit fontSize={24} />, onEdit)}
-      {canRecognize()
-        ? actionButton(
-            recognizing ? 'Остановить запись' : 'Проверить произношение',
-            <IconMicrophone fontSize={24} />,
-            onRecognize,
-            { active: recognizing },
-          )
-        : null}
       {canSpeak() ? actionButton('Озвучить', <IconSound fontSize={24} />, onSpeak) : null}
     </div>
+  );
+
+  const checkStateClass = (state: boolean | null) =>
+    state === true
+      ? classes.checkButtonSuccess
+      : state === false
+        ? classes.checkButtonFailure
+        : classes.checkButtonIdle;
+
+  const handleWriteSubmit = (event: FormEvent) => {
+    event.preventDefault();
+
+    const value = writeValue.trim();
+
+    if (!value) return;
+
+    setWriteOpen(false);
+    setWriteValue('');
+    onWriteCheck(value);
+  };
+
+  const checkControls = (
+    <Stack spacing="s" horizontalAlign="center">
+      {writeOpen ? (
+        <form
+          className={classes.checkForm}
+          onClick={(event) => event.stopPropagation()}
+          onPointerDown={(event) => event.stopPropagation()}
+          onSubmit={handleWriteSubmit}
+        >
+          <input
+            autoFocus
+            className={classes.checkInput}
+            enterKeyHint="done"
+            inputMode="text"
+            placeholder="Перевод"
+            type="text"
+            value={writeValue}
+            onChange={(event) => setWriteValue(event.target.value)}
+          />
+          <button className={classes.checkOk} disabled={!writeValue.trim()} type="submit">
+            ОК
+          </button>
+        </form>
+      ) : (
+        <div className={classes.cardChecks}>
+          {canRecognize()
+            ? (
+              <button
+                aria-label={recognizing ? 'Остановить запись' : 'Проверить произношение'}
+                className={`${classes.checkButton} ${checkStateClass(voiceCheck)} ${
+                  recognizing ? classes.checkButtonPulse : ''
+                }`}
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onVoiceCheck();
+                }}
+                onPointerDown={(event) => event.stopPropagation()}
+              >
+                <IconMicrophone fontSize={24} />
+              </button>
+            )
+            : null}
+          <button
+            aria-label="Проверить ввод текста"
+            className={`${classes.checkButton} ${checkStateClass(writeCheck)}`}
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              setWriteValue('');
+              setWriteOpen(true);
+            }}
+            onPointerDown={(event) => event.stopPropagation()}
+          >
+            <IconKeyboard fontSize={24} />
+          </button>
+        </div>
+      )}
+      {checkStatus ? (
+        <FormHelperText variant={checkStatus === 'success' ? 'success' : 'error'}>
+          {checkStatus === 'success' ? 'Успешно' : 'Ошибка, попробуйте снова'}
+        </FormHelperText>
+      ) : null}
+    </Stack>
   );
 
   return (
@@ -210,11 +299,12 @@ export function FlashCard({
               <Text align="center" variant="XL / Medium">
                 {frontText}
               </Text>
+              {showActions ? checkControls : null}
               <Text align="center" color="inherit" opacity={0.7} variant="XS / Medium">
                 нажмите, чтобы перевернуть
               </Text>
             </Stack>
-            {showActions ? cardActions(onSpeakFront, onRecognizeFront) : null}
+            {showActions ? cardActions(onSpeakFront) : null}
           </div>
           <div
             style={{
@@ -233,7 +323,7 @@ export function FlashCard({
                 {backText}
               </Text>
             </Stack>
-            {showActions ? cardActions(onSpeakBack, onRecognizeBack) : null}
+            {showActions ? cardActions(onSpeakBack) : null}
           </div>
           {isTop && !leaving && (
             <>
