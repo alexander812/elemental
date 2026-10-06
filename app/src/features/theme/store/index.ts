@@ -31,3 +31,5 @@ export const $translationLang = $settings.map((settings) => settings.translation
 export const $learnAfterChecks = $settings.map((settings) => settings.learnAfterChecks)
 
 export const $settingsLoading = createStore(true).on(fetchSettingsFx.finally, () => false)
+
+export const $settingsLoaded = createStore(false).on(fetchSettingsFx.finally, () => true)

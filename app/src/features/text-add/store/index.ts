@@ -1,8 +1,10 @@
 import { createEffect, createEvent, createStore, sample } from 'effector'
 
 import type { LanguageCode } from '../../../lib/languages'
+import { callNativeSync } from '../../../lib/nativeBridge'
 import { uid } from '../../../lib/uid'
 import { scanText } from '../../../transport/ocr'
+import type { ScanTextResult } from '../../../transport/ocr'
 import { translateText } from '../../../transport/translate'
 
 export type WordPair = {
@@ -46,37 +48,62 @@ export const pairTranslated = createEvent<{
 }>()
 export const resetTextAdd = createEvent()
 
+export const restoreTextAdd = createEvent<{
+  text: string
+  step: 'input' | 'words'
+  words: string[]
+  selected: string[]
+  textLang: LanguageCode | null
+  pairs: WordPair[]
+}>()
+
+export const scanTextRecovered = createEvent<{
+  ok: boolean
+  data?: ScanTextResult
+  error?: string
+}>()
+
 export const scanTextFx = createEffect((lang: LanguageCode) => scanText(lang))
+
+scanTextFx.finally.watch(() => callNativeSync('finishScan'))
 
 export const $scanFailed = createStore(false)
   .on(scanTextFx, () => false)
   .on(scanTextFx.doneData, (_, result) => !result.cancelled && result.text.trim().length === 0)
   .on(scanTextFx.fail, () => true)
+  .on(
+    scanTextRecovered,
+    (_, payload) =>
+      !payload.ok ||
+      (!payload.data?.cancelled && (payload.data?.text.trim().length ?? 0) === 0)
+  )
   .reset(resetTextAdd)
 
 export const $text = createStore('')
   .on(textChanged, (_, text) => text)
-  .on(scanTextFx.doneData, (text, result) => {
-    const scanned = result.text.trim()
+  .on(scanTextFx.doneData, (text, result) => result.text.trim() || text)
+  .on(scanTextRecovered, (text, payload) => {
+    if (!payload.ok || !payload.data || payload.data.cancelled) return text
 
-    if (!scanned) return text
-
-    const current = text.trimEnd()
-
-    return current.length > 0 ? `${current}\n${scanned}` : scanned
+    return payload.data.text.trim() || text
   })
+  .on(restoreTextAdd, (_, snapshot) => snapshot.text)
   .reset(resetTextAdd)
 
 export const $step = createStore<'input' | 'words'>('input')
   .on(textParsed, () => 'words' as const)
   .on(textEditRequested, () => 'input' as const)
+  .on(restoreTextAdd, (_, snapshot) => snapshot.step)
   .reset(resetTextAdd)
 
 export const $textLang = createStore<LanguageCode | null>(null)
   .on(textLangChanged, (_, lang) => lang)
+  .on(restoreTextAdd, (_, snapshot) => snapshot.textLang)
   .reset(resetTextAdd)
 
-export const $words = createStore<string[]>([]).reset(resetTextAdd)
+export const $words = createStore<string[]>([])
+  .on(restoreTextAdd, (_, snapshot) => snapshot.words)
+  .reset(resetTextAdd)
 
 sample({
   clock: textParsed,
@@ -85,7 +112,9 @@ sample({
   target: $words,
 })
 
-export const $selected = createStore<string[]>([]).reset(resetTextAdd)
+export const $selected = createStore<string[]>([])
+  .on(restoreTextAdd, (_, snapshot) => snapshot.selected)
+  .reset(resetTextAdd)
 
 type WordToggle = {
   selected: string[]
@@ -183,6 +212,7 @@ export const $pairs = createStore<WordPair[]>([])
   .on(pairTranslated, (pairs, { field, id, value }) =>
     pairs.map((pair) => (pair.id === id ? { ...pair, [field]: value } : pair))
   )
+  .on(restoreTextAdd, (_, snapshot) => snapshot.pairs)
   .reset(resetTextAdd)
 
 sample({

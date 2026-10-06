@@ -6,7 +6,6 @@ import { useUnit } from 'effector-react'
 import { IconScan } from '@elemental/icons'
 
 import {
-  Box,
   Button,
   FormHelperText,
   Header,
@@ -24,6 +23,8 @@ import {
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
 import { $languages } from '../../languages/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
+import type { TextAddDraft } from '../../navigation/store'
+import { draftWordsAdded } from '../../set-create/store'
 import { $sets } from '../../sets/store'
 import {
   pairsCreated,
@@ -56,7 +57,11 @@ type ChipDrag = {
   words: string[]
 }
 
-export function TextAddView({ setId }: { setId: string }) {
+type TextAddViewProps =
+  | { setId: string; draft?: undefined }
+  | { setId?: undefined; draft: TextAddDraft }
+
+export function TextAddView({ setId, draft }: TextAddViewProps) {
   const text = useUnit($text)
   const step = useUnit($step)
   const words = useUnit($words)
@@ -66,8 +71,8 @@ export function TextAddView({ setId }: { setId: string }) {
   const languages = useUnit($languages)
   const storedTextLang = useUnit($textLang)
   const set = sets.find((item) => item.id === setId)
-  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG
-  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG
+  const originalLang = set?.originalLang ?? draft?.originalLang ?? DEFAULT_ORIGINAL_LANG
+  const translationLang = set?.translationLang ?? draft?.translationLang ?? DEFAULT_TRANSLATION_LANG
   const textLang = storedTextLang ?? originalLang
   const textField = textLang === translationLang ? 'translation' : 'original'
   const langOptions = [
@@ -204,6 +209,14 @@ export function TextAddView({ setId }: { setId: string }) {
   const canProcess = selected.length > 0
 
   const handleProcess = () => {
+    if (setId === undefined) {
+      if (!draft) return
+
+      draftWordsAdded({ field: textField, words: selected })
+      popScreen()
+      return
+    }
+
     pairsCreated(textField)
     pushScreen({ name: 'words-translate', setId })
   }
@@ -212,41 +225,43 @@ export function TextAddView({ setId }: { setId: string }) {
     <div className={classes.root}>
       <Header back text="Добавить текст" onBackClick={() => popScreen()} />
       {step === 'input' ? (
-        <Box grow padding="m">
-          <Stack spacing="l">
-            <Textarea
-              fullWidth
-              placeholder="Введите или вставьте текст"
-              rows={6}
-              value={text}
-              onChange={textChanged}
-            />
-            <Stack spacing="s">
-              <Text color="contrast-secondary" variant="XS / Medium">
-                Язык текста
-              </Text>
-              <Select fullWidth options={langOptions} value={textLang} onChange={textLangChanged} />
-            </Stack>
-            {scanAvailable ? (
-              <Button
-                disabled={scanPending}
+        <div className={classes.layout}>
+          <div className={classes.inputScroll}>
+            <Stack spacing="l">
+              <Textarea
                 fullWidth
-                loading={scanPending}
-                startIcon={<IconScan fontSize={24} />}
-                variant="secondary"
-                onClick={() => scanTextFx(textLang)}
-              >
-                Сканировать текст
+                placeholder="Введите или вставьте текст"
+                rows={6}
+                value={text}
+                onChange={textChanged}
+              />
+              <Stack spacing="s">
+                <Text color="contrast-secondary" variant="XS / Medium">
+                  Язык текста
+                </Text>
+                <Select fullWidth options={langOptions} value={textLang} onChange={textLangChanged} />
+              </Stack>
+              {scanAvailable ? (
+                <Button
+                  disabled={scanPending}
+                  fullWidth
+                  loading={scanPending}
+                  startIcon={<IconScan fontSize={24} />}
+                  variant="secondary"
+                  onClick={() => scanTextFx(textLang)}
+                >
+                  Сканировать текст
+                </Button>
+              ) : null}
+              {scanFailed ? (
+                <FormHelperText variant="error">Не удалось распознать текст</FormHelperText>
+              ) : null}
+              <Button disabled={!canParse} fullWidth onClick={() => textParsed()}>
+                Разобрать
               </Button>
-            ) : null}
-            {scanFailed ? (
-              <FormHelperText variant="error">Не удалось распознать текст</FormHelperText>
-            ) : null}
-            <Button disabled={!canParse} fullWidth onClick={() => textParsed()}>
-              Разобрать
-            </Button>
-          </Stack>
-        </Box>
+            </Stack>
+          </div>
+        </div>
       ) : (
         <div className={classes.layout}>
           <div

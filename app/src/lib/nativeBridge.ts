@@ -69,12 +69,15 @@ export const callNative = <T>(method: string, params: Record<string, unknown> = 
 
 export const callNativeSync = <T>(method: string): T | undefined => {
   const bridge = window.AndroidBridge as (AndroidBridge & Record<string, unknown>) | undefined
-  const fn = bridge?.[method]
+
+  if (!bridge) return undefined
+
+  const fn = bridge[method]
 
   if (typeof fn !== 'function') return undefined
 
   try {
-    return (fn as () => T)()
+    return (fn as (this: typeof bridge) => T).call(bridge)
   } catch {
     return undefined
   }

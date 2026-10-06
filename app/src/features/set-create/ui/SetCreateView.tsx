@@ -1,9 +1,15 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconEducation, IconPlusBig, IconSwapVert, IconTranslate } from '@elemental/icons'
+import {
+  IconEducation,
+  IconPlusBig,
+  IconSwapVert,
+  IconTranslate,
+  IconViewList,
+} from '@elemental/icons'
 
 import {
   Box,
@@ -22,28 +28,37 @@ import {
 import { remapTexts } from '../../../lib/cards'
 import { getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
-import { uid } from '../../../lib/uid'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
-import { popScreen, pushScreen } from '../../navigation/store'
+import { popScreen, pushScreen, $transition } from '../../navigation/store'
 import { createSetFx, updateSetFx, $sets } from '../../sets/store'
 import { $originalLang, $translationLang } from '../../theme/store'
-import { translatePairsFx } from '../store'
-
-type PairDraft = {
-  id: string
-  cardId?: string
-  original: string
-  translation: string
-}
-
-const createEmptyPair = (): PairDraft => ({ id: uid(), original: '', translation: '' })
+import {
+  createEmptyPair,
+  draftInitialized,
+  draftLanguagesChanged,
+  draftNameChanged,
+  draftPairAdded,
+  draftPairChanged,
+  draftPairsTranslated,
+  draftReset,
+  translatePairsFx,
+  $draftName,
+  $draftOriginalLang,
+  $draftPairs,
+  $draftTranslationLang,
+} from '../store'
 
 export function SetCreateView({ setId }: { setId?: string }) {
   const sets = useUnit($sets)
   const languages = useUnit($languages)
   const settingsOriginalLang = useUnit($originalLang)
   const settingsTranslationLang = useUnit($translationLang)
+  const name = useUnit($draftName)
+  const originalLang = useUnit($draftOriginalLang)
+  const translationLang = useUnit($draftTranslationLang)
+  const pairs = useUnit($draftPairs)
+  const transition = useUnit($transition)
   const createPending = useUnit(createSetFx.pending)
   const updatePending = useUnit(updateSetFx.pending)
   const translatePending = useUnit(translatePairsFx.pending)
@@ -54,25 +69,32 @@ export function SetCreateView({ setId }: { setId?: string }) {
   )
   const isEditing = setId !== undefined
 
-  const [name, setName] = useState(() => set?.name ?? '')
-  const [originalLang, setOriginalLang] = useState(() => set?.originalLang ?? settingsOriginalLang)
-  const [translationLang, setTranslationLang] = useState(
-    () => set?.translationLang ?? settingsTranslationLang
-  )
-  const [pairs, setPairs] = useState<PairDraft[]>(() => {
-    const existing = set
-      ? set.cards
-          .filter((card) => !card.deleted)
-          .map((card) => ({
-            id: uid(),
-            cardId: card.id,
-            original: card.texts[set.originalLang] ?? '',
-            translation: card.texts[set.translationLang] ?? '',
-          }))
-      : []
+  const initialDraftRef = useRef({
+    pushed: transition.kind === 'push',
+    draft: {
+      name: set?.name ?? '',
+      originalLang: set?.originalLang ?? settingsOriginalLang,
+      translationLang: set?.translationLang ?? settingsTranslationLang,
+      pairs: (() => {
+        const existing = set
+          ? set.cards
+              .filter((card) => !card.deleted)
+              .map((card) => ({
+                ...createEmptyPair(),
+                cardId: card.id,
+                original: card.texts[set.originalLang] ?? '',
+                translation: card.texts[set.translationLang] ?? '',
+              }))
+          : []
 
-    return existing.length > 0 ? existing : [createEmptyPair()]
+        return existing.length > 0 ? existing : [createEmptyPair()]
+      })(),
+    },
   })
+
+  useEffect(() => {
+    if (initialDraftRef.current.pushed) draftInitialized(initialDraftRef.current.draft)
+  }, [])
 
   const [translateFailed, setTranslateFailed] = useState(false)
 
@@ -99,8 +121,10 @@ export function SetCreateView({ setId }: { setId?: string }) {
 
   const applyLanguages = (nextOriginal: LanguageCode, nextTranslation: LanguageCode) => {
     setTranslateFailed(false)
-    setPairs((prev) =>
-      prev.map((pair) => {
+    draftLanguagesChanged({
+      originalLang: nextOriginal,
+      translationLang: nextTranslation,
+      pairs: pairs.map((pair) => {
         const texts = remapTexts(
           { [originalLang]: pair.original, [translationLang]: pair.translation },
           nextOriginal,
@@ -112,10 +136,8 @@ export function SetCreateView({ setId }: { setId?: string }) {
           original: texts[nextOriginal] ?? '',
           translation: texts[nextTranslation] ?? '',
         }
-      })
-    )
-    setOriginalLang(nextOriginal)
-    setTranslationLang(nextTranslation)
+      }),
+    })
   }
 
   const handleOriginalChange = (value: string) => {
@@ -132,11 +154,18 @@ export function SetCreateView({ setId }: { setId?: string }) {
 
   const handlePairChange = (id: string, field: 'original' | 'translation', value: string) => {
     setTranslateFailed(false)
-    setPairs((prev) => prev.map((pair) => (pair.id === id ? { ...pair, [field]: value } : pair)))
+    draftPairChanged({ id, field, value })
   }
 
   const handleAddPair = () => {
-    setPairs((prev) => [...prev, createEmptyPair()])
+    draftPairAdded()
+  }
+
+  const handleAddText = () => {
+    pushScreen({
+      name: 'text-add',
+      draft: { originalLang, translationLang },
+    })
   }
 
   const handleTranslateAll = async () => {
@@ -147,13 +176,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
     const { failed, results } = await translatePairsFx({ pairs, originalLang, translationLang })
 
     if (results.length > 0) {
-      setPairs((prev) =>
-        prev.map((pair) => {
-          const result = results.find((item) => item.id === pair.id)
-
-          return result ? { ...pair, [result.field]: result.value } : pair
-        })
-      )
+      draftPairsTranslated(results)
     }
 
     setTranslateFailed(failed)
@@ -184,6 +207,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
         })),
       })
 
+      draftReset()
       popScreen()
       return
     }
@@ -195,6 +219,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
       cards: filled.map(({ original, translation }) => ({ original, translation })),
     })
 
+    draftReset()
     popScreen()
     pushScreen({ name: 'cards', setId: createdSetId })
   }
@@ -225,7 +250,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
               placeholder="Название"
               size="m"
               value={name}
-              onChange={(value) => setName(value)}
+              onChange={draftNameChanged}
             />
 
             <Card padding="l">
@@ -310,6 +335,15 @@ export function SetCreateView({ setId }: { setId?: string }) {
               onClick={handleAddPair}
             >
               Добавить слово
+            </Button>
+
+            <Button
+              fullWidth
+              startIcon={<IconViewList fontSize={24} />}
+              variant="secondary"
+              onClick={handleAddText}
+            >
+              Добавить текст
             </Button>
 
             <Button

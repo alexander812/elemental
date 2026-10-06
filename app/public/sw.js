@@ -1,5 +1,12 @@
 const CACHE = 'elemental-v1';
-const PRECACHE = ['./', 'manifest.webmanifest', 'favicon.svg', 'icons/icon-192.png', 'icons/icon-512.png'];
+const PRECACHE = [
+  './',
+  'manifest.webmanifest',
+  'favicon.svg',
+  'icons/emblem.svg',
+  'icons/icon-192.png',
+  'icons/icon-512.png',
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

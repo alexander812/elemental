@@ -249,21 +249,25 @@ export function FlashCard({
   }
 
   const statusHelper = checkStatus ? (
-    <FormHelperText
-      rounded
-      variant={
-        checkStatus.kind === 'listening' ? 'neutral' : checkStatus.kind === 'success' ? 'success' : 'error'
-      }
-    >
-      {checkStatus.message}
-      {checkStatus.dots ? (
-        <span className={classes.listeningDots}>
-          <span className={classes.listeningDot}>.</span>
-          <span className={classes.listeningDot}>.</span>
-          <span className={classes.listeningDot}>.</span>
-        </span>
-      ) : null}
-    </FormHelperText>
+    checkStatus.kind === 'listening' ? (
+      <Text align="center" color="inherit" variant="S / Medium">
+        {checkStatus.message}
+        {checkStatus.dots ? (
+          <span className={classes.listeningDots}>
+            <span className={classes.listeningDot}>.</span>
+            <span className={classes.listeningDot}>.</span>
+            <span className={classes.listeningDot}>.</span>
+          </span>
+        ) : null}
+      </Text>
+    ) : (
+      <FormHelperText
+        rounded
+        variant={checkStatus.kind === 'success' ? 'success' : 'error'}
+      >
+        {checkStatus.message}
+      </FormHelperText>
+    )
   ) : null
 
   const checkControls = (
@@ -397,20 +401,20 @@ export function FlashCard({
             </Stack>
             {showActions ? cardActions(onSpeakBack) : null}
           </div>
-          {isTop && !leaving && (
-            <>
-              <div style={badgeStyle('left')}>
-                <IconCheck fontSize={20} /> выучено
-              </div>
-              <div style={badgeStyle('right')}>
-                <IconRefresh fontSize={20} /> позже
-              </div>
-              <div style={badgeStyle('up')}>
-                <IconTrash fontSize={20} /> удалить
-              </div>
-            </>
-          )}
         </div>
+        {isTop && !leaving && (
+          <>
+            <div style={badgeStyle('left')}>
+              <IconCheck fontSize={20} /> выучено
+            </div>
+            <div style={badgeStyle('right')}>
+              <IconRefresh fontSize={20} /> позже
+            </div>
+            <div style={badgeStyle('up')}>
+              <IconTrash fontSize={20} /> удалить
+            </div>
+          </>
+        )}
       </div>
     </div>
   )

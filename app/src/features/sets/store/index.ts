@@ -111,6 +111,8 @@ export const $setsLoading = createStore(false)
   .on(fetchSetsFx, () => true)
   .on(fetchSetsFx.finally, () => false)
 
+export const $setsLoaded = createStore(false).on(fetchSetsFx.finally, () => true)
+
 export const $setsError = createStore<string | null>(null)
   .on(fetchSetsFx.failData, (_, err) => (err instanceof Error ? err.message : String(err)))
   .reset(fetchSetsFx)

@@ -12,9 +12,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#050505" />
     <title>Lexi</title>
+    <script>
+      ;(function () {
+        var canvas = '#050505'
+
+        try {
+          var raw = localStorage.getItem('app.settings')
+          if (raw && JSON.parse(raw).theme === 'light') canvas = '#edf7ff'
+        } catch (error) {}
+
+        document.documentElement.style.setProperty('--boot-canvas', canvas)
+      })()
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      html {
+        background: var(--boot-canvas, #050505);
+      }
+
+      #root {
+        height: 100%;
+      }
+
+      .boot-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--boot-canvas, #050505);
+        transition: opacity 300ms ease;
+      }
+
+      .boot-splash_hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .boot-splash__logo {
+        width: min(44vw, 192px);
+        height: auto;
+        animation: boot-splash-pulse 1.6s ease-in-out infinite;
+      }
+
+      @keyframes boot-splash-pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.6;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .boot-splash__logo {
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div class="boot-splash" id="boot-splash">
+      <img alt="" class="boot-splash__logo" height="512" src="/icons/emblem.svg" width="512" />
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

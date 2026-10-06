@@ -1,6 +1,12 @@
 import { createEvent, createStore } from 'effector'
 
 import { suppressNextGhostClick } from '../../../lib/ghostClick'
+import type { LanguageCode } from '../../../lib/languages'
+
+export type TextAddDraft = {
+  originalLang: LanguageCode
+  translationLang: LanguageCode
+}
 
 export type Screen =
   | { name: 'sets' }
@@ -9,6 +15,7 @@ export type Screen =
   | { name: 'card-create'; setId: string; cardId?: string }
   | { name: 'cards-restore'; setId: string }
   | { name: 'text-add'; setId: string }
+  | { name: 'text-add'; draft: TextAddDraft }
   | { name: 'words-translate'; setId: string }
   | { name: 'settings' }
   | { name: 'theme' }
@@ -24,6 +31,7 @@ export const popScreen = createEvent()
 export const popTo = createEvent<Screen['name']>()
 export const goToRoot = createEvent()
 export const transitionEnded = createEvent()
+export const restoreNav = createEvent<Screen[]>()
 
 type NavState = {
   stack: Screen[]
@@ -74,11 +82,20 @@ export const $nav = createStore<NavState>({
     }
   })
   .on(transitionEnded, (state) => ({ ...state, transition: { kind: 'none' } }))
+  .on(restoreNav, (_, stack) => ({ stack, transition: { kind: 'none' } }))
 
 export const $stack = $nav.map((state) => state.stack)
 export const $screen = $nav.map((state) => state.stack[state.stack.length - 1])
 export const $transition = $nav.map((state) => state.transition)
 export const $canGoBack = $stack.map((stack) => stack.length > 1)
+
+export const handleAndroidBack = (): boolean => {
+  if (!$canGoBack.getState()) return false
+
+  popScreen()
+
+  return true
+}
 
 pushScreen.watch(suppressNextGhostClick)
 popScreen.watch(suppressNextGhostClick)

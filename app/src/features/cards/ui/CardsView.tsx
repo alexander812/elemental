@@ -348,6 +348,11 @@ export function CardsView({ setId }: { setId: string }) {
   const handleFilterChange = (next: Filter) => {
     setCheckStatus(null)
     setFilter(next)
+
+    if (next === 'unlearned') {
+      setFlipped({})
+      setExcluded(new Set())
+    }
   }
 
   const handleDeleteAll = () => {
