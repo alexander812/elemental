@@ -1,7 +1,9 @@
 import { DEFAULT_ORIGINAL_LANG, LANGUAGES_CATALOG } from '../lib/languages'
 import type { Language } from '../lib/languages'
-import type { CardSet, CardTexts, Settings } from '../lib/types'
+import type { CardSet, CardTexts, Lesson, Settings } from '../lib/types'
 import { uid } from '../lib/uid'
+import { DEFAULT_LESSON_NAME, fetchLessons, migrateLesson, replaceLessons } from './lessons'
+import type { LegacyLesson } from './lessons'
 import { fetchSettings, saveSettings } from './settings'
 import { fetchSets, migrateCard, migrateSet, replaceSets } from './sets'
 import type { LegacyCard, LegacySet } from './sets'
@@ -9,8 +11,17 @@ import type { LegacyCard, LegacySet } from './sets'
 export type BackupData = {
   version: number
   exportedAt: string
+  lessons: Lesson[]
   sets: CardSet[]
   languages: Language[]
+  settings: Settings
+}
+
+export type ImportMode = 'merge' | 'replace'
+
+export type AppliedBackup = {
+  lessons: Lesson[]
+  sets: CardSet[]
   settings: Settings
 }
 
@@ -50,7 +61,7 @@ const parseLegacyCard = (value: unknown): LegacyCard | null => {
   }
 }
 
-const parseSets = (value: unknown, settings: Settings): CardSet[] => {
+const parseSets = (value: unknown): LegacySet[] => {
   if (!Array.isArray(value)) throw new Error('invalid backup: sets')
 
   return value.map((raw, index) => {
@@ -66,8 +77,9 @@ const parseSets = (value: unknown, settings: Settings): CardSet[] => {
           )
       : []
 
-    const set: LegacySet = {
+    return {
       id: typeof raw.id === 'string' && raw.id ? raw.id : uid(),
+      lessonId: typeof raw.lessonId === 'string' && raw.lessonId ? raw.lessonId : undefined,
       name:
         typeof raw.name === 'string' && raw.name.trim() ? raw.name.trim() : `Набор ${index + 1}`,
       active: raw.active !== false,
@@ -76,9 +88,63 @@ const parseSets = (value: unknown, settings: Settings): CardSet[] => {
       translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
       cards,
     }
-
-    return migrateSet(set, settings.originalLang, settings.translationLang)
   })
+}
+
+const parseLessons = (value: unknown, settings: Settings): Lesson[] => {
+  if (!Array.isArray(value)) return []
+
+  return value
+    .filter(isRecord)
+    .map((raw, index) =>
+      migrateLesson(
+        {
+          id: typeof raw.id === 'string' && raw.id ? raw.id : undefined,
+          name: typeof raw.name === 'string' ? raw.name : undefined,
+          order: typeof raw.order === 'number' ? raw.order : undefined,
+          originalLang: typeof raw.originalLang === 'string' ? raw.originalLang : undefined,
+          translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
+        } satisfies LegacyLesson,
+        index,
+        settings.originalLang,
+        settings.translationLang
+      )
+    )
+}
+
+const linkSetsToLessons = (
+  rawLessons: Lesson[],
+  rawSets: LegacySet[],
+  settings: Settings
+): { lessons: Lesson[]; sets: CardSet[] } => {
+  const lessons =
+    rawLessons.length === 0 && rawSets.length > 0
+      ? [
+          {
+            id: uid(),
+            name: DEFAULT_LESSON_NAME,
+            order: 0,
+            originalLang: settings.originalLang,
+            translationLang: settings.translationLang,
+          },
+        ]
+      : rawLessons
+
+  const lessonIds = new Set(lessons.map((lesson) => lesson.id))
+  const fallbackLessonId = lessons[0]?.id ?? ''
+  const sets = rawSets.map((set) =>
+    migrateSet(
+      {
+        ...set,
+        lessonId: set.lessonId && lessonIds.has(set.lessonId) ? set.lessonId : undefined,
+      },
+      settings.originalLang,
+      settings.translationLang,
+      fallbackLessonId
+    )
+  )
+
+  return { lessons, sets }
 }
 
 const CATALOG_CODES = new Set(LANGUAGES_CATALOG.map((language) => language.code))
@@ -118,11 +184,13 @@ export function parseBackup(raw: string): BackupData {
 
   if (Array.isArray(parsed)) {
     const settings = parseSettings(undefined)
+    const { lessons, sets } = linkSetsToLessons([], parseSets(parsed), settings)
 
     return {
       version: 1,
       exportedAt: new Date().toISOString(),
-      sets: parseSets(parsed, settings),
+      lessons,
+      sets,
       languages: LANGUAGES_CATALOG,
       settings,
     }
@@ -131,22 +199,34 @@ export function parseBackup(raw: string): BackupData {
   if (!isRecord(parsed)) throw new Error('invalid backup: root')
 
   const settings = parseSettings(parsed.settings)
+  const rawLessons = parseLessons(parsed.lessons, settings)
+  const { lessons, sets } = linkSetsToLessons(rawLessons, parseSets(parsed.sets), settings)
 
   return {
-    version: 1,
+    version: 2,
     exportedAt: new Date().toISOString(),
-    sets: parseSets(parsed.sets, settings),
+    lessons,
+    sets,
     languages: LANGUAGES_CATALOG,
     settings,
   }
 }
 
-export async function createBackup(): Promise<string> {
-  const [sets, settings] = await Promise.all([fetchSets(), fetchSettings()])
+export async function createBackup(lessonIds?: string[]): Promise<string> {
+  const [allLessons, allSets, settings] = await Promise.all([
+    fetchLessons(),
+    fetchSets(),
+    fetchSettings(),
+  ])
+
+  const lessons = lessonIds ? allLessons.filter((lesson) => lessonIds.includes(lesson.id)) : allLessons
+  const selectedIds = new Set(lessons.map((lesson) => lesson.id))
+  const sets = allSets.filter((set) => selectedIds.has(set.lessonId))
 
   const data: BackupData = {
-    version: 1,
+    version: 2,
     exportedAt: new Date().toISOString(),
+    lessons,
     sets,
     languages: LANGUAGES_CATALOG,
     settings,
@@ -169,9 +249,50 @@ export function downloadBackup(content: string): void {
   setTimeout(() => URL.revokeObjectURL(url), 0)
 }
 
-export async function applyBackup(data: BackupData): Promise<BackupData> {
-  await replaceSets(data.sets)
-  await saveSettings(data.settings)
+export async function applyBackup(data: BackupData, mode: ImportMode): Promise<AppliedBackup> {
+  if (mode === 'replace') {
+    const lessons = await replaceLessons(data.lessons)
+    const sets = await replaceSets(data.sets)
+    const settings = await saveSettings(data.settings)
 
-  return data
+    return { lessons, sets, settings }
+  }
+
+  const [existingLessons, existingSets, settings] = await Promise.all([
+    fetchLessons(),
+    fetchSets(),
+    fetchSettings(),
+  ])
+  const byName = new Map(existingLessons.map((lesson) => [lesson.name, lesson]))
+  const existingIds = new Set(existingLessons.map((lesson) => lesson.id))
+  const idMap = new Map<string, string>()
+
+  for (const lesson of data.lessons) {
+    const duplicate = byName.get(lesson.name)
+
+    if (duplicate) {
+      idMap.set(lesson.id, duplicate.id)
+    } else if (existingIds.has(lesson.id)) {
+      idMap.set(lesson.id, uid())
+    } else {
+      idMap.set(lesson.id, lesson.id)
+    }
+  }
+
+  const targetIds = new Set(idMap.values())
+  const keptLessons = existingLessons.filter((lesson) => !targetIds.has(lesson.id))
+  const keptSets = existingSets.filter((set) => !targetIds.has(set.lessonId))
+  const addedLessons = data.lessons.map((lesson, index) => ({
+    ...lesson,
+    id: idMap.get(lesson.id) as string,
+    order: keptLessons.length + index,
+  }))
+  const addedSets = data.sets.map((set) => ({
+    ...set,
+    lessonId: idMap.get(set.lessonId) ?? set.lessonId,
+  }))
+  const lessons = await replaceLessons([...keptLessons, ...addedLessons])
+  const sets = await replaceSets([...keptSets, ...addedSets])
+
+  return { lessons, sets, settings }
 }

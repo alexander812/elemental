@@ -38,7 +38,7 @@ import type { LanguageCode } from '../../../lib/languages'
 import { playError, playSuccess, unlockSounds } from '../../../lib/sounds'
 import type { Card as CardModel } from '../../../lib/types'
 import { vibrateError, vibrateLong, vibrateShort, vibrateSuccess } from '../../../transport/haptics'
-import { goToRoot, popScreen, pushScreen } from '../../navigation/store'
+import { popScreen, pushScreen } from '../../navigation/store'
 import {
   deleteCardFx,
   deleteCardsFx,
@@ -383,12 +383,15 @@ export function CardsView({ setId }: { setId: string }) {
 
   const handleNextSet = () => {
     if (!set) {
-      goToRoot()
+      popScreen()
       return
     }
 
     const next = sets
-      .filter((item) => item.active && item.id !== set.id && item.order > set.order)
+      .filter(
+        (item) =>
+          item.active && item.id !== set.id && item.lessonId === set.lessonId && item.order > set.order
+      )
       .sort((a, b) => a.order - b.order)[0]
 
     if (next) {
@@ -396,7 +399,7 @@ export function CardsView({ setId }: { setId: string }) {
       return
     }
 
-    goToRoot()
+    popScreen()
   }
 
   const handleAddWord = () => {
@@ -514,7 +517,7 @@ export function CardsView({ setId }: { setId: string }) {
 
   const handleConfirmDeleteSet = async () => {
     await deleteSetFx(setId)
-    goToRoot()
+    popScreen()
   }
 
   if (!set) {

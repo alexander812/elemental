@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 import { IconsProvider, ThemeProvider } from '@elemental/ui-kit'
 import { useUnit } from 'effector-react'
 
+import { fetchLessonsFx } from './features/lessons/store'
 import { fetchSetsFx } from './features/sets/store'
 import { fetchSettingsFx, $theme } from './features/theme/store'
 import { icons } from './icons'
@@ -13,6 +14,7 @@ export function ThemeRoot({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     fetchSettingsFx()
+    fetchLessonsFx()
     fetchSetsFx()
   }, [])
 

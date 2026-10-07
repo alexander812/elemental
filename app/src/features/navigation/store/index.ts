@@ -9,8 +9,10 @@ export type TextAddDraft = {
 }
 
 export type Screen =
-  | { name: 'sets' }
-  | { name: 'set-create'; setId?: string }
+  | { name: 'lessons' }
+  | { name: 'lesson'; lessonId: string }
+  | { name: 'lesson-create'; lessonId?: string }
+  | { name: 'set-create'; setId?: string; lessonId?: string }
   | { name: 'cards'; setId: string }
   | { name: 'card-create'; setId: string; cardId?: string }
   | { name: 'cards-restore'; setId: string }
@@ -19,10 +21,10 @@ export type Screen =
   | { name: 'words-translate'; setId: string }
   | { name: 'settings' }
   | { name: 'theme' }
-  | { name: 'languages' }
   | { name: 'voices' }
   | { name: 'checks' }
   | { name: 'data' }
+  | { name: 'export' }
 
 export type Transition = { kind: 'none' } | { kind: 'push' } | { kind: 'pop'; screen: Screen }
 
@@ -38,7 +40,7 @@ type NavState = {
   transition: Transition
 }
 
-const INITIAL_STACK: Screen[] = [{ name: 'sets' }]
+const INITIAL_STACK: Screen[] = [{ name: 'lessons' }]
 
 export const $nav = createStore<NavState>({
   stack: INITIAL_STACK,

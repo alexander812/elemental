@@ -5,6 +5,7 @@ import { useUnit } from 'effector-react'
 
 import {
   IconEducation,
+  IconMoreHorizontal,
   IconPlusBig,
   IconSwapVert,
   IconTranslate,
@@ -14,46 +15,55 @@ import {
 import {
   Box,
   Button,
+  ButtonIcon,
   Card,
   Divider,
   EmptyScreen,
   FormHelperText,
   Header,
   InputText,
+  Menu,
   Select,
   Stack,
   Text,
 } from '@elemental/ui-kit'
 
 import { remapTexts } from '../../../lib/cards'
-import { getLanguageName } from '../../../lib/languages'
+import {
+  DEFAULT_ORIGINAL_LANG,
+  DEFAULT_TRANSLATION_LANG,
+  getLanguageName,
+} from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
+import { $lessons } from '../../lessons/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
 import { createSetFx, updateSetFx, $sets } from '../../sets/store'
-import { $originalLang, $translationLang } from '../../theme/store'
 import {
   createEmptyPair,
   draftInitialized,
   draftLanguagesChanged,
+  draftLessonChanged,
   draftNameChanged,
   draftPairAdded,
   draftPairChanged,
   draftPairsTranslated,
   draftReset,
+  translateFieldFx,
   translatePairsFx,
+  $draftLessonId,
   $draftName,
   $draftOriginalLang,
   $draftPairs,
   $draftTranslationLang,
 } from '../store'
 
-export function SetCreateView({ setId }: { setId?: string }) {
+export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: string }) {
   const sets = useUnit($sets)
+  const lessons = useUnit($lessons)
   const languages = useUnit($languages)
-  const settingsOriginalLang = useUnit($originalLang)
-  const settingsTranslationLang = useUnit($translationLang)
+  const draftLessonId = useUnit($draftLessonId)
   const name = useUnit($draftName)
   const originalLang = useUnit($draftOriginalLang)
   const translationLang = useUnit($draftTranslationLang)
@@ -69,12 +79,17 @@ export function SetCreateView({ setId }: { setId?: string }) {
   )
   const isEditing = setId !== undefined
 
+  const parentLesson =
+    lessons.find((item) => item.id === (set?.lessonId ?? lessonId)) ?? lessons[0]
+
   const initialDraftRef = useRef({
     pushed: transition.kind === 'push',
     draft: {
+      lessonId: set?.lessonId ?? lessonId ?? parentLesson?.id ?? '',
       name: set?.name ?? '',
-      originalLang: set?.originalLang ?? settingsOriginalLang,
-      translationLang: set?.translationLang ?? settingsTranslationLang,
+      originalLang: set?.originalLang ?? parentLesson?.originalLang ?? DEFAULT_ORIGINAL_LANG,
+      translationLang:
+        set?.translationLang ?? parentLesson?.translationLang ?? DEFAULT_TRANSLATION_LANG,
       pairs: (() => {
         const existing = set
           ? set.cards
@@ -97,26 +112,25 @@ export function SetCreateView({ setId }: { setId?: string }) {
   }, [])
 
   const [translateFailed, setTranslateFailed] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [translatingField, setTranslatingField] = useState<{
+    id: string
+    field: 'original' | 'translation'
+  } | null>(null)
 
   const sameLanguages = originalLang === translationLang
-  const canApply = name.trim().length > 0 && !sameLanguages
+  const canApply = name.trim().length > 0 && !sameLanguages && draftLessonId.length > 0
   const canTranslate = pairs.some(
     (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0
   )
   const pending = createPending || updatePending
 
-  const options = useMemo(
-    () => languages.map((language) => ({ label: language.name, value: language.code })),
-    [languages]
-  )
-
-  const originalOptions = useMemo(
-    () => options.map((option) => ({ ...option, disabled: option.value === translationLang })),
-    [options, translationLang]
-  )
-  const translationOptions = useMemo(
-    () => options.map((option) => ({ ...option, disabled: option.value === originalLang })),
-    [options, originalLang]
+  const lessonOptions = useMemo(
+    () =>
+      [...lessons]
+        .sort((a, b) => a.order - b.order)
+        .map((lesson) => ({ label: lesson.name, value: lesson.id })),
+    [lessons]
   )
 
   const applyLanguages = (nextOriginal: LanguageCode, nextTranslation: LanguageCode) => {
@@ -138,14 +152,6 @@ export function SetCreateView({ setId }: { setId?: string }) {
         }
       }),
     })
-  }
-
-  const handleOriginalChange = (value: string) => {
-    applyLanguages(value, translationLang)
-  }
-
-  const handleTranslationChange = (value: string) => {
-    applyLanguages(originalLang, value)
   }
 
   const handleSwap = () => {
@@ -182,6 +188,30 @@ export function SetCreateView({ setId }: { setId?: string }) {
     setTranslateFailed(failed)
   }
 
+  const handleTranslateField = async (
+    pairId: string,
+    field: 'original' | 'translation',
+    text: string
+  ) => {
+    if (!text.trim()) return
+
+    const from = field === 'original' ? originalLang : translationLang
+    const to = field === 'original' ? translationLang : originalLang
+    const target = field === 'original' ? 'translation' : 'original'
+
+    setTranslateFailed(false)
+    setTranslatingField({ id: pairId, field })
+
+    try {
+      const value = await translateFieldFx({ from, text: text.trim(), to })
+      draftPairChanged({ id: pairId, field: target, value })
+    } catch {
+      setTranslateFailed(true)
+    } finally {
+      setTranslatingField(null)
+    }
+  }
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
 
@@ -197,6 +227,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
     if (isEditing && set) {
       await updateSetFx({
         setId: set.id,
+        lessonId: draftLessonId,
         name,
         originalLang,
         translationLang,
@@ -213,6 +244,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
     }
 
     const { setId: createdSetId } = await createSetFx({
+      lessonId: draftLessonId,
       name,
       originalLang,
       translationLang,
@@ -237,6 +269,35 @@ export function SetCreateView({ setId }: { setId?: string }) {
     <Box grow height="100%">
       <Header
         back
+        endToolbar={
+          <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
+            <Menu.Trigger>
+              <ButtonIcon
+                ariaLabel="Меню набора"
+                icon={<IconMoreHorizontal fontSize={24} />}
+                variant="flat"
+              />
+            </Menu.Trigger>
+            <Menu.Content>
+              <Menu.Item
+                icon={<IconSwapVert fontSize={16} />}
+                label="Поменять местами"
+                onClick={handleSwap}
+              />
+              <Menu.Item
+                icon={<IconViewList fontSize={16} />}
+                label="Добавить текст"
+                onClick={handleAddText}
+              />
+              <Menu.Item
+                disabled={!canTranslate || translatePending}
+                icon={<IconTranslate fontSize={16} />}
+                label="Перевести всё"
+                onClick={handleTranslateAll}
+              />
+            </Menu.Content>
+          </Menu.Root>
+        }
         text={isEditing ? 'Изменить набор' : 'Новый набор'}
         onBackClick={() => popScreen()}
       />
@@ -254,45 +315,18 @@ export function SetCreateView({ setId }: { setId?: string }) {
             />
 
             <Card padding="l">
-              <Stack spacing="m">
-                <Stack spacing="xs">
-                  <Text color="contrast-secondary" variant="XS / Medium">
-                    Язык оригинала
-                  </Text>
-                  <Select
-                    fullWidth
-                    options={originalOptions}
-                    value={originalLang}
-                    onChange={handleOriginalChange}
-                  />
-                </Stack>
-                <Button
+              <Stack spacing="xs">
+                <Text color="contrast-secondary" variant="XS / Medium">
+                  Урок
+                </Text>
+                <Select
                   fullWidth
-                  startIcon={<IconSwapVert fontSize={24} />}
-                  variant="secondary"
-                  onClick={handleSwap}
-                >
-                  Поменять местами
-                </Button>
-                <Stack spacing="xs">
-                  <Text color="contrast-secondary" variant="XS / Medium">
-                    Язык перевода
-                  </Text>
-                  <Select
-                    fullWidth
-                    options={translationOptions}
-                    value={translationLang}
-                    onChange={handleTranslationChange}
-                  />
-                </Stack>
+                  options={lessonOptions}
+                  value={draftLessonId}
+                  onChange={draftLessonChanged}
+                />
               </Stack>
             </Card>
-
-            {sameLanguages ? (
-              <FormHelperText variant="error">
-                Языки оригинала и перевода должны различаться
-              </FormHelperText>
-            ) : null}
 
             <Card padding="m">
               <Stack spacing="m">
@@ -305,8 +339,14 @@ export function SetCreateView({ setId }: { setId?: string }) {
                       lang={originalLang}
                       placeholder={`Оригинал · ${getLanguageName(originalLang, languages)}`}
                       size="m"
+                      translating={
+                        translatingField?.id === pair.id && translatingField.field === 'original'
+                      }
                       value={pair.original}
                       onChange={(value) => handlePairChange(pair.id, 'original', value)}
+                      onTranslate={() =>
+                        handleTranslateField(pair.id, 'original', pair.original)
+                      }
                     />
                     <InputWithVoice
                       floatingLabel
@@ -314,8 +354,15 @@ export function SetCreateView({ setId }: { setId?: string }) {
                       lang={translationLang}
                       placeholder={`Перевод · ${getLanguageName(translationLang, languages)}`}
                       size="m"
+                      translating={
+                        translatingField?.id === pair.id &&
+                        translatingField.field === 'translation'
+                      }
                       value={pair.translation}
                       onChange={(value) => handlePairChange(pair.id, 'translation', value)}
+                      onTranslate={() =>
+                        handleTranslateField(pair.id, 'translation', pair.translation)
+                      }
                     />
                   </Stack>
                 ))}
@@ -324,7 +371,7 @@ export function SetCreateView({ setId }: { setId?: string }) {
 
             {translateFailed ? (
               <FormHelperText variant="error">
-                Не удалось перевести часть слов — введите перевод вручную
+                Не удалось перевести — введите перевод вручную
               </FormHelperText>
             ) : null}
 
@@ -337,28 +384,8 @@ export function SetCreateView({ setId }: { setId?: string }) {
               Добавить слово
             </Button>
 
-            <Button
-              fullWidth
-              startIcon={<IconViewList fontSize={24} />}
-              variant="secondary"
-              onClick={handleAddText}
-            >
-              Добавить текст
-            </Button>
-
-            <Button
-              disabled={!canTranslate}
-              fullWidth
-              loading={translatePending}
-              startIcon={<IconTranslate fontSize={24} />}
-              variant="secondary"
-              onClick={handleTranslateAll}
-            >
-              Перевести все
-            </Button>
-
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">
-              {isEditing ? 'Сохранить' : 'Применить'}
+              Сохранить
             </Button>
           </Stack>
         </form>

@@ -4,11 +4,13 @@ import type { LanguageCode } from '../../../lib/languages'
 import * as setsApi from '../../../transport/sets'
 import type { CardEditPair, CardPair, CardSet, CardTexts } from '../../../transport/sets'
 import { importBackupFx } from '../../backup/store'
+import { deleteLessonFx } from '../../lessons/store'
 
 export const fetchSetsFx = createEffect(() => setsApi.fetchSets())
 
 export const createSetFx = createEffect(
   (payload: {
+    lessonId: string
     name: string
     originalLang: LanguageCode
     translationLang: LanguageCode
@@ -19,6 +21,7 @@ export const createSetFx = createEffect(
 export const updateSetFx = createEffect(
   (payload: {
     setId: string
+    lessonId: string
     name: string
     originalLang: LanguageCode
     translationLang: LanguageCode
@@ -105,6 +108,7 @@ export const $sets = createStore<CardSet[]>([])
     (_, sets) => sets
   )
   .on(createSetFx.doneData, (_, { sets }) => sets)
+  .on(deleteLessonFx.doneData, (_, { sets }) => sets)
   .on(importBackupFx.doneData, (_, { sets }) => sets)
 
 export const $setsLoading = createStore(false)

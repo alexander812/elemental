@@ -6,9 +6,10 @@ import { useUnit } from 'effector-react'
 import {
   IconCheckSmall,
   IconClose,
+  IconEdit,
+  IconEducation,
+  IconMoreHorizontal,
   IconPlusBig,
-  IconSettings,
-  IconTasks,
   IconTrash,
 } from '@elemental/icons'
 import {
@@ -19,13 +20,15 @@ import {
   Chip,
   EmptyScreen,
   Header,
+  Menu,
   Spinner,
   Stack,
   Text,
 } from '@elemental/ui-kit'
 
 import type { CardSet } from '../../../lib/types'
-import { pushScreen } from '../../navigation/store'
+import { popScreen, pushScreen } from '../../navigation/store'
+import { $lessons } from '../../lessons/store'
 import { fetchSetsFx, reorderSetsFx, setSetActiveFx, $sets, $setsLoading } from '../store'
 
 const ROW_HEIGHT = 64
@@ -65,6 +68,7 @@ type SetRowProps = {
   onReorderEnd: (rowId: string) => void
   onReorderCancel: () => void
   onDelete: (setId: string) => void
+  onEdit: (set: CardSet) => void
   onOpen: (setId: string | null) => void
   onTap: (set: CardSet) => void
 }
@@ -83,6 +87,7 @@ function SetRow({
   onReorderEnd,
   onReorderCancel,
   onDelete,
+  onEdit,
   onOpen,
   onTap,
 }: SetRowProps) {
@@ -130,7 +135,6 @@ function SetRow({
       lastTouchRef.current = Date.now()
     } else if (event.pointerType === 'mouse') {
       if (event.button !== 0) return
-      // compatibility mouse events fired right after a touch gesture
       if (Date.now() - lastTouchRef.current < 700) return
     }
 
@@ -158,7 +162,6 @@ function SetRow({
       const moveY = event.clientY - y
       const vertical = Math.abs(moveY) > Math.abs(moveX)
 
-      // mouse/pen: start reordering right away on vertical movement
       if (event.pointerType === 'mouse' && vertical && Math.abs(moveY) > MOVE_SLOP) {
         clearTimer()
         suppressClickRef.current = true
@@ -293,7 +296,7 @@ function SetRow({
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerCancel}
       >
-        <Card borderRadius="m" color="primary" height="100%" onClick={handleCardClick} padding="m">
+        <Card borderRadius="m" color="accent" height="100%" onClick={handleCardClick} padding="m">
           <Stack direction="row" spacing="m" verticalAlign="center" height="100%">
             <Box grow>
               <Text overflow="ellipsis" variant="M / Medium">
@@ -313,6 +316,18 @@ function SetRow({
                 startIcon={<IconClose color="var(--warning-text-and-icons)" fontSize={16} />}
                 variant="outlined"
               />
+              <ButtonIcon
+                ariaLabel="Изменить набор"
+                color="neutral"
+                icon={<IconEdit fontSize={24} />}
+                size="s"
+                variant="flat"
+                onClick={(event) => {
+                  event.stopPropagation()
+                  onEdit(set)
+                }}
+                onPointerDown={(event) => event.stopPropagation()}
+              />
             </Stack>
           </Stack>
         </Card>
@@ -321,16 +336,23 @@ function SetRow({
   )
 }
 
-export function SetsView() {
+export function SetsView({ lessonId }: { lessonId: string }) {
   const sets = useUnit($sets)
+  const lessons = useUnit($lessons)
   const loading = useUnit($setsLoading)
 
   const [drag, setDrag] = useState<DragState | null>(null)
   const [settle, setSettle] = useState(false)
   const [openRowId, setOpenRowId] = useState<string | null>(null)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const dragRef = useRef<DragState | null>(null)
   const settleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const lesson = useMemo(
+    () => lessons.find((item) => item.id === lessonId),
+    [lessons, lessonId]
+  )
 
   const updateDrag = (next: DragState | null) => {
     dragRef.current = next
@@ -348,8 +370,11 @@ export function SetsView() {
   }, [])
 
   const visible = useMemo(
-    () => sets.filter((set) => set.active).sort((a, b) => a.order - b.order),
-    [sets]
+    () =>
+      sets
+        .filter((set) => set.active && set.lessonId === lessonId)
+        .sort((a, b) => a.order - b.order),
+    [sets, lessonId]
   )
 
   const touchHandlerRef = useRef<(event: TouchEvent) => void>(null)
@@ -414,7 +439,6 @@ export function SetsView() {
       settleTimerRef.current = setTimeout(() => setSettle(false), 100)
     }
 
-    // keep the row in place until the new order arrives, then swap without transition
     reorderSetsFx(ids).then(applySettle, applySettle)
   }
 
@@ -437,8 +461,17 @@ export function SetsView() {
     pushScreen({ name: 'cards', setId: set.id })
   }
 
+  const handleEdit = (set: CardSet) => {
+    setOpenRowId(null)
+    pushScreen({ name: 'set-create', setId: set.id })
+  }
+
   const handleAddNew = () => {
-    pushScreen({ name: 'set-create' })
+    pushScreen({ name: 'set-create', lessonId })
+  }
+
+  const handleEditLesson = () => {
+    pushScreen({ name: 'lesson-create', lessonId })
   }
 
   const logo = (
@@ -449,10 +482,60 @@ export function SetsView() {
     />
   )
 
-  if (loading) {
+  const header = (
+    <Header
+      back
+      endToolbar={
+        <Stack direction="row" spacing="s" verticalAlign="center">
+          <div style={{ maxWidth: 140, minWidth: 0 }}>
+            <Text color="contrast-secondary" overflow="ellipsis" variant="M / Medium">
+              {lesson?.name ?? ''}
+            </Text>
+          </div>
+          <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
+            <Menu.Trigger>
+              <ButtonIcon
+                ariaLabel="Меню урока"
+                icon={<IconMoreHorizontal fontSize={24} />}
+                variant="flat"
+              />
+            </Menu.Trigger>
+            <Menu.Content>
+              <Menu.Item
+                icon={<IconEdit fontSize={16} />}
+                label="Редактировать урок"
+                onClick={handleEditLesson}
+              />
+            </Menu.Content>
+          </Menu.Root>
+        </Stack>
+      }
+      startToolbar={logo}
+      text="Lexi"
+      textVariant="primary"
+      onBackClick={() => popScreen()}
+    />
+  )
+
+  if (!lesson) {
     return (
       <Box grow height="100%">
-        <Header startToolbar={logo} text="Lexi" />
+        {header}
+        {loading ? (
+          <Stack grow verticalAlign="center" horizontalAlign="center" height="100%">
+            <Spinner size="l" />
+          </Stack>
+        ) : (
+          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Урок не найден" />
+        )}
+      </Box>
+    )
+  }
+
+  if (loading && visible.length === 0) {
+    return (
+      <Box grow height="100%">
+        {header}
         <Stack grow verticalAlign="center" horizontalAlign="center" height="100%">
           <Spinner size="l" />
         </Stack>
@@ -463,16 +546,16 @@ export function SetsView() {
   if (visible.length === 0) {
     return (
       <Box grow height="100%">
-        <Header startToolbar={logo} text="Lexi" />
+        {header}
         <EmptyScreen
           action={
             <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
-              Добавить новый
+              Добавить набор
             </Button>
           }
           fullHeight
-          icon={<IconTasks fontSize={24} />}
-          text="Пока нет ни одного набора карточек"
+          icon={<IconEducation fontSize={24} />}
+          text="Пока в уроке нет наборов карточек"
         />
       </Box>
     )
@@ -480,18 +563,7 @@ export function SetsView() {
 
   return (
     <Box grow height="100%">
-      <Header
-        endToolbar={
-          <ButtonIcon
-            ariaLabel="Настройки"
-            icon={<IconSettings fontSize={24} />}
-            variant="flat"
-            onClick={() => pushScreen({ name: 'settings' })}
-          />
-        }
-        startToolbar={logo}
-        text="Lexi"
-      />
+      {header}
       <Box grow padding="m">
         <div style={{ display: 'flex', flexDirection: 'column', gap: ROW_GAP }}>
           {visible.map((set, index) => {
@@ -515,6 +587,7 @@ export function SetsView() {
                 set={set}
                 shift={shift}
                 onDelete={handleDelete}
+                onEdit={handleEdit}
                 onOpen={setOpenRowId}
                 onReorderCancel={handleReorderCancel}
                 onReorderEnd={handleReorderEnd}
@@ -533,7 +606,7 @@ export function SetsView() {
           variant="secondary"
           onClick={handleAddNew}
         >
-          Добавить новый
+          Добавить набор
         </Button>
       </Box>
     </Box>

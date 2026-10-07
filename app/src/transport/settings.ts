@@ -1,10 +1,8 @@
 import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../lib/languages'
-import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Settings, ThemeName } from '../lib/types'
 
 export type { Settings, ThemeName } from '../lib/types'
-export type { LanguageCode } from '../lib/languages'
 
 const SETTINGS_KEY = 'settings'
 
@@ -31,13 +29,6 @@ export async function saveSettings(patch: Partial<Settings>): Promise<Settings> 
 
 export async function saveTheme(theme: ThemeName): Promise<Settings> {
   return saveSettings({ theme })
-}
-
-export async function saveLanguages(
-  originalLang: LanguageCode,
-  translationLang: LanguageCode
-): Promise<Settings> {
-  return saveSettings({ originalLang, translationLang })
 }
 
 export async function saveLearnAfterChecks(learnAfterChecks: boolean): Promise<Settings> {

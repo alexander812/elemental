@@ -13,12 +13,21 @@ export interface Card {
 
 export interface CardSet {
   id: string
+  lessonId: string
   name: string
   active: boolean
   order: number
   originalLang: LanguageCode
   translationLang: LanguageCode
   cards: Card[]
+}
+
+export interface Lesson {
+  id: string
+  name: string
+  order: number
+  originalLang: LanguageCode
+  translationLang: LanguageCode
 }
 
 export type ThemeName = 'dark' | 'light'

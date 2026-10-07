@@ -24,11 +24,14 @@ export type TranslatedPair = {
 export const createEmptyPair = (): PairDraft => ({ id: uid(), original: '', translation: '' })
 
 export const draftInitialized = createEvent<{
+  lessonId: string
   name: string
   originalLang: LanguageCode
   translationLang: LanguageCode
   pairs: PairDraft[]
 }>()
+
+export const draftLessonChanged = createEvent<string>()
 
 export const draftNameChanged = createEvent<string>()
 
@@ -50,11 +53,18 @@ export const draftPairsTranslated = createEvent<TranslatedPair[]>()
 export const draftReset = createEvent()
 
 export const restoreDraft = createEvent<{
+  lessonId?: string
   name: string
   originalLang: LanguageCode
   translationLang: LanguageCode
   pairs: PairDraft[]
 }>()
+
+export const $draftLessonId = createStore('')
+  .on(draftInitialized, (_, draft) => draft.lessonId)
+  .on(draftLessonChanged, (_, lessonId) => lessonId)
+  .on(restoreDraft, (_, draft) => draft.lessonId ?? '')
+  .reset(draftReset)
 
 export const $draftName = createStore('')
   .on(draftInitialized, (_, draft) => draft.name)
@@ -98,6 +108,11 @@ export const $draftPairs = createStore<PairDraft[]>([createEmptyPair()])
     ),
   ])
   .reset(draftReset)
+
+export const translateFieldFx = createEffect(
+  ({ from, text, to }: { from: LanguageCode; text: string; to: LanguageCode }) =>
+    translateText(text, from, to)
+)
 
 export const translatePairsFx = createEffect(
   async ({

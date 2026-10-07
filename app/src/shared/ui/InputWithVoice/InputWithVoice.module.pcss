@@ -41,6 +41,17 @@
   animation: microphonePulse 1.2s ease-in-out infinite;
 }
 
+.translateBusy {
+  color: var(--accent-text-and-icons);
+  animation: translateSpin 1s linear infinite;
+}
+
+@keyframes translateSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes microphonePulse {
   0%,
   100% {

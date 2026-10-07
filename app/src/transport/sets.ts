@@ -6,8 +6,9 @@ import {
 } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
-import type { Card, CardSet, CardTexts } from '../lib/types'
+import type { Card, CardSet, CardTexts, Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
+import { ensureDefaultLesson } from './lessons'
 import { readSettings } from './settings'
 
 export type { Card, CardSet, CardTexts } from '../lib/types'
@@ -44,17 +45,18 @@ function createCard(
   }
 }
 
-function seedSets(): CardSet[] {
+function seedSets(lesson: Lesson): CardSet[] {
   return [
     {
       id: uid(),
+      lessonId: lesson.id,
       name: 'Дни недели',
       active: true,
       order: 0,
-      originalLang: DEFAULT_ORIGINAL_LANG,
-      translationLang: DEFAULT_TRANSLATION_LANG,
+      originalLang: lesson.originalLang,
+      translationLang: lesson.translationLang,
       cards: WEEKDAYS.map(([original, translation]) =>
-        createCard(DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG, original, translation)
+        createCard(lesson.originalLang, lesson.translationLang, original, translation)
       ),
     },
   ]
@@ -103,7 +105,8 @@ export function migrateCard(card: LegacyCard): Card {
   }
 }
 
-export type LegacySet = Omit<CardSet, 'originalLang' | 'translationLang'> & {
+export type LegacySet = Omit<CardSet, 'originalLang' | 'translationLang' | 'lessonId'> & {
+  lessonId?: string
   originalLang?: LanguageCode
   translationLang?: LanguageCode
 }
@@ -111,7 +114,8 @@ export type LegacySet = Omit<CardSet, 'originalLang' | 'translationLang'> & {
 export function migrateSet(
   set: LegacySet,
   fallbackOriginal: LanguageCode = DEFAULT_ORIGINAL_LANG,
-  fallbackTranslation: LanguageCode = DEFAULT_TRANSLATION_LANG
+  fallbackTranslation: LanguageCode = DEFAULT_TRANSLATION_LANG,
+  fallbackLessonId = ''
 ): CardSet {
   const originalLang = set.originalLang ?? fallbackOriginal
   const safeFallback =
@@ -121,22 +125,31 @@ export function migrateSet(
       : fallbackTranslation
   const translationLang =
     set.translationLang && set.translationLang !== originalLang ? set.translationLang : safeFallback
+  const lessonId = typeof set.lessonId === 'string' && set.lessonId ? set.lessonId : fallbackLessonId
 
-  return { ...set, originalLang, translationLang, cards: set.cards.map(migrateCard) }
+  return { ...set, lessonId, originalLang, translationLang, cards: set.cards.map(migrateCard) }
 }
 
 function readSets(): CardSet[] {
   const seeded = load<boolean>(SEEDED_KEY, false)
-  const sets = seeded ? load<LegacySet[]>(SETS_KEY, []) : seedSets()
-
-  if (!seeded) {
-    save(SETS_KEY, sets)
-    save(SEEDED_KEY, true)
-  }
-
   const settings = readSettings()
 
-  return sets.map((set) => migrateSet(set, settings.originalLang, settings.translationLang))
+  if (!seeded) {
+    const lesson = ensureDefaultLesson()
+    const sets = seedSets(lesson)
+
+    save(SETS_KEY, sets)
+    save(SEEDED_KEY, true)
+
+    return sets
+  }
+
+  const sets = load<LegacySet[]>(SETS_KEY, [])
+  const fallbackLessonId = sets.some((set) => !set.lessonId) ? ensureDefaultLesson().id : ''
+
+  return sets.map((set) =>
+    migrateSet(set, settings.originalLang, settings.translationLang, fallbackLessonId)
+  )
 }
 
 function writeSets(sets: CardSet[]): CardSet[] {
@@ -167,15 +180,17 @@ export type CardEditPair = CardPair & {
 }
 
 export async function createSet(payload: {
+  lessonId: string
   name: string
   originalLang: LanguageCode
   translationLang: LanguageCode
   cards: CardPair[]
 }): Promise<{ setId: string; sets: CardSet[] }> {
   const sets = readSets()
-  const maxOrder = sets.reduce((max, set) => Math.max(max, set.order), 0)
+  const maxOrder = sets.reduce((max, set) => Math.max(max, set.order), -1)
   const newSet: CardSet = {
     id: uid(),
+    lessonId: payload.lessonId,
     name: payload.name.trim(),
     active: true,
     order: maxOrder + 1,
@@ -191,6 +206,7 @@ export async function createSet(payload: {
 
 export async function updateSet(payload: {
   setId: string
+  lessonId: string
   name: string
   originalLang: LanguageCode
   translationLang: LanguageCode
@@ -236,6 +252,7 @@ export async function updateSet(payload: {
 
       return {
         ...set,
+        lessonId: payload.lessonId,
         name: payload.name.trim(),
         originalLang: payload.originalLang,
         translationLang: payload.translationLang,
@@ -253,6 +270,11 @@ export async function setSetActive(setId: string, active: boolean): Promise<Card
 export async function deleteSet(setId: string): Promise<CardSet[]> {
   const sets = readSets()
   return writeSets(sets.filter((set) => set.id !== setId))
+}
+
+export async function deleteSetsByLesson(lessonId: string): Promise<CardSet[]> {
+  const sets = readSets()
+  return writeSets(sets.filter((set) => set.lessonId !== lessonId))
 }
 
 export async function reorderSets(ids: string[]): Promise<CardSet[]> {

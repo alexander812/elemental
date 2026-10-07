@@ -6,6 +6,7 @@ import { useUnit } from 'effector-react'
 import { IconSettings, IconViewList } from '@elemental/icons'
 
 import { DataView } from '../features/backup/ui/DataView'
+import { ExportView } from '../features/backup/ui/ExportView'
 import { CardCreateView } from '../features/card-create/ui/CardCreateView'
 import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
 import { CardsView } from '../features/cards/ui/CardsView'
@@ -19,8 +20,9 @@ import {
   $transition,
 } from '../features/navigation/store'
 import type { Screen } from '../features/navigation/store'
+import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
+import { LessonsView } from '../features/lessons/ui/LessonsView'
 import { SetCreateView } from '../features/set-create/ui/SetCreateView'
-import { LanguagesView } from '../features/settings/ui/LanguagesView'
 import { MenuView } from '../features/settings/ui/MenuView'
 import { ThemeView } from '../features/settings/ui/ThemeView'
 import { SetsView } from '../features/sets/ui/SetsView'
@@ -32,10 +34,14 @@ import classes from './AppLayout.module.pcss'
 
 function renderScreen(screen: Screen): ReactNode {
   switch (screen.name) {
-    case 'sets':
-      return <SetsView />
+    case 'lessons':
+      return <LessonsView />
+    case 'lesson':
+      return <SetsView key={screen.lessonId} lessonId={screen.lessonId} />
+    case 'lesson-create':
+      return <LessonCreateView lessonId={screen.lessonId} />
     case 'set-create':
-      return <SetCreateView setId={screen.setId} />
+      return <SetCreateView lessonId={screen.lessonId} setId={screen.setId} />
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />
     case 'card-create':
@@ -54,14 +60,14 @@ function renderScreen(screen: Screen): ReactNode {
       return <MenuView />
     case 'theme':
       return <ThemeView />
-    case 'languages':
-      return <LanguagesView />
     case 'voices':
       return <VoicesView />
     case 'checks':
       return <ChecksView />
     case 'data':
       return <DataView />
+    case 'export':
+      return <ExportView />
   }
 }
 
@@ -69,21 +75,21 @@ function isSettingsScreen(name: Screen['name']): boolean {
   return (
     name === 'settings' ||
     name === 'theme' ||
-    name === 'languages' ||
     name === 'voices' ||
     name === 'checks' ||
-    name === 'data'
+    name === 'data' ||
+    name === 'export'
   )
 }
 
 function AppFooter() {
   const screen = useUnit($screen)
 
-  const isSetsActive = screen.name === 'sets'
   const isMenuActive = isSettingsScreen(screen.name)
+  const isLessonsActive = !isMenuActive
 
   const handleSets = () => {
-    if (screen.name === 'sets') return
+    if (screen.name === 'lessons') return
     goToRoot()
   }
 
@@ -95,12 +101,12 @@ function AppFooter() {
   return (
     <div className={classes.footer}>
       <button
-        className={`${classes.footerButton} ${isSetsActive ? classes.footerButtonActive : ''}`}
+        className={`${classes.footerButton} ${isLessonsActive ? classes.footerButtonActive : ''}`}
         type="button"
         onClick={handleSets}
       >
         <IconViewList fontSize={24} />
-        Наборы
+        Уроки
       </button>
       <button
         className={`${classes.footerButton} ${isMenuActive ? classes.footerButtonActive : ''}`}

@@ -7,6 +7,7 @@ import { restoreNav, $nav } from '../../navigation/store'
 import type { PairDraft } from '../../set-create/store'
 import {
   restoreDraft,
+  $draftLessonId,
   $draftName,
   $draftOriginalLang,
   $draftPairs,
@@ -34,6 +35,7 @@ export type TextAddSnapshot = {
 }
 
 export type SetCreateSnapshot = {
+  lessonId?: string
   name: string
   originalLang: LanguageCode
   translationLang: LanguageCode
@@ -48,7 +50,9 @@ export type SessionSnapshot = {
 }
 
 const SCREEN_NAMES = new Set<Screen['name']>([
-  'sets',
+  'lessons',
+  'lesson',
+  'lesson-create',
   'set-create',
   'cards',
   'card-create',
@@ -57,10 +61,10 @@ const SCREEN_NAMES = new Set<Screen['name']>([
   'words-translate',
   'settings',
   'theme',
-  'languages',
   'voices',
   'checks',
   'data',
+  'export',
 ])
 
 const isScreen = (value: unknown): value is Screen =>
@@ -84,6 +88,7 @@ export const saveSession = (): void => {
       pairs: $pairs.getState(),
     },
     setCreate: {
+      lessonId: $draftLessonId.getState(),
       name: $draftName.getState(),
       originalLang: $draftOriginalLang.getState(),
       translationLang: $draftTranslationLang.getState(),
@@ -154,6 +159,7 @@ export const installSessionPersistence = (): void => {
   $selected.watch(persist)
   $textLang.watch(persist)
   $pairs.watch(persist)
+  $draftLessonId.watch(persist)
   $draftName.watch(persist)
   $draftOriginalLang.watch(persist)
   $draftTranslationLang.watch(persist)

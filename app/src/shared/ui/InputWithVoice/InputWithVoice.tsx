@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import type { FocusEvent } from 'react'
 
-import { IconMicrophone } from '@elemental/icons'
+import { IconMicrophone, IconTranslate } from '@elemental/icons'
 
-import { InputText } from '@elemental/ui-kit'
+import { InputText, Stack } from '@elemental/ui-kit'
 import type { InputTextProps } from '@elemental/ui-kit'
 
 import type { LanguageCode } from '../../../lib/languages'
@@ -14,6 +14,8 @@ import classes from './InputWithVoice.module.pcss'
 export type InputWithVoiceProps = Omit<InputTextProps, 'endIcon' | 'onChange' | 'value'> & {
   lang: LanguageCode
   onChange: (value: string) => void
+  onTranslate?: () => void
+  translating?: boolean
   value: string
 }
 
@@ -42,7 +44,14 @@ const recognizeErrorText = (error: Error) =>
 const isRecognizeCancelled = (error: unknown) =>
   error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted')
 
-export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoiceProps) {
+export function InputWithVoice({
+  lang,
+  value,
+  onChange,
+  onTranslate,
+  translating,
+  ...rest
+}: InputWithVoiceProps) {
   const [focused, setFocused] = useState(false)
   const [listening, setListening] = useState(false)
   const [recognizeFailed, setRecognizeFailed] = useState<Error | null>(null)
@@ -104,6 +113,20 @@ export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoic
       </button>
     ) : null
 
+  const translate =
+    focused && onTranslate ? (
+      <button
+        aria-label="Перевести"
+        className={`${classes.mic} ${translating ? classes.translateBusy : ''}`}
+        disabled={rest.disabled || translating || !value.trim()}
+        type="button"
+        onClick={onTranslate}
+        onPointerDown={(event) => event.preventDefault()}
+      >
+        <IconTranslate fontSize={20} />
+      </button>
+    ) : null
+
   const handleFocus = () => setFocused(true)
 
   const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
@@ -111,6 +134,14 @@ export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoic
 
     setFocused(false)
   }
+
+  const endIcon =
+    translate || microphone ? (
+      <Stack direction="row" shrink={0} spacing="xs" verticalAlign="center">
+        {translate}
+        {microphone}
+      </Stack>
+    ) : null
 
   return (
     <div
@@ -120,7 +151,7 @@ export function InputWithVoice({ lang, value, onChange, ...rest }: InputWithVoic
     >
       <InputText
         {...rest}
-        endIcon={microphone}
+        endIcon={endIcon}
         error={recognizeFailed ? recognizeErrorText(recognizeFailed) : rest.error}
         helperText={recognizeFailed ? undefined : rest.helperText}
         value={value}
