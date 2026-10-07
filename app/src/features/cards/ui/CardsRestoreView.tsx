@@ -47,7 +47,7 @@ export function CardsRestoreView({ setId }: { setId: string }) {
     return (
       <Box grow height="100%">
         <Header back text="Восстановить удалённые" onBackClick={() => popScreen()} />
-        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Набор не найден" />
+        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Задание не найдено" />
       </Box>
     )
   }

@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconSettings, IconViewList } from '@elemental/icons'
+import { IconBookOpen, IconSettings, IconViewList } from '@elemental/icons'
 
 import { DataView } from '../features/backup/ui/DataView'
 import { ExportView } from '../features/backup/ui/ExportView'
@@ -12,6 +12,7 @@ import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
 import { CardsView } from '../features/cards/ui/CardsView'
 import { ChecksView } from '../features/settings/ui/ChecksView'
 import {
+  goToLessons,
   goToRoot,
   pushScreen,
   transitionEnded,
@@ -20,6 +21,8 @@ import {
   $transition,
 } from '../features/navigation/store'
 import type { Screen } from '../features/navigation/store'
+import { CourseCreateView } from '../features/courses/ui/CourseCreateView'
+import { CoursesView } from '../features/courses/ui/CoursesView'
 import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
 import { LessonsView } from '../features/lessons/ui/LessonsView'
 import { SetCreateView } from '../features/set-create/ui/SetCreateView'
@@ -34,12 +37,22 @@ import classes from './AppLayout.module.pcss'
 
 function renderScreen(screen: Screen): ReactNode {
   switch (screen.name) {
+    case 'courses':
+      return <CoursesView />
+    case 'course-create':
+      return <CourseCreateView courseId={screen.courseId} />
     case 'lessons':
       return <LessonsView />
     case 'lesson':
       return <SetsView key={screen.lessonId} lessonId={screen.lessonId} />
     case 'lesson-create':
-      return <LessonCreateView lessonId={screen.lessonId} />
+      return (
+        <LessonCreateView
+          key={screen.lessonId ?? screen.courseId}
+          courseId={screen.courseId}
+          lessonId={screen.lessonId}
+        />
+      )
     case 'set-create':
       return <SetCreateView lessonId={screen.lessonId} setId={screen.setId} />
     case 'cards':
@@ -86,11 +99,17 @@ function AppFooter() {
   const screen = useUnit($screen)
 
   const isMenuActive = isSettingsScreen(screen.name)
-  const isLessonsActive = !isMenuActive
+  const isCoursesActive = screen.name === 'courses'
+  const isLessonsActive = !isMenuActive && !isCoursesActive
 
-  const handleSets = () => {
-    if (screen.name === 'lessons') return
+  const handleCourses = () => {
+    if (screen.name === 'courses') return
     goToRoot()
+  }
+
+  const handleLessons = () => {
+    if (screen.name === 'lessons') return
+    goToLessons()
   }
 
   const handleMenu = () => {
@@ -101,11 +120,19 @@ function AppFooter() {
   return (
     <div className={classes.footer}>
       <button
-        className={`${classes.footerButton} ${isLessonsActive ? classes.footerButtonActive : ''}`}
+        className={`${classes.footerButton} ${isCoursesActive ? classes.footerButtonActive : ''}`}
         type="button"
-        onClick={handleSets}
+        onClick={handleCourses}
       >
         <IconViewList fontSize={24} />
+        Курсы
+      </button>
+      <button
+        className={`${classes.footerButton} ${isLessonsActive ? classes.footerButtonActive : ''}`}
+        type="button"
+        onClick={handleLessons}
+      >
+        <IconBookOpen fontSize={24} />
         Уроки
       </button>
       <button

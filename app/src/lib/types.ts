@@ -24,7 +24,15 @@ export interface CardSet {
 
 export interface Lesson {
   id: string
+  courseId: string
   name: string
+  order: number
+}
+
+export interface Course {
+  id: string
+  name: string
+  description: string
   order: number
   originalLang: LanguageCode
   translationLang: LanguageCode

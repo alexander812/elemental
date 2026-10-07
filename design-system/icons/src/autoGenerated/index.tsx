@@ -46,6 +46,20 @@ export const IconArrowUp = createIcon(
   />,
 );
 
+export const IconBookOpen = createIcon(
+  'IconBookOpen',
+  <>
+    <path
+      d="M11 8.6C9.7 7.2 8 6.5 6.2 6.5C5.4 6.5 4.6 6.6 3.9 6.8C3.4 7 3 7.4 3 8V18.6C3 19.4 3.7 20 4.5 19.8C5.1 19.7 5.6 19.6 6.2 19.6C8 19.6 9.6 20.2 11 21.2Z"
+      fill="currentColor"
+    />
+    <path
+      d="M13 8.6C14.3 7.2 16 6.5 17.8 6.5C18.6 6.5 19.4 6.6 20.1 6.8C20.6 7 21 7.4 21 8V18.6C21 19.4 20.3 20 19.5 19.8C18.9 19.7 18.4 19.6 17.8 19.6C16 19.6 14.4 20.2 13 21.2Z"
+      fill="currentColor"
+    />
+  </>,
+);
+
 export const IconBack = createIcon(
   'IconBack',
   <path
@@ -153,6 +167,16 @@ export const IconMoreHorizontal = createIcon(
   <path
     clipRule="evenodd"
     d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
+    fill="currentColor"
+    fillRule="evenodd"
+  />,
+);
+
+export const IconMoreVertical = createIcon(
+  'IconMoreVertical',
+  <path
+    clipRule="evenodd"
+    d="M12 3C13.1046 3 14 3.89543 14 5C14 6.10457 13.1046 7 12 7C10.8954 7 10 6.10457 10 5C10 3.89543 10.8954 3 12 3ZM12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10ZM12 17C13.1046 17 14 17.8954 14 19C14 20.1046 13.1046 21 12 21C10.8954 21 10 20.1046 10 19C10 17.8954 10.8954 17 12 17Z"
     fill="currentColor"
     fillRule="evenodd"
   />,

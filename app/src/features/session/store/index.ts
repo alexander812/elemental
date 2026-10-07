@@ -50,6 +50,8 @@ export type SessionSnapshot = {
 }
 
 const SCREEN_NAMES = new Set<Screen['name']>([
+  'courses',
+  'course-create',
   'lessons',
   'lesson',
   'lesson-create',
@@ -67,11 +69,32 @@ const SCREEN_NAMES = new Set<Screen['name']>([
   'export',
 ])
 
-const isScreen = (value: unknown): value is Screen =>
-  typeof value === 'object' &&
-  value !== null &&
-  'name' in value &&
-  SCREEN_NAMES.has((value as { name: Screen['name'] }).name)
+const isScreen = (value: unknown): value is Screen => {
+  if (
+    typeof value !== 'object' ||
+    value === null ||
+    !('name' in value) ||
+    !SCREEN_NAMES.has((value as { name: Screen['name'] }).name)
+  ) {
+    return false
+  }
+
+  const screen = value as Record<string, unknown>
+
+  switch (screen.name) {
+    case 'lesson':
+      return typeof screen.lessonId === 'string'
+    case 'cards':
+    case 'card-create':
+    case 'cards-restore':
+    case 'words-translate':
+      return typeof screen.setId === 'string'
+    case 'text-add':
+      return typeof screen.setId === 'string' || typeof screen.draft === 'object'
+    default:
+      return true
+  }
+}
 
 export const saveSession = (): void => {
   if (!isNativeBridgeAvailable()) return

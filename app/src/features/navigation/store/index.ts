@@ -9,9 +9,11 @@ export type TextAddDraft = {
 }
 
 export type Screen =
+  | { name: 'courses' }
+  | { name: 'course-create'; courseId?: string }
   | { name: 'lessons' }
   | { name: 'lesson'; lessonId: string }
-  | { name: 'lesson-create'; lessonId?: string }
+  | { name: 'lesson-create'; lessonId?: string; courseId?: string }
   | { name: 'set-create'; setId?: string; lessonId?: string }
   | { name: 'cards'; setId: string }
   | { name: 'card-create'; setId: string; cardId?: string }
@@ -32,6 +34,7 @@ export const pushScreen = createEvent<Screen>()
 export const popScreen = createEvent()
 export const popTo = createEvent<Screen['name']>()
 export const goToRoot = createEvent()
+export const goToLessons = createEvent()
 export const transitionEnded = createEvent()
 export const restoreNav = createEvent<Screen[]>()
 
@@ -40,7 +43,7 @@ type NavState = {
   transition: Transition
 }
 
-const INITIAL_STACK: Screen[] = [{ name: 'lessons' }]
+const INITIAL_STACK: Screen[] = [{ name: 'courses' }]
 
 export const $nav = createStore<NavState>({
   stack: INITIAL_STACK,
@@ -76,11 +79,22 @@ export const $nav = createStore<NavState>({
     }
   })
   .on(goToRoot, (state) => {
-    if (state.stack.length <= 1) return state
+    if (state.stack.length <= 1 && state.stack[0].name === 'courses') return state
 
     return {
       stack: INITIAL_STACK,
-      transition: { kind: 'pop', screen: state.stack[state.stack.length - 1] },
+      transition:
+        state.stack.length > 1
+          ? { kind: 'pop', screen: state.stack[state.stack.length - 1] }
+          : { kind: 'push' },
+    }
+  })
+  .on(goToLessons, (state) => {
+    if (state.stack.length === 1 && state.stack[0].name === 'lessons') return state
+
+    return {
+      stack: [{ name: 'lessons' }],
+      transition: { kind: 'push' },
     }
   })
   .on(transitionEnded, (state) => ({ ...state, transition: { kind: 'none' } }))
@@ -103,3 +117,4 @@ pushScreen.watch(suppressNextGhostClick)
 popScreen.watch(suppressNextGhostClick)
 popTo.watch(suppressNextGhostClick)
 goToRoot.watch(suppressNextGhostClick)
+goToLessons.watch(suppressNextGhostClick)

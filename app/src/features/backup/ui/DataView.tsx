@@ -16,13 +16,15 @@ import {
   Text,
 } from '@elemental/ui-kit'
 
-import { parseBackup } from '../../../transport/backup'
+import { parseBackup, findDuplicateLessons } from '../../../transport/backup'
 import type { BackupData, ImportMode } from '../../../transport/backup'
+import { $courses } from '../../courses/store'
 import { $lessons } from '../../lessons/store'
 import { goToRoot, popScreen, pushScreen } from '../../navigation/store'
 import { importBackupFx } from '../store'
 
 export function DataView() {
+  const courses = useUnit($courses)
   const lessons = useUnit($lessons)
   const importing = useUnit(importBackupFx.pending)
 
@@ -34,17 +36,10 @@ export function DataView() {
 
   const cardCount = backup?.sets.reduce((acc, set) => acc + set.cards.length, 0) ?? 0
 
-  const duplicates = useMemo(() => {
-    if (!backup) return []
-
-    const names = new Set(lessons.map((lesson) => lesson.name))
-
-    return [
-      ...new Set(
-        backup.lessons.filter((lesson) => names.has(lesson.name)).map((lesson) => lesson.name)
-      ),
-    ]
-  }, [backup, lessons])
+  const duplicates = useMemo(
+    () => (backup ? findDuplicateLessons(backup, courses, lessons) : []),
+    [backup, courses, lessons]
+  )
 
   const handleExport = () => {
     setError(null)
@@ -136,8 +131,8 @@ export function DataView() {
                   <Stack spacing="xxs">
                     <Text variant="M / Medium">{fileName}</Text>
                     <Text color="contrast-secondary" variant="XS / Medium">
-                      {backup.lessons.length} уроков · {backup.sets.length} наборов · {cardCount}{' '}
-                      карточек
+                      {backup.courses.length} курсов · {backup.lessons.length} уроков ·{' '}
+                      {backup.sets.length} заданий · {cardCount} карточек
                     </Text>
                   </Stack>
                 </Stack>
@@ -183,8 +178,9 @@ export function DataView() {
       <Modal open={confirmMerge} onClose={() => setConfirmMerge(false)}>
         <Stack spacing="m" horizontalAlign="center">
           <Text align="center" variant="S / Medium">
-            Уроки с такими названиями уже есть: {duplicates.map((name) => `«${name}»`).join(', ')}.
-            Импортируемые уроки полностью перезапишут их вместе с наборами и карточками.
+            Такие уроки уже есть:{' '}
+            {duplicates.map((item) => `«${item.name}» (${item.courseName})`).join(', ')}.
+            Импортируемые уроки полностью перезапишут их вместе с заданиями и карточками.
           </Text>
           <Button fullWidth loading={importing} onClick={() => runImport('merge')}>
             ОК

@@ -6,8 +6,9 @@ import {
 } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
-import type { Card, CardSet, CardTexts, Lesson } from '../lib/types'
+import type { Card, CardSet, CardTexts, Course, Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
+import { ensureDefaultCourse, readCourses } from './courses'
 import { ensureDefaultLesson } from './lessons'
 import { readSettings } from './settings'
 
@@ -45,7 +46,7 @@ function createCard(
   }
 }
 
-function seedSets(lesson: Lesson): CardSet[] {
+function seedSets(lesson: Lesson, course: Course): CardSet[] {
   return [
     {
       id: uid(),
@@ -53,10 +54,10 @@ function seedSets(lesson: Lesson): CardSet[] {
       name: 'Дни недели',
       active: true,
       order: 0,
-      originalLang: lesson.originalLang,
-      translationLang: lesson.translationLang,
+      originalLang: course.originalLang,
+      translationLang: course.translationLang,
       cards: WEEKDAYS.map(([original, translation]) =>
-        createCard(lesson.originalLang, lesson.translationLang, original, translation)
+        createCard(course.originalLang, course.translationLang, original, translation)
       ),
     },
   ]
@@ -136,7 +137,9 @@ function readSets(): CardSet[] {
 
   if (!seeded) {
     const lesson = ensureDefaultLesson()
-    const sets = seedSets(lesson)
+    const course =
+      readCourses().find((item) => item.id === lesson.courseId) ?? ensureDefaultCourse()
+    const sets = seedSets(lesson, course)
 
     save(SETS_KEY, sets)
     save(SEEDED_KEY, true)
@@ -275,6 +278,12 @@ export async function deleteSet(setId: string): Promise<CardSet[]> {
 export async function deleteSetsByLesson(lessonId: string): Promise<CardSet[]> {
   const sets = readSets()
   return writeSets(sets.filter((set) => set.lessonId !== lessonId))
+}
+
+export async function deleteSetsByLessonIds(lessonIds: string[]): Promise<CardSet[]> {
+  const sets = readSets()
+  const ids = new Set(lessonIds)
+  return writeSets(sets.filter((set) => !ids.has(set.lessonId)))
 }
 
 export async function reorderSets(ids: string[]): Promise<CardSet[]> {

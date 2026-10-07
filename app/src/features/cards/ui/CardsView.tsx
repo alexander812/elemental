@@ -12,7 +12,7 @@ import {
   IconClose,
   IconEdit,
   IconEducation,
-  IconMoreHorizontal,
+  IconMoreVertical,
   IconPlusBig,
   IconRefresh,
   IconRestore,
@@ -523,13 +523,13 @@ export function CardsView({ setId }: { setId: string }) {
   if (!set) {
     return (
       <Box grow height="100%">
-        <Header back text="Набор карточек" onBackClick={() => popScreen()} />
+        <Header back text="Задание" onBackClick={() => popScreen()} />
         {setsLoading ? (
           <Stack grow verticalAlign="center" horizontalAlign="center" height="100%">
             <Spinner size="l" />
           </Stack>
         ) : (
-          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Набор не найден" />
+          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Задание не найдено" />
         )}
       </Box>
     )
@@ -550,7 +550,7 @@ export function CardsView({ setId }: { setId: string }) {
             <Menu.Trigger>
               <ButtonIcon
                 ariaLabel="Меню"
-                icon={<IconMoreHorizontal fontSize={24} />}
+                icon={<IconMoreVertical fontSize={24} />}
                 variant="flat"
               />
             </Menu.Trigger>
@@ -582,7 +582,7 @@ export function CardsView({ setId }: { setId: string }) {
               />
               <Menu.Item
                 icon={<IconTrash fontSize={16} />}
-                label="Удалить весь набор"
+                label="Удалить задание"
                 onClick={() => setConfirmDelete(true)}
               />
             </Menu.Content>
@@ -618,7 +618,7 @@ export function CardsView({ setId }: { setId: string }) {
           {confirmDelete ? (
             <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
               <Text align="center" color="contrast-secondary" variant="S / Medium">
-                Удалить набор «{set.name}» со всеми карточками?
+                Удалить задание «{set.name}» со всеми карточками?
               </Text>
               <Button color="negative" loading={deleteSetPending} onClick={handleConfirmDeleteSet}>
                 Удалить
@@ -636,7 +636,7 @@ export function CardsView({ setId }: { setId: string }) {
               }
               fullHeight
               icon={<IconEducation fontSize={24} />}
-              text="Пока в наборе нет карточек"
+              text="Пока в задании нет карточек"
             />
           ) : finishedWithRestart ? (
             <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
@@ -645,7 +645,7 @@ export function CardsView({ setId }: { setId: string }) {
               </Text>
               <Button onClick={handleRestart}>Начать сначала</Button>
               <Button variant="secondary" onClick={handleNextSet}>
-                Перейти к следующему набору
+                Перейти к следующему заданию
               </Button>
             </Stack>
           ) : finishedUnlearned ? (
@@ -655,7 +655,7 @@ export function CardsView({ setId }: { setId: string }) {
                 Все карточки выучены
               </Text>
               <Button variant="secondary" onClick={handleNextSet}>
-                Перейти к следующему набору
+                Перейти к следующему заданию
               </Button>
             </Stack>
           ) : finishedLearned ? (
@@ -665,7 +665,7 @@ export function CardsView({ setId }: { setId: string }) {
               </Text>
               <Button onClick={handleRestart}>Повторить</Button>
               <Button variant="secondary" onClick={handleNextSet}>
-                Перейти к следующему набору
+                Перейти к следующему заданию
               </Button>
             </Stack>
           ) : allSwiped && isLearnedFilter ? (
@@ -764,7 +764,7 @@ export function CardsView({ setId }: { setId: string }) {
       <Modal open={confirmReset} onClose={() => setConfirmReset(false)}>
         <Stack spacing="m" horizontalAlign="center">
           <Text align="center" variant="S / Medium">
-            Вы уверены, что хотите сбросить этот набор к первоначальному состоянию?
+            Вы уверены, что хотите сбросить это задание к первоначальному состоянию?
           </Text>
           <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
             Да

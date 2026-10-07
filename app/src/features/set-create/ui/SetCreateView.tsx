@@ -5,7 +5,7 @@ import { useUnit } from 'effector-react'
 
 import {
   IconEducation,
-  IconMoreHorizontal,
+  IconMoreVertical,
   IconPlusBig,
   IconSwapVert,
   IconTranslate,
@@ -36,6 +36,7 @@ import {
 } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
+import { $courses } from '../../courses/store'
 import { $languages } from '../../languages/store'
 import { $lessons } from '../../lessons/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
@@ -62,6 +63,7 @@ import {
 export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: string }) {
   const sets = useUnit($sets)
   const lessons = useUnit($lessons)
+  const courses = useUnit($courses)
   const languages = useUnit($languages)
   const draftLessonId = useUnit($draftLessonId)
   const name = useUnit($draftName)
@@ -81,15 +83,16 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
 
   const parentLesson =
     lessons.find((item) => item.id === (set?.lessonId ?? lessonId)) ?? lessons[0]
+  const parentCourse = courses.find((item) => item.id === parentLesson?.courseId)
 
   const initialDraftRef = useRef({
     pushed: transition.kind === 'push',
     draft: {
       lessonId: set?.lessonId ?? lessonId ?? parentLesson?.id ?? '',
       name: set?.name ?? '',
-      originalLang: set?.originalLang ?? parentLesson?.originalLang ?? DEFAULT_ORIGINAL_LANG,
+      originalLang: set?.originalLang ?? parentCourse?.originalLang ?? DEFAULT_ORIGINAL_LANG,
       translationLang:
-        set?.translationLang ?? parentLesson?.translationLang ?? DEFAULT_TRANSLATION_LANG,
+        set?.translationLang ?? parentCourse?.translationLang ?? DEFAULT_TRANSLATION_LANG,
       pairs: (() => {
         const existing = set
           ? set.cards
@@ -156,6 +159,17 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
 
   const handleSwap = () => {
     applyLanguages(translationLang, originalLang)
+  }
+
+  const handleLessonChange = (nextLessonId: string) => {
+    draftLessonChanged(nextLessonId)
+
+    const lesson = lessons.find((item) => item.id === nextLessonId)
+    const course = courses.find((item) => item.id === lesson?.courseId)
+
+    if (course && (course.originalLang !== originalLang || course.translationLang !== translationLang)) {
+      applyLanguages(course.originalLang, course.translationLang)
+    }
   }
 
   const handlePairChange = (id: string, field: 'original' | 'translation', value: string) => {
@@ -259,8 +273,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   if (isEditing && !set) {
     return (
       <Box grow height="100%">
-        <Header back text="Изменить набор" onBackClick={() => popScreen()} />
-        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Набор не найден" />
+        <Header back text="Изменить задание" onBackClick={() => popScreen()} />
+        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Задание не найдено" />
       </Box>
     )
   }
@@ -273,8 +287,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
           <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
             <Menu.Trigger>
               <ButtonIcon
-                ariaLabel="Меню набора"
-                icon={<IconMoreHorizontal fontSize={24} />}
+                ariaLabel="Меню задания"
+                icon={<IconMoreVertical fontSize={24} />}
                 variant="flat"
               />
             </Menu.Trigger>
@@ -298,7 +312,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
             </Menu.Content>
           </Menu.Root>
         }
-        text={isEditing ? 'Изменить набор' : 'Новый набор'}
+        text={isEditing ? 'Изменить задание' : 'Новое задание'}
         onBackClick={() => popScreen()}
       />
       <Box grow padding="m">
@@ -323,7 +337,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
                   fullWidth
                   options={lessonOptions}
                   value={draftLessonId}
-                  onChange={draftLessonChanged}
+                  onChange={handleLessonChange}
                 />
               </Stack>
             </Card>
@@ -385,7 +399,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
             </Button>
 
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">
-              Сохранить
+              {isEditing ? 'Сохранить' : 'Применить'}
             </Button>
           </Stack>
         </form>

@@ -8,7 +8,7 @@ import {
   IconClose,
   IconEdit,
   IconEducation,
-  IconMoreHorizontal,
+  IconMoreVertical,
   IconPlusBig,
   IconTrash,
 } from '@elemental/icons'
@@ -317,7 +317,7 @@ function SetRow({
                 variant="outlined"
               />
               <ButtonIcon
-                ariaLabel="Изменить набор"
+                ariaLabel="Изменить задание"
                 color="neutral"
                 icon={<IconEdit fontSize={24} />}
                 size="s"
@@ -474,45 +474,28 @@ export function SetsView({ lessonId }: { lessonId: string }) {
     pushScreen({ name: 'lesson-create', lessonId })
   }
 
-  const logo = (
-    <img
-      alt=""
-      src={`${import.meta.env.BASE_URL}favicon.svg`}
-      style={{ display: 'block', width: 32, height: 32, marginInlineEnd: 10 }}
-    />
-  )
-
   const header = (
     <Header
       back
       endToolbar={
-        <Stack direction="row" spacing="s" verticalAlign="center">
-          <div style={{ maxWidth: 140, minWidth: 0 }}>
-            <Text color="contrast-secondary" overflow="ellipsis" variant="M / Medium">
-              {lesson?.name ?? ''}
-            </Text>
-          </div>
-          <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
-            <Menu.Trigger>
-              <ButtonIcon
-                ariaLabel="Меню урока"
-                icon={<IconMoreHorizontal fontSize={24} />}
-                variant="flat"
-              />
-            </Menu.Trigger>
-            <Menu.Content>
-              <Menu.Item
-                icon={<IconEdit fontSize={16} />}
-                label="Редактировать урок"
-                onClick={handleEditLesson}
-              />
-            </Menu.Content>
-          </Menu.Root>
-        </Stack>
+        <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
+          <Menu.Trigger>
+            <ButtonIcon
+              ariaLabel="Меню урока"
+              icon={<IconMoreVertical fontSize={24} />}
+              variant="flat"
+            />
+          </Menu.Trigger>
+          <Menu.Content>
+            <Menu.Item
+              icon={<IconEdit fontSize={16} />}
+              label="Редактировать урок"
+              onClick={handleEditLesson}
+            />
+          </Menu.Content>
+        </Menu.Root>
       }
-      startToolbar={logo}
-      text="Lexi"
-      textVariant="primary"
+      text={lesson?.name ?? ''}
       onBackClick={() => popScreen()}
     />
   )
@@ -550,12 +533,12 @@ export function SetsView({ lessonId }: { lessonId: string }) {
         <EmptyScreen
           action={
             <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
-              Добавить набор
+              Добавить задание
             </Button>
           }
           fullHeight
           icon={<IconEducation fontSize={24} />}
-          text="Пока в уроке нет наборов карточек"
+          text="Пока в уроке нет заданий"
         />
       </Box>
     )
@@ -606,7 +589,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
           variant="secondary"
           onClick={handleAddNew}
         >
-          Добавить набор
+          Добавить задание
         </Button>
       </Box>
     </Box>
