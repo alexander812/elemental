@@ -3,7 +3,7 @@ import { createEffect, createEvent, createStore, sample } from 'effector'
 import type { LanguageCode } from '../../../lib/languages'
 import { callNativeSync } from '../../../lib/nativeBridge'
 import { uid } from '../../../lib/uid'
-import { mergeWordsInRange, parseWords } from '../../../lib/words'
+import { mergeWordsInRange } from '../../../lib/words'
 import type { WordsMerge } from '../../../lib/words'
 import { scanText } from '../../../transport/ocr'
 import type { ScanTextResult } from '../../../transport/ocr'
@@ -16,11 +16,12 @@ export type WordPair = {
 }
 
 export const textChanged = createEvent<string>()
-export const textParsed = createEvent()
-export const textEditRequested = createEvent()
-export const wordToggled = createEvent<string>()
 export const textLangChanged = createEvent<LanguageCode>()
-export const pairsCreated = createEvent<'original' | 'translation'>()
+export const editStarted = createEvent<{ lang: LanguageCode; text: string }>()
+export const segmentsLoaded = createEvent<string[]>()
+export const wordToggled = createEvent<string>()
+export const wordsMerged = createEvent<string[]>()
+export const createCardsClicked = createEvent<'original' | 'translation'>()
 export const pairsReplaced = createEvent<WordPair[]>()
 export const pairOriginalChanged = createEvent<{ id: string; value: string }>()
 export const pairTranslationChanged = createEvent<{ id: string; value: string }>()
@@ -33,7 +34,6 @@ export const resetTextAdd = createEvent()
 
 export const restoreTextAdd = createEvent<{
   text: string
-  step: 'input' | 'words'
   words: string[]
   selected: string[]
   textLang: LanguageCode | null
@@ -64,6 +64,7 @@ export const $scanFailed = createStore(false)
 
 export const $text = createStore('')
   .on(textChanged, (_, text) => text)
+  .on(editStarted, (_, { text }) => text)
   .on(scanTextFx.doneData, (text, result) => result.text.trim() || text)
   .on(scanTextRecovered, (text, payload) => {
     if (!payload.ok || !payload.data || payload.data.cancelled) return text
@@ -73,29 +74,21 @@ export const $text = createStore('')
   .on(restoreTextAdd, (_, snapshot) => snapshot.text)
   .reset(resetTextAdd)
 
-export const $step = createStore<'input' | 'words'>('input')
-  .on(textParsed, () => 'words' as const)
-  .on(textEditRequested, () => 'input' as const)
-  .on(restoreTextAdd, (_, snapshot) => snapshot.step)
-  .reset(resetTextAdd)
-
 export const $textLang = createStore<LanguageCode | null>(null)
   .on(textLangChanged, (_, lang) => lang)
+  .on(editStarted, (_, { lang }) => lang)
   .on(restoreTextAdd, (_, snapshot) => snapshot.textLang)
   .reset(resetTextAdd)
 
 export const $words = createStore<string[]>([])
+  .on(segmentsLoaded, (_, words) => words)
+  .on(textLangChanged, () => [])
   .on(restoreTextAdd, (_, snapshot) => snapshot.words)
   .reset(resetTextAdd)
 
-sample({
-  clock: textParsed,
-  source: $text,
-  fn: parseWords,
-  target: $words,
-})
-
 export const $selected = createStore<string[]>([])
+  .on(segmentsLoaded, (selected, words) => selected.filter((word) => words.includes(word)))
+  .on(textLangChanged, () => [])
   .on(restoreTextAdd, (_, snapshot) => snapshot.selected)
   .reset(resetTextAdd)
 
@@ -128,19 +121,6 @@ $words.on(wordToggleComputed, (_, result) => result.words)
 
 $selected.on(wordToggleComputed, (_, result) => result.selected)
 
-sample({
-  clock: textParsed,
-  source: { selected: $selected, text: $text },
-  fn: ({ selected, text }) => {
-    const words = parseWords(text)
-
-    return selected.filter((word) => words.includes(word))
-  },
-  target: $selected,
-})
-
-export const wordsMerged = createEvent<string[]>()
-
 const wordsMergeComputed = createEvent<WordsMerge | null>()
 
 sample({
@@ -171,15 +151,15 @@ export const $pairs = createStore<WordPair[]>([])
   .reset(resetTextAdd)
 
 sample({
-  clock: pairsCreated,
+  clock: createCardsClicked,
   source: $selected,
-  fn: (words, field) =>
+  fn: (words, field): WordPair[] =>
     words.map((word) => ({
       id: uid(),
       original: field === 'original' ? word : '',
       translation: field === 'translation' ? word : '',
     })),
-  target: $pairs,
+  target: pairsReplaced,
 })
 
 export const translateAllFx = createEffect(

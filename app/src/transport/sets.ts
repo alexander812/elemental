@@ -1,5 +1,5 @@
 import { remapTexts } from '../lib/cards'
-import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG } from '../lib/languages'
+import { DEFAULT_COURSE_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Card, CardSet, CardTexts, Course, Lesson } from '../lib/types'
@@ -69,105 +69,6 @@ function seedSets(lesson: Lesson, course: Course, userLang: LanguageCode): CardS
   ]
 }
 
-export type LegacyCard = {
-  deleted?: boolean
-  id: string
-  learned: boolean
-  original?: string
-  originalLang?: LanguageCode
-  texts?: CardTexts
-  translation?: string
-  translationLang?: LanguageCode
-  voiceCheck?: boolean | null
-  writeCheck?: boolean | null
-}
-
-const parseCheck = (value: unknown): boolean | null => (typeof value === 'boolean' ? value : null)
-
-const CYRILLIC_CHAR = /[\u0400-\u04ff]/
-const LATIN_CHAR = /[A-Za-z]/
-
-function normalizeRuEnTexts(texts: CardTexts): CardTexts {
-  const ru = texts.ru
-  const en = texts.en
-
-  if (typeof ru !== 'string' || typeof en !== 'string' || !ru.trim() || !en.trim()) return texts
-
-  if (CYRILLIC_CHAR.test(en) && !CYRILLIC_CHAR.test(ru) && LATIN_CHAR.test(ru)) {
-    return { ...texts, ru: en, en: ru }
-  }
-
-  return texts
-}
-
-export function migrateCard(card: LegacyCard): Card {
-  if (card.texts) {
-    return {
-      id: card.id,
-      texts: normalizeRuEnTexts(card.texts),
-      learned: card.learned,
-      deleted: card.deleted ?? false,
-      voiceCheck: parseCheck(card.voiceCheck),
-      writeCheck: parseCheck(card.writeCheck),
-    }
-  }
-
-  const legacy = !card.originalLang || !card.translationLang
-  const original = (legacy ? card.translation : card.original) ?? ''
-  const translation = (legacy ? card.original : card.translation) ?? ''
-  const userLang = card.originalLang ?? DEFAULT_USER_LANG
-  const courseLang = card.translationLang ?? DEFAULT_COURSE_LANG
-
-  return {
-    id: card.id,
-    texts: normalizeRuEnTexts({ [userLang]: original, [courseLang]: translation }),
-    learned: card.learned,
-    deleted: card.deleted ?? false,
-    voiceCheck: parseCheck(card.voiceCheck),
-    writeCheck: parseCheck(card.writeCheck),
-  }
-}
-
-export type LegacySet = Omit<CardSet, 'swapped' | 'lessonId' | 'texts'> & {
-  lessonId?: string
-  originalLang?: LanguageCode
-  translationLang?: LanguageCode
-  swapped?: boolean
-  texts?: CardTexts
-}
-
-export function migrateSet(
-  set: LegacySet,
-  userLang: LanguageCode = DEFAULT_USER_LANG,
-  courseLang: LanguageCode = DEFAULT_COURSE_LANG,
-  fallbackLessonId = ''
-): CardSet {
-  const swapped =
-    typeof set.swapped === 'boolean'
-      ? set.swapped
-      : set.originalLang === courseLang && set.translationLang === userLang
-  const lessonId = typeof set.lessonId === 'string' && set.lessonId ? set.lessonId : fallbackLessonId
-  const texts =
-    set.texts && typeof set.texts === 'object'
-      ? (Object.fromEntries(
-          Object.entries(set.texts).filter(
-            (entry): entry is [string, string] => typeof entry[1] === 'string'
-          )
-        ) as CardTexts)
-      : {}
-
-  return {
-    id: set.id,
-    lessonId,
-    name: set.name,
-    active: set.active,
-    order: set.order,
-    swapped,
-    texts: normalizeRuEnTexts(texts),
-    cards: set.cards.map(migrateCard),
-  }
-}
-
 function readSets(): CardSet[] {
   const seeded = load<boolean>(SEEDED_KEY, false)
   const settings = readSettings()
@@ -183,38 +84,13 @@ function readSets(): CardSet[] {
     return sets
   }
 
-  const sets = load<LegacySet[]>(SETS_KEY, [])
-  const fallbackLessonId = sets.some((set) => !set.lessonId) ? ensureDefaultLesson().id : ''
-  const lessons = readLessons()
-  const courses = readCourses()
-  const courseIdByLesson = new Map(lessons.map((lesson) => [lesson.id, lesson.courseId]))
-  const langByCourse = new Map(courses.map((course) => [course.id, course.lang]))
-
-  return sets.map((set) => {
-    const lessonId =
-      typeof set.lessonId === 'string' && set.lessonId ? set.lessonId : fallbackLessonId
-    const courseLang =
-      langByCourse.get(courseIdByLesson.get(lessonId) ?? '') ?? DEFAULT_COURSE_LANG
-
-    return migrateSet(set, settings.userLang, courseLang, fallbackLessonId)
-  })
-}
-
-function normalizeSet(set: CardSet): CardSet {
-  return {
-    ...set,
-    swapped: set.swapped === true,
-    texts: normalizeRuEnTexts(set.texts),
-    cards: set.cards.map((card) => ({ ...card, texts: normalizeRuEnTexts(card.texts) })),
-  }
+  return load<CardSet[]>(SETS_KEY, [])
 }
 
 function writeSets(sets: CardSet[]): CardSet[] {
-  const normalized = sets.map(normalizeSet)
+  save(SETS_KEY, sets)
 
-  save(SETS_KEY, normalized)
-
-  return normalized
+  return sets
 }
 
 function resolveCourseLang(lessonId: string): LanguageCode {

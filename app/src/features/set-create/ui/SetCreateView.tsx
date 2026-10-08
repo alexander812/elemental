@@ -8,7 +8,6 @@ import {
   IconMoreVertical,
   IconPlusBig,
   IconTranslate,
-  IconViewList,
 } from '@elemental/icons'
 
 import {
@@ -20,11 +19,11 @@ import {
   EmptyScreen,
   FormHelperText,
   Header,
-  InputText,
   Menu,
   Select,
   Stack,
   Text,
+  TextPanel,
 } from '@elemental/ui-kit'
 
 import { remapTexts } from '../../../lib/cards'
@@ -118,6 +117,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0
   )
   const pending = createPending || updatePending
+  const panelText =
+    (draftTexts[courseLang] ?? '').trim() || (draftTexts[userLang] ?? '').trim()
 
   const lessonOptions = useMemo(
     () =>
@@ -166,11 +167,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     draftPairAdded()
   }
 
-  const handleAddText = () => {
-    pushScreen({
-      name: 'text-add',
-      draft: { courseLang },
-    })
+  const handleOpenText = () => {
+    pushScreen({ name: 'set-text', draft: { courseLang } })
   }
 
   const handleTranslateAll = async () => {
@@ -187,23 +185,25 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     setTranslateFailed(failed)
   }
 
-  const handleTranslateField = async (
-    pairId: string,
-    field: 'original' | 'translation',
-    text: string
-  ) => {
-    if (!text.trim()) return
+  const handleTranslateField = async (pairId: string, field: 'original' | 'translation') => {
+    const pair = pairs.find((item) => item.id === pairId)
 
-    const from = field === 'original' ? userLang : courseLang
-    const to = field === 'original' ? courseLang : userLang
-    const target = field === 'original' ? 'translation' : 'original'
+    if (!pair) return
+
+    const sourceField = field === 'original' ? 'translation' : 'original'
+    const source = pair[sourceField].trim()
+
+    if (!source) return
+
+    const from = field === 'original' ? courseLang : userLang
+    const to = field === 'original' ? userLang : courseLang
 
     setTranslateFailed(false)
     setTranslatingField({ id: pairId, field })
 
     try {
-      const value = await translateFieldFx({ from, text: text.trim(), to })
-      draftPairChanged({ id: pairId, field: target, value })
+      const value = await translateFieldFx({ from, text: source, to })
+      draftPairChanged({ id: pairId, field, value })
     } catch {
       setTranslateFailed(true)
     } finally {
@@ -277,11 +277,6 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
             </Menu.Trigger>
             <Menu.Content>
               <Menu.Item
-                icon={<IconViewList fontSize={16} />}
-                label="Добавить текст"
-                onClick={handleAddText}
-              />
-              <Menu.Item
                 disabled={!canTranslate || translatePending}
                 icon={<IconTranslate fontSize={16} />}
                 label="Перевести всё"
@@ -296,14 +291,21 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
       <Box grow padding="m">
         <form onSubmit={handleSubmit}>
           <Stack spacing="l">
-            <InputText
+            <InputWithVoice
               autoFocus
               floatingLabel
               fullWidth
+              lang={userLang}
               placeholder="Название"
               size="m"
               value={name}
               onChange={draftNameChanged}
+            />
+
+            <TextPanel
+              onClick={handleOpenText}
+              placeholder="Текст ещё не заполнен"
+              text={panelText}
             />
 
             <Card padding="l">
@@ -326,6 +328,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
                   <Stack key={pair.id} spacing="s">
                     {index > 0 ? <Divider /> : null}
                     <InputWithVoice
+                      canTranslate={pair.translation.trim().length > 0}
                       floatingLabel
                       fullWidth
                       lang={userLang}
@@ -336,11 +339,10 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
                       }
                       value={pair.original}
                       onChange={(value) => handlePairChange(pair.id, 'original', value)}
-                      onTranslate={() =>
-                        handleTranslateField(pair.id, 'original', pair.original)
-                      }
+                      onTranslate={() => handleTranslateField(pair.id, 'original')}
                     />
                     <InputWithVoice
+                      canTranslate={pair.original.trim().length > 0}
                       floatingLabel
                       fullWidth
                       lang={courseLang}
@@ -352,9 +354,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
                       }
                       value={pair.translation}
                       onChange={(value) => handlePairChange(pair.id, 'translation', value)}
-                      onTranslate={() =>
-                        handleTranslateField(pair.id, 'translation', pair.translation)
-                      }
+                      onTranslate={() => handleTranslateField(pair.id, 'translation')}
                     />
                   </Stack>
                 ))}

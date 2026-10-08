@@ -3,9 +3,7 @@ import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconTranslate } from '@elemental/icons'
-
-import { Box, Button, ButtonIcon, Header, Stack } from '@elemental/ui-kit'
+import { Box, Button, FormHelperText, Header, Stack } from '@elemental/ui-kit'
 
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
@@ -15,6 +13,8 @@ import { $courseLangByLesson, $sets, addCardFx, updateCardFx } from '../../sets/
 import { $userLang } from '../../theme/store'
 import { translateFx } from '../store'
 
+type TranslateField = 'original' | 'translation'
+
 export function CardCreateView({ setId, cardId }: { setId: string; cardId?: string }) {
   const languages = useUnit($languages)
   const userLang = useUnit($userLang)
@@ -22,7 +22,6 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
   const sets = useUnit($sets)
   const pending = useUnit(addCardFx.pending)
   const updatePending = useUnit(updateCardFx.pending)
-  const translationPending = useUnit(translateFx.pending)
 
   const card = useMemo(
     () =>
@@ -38,10 +37,12 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
   const [original, setOriginal] = useState(() => card?.texts[userLang] ?? '')
   const [translation, setTranslation] = useState(() => card?.texts[courseLang] ?? '')
   const [translationFailed, setTranslationFailed] = useState(false)
+  const [translatingField, setTranslatingField] = useState<TranslateField | null>(null)
 
   const isEditing = Boolean(card)
-  const canTranslate = original.trim().length > 0
-  const canSave = canTranslate && translation.trim().length > 0
+  const canSave = original.trim().length > 0 && translation.trim().length > 0
+  const canTranslateOriginal = translation.trim().length > 0
+  const canTranslateTranslation = original.trim().length > 0
 
   const handleOriginalChange = (value: string) => {
     setOriginal(value)
@@ -53,16 +54,26 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
     setTranslationFailed(false)
   }
 
-  const handleTranslate = async () => {
-    if (!canTranslate) return
+  const handleTranslate = async (field: TranslateField) => {
+    const source = field === 'original' ? translation.trim() : original.trim()
+
+    if (!source) return
+
+    const from = field === 'original' ? courseLang : userLang
+    const to = field === 'original' ? userLang : courseLang
 
     setTranslationFailed(false)
+    setTranslatingField(field)
 
     try {
-      const result = await translateFx({ text: original, from: userLang, to: courseLang })
-      setTranslation(result)
+      const result = await translateFx({ text: source, from, to })
+
+      if (field === 'original') setOriginal(result)
+      else setTranslation(result)
     } catch {
       setTranslationFailed(true)
+    } finally {
+      setTranslatingField(null)
     }
   }
 
@@ -94,40 +105,36 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
       <Box grow padding="m">
         <form onSubmit={handleSubmit}>
           <Stack spacing="l">
-            <Stack direction="row" spacing="s" verticalAlign="center">
-              <InputWithVoice
-                autoFocus
-                floatingLabel
-                fullWidth
-                lang={userLang}
-                placeholder={getLanguageName(userLang, languages)}
-                size="m"
-                value={original}
-                onChange={handleOriginalChange}
-              />
-              <ButtonIcon
-                ariaLabel="Перевести"
-                disabled={!canTranslate}
-                icon={<IconTranslate fontSize={24} />}
-                loading={translationPending}
-                round
-                size="m"
-                variant="secondary"
-                onClick={handleTranslate}
-              />
-            </Stack>
             <InputWithVoice
+              autoFocus
+              canTranslate={canTranslateOriginal}
               floatingLabel
               fullWidth
-              helperText={
-                translationFailed ? 'Не удалось перевести — введите перевод вручную' : undefined
-              }
+              lang={userLang}
+              placeholder={getLanguageName(userLang, languages)}
+              size="m"
+              translating={translatingField === 'original'}
+              value={original}
+              onChange={handleOriginalChange}
+              onTranslate={() => handleTranslate('original')}
+            />
+            <InputWithVoice
+              canTranslate={canTranslateTranslation}
+              floatingLabel
+              fullWidth
               lang={courseLang}
               placeholder={getLanguageName(courseLang, languages)}
               size="m"
+              translating={translatingField === 'translation'}
               value={translation}
               onChange={handleTranslationChange}
+              onTranslate={() => handleTranslate('translation')}
             />
+            {translationFailed ? (
+              <FormHelperText variant="error">
+                Не удалось перевести — введите перевод вручную
+              </FormHelperText>
+            ) : null}
             <Button disabled={!canSave} fullWidth loading={pending || updatePending} type="submit">
               Сохранить
             </Button>

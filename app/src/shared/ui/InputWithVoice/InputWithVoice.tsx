@@ -12,6 +12,7 @@ import { canRecognize, cancelRecognition, recognize } from '../../../transport/r
 import classes from './InputWithVoice.module.pcss'
 
 export type InputWithVoiceProps = Omit<InputTextProps, 'endIcon' | 'onChange' | 'value'> & {
+  canTranslate?: boolean
   lang: LanguageCode
   onChange: (value: string) => void
   onTranslate?: () => void
@@ -45,6 +46,7 @@ const isRecognizeCancelled = (error: unknown) =>
   error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted')
 
 export function InputWithVoice({
+  canTranslate,
   lang,
   value,
   onChange,
@@ -118,7 +120,7 @@ export function InputWithVoice({
       <button
         aria-label="Перевести"
         className={`${classes.mic} ${translating ? classes.translateBusy : ''}`}
-        disabled={rest.disabled || translating || !value.trim()}
+        disabled={rest.disabled || translating || !(canTranslate ?? value.trim().length > 0)}
         type="button"
         onClick={onTranslate}
         onPointerDown={(event) => event.preventDefault()}

@@ -10,13 +10,6 @@ const COURSES_KEY = 'courses'
 
 export const DEFAULT_COURSE_NAME = 'Базовый курс'
 
-export type LegacyCourse = Partial<Course> & {
-  id?: string
-  name?: string
-  originalLang?: LanguageCode
-  translationLang?: LanguageCode
-}
-
 export function createDefaultCourse(lang?: LanguageCode): Course {
   return {
     id: uid(),
@@ -27,39 +20,17 @@ export function createDefaultCourse(lang?: LanguageCode): Course {
   }
 }
 
-export function migrateCourse(
-  course: LegacyCourse,
-  index = 0,
-  fallbackLang: LanguageCode = DEFAULT_COURSE_LANG
-): Course {
-  const lang =
-    typeof course.lang === 'string' && course.lang
-      ? course.lang
-      : typeof course.translationLang === 'string' && course.translationLang
-        ? course.translationLang
-        : fallbackLang
-
-  return {
-    id: typeof course.id === 'string' && course.id ? course.id : uid(),
-    name:
-      typeof course.name === 'string' && course.name.trim() ? course.name.trim() : `Курс ${index + 1}`,
-    description: typeof course.description === 'string' ? course.description : '',
-    order: typeof course.order === 'number' ? course.order : index,
-    lang,
-  }
-}
-
 export function readCourses(): Course[] {
-  const raw = load<LegacyCourse[] | null>(COURSES_KEY, null)
+  const raw = load<Course[] | null>(COURSES_KEY, null)
 
   if (raw === null) {
-    const course = migrateCourse(createDefaultCourse())
+    const course = createDefaultCourse()
 
     save(COURSES_KEY, [course])
     return [course]
   }
 
-  return raw.map((item, index) => migrateCourse(item, index))
+  return raw
 }
 
 export function ensureDefaultCourse(): Course {
@@ -76,11 +47,9 @@ export function ensureDefaultCourse(): Course {
 }
 
 function writeCourses(courses: Course[]): Course[] {
-  const normalized = courses.map((course) => migrateCourse(course, course.order))
+  save(COURSES_KEY, courses)
 
-  save(COURSES_KEY, normalized)
-
-  return normalized
+  return courses
 }
 
 export async function fetchCourses(): Promise<Course[]> {

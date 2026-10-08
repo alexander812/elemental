@@ -60,7 +60,11 @@ function renderScreen(screen: Screen): ReactNode {
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />
     case 'set-text':
-      return <SetTextView key={screen.setId} setId={screen.setId} />
+      return 'setId' in screen ? (
+        <SetTextView key={screen.setId} setId={screen.setId} />
+      ) : (
+        <SetTextView key="draft" draft={screen.draft} />
+      )
     case 'card-create':
       return <CardCreateView cardId={screen.cardId} setId={screen.setId} />
     case 'cards-restore':

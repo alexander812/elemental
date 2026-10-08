@@ -181,12 +181,6 @@ export function CardsView({ setId }: { setId: string }) {
     [set]
   )
 
-  const hasSetText = useMemo(
-    () =>
-      set ? Object.values(set.texts).some((text) => (text ?? '').trim().length > 0) : false,
-    [set]
-  )
-
   const allSwiped = displayedQueue.length === 0
   const noCards = set ? set.cards.every((card) => card.deleted) : true
 
@@ -520,10 +514,6 @@ export function CardsView({ setId }: { setId: string }) {
     }
   }
 
-  const handleAddText = () => {
-    pushScreen({ name: 'text-add', setId })
-  }
-
   const handleOpenSetText = () => {
     setCheckStatus(null)
     pushScreen({ name: 'set-text', setId })
@@ -590,11 +580,6 @@ export function CardsView({ setId }: { setId: string }) {
                 onClick={handleSwap}
               />
               <Menu.Item
-                icon={<IconPlusBig fontSize={16} />}
-                label="Добавить текст"
-                onClick={handleAddText}
-              />
-              <Menu.Item
                 icon={<IconTrash fontSize={16} />}
                 label="Удалить все карточки"
                 onClick={handleDeleteAll}
@@ -636,7 +621,6 @@ export function CardsView({ setId }: { setId: string }) {
             <ButtonIcon
               ariaLabel="Текст задания"
               color="neutral"
-              disabled={!hasSetText}
               icon={<IconViewList fontSize={24} />}
               variant="secondary"
               onClick={handleOpenSetText}

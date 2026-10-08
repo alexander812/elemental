@@ -13,22 +13,14 @@ export const DEFAULT_SETTINGS: Settings = {
   learnAfterChecks: false,
 }
 
-type LegacySettings = Partial<Settings> & {
-  originalLang?: LanguageCode
-  translationLang?: LanguageCode
-}
+type StoredSettings = Partial<Settings>
 
 export function readSettings(): Settings {
-  const raw = load<LegacySettings>(SETTINGS_KEY, {})
+  const raw = load<StoredSettings>(SETTINGS_KEY, {})
 
   return {
     theme: raw.theme === 'light' ? 'light' : 'dark',
-    userLang:
-      typeof raw.userLang === 'string' && raw.userLang
-        ? raw.userLang
-        : typeof raw.originalLang === 'string' && raw.originalLang
-          ? raw.originalLang
-          : DEFAULT_USER_LANG,
+    userLang: typeof raw.userLang === 'string' && raw.userLang ? raw.userLang : DEFAULT_USER_LANG,
     learnAfterChecks: raw.learnAfterChecks === true,
   }
 }

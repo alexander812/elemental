@@ -9,13 +9,6 @@ const LESSONS_KEY = 'lessons'
 
 export const DEFAULT_LESSON_NAME = 'Урок 1'
 
-export type LegacyLesson = Partial<Lesson> & {
-  id?: string
-  name?: string
-  originalLang?: string
-  translationLang?: string
-}
-
 export function createDefaultLesson(courseId?: string): Lesson {
   return {
     id: uid(),
@@ -25,35 +18,17 @@ export function createDefaultLesson(courseId?: string): Lesson {
   }
 }
 
-export function migrateLesson(
-  lesson: LegacyLesson,
-  index = 0,
-  fallbackCourseId = ''
-): Lesson {
-  return {
-    id: typeof lesson.id === 'string' && lesson.id ? lesson.id : uid(),
-    courseId:
-      typeof lesson.courseId === 'string' && lesson.courseId
-        ? lesson.courseId
-        : fallbackCourseId,
-    name:
-      typeof lesson.name === 'string' && lesson.name.trim() ? lesson.name.trim() : `Урок ${index + 1}`,
-    order: typeof lesson.order === 'number' ? lesson.order : index,
-  }
-}
-
 export function readLessons(): Lesson[] {
-  const raw = load<LegacyLesson[] | null>(LESSONS_KEY, null)
+  const raw = load<Lesson[] | null>(LESSONS_KEY, null)
 
   if (raw === null) {
     const lesson = createDefaultLesson()
+
     save(LESSONS_KEY, [lesson])
     return [lesson]
   }
 
-  const fallbackCourseId = ensureDefaultCourse().id
-
-  return raw.map((item, index) => migrateLesson(item, index, fallbackCourseId))
+  return raw
 }
 
 export function ensureDefaultLesson(): Lesson {

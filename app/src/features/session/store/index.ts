@@ -19,7 +19,6 @@ import {
   scanTextRecovered,
   $pairs,
   $selected,
-  $step,
   $text,
   $textLang,
   $words,
@@ -27,7 +26,6 @@ import {
 
 export type TextAddSnapshot = {
   text: string
-  step: 'input' | 'words'
   words: string[]
   selected: string[]
   textLang: LanguageCode | null
@@ -85,8 +83,9 @@ const isScreen = (value: unknown): value is Screen => {
   switch (screen.name) {
     case 'lesson':
       return typeof screen.lessonId === 'string'
-    case 'cards':
     case 'set-text':
+      return typeof screen.setId === 'string' || typeof screen.draft === 'object'
+    case 'cards':
     case 'card-create':
     case 'cards-restore':
     case 'words-translate':
@@ -106,7 +105,6 @@ export const saveSession = (): void => {
     nav: $nav.getState().stack,
     textAdd: {
       text: $text.getState(),
-      step: $step.getState(),
       words: $words.getState(),
       selected: $selected.getState(),
       textLang: $textLang.getState(),
@@ -178,7 +176,6 @@ export const installSessionPersistence = (): void => {
 
   $nav.watch(persist)
   $text.watch(persist)
-  $step.watch(persist)
   $words.watch(persist)
   $selected.watch(persist)
   $textLang.watch(persist)

@@ -1,0 +1,36 @@
+.panel {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--corner-radius-m);
+  background: transparent;
+}
+
+.clickable {
+  transition: background-color 150ms ease-in-out;
+  cursor: pointer;
+
+  &:active {
+    background-color: var(--card-bg-active);
+  }
+}
+
+.grow {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.clamp {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}

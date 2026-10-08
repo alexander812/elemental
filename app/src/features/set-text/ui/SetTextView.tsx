@@ -11,30 +11,33 @@ import {
   EmptyScreen,
   FormHelperText,
   Header,
+  Select,
   Spinner,
-  Stack,
   Text,
+  TextPanel,
 } from '@elemental/ui-kit'
 
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import { parseWords } from '../../../lib/words'
 import { $languages } from '../../languages/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
+import type { TextAddDraft } from '../../navigation/store'
+import { draftWordsAdded, $draftTexts } from '../../set-create/store'
 import { $courseLangByLesson, $sets } from '../../sets/store'
 import { $userLang } from '../../theme/store'
 import {
   createCardsClicked,
-  resetSetText,
+  editStarted,
+  resetTextAdd,
   segmentsLoaded,
-  tabChanged,
-  translateSegmentFx,
-  translateSetTextFx,
+  textLangChanged,
   wordToggled,
   wordsMerged,
   $selected,
-  $tab,
+  $textLang,
   $words,
-} from '../store'
+} from '../../text-add/store'
+import { translateSegmentFx, translateSetTextFx } from '../store'
 
 import classes from './SetTextView.module.pcss'
 
@@ -59,12 +62,17 @@ type Tooltip = {
   text: string
 }
 
-export function SetTextView({ setId }: { setId: string }) {
+type SetTextViewProps =
+  | { setId: string; draft?: undefined }
+  | { setId?: undefined; draft: TextAddDraft }
+
+export function SetTextView({ setId, draft }: SetTextViewProps) {
   const sets = useUnit($sets)
   const languages = useUnit($languages)
   const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
-  const tab = useUnit($tab)
+  const draftTexts = useUnit($draftTexts)
+  const storedLang = useUnit($textLang)
   const words = useUnit($words)
   const selected = useUnit($selected)
   const transition = useUnit($transition)
@@ -79,24 +87,33 @@ export function SetTextView({ setId }: { setId: string }) {
   const touchBlockerRef = useRef<((event: TouchEvent) => void) | null>(null)
   const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const set = sets.find((item) => item.id === setId)
-  const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
-  const userText = (set?.texts[userLang] ?? '').trim()
-  const courseText = (set?.texts[courseLang] ?? '').trim()
-  const currentLang = tab === 'user' ? userLang : courseLang
-  const oppositeLang = tab === 'user' ? courseLang : userLang
-  const currentText = tab === 'user' ? userText : courseText
-  const oppositeText = tab === 'user' ? courseText : userText
+  const set = setId ? sets.find((item) => item.id === setId) : undefined
+  const courseLang =
+    (set ? courseLangByLesson.get(set.lessonId) : undefined) ??
+    draft?.courseLang ??
+    DEFAULT_COURSE_LANG
+  const texts = setId ? (set?.texts ?? {}) : draftTexts
+  const lang = storedLang ?? courseLang
+  const otherLang = lang === userLang ? courseLang : userLang
+  const currentText = (texts[lang] ?? '').trim()
+  const oppositeText = (texts[otherLang] ?? '').trim()
+  const hasText = currentText.length > 0
+  const canCreateCards = hasText && selected.length > 0
+
+  const langOptions = [
+    { label: getLanguageName(userLang, languages), value: userLang },
+    { label: getLanguageName(courseLang, languages), value: courseLang },
+  ]
 
   const shouldResetRef = useRef(transition.kind === 'push')
 
   useEffect(() => {
-    if (shouldResetRef.current) resetSetText()
+    if (shouldResetRef.current) resetTextAdd()
   }, [])
 
   useEffect(() => {
     segmentsLoaded(parseWords(currentText))
-  }, [currentText, tab])
+  }, [currentText, lang])
 
   const setTouchBlocked = (blocked: boolean) => {
     if (blocked) {
@@ -148,8 +165,6 @@ export function SetTextView({ setId }: { setId: string }) {
     }
 
     const target = event.currentTarget
-    const segmentFrom = currentLang
-    const segmentTo = oppositeLang
 
     holdTimerRef.current = setTimeout(() => {
       holdTimerRef.current = null
@@ -166,7 +181,7 @@ export function SetTextView({ setId }: { setId: string }) {
         y: rect.top,
       })
 
-      translateSegmentFx({ from: segmentFrom, text: word, to: segmentTo })
+      translateSegmentFx({ from: lang, text: word, to: otherLang })
         .then((translation) => {
           setTooltip((prev) =>
             prev && prev.word === word ? { ...prev, status: 'done', text: translation } : prev
@@ -263,6 +278,17 @@ export function SetTextView({ setId }: { setId: string }) {
     setTooltip(null)
   }
 
+  const handleEdit = () => {
+    editStarted({ lang, text: texts[lang] ?? '' })
+
+    if (setId) {
+      pushScreen({ name: 'text-add', setId })
+      return
+    }
+
+    pushScreen({ name: 'text-add', draft: { courseLang } })
+  }
+
   const handleTranslate = async () => {
     if (!oppositeText) return
 
@@ -270,10 +296,11 @@ export function SetTextView({ setId }: { setId: string }) {
 
     try {
       await translateSetTextFx({
-        from: oppositeLang,
+        draft: setId === undefined,
+        from: otherLang,
         setId,
         text: oppositeText,
-        to: currentLang,
+        to: lang,
       })
     } catch {
       setTranslateFailed(true)
@@ -281,11 +308,19 @@ export function SetTextView({ setId }: { setId: string }) {
   }
 
   const handleCreateCards = () => {
-    createCardsClicked()
-    pushScreen({ name: 'words-translate', setId })
+    const field = lang === userLang ? 'original' : 'translation'
+
+    if (setId) {
+      createCardsClicked(field)
+      pushScreen({ name: 'words-translate', setId })
+      return
+    }
+
+    draftWordsAdded({ field, words: selected })
+    popScreen()
   }
 
-  if (!set) {
+  if (setId && !set) {
     return (
       <Box grow height="100%">
         <Header back text="Текст задания" onBackClick={() => popScreen()} />
@@ -296,93 +331,71 @@ export function SetTextView({ setId }: { setId: string }) {
 
   return (
     <div className={classes.root}>
-      <Header back text="Текст задания" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={hasText ? 'Изменить текст' : 'Добавить текст'}
+        onBackClick={() => popScreen()}
+      />
       <div className={classes.layout}>
-        <Stack direction="row" spacing="s">
-          <Button
-            checked={tab === 'user'}
-            fullWidth
-            variant="secondary"
-            onClick={() => tabChanged('user')}
-          >
-            {getLanguageName(userLang, languages)}
-          </Button>
-          <Button
-            checked={tab === 'course'}
-            fullWidth
-            variant="secondary"
-            onClick={() => tabChanged('course')}
-          >
-            {getLanguageName(courseLang, languages)}
-          </Button>
-        </Stack>
+        <Select fullWidth options={langOptions} value={lang} onChange={textLangChanged} />
 
-        {currentText ? (
-          <div
-            className={classes.wordsScroll}
-            onPointerCancel={handlePointerCancel}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onScroll={handleScroll}
-          >
-            <div className={classes.words}>
-              {words.map((word) => {
-                const checked = selected.includes(word) || dragWords.includes(word)
+        {hasText ? (
+          <TextPanel grow>
+            <div
+              className={classes.wordsScroll}
+              onPointerCancel={handlePointerCancel}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerUp}
+              onScroll={handleScroll}
+            >
+              <div className={classes.words}>
+                {words.map((word) => {
+                  const checked = selected.includes(word) || dragWords.includes(word)
 
-                return (
-                  <button
-                    key={word}
-                    aria-pressed={checked}
-                    className={checked ? `${classes.word} ${classes.wordChecked}` : classes.word}
-                    data-word={word}
-                    type="button"
-                    onClick={() => handleWordClick(word)}
-                    onPointerDown={(event) => handleWordPointerDown(event, word)}
-                  >
-                    {word}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        ) : (
-          <Box grow>
-            <EmptyScreen
-              action={
-                oppositeText ? (
-                  <Stack horizontalAlign="center" spacing="s">
-                    <Button
-                      loading={translating}
-                      startIcon={<IconTranslate fontSize={24} />}
-                      onClick={handleTranslate}
+                  return (
+                    <button
+                      key={word}
+                      aria-pressed={checked}
+                      className={checked ? `${classes.word} ${classes.wordChecked}` : classes.word}
+                      data-word={word}
+                      type="button"
+                      onClick={() => handleWordClick(word)}
+                      onPointerDown={(event) => handleWordPointerDown(event, word)}
                     >
-                      Перевести
-                    </Button>
-                    {translateFailed ? (
-                      <FormHelperText variant="error">Не удалось перевести текст</FormHelperText>
-                    ) : null}
-                  </Stack>
-                ) : undefined
-              }
-              fullHeight
-              icon={<IconViewList fontSize={24} />}
-              text={`Нет текста на языке ${getLanguageName(currentLang, languages)}`}
-            />
-          </Box>
+                      {word}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </TextPanel>
+        ) : (
+          <TextPanel placeholder="Текст ещё не заполнен" />
         )}
 
-        <div className={classes.footer}>
-          <Text color="contrast-secondary" variant="XS / Medium">
-            {selected.length > 0
-              ? `Выбрано слов: ${selected.length}`
-              : 'Нажмите на слова или проведите пальцем по соседним, чтобы объединить их. Удерживайте слово 2 секунды, чтобы увидеть перевод'}
-          </Text>
-          {selected.length > 0 ? (
-            <Button fullWidth onClick={handleCreateCards}>
-              Создать карточки
-            </Button>
-          ) : null}
-        </div>
+        {!hasText && oppositeText ? (
+          <Button
+            fullWidth
+            loading={translating}
+            startIcon={<IconTranslate fontSize={24} />}
+            variant="secondary"
+            onClick={handleTranslate}
+          >
+            Перевести на {getLanguageName(lang, languages)}
+          </Button>
+        ) : null}
+
+        {translateFailed ? (
+          <FormHelperText variant="error">Не удалось перевести текст</FormHelperText>
+        ) : null}
+
+        <Button fullWidth variant="secondary" onClick={handleEdit}>
+          {hasText ? 'Изменить' : 'Добавить'}
+        </Button>
+
+        <Button disabled={!canCreateCards} fullWidth onClick={handleCreateCards}>
+          Создать карточки
+        </Button>
       </div>
 
       {tooltip ? (

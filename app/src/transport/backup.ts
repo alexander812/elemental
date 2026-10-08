@@ -1,19 +1,13 @@
-import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, LANGUAGES_CATALOG } from '../lib/languages'
-import type { Language, LanguageCode } from '../lib/languages'
-import type { CardSet, CardTexts, Course, Lesson, Settings } from '../lib/types'
+import { LANGUAGES_CATALOG } from '../lib/languages'
+import type { Language } from '../lib/languages'
+import type { CardSet, Course, Lesson, Settings } from '../lib/types'
 import { uid } from '../lib/uid'
-import {
-  createDefaultCourse,
-  fetchCourses,
-  migrateCourse,
-  replaceCourses,
-} from './courses'
-import type { LegacyCourse } from './courses'
-import { DEFAULT_LESSON_NAME, fetchLessons, migrateLesson, replaceLessons } from './lessons'
-import type { LegacyLesson } from './lessons'
+import { fetchCourses, replaceCourses } from './courses'
+import { fetchLessons, replaceLessons } from './lessons'
 import { fetchSettings, saveSettings } from './settings'
-import { fetchSets, migrateCard, migrateSet, replaceSets } from './sets'
-import type { LegacyCard, LegacySet } from './sets'
+import { fetchSets, replaceSets } from './sets'
+
+export const BACKUP_VERSION = 4
 
 export type BackupData = {
   version: number
@@ -42,182 +36,6 @@ export type DuplicateLesson = {
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
 
-const parseTexts = (value: unknown): CardTexts | undefined => {
-  if (!isRecord(value)) return undefined
-
-  const entries = Object.entries(value).filter(
-    (entry): entry is [string, string] => typeof entry[1] === 'string'
-  )
-
-  return entries.length > 0 ? Object.fromEntries(entries) : undefined
-}
-
-const parseLegacyCard = (value: unknown): LegacyCard | null => {
-  if (!isRecord(value)) return null
-
-  const texts = parseTexts(value.texts)
-
-  if (!texts && typeof value.original !== 'string' && typeof value.translation !== 'string') {
-    return null
-  }
-
-  return {
-    deleted: value.deleted === true,
-    id: typeof value.id === 'string' && value.id ? value.id : uid(),
-    learned: value.learned === true,
-    original: typeof value.original === 'string' ? value.original : undefined,
-    originalLang: typeof value.originalLang === 'string' ? value.originalLang : undefined,
-    texts,
-    translation: typeof value.translation === 'string' ? value.translation : undefined,
-    translationLang: typeof value.translationLang === 'string' ? value.translationLang : undefined,
-    voiceCheck: typeof value.voiceCheck === 'boolean' ? value.voiceCheck : null,
-    writeCheck: typeof value.writeCheck === 'boolean' ? value.writeCheck : null,
-  }
-}
-
-const parseSets = (value: unknown): LegacySet[] => {
-  if (!Array.isArray(value)) throw new Error('invalid backup: sets')
-
-  return value.map((raw, index) => {
-    if (!isRecord(raw)) throw new Error('invalid backup: set')
-
-    const cards = Array.isArray(raw.cards)
-      ? raw.cards
-          .map(parseLegacyCard)
-          .filter((card): card is LegacyCard => card !== null)
-          .map(migrateCard)
-          .filter((card) =>
-            Object.values(card.texts).some((text) => (text ?? '').trim().length > 0)
-          )
-      : []
-
-    return {
-      id: typeof raw.id === 'string' && raw.id ? raw.id : uid(),
-      lessonId: typeof raw.lessonId === 'string' && raw.lessonId ? raw.lessonId : undefined,
-      name:
-        typeof raw.name === 'string' && raw.name.trim() ? raw.name.trim() : `Задание ${index + 1}`,
-      active: raw.active !== false,
-      order: typeof raw.order === 'number' ? raw.order : index,
-      originalLang: typeof raw.originalLang === 'string' ? raw.originalLang : undefined,
-      translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
-      texts: parseTexts(raw.texts) ?? {},
-      cards,
-    }
-  })
-}
-
-const parseCourses = (value: unknown, fallbackLang: LanguageCode): Course[] => {
-  if (!Array.isArray(value)) return []
-
-  return value
-    .filter(isRecord)
-    .map((raw, index) =>
-      migrateCourse(
-        {
-          id: typeof raw.id === 'string' && raw.id ? raw.id : undefined,
-          name: typeof raw.name === 'string' ? raw.name : undefined,
-          description: typeof raw.description === 'string' ? raw.description : undefined,
-          order: typeof raw.order === 'number' ? raw.order : undefined,
-          lang: typeof raw.lang === 'string' ? raw.lang : undefined,
-          originalLang: typeof raw.originalLang === 'string' ? raw.originalLang : undefined,
-          translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
-        } satisfies LegacyCourse,
-        index,
-        fallbackLang
-      )
-    )
-}
-
-const parseLessons = (value: unknown): LegacyLesson[] => {
-  if (!Array.isArray(value)) return []
-
-  return value.filter(isRecord).map((raw) => ({
-    id: typeof raw.id === 'string' && raw.id ? raw.id : undefined,
-    courseId: typeof raw.courseId === 'string' && raw.courseId ? raw.courseId : undefined,
-    name: typeof raw.name === 'string' ? raw.name : undefined,
-    order: typeof raw.order === 'number' ? raw.order : undefined,
-    originalLang: typeof raw.originalLang === 'string' ? raw.originalLang : undefined,
-    translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
-  }))
-}
-
-const linkData = (
-  rawCourses: Course[],
-  rawLessons: LegacyLesson[],
-  rawSets: LegacySet[],
-  settings: Settings,
-  legacyCourseLang: LanguageCode
-): { courses: Course[]; lessons: Lesson[]; sets: CardSet[] } => {
-  let courses = rawCourses
-
-  if (courses.length === 0 && (rawLessons.length > 0 || rawSets.length > 0)) {
-    const first = rawLessons[0]
-
-    courses = [createDefaultCourse(first?.translationLang ?? legacyCourseLang)]
-  }
-
-  const courseIds = new Set(courses.map((course) => course.id))
-  const fallbackCourseId = courses[0]?.id ?? ''
-  const migratedLessons = rawLessons.map((lesson, index) =>
-    migrateLesson(
-      {
-        ...lesson,
-        courseId:
-          lesson.courseId && courseIds.has(lesson.courseId) ? lesson.courseId : undefined,
-      },
-      index,
-      fallbackCourseId
-    )
-  )
-  const lessons =
-    migratedLessons.length === 0 && rawSets.length > 0
-      ? [
-          {
-            id: uid(),
-            courseId: fallbackCourseId,
-            name: DEFAULT_LESSON_NAME,
-            order: 0,
-          },
-        ]
-      : migratedLessons
-  const lessonIds = new Set(lessons.map((lesson) => lesson.id))
-  const fallbackLessonId = lessons[0]?.id ?? ''
-  const courseIdByLesson = new Map(lessons.map((lesson) => [lesson.id, lesson.courseId]))
-  const langByCourse = new Map(courses.map((course) => [course.id, course.lang]))
-  const sets = rawSets.map((set) => {
-    const lessonId = set.lessonId && lessonIds.has(set.lessonId) ? set.lessonId : fallbackLessonId
-    const courseLang = langByCourse.get(courseIdByLesson.get(lessonId) ?? '') ?? legacyCourseLang
-
-    return migrateSet({ ...set, lessonId }, settings.userLang, courseLang, fallbackLessonId)
-  })
-
-  return { courses, lessons, sets }
-}
-
-const CATALOG_CODES = new Set(LANGUAGES_CATALOG.map((language) => language.code))
-
-const parseSettings = (value: unknown): { settings: Settings; legacyCourseLang: LanguageCode } => {
-  const raw = isRecord(value) ? value : {}
-
-  const userLang = CATALOG_CODES.has(raw.userLang as string)
-    ? (raw.userLang as LanguageCode)
-    : CATALOG_CODES.has(raw.originalLang as string)
-      ? (raw.originalLang as LanguageCode)
-      : DEFAULT_USER_LANG
-  const legacyCourseLang = CATALOG_CODES.has(raw.translationLang as string)
-    ? (raw.translationLang as LanguageCode)
-    : DEFAULT_COURSE_LANG
-
-  return {
-    settings: {
-      theme: raw.theme === 'light' ? 'light' : 'dark',
-      userLang,
-      learnAfterChecks: raw.learnAfterChecks === true,
-    },
-    legacyCourseLang,
-  }
-}
-
 export function parseBackup(raw: string): BackupData {
   let parsed: unknown
 
@@ -227,46 +45,28 @@ export function parseBackup(raw: string): BackupData {
     throw new Error('invalid backup: not json')
   }
 
-  if (Array.isArray(parsed)) {
-    const { settings, legacyCourseLang } = parseSettings(undefined)
-    const { courses, lessons, sets } = linkData(
-      [],
-      [],
-      parseSets(parsed),
-      settings,
-      legacyCourseLang
-    )
-
-    return {
-      version: 1,
-      exportedAt: new Date().toISOString(),
-      courses,
-      lessons,
-      sets,
-      languages: LANGUAGES_CATALOG,
-      settings,
-    }
+  if (!isRecord(parsed) || parsed.version !== BACKUP_VERSION) {
+    throw new Error('invalid backup: unsupported version')
   }
 
-  if (!isRecord(parsed)) throw new Error('invalid backup: root')
-
-  const { settings, legacyCourseLang } = parseSettings(parsed.settings)
-  const { courses, lessons, sets } = linkData(
-    parseCourses(parsed.courses, legacyCourseLang),
-    parseLessons(parsed.lessons),
-    parseSets(parsed.sets),
-    settings,
-    legacyCourseLang
-  )
+  if (
+    !Array.isArray(parsed.courses) ||
+    !Array.isArray(parsed.lessons) ||
+    !Array.isArray(parsed.sets) ||
+    !isRecord(parsed.settings)
+  ) {
+    throw new Error('invalid backup: structure')
+  }
 
   return {
-    version: 4,
-    exportedAt: new Date().toISOString(),
-    courses,
-    lessons,
-    sets,
+    version: BACKUP_VERSION,
+    exportedAt:
+      typeof parsed.exportedAt === 'string' ? parsed.exportedAt : new Date().toISOString(),
+    courses: parsed.courses as Course[],
+    lessons: parsed.lessons as Lesson[],
+    sets: parsed.sets as CardSet[],
     languages: LANGUAGES_CATALOG,
-    settings,
+    settings: parsed.settings as unknown as Settings,
   }
 }
 
@@ -287,7 +87,7 @@ export async function createBackup(lessonIds?: string[]): Promise<string> {
   const courses = allCourses.filter((course) => selectedCourseIds.has(course.id))
 
   const data: BackupData = {
-    version: 4,
+    version: BACKUP_VERSION,
     exportedAt: new Date().toISOString(),
     courses,
     lessons,

@@ -36,6 +36,8 @@ export { Switch } from './Switch';
 export type { SwitchProps } from './Switch';
 export { Text } from './Text';
 export type { TextVariant } from './Text';
+export { TextPanel } from './TextPanel';
+export type { TextPanelProps } from './TextPanel';
 export { Textarea } from './Textarea';
 export type { TextareaProps } from './Textarea';
 export type { ThemeDescriptor, ThemeDir, ThemeName } from './ThemeProvider';

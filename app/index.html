@@ -14,11 +14,15 @@
     <title>Lexi</title>
     <script>
       ;(function () {
+        var DATA_VERSION = 1
         var canvas = '#050505'
 
         try {
           var raw = localStorage.getItem('app.settings')
-          if (raw && JSON.parse(raw).theme === 'light') canvas = '#edf7ff'
+          var parsed = raw ? JSON.parse(raw) : null
+          if (parsed && parsed.version === DATA_VERSION && parsed.data && parsed.data.theme === 'light') {
+            canvas = '#edf7ff'
+          }
         } catch (error) {}
 
         document.documentElement.style.setProperty('--boot-canvas', canvas)

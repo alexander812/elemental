@@ -1,17 +1,40 @@
 const PREFIX = 'app.'
 
+export const DATA_VERSION = 1
+
+type Envelope<T> = {
+  data: T
+  version: number
+}
+
+const isEnvelope = (value: unknown): value is Envelope<unknown> =>
+  typeof value === 'object' && value !== null && 'version' in value && 'data' in value
+
 export function load<T>(key: string, fallback: T): T {
-  const raw = localStorage.getItem(`${PREFIX}${key}`)
+  const storageKey = `${PREFIX}${key}`
+  const raw = localStorage.getItem(storageKey)
+
   if (raw === null) return fallback
+
   try {
-    return JSON.parse(raw) as T
+    const parsed = JSON.parse(raw) as unknown
+
+    if (isEnvelope(parsed) && parsed.version === DATA_VERSION) {
+      return parsed.data as T
+    }
   } catch {
-    return fallback
+    // ignore malformed data
   }
+
+  localStorage.removeItem(storageKey)
+
+  return fallback
 }
 
 export function save<T>(key: string, value: T): void {
-  localStorage.setItem(`${PREFIX}${key}`, JSON.stringify(value))
+  const envelope: Envelope<T> = { data: value, version: DATA_VERSION }
+
+  localStorage.setItem(`${PREFIX}${key}`, JSON.stringify(envelope))
 }
 
 export function remove(key: string): void {
