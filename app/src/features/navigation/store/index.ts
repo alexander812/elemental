@@ -4,8 +4,7 @@ import { suppressNextGhostClick } from '../../../lib/ghostClick'
 import type { LanguageCode } from '../../../lib/languages'
 
 export type TextAddDraft = {
-  originalLang: LanguageCode
-  translationLang: LanguageCode
+  courseLang: LanguageCode
 }
 
 export type Screen =
@@ -16,6 +15,7 @@ export type Screen =
   | { name: 'lesson-create'; lessonId?: string; courseId?: string }
   | { name: 'set-create'; setId?: string; lessonId?: string }
   | { name: 'cards'; setId: string }
+  | { name: 'set-text'; setId: string }
   | { name: 'card-create'; setId: string; cardId?: string }
   | { name: 'cards-restore'; setId: string }
   | { name: 'text-add'; setId: string }
@@ -23,6 +23,7 @@ export type Screen =
   | { name: 'words-translate'; setId: string }
   | { name: 'settings' }
   | { name: 'theme' }
+  | { name: 'language' }
   | { name: 'voices' }
   | { name: 'checks' }
   | { name: 'data' }

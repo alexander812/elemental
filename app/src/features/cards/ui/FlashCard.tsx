@@ -69,6 +69,7 @@ export type FlashCardProps = {
   recognizing: boolean
   voiceCheck: boolean | null
   writeCheck: boolean | null
+  writePlaceholder: string
 }
 
 export function FlashCard({
@@ -93,6 +94,7 @@ export function FlashCard({
   recognizing,
   voiceCheck,
   writeCheck,
+  writePlaceholder,
 }: FlashCardProps) {
   const isTop = depth === 0
 
@@ -284,7 +286,7 @@ export function FlashCard({
             className={classes.checkInput}
             enterKeyHint="done"
             inputMode="text"
-            placeholder="Перевод"
+            placeholder={writePlaceholder}
             type="text"
             value={writeValue}
             onChange={(event) => setWriteValue(event.target.value)}
@@ -397,7 +399,6 @@ export function FlashCard({
               <Text align="center" variant="L / Medium">
                 {backText}
               </Text>
-              {statusHelper}
             </Stack>
             {showActions ? cardActions(onSpeakBack) : null}
           </div>

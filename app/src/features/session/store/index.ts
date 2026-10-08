@@ -1,6 +1,7 @@
 import type { LanguageCode } from '../../../lib/languages'
 import { callNativeSync, isNativeBridgeAvailable } from '../../../lib/nativeBridge'
 import { load, remove, save } from '../../../lib/storage'
+import type { CardTexts } from '../../../lib/types'
 import type { ScanTextResult } from '../../../transport/ocr'
 import type { Screen } from '../../navigation/store'
 import { restoreNav, $nav } from '../../navigation/store'
@@ -9,9 +10,8 @@ import {
   restoreDraft,
   $draftLessonId,
   $draftName,
-  $draftOriginalLang,
   $draftPairs,
-  $draftTranslationLang,
+  $draftTexts,
 } from '../../set-create/store'
 import type { WordPair } from '../../text-add/store'
 import {
@@ -37,9 +37,8 @@ export type TextAddSnapshot = {
 export type SetCreateSnapshot = {
   lessonId?: string
   name: string
-  originalLang: LanguageCode
-  translationLang: LanguageCode
   pairs: PairDraft[]
+  texts?: CardTexts
 }
 
 export type SessionSnapshot = {
@@ -57,12 +56,14 @@ const SCREEN_NAMES = new Set<Screen['name']>([
   'lesson-create',
   'set-create',
   'cards',
+  'set-text',
   'card-create',
   'cards-restore',
   'text-add',
   'words-translate',
   'settings',
   'theme',
+  'language',
   'voices',
   'checks',
   'data',
@@ -85,6 +86,7 @@ const isScreen = (value: unknown): value is Screen => {
     case 'lesson':
       return typeof screen.lessonId === 'string'
     case 'cards':
+    case 'set-text':
     case 'card-create':
     case 'cards-restore':
     case 'words-translate':
@@ -113,9 +115,8 @@ export const saveSession = (): void => {
     setCreate: {
       lessonId: $draftLessonId.getState(),
       name: $draftName.getState(),
-      originalLang: $draftOriginalLang.getState(),
-      translationLang: $draftTranslationLang.getState(),
       pairs: $draftPairs.getState(),
+      texts: $draftTexts.getState(),
     },
   })
 }
@@ -184,7 +185,6 @@ export const installSessionPersistence = (): void => {
   $pairs.watch(persist)
   $draftLessonId.watch(persist)
   $draftName.watch(persist)
-  $draftOriginalLang.watch(persist)
-  $draftTranslationLang.watch(persist)
   $draftPairs.watch(persist)
+  $draftTexts.watch(persist)
 }

@@ -7,7 +7,6 @@ import {
   IconEducation,
   IconMoreVertical,
   IconPlusBig,
-  IconSwapVert,
   IconTranslate,
   IconViewList,
 } from '@elemental/icons'
@@ -29,47 +28,42 @@ import {
 } from '@elemental/ui-kit'
 
 import { remapTexts } from '../../../lib/cards'
-import {
-  DEFAULT_ORIGINAL_LANG,
-  DEFAULT_TRANSLATION_LANG,
-  getLanguageName,
-} from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
-import { $courses } from '../../courses/store'
 import { $languages } from '../../languages/store'
 import { $lessons } from '../../lessons/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
-import { createSetFx, updateSetFx, $sets } from '../../sets/store'
+import { createSetFx, updateSetFx, $courseLangByLesson, $sets } from '../../sets/store'
+import { $userLang } from '../../theme/store'
 import {
   createEmptyPair,
   draftInitialized,
-  draftLanguagesChanged,
   draftLessonChanged,
   draftNameChanged,
   draftPairAdded,
   draftPairChanged,
   draftPairsTranslated,
   draftReset,
+  draftTextsRemapped,
   translateFieldFx,
   translatePairsFx,
   $draftLessonId,
   $draftName,
-  $draftOriginalLang,
   $draftPairs,
-  $draftTranslationLang,
+  $draftTexts,
 } from '../store'
 
 export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: string }) {
   const sets = useUnit($sets)
   const lessons = useUnit($lessons)
-  const courses = useUnit($courses)
   const languages = useUnit($languages)
+  const userLang = useUnit($userLang)
+  const courseLangByLesson = useUnit($courseLangByLesson)
   const draftLessonId = useUnit($draftLessonId)
   const name = useUnit($draftName)
-  const originalLang = useUnit($draftOriginalLang)
-  const translationLang = useUnit($draftTranslationLang)
   const pairs = useUnit($draftPairs)
+  const draftTexts = useUnit($draftTexts)
   const transition = useUnit($transition)
   const createPending = useUnit(createSetFx.pending)
   const updatePending = useUnit(updateSetFx.pending)
@@ -81,18 +75,15 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   )
   const isEditing = setId !== undefined
 
-  const parentLesson =
-    lessons.find((item) => item.id === (set?.lessonId ?? lessonId)) ?? lessons[0]
-  const parentCourse = courses.find((item) => item.id === parentLesson?.courseId)
+  const initialLessonId = set?.lessonId ?? lessonId ?? lessons[0]?.id ?? ''
+  const initialCourseLang = courseLangByLesson.get(initialLessonId) ?? DEFAULT_COURSE_LANG
+  const courseLang = courseLangByLesson.get(draftLessonId) ?? initialCourseLang
 
   const initialDraftRef = useRef({
     pushed: transition.kind === 'push',
     draft: {
-      lessonId: set?.lessonId ?? lessonId ?? parentLesson?.id ?? '',
+      lessonId: initialLessonId,
       name: set?.name ?? '',
-      originalLang: set?.originalLang ?? parentCourse?.originalLang ?? DEFAULT_ORIGINAL_LANG,
-      translationLang:
-        set?.translationLang ?? parentCourse?.translationLang ?? DEFAULT_TRANSLATION_LANG,
       pairs: (() => {
         const existing = set
           ? set.cards
@@ -100,13 +91,14 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
               .map((card) => ({
                 ...createEmptyPair(),
                 cardId: card.id,
-                original: card.texts[set.originalLang] ?? '',
-                translation: card.texts[set.translationLang] ?? '',
+                original: card.texts[userLang] ?? '',
+                translation: card.texts[initialCourseLang] ?? '',
               }))
           : []
 
         return existing.length > 0 ? existing : [createEmptyPair()]
       })(),
+      texts: set?.texts ?? {},
     },
   })
 
@@ -121,8 +113,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     field: 'original' | 'translation'
   } | null>(null)
 
-  const sameLanguages = originalLang === translationLang
-  const canApply = name.trim().length > 0 && !sameLanguages && draftLessonId.length > 0
+  const canApply = name.trim().length > 0 && draftLessonId.length > 0
   const canTranslate = pairs.some(
     (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0
   )
@@ -136,39 +127,33 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     [lessons]
   )
 
-  const applyLanguages = (nextOriginal: LanguageCode, nextTranslation: LanguageCode) => {
+  const applyCourseLang = (nextCourseLang: LanguageCode) => {
     setTranslateFailed(false)
-    draftLanguagesChanged({
-      originalLang: nextOriginal,
-      translationLang: nextTranslation,
+    draftTextsRemapped({
       pairs: pairs.map((pair) => {
         const texts = remapTexts(
-          { [originalLang]: pair.original, [translationLang]: pair.translation },
-          nextOriginal,
-          nextTranslation
+          { [userLang]: pair.original, [courseLang]: pair.translation },
+          userLang,
+          nextCourseLang
         )
 
         return {
           ...pair,
-          original: texts[nextOriginal] ?? '',
-          translation: texts[nextTranslation] ?? '',
+          original: texts[userLang] ?? '',
+          translation: texts[nextCourseLang] ?? '',
         }
       }),
+      texts: remapTexts(draftTexts, userLang, nextCourseLang),
     })
-  }
-
-  const handleSwap = () => {
-    applyLanguages(translationLang, originalLang)
   }
 
   const handleLessonChange = (nextLessonId: string) => {
     draftLessonChanged(nextLessonId)
 
-    const lesson = lessons.find((item) => item.id === nextLessonId)
-    const course = courses.find((item) => item.id === lesson?.courseId)
+    const nextCourseLang = courseLangByLesson.get(nextLessonId) ?? DEFAULT_COURSE_LANG
 
-    if (course && (course.originalLang !== originalLang || course.translationLang !== translationLang)) {
-      applyLanguages(course.originalLang, course.translationLang)
+    if (nextCourseLang !== courseLang) {
+      applyCourseLang(nextCourseLang)
     }
   }
 
@@ -184,7 +169,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   const handleAddText = () => {
     pushScreen({
       name: 'text-add',
-      draft: { originalLang, translationLang },
+      draft: { courseLang },
     })
   }
 
@@ -193,7 +178,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
 
     setTranslateFailed(false)
 
-    const { failed, results } = await translatePairsFx({ pairs, originalLang, translationLang })
+    const { failed, results } = await translatePairsFx({ pairs, userLang, courseLang })
 
     if (results.length > 0) {
       draftPairsTranslated(results)
@@ -209,8 +194,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   ) => {
     if (!text.trim()) return
 
-    const from = field === 'original' ? originalLang : translationLang
-    const to = field === 'original' ? translationLang : originalLang
+    const from = field === 'original' ? userLang : courseLang
+    const to = field === 'original' ? courseLang : userLang
     const target = field === 'original' ? 'translation' : 'original'
 
     setTranslateFailed(false)
@@ -243,13 +228,12 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
         setId: set.id,
         lessonId: draftLessonId,
         name,
-        originalLang,
-        translationLang,
         pairs: filled.map(({ cardId, original, translation }) => ({
           cardId,
           original,
           translation,
         })),
+        texts: draftTexts,
       })
 
       draftReset()
@@ -260,9 +244,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     const { setId: createdSetId } = await createSetFx({
       lessonId: draftLessonId,
       name,
-      originalLang,
-      translationLang,
       cards: filled.map(({ original, translation }) => ({ original, translation })),
+      texts: draftTexts,
     })
 
     draftReset()
@@ -293,11 +276,6 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
               />
             </Menu.Trigger>
             <Menu.Content>
-              <Menu.Item
-                icon={<IconSwapVert fontSize={16} />}
-                label="Поменять местами"
-                onClick={handleSwap}
-              />
               <Menu.Item
                 icon={<IconViewList fontSize={16} />}
                 label="Добавить текст"
@@ -350,8 +328,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
                     <InputWithVoice
                       floatingLabel
                       fullWidth
-                      lang={originalLang}
-                      placeholder={`Оригинал · ${getLanguageName(originalLang, languages)}`}
+                      lang={userLang}
+                      placeholder={getLanguageName(userLang, languages)}
                       size="m"
                       translating={
                         translatingField?.id === pair.id && translatingField.field === 'original'
@@ -365,8 +343,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
                     <InputWithVoice
                       floatingLabel
                       fullWidth
-                      lang={translationLang}
-                      placeholder={`Перевод · ${getLanguageName(translationLang, languages)}`}
+                      lang={courseLang}
+                      placeholder={getLanguageName(courseLang, languages)}
                       size="m"
                       translating={
                         translatingField?.id === pair.id &&

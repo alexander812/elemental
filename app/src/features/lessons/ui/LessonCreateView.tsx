@@ -142,25 +142,15 @@ export function LessonCreateView({
             </Card>
 
             <Card padding="l">
-              <Stack spacing="m">
-                <Stack spacing="xs">
-                  <Text color="contrast-secondary" variant="XS / Medium">
-                    Язык оригинала
-                  </Text>
-                  <Text variant="M / Medium">
-                    {course ? getLanguageName(course.originalLang, languages) : '—'}
-                  </Text>
-                </Stack>
-                <Stack spacing="xs">
-                  <Text color="contrast-secondary" variant="XS / Medium">
-                    Язык перевода
-                  </Text>
-                  <Text variant="M / Medium">
-                    {course ? getLanguageName(course.translationLang, languages) : '—'}
-                  </Text>
-                </Stack>
+              <Stack spacing="xs">
+                <Text color="contrast-secondary" variant="XS / Medium">
+                  Язык курса
+                </Text>
+                <Text variant="M / Medium">
+                  {course ? getLanguageName(course.lang, languages) : '—'}
+                </Text>
                 <Text color="contrast-tertiary" variant="XS / Medium">
-                  Языки наследуются из курса
+                  Наследуется из курса
                 </Text>
               </Stack>
             </Card>

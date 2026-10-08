@@ -7,19 +7,18 @@ import { IconTranslate } from '@elemental/icons'
 
 import { Box, Button, ButtonIcon, Header, Stack } from '@elemental/ui-kit'
 
-import {
-  DEFAULT_ORIGINAL_LANG,
-  DEFAULT_TRANSLATION_LANG,
-  getLanguageName,
-} from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
 import { popScreen } from '../../navigation/store'
-import { $sets, addCardFx, updateCardFx } from '../../sets/store'
+import { $courseLangByLesson, $sets, addCardFx, updateCardFx } from '../../sets/store'
+import { $userLang } from '../../theme/store'
 import { translateFx } from '../store'
 
 export function CardCreateView({ setId, cardId }: { setId: string; cardId?: string }) {
   const languages = useUnit($languages)
+  const userLang = useUnit($userLang)
+  const courseLangByLesson = useUnit($courseLangByLesson)
   const sets = useUnit($sets)
   const pending = useUnit(addCardFx.pending)
   const updatePending = useUnit(updateCardFx.pending)
@@ -34,11 +33,10 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
   )
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
-  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG
-  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG
+  const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
 
-  const [original, setOriginal] = useState(() => card?.texts[originalLang] ?? '')
-  const [translation, setTranslation] = useState(() => card?.texts[translationLang] ?? '')
+  const [original, setOriginal] = useState(() => card?.texts[userLang] ?? '')
+  const [translation, setTranslation] = useState(() => card?.texts[courseLang] ?? '')
   const [translationFailed, setTranslationFailed] = useState(false)
 
   const isEditing = Boolean(card)
@@ -61,7 +59,7 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
     setTranslationFailed(false)
 
     try {
-      const result = await translateFx({ text: original, from: originalLang, to: translationLang })
+      const result = await translateFx({ text: original, from: userLang, to: courseLang })
       setTranslation(result)
     } catch {
       setTranslationFailed(true)
@@ -77,10 +75,10 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
       await updateCardFx({
         setId,
         cardId: card.id,
-        texts: { [originalLang]: original, [translationLang]: translation },
+        texts: { [userLang]: original, [courseLang]: translation },
       })
     } else {
-      await addCardFx({ setId, original, translation, originalLang, translationLang })
+      await addCardFx({ setId, texts: { [userLang]: original, [courseLang]: translation } })
     }
 
     popScreen()
@@ -101,8 +99,8 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
                 autoFocus
                 floatingLabel
                 fullWidth
-                lang={originalLang}
-                placeholder={`Оригинал · ${getLanguageName(originalLang, languages)}`}
+                lang={userLang}
+                placeholder={getLanguageName(userLang, languages)}
                 size="m"
                 value={original}
                 onChange={handleOriginalChange}
@@ -124,8 +122,8 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
               helperText={
                 translationFailed ? 'Не удалось перевести — введите перевод вручную' : undefined
               }
-              lang={translationLang}
-              placeholder={`Перевод · ${getLanguageName(translationLang, languages)}`}
+              lang={courseLang}
+              placeholder={getLanguageName(courseLang, languages)}
               size="m"
               value={translation}
               onChange={handleTranslationChange}

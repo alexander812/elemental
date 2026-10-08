@@ -15,17 +15,14 @@ import {
   Textarea,
 } from '@elemental/ui-kit'
 
-import {
-  DEFAULT_ORIGINAL_LANG,
-  DEFAULT_TRANSLATION_LANG,
-  getLanguageName,
-} from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
 import { $languages } from '../../languages/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
 import type { TextAddDraft } from '../../navigation/store'
-import { draftWordsAdded } from '../../set-create/store'
-import { $sets } from '../../sets/store'
+import { draftTextSaved, draftWordsAdded } from '../../set-create/store'
+import { $courseLangByLesson, $sets, updateSetTextFx } from '../../sets/store'
+import { $userLang } from '../../theme/store'
 import {
   pairsCreated,
   resetTextAdd,
@@ -69,15 +66,19 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
   const transition = useUnit($transition)
   const sets = useUnit($sets)
   const languages = useUnit($languages)
+  const userLang = useUnit($userLang)
+  const courseLangByLesson = useUnit($courseLangByLesson)
   const storedTextLang = useUnit($textLang)
   const set = sets.find((item) => item.id === setId)
-  const originalLang = set?.originalLang ?? draft?.originalLang ?? DEFAULT_ORIGINAL_LANG
-  const translationLang = set?.translationLang ?? draft?.translationLang ?? DEFAULT_TRANSLATION_LANG
-  const textLang = storedTextLang ?? originalLang
-  const textField = textLang === translationLang ? 'translation' : 'original'
+  const courseLang =
+    (set ? courseLangByLesson.get(set.lessonId) : undefined) ??
+    draft?.courseLang ??
+    DEFAULT_COURSE_LANG
+  const textLang = storedTextLang ?? courseLang
+  const textField = textLang === courseLang ? 'translation' : 'original'
   const langOptions = [
-    { label: `Оригинал · ${getLanguageName(originalLang, languages)}`, value: originalLang },
-    { label: `Перевод · ${getLanguageName(translationLang, languages)}`, value: translationLang },
+    { label: getLanguageName(courseLang, languages), value: courseLang },
+    { label: getLanguageName(userLang, languages), value: userLang },
   ]
   const scanPending = useUnit(scanTextFx.pending)
   const scanFailed = useUnit($scanFailed)
@@ -208,6 +209,22 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
   const canParse = text.trim().length > 0
   const canProcess = selected.length > 0
 
+  const persistText = () => {
+    const lang = textField === 'translation' ? courseLang : userLang
+
+    if (setId === undefined) {
+      if (draft) draftTextSaved({ lang, text })
+      return
+    }
+
+    updateSetTextFx({ lang, setId, text })
+  }
+
+  const handleParse = () => {
+    persistText()
+    textParsed()
+  }
+
   const handleProcess = () => {
     if (setId === undefined) {
       if (!draft) return
@@ -217,6 +234,7 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
       return
     }
 
+    persistText()
     pairsCreated(textField)
     pushScreen({ name: 'words-translate', setId })
   }
@@ -256,7 +274,7 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
               {scanFailed ? (
                 <FormHelperText variant="error">Не удалось распознать текст</FormHelperText>
               ) : null}
-              <Button disabled={!canParse} fullWidth onClick={() => textParsed()}>
+              <Button disabled={!canParse} fullWidth onClick={handleParse}>
                 Разобрать
               </Button>
             </Stack>

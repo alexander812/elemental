@@ -1,7 +1,7 @@
 import { createEffect, createEvent, createStore } from 'effector'
 
-import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
+import type { CardTexts } from '../../../lib/types'
 import { uid } from '../../../lib/uid'
 import { translateText } from '../../../transport/translate'
 
@@ -26,19 +26,17 @@ export const createEmptyPair = (): PairDraft => ({ id: uid(), original: '', tran
 export const draftInitialized = createEvent<{
   lessonId: string
   name: string
-  originalLang: LanguageCode
-  translationLang: LanguageCode
   pairs: PairDraft[]
+  texts?: CardTexts
 }>()
 
 export const draftLessonChanged = createEvent<string>()
 
 export const draftNameChanged = createEvent<string>()
 
-export const draftLanguagesChanged = createEvent<{
-  originalLang: LanguageCode
-  translationLang: LanguageCode
+export const draftTextsRemapped = createEvent<{
   pairs: PairDraft[]
+  texts?: CardTexts
 }>()
 
 export const draftPairChanged = createEvent<{
@@ -49,15 +47,15 @@ export const draftPairChanged = createEvent<{
 
 export const draftPairAdded = createEvent()
 export const draftWordsAdded = createEvent<{ field: 'original' | 'translation'; words: string[] }>()
+export const draftTextSaved = createEvent<{ lang: LanguageCode; text: string }>()
 export const draftPairsTranslated = createEvent<TranslatedPair[]>()
 export const draftReset = createEvent()
 
 export const restoreDraft = createEvent<{
   lessonId?: string
   name: string
-  originalLang: LanguageCode
-  translationLang: LanguageCode
   pairs: PairDraft[]
+  texts?: CardTexts
 }>()
 
 export const $draftLessonId = createStore('')
@@ -72,21 +70,9 @@ export const $draftName = createStore('')
   .on(restoreDraft, (_, draft) => draft.name)
   .reset(draftReset)
 
-export const $draftOriginalLang = createStore<LanguageCode>(DEFAULT_ORIGINAL_LANG)
-  .on(draftInitialized, (_, draft) => draft.originalLang)
-  .on(draftLanguagesChanged, (_, draft) => draft.originalLang)
-  .on(restoreDraft, (_, draft) => draft.originalLang)
-  .reset(draftReset)
-
-export const $draftTranslationLang = createStore<LanguageCode>(DEFAULT_TRANSLATION_LANG)
-  .on(draftInitialized, (_, draft) => draft.translationLang)
-  .on(draftLanguagesChanged, (_, draft) => draft.translationLang)
-  .on(restoreDraft, (_, draft) => draft.translationLang)
-  .reset(draftReset)
-
 export const $draftPairs = createStore<PairDraft[]>([createEmptyPair()])
   .on(draftInitialized, (_, draft) => draft.pairs)
-  .on(draftLanguagesChanged, (_, draft) => draft.pairs)
+  .on(draftTextsRemapped, (_, draft) => draft.pairs)
   .on(draftPairChanged, (pairs, { id, field, value }) =>
     pairs.map((pair) => (pair.id === id ? { ...pair, [field]: value } : pair))
   )
@@ -109,6 +95,13 @@ export const $draftPairs = createStore<PairDraft[]>([createEmptyPair()])
   ])
   .reset(draftReset)
 
+export const $draftTexts = createStore<CardTexts>({})
+  .on(draftInitialized, (_, draft) => draft.texts ?? {})
+  .on(draftTextsRemapped, (_, draft) => draft.texts ?? {})
+  .on(draftTextSaved, (texts, { lang, text }) => ({ ...texts, [lang]: text.trim() }))
+  .on(restoreDraft, (_, draft) => draft.texts ?? {})
+  .reset(draftReset)
+
 export const translateFieldFx = createEffect(
   ({ from, text, to }: { from: LanguageCode; text: string; to: LanguageCode }) =>
     translateText(text, from, to)
@@ -116,13 +109,13 @@ export const translateFieldFx = createEffect(
 
 export const translatePairsFx = createEffect(
   async ({
-    originalLang,
+    courseLang,
     pairs,
-    translationLang,
+    userLang,
   }: {
-    originalLang: LanguageCode
+    courseLang: LanguageCode
     pairs: TranslatePair[]
-    translationLang: LanguageCode
+    userLang: LanguageCode
   }) => {
     let failed = false
     const results: TranslatedPair[] = []
@@ -135,10 +128,10 @@ export const translatePairsFx = createEffect(
 
       try {
         if (original) {
-          const value = await translateText(original, originalLang, translationLang)
+          const value = await translateText(original, userLang, courseLang)
           results.push({ field: 'translation', id: pair.id, value })
         } else {
-          const value = await translateText(translation, translationLang, originalLang)
+          const value = await translateText(translation, courseLang, userLang)
           results.push({ field: 'original', id: pair.id, value })
         }
       } catch {

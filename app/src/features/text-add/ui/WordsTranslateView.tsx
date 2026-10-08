@@ -4,15 +4,12 @@ import { IconTranslate } from '@elemental/icons'
 
 import { Box, Button, Divider, FormHelperText, Header, Stack } from '@elemental/ui-kit'
 
-import {
-  DEFAULT_ORIGINAL_LANG,
-  DEFAULT_TRANSLATION_LANG,
-  getLanguageName,
-} from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
 import { popScreen, popTo } from '../../navigation/store'
-import { addCardsFx, $sets } from '../../sets/store'
+import { addCardsFx, $courseLangByLesson, $sets } from '../../sets/store'
+import { $userLang } from '../../theme/store'
 import {
   pairOriginalChanged,
   pairTranslationChanged,
@@ -28,10 +25,11 @@ export function WordsTranslateView({ setId }: { setId: string }) {
   const translating = useUnit(translateAllFx.pending)
   const adding = useUnit(addCardsFx.pending)
   const languages = useUnit($languages)
+  const userLang = useUnit($userLang)
+  const courseLangByLesson = useUnit($courseLangByLesson)
   const sets = useUnit($sets)
   const set = sets.find((item) => item.id === setId)
-  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG
-  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG
+  const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
 
   const canTranslate = pairs.some(
     (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0
@@ -41,7 +39,7 @@ export function WordsTranslateView({ setId }: { setId: string }) {
     pairs.every((pair) => pair.original.trim().length > 0 && pair.translation.trim().length > 0)
 
   const handleTranslateAll = () => {
-    translateAllFx({ pairs, originalLang, translationLang })
+    translateAllFx({ pairs, userLang, courseLang })
   }
 
   const handleAdd = async () => {
@@ -50,8 +48,8 @@ export function WordsTranslateView({ setId }: { setId: string }) {
     await addCardsFx({
       setId,
       texts: pairs.map((pair) => ({
-        [originalLang]: pair.original,
-        [translationLang]: pair.translation,
+        [userLang]: pair.original,
+        [courseLang]: pair.translation,
       })),
     })
 
@@ -70,8 +68,8 @@ export function WordsTranslateView({ setId }: { setId: string }) {
               <InputWithVoice
                 floatingLabel
                 fullWidth
-                lang={originalLang}
-                placeholder={`Оригинал · ${getLanguageName(originalLang, languages)}`}
+                lang={userLang}
+                placeholder={getLanguageName(userLang, languages)}
                 size="m"
                 value={pair.original}
                 onChange={(value) => pairOriginalChanged({ id: pair.id, value })}
@@ -79,8 +77,8 @@ export function WordsTranslateView({ setId }: { setId: string }) {
               <InputWithVoice
                 floatingLabel
                 fullWidth
-                lang={translationLang}
-                placeholder={`Перевод · ${getLanguageName(translationLang, languages)}`}
+                lang={courseLang}
+                placeholder={getLanguageName(courseLang, languages)}
                 size="m"
                 value={pair.translation}
                 onChange={(value) => pairTranslationChanged({ id: pair.id, value })}

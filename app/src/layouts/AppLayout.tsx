@@ -11,6 +11,7 @@ import { CardCreateView } from '../features/card-create/ui/CardCreateView'
 import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
 import { CardsView } from '../features/cards/ui/CardsView'
 import { ChecksView } from '../features/settings/ui/ChecksView'
+import { LanguageView } from '../features/settings/ui/LanguageView'
 import {
   goToLessons,
   goToRoot,
@@ -29,6 +30,7 @@ import { SetCreateView } from '../features/set-create/ui/SetCreateView'
 import { MenuView } from '../features/settings/ui/MenuView'
 import { ThemeView } from '../features/settings/ui/ThemeView'
 import { SetsView } from '../features/sets/ui/SetsView'
+import { SetTextView } from '../features/set-text/ui/SetTextView'
 import { TextAddView } from '../features/text-add/ui/TextAddView'
 import { WordsTranslateView } from '../features/text-add/ui/WordsTranslateView'
 import { VoicesView } from '../features/voices/ui/VoicesView'
@@ -57,6 +59,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <SetCreateView lessonId={screen.lessonId} setId={screen.setId} />
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />
+    case 'set-text':
+      return <SetTextView key={screen.setId} setId={screen.setId} />
     case 'card-create':
       return <CardCreateView cardId={screen.cardId} setId={screen.setId} />
     case 'cards-restore':
@@ -73,6 +77,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <MenuView />
     case 'theme':
       return <ThemeView />
+    case 'language':
+      return <LanguageView />
     case 'voices':
       return <VoicesView />
     case 'checks':
@@ -88,6 +94,7 @@ function isSettingsScreen(name: Screen['name']): boolean {
   return (
     name === 'settings' ||
     name === 'theme' ||
+    name === 'language' ||
     name === 'voices' ||
     name === 'checks' ||
     name === 'data' ||

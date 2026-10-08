@@ -16,7 +16,9 @@ import {
   IconPlusBig,
   IconRefresh,
   IconRestore,
+  IconSwapVert,
   IconTrash,
+  IconViewList,
 } from '@elemental/icons'
 import {
   Box,
@@ -33,11 +35,12 @@ import {
 
 import { getCardText } from '../../../lib/cards'
 import { isAnswerCorrect } from '../../../lib/checks'
-import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import { playError, playSuccess, unlockSounds } from '../../../lib/sounds'
 import type { Card as CardModel } from '../../../lib/types'
 import { vibrateError, vibrateLong, vibrateShort, vibrateSuccess } from '../../../transport/haptics'
+import { $languages } from '../../languages/store'
 import { popScreen, pushScreen } from '../../navigation/store'
 import {
   deleteCardFx,
@@ -46,11 +49,13 @@ import {
   fetchSetsFx,
   resetSetFx,
   setCardLearnedFx,
+  setSetSwappedFx,
   updateCardChecksFx,
+  $courseLangByLesson,
   $sets,
   $setsLoading,
 } from '../../sets/store'
-import { $learnAfterChecks } from '../../theme/store'
+import { $learnAfterChecks, $userLang } from '../../theme/store'
 import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx, speakFx, $asrStatus } from '../store'
 import { FlashCard } from './FlashCard'
 import type { CheckStatus, DragPos, Leaving } from './FlashCard'
@@ -115,6 +120,9 @@ export function CardsView({ setId }: { setId: string }) {
   const asrStatus = useUnit($asrStatus)
   const recognizing = useUnit(recognizeFx.pending)
   const learnAfterChecks = useUnit($learnAfterChecks)
+  const languages = useUnit($languages)
+  const userLang = useUnit($userLang)
+  const courseLangByLesson = useUnit($courseLangByLesson)
 
   const dragRef = useRef<DragPos | null>(null)
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -135,8 +143,7 @@ export function CardsView({ setId }: { setId: string }) {
   }, [])
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
-  const originalLang = set?.originalLang ?? DEFAULT_ORIGINAL_LANG
-  const translationLang = set?.translationLang ?? DEFAULT_TRANSLATION_LANG
+  const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
   const byId = useMemo(() => {
     const map = new Map<string, CardModel>()
     set?.cards.forEach((card) => map.set(card.id, card))
@@ -171,6 +178,12 @@ export function CardsView({ setId }: { setId: string }) {
 
   const unlearnedCount = useMemo(
     () => (set ? set.cards.filter((card) => !card.learned && !card.deleted).length : 0),
+    [set]
+  )
+
+  const hasSetText = useMemo(
+    () =>
+      set ? Object.values(set.texts).some((text) => (text ?? '').trim().length > 0) : false,
     [set]
   )
 
@@ -418,7 +431,7 @@ export function CardsView({ setId }: { setId: string }) {
       return
     }
 
-    const expected = getCardText(topCard, translationLang).text.trim()
+    const expected = getCardText(topCard, courseLang).text.trim()
 
     if (!expected) return
 
@@ -428,7 +441,7 @@ export function CardsView({ setId }: { setId: string }) {
     try {
       const assessment = await recognizeFx({
         cardId: topCard.id,
-        lang: translationLang,
+        lang: courseLang,
         side: 'front',
         text: expected,
       })
@@ -471,7 +484,7 @@ export function CardsView({ setId }: { setId: string }) {
   const handleWriteCheck = async (value: string) => {
     if (!topCard) return
 
-    const expected = getCardText(topCard, translationLang).text.trim()
+    const expected = getCardText(topCard, courseLang).text.trim()
 
     if (!expected) return
 
@@ -511,8 +524,19 @@ export function CardsView({ setId }: { setId: string }) {
     pushScreen({ name: 'text-add', setId })
   }
 
+  const handleOpenSetText = () => {
+    setCheckStatus(null)
+    pushScreen({ name: 'set-text', setId })
+  }
+
   const handleEditSet = () => {
     pushScreen({ name: 'set-create', setId })
+  }
+
+  const handleSwap = () => {
+    if (!set) return
+
+    setSetSwappedFx({ setId, swapped: !set.swapped })
   }
 
   const handleConfirmDeleteSet = async () => {
@@ -561,6 +585,11 @@ export function CardsView({ setId }: { setId: string }) {
                 onClick={handleEditSet}
               />
               <Menu.Item
+                icon={<IconSwapVert fontSize={16} />}
+                label="Поменять местами"
+                onClick={handleSwap}
+              />
+              <Menu.Item
                 icon={<IconPlusBig fontSize={16} />}
                 label="Добавить текст"
                 onClick={handleAddText}
@@ -604,6 +633,14 @@ export function CardsView({ setId }: { setId: string }) {
             >
               {learnedCount}
             </Button>
+            <ButtonIcon
+              ariaLabel="Текст задания"
+              color="neutral"
+              disabled={!hasSetText}
+              icon={<IconViewList fontSize={24} />}
+              variant="secondary"
+              onClick={handleOpenSetText}
+            />
             <Button
               checked={!isLearnedFilter}
               color="neutral"
@@ -680,8 +717,8 @@ export function CardsView({ setId }: { setId: string }) {
                 const card = byId.get(id)
                 if (!card) return null
 
-                const front = getCardText(card, originalLang)
-                const back = getCardText(card, translationLang)
+                const front = getCardText(card, set.swapped ? userLang : courseLang)
+                const back = getCardText(card, set.swapped ? courseLang : userLang)
 
                 return (
                   <FlashCard
@@ -719,6 +756,7 @@ export function CardsView({ setId }: { setId: string }) {
                     recognizing={recognizing}
                     voiceCheck={card.voiceCheck}
                     writeCheck={card.writeCheck}
+                    writePlaceholder={getLanguageName(courseLang, languages)}
                   />
                 )
               })}

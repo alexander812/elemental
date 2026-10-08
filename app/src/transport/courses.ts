@@ -1,9 +1,8 @@
-import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG, LANGUAGES_CATALOG } from '../lib/languages'
+import { DEFAULT_COURSE_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Course } from '../lib/types'
 import { uid } from '../lib/uid'
-import { readSettings } from './settings'
 
 export type { Course } from '../lib/types'
 
@@ -14,43 +13,31 @@ export const DEFAULT_COURSE_NAME = 'Базовый курс'
 export type LegacyCourse = Partial<Course> & {
   id?: string
   name?: string
+  originalLang?: LanguageCode
+  translationLang?: LanguageCode
 }
 
-export function createDefaultCourse(
-  originalLang?: LanguageCode,
-  translationLang?: LanguageCode
-): Course {
-  const settings = readSettings()
-
+export function createDefaultCourse(lang?: LanguageCode): Course {
   return {
     id: uid(),
     name: DEFAULT_COURSE_NAME,
     description: '',
     order: 0,
-    originalLang: originalLang ?? settings.originalLang,
-    translationLang: translationLang ?? settings.translationLang,
+    lang: lang ?? DEFAULT_COURSE_LANG,
   }
 }
 
 export function migrateCourse(
   course: LegacyCourse,
   index = 0,
-  fallbackOriginal: LanguageCode = DEFAULT_ORIGINAL_LANG,
-  fallbackTranslation: LanguageCode = DEFAULT_TRANSLATION_LANG
+  fallbackLang: LanguageCode = DEFAULT_COURSE_LANG
 ): Course {
-  const originalLang =
-    typeof course.originalLang === 'string' && course.originalLang
-      ? course.originalLang
-      : fallbackOriginal
-  const fallbackSafe =
-    fallbackTranslation === originalLang
-      ? (LANGUAGES_CATALOG.find((language) => language.code !== originalLang)?.code ??
-        DEFAULT_TRANSLATION_LANG)
-      : fallbackTranslation
-  const translationLang =
-    typeof course.translationLang === 'string' && course.translationLang !== originalLang
-      ? course.translationLang
-      : fallbackSafe
+  const lang =
+    typeof course.lang === 'string' && course.lang
+      ? course.lang
+      : typeof course.translationLang === 'string' && course.translationLang
+        ? course.translationLang
+        : fallbackLang
 
   return {
     id: typeof course.id === 'string' && course.id ? course.id : uid(),
@@ -58,8 +45,7 @@ export function migrateCourse(
       typeof course.name === 'string' && course.name.trim() ? course.name.trim() : `Курс ${index + 1}`,
     description: typeof course.description === 'string' ? course.description : '',
     order: typeof course.order === 'number' ? course.order : index,
-    originalLang,
-    translationLang,
+    lang,
   }
 }
 
@@ -67,16 +53,13 @@ export function readCourses(): Course[] {
   const raw = load<LegacyCourse[] | null>(COURSES_KEY, null)
 
   if (raw === null) {
-    const course = createDefaultCourse()
+    const course = migrateCourse(createDefaultCourse())
+
     save(COURSES_KEY, [course])
     return [course]
   }
 
-  const settings = readSettings()
-
-  return raw.map((item, index) =>
-    migrateCourse(item, index, settings.originalLang, settings.translationLang)
-  )
+  return raw.map((item, index) => migrateCourse(item, index))
 }
 
 export function ensureDefaultCourse(): Course {
@@ -93,8 +76,11 @@ export function ensureDefaultCourse(): Course {
 }
 
 function writeCourses(courses: Course[]): Course[] {
-  save(COURSES_KEY, courses)
-  return courses
+  const normalized = courses.map((course) => migrateCourse(course, course.order))
+
+  save(COURSES_KEY, normalized)
+
+  return normalized
 }
 
 export async function fetchCourses(): Promise<Course[]> {
@@ -108,8 +94,7 @@ export async function replaceCourses(courses: Course[]): Promise<Course[]> {
 export async function createCourse(payload: {
   name: string
   description: string
-  originalLang: LanguageCode
-  translationLang: LanguageCode
+  lang: LanguageCode
 }): Promise<{ courseId: string; courses: Course[] }> {
   const courses = readCourses()
   const maxOrder = courses.reduce((max, course) => Math.max(max, course.order), -1)
@@ -118,8 +103,7 @@ export async function createCourse(payload: {
     name: payload.name.trim(),
     description: payload.description.trim(),
     order: maxOrder + 1,
-    originalLang: payload.originalLang,
-    translationLang: payload.translationLang,
+    lang: payload.lang,
   }
 
   return { courseId: course.id, courses: writeCourses([...courses, course]) }
@@ -129,8 +113,7 @@ export async function updateCourse(payload: {
   courseId: string
   name: string
   description: string
-  originalLang: LanguageCode
-  translationLang: LanguageCode
+  lang: LanguageCode
 }): Promise<Course[]> {
   const courses = readCourses()
 
@@ -141,8 +124,7 @@ export async function updateCourse(payload: {
             ...course,
             name: payload.name.trim(),
             description: payload.description.trim(),
-            originalLang: payload.originalLang,
-            translationLang: payload.translationLang,
+            lang: payload.lang,
           }
         : course
     )

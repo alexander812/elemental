@@ -1,22 +1,18 @@
-import { createEffect, createStore } from 'effector'
+import { combine, createEffect, createStore } from 'effector'
 
+import { DEFAULT_COURSE_LANG } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import * as setsApi from '../../../transport/sets'
 import type { CardEditPair, CardPair, CardSet, CardTexts } from '../../../transport/sets'
 import { importBackupFx } from '../../backup/store'
-import { deleteCourseFx } from '../../courses/store'
-import { deleteLessonFx } from '../../lessons/store'
+import { deleteCourseFx, $courses } from '../../courses/store'
+import { deleteLessonFx, $lessons } from '../../lessons/store'
 
 export const fetchSetsFx = createEffect(() => setsApi.fetchSets())
 
 export const createSetFx = createEffect(
-  (payload: {
-    lessonId: string
-    name: string
-    originalLang: LanguageCode
-    translationLang: LanguageCode
-    cards: CardPair[]
-  }) => setsApi.createSet(payload)
+  (payload: { lessonId: string; name: string; cards: CardPair[]; texts?: CardTexts }) =>
+    setsApi.createSet(payload)
 )
 
 export const updateSetFx = createEffect(
@@ -24,9 +20,8 @@ export const updateSetFx = createEffect(
     setId: string
     lessonId: string
     name: string
-    originalLang: LanguageCode
-    translationLang: LanguageCode
     pairs: CardEditPair[]
+    texts?: CardTexts
   }) => setsApi.updateSet(payload)
 )
 
@@ -34,22 +29,21 @@ export const setSetActiveFx = createEffect((payload: { setId: string; active: bo
   setsApi.setSetActive(payload.setId, payload.active)
 )
 
+export const setSetSwappedFx = createEffect((payload: { setId: string; swapped: boolean }) =>
+  setsApi.setSetSwapped(payload.setId, payload.swapped)
+)
+
+export const updateSetTextFx = createEffect(
+  (payload: { setId: string; lang: LanguageCode; text: string }) =>
+    setsApi.updateSetText(payload.setId, payload.lang, payload.text)
+)
+
 export const deleteSetFx = createEffect((setId: string) => setsApi.deleteSet(setId))
 
 export const reorderSetsFx = createEffect((ids: string[]) => setsApi.reorderSets(ids))
 
-export const addCardFx = createEffect(
-  (payload: {
-    setId: string
-    original: string
-    translation: string
-    originalLang: LanguageCode
-    translationLang: LanguageCode
-  }) =>
-    setsApi.addCard(payload.setId, {
-      [payload.originalLang]: payload.original,
-      [payload.translationLang]: payload.translation,
-    })
+export const addCardFx = createEffect((payload: { setId: string; texts: CardTexts }) =>
+  setsApi.addCard(payload.setId, payload.texts)
 )
 
 export const addCardsFx = createEffect((payload: { setId: string; texts: CardTexts[] }) =>
@@ -94,6 +88,8 @@ export const $sets = createStore<CardSet[]>([])
       fetchSetsFx.doneData,
       updateSetFx.doneData,
       setSetActiveFx.doneData,
+      setSetSwappedFx.doneData,
+      updateSetTextFx.doneData,
       deleteSetFx.doneData,
       reorderSetsFx.doneData,
       addCardFx.doneData,
@@ -112,6 +108,14 @@ export const $sets = createStore<CardSet[]>([])
   .on(deleteLessonFx.doneData, (_, { sets }) => sets)
   .on(deleteCourseFx.doneData, (_, { sets }) => sets)
   .on(importBackupFx.doneData, (_, { sets }) => sets)
+
+export const $courseLangByLesson = combine($lessons, $courses, (lessons, courses) => {
+  const langByCourse = new Map(courses.map((course) => [course.id, course.lang]))
+
+  return new Map(
+    lessons.map((lesson) => [lesson.id, langByCourse.get(lesson.courseId) ?? DEFAULT_COURSE_LANG])
+  )
+})
 
 export const $setsLoading = createStore(false)
   .on(fetchSetsFx, () => true)

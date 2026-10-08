@@ -3,6 +3,8 @@ import { createEffect, createEvent, createStore, sample } from 'effector'
 import type { LanguageCode } from '../../../lib/languages'
 import { callNativeSync } from '../../../lib/nativeBridge'
 import { uid } from '../../../lib/uid'
+import { mergeWordsInRange, parseWords } from '../../../lib/words'
+import type { WordsMerge } from '../../../lib/words'
 import { scanText } from '../../../transport/ocr'
 import type { ScanTextResult } from '../../../transport/ocr'
 import { translateText } from '../../../transport/translate'
@@ -13,32 +15,13 @@ export type WordPair = {
   translation: string
 }
 
-const parseWords = (text: string): string[] => {
-  const seen = new Set<string>()
-  const words: string[] = []
-
-  text.split(/\s+/).forEach((raw) => {
-    const word = raw.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '')
-
-    if (!word) return
-
-    const key = word.toLowerCase()
-
-    if (seen.has(key)) return
-
-    seen.add(key)
-    words.push(word)
-  })
-
-  return words
-}
-
 export const textChanged = createEvent<string>()
 export const textParsed = createEvent()
 export const textEditRequested = createEvent()
 export const wordToggled = createEvent<string>()
 export const textLangChanged = createEvent<LanguageCode>()
 export const pairsCreated = createEvent<'original' | 'translation'>()
+export const pairsReplaced = createEvent<WordPair[]>()
 export const pairOriginalChanged = createEvent<{ id: string; value: string }>()
 export const pairTranslationChanged = createEvent<{ id: string; value: string }>()
 export const pairTranslated = createEvent<{
@@ -156,35 +139,6 @@ sample({
   target: $selected,
 })
 
-type WordsMerge = {
-  merged: string
-  removed: Set<string>
-  nextWords: string[]
-}
-
-const mergeWordsInRange = (words: string[], passed: string[]): WordsMerge | null => {
-  const indices = passed
-    .map((word) => words.indexOf(word))
-    .filter((index) => index !== -1)
-    .sort((a, b) => a - b)
-
-  if (indices.length < 2) return null
-
-  const first = indices[0]
-  const last = indices[indices.length - 1]
-
-  if (first === last) return null
-
-  const removedWords = words.slice(first, last + 1)
-  const merged = removedWords.join(' ')
-
-  return {
-    merged,
-    removed: new Set(removedWords),
-    nextWords: [...words.slice(0, first), merged, ...words.slice(last + 1)],
-  }
-}
-
 export const wordsMerged = createEvent<string[]>()
 
 const wordsMergeComputed = createEvent<WordsMerge | null>()
@@ -212,6 +166,7 @@ export const $pairs = createStore<WordPair[]>([])
   .on(pairTranslated, (pairs, { field, id, value }) =>
     pairs.map((pair) => (pair.id === id ? { ...pair, [field]: value } : pair))
   )
+  .on(pairsReplaced, (_, pairs) => pairs)
   .on(restoreTextAdd, (_, snapshot) => snapshot.pairs)
   .reset(resetTextAdd)
 
@@ -229,13 +184,13 @@ sample({
 
 export const translateAllFx = createEffect(
   async ({
-    originalLang,
+    courseLang,
     pairs,
-    translationLang,
+    userLang,
   }: {
-    originalLang: LanguageCode
+    courseLang: LanguageCode
     pairs: WordPair[]
-    translationLang: LanguageCode
+    userLang: LanguageCode
   }) => {
     let failed = false
 
@@ -247,10 +202,10 @@ export const translateAllFx = createEffect(
 
       try {
         if (original) {
-          const value = await translateText(original, originalLang, translationLang)
+          const value = await translateText(original, userLang, courseLang)
           pairTranslated({ field: 'translation', id: pair.id, value })
         } else {
-          const value = await translateText(translation, translationLang, originalLang)
+          const value = await translateText(translation, courseLang, userLang)
           pairTranslated({ field: 'original', id: pair.id, value })
         }
       } catch {

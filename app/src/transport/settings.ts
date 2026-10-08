@@ -1,4 +1,5 @@
-import { DEFAULT_ORIGINAL_LANG, DEFAULT_TRANSLATION_LANG } from '../lib/languages'
+import { DEFAULT_USER_LANG } from '../lib/languages'
+import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Settings, ThemeName } from '../lib/types'
 
@@ -8,13 +9,28 @@ const SETTINGS_KEY = 'settings'
 
 export const DEFAULT_SETTINGS: Settings = {
   theme: 'dark',
-  originalLang: DEFAULT_ORIGINAL_LANG,
-  translationLang: DEFAULT_TRANSLATION_LANG,
+  userLang: DEFAULT_USER_LANG,
   learnAfterChecks: false,
 }
 
+type LegacySettings = Partial<Settings> & {
+  originalLang?: LanguageCode
+  translationLang?: LanguageCode
+}
+
 export function readSettings(): Settings {
-  return { ...DEFAULT_SETTINGS, ...load<Partial<Settings>>(SETTINGS_KEY, {}) }
+  const raw = load<LegacySettings>(SETTINGS_KEY, {})
+
+  return {
+    theme: raw.theme === 'light' ? 'light' : 'dark',
+    userLang:
+      typeof raw.userLang === 'string' && raw.userLang
+        ? raw.userLang
+        : typeof raw.originalLang === 'string' && raw.originalLang
+          ? raw.originalLang
+          : DEFAULT_USER_LANG,
+    learnAfterChecks: raw.learnAfterChecks === true,
+  }
 }
 
 export async function fetchSettings(): Promise<Settings> {
@@ -29,6 +45,10 @@ export async function saveSettings(patch: Partial<Settings>): Promise<Settings> 
 
 export async function saveTheme(theme: ThemeName): Promise<Settings> {
   return saveSettings({ theme })
+}
+
+export async function saveUserLang(userLang: LanguageCode): Promise<Settings> {
+  return saveSettings({ userLang })
 }
 
 export async function saveLearnAfterChecks(learnAfterChecks: boolean): Promise<Settings> {

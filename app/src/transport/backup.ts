@@ -1,5 +1,5 @@
-import { DEFAULT_ORIGINAL_LANG, LANGUAGES_CATALOG } from '../lib/languages'
-import type { Language } from '../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, LANGUAGES_CATALOG } from '../lib/languages'
+import type { Language, LanguageCode } from '../lib/languages'
 import type { CardSet, CardTexts, Course, Lesson, Settings } from '../lib/types'
 import { uid } from '../lib/uid'
 import {
@@ -100,12 +100,13 @@ const parseSets = (value: unknown): LegacySet[] => {
       order: typeof raw.order === 'number' ? raw.order : index,
       originalLang: typeof raw.originalLang === 'string' ? raw.originalLang : undefined,
       translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
+      texts: parseTexts(raw.texts) ?? {},
       cards,
     }
   })
 }
 
-const parseCourses = (value: unknown, settings: Settings): Course[] => {
+const parseCourses = (value: unknown, fallbackLang: LanguageCode): Course[] => {
   if (!Array.isArray(value)) return []
 
   return value
@@ -117,12 +118,12 @@ const parseCourses = (value: unknown, settings: Settings): Course[] => {
           name: typeof raw.name === 'string' ? raw.name : undefined,
           description: typeof raw.description === 'string' ? raw.description : undefined,
           order: typeof raw.order === 'number' ? raw.order : undefined,
+          lang: typeof raw.lang === 'string' ? raw.lang : undefined,
           originalLang: typeof raw.originalLang === 'string' ? raw.originalLang : undefined,
           translationLang: typeof raw.translationLang === 'string' ? raw.translationLang : undefined,
         } satisfies LegacyCourse,
         index,
-        settings.originalLang,
-        settings.translationLang
+        fallbackLang
       )
     )
 }
@@ -144,16 +145,15 @@ const linkData = (
   rawCourses: Course[],
   rawLessons: LegacyLesson[],
   rawSets: LegacySet[],
-  settings: Settings
+  settings: Settings,
+  legacyCourseLang: LanguageCode
 ): { courses: Course[]; lessons: Lesson[]; sets: CardSet[] } => {
   let courses = rawCourses
 
   if (courses.length === 0 && (rawLessons.length > 0 || rawSets.length > 0)) {
     const first = rawLessons[0]
-    const originalLang = first?.originalLang ?? settings.originalLang
-    const translationLang = first?.translationLang ?? settings.translationLang
 
-    courses = [createDefaultCourse(originalLang, translationLang)]
+    courses = [createDefaultCourse(first?.translationLang ?? legacyCourseLang)]
   }
 
   const courseIds = new Set(courses.map((course) => course.id))
@@ -182,44 +182,39 @@ const linkData = (
       : migratedLessons
   const lessonIds = new Set(lessons.map((lesson) => lesson.id))
   const fallbackLessonId = lessons[0]?.id ?? ''
-  const sets = rawSets.map((set) =>
-    migrateSet(
-      {
-        ...set,
-        lessonId: set.lessonId && lessonIds.has(set.lessonId) ? set.lessonId : undefined,
-      },
-      settings.originalLang,
-      settings.translationLang,
-      fallbackLessonId
-    )
-  )
+  const courseIdByLesson = new Map(lessons.map((lesson) => [lesson.id, lesson.courseId]))
+  const langByCourse = new Map(courses.map((course) => [course.id, course.lang]))
+  const sets = rawSets.map((set) => {
+    const lessonId = set.lessonId && lessonIds.has(set.lessonId) ? set.lessonId : fallbackLessonId
+    const courseLang = langByCourse.get(courseIdByLesson.get(lessonId) ?? '') ?? legacyCourseLang
+
+    return migrateSet({ ...set, lessonId }, settings.userLang, courseLang, fallbackLessonId)
+  })
 
   return { courses, lessons, sets }
 }
 
 const CATALOG_CODES = new Set(LANGUAGES_CATALOG.map((language) => language.code))
 
-const parseSettings = (value: unknown): Settings => {
+const parseSettings = (value: unknown): { settings: Settings; legacyCourseLang: LanguageCode } => {
   const raw = isRecord(value) ? value : {}
 
-  const originalLang =
-    typeof raw.originalLang === 'string' && CATALOG_CODES.has(raw.originalLang)
-      ? raw.originalLang
-      : DEFAULT_ORIGINAL_LANG
-  const translationFallback =
-    LANGUAGES_CATALOG.find((language) => language.code !== originalLang)?.code ?? originalLang
-  const translationLang =
-    typeof raw.translationLang === 'string' &&
-    CATALOG_CODES.has(raw.translationLang) &&
-    raw.translationLang !== originalLang
-      ? raw.translationLang
-      : translationFallback
+  const userLang = CATALOG_CODES.has(raw.userLang as string)
+    ? (raw.userLang as LanguageCode)
+    : CATALOG_CODES.has(raw.originalLang as string)
+      ? (raw.originalLang as LanguageCode)
+      : DEFAULT_USER_LANG
+  const legacyCourseLang = CATALOG_CODES.has(raw.translationLang as string)
+    ? (raw.translationLang as LanguageCode)
+    : DEFAULT_COURSE_LANG
 
   return {
-    theme: raw.theme === 'light' ? 'light' : 'dark',
-    originalLang,
-    translationLang,
-    learnAfterChecks: raw.learnAfterChecks === true,
+    settings: {
+      theme: raw.theme === 'light' ? 'light' : 'dark',
+      userLang,
+      learnAfterChecks: raw.learnAfterChecks === true,
+    },
+    legacyCourseLang,
   }
 }
 
@@ -233,8 +228,14 @@ export function parseBackup(raw: string): BackupData {
   }
 
   if (Array.isArray(parsed)) {
-    const settings = parseSettings(undefined)
-    const { courses, lessons, sets } = linkData([], [], parseSets(parsed), settings)
+    const { settings, legacyCourseLang } = parseSettings(undefined)
+    const { courses, lessons, sets } = linkData(
+      [],
+      [],
+      parseSets(parsed),
+      settings,
+      legacyCourseLang
+    )
 
     return {
       version: 1,
@@ -249,16 +250,17 @@ export function parseBackup(raw: string): BackupData {
 
   if (!isRecord(parsed)) throw new Error('invalid backup: root')
 
-  const settings = parseSettings(parsed.settings)
+  const { settings, legacyCourseLang } = parseSettings(parsed.settings)
   const { courses, lessons, sets } = linkData(
-    parseCourses(parsed.courses, settings),
+    parseCourses(parsed.courses, legacyCourseLang),
     parseLessons(parsed.lessons),
     parseSets(parsed.sets),
-    settings
+    settings,
+    legacyCourseLang
   )
 
   return {
-    version: 3,
+    version: 4,
     exportedAt: new Date().toISOString(),
     courses,
     lessons,
@@ -285,7 +287,7 @@ export async function createBackup(lessonIds?: string[]): Promise<string> {
   const courses = allCourses.filter((course) => selectedCourseIds.has(course.id))
 
   const data: BackupData = {
-    version: 3,
+    version: 4,
     exportedAt: new Date().toISOString(),
     courses,
     lessons,
@@ -388,8 +390,7 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
           ...course,
           name: incoming.name,
           description: incoming.description,
-          originalLang: incoming.originalLang,
-          translationLang: incoming.translationLang,
+          lang: incoming.lang,
         }
       : course
   })

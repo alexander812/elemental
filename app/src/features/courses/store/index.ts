@@ -10,22 +10,13 @@ import { importBackupFx } from '../../backup/store'
 export const fetchCoursesFx = createEffect(() => coursesApi.fetchCourses())
 
 export const createCourseFx = createEffect(
-  (payload: {
-    name: string
-    description: string
-    originalLang: LanguageCode
-    translationLang: LanguageCode
-  }) => coursesApi.createCourse(payload)
+  (payload: { name: string; description: string; lang: LanguageCode }) =>
+    coursesApi.createCourse(payload)
 )
 
 export const updateCourseFx = createEffect(
-  (payload: {
-    courseId: string
-    name: string
-    description: string
-    originalLang: LanguageCode
-    translationLang: LanguageCode
-  }) => coursesApi.updateCourse(payload)
+  (payload: { courseId: string; name: string; description: string; lang: LanguageCode }) =>
+    coursesApi.updateCourse(payload)
 )
 
 export const courseSelected = createEvent<string>()

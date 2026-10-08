@@ -1,5 +1,6 @@
 import { createEffect, createStore } from 'effector'
 
+import type { LanguageCode } from '../../../lib/languages'
 import * as settingsApi from '../../../transport/settings'
 import type { Settings, ThemeName } from '../../../transport/settings'
 import { importBackupFx } from '../../backup/store'
@@ -8,6 +9,10 @@ export const fetchSettingsFx = createEffect(() => settingsApi.fetchSettings())
 
 export const setThemeFx = createEffect((theme: ThemeName) => settingsApi.saveTheme(theme))
 
+export const setUserLangFx = createEffect((userLang: LanguageCode) =>
+  settingsApi.saveUserLang(userLang)
+)
+
 export const setLearnAfterChecksFx = createEffect((value: boolean) =>
   settingsApi.saveLearnAfterChecks(value)
 )
@@ -15,10 +20,12 @@ export const setLearnAfterChecksFx = createEffect((value: boolean) =>
 export const $settings = createStore<Settings>(settingsApi.DEFAULT_SETTINGS)
   .on(fetchSettingsFx.doneData, (_, settings) => settings)
   .on(setThemeFx.doneData, (_, settings) => settings)
+  .on(setUserLangFx.doneData, (_, settings) => settings)
   .on(setLearnAfterChecksFx.doneData, (_, settings) => settings)
   .on(importBackupFx.doneData, (_, { settings }) => settings)
 
 export const $theme = $settings.map((settings) => settings.theme)
+export const $userLang = $settings.map((settings) => settings.userLang)
 export const $learnAfterChecks = $settings.map((settings) => settings.learnAfterChecks)
 
 export const $settingsLoading = createStore(true).on(fetchSettingsFx.finally, () => false)

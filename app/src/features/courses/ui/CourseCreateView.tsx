@@ -3,7 +3,7 @@ import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconEducation, IconSwapVert } from '@elemental/icons'
+import { IconEducation } from '@elemental/icons'
 import {
   Box,
   Button,
@@ -18,19 +18,17 @@ import {
   Textarea,
 } from '@elemental/ui-kit'
 
-import {
-  DEFAULT_ORIGINAL_LANG,
-  DEFAULT_TRANSLATION_LANG,
-  getLanguageName,
-} from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import { $languages } from '../../languages/store'
 import { goToLessons, popScreen } from '../../navigation/store'
+import { $userLang } from '../../theme/store'
 import { courseSelected, createCourseFx, updateCourseFx, $courses } from '../store'
 
 export function CourseCreateView({ courseId }: { courseId?: string }) {
   const courses = useUnit($courses)
   const languages = useUnit($languages)
+  const userLang = useUnit($userLang)
   const createPending = useUnit(createCourseFx.pending)
   const updatePending = useUnit(updateCourseFx.pending)
 
@@ -42,34 +40,20 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
 
   const [name, setName] = useState(course?.name ?? '')
   const [description, setDescription] = useState(course?.description ?? '')
-  const [originalLang, setOriginalLang] = useState<LanguageCode>(
-    course?.originalLang ?? DEFAULT_ORIGINAL_LANG
-  )
-  const [translationLang, setTranslationLang] = useState<LanguageCode>(
-    course?.translationLang ?? DEFAULT_TRANSLATION_LANG
-  )
+  const [lang, setLang] = useState<LanguageCode>(course?.lang ?? DEFAULT_COURSE_LANG)
 
   const options = useMemo(
     () => languages.map((language) => ({ label: language.name, value: language.code })),
     [languages]
   )
-  const originalOptions = useMemo(
-    () => options.map((option) => ({ ...option, disabled: option.value === translationLang })),
-    [options, translationLang]
-  )
-  const translationOptions = useMemo(
-    () => options.map((option) => ({ ...option, disabled: option.value === originalLang })),
-    [options, originalLang]
+  const langOptions = useMemo(
+    () => options.map((option) => ({ ...option, disabled: option.value === userLang })),
+    [options, userLang]
   )
 
-  const sameLanguages = originalLang === translationLang
+  const sameLanguages = lang === userLang
   const canApply = name.trim().length > 0 && !sameLanguages
   const pending = createPending || updatePending
-
-  const handleSwap = () => {
-    setOriginalLang(translationLang)
-    setTranslationLang(originalLang)
-  }
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
@@ -77,7 +61,7 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
     if (!canApply) return
 
     if (isEditing && course) {
-      await updateCourseFx({ courseId: course.id, name, description, originalLang, translationLang })
+      await updateCourseFx({ courseId: course.id, name, description, lang })
       popScreen()
       return
     }
@@ -85,8 +69,7 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
     const { courseId: createdCourseId } = await createCourseFx({
       name,
       description,
-      originalLang,
-      translationLang,
+      lang,
     })
 
     courseSelected(createdCourseId)
@@ -131,49 +114,28 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
             />
 
             <Card padding="l">
-              <Stack spacing="m">
-                <Stack spacing="xs">
-                  <Text color="contrast-secondary" variant="XS / Medium">
-                    Язык оригинала
-                  </Text>
-                  <Select
-                    fullWidth
-                    options={originalOptions}
-                    value={originalLang}
-                    onChange={(value) => setOriginalLang(value)}
-                  />
-                </Stack>
-                <Button
+              <Stack spacing="xs">
+                <Text color="contrast-secondary" variant="XS / Medium">
+                  Язык курса
+                </Text>
+                <Select
                   fullWidth
-                  startIcon={<IconSwapVert fontSize={24} />}
-                  variant="secondary"
-                  onClick={handleSwap}
-                >
-                  Поменять местами
-                </Button>
-                <Stack spacing="xs">
-                  <Text color="contrast-secondary" variant="XS / Medium">
-                    Язык перевода
-                  </Text>
-                  <Select
-                    fullWidth
-                    options={translationOptions}
-                    value={translationLang}
-                    onChange={(value) => setTranslationLang(value)}
-                  />
-                </Stack>
+                  options={langOptions}
+                  value={lang}
+                  onChange={(value) => setLang(value)}
+                />
               </Stack>
             </Card>
 
             {sameLanguages ? (
               <FormHelperText variant="error">
-                Языки оригинала и перевода должны различаться
+                Язык курса должен отличаться от вашего языка
               </FormHelperText>
             ) : null}
 
             <Text color="contrast-tertiary" variant="XS / Medium">
-              {getLanguageName(originalLang, languages)} →{' '}
-              {getLanguageName(translationLang, languages)} · наследуется уроками и заданиями курса
+              {getLanguageName(userLang, languages)} → {getLanguageName(lang, languages)} ·
+              наследуется уроками и заданиями курса
             </Text>
 
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">

@@ -1,4 +1,11 @@
-import { IconChevronRight, IconDownload, IconPalette, IconSound, IconTasks } from '@elemental/icons'
+import {
+  IconChevronRight,
+  IconDownload,
+  IconPalette,
+  IconSound,
+  IconTasks,
+  IconTranslate,
+} from '@elemental/icons'
 import { Box, Card, Header, ListItem, Stack, Text } from '@elemental/ui-kit'
 
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
@@ -17,6 +24,15 @@ export function MenuView() {
               <ListItem.StartBlock
                 icon={<IconPalette fontSize={24} color="var(--accent-text-and-icons)" />}
                 title={<Text variant="M / Medium">Тема</Text>}
+              />
+              <ListItem.EndBlock
+                content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+              />
+            </ListItem>
+            <ListItem data={{ screen: 'language' }} onClick={() => pushScreen({ name: 'language' })}>
+              <ListItem.StartBlock
+                icon={<IconTranslate fontSize={24} color="var(--accent-text-and-icons)" />}
+                title={<Text variant="M / Medium">Язык</Text>}
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}

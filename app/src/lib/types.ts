@@ -17,8 +17,8 @@ export interface CardSet {
   name: string
   active: boolean
   order: number
-  originalLang: LanguageCode
-  translationLang: LanguageCode
+  swapped: boolean
+  texts: CardTexts
   cards: Card[]
 }
 
@@ -34,15 +34,13 @@ export interface Course {
   name: string
   description: string
   order: number
-  originalLang: LanguageCode
-  translationLang: LanguageCode
+  lang: LanguageCode
 }
 
 export type ThemeName = 'dark' | 'light'
 
 export interface Settings {
   theme: ThemeName
-  originalLang: LanguageCode
-  translationLang: LanguageCode
+  userLang: LanguageCode
   learnAfterChecks: boolean
 }

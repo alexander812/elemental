@@ -3,12 +3,12 @@ import type { Card, CardTexts } from './types'
 
 export function remapTexts(
   texts: CardTexts,
-  originalLang: LanguageCode,
-  translationLang: LanguageCode
+  userLang: LanguageCode,
+  courseLang: LanguageCode
 ): CardTexts {
   return {
-    [originalLang]: texts[originalLang] ?? '',
-    [translationLang]: texts[translationLang] ?? '',
+    [userLang]: texts[userLang] ?? '',
+    [courseLang]: texts[courseLang] ?? '',
   }
 }
 
