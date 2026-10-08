@@ -11,7 +11,6 @@ import {
   EmptyScreen,
   FormHelperText,
   Header,
-  InputText,
   Select,
   Stack,
   Text,
@@ -20,6 +19,7 @@ import {
 
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
+import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
 import { goToLessons, popScreen } from '../../navigation/store'
 import { $userLang } from '../../theme/store'
@@ -95,10 +95,11 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
       <Box grow padding="m">
         <form onSubmit={handleSubmit}>
           <Stack spacing="l">
-            <InputText
+            <InputWithVoice
               autoFocus
               floatingLabel
               fullWidth
+              lang={userLang}
               placeholder="Название курса"
               size="m"
               value={name}

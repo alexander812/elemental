@@ -652,7 +652,7 @@ export function CardsView({ setId }: { setId: string }) {
             <EmptyScreen
               action={
                 <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddWord}>
-                  Добавить слово
+                  Добавить
                 </Button>
               }
               fullHeight
@@ -777,7 +777,7 @@ export function CardsView({ setId }: { setId: string }) {
               variant="secondary"
               onClick={handleAddWord}
             >
-              Добавить слово
+              Добавить
             </Button>
           )}
         </Stack>

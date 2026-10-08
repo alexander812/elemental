@@ -1,0 +1,270 @@
+.host {
+  --border-width: 1px;
+
+  box-sizing: border-box;
+  min-width: 0;
+  border: var(--border-width) solid var(--card-border);
+}
+
+.hostClipContent {
+  overflow: hidden;
+}
+
+.hostNoBorder {
+  border: none !important;
+}
+
+.hostElevated {
+  box-shadow: 0 12px 24px 0 rgb(0, 0, 0, 12%);
+}
+
+.hostDisabled {
+  opacity: 0.4;
+  background-color: var(--card-bg-inactive);
+}
+
+.hostClickable {
+  transition: background-color 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.hostColorPrimary {
+  background: var(--card-bg-default);
+}
+
+.hostColorPrimaryBlur {
+  border: var(--border-width) solid var(--contrast-quaternary);
+  backdrop-filter: blur(8px);
+  background-color: var(--card-bg-default);
+}
+
+.hostClickable.hostColorPrimary,
+.hostClickable.hostColorPrimaryBlur {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--card-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--card-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--card-bg-active);
+  }
+}
+
+.hostColorAccent {
+  background-color: var(--accent-bg-default);
+}
+
+.hostColorAccentTransparent {
+  background-color: var(--accent-transparent);
+}
+
+.hostClickable.hostColorAccent {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--accent-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--accent-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--accent-bg-active);
+  }
+}
+
+.hostColorPositiveTransparent {
+  background-color: var(--positive-transparent);
+}
+
+.hostColorInput {
+  border: var(--border-width) solid var(--input-border);
+  background-color: var(--input-bg-default);
+}
+
+.hostColorInactive {
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg-inactive);
+}
+
+.hostClickable.hostColorInput {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--input-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--input-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--input-bg-active);
+  }
+}
+
+.hostColorControl {
+  border: var(--border-width) solid var(--control-border);
+  background-color: var(--control-bg-default);
+}
+
+.hostClickable.hostColorControl {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--control-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--control-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--control-bg-active);
+  }
+}
+
+.hostColorSurfaceElevation1 {
+  border: var(--border-width) solid var(--contrast-quaternary);
+  background-color: var(--surface-elevation-1);
+}
+
+.hostClickable.hostColorSurfaceElevation1 {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--surface-elevation-2);
+    }
+  }
+
+  &:active {
+    background-color: var(--surface-elevation-2);
+  }
+
+  &.hostActive {
+    background-color: var(--surface-elevation-2);
+  }
+}
+
+.hostColorSurfaceElevation2 {
+  background-color: var(--surface-elevation-2);
+}
+
+.hostClickable.hostColorSurfaceElevation2 {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--surface-elevation-3);
+    }
+  }
+
+  &:active {
+    background-color: var(--surface-elevation-3);
+  }
+
+  &.hostActive {
+    background-color: var(--surface-elevation-3);
+  }
+}
+
+.hostColorSurfaceOverlay {
+  background-color: var(--surface-overlay);
+}
+
+.hostClickable.hostColorSurfaceOverlay {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: rgb(0, 0, 0, 30%);
+    }
+  }
+
+  &:active {
+    background-color: rgb(0, 0, 0, 40%);
+  }
+
+  &.hostActive {
+    background-color: rgb(0, 0, 0, 40%);
+  }
+}
+
+.hostColorSurfaceCanvas {
+  background-color: var(--surface-canvas);
+}
+
+.hostColorPrimaryContrast {
+  background-color: var(--contrast-primary);
+}
+
+.hostColorTransparent {
+  border: solid 1px var(--card-border);
+  background-color: transparent;
+}
+
+.hostClickable.hostColorTransparent {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--card-bg-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--card-bg-active);
+  }
+
+  &.hostActive {
+    background-color: var(--card-bg-active);
+  }
+}
+
+.hostColorWarning {
+  background-color: var(--warning-transparent);
+}
+
+.hostClickable.hostColorWarning {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color:  rgb(var(--warning-transparent-rgb), 0.2);
+    }
+  }
+
+  &:active {
+    background-color: rgb(var(--warning-transparent-rgb), 0.2);
+  }
+
+  &.hostActive {
+    background-color: rgb(var(--warning-transparent-rgb), 0.2);
+  }
+}
+
+.hostAi {
+  position: relative;
+  border: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    padding: var(--border-width);
+    border-radius: inherit;
+    background: linear-gradient(
+      84.5deg,
+      rgb(10, 153, 87) -6.89%,
+      rgb(255, 169, 49) 10.5%,
+      rgb(76, 148, 255) 50.18%,
+      rgb(219, 51, 219) 77.9%,
+      rgb(222, 68, 68) 106.17%
+    );
+    pointer-events: none;
+    inset: 0;
+    mask:
+      /* stylelint-disable-next-line */
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0) padding-box;
+    /* stylelint-disable-next-line */
+    -webkit-mask-composite: destination-out, source-over;
+    mask-composite: exclude;
+  }
+}

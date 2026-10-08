@@ -85,6 +85,12 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
       <div className={classes.layout}>
         <div className={classes.inputScroll}>
           <Stack spacing="l">
+            <Stack spacing="s">
+              <Text color="contrast-secondary" variant="XS / Medium">
+                Язык текста
+              </Text>
+              <Select fullWidth options={langOptions} value={lang} onChange={textLangChanged} />
+            </Stack>
             <Textarea
               fullWidth
               placeholder="Введите или вставьте текст"
@@ -92,12 +98,6 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
               value={text}
               onChange={textChanged}
             />
-            <Stack spacing="s">
-              <Text color="contrast-secondary" variant="XS / Medium">
-                Язык текста
-              </Text>
-              <Select fullWidth options={langOptions} value={lang} onChange={textLangChanged} />
-            </Stack>
             {scanAvailable ? (
               <Button
                 disabled={scanPending}

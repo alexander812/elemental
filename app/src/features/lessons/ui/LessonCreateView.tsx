@@ -10,7 +10,6 @@ import {
   Card,
   EmptyScreen,
   Header,
-  InputText,
   Select,
   Stack,
   Text,
@@ -18,9 +17,11 @@ import {
 
 import { getLanguageName } from '../../../lib/languages'
 import type { Lesson } from '../../../lib/types'
+import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $courses } from '../../courses/store'
 import { $languages } from '../../languages/store'
 import { popScreen, pushScreen } from '../../navigation/store'
+import { $userLang } from '../../theme/store'
 import { createLessonFx, updateLessonFx, $lessons } from '../store'
 
 const defaultLessonName = (lessons: Lesson[], courseId: string): string => {
@@ -45,6 +46,7 @@ export function LessonCreateView({
   const lessons = useUnit($lessons)
   const courses = useUnit($courses)
   const languages = useUnit($languages)
+  const userLang = useUnit($userLang)
   const createPending = useUnit(createLessonFx.pending)
   const updatePending = useUnit(updateLessonFx.pending)
 
@@ -117,10 +119,11 @@ export function LessonCreateView({
       <Box grow padding="m">
         <form onSubmit={handleSubmit}>
           <Stack spacing="l">
-            <InputText
+            <InputWithVoice
               autoFocus
               floatingLabel
               fullWidth
+              lang={userLang}
               placeholder="Название урока"
               size="m"
               value={name}

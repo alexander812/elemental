@@ -3,7 +3,7 @@ import type { PointerEvent as ReactPointerEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconTranslate, IconViewList } from '@elemental/icons'
+import { IconViewList } from '@elemental/icons'
 
 import {
   Box,
@@ -11,8 +11,8 @@ import {
   EmptyScreen,
   FormHelperText,
   Header,
-  Select,
   Spinner,
+  Stack,
   Text,
   TextPanel,
 } from '@elemental/ui-kit'
@@ -97,13 +97,9 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
   const otherLang = lang === userLang ? courseLang : userLang
   const currentText = (texts[lang] ?? '').trim()
   const oppositeText = (texts[otherLang] ?? '').trim()
+  const hasAnyText = currentText.length > 0 || oppositeText.length > 0
   const hasText = currentText.length > 0
   const canCreateCards = hasText && selected.length > 0
-
-  const langOptions = [
-    { label: getLanguageName(userLang, languages), value: userLang },
-    { label: getLanguageName(courseLang, languages), value: courseLang },
-  ]
 
   const shouldResetRef = useRef(transition.kind === 'push')
 
@@ -333,11 +329,30 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     <div className={classes.root}>
       <Header
         back
-        text={hasText ? 'Изменить текст' : 'Добавить текст'}
+        text={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
         onBackClick={() => popScreen()}
       />
       <div className={classes.layout}>
-        <Select fullWidth options={langOptions} value={lang} onChange={textLangChanged} />
+        {hasAnyText ? (
+          <Stack direction="row" spacing="s">
+            <Button
+              checked={lang === courseLang}
+              fullWidth
+              variant="secondary"
+              onClick={() => textLangChanged(courseLang)}
+            >
+              {getLanguageName(courseLang, languages)}
+            </Button>
+            <Button
+              checked={lang === userLang}
+              fullWidth
+              variant="secondary"
+              onClick={() => textLangChanged(userLang)}
+            >
+              {getLanguageName(userLang, languages)}
+            </Button>
+          </Stack>
+        ) : null}
 
         {hasText ? (
           <TextPanel grow>
@@ -370,27 +385,34 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
             </div>
           </TextPanel>
         ) : (
-          <TextPanel placeholder="Текст ещё не заполнен" />
+          <TextPanel grow>
+            <Stack
+              height="100%"
+              horizontalAlign="center"
+              spacing="s"
+              verticalAlign="center"
+            >
+              <Text color="contrast-tertiary" variant="S / Medium">
+                Текст ещё не заполнен
+              </Text>
+              {hasAnyText ? (
+                <Button
+                  loading={translating}
+                  onClick={handleTranslate}
+                >
+                  Перевести
+                </Button>
+              ) : null}
+            </Stack>
+          </TextPanel>
         )}
-
-        {!hasText && oppositeText ? (
-          <Button
-            fullWidth
-            loading={translating}
-            startIcon={<IconTranslate fontSize={24} />}
-            variant="secondary"
-            onClick={handleTranslate}
-          >
-            Перевести на {getLanguageName(lang, languages)}
-          </Button>
-        ) : null}
 
         {translateFailed ? (
           <FormHelperText variant="error">Не удалось перевести текст</FormHelperText>
         ) : null}
 
         <Button fullWidth variant="secondary" onClick={handleEdit}>
-          {hasText ? 'Изменить' : 'Добавить'}
+          {hasAnyText ? 'Изменить' : 'Добавить'}
         </Button>
 
         <Button disabled={!canCreateCards} fullWidth onClick={handleCreateCards}>

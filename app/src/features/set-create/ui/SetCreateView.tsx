@@ -304,7 +304,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
 
             <TextPanel
               onClick={handleOpenText}
-              placeholder="Текст ещё не заполнен"
+              placeholder="Нажмите чтобы добавить текст"
               text={panelText}
             />
 
@@ -373,7 +373,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
               variant="secondary"
               onClick={handleAddPair}
             >
-              Добавить слово
+              Добавить
             </Button>
 
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">

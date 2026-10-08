@@ -99,7 +99,7 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
     <Box grow height="100%">
       <Header
         back
-        text={isEditing ? 'Изменить слово' : 'Добавить слово'}
+        text={isEditing ? 'Изменить' : 'Добавить'}
         onBackClick={() => popScreen()}
       />
       <Box grow padding="m">
