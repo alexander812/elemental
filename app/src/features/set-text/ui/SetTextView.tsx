@@ -43,7 +43,7 @@ import { translateSegmentFx, translateSetTextFx } from '../store'
 import classes from './SetTextView.module.pcss'
 
 const DRAG_SLOP = 8
-const HOLD_MS = 2000
+const HOLD_MS = 1000
 const TOOLTIP_EDGE = 72
 
 type ChipDrag = {
