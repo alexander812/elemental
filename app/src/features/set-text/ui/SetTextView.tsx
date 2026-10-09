@@ -3,11 +3,12 @@ import type { PointerEvent as ReactPointerEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconViewList } from '@elemental/icons'
+import { IconClose, IconEdit, IconViewList } from '@elemental/icons'
 
 import {
   Box,
   Button,
+  ButtonIcon,
   EmptyScreen,
   FormHelperText,
   Header,
@@ -99,7 +100,8 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
   const oppositeText = (texts[otherLang] ?? '').trim()
   const hasAnyText = currentText.length > 0 || oppositeText.length > 0
   const hasText = currentText.length > 0
-  const canCreateCards = hasText && selected.length > 0
+  const interactive = lang === courseLang
+  const canCreateCards = interactive && hasText && selected.length > 0
 
   const shouldResetRef = useRef(transition.kind === 'push')
 
@@ -147,6 +149,7 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
   }
 
   const handleWordPointerDown = (event: ReactPointerEvent<HTMLButtonElement>, word: string) => {
+    if (!interactive) return
     if (event.pointerType === 'mouse' && event.button !== 0) return
 
     clearHold()
@@ -261,6 +264,8 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
   }
 
   const handleWordClick = (word: string) => {
+    if (!interactive) return
+
     if (suppressClickRef.current) {
       suppressClickRef.current = false
       return
@@ -304,6 +309,8 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
   }
 
   const handleCreateCards = () => {
+    if (!canCreateCards) return
+
     const field = lang === userLang ? 'original' : 'translation'
 
     if (setId) {
@@ -333,26 +340,39 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
         onBackClick={() => popScreen()}
       />
       <div className={classes.layout}>
-        {hasAnyText ? (
-          <Stack direction="row" spacing="s">
-            <Button
-              checked={lang === courseLang}
-              fullWidth
-              variant="secondary"
-              onClick={() => textLangChanged(courseLang)}
-            >
-              {getLanguageName(courseLang, languages)}
-            </Button>
-            <Button
-              checked={lang === userLang}
-              fullWidth
-              variant="secondary"
-              onClick={() => textLangChanged(userLang)}
-            >
-              {getLanguageName(userLang, languages)}
-            </Button>
-          </Stack>
-        ) : null}
+        <Stack
+          direction="row"
+          horizontalAlign={hasAnyText ? 'space-between' : 'end'}
+          spacing="s"
+          verticalAlign="center"
+        >
+          {hasAnyText ? (
+            <Stack direction="row" spacing="xs">
+              <Button
+                checked={lang === courseLang}
+                size="s"
+                variant={lang === courseLang ? 'secondary' : 'flat'}
+                onClick={() => textLangChanged(courseLang)}
+              >
+                {getLanguageName(courseLang, languages)}
+              </Button>
+              <Button
+                checked={lang === userLang}
+                size="s"
+                variant={lang === userLang ? 'secondary' : 'flat'}
+                onClick={() => textLangChanged(userLang)}
+              >
+                {getLanguageName(userLang, languages)}
+              </Button>
+            </Stack>
+          ) : null}
+          <ButtonIcon
+            ariaLabel={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
+            icon={<IconEdit fontSize={24} />}
+            variant="flat"
+            onClick={handleEdit}
+          />
+        </Stack>
 
         {hasText ? (
           <TextPanel grow>
@@ -373,6 +393,7 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
                       aria-pressed={checked}
                       className={checked ? `${classes.word} ${classes.wordChecked}` : classes.word}
                       data-word={word}
+                      disabled={!interactive}
                       type="button"
                       onClick={() => handleWordClick(word)}
                       onPointerDown={(event) => handleWordPointerDown(event, word)}
@@ -411,13 +432,17 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
           <FormHelperText variant="error">Не удалось перевести текст</FormHelperText>
         ) : null}
 
-        <Button fullWidth variant="secondary" onClick={handleEdit}>
-          {hasAnyText ? 'Изменить' : 'Добавить'}
-        </Button>
-
-        <Button disabled={!canCreateCards} fullWidth onClick={handleCreateCards}>
-          Создать карточки
-        </Button>
+        <Stack direction="row" spacing="s" verticalAlign="center">
+          <Button disabled={!canCreateCards} fullWidth onClick={handleCreateCards}>
+            Создать карточки
+          </Button>
+          <ButtonIcon
+            ariaLabel="Закрыть"
+            icon={<IconClose fontSize={24} />}
+            variant="secondary"
+            onClick={() => popScreen()}
+          />
+        </Stack>
       </div>
 
       {tooltip ? (

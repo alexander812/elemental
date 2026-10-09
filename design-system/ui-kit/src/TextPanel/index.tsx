@@ -23,8 +23,9 @@ const TextPanel = forwardRef<HTMLDivElement, TextPanelProps>(
     return (
       <div className={classNames(classes.wrapper, { [classes.wrapperGrow]: grow })}>
         <Card
-          borderColor="contrast-primary"
+          borderColor="contrast-tertiary"
           color="transparent"
+          width="100%"
           fitContainer={grow}
           height={grow ? '100%' : void 0}
           ref={ref}
