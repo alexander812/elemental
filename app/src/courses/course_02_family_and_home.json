@@ -1,0 +1,389 @@
+{
+  "parentCourse": "Family & Home",
+  "lessons": [
+    {
+      "name": "Family Members",
+      "i18n": {
+        "name": { "en": "Family Members", "ru": "Члены семьи", "es": "Miembros de la familia", "fr": "Membres de la famille", "it": "Membri della famiglia", "zh": "家庭成员", "de": "Familienmitglieder" }
+      },
+      "tasks": [
+        {
+          "name": "Mother and Father",
+          "i18n": {
+            "name": { "en": "Mother and Father", "ru": "Мама и папа", "es": "Madre y padre", "fr": "Mère et père", "it": "Madre e padre", "zh": "妈妈和爸爸", "de": "Mutter und Vater" },
+            "text": {
+              "en": "This is my mother. This is my father. My mother is a teacher. My father is a doctor. I love my parents very much. They work hard and help me every day. In the evening we have dinner together and talk about our day. Family is the most important thing in life.",
+              "ru": "Это моя мама. Это мой папа. Моя мама — учитель. Мой папа — врач. Я очень люблю своих родителей. Они много работают и помогают мне каждый день. Вечером мы вместе ужинаем и говорим о своём дне. Семья — самое важное в жизни.",
+              "es": "Esta es mi madre. Este es mi padre. Mi madre es profesora. Mi padre es médico. Quiero mucho a mis padres. Trabajan duro y me ayudan cada día. Por la noche cenamos juntos y hablamos del día. La familia es lo más importante en la vida.",
+              "fr": "Voici ma mère. Voici mon père. Ma mère est professeur. Mon père est médecin. J'aime beaucoup mes parents. Ils travaillent dur et m'aident chaque jour. Le soir, nous dînons ensemble et parlons de notre journée. La famille est la chose la plus importante dans la vie.",
+              "it": "Questa è mia madre. Questo è mio padre. Mia madre è insegnante. Mio padre è medico. Amo molto i miei genitori. Lavorano sodo e mi aiutano ogni giorno. La sera ceniamo insieme e parliamo della giornata. La famiglia è la cosa più importante nella vita.",
+              "zh": "这是我妈妈。这是我爸爸。我妈妈是老师。我爸爸是医生。我非常爱我的父母。他们努力工作，每天都帮助我。晚上我们一起吃晚饭，聊聊各自的一天。家庭是生活中最重要的东西。",
+              "de": "Das ist meine Mutter. Das ist mein Vater. Meine Mutter ist Lehrerin. Mein Vater ist Arzt. Ich liebe meine Eltern sehr. Sie arbeiten hart und helfen mir jeden Tag. Am Abend essen wir zusammen zu Abend und sprechen über unseren Tag. Familie ist das Wichtigste im Leben."
+            },
+            "words": {
+              "en": ["mother", "father", "parents", "teacher", "doctor", "to love", "to work hard", "to help", "dinner", "family"],
+              "ru": ["мама", "папа", "родители", "учитель", "врач", "любить", "много работать", "помогать", "ужин", "семья"],
+              "es": ["madre", "padre", "padres", "profesora", "médico", "querer", "trabajar duro", "ayudar", "cena", "familia"],
+              "fr": ["mère", "père", "parents", "professeur", "médecin", "aimer", "travailler dur", "aider", "dîner", "famille"],
+              "it": ["madre", "padre", "genitori", "insegnante", "medico", "amare", "lavorare sodo", "aiutare", "cena", "famiglia"],
+              "zh": ["妈妈", "爸爸", "父母", "老师", "医生", "爱", "努力工作", "帮助", "晚饭", "家庭"],
+              "de": ["Mutter", "Vater", "Eltern", "Lehrerin", "Arzt", "lieben", "hart arbeiten", "helfen", "Abendessen", "Familie"]
+            }
+          }
+        },
+        {
+          "name": "Brothers and Sisters",
+          "i18n": {
+            "name": { "en": "Brothers and Sisters", "ru": "Братья и сёстры", "es": "Hermanos y hermanas", "fr": "Frères et sœurs", "it": "Fratelli e sorelle", "zh": "兄弟姐妹", "de": "Brüder und Schwestern" },
+            "text": {
+              "en": "I have one sister and two brothers. My sister is ten. My brothers are older. My older brother is a student. My younger brother goes to school. We play together and sometimes we argue, but we love each other. Do you have brothers or sisters?",
+              "ru": "У меня одна сестра и два брата. Моей сестре десять. Мои братья старше. Мой старший брат студент. Мой младший брат ходит в школу. Мы играем вместе и иногда ссоримся, но любим друг друга. У тебя есть братья или сёстры?",
+              "es": "Tengo una hermana y dos hermanos. Mi hermana tiene diez años. Mis hermanos son mayores. Mi hermano mayor es estudiante. Mi hermano menor va a la escuela. Jugamos juntos y a veces discutimos, pero nos queremos. ¿Tienes hermanos o hermanas?",
+              "fr": "J'ai une sœur et deux frères. Ma sœur a dix ans. Mes frères sont plus âgés. Mon frère aîné est étudiant. Mon frère cadet va à l'école. Nous jouons ensemble et parfois nous nous disputons, mais nous nous aimons. As-tu des frères ou des sœurs ?",
+              "it": "Ho una sorella e due fratelli. Mia sorella ha dieci anni. I miei fratelli sono più grandi. Mio fratello maggiore è studente. Mio fratello minore va a scuola. Giochiamo insieme e a volte litighiamo, ma ci vogliamo bene. Hai fratelli o sorelle?",
+              "zh": "我有一个妹妹和两个哥哥。我妹妹十岁。我的哥哥们更大。我的哥哥是学生。我的弟弟上学。我们一起玩，有时也吵架，但我们彼此相爱。你有兄弟姐妹吗？",
+              "de": "Ich habe eine Schwester und zwei Brüder. Meine Schwester ist zehn. Meine Brüder sind älter. Mein älterer Bruder ist Student. Mein jüngerer Bruder geht zur Schule. Wir spielen zusammen und manchmal streiten wir, aber wir lieben uns. Hast du Geschwister?"
+            },
+            "words": {
+              "en": ["sister", "brother", "older brother", "younger brother", "student", "school", "to play together", "to argue", "to love each other"],
+              "ru": ["сестра", "брат", "старший брат", "младший брат", "студент", "школа", "играть вместе", "ссориться", "любить друг друга"],
+              "es": ["hermana", "hermano", "hermano mayor", "hermano menor", "estudiante", "escuela", "jugar juntos", "discutir", "quererse"],
+              "fr": ["sœur", "frère", "frère aîné", "frère cadet", "étudiant", "école", "jouer ensemble", "se disputer", "s'aimer"],
+              "it": ["sorella", "fratello", "fratello maggiore", "fratello minore", "studente", "scuola", "giocare insieme", "litigare", "volersi bene"],
+              "zh": ["妹妹", "哥哥", "哥哥", "弟弟", "学生", "学校", "一起玩", "吵架", "彼此相爱"],
+              "de": ["Schwester", "Bruder", "älterer Bruder", "jüngerer Bruder", "Student", "Schule", "zusammen spielen", "streiten", "sich lieben"]
+            }
+          }
+        },
+        {
+          "name": "Grandparents",
+          "i18n": {
+            "name": { "en": "Grandparents", "ru": "Бабушка и дедушка", "es": "Abuelos", "fr": "Grands-parents", "it": "Nonni", "zh": "祖父母", "de": "Großeltern" },
+            "text": {
+              "en": "My grandmother is kind. My grandfather is funny. They live in the village. They have a small house and a big garden. We visit them on Sunday. My grandmother cooks delicious pies. I love my grandparents very much.",
+              "ru": "Моя бабушка добрая. Мой дедушка смешной. Они живут в деревне. У них маленький дом и большой сад. Мы навещаем их в воскресенье. Моя бабушка готовит вкусные пироги. Я очень люблю своих бабушку и дедушку.",
+              "es": "Mi abuela es amable. Mi abuelo es divertido. Viven en el pueblo. Tienen una casa pequeña y un jardín grande. Los visitamos el domingo. Mi abuela cocina tartas deliciosas. Quiero mucho a mis abuelos.",
+              "fr": "Ma grand-mère est gentille. Mon grand-père est drôle. Ils habitent au village. Ils ont une petite maison et un grand jardin. Nous les visitons le dimanche. Ma grand-mère prépare de délicieuses tartes. J'aime beaucoup mes grands-parents.",
+              "it": "Mia nonna è gentile. Mio nonno è divertente. Vivono in campagna. Hanno una piccola casa e un grande giardino. Li visitiamo la domenica. Mia nonna prepara torte deliziose. Amo molto i miei nonni.",
+              "zh": "我奶奶很和蔼。我爷爷很有趣。他们住在乡下。他们有一座小房子和一个大花园。我们星期天去看他们。我奶奶做的馅饼很好吃。我非常爱我的祖父母。",
+              "de": "Meine Großmutter ist nett. Mein Großvater ist lustig. Sie wohnen im Dorf. Sie haben ein kleines Haus und einen großen Garten. Wir besuchen sie am Sonntag. Meine Großmutter backt leckere Kuchen. Ich liebe meine Großeltern sehr."
+            },
+            "words": {
+              "en": ["grandmother", "grandfather", "grandparents", "village", "house", "garden", "to visit", "Sunday", "delicious pie"],
+              "ru": ["бабушка", "дедушка", "бабушка и дедушка", "деревня", "дом", "сад", "навещать", "воскресенье", "вкусный пирог"],
+              "es": ["abuela", "abuelo", "abuelos", "pueblo", "casa", "jardín", "visitar", "domingo", "tarta deliciosa"],
+              "fr": ["grand-mère", "grand-père", "grands-parents", "village", "maison", "jardin", "visiter", "dimanche", "tarte délicieuse"],
+              "it": ["nonna", "nonno", "nonni", "campagna", "casa", "giardino", "visitare", "domenica", "torta deliziosa"],
+              "zh": ["奶奶", "爷爷", "祖父母", "乡下", "房子", "花园", "拜访", "星期天", "好吃的馅饼"],
+              "de": ["Großmutter", "Großvater", "Großeltern", "Dorf", "Haus", "Garten", "besuchen", "Sonntag", "leckerer Kuchen"]
+            }
+          }
+        },
+        {
+          "name": "My Children",
+          "i18n": {
+            "name": { "en": "My Children", "ru": "Мои дети", "es": "Mis hijos", "fr": "Mes enfants", "it": "I miei figli", "zh": "我的孩子", "de": "Meine Kinder" },
+            "text": {
+              "en": "I have two children: a son and a daughter. My son is five. My daughter is eight. They go to school and kindergarten. In the evening we read books together. My children are my joy and my happiness. Do you have children?",
+              "ru": "У меня двое детей: сын и дочь. Моему сыну пять. Моей дочери восемь. Они ходят в школу и детский сад. Вечером мы вместе читаем книги. Мои дети — моя радость и моё счастье. У тебя есть дети?",
+              "es": "Tengo dos hijos: un niño y una niña. Mi hijo tiene cinco años. Mi hija tiene ocho. Van a la escuela y al jardín de infancia. Por la noche leemos libros juntos. Mis hijos son mi alegría y mi felicidad. ¿Tienes hijos?",
+              "fr": "J'ai deux enfants : un fils et une fille. Mon fils a cinq ans. Ma fille a huit ans. Ils vont à l'école et à la maternelle. Le soir, nous lisons des livres ensemble. Mes enfants sont ma joie et mon bonheur. As-tu des enfants ?",
+              "it": "Ho due figli: un maschio e una femmina. Mio figlio ha cinque anni. Mia figlia ha otto anni. Vanno a scuola e all'asilo. La sera leggiamo libri insieme. I miei figli sono la mia gioia e la mia felicità. Hai figli?",
+              "zh": "我有两个孩子：一个儿子和一个女儿。我儿子五岁。我女儿八岁。他们上学和上幼儿园。晚上我们一起读书。我的孩子是我的快乐和幸福。你有孩子吗？",
+              "de": "Ich habe zwei Kinder: einen Sohn und eine Tochter. Mein Sohn ist fünf. Meine Tochter ist acht. Sie gehen zur Schule und in den Kindergarten. Am Abend lesen wir zusammen Bücher. Meine Kinder sind meine Freude und mein Glück. Hast du Kinder?"
+            },
+            "words": {
+              "en": ["son", "daughter", "children", "school", "kindergarten", "to read books", "joy", "happiness"],
+              "ru": ["сын", "дочь", "дети", "школа", "детский сад", "читать книги", "радость", "счастье"],
+              "es": ["hijo", "hija", "niños", "escuela", "jardín de infancia", "leer libros", "alegría", "felicidad"],
+              "fr": ["fils", "fille", "enfants", "école", "maternelle", "lire des livres", "joie", "bonheur"],
+              "it": ["figlio", "figlia", "figli", "scuola", "asilo", "leggere libri", "gioia", "felicità"],
+              "zh": ["儿子", "女儿", "孩子们", "学校", "幼儿园", "读书", "快乐", "幸福"],
+              "de": ["Sohn", "Tochter", "Kinder", "Schule", "Kindergarten", "Bücher lesen", "Freude", "Glück"]
+            }
+          }
+        },
+        {
+          "name": "Family Photo",
+          "i18n": {
+            "name": { "en": "Family Photo", "ru": "Семейное фото", "es": "Foto familiar", "fr": "Photo de famille", "it": "Foto di famiglia", "zh": "全家福", "de": "Familienfoto" },
+            "text": {
+              "en": "Look at this photo! This is my family. My mom, my dad, my sister, my brother and me. We are all smiling. We are very happy together. This photo was taken at my grandmother's birthday. I love looking at old family photos and remembering good moments.",
+              "ru": "Посмотри на это фото! Это моя семья. Мама, папа, сестра, брат и я. Мы все улыбаемся. Мы очень счастливы вместе. Это фото сделано на день рождения моей бабушки. Я люблю рассматривать старые семейные фото и вспоминать хорошие моменты.",
+              "es": "¡Mira esta foto! Esta es mi familia. Mi mamá, mi papá, mi hermana, mi hermano y yo. Todos sonreímos. Somos muy felices juntos. Esta foto fue tomada en el cumpleaños de mi abuela. Me encanta mirar fotos antiguas de familia y recordar buenos momentos.",
+              "fr": "Regarde cette photo ! C'est ma famille. Ma mère, mon père, ma sœur, mon frère et moi. Nous sourions tous. Nous sommes très heureux ensemble. Cette photo a été prise à l'anniversaire de ma grand-mère. J'aime regarder de vieilles photos de famille et me souvenir de bons moments.",
+              "it": "Guarda questa foto! Questa è la mia famiglia. Mia mamma, mio papà, mia sorella, mio fratello e io. Sorridiamo tutti. Siamo molto felici insieme. Questa foto è stata scattata al compleanno di mia nonna. Amo guardare vecchie foto di famiglia e ricordare bei momenti.",
+              "zh": "看这张照片！这是我的家人。妈妈、爸爸、妹妹、哥哥和我。我们都在笑。我们在一起非常开心。这张照片是在我奶奶生日时拍的。我喜欢看旧的家庭照片，回忆美好的时光。",
+              "de": "Schau dir dieses Foto an! Das ist meine Familie. Meine Mutter, mein Vater, meine Schwester, mein Bruder und ich. Wir lächeln alle. Wir sind sehr glücklich zusammen. Dieses Foto wurde an meinem Großmutter-Geburtstag aufgenommen. Ich schaue gerne alte Familienfotos an und erinnere mich an schöne Momente."
+            },
+            "words": {
+              "en": ["family photo", "to smile", "happy together", "birthday", "grandmother", "old photos", "to remember", "good moments"],
+              "ru": ["семейное фото", "улыбаться", "счастливы вместе", "день рождения", "бабушка", "старые фото", "вспоминать", "хорошие моменты"],
+              "es": ["foto familiar", "sonreír", "felices juntos", "cumpleaños", "abuela", "fotos antiguas", "recordar", "buenos momentos"],
+              "fr": ["photo de famille", "sourire", "heureux ensemble", "anniversaire", "grand-mère", "vieilles photos", "se souvenir", "bons moments"],
+              "it": ["foto di famiglia", "sorridere", "felici insieme", "compleanno", "nonna", "vecchie foto", "ricordare", "bei momenti"],
+              "zh": ["全家福", "微笑", "在一起很开心", "生日", "奶奶", "旧照片", "回忆", "美好的时光"],
+              "de": ["Familienfoto", "lächeln", "zusammen glücklich", "Geburtstag", "Großmutter", "alte Fotos", "sich erinnern", "schöne Momente"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "My House",
+      "i18n": {
+        "name": { "en": "My House", "ru": "Мой дом", "es": "Mi casa", "fr": "Ma maison", "it": "La mia casa", "zh": "我的家", "de": "Mein Haus" }
+      },
+      "tasks": [
+        {
+          "name": "Rooms",
+          "i18n": {
+            "name": { "en": "Rooms", "ru": "Комнаты", "es": "Habitaciones", "fr": "Pièces", "it": "Stanze", "zh": "房间", "de": "Zimmer" },
+            "text": {
+              "en": "My house has a kitchen, a bedroom, a bathroom and a living room. The kitchen is small but very warm. The living room is big and light. In the bedroom I sleep and rest. In the bathroom I wash my face and brush my teeth. I love my house very much.",
+              "ru": "В моём доме есть кухня, спальня, ванная и гостиная. Кухня маленькая, но очень уютная. Гостиная большая и светлая. В спальне я сплю и отдыхаю. В ванной я умываюсь и чищу зубы. Я очень люблю свой дом.",
+              "es": "Mi casa tiene cocina, dormitorio, baño y salón. La cocina es pequeña pero muy cálida. El salón es grande y luminoso. En el dormitorio duermo y descanso. En el baño me lavo la cara y me cepillo los dientes. Quiero mucho mi casa.",
+              "fr": "Ma maison a une cuisine, une chambre, une salle de bain et un salon. La cuisine est petite mais très chaleureuse. Le salon est grand et lumineux. Dans la chambre je dors et je me repose. Dans la salle de bain je me lave le visage et je me brosse les dents. J'aime beaucoup ma maison.",
+              "it": "La mia casa ha una cucina, una camera, un bagno e un soggiorno. La cucina è piccola ma molto accogliente. Il soggiorno è grande e luminoso. In camera dormo e mi riposo. In bagno mi lavo la faccia e mi lavo i denti. Amo molto la mia casa.",
+              "zh": "我家有厨房、卧室、浴室和客厅。厨房很小但很温馨。客厅很大很明亮。我在卧室睡觉和休息。我在浴室洗脸刷牙。我非常爱我的家。",
+              "de": "Mein Haus hat eine Küche, ein Schlafzimmer, ein Badezimmer und ein Wohnzimmer. Die Küche ist klein, aber sehr gemütlich. Das Wohnzimmer ist groß und hell. Im Schlafzimmer schlafe und ruhe ich. Im Badezimmer wasche ich mein Gesicht und putze die Zähne. Ich liebe mein Haus sehr."
+            },
+            "words": {
+              "en": ["kitchen", "bedroom", "bathroom", "living room", "house", "small", "big", "light", "to sleep", "to rest"],
+              "ru": ["кухня", "спальня", "ванная", "гостиная", "дом", "маленький", "большой", "светлый", "спать", "отдыхать"],
+              "es": ["cocina", "dormitorio", "baño", "salón", "casa", "pequeño", "grande", "luminoso", "dormir", "descansar"],
+              "fr": ["cuisine", "chambre", "salle de bain", "salon", "maison", "petit", "grand", "lumineux", "dormir", "se reposer"],
+              "it": ["cucina", "camera", "bagno", "soggiorno", "casa", "piccolo", "grande", "luminoso", "dormire", "riposare"],
+              "zh": ["厨房", "卧室", "浴室", "客厅", "家", "小", "大", "明亮", "睡觉", "休息"],
+              "de": ["Küche", "Schlafzimmer", "Badezimmer", "Wohnzimmer", "Haus", "klein", "groß", "hell", "schlafen", "sich ausruhen"]
+            }
+          }
+        },
+        {
+          "name": "Furniture",
+          "i18n": {
+            "name": { "en": "Furniture", "ru": "Мебель", "es": "Muebles", "fr": "Meubles", "it": "Mobili", "zh": "家具", "de": "Möbel" },
+            "text": {
+              "en": "In my room there is a bed, a table, a chair and a wardrobe. The bed is soft and comfortable. The table is wooden. On the table I have a lamp and some books. In the wardrobe I keep my clothes. There is also a big mirror on the wall. My room is small but very cosy.",
+              "ru": "В моей комнате есть кровать, стол, стул и шкаф. Кровать мягкая и удобная. Стол деревянный. На столе у меня лампа и книги. В шкафу я храню одежду. На стене также есть большое зеркало. Моя комната маленькая, но очень уютная.",
+              "es": "En mi habitación hay una cama, una mesa, una silla y un armario. La cama es suave y cómoda. La mesa es de madera. Sobre la mesa tengo una lámpara y algunos libros. En el armario guardo mi ropa. También hay un espejo grande en la pared. Mi habitación es pequeña pero muy acogedora.",
+              "fr": "Dans ma chambre il y a un lit, une table, une chaise et une armoire. Le lit est doux et confortable. La table est en bois. Sur la table j'ai une lampe et quelques livres. Dans l'armoire je range mes vêtements. Il y a aussi un grand miroir au mur. Ma chambre est petite mais très confortable.",
+              "it": "Nella mia camera ci sono un letto, un tavolo, una sedia e un armadio. Il letto è morbido e comodo. Il tavolo è di legno. Sul tavolo ho una lampada e alcuni libri. Nell'armadio tengo i miei vestiti. C'è anche un grande specchio al muro. La mia camera è piccola ma molto accogliente.",
+              "zh": "我的房间里有床、桌子、椅子和衣柜。床又软又舒服。桌子是木头做的。桌子上有一盏灯和几本书。衣柜里放着我的衣服。墙上还有一面大镜子。我的房间不大但很温馨。",
+              "de": "In meinem Zimmer gibt es ein Bett, einen Tisch, einen Stuhl und einen Schrank. Das Bett ist weich und bequem. Der Tisch ist aus Holz. Auf dem Tisch habe ich eine Lampe und einige Bücher. Im Schrank bewahre ich meine Kleidung auf. An der Wand hängt auch ein großer Spiegel. Mein Zimmer ist klein, aber sehr gemütlich."
+            },
+            "words": {
+              "en": ["bed", "table", "chair", "wardrobe", "lamp", "mirror", "wall", "soft", "comfortable", "cosy"],
+              "ru": ["кровать", "стол", "стул", "шкаф", "лампа", "зеркало", "стена", "мягкий", "удобный", "уютный"],
+              "es": ["cama", "mesa", "silla", "armario", "lámpara", "espejo", "pared", "suave", "cómodo", "acogedor"],
+              "fr": ["lit", "table", "chaise", "armoire", "lampe", "miroir", "mur", "doux", "confortable", "cosy"],
+              "it": ["letto", "tavolo", "sedia", "armadio", "lampada", "specchio", "muro", "morbido", "comodo", "accogliente"],
+              "zh": ["床", "桌子", "椅子", "衣柜", "灯", "镜子", "墙", "软", "舒服", "温馨"],
+              "de": ["Bett", "Tisch", "Stuhl", "Schrank", "Lampe", "Spiegel", "Wand", "weich", "bequem", "gemütlich"]
+            }
+          }
+        },
+        {
+          "name": "Household Items",
+          "i18n": {
+            "name": { "en": "Household Items", "ru": "Предметы быта", "es": "Objetos del hogar", "fr": "Objets ménagers", "it": "Oggetti domestici", "zh": "家居用品", "de": "Haushaltsgegenstände" },
+            "text": {
+              "en": "I need a lamp, a mirror and a carpet. Where is the TV? It is in the living room. The clock is on the wall. In the kitchen we have plates, cups and spoons. In the bathroom there is soap and a towel. Every home has many useful things that make life easy and comfortable.",
+              "ru": "Мне нужны лампа, зеркало и ковёр. Где телевизор? Он в гостиной. Часы на стене. На кухне у нас есть тарелки, чашки и ложки. В ванной есть мыло и полотенце. В каждом доме много полезных вещей, которые делают жизнь лёгкой и удобной.",
+              "es": "Necesito una lámpara, un espejo y una alfombra. ¿Dónde está la tele? Está en el salón. El reloj está en la pared. En la cocina tenemos platos, tazas y cucharas. En el baño hay jabón y una toalla. Cada casa tiene muchas cosas útiles que hacen la vida fácil y cómoda.",
+              "fr": "J'ai besoin d'une lampe, d'un miroir et d'un tapis. Où est la télé ? Elle est dans le salon. L'horloge est au mur. Dans la cuisine, nous avons des assiettes, des tasses et des cuillères. Dans la salle de bain il y a du savon et une serviette. Chaque maison a beaucoup de choses utiles qui rendent la vie facile et confortable.",
+              "it": "Mi servono una lampada, uno specchio e un tappeto. Dov'è la TV? È in soggiorno. L'orologio è al muro. In cucina abbiamo piatti, tazze e cucchiai. In bagno ci sono il sapone e un asciugamano. Ogni casa ha molte cose utili che rendono la vita facile e comoda.",
+              "zh": "我需要一盏灯、一面镜子和一块地毯。电视在哪里？在客厅。钟在墙上。厨房里有盘子、杯子和勺子。浴室里有肥皂和毛巾。每个家都有很多有用的东西，让生活变得方便舒适。",
+              "de": "Ich brauche eine Lampe, einen Spiegel und einen Teppich. Wo ist der Fernseher? Er ist im Wohnzimmer. Die Uhr ist an der Wand. In der Küche haben wir Teller, Tassen und Löffel. Im Badezimmer gibt es Seife und ein Handtuch. Jedes Zuhause hat viele nützliche Dinge, die das Leben einfach und bequem machen."
+            },
+            "words": {
+              "en": ["lamp", "mirror", "carpet", "TV", "clock", "plate", "cup", "spoon", "soap", "towel"],
+              "ru": ["лампа", "зеркало", "ковёр", "телевизор", "часы", "тарелка", "чашка", "ложка", "мыло", "полотенце"],
+              "es": ["lámpara", "espejo", "alfombra", "tele", "reloj", "plato", "taza", "cuchara", "jabón", "toalla"],
+              "fr": ["lampe", "miroir", "tapis", "télé", "horloge", "assiette", "tasse", "cuillère", "savon", "serviette"],
+              "it": ["lampada", "specchio", "tappeto", "TV", "orologio", "piatto", "tazza", "cucchiaio", "sapone", "asciugamano"],
+              "zh": ["灯", "镜子", "地毯", "电视", "钟", "盘子", "杯子", "勺子", "肥皂", "毛巾"],
+              "de": ["Lampe", "Spiegel", "Teppich", "Fernseher", "Uhr", "Teller", "Tasse", "Löffel", "Seife", "Handtuch"]
+            }
+          }
+        },
+        {
+          "name": "In the Kitchen",
+          "i18n": {
+            "name": { "en": "In the Kitchen", "ru": "На кухне", "es": "En la cocina", "fr": "Dans la cuisine", "it": "In cucina", "zh": "在厨房", "de": "In der Küche" },
+            "text": {
+              "en": "The kitchen is my favourite room. Here we cook, eat and talk. We have a fridge, a stove and a sink. In the fridge there is milk, cheese and fruit. On the stove my mother makes soup. At the table we eat breakfast and dinner. The kitchen smells of fresh bread and coffee.",
+              "ru": "Кухня — моя любимая комната. Здесь мы готовим, едим и разговариваем. У нас есть холодильник, плита и раковина. В холодильнике молоко, сыр и фрукты. На плите мама варит суп. За столом мы завтракаем и ужинаем. На кухне пахнет свежим хлебом и кофе.",
+              "es": "La cocina es mi habitación favorita. Aquí cocinamos, comemos y hablamos. Tenemos una nevera, una cocina y un fregadero. En la nevera hay leche, queso y fruta. En la cocina mi madre prepara sopa. En la mesa desayunamos y cenamos. La cocina huele a pan fresco y café.",
+              "fr": "La cuisine est ma pièce préférée. Ici, nous cuisinons, mangeons et parlons. Nous avons un frigo, une cuisinière et un évier. Dans le frigo il y a du lait, du fromage et des fruits. Sur la cuisinière ma mère prépare de la soupe. À table nous prenons le petit-déjeuner et le dîner. La cuisine sent le pain frais et le café.",
+              "it": "La cucina è la mia stanza preferita. Qui cuciniamo, mangiamo e parliamo. Abbiamo un frigo, un fornello e un lavandino. Nel frigo ci sono latte, formaggio e frutta. Sul fornello mia madre prepara la zuppa. A tavola facciamo colazione e cena. La cucina sa di pane fresco e caffè.",
+              "zh": "厨房是我最喜欢的房间。我们在这里做饭、吃饭和聊天。我们有冰箱、炉灶和水槽。冰箱里有牛奶、奶酪和水果。妈妈在炉灶上煮汤。我们在桌边吃早饭和晚饭。厨房里飘着新鲜面包和咖啡的香味。",
+              "de": "Die Küche ist mein Lieblingszimmer. Hier kochen, essen und sprechen wir. Wir haben einen Kühlschrank, einen Herd und ein Waschbecken. Im Kühlschrank gibt es Milch, Käse und Obst. Auf dem Herd kocht meine Mutter Suppe. Am Tisch frühstücken und essen wir zu Abend. Die Küche riecht nach frischem Brot und Kaffee."
+            },
+            "words": {
+              "en": ["kitchen", "fridge", "stove", "sink", "milk", "cheese", "fruit", "soup", "bread", "coffee"],
+              "ru": ["кухня", "холодильник", "плита", "раковина", "молоко", "сыр", "фрукты", "суп", "хлеб", "кофе"],
+              "es": ["cocina", "nevera", "cocina", "fregadero", "leche", "queso", "fruta", "sopa", "pan", "café"],
+              "fr": ["cuisine", "frigo", "cuisinière", "évier", "lait", "fromage", "fruits", "soupe", "pain", "café"],
+              "it": ["cucina", "frigo", "fornello", "lavandino", "latte", "formaggio", "frutta", "zuppa", "pane", "caffè"],
+              "zh": ["厨房", "冰箱", "炉灶", "水槽", "牛奶", "奶酪", "水果", "汤", "面包", "咖啡"],
+              "de": ["Küche", "Kühlschrank", "Herd", "Waschbecken", "Milch", "Käse", "Obst", "Suppe", "Brot", "Kaffee"]
+            }
+          }
+        },
+        {
+          "name": "Big or Small",
+          "i18n": {
+            "name": { "en": "Big or Small", "ru": "Большой или маленький", "es": "Grande o pequeño", "fr": "Grand ou petit", "it": "Grande o piccolo", "zh": "大还是小", "de": "Groß oder klein" },
+            "text": {
+              "en": "My flat is small but cosy. The windows are big, and there is a lot of light. There is a balcony with a beautiful view of the park. In summer I drink tea on the balcony. In winter I look at the snow through the window. My home is not big, but it is warm and full of love.",
+              "ru": "Моя квартира маленькая, но уютная. Окна большие, и много света. Есть балкон с красивым видом на парк. Летом я пью чай на балконе. Зимой я смотрю на снег через окно. Мой дом не большой, но тёплый и полный любви.",
+              "es": "Mi piso es pequeño pero acogedor. Las ventanas son grandes y hay mucha luz. Hay un balcón con una hermosa vista al parque. En verano tomo té en el balcón. En invierno miro la nieve por la ventana. Mi casa no es grande, pero es cálida y llena de amor.",
+              "fr": "Mon appartement est petit mais confortable. Les fenêtres sont grandes et il y a beaucoup de lumière. Il y a un balcon avec une belle vue sur le parc. En été je bois du thé sur le balcon. En hiver je regarde la neige par la fenêtre. Ma maison n'est pas grande, mais elle est chaleureuse et pleine d'amour.",
+              "it": "Il mio appartamento è piccolo ma accogliente. Le finestre sono grandi e c'è molta luce. C'è un balcone con una bella vista sul parco. In estate bevo il tè sul balcone. In inverno guardo la neve dalla finestra. La mia casa non è grande, ma è calda e piena d'amore.",
+              "zh": "我的公寓很小但很舒适。窗户很大，光线充足。有一个阳台，可以看到公园的美景。夏天我在阳台上喝茶。冬天我透过窗户看雪。我的家不大，但很温暖，充满爱。",
+              "de": "Meine Wohnung ist klein, aber gemütlich. Die Fenster sind groß und es gibt viel Licht. Es gibt einen Balkon mit einem schönen Blick auf den Park. Im Sommer trinke ich Tee auf dem Balkon. Im Winter schaue ich durch das Fenster auf den Schnee. Mein Zuhause ist nicht groß, aber warm und voller Liebe."
+            },
+            "words": {
+              "en": ["flat", "cosy", "window", "light", "balcony", "view", "park", "summer", "winter", "snow"],
+              "ru": ["квартира", "уютный", "окно", "свет", "балкон", "вид", "парк", "лето", "зима", "снег"],
+              "es": ["piso", "acogedor", "ventana", "luz", "balcón", "vista", "parque", "verano", "invierno", "nieve"],
+              "fr": ["appartement", "confortable", "fenêtre", "lumière", "balcon", "vue", "parc", "été", "hiver", "neige"],
+              "it": ["appartamento", "accogliente", "finestra", "luce", "balcone", "vista", "parco", "estate", "inverno", "neve"],
+              "zh": ["公寓", "舒适", "窗户", "光", "阳台", "景色", "公园", "夏天", "冬天", "雪"],
+              "de": ["Wohnung", "gemütlich", "Fenster", "Licht", "Balkon", "Aussicht", "Park", "Sommer", "Winter", "Schnee"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Home Activities",
+      "i18n": {
+        "name": { "en": "Home Activities", "ru": "Домашние дела", "es": "Actividades en casa", "fr": "Activités à la maison", "it": "Attività domestiche", "zh": "家庭活动", "de": "Hausaktivitäten" }
+      },
+      "tasks": [
+        {
+          "name": "Chores",
+          "i18n": {
+            "name": { "en": "Chores", "ru": "Домашние обязанности", "es": "Tareas domésticas", "fr": "Corvées", "it": "Faccende domestiche", "zh": "家务", "de": "Hausarbeit" },
+            "text": {
+              "en": "Every day I do chores at home. I clean my room, wash the dishes and do the laundry. On Saturday I vacuum the floor and water the flowers. My brother takes out the rubbish. My sister feeds the cat. We help our mother because we all live in the same house.",
+              "ru": "Каждый день я делаю работу по дому. Я убираю свою комнату, мою посуду и стираю. В субботу я пылесошу пол и поливаю цветы. Мой брат выносит мусор. Моя сестра кормит кошку. Мы помогаем маме, потому что все живём в одном доме.",
+              "es": "Todos los días hago tareas en casa. Limpio mi habitación, lavo los platos y hago la colada. El sábado aspiro el suelo y riego las flores. Mi hermano saca la basura. Mi hermana da de comer al gato. Ayudamos a nuestra madre porque todos vivimos en la misma casa.",
+              "fr": "Chaque jour je fais des tâches à la maison. Je nettoie ma chambre, je fais la vaisselle et la lessive. Le samedi je passe l'aspirateur et j'arrose les fleurs. Mon frère sort les poubelles. Ma sœur nourrit le chat. Nous aidons notre mère parce que nous vivons tous dans la même maison.",
+              "it": "Ogni giorno faccio le faccende a casa. Pulisco la mia camera, lavo i piatti e faccio il bucato. Il sabato passo l'aspirapolvere e annaffio i fiori. Mio fratello porta fuori la spazzatura. Mia sorella dà da mangiare al gatto. Aiutiamo nostra madre perché viviamo tutti nella stessa casa.",
+              "zh": "每天我在家做家务。我打扫房间、洗碗和洗衣服。星期六我用吸尘器吸地板，给花浇水。我哥哥倒垃圾。我妹妹喂猫。我们帮妈妈，因为我们住在同一个家里。",
+              "de": "Jeden Tag mache ich Hausarbeit. Ich putze mein Zimmer, spüle das Geschirr und mache die Wäsche. Am Samstag sauge ich den Boden und gieße die Blumen. Mein Bruder bringt den Müll raus. Meine Schwester füttert die Katze. Wir helfen unserer Mutter, weil wir alle im selben Haus wohnen."
+            },
+            "words": {
+              "en": ["chores", "to clean", "to wash the dishes", "to do the laundry", "to vacuum", "to water flowers", "rubbish", "to feed the cat", "to help"],
+              "ru": ["домашние дела", "убирать", "мыть посуду", "стирать", "пылесосить", "поливать цветы", "мусор", "кормить кошку", "помогать"],
+              "es": ["tareas domésticas", "limpiar", "lavar los platos", "hacer la colada", "aspirar", "regar las flores", "basura", "dar de comer al gato", "ayudar"],
+              "fr": ["corvées", "nettoyer", "faire la vaisselle", "faire la lessive", "passer l'aspirateur", "arroser les fleurs", "poubelles", "nourrir le chat", "aider"],
+              "it": ["faccende", "pulire", "lavare i piatti", "fare il bucato", "passare l'aspirapolvere", "annaffiare i fiori", "spazzatura", "dare da mangiare al gatto", "aiutare"],
+              "zh": ["家务", "打扫", "洗碗", "洗衣服", "吸尘", "浇花", "垃圾", "喂猫", "帮助"],
+              "de": ["Hausarbeit", "putzen", "Geschirr spülen", "Wäsche waschen", "staubsaugen", "Blumen gießen", "Müll", "Katze füttern", "helfen"]
+            }
+          }
+        },
+        {
+          "name": "Watching TV",
+          "i18n": {
+            "name": { "en": "Watching TV", "ru": "Просмотр телевизора", "es": "Ver la televisión", "fr": "Regarder la télé", "it": "Guardare la TV", "zh": "看电视", "de": "Fernsehen" },
+            "text": {
+              "en": "In the evening my family watches TV together. My father likes the news. My mother loves films. I prefer cartoons and sports. We sit on the sofa with tea and biscuits. Sometimes we argue about what to watch, but in the end we always find something for everyone.",
+              "ru": "Вечером моя семья вместе смотрит телевизор. Папа любит новости. Мама обожает фильмы. Я предпочитаю мультфильмы и спорт. Мы сидим на диване с чаем и печеньем. Иногда мы спорим, что смотреть, но в итоге всегда находим что-то для всех.",
+              "es": "Por la noche mi familia ve la televisión juntos. A mi padre le gustan las noticias. Mi madre adora las películas. Yo prefiero los dibujos animados y los deportes. Nos sentamos en el sofá con té y galletas. A veces discutimos qué ver, pero al final siempre encontramos algo para todos.",
+              "fr": "Le soir, ma famille regarde la télé ensemble. Mon père aime les informations. Ma mère adore les films. Moi, je préfère les dessins animés et le sport. Nous nous asseyons sur le canapé avec du thé et des biscuits. Parfois nous nous disputons sur ce qu'il faut regarder, mais à la fin nous trouvons toujours quelque chose pour tout le monde.",
+              "it": "La sera la mia famiglia guarda la TV insieme. Mio padre ama il telegiornale. Mia madre adora i film. Io preferisco i cartoni animati e lo sport. Ci sediamo sul divano con tè e biscotti. A volte litighiamo su cosa guardare, ma alla fine troviamo sempre qualcosa per tutti.",
+              "zh": "晚上我家人一起看电视。爸爸喜欢新闻。妈妈爱看电影。我更喜欢动画片和体育节目。我们坐在沙发上，喝着茶，吃着饼干。有时我们会争论看什么，但最后总能找到适合所有人的节目。",
+              "de": "Am Abend schaut meine Familie zusammen fern. Mein Vater mag die Nachrichten. Meine Mutter liebt Filme. Ich bevorzuge Zeichentrickfilme und Sport. Wir sitzen auf dem Sofa mit Tee und Keksen. Manchmal streiten wir, was wir schauen sollen, aber am Ende finden wir immer etwas für alle."
+            },
+            "words": {
+              "en": ["to watch TV", "news", "film", "cartoon", "sport", "sofa", "tea", "biscuits", "to argue", "to find"],
+              "ru": ["смотреть телевизор", "новости", "фильм", "мультфильм", "спорт", "диван", "чай", "печенье", "спорить", "находить"],
+              "es": ["ver la tele", "noticias", "película", "dibujos animados", "deporte", "sofá", "té", "galletas", "discutir", "encontrar"],
+              "fr": ["regarder la télé", "informations", "film", "dessin animé", "sport", "canapé", "thé", "biscuits", "se disputer", "trouver"],
+              "it": ["guardare la TV", "telegiornale", "film", "cartone animato", "sport", "divano", "tè", "biscotti", "litigare", "trovare"],
+              "zh": ["看电视", "新闻", "电影", "动画片", "体育", "沙发", "茶", "饼干", "争论", "找到"],
+              "de": ["fernsehen", "Nachrichten", "Film", "Zeichentrickfilm", "Sport", "Sofa", "Tee", "Kekse", "streiten", "finden"]
+            }
+          }
+        },
+        {
+          "name": "Reading a Book",
+          "i18n": {
+            "name": { "en": "Reading a Book", "ru": "Чтение книги", "es": "Leer un libro", "fr": "Lire un livre", "it": "Leggere un libro", "zh": "读书", "de": "Ein Buch lesen" },
+            "text": {
+              "en": "I love reading books at home. In the evening I sit in a comfortable chair with a good book. My favourite genres are adventure and detective stories. When I read, time flies. Books teach me new words and new ideas. My mother also reads a lot. We often talk about the books we read.",
+              "ru": "Я люблю читать книги дома. Вечером я сажусь в удобное кресло с хорошей книгой. Мои любимые жанры — приключения и детективы. Когда я читаю, время летит. Книги учат меня новым словам и новым идеям. Моя мама тоже много читает. Мы часто говорим о книгах, которые читаем.",
+              "es": "Me encanta leer libros en casa. Por la noche me siento en un sillón cómodo con un buen libro. Mis géneros favoritos son la aventura y la novela policíaca. Cuando leo, el tiempo vuela. Los libros me enseñan nuevas palabras e ideas. Mi madre también lee mucho. A menudo hablamos de los libros que leemos.",
+              "fr": "J'adore lire des livres à la maison. Le soir je m'assois dans un fauteuil confortable avec un bon livre. Mes genres préférés sont l'aventure et le roman policier. Quand je lis, le temps file. Les livres m'apprennent de nouveaux mots et de nouvelles idées. Ma mère lit aussi beaucoup. Nous parlons souvent des livres que nous lisons.",
+              "it": "Adoro leggere libri a casa. La sera mi siedo in una poltrona comoda con un buon libro. I miei generi preferiti sono l'avventura e il giallo. Quando leggo, il tempo vola. I libri mi insegnano nuove parole e nuove idee. Anche mia madre legge molto. Parliamo spesso dei libri che leggiamo.",
+              "zh": "我喜欢在家读书。晚上我坐在舒适的扶手椅上，捧着一本好书。我最喜欢的类型是冒险和侦探小说。读书时时间过得飞快。书教给我新词和新想法。我妈妈也读很多书。我们经常聊读过的书。",
+              "de": "Ich liebe es, zu Hause Bücher zu lesen. Am Abend sitze ich in einem bequemen Sessel mit einem guten Buch. Meine Lieblingsgenres sind Abenteuer und Krimis. Wenn ich lese, vergeht die Zeit wie im Flug. Bücher lehren mich neue Wörter und neue Ideen. Meine Mutter liest auch viel. Wir sprechen oft über die Bücher, die wir lesen."
+            },
+            "words": {
+              "en": ["to read", "book", "chair", "adventure", "detective story", "time flies", "to teach", "new words", "ideas"],
+              "ru": ["читать", "книга", "кресло", "приключение", "детектив", "время летит", "учить", "новые слова", "идеи"],
+              "es": ["leer", "libro", "sillón", "aventura", "novela policíaca", "el tiempo vuela", "enseñar", "nuevas palabras", "ideas"],
+              "fr": ["lire", "livre", "fauteuil", "aventure", "roman policier", "le temps file", "apprendre", "nouveaux mots", "idées"],
+              "it": ["leggere", "libro", "poltrona", "avventura", "giallo", "il tempo vola", "insegnare", "nuove parole", "idee"],
+              "zh": ["读", "书", "扶手椅", "冒险", "侦探小说", "时间飞逝", "教", "新词", "想法"],
+              "de": ["lesen", "Buch", "Sessel", "Abenteuer", "Krimi", "die Zeit vergeht wie im Flug", "lehren", "neue Wörter", "Ideen"]
+            }
+          }
+        },
+        {
+          "name": "Cooking Together",
+          "i18n": {
+            "name": { "en": "Cooking Together", "ru": "Готовим вместе", "es": "Cocinar juntos", "fr": "Cuisiner ensemble", "it": "Cucinare insieme", "zh": "一起做饭", "de": "Zusammen kochen" },
+            "text": {
+              "en": "On Sunday we cook together as a family. My mother makes the soup. My father cuts the vegetables. I help to set the table. My sister bakes a cake for dessert. The kitchen is full of delicious smells. Cooking together is fun and brings us closer. Then we eat and enjoy our meal.",
+              "ru": "В воскресенье мы готовим всей семьёй. Мама варит суп. Папа режет овощи. Я помогаю накрывать на стол. Сестра печёт торт на десерт. Кухня полна вкусных запахов. Готовить вместе весело, и это сближает нас. Потом мы едим и наслаждаемся едой.",
+              "es": "Los domingos cocinamos en familia. Mi madre prepara la sopa. Mi padre corta las verduras. Yo ayudo a poner la mesa. Mi hermana hornea un pastel de postre. La cocina está llena de olores deliciosos. Cocinar juntos es divertido y nos une. Luego comemos y disfrutamos de la comida.",
+              "fr": "Le dimanche nous cuisinons en famille. Ma mère prépare la soupe. Mon père coupe les légumes. J'aide à mettre la table. Ma sœur prépare un gâteau pour le dessert. La cuisine est pleine de bonnes odeurs. Cuisiner ensemble est amusant et nous rapproche. Ensuite nous mangeons et savourons notre repas.",
+              "it": "La domenica cuciniamo insieme in famiglia. Mia madre prepara la zuppa. Mio padre taglia le verdure. Io aiuto ad apparecchiare la tavola. Mia sorella prepara una torta per dessert. La cucina è piena di profumi deliziosi. Cucinare insieme è divertente e ci avvicina. Poi mangiamo e gustiamo il nostro pasto.",
+              "zh": "星期天我们全家一起做饭。妈妈做汤。爸爸切菜。我帮忙摆桌子。姐姐烤一个蛋糕作为甜点。厨房里满是诱人的香味。一起做饭很有趣，也让我们更亲近。然后我们享用美食。",
+              "de": "Am Sonntag kochen wir als Familie zusammen. Meine Mutter macht die Suppe. Mein Vater schneidet das Gemüse. Ich helfe, den Tisch zu decken. Meine Schwester backt einen Kuchen als Nachtisch. Die Küche ist voller köstlicher Düfte. Zusammen zu kochen macht Spaß und bringt uns näher. Dann essen wir und genießen unser Essen."
+            },
+            "words": {
+              "en": ["to cook", "soup", "vegetables", "to set the table", "to bake a cake", "dessert", "smell", "fun", "to enjoy", "meal"],
+              "ru": ["готовить", "суп", "овощи", "накрывать на стол", "печь торт", "десерт", "запах", "весело", "наслаждаться", "еда"],
+              "es": ["cocinar", "sopa", "verduras", "poner la mesa", "hornear un pastel", "postre", "olor", "divertido", "disfrutar", "comida"],
+              "fr": ["cuisiner", "soupe", "légumes", "mettre la table", "préparer un gâteau", "dessert", "odeur", "amusant", "savourer", "repas"],
+              "it": ["cucinare", "zuppa", "verdure", "apparecchiare", "preparare una torta", "dessert", "profumo", "divertente", "gustare", "pasto"],
+              "zh": ["做饭", "汤", "蔬菜", "摆桌子", "烤蛋糕", "甜点", "香味", "有趣", "享受", "饭"],
+              "de": ["kochen", "Suppe", "Gemüse", "den Tisch decken", "einen Kuchen backen", "Nachtisch", "Geruch", "Spaß", "genießen", "Essen"]
+            }
+          }
+        },
+        {
+          "name": "Pets at Home",
+          "i18n": {
+            "name": { "en": "Pets at Home", "ru": "Питомцы дома", "es": "Mascotas en casa", "fr": "Animaux à la maison", "it": "Animali a casa", "zh": "家里的宠物", "de": "Haustiere zu Hause" },
+            "text": {
+              "en": "I have a cat and a dog at home. My cat is black and white. She sleeps on the sofa all day. My dog is big and playful. Every morning I take him for a walk in the park. They are friends, and sometimes they play together. Pets make our home happy and warm.",
+              "ru": "У меня дома живут кошка и собака. Моя кошка чёрно-белая. Она целыми днями спит на диване. Моя собака большая и игривая. Каждое утро я выгуливаю её в парке. Они друзья и иногда играют вместе. Питомцы делают наш дом счастливым и тёплым.",
+              "es": "Tengo un gato y un perro en casa. Mi gata es blanca y negra. Duerme en el sofá todo el día. Mi perro es grande y juguetón. Cada mañana lo saco a pasear por el parque. Son amigos y a veces juegan juntos. Las mascotas hacen nuestra casa feliz y cálida.",
+              "fr": "J'ai un chat et un chien à la maison. Ma chatte est noire et blanche. Elle dort sur le canapé toute la journée. Mon chien est grand et joueur. Chaque matin je le promène au parc. Ils sont amis et parfois ils jouent ensemble. Les animaux rendent notre maison heureuse et chaleureuse.",
+              "it": "Ho un gatto e un cane a casa. La mia gatta è bianca e nera. Dorme sul divano tutto il giorno. Il mio cane è grande e giocherellone. Ogni mattina lo porto a fare una passeggiata al parco. Sono amici e a volte giocano insieme. Gli animali rendono la nostra casa felice e calda.",
+              "zh": "我家有一只猫和一只狗。我的猫是黑白相间的。它整天在沙发上睡觉。我的狗又大又爱玩。每天早上我带它去公园散步。它们是朋友，有时一起玩。宠物让我们的家快乐又温暖。",
+              "de": "Ich habe eine Katze und einen Hund zu Hause. Meine Katze ist schwarz-weiß. Sie schläft den ganzen Tag auf dem Sofa. Mein Hund ist groß und verspielt. Jeden Morgen gehe ich mit ihm im Park spazieren. Sie sind Freunde und manchmal spielen sie zusammen. Haustiere machen unser Zuhause glücklich und warm."
+            },
+            "words": {
+              "en": ["cat", "dog", "black and white", "sofa", "playful", "to walk", "park", "friends", "pets", "happy"],
+              "ru": ["кошка", "собака", "чёрно-белый", "диван", "игривый", "гулять", "парк", "друзья", "питомцы", "счастливый"],
+              "es": ["gato", "perro", "blanco y negro", "sofá", "juguetón", "pasear", "parque", "amigos", "mascotas", "feliz"],
+              "fr": ["chat", "chien", "noir et blanc", "canapé", "joueur", "promener", "parc", "amis", "animaux", "heureux"],
+              "it": ["gatto", "cane", "bianco e nero", "divano", "giocherellone", "passeggiare", "parco", "amici", "animali", "felice"],
+              "zh": ["猫", "狗", "黑白", "沙发", "爱玩", "散步", "公园", "朋友", "宠物", "快乐"],
+              "de": ["Katze", "Hund", "schwarz-weiß", "Sofa", "verspielt", "spazieren", "Park", "Freunde", "Haustiere", "glücklich"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

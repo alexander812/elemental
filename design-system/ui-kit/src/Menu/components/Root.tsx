@@ -1,7 +1,5 @@
 import type { FC, PropsWithChildren } from 'react';
-import { useCallback, useMemo, useRef } from 'react';
-
-import { useOutsideClick } from '../../internal/hooks';
+import { useCallback, useMemo } from 'react';
 
 import { MenuContext } from '../contexts';
 
@@ -13,14 +11,6 @@ type MenuRootProps = PropsWithChildren<{
 }>;
 
 const MenuRoot: FC<MenuRootProps> = ({ children, onToggle, open }) => {
-  const rootRef = useRef<HTMLDivElement>(null);
-
-  useOutsideClick({
-    enabled: open,
-    handler: () => onToggle?.(false),
-    ref: rootRef,
-  });
-
   const toggle = useCallback(() => {
     onToggle?.(!open);
   }, [onToggle, open]);
@@ -32,7 +22,7 @@ const MenuRoot: FC<MenuRootProps> = ({ children, onToggle, open }) => {
   const providerValue = useMemo(() => ({ close, open, toggle }), [close, open, toggle]);
 
   return (
-    <div className={classes.root} ref={rootRef}>
+    <div className={classes.root}>
       <MenuContext.Provider value={providerValue}>{children}</MenuContext.Provider>
     </div>
   );

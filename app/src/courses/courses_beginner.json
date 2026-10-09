@@ -1,0 +1,55 @@
+{
+  "level": "Beginner",
+  "courses": [
+    {
+      "course": "Acquaintance",
+      "level": "Beginner",
+      "file": "course_01_acquaintance.json",
+      "i18n": {
+        "course": {
+          "en": "Acquaintance",
+          "ru": "Знакомство",
+          "es": "Conocerse",
+          "fr": "Faire connaissance",
+          "it": "Conoscersi",
+          "zh": "认识",
+          "de": "Bekanntschaft"
+        },
+        "description": {
+          "en": "Greetings, introductions and first conversation.",
+          "ru": "Приветствия, представление и первый разговор.",
+          "es": "Saludos, presentaciones y primera conversación.",
+          "fr": "Salutations, présentations et première conversation.",
+          "it": "Saluti, presentazioni e prima conversazione.",
+          "zh": "问候、介绍和初次交谈。",
+          "de": "Begrüßungen, Vorstellungen und erstes Gespräch."
+        }
+      }
+    },
+    {
+      "course": "Family & Home",
+      "level": "Beginner",
+      "file": "course_02_family_and_home.json",
+      "i18n": {
+        "course": {
+          "en": "Family & Home",
+          "ru": "Семья и дом",
+          "es": "Familia y hogar",
+          "fr": "Famille et maison",
+          "it": "Famiglia e casa",
+          "zh": "家庭与家",
+          "de": "Familie und Zuhause"
+        },
+        "description": {
+          "en": "Family members, rooms, furniture and household items.",
+          "ru": "Члены семьи, комнаты, мебель и предметы быта.",
+          "es": "Miembros de la familia, habitaciones, muebles y objetos del hogar.",
+          "fr": "Membres de la famille, pièces, meubles et objets ménagers.",
+          "it": "Membri della famiglia, stanze, mobili e oggetti domestici.",
+          "zh": "家庭成员、房间、家具和家居用品。",
+          "de": "Familienmitglieder, Zimmer, Möbel und Haushaltsgegenstände."
+        }
+      }
+    }
+  ]
+}

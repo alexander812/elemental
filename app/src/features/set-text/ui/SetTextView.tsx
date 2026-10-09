@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import type { PointerEvent as ReactPointerEvent } from 'react'
 
 import { useUnit } from 'effector-react'
@@ -19,7 +19,8 @@ import {
 } from '@elemental/ui-kit'
 
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
-import { parseWords } from '../../../lib/words'
+import { parseWords, selectedWordTexts } from '../../../lib/words'
+import type { WordSegment } from '../../../lib/words'
 import { $languages } from '../../languages/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
 import type { TextAddDraft } from '../../navigation/store'
@@ -49,14 +50,14 @@ const TOOLTIP_EDGE = 72
 type ChipDrag = {
   active: boolean
   pointerId: number
-  startWord: string
+  startId: string
   startX: number
   startY: number
-  words: string[]
+  ids: string[]
 }
 
 type Tooltip = {
-  word: string
+  id: string
   x: number
   y: number
   status: 'loading' | 'done' | 'error'
@@ -79,7 +80,7 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
   const transition = useUnit($transition)
   const translating = useUnit(translateSetTextFx.pending)
 
-  const [dragWords, setDragWords] = useState<string[]>([])
+  const [dragIds, setDragIds] = useState<string[]>([])
   const [tooltip, setTooltip] = useState<Tooltip | null>(null)
   const [translateFailed, setTranslateFailed] = useState(false)
 
@@ -148,7 +149,10 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     return word?.dataset.word ?? null
   }
 
-  const handleWordPointerDown = (event: ReactPointerEvent<HTMLButtonElement>, word: string) => {
+  const handleWordPointerDown = (
+    event: ReactPointerEvent<HTMLButtonElement>,
+    segment: WordSegment
+  ) => {
     if (!interactive) return
     if (event.pointerType === 'mouse' && event.button !== 0) return
 
@@ -157,10 +161,10 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     dragRef.current = {
       active: false,
       pointerId: event.pointerId,
-      startWord: word,
+      startId: segment.id,
       startX: event.clientX,
       startY: event.clientY,
-      words: [],
+      ids: [],
     }
 
     const target = event.currentTarget
@@ -175,20 +179,20 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
       setTooltip({
         status: 'loading',
         text: '',
-        word,
+        id: segment.id,
         x: Math.min(Math.max(centerX, TOOLTIP_EDGE), window.innerWidth - TOOLTIP_EDGE),
         y: rect.top,
       })
 
-      translateSegmentFx({ from: lang, text: word, to: otherLang })
+      translateSegmentFx({ from: lang, text: segment.text, to: otherLang })
         .then((translation) => {
           setTooltip((prev) =>
-            prev && prev.word === word ? { ...prev, status: 'done', text: translation } : prev
+            prev && prev.id === segment.id ? { ...prev, status: 'done', text: translation } : prev
           )
         })
         .catch(() => {
           setTooltip((prev) =>
-            prev && prev.word === word ? { ...prev, status: 'error', text: '' } : prev
+            prev && prev.id === segment.id ? { ...prev, status: 'error', text: '' } : prev
           )
         })
     }, HOLD_MS)
@@ -209,15 +213,15 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
 
       if (event.pointerType !== 'mouse' && Math.abs(moveY) > Math.abs(moveX)) {
         dragRef.current = null
-        setDragWords([])
+        setDragIds([])
         setTooltip(null)
         suppressClickRef.current = true
         return
       }
 
       drag.active = true
-      drag.words = [drag.startWord]
-      setDragWords([drag.startWord])
+      drag.ids = [drag.startId]
+      setDragIds([drag.startId])
       setTooltip(null)
       setTouchBlocked(true)
       event.currentTarget.setPointerCapture?.(event.pointerId)
@@ -225,9 +229,9 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
 
     const word = findWordAt(event.clientX, event.clientY)
 
-    if (word && !drag.words.includes(word)) {
-      drag.words.push(word)
-      setDragWords([...drag.words])
+    if (word && !drag.ids.includes(word)) {
+      drag.ids.push(word)
+      setDragIds([...drag.ids])
     }
   }
 
@@ -237,7 +241,7 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     if (!drag || drag.pointerId !== event.pointerId) return
 
     dragRef.current = null
-    setDragWords([])
+    setDragIds([])
     clearHold()
     setTooltip(null)
 
@@ -246,8 +250,8 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     setTouchBlocked(false)
     suppressClickRef.current = true
 
-    if (drag.words.length > 1) {
-      wordsMerged(drag.words)
+    if (drag.ids.length > 1) {
+      wordsMerged(drag.ids)
     }
   }
 
@@ -257,13 +261,13 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     if (!drag || drag.pointerId !== event.pointerId) return
 
     dragRef.current = null
-    setDragWords([])
+    setDragIds([])
     clearHold()
     setTooltip(null)
     setTouchBlocked(false)
   }
 
-  const handleWordClick = (word: string) => {
+  const handleWordClick = (id: string) => {
     if (!interactive) return
 
     if (suppressClickRef.current) {
@@ -271,7 +275,7 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
       return
     }
 
-    wordToggled(word)
+    wordToggled(id)
   }
 
   const handleScroll = () => {
@@ -319,7 +323,7 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
       return
     }
 
-    draftWordsAdded({ field, words: selected })
+    draftWordsAdded({ field, words: selectedWordTexts(words, selected) })
     popScreen()
   }
 
@@ -384,22 +388,25 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
               onScroll={handleScroll}
             >
               <div className={classes.words}>
-                {words.map((word) => {
-                  const checked = selected.includes(word) || dragWords.includes(word)
+                {words.map((segment) => {
+                  const checked =
+                    selected.includes(segment.id) || dragIds.includes(segment.id)
 
                   return (
-                    <button
-                      key={word}
-                      aria-pressed={checked}
-                      className={checked ? `${classes.word} ${classes.wordChecked}` : classes.word}
-                      data-word={word}
-                      disabled={!interactive}
-                      type="button"
-                      onClick={() => handleWordClick(word)}
-                      onPointerDown={(event) => handleWordPointerDown(event, word)}
-                    >
-                      {word}
-                    </button>
+                    <Fragment key={segment.id}>
+                      {segment.lineBreak ? <span className={classes.lineBreak} /> : null}
+                      <button
+                        aria-pressed={checked}
+                        className={checked ? `${classes.word} ${classes.wordChecked}` : classes.word}
+                        data-word={segment.id}
+                        disabled={!interactive}
+                        type="button"
+                        onClick={() => handleWordClick(segment.id)}
+                        onPointerDown={(event) => handleWordPointerDown(event, segment)}
+                      >
+                        {segment.text}
+                      </button>
+                    </Fragment>
                   )
                 })}
               </div>

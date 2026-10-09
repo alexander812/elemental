@@ -12,13 +12,13 @@ import {
   EmptyScreen,
   Header,
   Menu,
-  Modal,
   Spinner,
   Stack,
   Text,
 } from '@elemental/ui-kit'
 
 import type { Lesson } from '../../../lib/types'
+import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
 import { deleteCourseFx, $courses, $currentCourseId } from '../../courses/store'
 import type { DeleteCourseMode } from '../../courses/store'
 import { pushScreen } from '../../navigation/store'
@@ -585,53 +585,49 @@ export function LessonsView() {
         </Button>
       </Box>
 
-      <Modal open={pendingDelete !== null} onClose={() => setPendingDelete(null)}>
-        <Stack spacing="m" horizontalAlign="center">
-          <Text align="center" variant="S / Medium">
-            При удалении урока «{pendingDelete?.name}» все вложенные в него задания и карточки будут
-            удалены без возможности восстановления.
-          </Text>
-          <Button color="negative" fullWidth loading={deletePending} onClick={handleConfirmDelete}>
-            Удалить
-          </Button>
-          <Button fullWidth variant="secondary" onClick={() => setPendingDelete(null)}>
-            Отмена
-          </Button>
-        </Stack>
-      </Modal>
+      <ConfirmSheet
+        opened={pendingDelete !== null}
+        text={`При удалении урока «${pendingDelete?.name}» все вложенные в него задания и карточки будут удалены без возможности восстановления.`}
+        onClosed={() => setPendingDelete(null)}
+      >
+        <Button color="negative" fullWidth loading={deletePending} onClick={handleConfirmDelete}>
+          Удалить
+        </Button>
+        <Button fullWidth variant="secondary" onClick={() => setPendingDelete(null)}>
+          Отмена
+        </Button>
+      </ConfirmSheet>
 
-      <Modal open={confirmCourseDelete} onClose={() => setConfirmCourseDelete(false)}>
-        <Stack spacing="m" horizontalAlign="center">
-          <Text align="center" variant="S / Medium">
-            Удалить курс «{course?.name}»? Уроки можно удалить вместе с курсом или перенести в
-            «{baseCourse?.name}».
-          </Text>
-          <Button
-            color="negative"
-            fullWidth
-            loading={deleteCoursePending}
-            onClick={() => handleDeleteCourse('with-lessons')}
-          >
-            Удалить курс и уроки
-          </Button>
-          <Button
-            disabled={deleteCoursePending}
-            fullWidth
-            variant="secondary"
-            onClick={() => handleDeleteCourse('course-only')}
-          >
-            Удалить только курс
-          </Button>
-          <Button
-            disabled={deleteCoursePending}
-            fullWidth
-            variant="secondary"
-            onClick={() => setConfirmCourseDelete(false)}
-          >
-            Отмена
-          </Button>
-        </Stack>
-      </Modal>
+      <ConfirmSheet
+        opened={confirmCourseDelete}
+        text={`Удалить курс «${course?.name}»? Уроки можно удалить вместе с курсом или перенести в «${baseCourse?.name}».`}
+        onClosed={() => setConfirmCourseDelete(false)}
+      >
+        <Button
+          color="negative"
+          fullWidth
+          loading={deleteCoursePending}
+          onClick={() => handleDeleteCourse('with-lessons')}
+        >
+          Удалить курс и уроки
+        </Button>
+        <Button
+          disabled={deleteCoursePending}
+          fullWidth
+          variant="secondary"
+          onClick={() => handleDeleteCourse('course-only')}
+        >
+          Удалить только курс
+        </Button>
+        <Button
+          disabled={deleteCoursePending}
+          fullWidth
+          variant="secondary"
+          onClick={() => setConfirmCourseDelete(false)}
+        >
+          Отмена
+        </Button>
+      </ConfirmSheet>
     </Box>
   )
 }

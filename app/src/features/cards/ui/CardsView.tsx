@@ -27,7 +27,6 @@ import {
   EmptyScreen,
   Header,
   Menu,
-  Modal,
   Spinner,
   Stack,
   Text,
@@ -39,6 +38,7 @@ import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import { playError, playSuccess, unlockSounds } from '../../../lib/sounds'
 import type { Card as CardModel } from '../../../lib/types'
+import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
 import { vibrateError, vibrateLong, vibrateShort, vibrateSuccess } from '../../../transport/haptics'
 import { $languages } from '../../languages/store'
 import { popScreen, pushScreen } from '../../navigation/store'
@@ -783,19 +783,18 @@ export function CardsView({ setId }: { setId: string }) {
         </Stack>
       </Box>
 
-      <Modal open={confirmReset} onClose={() => setConfirmReset(false)}>
-        <Stack spacing="m" horizontalAlign="center">
-          <Text align="center" variant="S / Medium">
-            Вы уверены, что хотите сбросить это задание к первоначальному состоянию?
-          </Text>
-          <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
-            Да
-          </Button>
-          <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
-            Отмена
-          </Button>
-        </Stack>
-      </Modal>
+      <ConfirmSheet
+        opened={confirmReset}
+        text="Вы уверены, что хотите сбросить это задание к первоначальному состоянию?"
+        onClosed={() => setConfirmReset(false)}
+      >
+        <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
+          Да
+        </Button>
+        <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
+          Отмена
+        </Button>
+      </ConfirmSheet>
     </Box>
   )
 }

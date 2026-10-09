@@ -1,9 +1,10 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { useUnit } from 'effector-react'
 
 import { IconEducation, IconPlusBig } from '@elemental/icons'
 import {
+  BottomSheet,
   Box,
   Button,
   Card,
@@ -37,6 +38,8 @@ export function CoursesView() {
   const loading = useUnit($coursesLoading)
   const currentCourseId = useUnit($currentCourseId)
 
+  const [addOpened, setAddOpened] = useState(false)
+
   useEffect(() => {
     fetchCoursesFx()
   }, [])
@@ -59,8 +62,36 @@ export function CoursesView() {
   }
 
   const handleAddNew = () => {
+    setAddOpened(true)
+  }
+
+  const handleCreateNew = () => {
+    setAddOpened(false)
     pushScreen({ name: 'course-create' })
   }
+
+  const handleFindReady = () => {
+    setAddOpened(false)
+    pushScreen({ name: 'course-search' })
+  }
+
+  const addSheet = (
+    <BottomSheet opened={addOpened} onClosed={() => setAddOpened(false)}>
+      <Box padding="l">
+        <Stack spacing="m">
+          <Text align="center" variant="M / Medium">
+            Добавить курс
+          </Text>
+          <Button fullWidth onClick={handleCreateNew}>
+            Создать новый
+          </Button>
+          <Button fullWidth variant="secondary" onClick={handleFindReady}>
+            Найти готовый
+          </Button>
+        </Stack>
+      </Box>
+    </BottomSheet>
+  )
 
   const logo = (
     <img
@@ -95,6 +126,7 @@ export function CoursesView() {
           icon={<IconEducation fontSize={24} />}
           text="Пока нет ни одного курса"
         />
+        {addSheet}
       </Box>
     )
   }
@@ -153,6 +185,7 @@ export function CoursesView() {
           Добавить курс
         </Button>
       </Box>
+      {addSheet}
     </Box>
   )
 }

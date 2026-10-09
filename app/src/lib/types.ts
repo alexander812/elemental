@@ -29,12 +29,15 @@ export interface Lesson {
   order: number
 }
 
+export type CourseLevel = 'beginner' | 'elementary' | 'intermediate' | 'upper-intermediate'
+
 export interface Course {
   id: string
   name: string
   description: string
   order: number
   lang: LanguageCode
+  level?: CourseLevel
 }
 
 export type ThemeName = 'dark' | 'light'

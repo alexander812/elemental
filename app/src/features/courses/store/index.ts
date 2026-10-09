@@ -6,6 +6,7 @@ import type { Course } from '../../../transport/courses'
 import * as lessonsApi from '../../../transport/lessons'
 import * as setsApi from '../../../transport/sets'
 import { importBackupFx } from '../../backup/store'
+import { loadCoursesFx } from '../../course-search/store'
 
 export const fetchCoursesFx = createEffect(() => coursesApi.fetchCourses())
 
@@ -62,6 +63,9 @@ export const $courses = createStore<Course[]>([])
   .on([fetchCoursesFx.doneData, updateCourseFx.doneData], (_, courses) => courses)
   .on(createCourseFx.doneData, (_, { courses }) => courses)
   .on(deleteCourseFx.doneData, (_, { courses }) => courses)
+  .on(loadCoursesFx.doneData, (state, result) =>
+    result.status === 'done' ? result.ready.courses : state
+  )
   .on(importBackupFx.doneData, (_, { courses }) => courses)
 
 export const $currentCourseId = createStore<string | null>(null)

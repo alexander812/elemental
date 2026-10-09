@@ -2,6 +2,7 @@ import type { LanguageCode } from '../../../lib/languages'
 import { callNativeSync, isNativeBridgeAvailable } from '../../../lib/nativeBridge'
 import { load, remove, save } from '../../../lib/storage'
 import type { CardTexts } from '../../../lib/types'
+import type { WordSegment } from '../../../lib/words'
 import type { ScanTextResult } from '../../../transport/ocr'
 import type { Screen } from '../../navigation/store'
 import { restoreNav, $nav } from '../../navigation/store'
@@ -26,7 +27,7 @@ import {
 
 export type TextAddSnapshot = {
   text: string
-  words: string[]
+  words: WordSegment[]
   selected: string[]
   textLang: LanguageCode | null
   pairs: WordPair[]
@@ -49,6 +50,7 @@ export type SessionSnapshot = {
 const SCREEN_NAMES = new Set<Screen['name']>([
   'courses',
   'course-create',
+  'course-search',
   'lessons',
   'lesson',
   'lesson-create',

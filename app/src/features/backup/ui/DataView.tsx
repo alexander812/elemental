@@ -11,11 +11,11 @@ import {
   FormHelperText,
   Header,
   ListItem,
-  Modal,
   Stack,
   Text,
 } from '@elemental/ui-kit'
 
+import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
 import { parseBackup, findDuplicateLessons } from '../../../transport/backup'
 import type { BackupData, ImportMode } from '../../../transport/backup'
 import { $courses } from '../../courses/store'
@@ -175,21 +175,24 @@ export function DataView() {
         </Stack>
       </Box>
 
-      <Modal open={confirmMerge} onClose={() => setConfirmMerge(false)}>
-        <Stack spacing="m" horizontalAlign="center">
-          <Text align="center" variant="S / Medium">
+      <ConfirmSheet
+        opened={confirmMerge}
+        text={
+          <>
             Такие уроки уже есть:{' '}
             {duplicates.map((item) => `«${item.name}» (${item.courseName})`).join(', ')}.
             Импортируемые уроки полностью перезапишут их вместе с заданиями и карточками.
-          </Text>
-          <Button fullWidth loading={importing} onClick={() => runImport('merge')}>
-            ОК
-          </Button>
-          <Button fullWidth variant="secondary" onClick={() => setConfirmMerge(false)}>
-            Отмена
-          </Button>
-        </Stack>
-      </Modal>
+          </>
+        }
+        onClosed={() => setConfirmMerge(false)}
+      >
+        <Button fullWidth loading={importing} onClick={() => runImport('merge')}>
+          ОК
+        </Button>
+        <Button fullWidth variant="secondary" onClick={() => setConfirmMerge(false)}>
+          Отмена
+        </Button>
+      </ConfirmSheet>
     </Box>
   )
 }

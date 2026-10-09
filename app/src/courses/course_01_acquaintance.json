@@ -1,0 +1,389 @@
+{
+  "parentCourse": "Acquaintance",
+  "lessons": [
+    {
+      "name": "Greetings",
+      "i18n": {
+        "name": { "en": "Greetings", "ru": "Приветствия", "es": "Saludos", "fr": "Salutations", "it": "Saluti", "zh": "问候", "de": "Begrüßungen" }
+      },
+      "tasks": [
+        {
+          "name": "Hello / Goodbye",
+          "i18n": {
+            "name": { "en": "Hello / Goodbye", "ru": "Привет / Пока", "es": "Hola / Adiós", "fr": "Bonjour / Au revoir", "it": "Ciao / Arrivederci", "zh": "你好 / 再见", "de": "Hallo / Tschüss" },
+            "text": {
+              "en": "Hello! Hi! Good morning! Good afternoon! Good evening! When I meet my friends, I say: Hi, how are you? When I leave, I say: Goodbye! Bye! See you! See you tomorrow! It is easy and polite to say hello and goodbye every day.",
+              "ru": "Привет! Здравствуйте! Доброе утро! Добрый день! Добрый вечер! Когда я встречаю друзей, я говорю: Привет, как дела? Когда ухожу, я говорю: До свидания! Пока! До встречи! До завтра! Здороваться и прощаться каждый день — это просто и вежливо.",
+              "es": "¡Hola! ¡Buenos días! ¡Buenas tardes! ¡Buenas noches! Cuando veo a mis amigos, digo: ¡Hola, cómo estás? Cuando me voy, digo: ¡Adiós! ¡Hasta luego! ¡Hasta mañana! Decir hola y adiós cada día es fácil y educado.",
+              "fr": "Bonjour ! Salut ! Bonsoir ! Quand je rencontre mes amis, je dis : Salut, comment ça va ? Quand je pars, je dis : Au revoir ! À bientôt ! À demain ! Dire bonjour et au revoir chaque jour est simple et poli.",
+              "it": "Ciao! Buongiorno! Buonasera! Quando incontro i miei amici, dico: Ciao, come stai? Quando vado via, dico: Arrivederci! A presto! A domani! Dire ciao e arrivederci ogni giorno è semplice ed educato.",
+              "zh": "你好！早上好！下午好！晚上好！见到朋友时我说：你好，最近怎么样？离开时我说：再见！回头见！明天见！每天问好和道别既简单又有礼貌。",
+              "de": "Hallo! Guten Morgen! Guten Tag! Guten Abend! Wenn ich meine Freunde treffe, sage ich: Hallo, wie geht es dir? Wenn ich gehe, sage ich: Tschüss! Bis bald! Bis morgen! Jeden Tag Hallo und Tschüss zu sagen ist einfach und höflich."
+            },
+            "words": {
+              "en": ["Hello", "Hi", "Good morning", "Good afternoon", "Good evening", "Goodbye", "Bye", "See you", "See you tomorrow", "How are you?"],
+              "ru": ["Привет", "Здравствуйте", "Доброе утро", "Добрый день", "Добрый вечер", "До свидания", "Пока", "До встречи", "До завтра", "Как дела?"],
+              "es": ["Hola", "Buenos días", "Buenas tardes", "Buenas noches", "Adiós", "Hasta luego", "Hasta mañana", "¿Cómo estás?"],
+              "fr": ["Bonjour", "Salut", "Bonsoir", "Au revoir", "À bientôt", "À demain", "Comment ça va ?"],
+              "it": ["Ciao", "Buongiorno", "Buonasera", "Arrivederci", "A presto", "A domani", "Come stai?"],
+              "zh": ["你好", "早上好", "下午好", "晚上好", "再见", "回头见", "明天见", "你好吗？"],
+              "de": ["Hallo", "Guten Morgen", "Guten Tag", "Guten Abend", "Tschüss", "Bis bald", "Bis morgen", "Wie geht es dir?"]
+            }
+          }
+        },
+        {
+          "name": "How are you?",
+          "i18n": {
+            "name": { "en": "How are you?", "ru": "Как дела?", "es": "¿Cómo estás?", "fr": "Comment ça va ?", "it": "Come stai?", "zh": "你好吗？", "de": "Wie geht es dir?" },
+            "text": {
+              "en": "How are you? I am fine, thank you. And you? Not bad, thanks. I am OK. Today I am very happy because the weather is nice. Yesterday I was tired, but today I feel great. How are you today?",
+              "ru": "Как дела? У меня всё хорошо, спасибо. А у тебя? Неплохо, спасибо. Я в порядке. Сегодня я очень счастлив, потому что погода хорошая. Вчера я устал, но сегодня чувствую себя отлично. Как ты сегодня?",
+              "es": "¿Cómo estás? Estoy bien, gracias. ¿Y tú? No está mal, gracias. Estoy bien. Hoy estoy muy feliz porque hace buen tiempo. Ayer estaba cansado, pero hoy me siento genial. ¿Cómo estás hoy?",
+              "fr": "Comment ça va ? Je vais bien, merci. Et toi ? Pas mal, merci. Je vais bien. Aujourd'hui je suis très heureux parce qu'il fait beau. Hier j'étais fatigué, mais aujourd'hui je me sens bien. Comment vas-tu aujourd'hui ?",
+              "it": "Come stai? Sto bene, grazie. E tu? Non male, grazie. Sto bene. Oggi sono molto felice perché il tempo è bello. Ieri ero stanco, ma oggi mi sento bene. Come stai oggi?",
+              "zh": "你好吗？我很好，谢谢。你呢？还不错，谢谢。我还行。今天我很开心，因为天气很好。昨天我累了，但今天感觉很好。你今天怎么样？",
+              "de": "Wie geht es dir? Mir geht es gut, danke. Und dir? Nicht schlecht, danke. Mir geht es gut. Heute bin ich sehr glücklich, weil das Wetter schön ist. Gestern war ich müde, aber heute fühle ich mich großartig. Wie geht es dir heute?"
+            },
+            "words": {
+              "en": ["How are you?", "I am fine", "Thank you", "And you?", "Not bad", "I am OK", "happy", "tired", "today", "yesterday"],
+              "ru": ["Как дела?", "У меня всё хорошо", "Спасибо", "А у тебя?", "Неплохо", "Я в порядке", "счастливый", "усталый", "сегодня", "вчера"],
+              "es": ["¿Cómo estás?", "Estoy bien", "Gracias", "¿Y tú?", "No está mal", "Estoy bien", "feliz", "cansado", "hoy", "ayer"],
+              "fr": ["Comment ça va ?", "Je vais bien", "Merci", "Et toi ?", "Pas mal", "Je vais bien", "heureux", "fatigué", "aujourd'hui", "hier"],
+              "it": ["Come stai?", "Sto bene", "Grazie", "E tu?", "Non male", "Sto bene", "felice", "stanco", "oggi", "ieri"],
+              "zh": ["你好吗？", "我很好", "谢谢", "你呢？", "还不错", "我还行", "开心", "累", "今天", "昨天"],
+              "de": ["Wie geht es dir?", "Mir geht es gut", "Danke", "Und dir?", "Nicht schlecht", "Mir geht es gut", "glücklich", "müde", "heute", "gestern"]
+            }
+          }
+        },
+        {
+          "name": "Good morning!",
+          "i18n": {
+            "name": { "en": "Good morning!", "ru": "Доброе утро!", "es": "¡Buenos días!", "fr": "Bonjour !", "it": "Buongiorno!", "zh": "早上好！", "de": "Guten Morgen!" },
+            "text": {
+              "en": "Good morning, Anna! Good morning, Tom! How are you today? I am fine, thanks. Have a nice day! You too! In the morning we drink coffee and talk about the day. Morning is a good time to smile and say hello.",
+              "ru": "Доброе утро, Анна! Доброе утро, Том! Как ты сегодня? Хорошо, спасибо. Хорошего дня! Тебе тоже! Утром мы пьём кофе и говорим о дне. Утро — хорошее время, чтобы улыбнуться и поздороваться.",
+              "es": "¡Buenos días, Anna! ¡Buenos días, Tom! ¿Cómo estás hoy? Estoy bien, gracias. ¡Que tengas un buen día! ¡Igualmente! Por la mañana tomamos café y hablamos del día. La mañana es un buen momento para sonreír y saludar.",
+              "fr": "Bonjour Anna ! Bonjour Tom ! Comment vas-tu aujourd'hui ? Je vais bien, merci. Bonne journée ! Toi aussi ! Le matin, nous buvons du café et parlons de la journée. Le matin est un bon moment pour sourire et dire bonjour.",
+              "it": "Buongiorno, Anna! Buongiorno, Tom! Come stai oggi? Sto bene, grazie. Buona giornata! Anche a te! La mattina beviamo il caffè e parliamo della giornata. La mattina è un buon momento per sorridere e salutare.",
+              "zh": "早上好，安娜！早上好，汤姆！你今天好吗？我很好，谢谢。祝你今天愉快！你也是！早上我们喝咖啡，聊聊今天。早晨是微笑和问好的好时光。",
+              "de": "Guten Morgen, Anna! Guten Morgen, Tom! Wie geht es dir heute? Mir geht es gut, danke. Einen schönen Tag! Dir auch! Am Morgen trinken wir Kaffee und sprechen über den Tag. Der Morgen ist eine gute Zeit zum Lächeln und Grüßen."
+            },
+            "words": {
+              "en": ["Good morning", "How are you today?", "I am fine", "thanks", "Have a nice day", "You too", "coffee", "to smile", "to say hello"],
+              "ru": ["Доброе утро", "Как ты сегодня?", "Хорошо", "спасибо", "Хорошего дня", "Тебе тоже", "кофе", "улыбаться", "здороваться"],
+              "es": ["Buenos días", "¿Cómo estás hoy?", "Estoy bien", "gracias", "Que tengas un buen día", "Igualmente", "café", "sonreír", "saludar"],
+              "fr": ["Bonjour", "Comment vas-tu aujourd'hui ?", "Je vais bien", "merci", "Bonne journée", "Toi aussi", "café", "sourire", "dire bonjour"],
+              "it": ["Buongiorno", "Come stai oggi?", "Sto bene", "grazie", "Buona giornata", "Anche a te", "caffè", "sorridere", "salutare"],
+              "zh": ["早上好", "你今天好吗？", "我很好", "谢谢", "祝你今天愉快", "你也是", "咖啡", "微笑", "问好"],
+              "de": ["Guten Morgen", "Wie geht es dir heute?", "Mir geht es gut", "danke", "Einen schönen Tag", "Dir auch", "Kaffee", "lächeln", "grüßen"]
+            }
+          }
+        },
+        {
+          "name": "Good night!",
+          "i18n": {
+            "name": { "en": "Good night!", "ru": "Спокойной ночи!", "es": "¡Buenas noches!", "fr": "Bonne nuit !", "it": "Buonanotte!", "zh": "晚安！", "de": "Gute Nacht!" },
+            "text": {
+              "en": "Good night, mom! Good night, dad! Sleep well! See you in the morning! Sweet dreams! Thank you! Before bed I read a book or listen to music. Then I say good night and go to sleep. Good night!",
+              "ru": "Спокойной ночи, мама! Спокойной ночи, папа! Спите хорошо! Увидимся утром! Сладких снов! Спасибо! Перед сном я читаю книгу или слушаю музыку. Потом я говорю спокойной ночи и засыпаю. Спокойной ночи!",
+              "es": "¡Buenas noches, mamá! ¡Buenas noches, papá! ¡Duerme bien! ¡Nos vemos por la mañana! ¡Dulces sueños! ¡Gracias! Antes de dormir leo un libro o escucho música. Luego digo buenas noches y me duermo. ¡Buenas noches!",
+              "fr": "Bonne nuit maman ! Bonne nuit papa ! Dors bien ! À demain matin ! Fais de beaux rêves ! Merci ! Avant de dormir, je lis un livre ou j'écoute de la musique. Puis je dis bonne nuit et je m'endors. Bonne nuit !",
+              "it": "Buonanotte mamma! Buonanotte papà! Dormi bene! Ci vediamo domani! Sogni d'oro! Grazie! Prima di dormire leggo un libro o ascolto musica. Poi dico buonanotte e mi addormento. Buonanotte!",
+              "zh": "晚安，妈妈！晚安，爸爸！好好睡！早上见！做个好梦！谢谢！睡前我读书或听音乐。然后我说晚安，去睡觉。晚安！",
+              "de": "Gute Nacht, Mama! Gute Nacht, Papa! Schlaf gut! Bis morgen früh! Süße Träume! Danke! Vor dem Schlafen lese ich ein Buch oder höre Musik. Dann sage ich gute Nacht und schlafe ein. Gute Nacht!"
+            },
+            "words": {
+              "en": ["Good night", "Sleep well", "See you in the morning", "Sweet dreams", "before bed", "to read a book", "to listen to music", "to go to sleep"],
+              "ru": ["Спокойной ночи", "Спите хорошо", "Увидимся утром", "Сладких снов", "перед сном", "читать книгу", "слушать музыку", "засыпать"],
+              "es": ["Buenas noches", "Duerme bien", "Nos vemos por la mañana", "Dulces sueños", "antes de dormir", "leer un libro", "escuchar música", "dormirse"],
+              "fr": ["Bonne nuit", "Dors bien", "À demain matin", "Fais de beaux rêves", "avant de dormir", "lire un livre", "écouter de la musique", "s'endormir"],
+              "it": ["Buonanotte", "Dormi bene", "Ci vediamo domani", "Sogni d'oro", "prima di dormire", "leggere un libro", "ascoltare musica", "addormentarsi"],
+              "zh": ["晚安", "好好睡", "早上见", "做个好梦", "睡前", "读书", "听音乐", "入睡"],
+              "de": ["Gute Nacht", "Schlaf gut", "Bis morgen früh", "Süße Träume", "vor dem Schlafen", "ein Buch lesen", "Musik hören", "einschlafen"]
+            }
+          }
+        },
+        {
+          "name": "See you soon!",
+          "i18n": {
+            "name": { "en": "See you soon!", "ru": "До скорого!", "es": "¡Hasta pronto!", "fr": "À bientôt !", "it": "A presto!", "zh": "回头见！", "de": "Bis bald!" },
+            "text": {
+              "en": "I have to go. See you soon! See you tomorrow! See you on Monday! Take care! Bye! Goodbye! When we say goodbye, we often smile and wave. It is a nice way to end a conversation. See you soon!",
+              "ru": "Мне пора идти. До скорого! До завтра! До понедельника! Береги себя! Пока! До свидания! Когда мы прощаемся, мы часто улыбаемся и машем рукой. Это хороший способ закончить разговор. До скорого!",
+              "es": "Tengo que irme. ¡Hasta pronto! ¡Hasta mañana! ¡Hasta el lunes! ¡Cuídate! ¡Adiós! Cuando nos despedimos, sonreímos y saludamos con la mano. Es una buena manera de terminar una conversación. ¡Hasta pronto!",
+              "fr": "Je dois partir. À bientôt ! À demain ! À lundi ! Prends soin de toi ! Salut ! Au revoir ! Quand on se dit au revoir, on sourit souvent et on fait un signe de la main. C'est une bonne façon de terminer une conversation. À bientôt !",
+              "it": "Devo andare. A presto! A domani! A lunedì! Stammi bene! Ciao! Arrivederci! Quando ci salutiamo, sorridiamo e salutiamo con la mano. È un buon modo per finire una conversazione. A presto!",
+              "zh": "我得走了。回头见！明天见！星期一见！保重！再见！我们道别时经常微笑并挥手。这是结束对话的好方式。回头见！",
+              "de": "Ich muss gehen. Bis bald! Bis morgen! Bis Montag! Pass auf dich auf! Tschüss! Auf Wiedersehen! Wenn wir uns verabschieden, lächeln wir oft und winken. Das ist eine schöne Art, ein Gespräch zu beenden. Bis bald!"
+            },
+            "words": {
+              "en": ["I have to go", "See you soon", "See you tomorrow", "See you on Monday", "Take care", "Bye", "Goodbye", "to smile", "to wave", "conversation"],
+              "ru": ["Мне пора идти", "До скорого", "До завтра", "До понедельника", "Береги себя", "Пока", "До свидания", "улыбаться", "махать рукой", "разговор"],
+              "es": ["Tengo que irme", "Hasta pronto", "Hasta mañana", "Hasta el lunes", "Cuídate", "Adiós", "sonreír", "saludar con la mano", "conversación"],
+              "fr": ["Je dois partir", "À bientôt", "À demain", "À lundi", "Prends soin de toi", "Salut", "Au revoir", "sourire", "faire un signe", "conversation"],
+              "it": ["Devo andare", "A presto", "A domani", "A lunedì", "Stammi bene", "Ciao", "Arrivederci", "sorridere", "salutare con la mano", "conversazione"],
+              "zh": ["我得走了", "回头见", "明天见", "星期一见", "保重", "再见", "微笑", "挥手", "对话"],
+              "de": ["Ich muss gehen", "Bis bald", "Bis morgen", "Bis Montag", "Pass auf dich auf", "Tschüss", "Auf Wiedersehen", "lächeln", "winken", "Gespräch"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Introducing Yourself",
+      "i18n": {
+        "name": { "en": "Introducing Yourself", "ru": "Представление себя", "es": "Presentarte", "fr": "Se présenter", "it": "Presentarsi", "zh": "自我介绍", "de": "Sich vorstellen" }
+      },
+      "tasks": [
+        {
+          "name": "My name is...",
+          "i18n": {
+            "name": { "en": "My name is...", "ru": "Меня зовут...", "es": "Me llamo...", "fr": "Je m'appelle...", "it": "Mi chiamo...", "zh": "我叫……", "de": "Ich heiße..." },
+            "text": {
+              "en": "My name is Anna. I am Anna. What is your name? Nice to meet you! Nice to meet you too. When we meet new people, we say our name and ask their name. It is the first step to make a new friend. What is your name?",
+              "ru": "Меня зовут Анна. Я Анна. Как тебя зовут? Приятно познакомиться! Мне тоже приятно. Когда мы знакомимся с новыми людьми, мы называем своё имя и спрашиваем их имя. Это первый шаг, чтобы найти нового друга. Как тебя зовут?",
+              "es": "Me llamo Anna. Soy Anna. ¿Cómo te llamas? ¡Encantado! Encantado igualmente. Cuando conocemos gente nueva, decimos nuestro nombre y preguntamos el suyo. Es el primer paso para hacer un nuevo amigo. ¿Cómo te llamas?",
+              "fr": "Je m'appelle Anna. Je suis Anna. Comment tu t'appelles ? Enchanté ! Enchanté aussi. Quand on rencontre de nouvelles personnes, on dit son nom et on demande le leur. C'est le premier pas pour se faire un nouvel ami. Comment tu t'appelles ?",
+              "it": "Mi chiamo Anna. Sono Anna. Come ti chiami? Piacere! Piacere mio. Quando incontriamo nuove persone, diciamo il nostro nome e chiediamo il loro. È il primo passo per fare un nuovo amico. Come ti chiami?",
+              "zh": "我叫安娜。我是安娜。你叫什么名字？很高兴认识你！我也很高兴。认识新朋友时，我们先说出自己的名字，再问对方的名字。这是结交新朋友的第一步。你叫什么名字？",
+              "de": "Ich heiße Anna. Ich bin Anna. Wie heißt du? Freut mich! Mich auch. Wenn wir neue Leute treffen, sagen wir unseren Namen und fragen nach ihrem Namen. Das ist der erste Schritt, um einen neuen Freund zu finden. Wie heißt du?"
+            },
+            "words": {
+              "en": ["My name is...", "I am...", "What is your name?", "Nice to meet you", "Nice to meet you too", "new people", "to ask", "friend", "first step"],
+              "ru": ["Меня зовут...", "Я...", "Как тебя зовут?", "Приятно познакомиться", "Мне тоже приятно", "новые люди", "спрашивать", "друг", "первый шаг"],
+              "es": ["Me llamo...", "Soy...", "¿Cómo te llamas?", "Encantado", "Encantado igualmente", "gente nueva", "preguntar", "amigo", "primer paso"],
+              "fr": ["Je m'appelle...", "Je suis...", "Comment tu t'appelles ?", "Enchanté", "Enchanté aussi", "nouvelles personnes", "demander", "ami", "premier pas"],
+              "it": ["Mi chiamo...", "Sono...", "Come ti chiami?", "Piacere", "Piacere mio", "nuove persone", "chiedere", "amico", "primo passo"],
+              "zh": ["我叫……", "我是……", "你叫什么名字？", "很高兴认识你", "我也很高兴", "新朋友", "问", "朋友", "第一步"],
+              "de": ["Ich heiße...", "Ich bin...", "Wie heißt du?", "Freut mich", "Mich auch", "neue Leute", "fragen", "Freund", "erster Schritt"]
+            }
+          }
+        },
+        {
+          "name": "Where are you from?",
+          "i18n": {
+            "name": { "en": "Where are you from?", "ru": "Откуда ты?", "es": "¿De dónde eres?", "fr": "D'où viens-tu ?", "it": "Di dove sei?", "zh": "你来自哪里？", "de": "Woher kommst du?" },
+            "text": {
+              "en": "Where are you from? I am from Russia. I am Russian. He is from England. He is English. She is from Spain. She is Spanish. People come from many countries. We can ask: What country are you from? Where do you live now?",
+              "ru": "Откуда ты? Я из России. Я русский. Он из Англии. Он англичанин. Она из Испании. Она испанка. Люди приезжают из разных стран. Мы можем спросить: Из какой ты страны? Где ты сейчас живёшь?",
+              "es": "¿De dónde eres? Soy de Rusia. Soy ruso. Él es de Inglaterra. Él es inglés. Ella es de España. Ella es española. La gente viene de muchos países. Podemos preguntar: ¿De qué país eres? ¿Dónde vives ahora?",
+              "fr": "D'où viens-tu ? Je viens de Russie. Je suis russe. Il vient d'Angleterre. Il est anglais. Elle vient d'Espagne. Elle est espagnole. Les gens viennent de nombreux pays. On peut demander : De quel pays viens-tu ? Où habites-tu maintenant ?",
+              "it": "Di dove sei? Sono della Russia. Sono russo. Lui è dell'Inghilterra. Lui è inglese. Lei è della Spagna. Lei è spagnola. Le persone vengono da molti paesi. Possiamo chiedere: Di quale paese sei? Dove abiti adesso?",
+              "zh": "你来自哪里？我来自俄罗斯。我是俄罗斯人。他来自英国。他是英国人。她来自西班牙。她是西班牙人。人们来自很多国家。我们可以问：你来自哪个国家？你现在住在哪里？",
+              "de": "Woher kommst du? Ich komme aus Russland. Ich bin Russe. Er kommt aus England. Er ist Engländer. Sie kommt aus Spanien. Sie ist Spanierin. Menschen kommen aus vielen Ländern. Wir können fragen: Aus welchem Land kommst du? Wo wohnst du jetzt?"
+            },
+            "words": {
+              "en": ["Where are you from?", "I am from...", "country", "Russian", "English", "Spanish", "Where do you live?", "people", "many countries"],
+              "ru": ["Откуда ты?", "Я из...", "страна", "русский", "англичанин", "испанка", "Где ты живёшь?", "люди", "много стран"],
+              "es": ["¿De dónde eres?", "Soy de...", "país", "ruso", "inglés", "española", "¿Dónde vives?", "gente", "muchos países"],
+              "fr": ["D'où viens-tu ?", "Je viens de...", "pays", "russe", "anglais", "espagnole", "Où habites-tu ?", "gens", "beaucoup de pays"],
+              "it": ["Di dove sei?", "Sono di...", "paese", "russo", "inglese", "spagnola", "Dove abiti?", "persone", "molti paesi"],
+              "zh": ["你来自哪里？", "我来自……", "国家", "俄罗斯人", "英国人", "西班牙人", "你住在哪里？", "人们", "很多国家"],
+              "de": ["Woher kommst du?", "Ich komme aus...", "Land", "Russe", "Engländer", "Spanierin", "Wo wohnst du?", "Menschen", "viele Länder"]
+            }
+          }
+        },
+        {
+          "name": "How old are you?",
+          "i18n": {
+            "name": { "en": "How old are you?", "ru": "Сколько тебе лет?", "es": "¿Cuántos años tienes?", "fr": "Quel âge as-tu ?", "it": "Quanti anni hai?", "zh": "你多大了？", "de": "Wie alt bist du?" },
+            "text": {
+              "en": "How old are you? I am twenty. I am twenty years old. He is thirty. She is eighteen. My brother is ten. Age is just a number, but it is useful to know numbers: one, two, three, twenty, thirty, forty. How old are you?",
+              "ru": "Сколько тебе лет? Мне двадцать. Мне двадцать лет. Ему тридцать. Ей восемнадцать. Моему брату десять. Возраст — просто число, но полезно знать числа: один, два, три, двадцать, тридцать, сорок. Сколько тебе лет?",
+              "es": "¿Cuántos años tienes? Tengo veinte. Tengo veinte años. Él tiene treinta. Ella tiene dieciocho. Mi hermano tiene diez. La edad es solo un número, pero es útil saber los números: uno, dos, tres, veinte, treinta, cuarenta. ¿Cuántos años tienes?",
+              "fr": "Quel âge as-tu ? J'ai vingt ans. Il a trente ans. Elle a dix-huit ans. Mon frère a dix ans. L'âge n'est qu'un nombre, mais il est utile de connaître les nombres : un, deux, trois, vingt, trente, quarante. Quel âge as-tu ?",
+              "it": "Quanti anni hai? Ho venti anni. Lui ha trenta anni. Lei ha diciotto anni. Mio fratello ha dieci anni. L'età è solo un numero, ma è utile sapere i numeri: uno, due, tre, venti, trenta, quaranta. Quanti anni hai?",
+              "zh": "你多大了？我二十岁。他三十岁。她十八岁。我弟弟十岁。年龄只是一个数字，但认识数字很有用：一、二、三、二十、三十、四十。你多大了？",
+              "de": "Wie alt bist du? Ich bin zwanzig. Ich bin zwanzig Jahre alt. Er ist dreißig. Sie ist achtzehn. Mein Bruder ist zehn. Das Alter ist nur eine Zahl, aber es ist nützlich, Zahlen zu kennen: eins, zwei, drei, zwanzig, dreißig, vierzig. Wie alt bist du?"
+            },
+            "words": {
+              "en": ["How old are you?", "I am twenty", "years old", "thirty", "eighteen", "ten", "age", "number", "to know numbers"],
+              "ru": ["Сколько тебе лет?", "Мне двадцать", "лет", "тридцать", "восемнадцать", "десять", "возраст", "число", "знать числа"],
+              "es": ["¿Cuántos años tienes?", "Tengo veinte", "años", "treinta", "dieciocho", "diez", "edad", "número", "saber números"],
+              "fr": ["Quel âge as-tu ?", "J'ai vingt ans", "ans", "trente", "dix-huit", "dix", "âge", "nombre", "connaître les nombres"],
+              "it": ["Quanti anni hai?", "Ho venti anni", "anni", "trenta", "diciotto", "dieci", "età", "numero", "sapere i numeri"],
+              "zh": ["你多大了？", "我二十岁", "岁", "三十", "十八", "十", "年龄", "数字", "认识数字"],
+              "de": ["Wie alt bist du?", "Ich bin zwanzig", "Jahre alt", "dreißig", "achtzehn", "zehn", "Alter", "Zahl", "Zahlen kennen"]
+            }
+          }
+        },
+        {
+          "name": "I speak English",
+          "i18n": {
+            "name": { "en": "I speak English", "ru": "Я говорю по-английски", "es": "Hablo inglés", "fr": "Je parle anglais", "it": "Parlo inglese", "zh": "我说英语", "de": "Ich spreche Englisch" },
+            "text": {
+              "en": "I speak English. I speak a little Russian. Do you speak Spanish? Yes, a little. What languages do you speak? I speak English and Italian. My friend speaks French and German. Languages open the door to new friends and new cultures. What languages do you speak?",
+              "ru": "Я говорю по-английски. Я немного говорю по-русски. Ты говоришь по-испански? Да, немного. На каких языках ты говоришь? Я говорю по-английски и по-итальянски. Мой друг говорит по-французски и по-немецки. Языки открывают дверь к новым друзьям и новым культурам. На каких языках ты говоришь?",
+              "es": "Hablo inglés. Hablo un poco de ruso. ¿Hablas español? Sí, un poco. ¿Qué idiomas hablas? Hablo inglés e italiano. Mi amigo habla francés y alemán. Los idiomas abren la puerta a nuevos amigos y nuevas culturas. ¿Qué idiomas hablas?",
+              "fr": "Je parle anglais. Je parle un peu russe. Tu parles espagnol ? Oui, un peu. Quelles langues parles-tu ? Je parle anglais et italien. Mon ami parle français et allemand. Les langues ouvrent la porte à de nouveaux amis et à de nouvelles cultures. Quelles langues parles-tu ?",
+              "it": "Parlo inglese. Parlo un po' di russo. Parli spagnolo? Sì, un po'. Quali lingue parli? Parlo inglese e italiano. Il mio amico parla francese e tedesco. Le lingue aprono la porta a nuovi amici e nuove culture. Quali lingue parli?",
+              "zh": "我说英语。我会说一点俄语。你说西班牙语吗？是的，会一点。你说哪些语言？我说英语和意大利语。我的朋友说法语和德语。语言为新的朋友和新的文化打开大门。你说哪些语言？",
+              "de": "Ich spreche Englisch. Ich spreche ein wenig Russisch. Sprichst du Spanisch? Ja, ein wenig. Welche Sprachen sprichst du? Ich spreche Englisch und Italienisch. Mein Freund spricht Französisch und Deutsch. Sprachen öffnen die Tür zu neuen Freunden und neuen Kulturen. Welche Sprachen sprichst du?"
+            },
+            "words": {
+              "en": ["I speak English", "a little", "Russian", "Spanish", "Italian", "French", "German", "languages", "new cultures"],
+              "ru": ["Я говорю по-английски", "немного", "по-русски", "по-испански", "по-итальянски", "по-французски", "по-немецки", "языки", "новые культуры"],
+              "es": ["Hablo inglés", "un poco", "ruso", "español", "italiano", "francés", "alemán", "idiomas", "nuevas culturas"],
+              "fr": ["Je parle anglais", "un peu", "russe", "espagnol", "italien", "français", "allemand", "langues", "nouvelles cultures"],
+              "it": ["Parlo inglese", "un po'", "russo", "spagnolo", "italiano", "francese", "tedesco", "lingue", "nuove culture"],
+              "zh": ["我说英语", "一点", "俄语", "西班牙语", "意大利语", "法语", "德语", "语言", "新文化"],
+              "de": ["Ich spreche Englisch", "ein wenig", "Russisch", "Spanisch", "Italienisch", "Französisch", "Deutsch", "Sprachen", "neue Kulturen"]
+            }
+          }
+        },
+        {
+          "name": "I am a student",
+          "i18n": {
+            "name": { "en": "I am a student", "ru": "Я студент", "es": "Soy estudiante", "fr": "Je suis étudiant", "it": "Sono studente", "zh": "我是学生", "de": "Ich bin Student" },
+            "text": {
+              "en": "I am a student. I study English. He is a doctor. She is a teacher. What do you do? I am a student. My mother is a nurse. My father is an engineer. When we meet someone, we often ask: What do you do? It is a polite and easy question.",
+              "ru": "Я студент. Я учу английский. Он врач. Она учитель. Чем ты занимаешься? Я студент. Моя мама медсестра. Мой папа инженер. Когда мы знакомимся, мы часто спрашиваем: Чем ты занимаешься? Это вежливый и простой вопрос.",
+              "es": "Soy estudiante. Estudio inglés. Él es médico. Ella es profesora. ¿A qué te dedicas? Soy estudiante. Mi madre es enfermera. Mi padre es ingeniero. Cuando conocemos a alguien, a menudo preguntamos: ¿A qué te dedicas? Es una pregunta educada y fácil.",
+              "fr": "Je suis étudiant. J'étudie l'anglais. Il est médecin. Elle est professeur. Que fais-tu ? Je suis étudiant. Ma mère est infirmière. Mon père est ingénieur. Quand on rencontre quelqu'un, on demande souvent : Que fais-tu ? C'est une question polie et facile.",
+              "it": "Sono studente. Studio inglese. Lui è medico. Lei è insegnante. Cosa fai? Sono studente. Mia madre è infermiera. Mio padre è ingegnere. Quando incontriamo qualcuno, spesso chiediamo: Cosa fai? È una domanda educata e semplice.",
+              "zh": "我是学生。我学英语。他是医生。她是老师。你做什么工作？我是学生。我妈妈是护士。我爸爸是工程师。认识某人时我们常问：你做什么工作？这是一个礼貌又简单的问题。",
+              "de": "Ich bin Student. Ich lerne Englisch. Er ist Arzt. Sie ist Lehrerin. Was machst du? Ich bin Student. Meine Mutter ist Krankenschwester. Mein Vater ist Ingenieur. Wenn wir jemanden treffen, fragen wir oft: Was machst du? Das ist eine höfliche und einfache Frage."
+            },
+            "words": {
+              "en": ["I am a student", "I study", "doctor", "teacher", "nurse", "engineer", "What do you do?", "job", "polite question"],
+              "ru": ["Я студент", "я учу", "врач", "учитель", "медсестра", "инженер", "Чем ты занимаешься?", "работа", "вежливый вопрос"],
+              "es": ["Soy estudiante", "estudio", "médico", "profesora", "enfermera", "ingeniero", "¿A qué te dedicas?", "trabajo", "pregunta educada"],
+              "fr": ["Je suis étudiant", "j'étudie", "médecin", "professeur", "infirmière", "ingénieur", "Que fais-tu ?", "travail", "question polie"],
+              "it": ["Sono studente", "studio", "medico", "insegnante", "infermiera", "ingegnere", "Cosa fai?", "lavoro", "domanda educata"],
+              "zh": ["我是学生", "我学", "医生", "老师", "护士", "工程师", "你做什么工作？", "工作", "礼貌的问题"],
+              "de": ["Ich bin Student", "ich lerne", "Arzt", "Lehrerin", "Krankenschwester", "Ingenieur", "Was machst du?", "Arbeit", "höfliche Frage"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "First Conversation",
+      "i18n": {
+        "name": { "en": "First Conversation", "ru": "Первый разговор", "es": "Primera conversación", "fr": "Première conversation", "it": "Prima conversazione", "zh": "初次交谈", "de": "Erstes Gespräch" }
+      },
+      "tasks": [
+        {
+          "name": "Nice to meet you",
+          "i18n": {
+            "name": { "en": "Nice to meet you", "ru": "Приятно познакомиться", "es": "Encantado de conocerte", "fr": "Enchanté de te rencontrer", "it": "Piacere di conoscerti", "zh": "很高兴认识你", "de": "Freut mich, dich kennenzulernen" },
+            "text": {
+              "en": "Hello! My name is John. Nice to meet you! Where are you from? I am from Italy. How old are you? I am twenty-five. What do you do? I am a student. It was nice to meet you! See you later! Have a great day!",
+              "ru": "Привет! Меня зовут Джон. Приятно познакомиться! Откуда ты? Я из Италии. Сколько тебе лет? Мне двадцать пять. Чем ты занимаешься? Я студент. Было приятно познакомиться! До встречи! Хорошего дня!",
+              "es": "¡Hola! Me llamo John. ¡Encantado! ¿De dónde eres? Soy de Italia. ¿Cuántos años tienes? Tengo veinticinco. ¿A qué te dedicas? Soy estudiante. ¡Fue un placer conocerte! ¡Hasta luego! ¡Que tengas un buen día!",
+              "fr": "Bonjour ! Je m'appelle John. Enchanté ! D'où viens-tu ? Je viens d'Italie. Quel âge as-tu ? J'ai vingt-cinq ans. Que fais-tu ? Je suis étudiant. C'était un plaisir de te rencontrer ! À bientôt ! Bonne journée !",
+              "it": "Ciao! Mi chiamo John. Piacere! Di dove sei? Sono dell'Italia. Quanti anni hai? Ho venticinque anni. Cosa fai? Sono studente. È stato un piacere conoscerti! A presto! Buona giornata!",
+              "zh": "你好！我叫约翰。很高兴认识你！你来自哪里？我来自意大利。你多大了？我二十五岁。你做什么工作？我是学生。很高兴认识你！回头见！祝你今天愉快！",
+              "de": "Hallo! Ich heiße John. Freut mich, dich kennenzulernen! Woher kommst du? Ich komme aus Italien. Wie alt bist du? Ich bin fünfundzwanzig. Was machst du? Ich bin Student. Es war schön, dich kennenzulernen! Bis später! Einen schönen Tag!"
+            },
+            "words": {
+              "en": ["Nice to meet you", "Where are you from?", "How old are you?", "What do you do?", "student", "See you later", "Have a great day"],
+              "ru": ["Приятно познакомиться", "Откуда ты?", "Сколько тебе лет?", "Чем ты занимаешься?", "студент", "До встречи", "Хорошего дня"],
+              "es": ["Encantado de conocerte", "¿De dónde eres?", "¿Cuántos años tienes?", "¿A qué te dedicas?", "estudiante", "Hasta luego", "Que tengas un buen día"],
+              "fr": ["Enchanté", "D'où viens-tu ?", "Quel âge as-tu ?", "Que fais-tu ?", "étudiant", "À bientôt", "Bonne journée"],
+              "it": ["Piacere", "Di dove sei?", "Quanti anni hai?", "Cosa fai?", "studente", "A presto", "Buona giornata"],
+              "zh": ["很高兴认识你", "你来自哪里？", "你多大了？", "你做什么工作？", "学生", "回头见", "祝你今天愉快"],
+              "de": ["Freut mich", "Woher kommst du?", "Wie alt bist du?", "Was machst du?", "Student", "Bis später", "Einen schönen Tag"]
+            }
+          }
+        },
+        {
+          "name": "What is your phone number?",
+          "i18n": {
+            "name": { "en": "What is your phone number?", "ru": "Какой у тебя номер телефона?", "es": "¿Cuál es tu número de teléfono?", "fr": "Quel est ton numéro de téléphone ?", "it": "Qual è il tuo numero di telefono?", "zh": "你的电话号码是多少？", "de": "Wie ist deine Telefonnummer?" },
+            "text": {
+              "en": "What is your phone number? My number is five, five, five, one, two, three. Call me! Write me a message! OK, bye! When we meet someone new, we often exchange phone numbers. It is a simple way to keep in touch. Do you want to be friends?",
+              "ru": "Какой у тебя номер телефона? Мой номер — пять, пять, пять, один, два, три. Позвони мне! Напиши мне сообщение! Хорошо, пока! Когда мы знакомимся, мы часто обмениваемся номерами телефонов. Это простой способ поддерживать связь. Хочешь дружить?",
+              "es": "¿Cuál es tu número de teléfono? Mi número es cinco, cinco, cinco, uno, dos, tres. ¡Llámame! ¡Escríbeme! ¡Vale, adiós! Cuando conocemos a alguien nuevo, a menudo intercambiamos números de teléfono. Es una manera sencilla de mantener el contacto. ¿Quieres ser mi amigo?",
+              "fr": "Quel est ton numéro de téléphone ? Mon numéro est cinq, cinq, cinq, un, deux, trois. Appelle-moi ! Écris-moi ! OK, salut ! Quand on rencontre quelqu'un de nouveau, on échange souvent les numéros de téléphone. C'est un moyen simple de rester en contact. Veux-tu être mon ami ?",
+              "it": "Qual è il tuo numero di telefono? Il mio numero è cinque, cinque, cinque, uno, due, tre. Chiamami! Scrivimi! Ok, ciao! Quando conosciamo qualcuno, spesso ci scambiamo i numeri di telefono. È un modo semplice per restare in contatto. Vuoi essere mio amico?",
+              "zh": "你的电话号码是多少？我的号码是五、五、五、一、二、三。给我打电话！给我发消息！好的，再见！认识新朋友时，我们经常交换电话号码。这是保持联系的简单方式。你想做朋友吗？",
+              "de": "Wie ist deine Telefonnummer? Meine Nummer ist fünf, fünf, fünf, eins, zwei, drei. Ruf mich an! Schreib mir! OK, tschüss! Wenn wir jemanden Neues treffen, tauschen wir oft Telefonnummern aus. Das ist eine einfache Möglichkeit, in Kontakt zu bleiben. Willst du Freunde sein?"
+            },
+            "words": {
+              "en": ["phone number", "to call", "to write a message", "to exchange", "to keep in touch", "friend", "new friend"],
+              "ru": ["номер телефона", "звонить", "писать сообщение", "обмениваться", "поддерживать связь", "друг", "новый друг"],
+              "es": ["número de teléfono", "llamar", "escribir un mensaje", "intercambiar", "mantener el contacto", "amigo", "nuevo amigo"],
+              "fr": ["numéro de téléphone", "appeler", "écrire un message", "échanger", "rester en contact", "ami", "nouvel ami"],
+              "it": ["numero di telefono", "chiamare", "scrivere un messaggio", "scambiare", "restare in contatto", "amico", "nuovo amico"],
+              "zh": ["电话号码", "打电话", "发消息", "交换", "保持联系", "朋友", "新朋友"],
+              "de": ["Telefonnummer", "anrufen", "eine Nachricht schreiben", "austauschen", "in Kontakt bleiben", "Freund", "neuer Freund"]
+            }
+          }
+        },
+        {
+          "name": "Do you speak English?",
+          "i18n": {
+            "name": { "en": "Do you speak English?", "ru": "Ты говоришь по-английски?", "es": "¿Hablas inglés?", "fr": "Parles-tu anglais ?", "it": "Parli inglese?", "zh": "你会说英语吗？", "de": "Sprichst du Englisch?" },
+            "text": {
+              "en": "Excuse me, do you speak English? Yes, a little. Can you help me? Of course! I am lost. Where is the train station? Go straight and turn left. It is near the park. Thank you very much! You are welcome! Have a nice day!",
+              "ru": "Извините, вы говорите по-английски? Да, немного. Можете мне помочь? Конечно! Я заблудился. Где железнодорожный вокзал? Идите прямо и поверните налево. Это рядом с парком. Большое спасибо! Пожалуйста! Хорошего дня!",
+              "es": "Perdona, ¿hablas inglés? Sí, un poco. ¿Puedes ayudarme? ¡Claro! Estoy perdido. ¿Dónde está la estación de tren? Ve recto y gira a la izquierda. Está cerca del parque. ¡Muchas gracias! ¡De nada! ¡Que tengas un buen día!",
+              "fr": "Excusez-moi, parlez-vous anglais ? Oui, un peu. Pouvez-vous m'aider ? Bien sûr ! Je suis perdu. Où est la gare ? Allez tout droit et tournez à gauche. C'est près du parc. Merci beaucoup ! De rien ! Bonne journée !",
+              "it": "Scusi, parla inglese? Sì, un po'. Può aiutarmi? Certo! Mi sono perso. Dov'è la stazione ferroviaria? Vada dritto e giri a sinistra. È vicino al parco. Grazie mille! Prego! Buona giornata!",
+              "zh": "请问，你会说英语吗？是的，会一点。你能帮我吗？当然！我迷路了。火车站在哪里？一直往前走，然后左转。在公园附近。非常感谢！不客气！祝你今天愉快！",
+              "de": "Entschuldigung, sprechen Sie Englisch? Ja, ein wenig. Können Sie mir helfen? Natürlich! Ich habe mich verlaufen. Wo ist der Bahnhof? Gehen Sie geradeaus und biegen Sie links ab. Er ist in der Nähe des Parks. Vielen Dank! Gern geschehen! Einen schönen Tag!"
+            },
+            "words": {
+              "en": ["Excuse me", "Do you speak English?", "Can you help me?", "I am lost", "train station", "Go straight", "turn left", "near", "You are welcome"],
+              "ru": ["Извините", "Вы говорите по-английски?", "Можете мне помочь?", "Я заблудился", "вокзал", "Идите прямо", "поверните налево", "рядом", "Пожалуйста"],
+              "es": ["Perdona", "¿Hablas inglés?", "¿Puedes ayudarme?", "Estoy perdido", "estación de tren", "Ve recto", "gira a la izquierda", "cerca", "De nada"],
+              "fr": ["Excusez-moi", "Parlez-vous anglais ?", "Pouvez-vous m'aider ?", "Je suis perdu", "gare", "Allez tout droit", "tournez à gauche", "près", "De rien"],
+              "it": ["Scusi", "Parla inglese?", "Può aiutarmi?", "Mi sono perso", "stazione", "Vada dritto", "giri a sinistra", "vicino", "Prego"],
+              "zh": ["请问", "你会说英语吗？", "你能帮我吗？", "我迷路了", "火车站", "一直走", "左转", "附近", "不客气"],
+              "de": ["Entschuldigung", "Sprechen Sie Englisch?", "Können Sie mir helfen?", "Ich habe mich verlaufen", "Bahnhof", "Gehen Sie geradeaus", "biegen Sie links ab", "in der Nähe", "Gern geschehen"]
+            }
+          }
+        },
+        {
+          "name": "Have a nice day!",
+          "i18n": {
+            "name": { "en": "Have a nice day!", "ru": "Хорошего дня!", "es": "¡Que tengas un buen día!", "fr": "Bonne journée !", "it": "Buona giornata!", "zh": "祝你今天愉快！", "de": "Einen schönen Tag!" },
+            "text": {
+              "en": "It was nice to meet you! Have a nice day! Thank you, you too! See you later! Goodbye! It is polite to say something nice when you leave. People smile and feel happy. Kind words make our days brighter. Have a wonderful day!",
+              "ru": "Было приятно познакомиться! Хорошего дня! Спасибо, тебе тоже! До встречи! До свидания! Вежливо сказать что-то приятное, когда уходишь. Люди улыбаются и чувствуют себя счастливыми. Добрые слова делают наши дни ярче. Хорошего дня!",
+              "es": "¡Fue un placer conocerte! ¡Que tengas un buen día! ¡Gracias, igualmente! ¡Hasta luego! ¡Adiós! Es educado decir algo agradable cuando te vas. La gente sonríe y se siente feliz. Las palabras amables hacen nuestros días más brillantes. ¡Que tengas un día maravilloso!",
+              "fr": "C'était un plaisir de te rencontrer ! Bonne journée ! Merci, toi aussi ! À bientôt ! Au revoir ! Il est poli de dire quelque chose de gentil quand on part. Les gens sourient et se sentent heureux. Les mots gentils rendent nos journées plus belles. Passe une merveilleuse journée !",
+              "it": "È stato un piacere conoscerti! Buona giornata! Grazie, anche a te! A presto! Arrivederci! È educato dire qualcosa di gentile quando si va via. Le persone sorridono e si sentono felici. Le parole gentili rendono le nostre giornate più luminose. Buona giornata!",
+              "zh": "很高兴认识你！祝你今天愉快！谢谢，你也是！回头见！再见！离开时说点好听的话是有礼貌的。人们会微笑，感到开心。友善的话语让我们的日子更明亮。祝你度过美好的一天！",
+              "de": "Es war schön, dich kennenzulernen! Einen schönen Tag! Danke, dir auch! Bis später! Auf Wiedersehen! Es ist höflich, etwas Nettes zu sagen, wenn man geht. Die Menschen lächeln und fühlen sich glücklich. Freundliche Worte machen unsere Tage heller. Hab einen wunderbaren Tag!"
+            },
+            "words": {
+              "en": ["It was nice to meet you", "Have a nice day", "You too", "See you later", "Goodbye", "polite", "kind words", "to smile", "wonderful"],
+              "ru": ["Было приятно познакомиться", "Хорошего дня", "Тебе тоже", "До встречи", "До свидания", "вежливый", "добрые слова", "улыбаться", "прекрасный"],
+              "es": ["Fue un placer conocerte", "Que tengas un buen día", "Igualmente", "Hasta luego", "Adiós", "educado", "palabras amables", "sonreír", "maravilloso"],
+              "fr": ["C'était un plaisir", "Bonne journée", "Toi aussi", "À bientôt", "Au revoir", "poli", "mots gentils", "sourire", "merveilleux"],
+              "it": ["È stato un piacere", "Buona giornata", "Anche a te", "A presto", "Arrivederci", "educato", "parole gentili", "sorridere", "meraviglioso"],
+              "zh": ["很高兴认识你", "祝你今天愉快", "你也是", "回头见", "再见", "礼貌", "友善的话", "微笑", "美好"],
+              "de": ["Es war schön, dich kennenzulernen", "Einen schönen Tag", "Dir auch", "Bis später", "Auf Wiedersehen", "höflich", "freundliche Worte", "lächeln", "wunderbar"]
+            }
+          }
+        },
+        {
+          "name": "Small Talk",
+          "i18n": {
+            "name": { "en": "Small Talk", "ru": "Небольшая беседа", "es": "Charla informal", "fr": "Petite conversation", "it": "Chiacchiere", "zh": "闲聊", "de": "Small Talk" },
+            "text": {
+              "en": "Small talk is short, friendly conversation. We talk about the weather, sports, or the weekend. Nice weather today, isn't it? Yes, it is! Do you like football? Yes, I do! Have a nice weekend! Thanks, you too! Small talk helps us meet new people and make friends.",
+              "ru": "Небольшая беседа — это короткий, дружелюбный разговор. Мы говорим о погоде, спорте или выходных. Хорошая сегодня погода, правда? Да! Ты любишь футбол? Да! Хороших выходных! Спасибо, тебе тоже! Лёгкая беседа помогает знакомиться и находить друзей.",
+              "es": "La charla informal es una conversación corta y amistosa. Hablamos del tiempo, de deportes o del fin de semana. Hace buen tiempo hoy, ¿verdad? ¡Sí! ¿Te gusta el fútbol? ¡Sí! ¡Buen fin de semana! ¡Gracias, igualmente! La charla informal nos ayuda a conocer gente y hacer amigos.",
+              "fr": "La petite conversation est une discussion courte et amicale. On parle de la météo, du sport ou du week-end. Il fait beau aujourd'hui, n'est-ce pas ? Oui ! Tu aimes le football ? Oui ! Bon week-end ! Merci, toi aussi ! La petite conversation nous aide à rencontrer des gens et à nous faire des amis.",
+              "it": "Le chiacchiere sono una conversazione breve e amichevole. Parliamo del tempo, dello sport o del fine settimana. Oggi il tempo è bello, vero? Sì! Ti piace il calcio? Sì! Buon fine settimana! Grazie, anche a te! Le chiacchiere ci aiutano a conoscere nuove persone e fare amicizia.",
+              "zh": "闲聊是简短友好的对话。我们聊天气、运动或周末。今天天气不错，是吧？是的！你喜欢足球吗？喜欢！周末愉快！谢谢，你也是！闲聊帮助我们认识新朋友，结交朋友。",
+              "de": "Small Talk ist ein kurzes, freundliches Gespräch. Wir sprechen über das Wetter, Sport oder das Wochenende. Schönes Wetter heute, nicht wahr? Ja! Magst du Fußball? Ja! Schönes Wochenende! Danke, dir auch! Small Talk hilft uns, neue Leute kennenzulernen und Freunde zu finden."
+            },
+            "words": {
+              "en": ["small talk", "weather", "sports", "weekend", "Nice weather today", "Do you like...?", "Have a nice weekend", "to meet people", "to make friends"],
+              "ru": ["лёгкая беседа", "погода", "спорт", "выходные", "Хорошая сегодня погода", "Ты любишь...?", "Хороших выходных", "знакомиться", "находить друзей"],
+              "es": ["charla informal", "tiempo", "deportes", "fin de semana", "Hace buen tiempo hoy", "¿Te gusta...?", "Buen fin de semana", "conocer gente", "hacer amigos"],
+              "fr": ["petite conversation", "météo", "sport", "week-end", "Il fait beau aujourd'hui", "Tu aimes...?", "Bon week-end", "rencontrer des gens", "se faire des amis"],
+              "it": ["chiacchiere", "tempo", "sport", "fine settimana", "Oggi il tempo è bello", "Ti piace...?", "Buon fine settimana", "conoscere persone", "fare amicizia"],
+              "zh": ["闲聊", "天气", "运动", "周末", "今天天气不错", "你喜欢……吗？", "周末愉快", "认识新朋友", "交朋友"],
+              "de": ["Small Talk", "Wetter", "Sport", "Wochenende", "Schönes Wetter heute", "Magst du...?", "Schönes Wochenende", "Leute kennenlernen", "Freunde finden"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

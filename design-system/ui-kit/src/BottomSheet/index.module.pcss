@@ -1,0 +1,76 @@
+.portalHost {
+  position: absolute;
+  z-index: 1000;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  transition: opacity 250ms ease;
+  opacity: 0;
+  background: var(--surface-overlay);
+  pointer-events: none;
+}
+
+.overlayOpened {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sheet {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: column;
+  min-height: 200px;
+  max-height: calc(100% - 24px);
+  padding-bottom: env(safe-area-inset-bottom);
+  transition: transform 250ms ease;
+  border-start-start-radius: var(--corner-radius-l);
+  border-start-end-radius: var(--corner-radius-l);
+  background: var(--surface-elevation-1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.sheetOpened {
+  pointer-events: auto;
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.grabber {
+  width: 40px;
+  height: 4px;
+  border-radius: var(--corner-radius-xs);
+  background: var(--contrast-tertiary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .sheet {
+    transition: none;
+  }
+}

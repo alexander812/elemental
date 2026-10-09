@@ -39,7 +39,7 @@ const MenuItem: FC<MenuItemProps> = memo(
       >
         {icon && <div className={classes.itemIconStart}>{icon}</div>}
         <span className={classes.itemLabel}>
-          <Text as="span" overflow="ellipsis" variant="M Compact / Medium">
+          <Text as="span" overflow="ellipsis" variant="M / Medium">
             {label}
           </Text>
         </span>

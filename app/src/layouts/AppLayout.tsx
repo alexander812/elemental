@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 import { useUnit } from 'effector-react'
 
 import { IconBookOpen, IconSettings, IconViewList } from '@elemental/icons'
+import { BottomSheetProvider } from '@elemental/ui-kit'
 
 import { DataView } from '../features/backup/ui/DataView'
 import { ExportView } from '../features/backup/ui/ExportView'
@@ -23,6 +24,7 @@ import {
 } from '../features/navigation/store'
 import type { Screen } from '../features/navigation/store'
 import { CourseCreateView } from '../features/courses/ui/CourseCreateView'
+import { CourseSearchView } from '../features/course-search/ui/CourseSearchView'
 import { CoursesView } from '../features/courses/ui/CoursesView'
 import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
 import { LessonsView } from '../features/lessons/ui/LessonsView'
@@ -34,6 +36,7 @@ import { SetTextView } from '../features/set-text/ui/SetTextView'
 import { TextAddView } from '../features/text-add/ui/TextAddView'
 import { WordsTranslateView } from '../features/text-add/ui/WordsTranslateView'
 import { VoicesView } from '../features/voices/ui/VoicesView'
+import { Toast } from '../shared/ui/Toast'
 
 import classes from './AppLayout.module.pcss'
 
@@ -43,6 +46,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <CoursesView />
     case 'course-create':
       return <CourseCreateView courseId={screen.courseId} />
+    case 'course-search':
+      return <CourseSearchView />
     case 'lessons':
       return <LessonsView />
     case 'lesson':
@@ -182,20 +187,23 @@ export function AppLayout() {
 
   return (
     <div className={classes.app}>
-      <main className={classes.main} ref={mainRef}>
-        <div
-          key={`${stack.length}-${screen.name}`}
-          className={`${classes.screen} ${entering ? classes.screenEntering : ''}`}
-        >
-          {renderScreen(screen)}
-        </div>
-        {leavingScreen && (
-          <div className={classes.screenExiting} onAnimationEnd={() => transitionEnded()}>
-            {renderScreen(leavingScreen)}
+      <BottomSheetProvider>
+        <main className={classes.main} ref={mainRef}>
+          <div
+            key={`${stack.length}-${screen.name}`}
+            className={`${classes.screen} ${entering ? classes.screenEntering : ''}`}
+          >
+            {renderScreen(screen)}
           </div>
-        )}
-      </main>
-      <AppFooter />
+          {leavingScreen && (
+            <div className={classes.screenExiting} onAnimationEnd={() => transitionEnded()}>
+              {renderScreen(leavingScreen)}
+            </div>
+          )}
+        </main>
+        <AppFooter />
+        <Toast />
+      </BottomSheetProvider>
     </div>
   )
 }

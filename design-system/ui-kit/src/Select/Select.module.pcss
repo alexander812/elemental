@@ -9,8 +9,11 @@
   width: 100%;
 }
 
-.select {
+.control {
+  display: flex;
+  position: relative;
   box-sizing: border-box;
+  align-items: center;
   width: 100%;
   min-width: 0;
   padding: 0 40px 0 12px;
@@ -23,8 +26,8 @@
   font-family: var(--font-main);
   font-size: 1rem;
   line-height: 1.25;
+  text-align: start;
   cursor: pointer;
-  appearance: none;
 
   &:focus-visible {
     border-color: var(--accent-text-and-icons);
@@ -49,4 +52,52 @@
   transform: translateY(-50%);
   color: var(--contrast-tertiary);
   pointer-events: none;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.option {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 12px;
+  transition: background-color 100ms ease-in-out;
+  border: none;
+  border-radius: var(--corner-radius-s);
+  background: none;
+  color: var(--contrast-primary);
+  font-family: var(--font-main);
+  text-align: start;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: var(--control-bg-hover);
+  }
+
+  &:active:not(:disabled) {
+    background: var(--control-bg-active);
+  }
+
+  &:disabled {
+    color: var(--contrast-tertiary);
+    cursor: not-allowed;
+  }
+}
+
+.optionSelected {
+  background: var(--control-bg-active);
+}
+
+.optionIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--accent-text-and-icons);
 }

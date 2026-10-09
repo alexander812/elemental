@@ -191,6 +191,7 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
           name: incoming.name,
           description: incoming.description,
           lang: incoming.lang,
+          level: incoming.level ?? course.level,
         }
       : course
   })

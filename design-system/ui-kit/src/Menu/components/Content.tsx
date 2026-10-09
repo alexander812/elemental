@@ -1,6 +1,7 @@
 import type { FC, PropsWithChildren } from 'react';
 import { memo, useContext } from 'react';
 
+import { BottomSheet } from '../../BottomSheet';
 import { MenuContext } from '../contexts';
 
 import classes from '../index.module.pcss';
@@ -12,14 +13,16 @@ type MenuContentProps = PropsWithChildren<{
 const MenuContent: FC<MenuContentProps> = memo(({ children, dataTest = 'MenuContent' }) => {
   const menu = useContext(MenuContext);
 
-  if (!menu || !menu.open) {
+  if (!menu) {
     return null;
   }
 
   return (
-    <div className={classes.content} data-test={dataTest} onClick={(e) => e.stopPropagation()}>
-      {children}
-    </div>
+    <BottomSheet opened={menu.open} onClosed={menu.close}>
+      <div className={classes.content} data-test={dataTest}>
+        {children}
+      </div>
+    </BottomSheet>
   );
 });
 

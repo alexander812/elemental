@@ -1,32 +1,57 @@
-export type WordsMerge = {
-  merged: string
-  removed: Set<string>
-  nextWords: string[]
+export type WordSegment = {
+  id: string
+  text: string
+  lineBreak: boolean
 }
 
-export const parseWords = (text: string): string[] => {
-  const seen = new Set<string>()
-  const words: string[] = []
+export type WordsMerge = {
+  merged: WordSegment
+  removed: Set<string>
+  nextWords: WordSegment[]
+}
 
-  text.split(/\s+/).forEach((raw) => {
-    const word = raw.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '')
+export const parseWords = (text: string): WordSegment[] => {
+  const words: WordSegment[] = []
+  let lineBreak = false
 
-    if (!word) return
+  text.split(/(\s+)/).forEach((part) => {
+    if (!part) return
 
-    const key = word.toLowerCase()
+    if (/^\s+$/.test(part)) {
+      if (part.includes('\n')) lineBreak = true
+      return
+    }
 
-    if (seen.has(key)) return
-
-    seen.add(key)
-    words.push(word)
+    words.push({ id: `w${words.length}`, text: part, lineBreak })
+    lineBreak = false
   })
 
   return words
 }
 
-export const mergeWordsInRange = (words: string[], passed: string[]): WordsMerge | null => {
+export const selectedWordTexts = (words: WordSegment[], selected: string[]): string[] => {
+  const seen = new Set<string>()
+  const texts: string[] = []
+
+  selected.forEach((id) => {
+    const text = words.find((segment) => segment.id === id)?.text.trim()
+
+    if (!text) return
+
+    const key = text.toLowerCase()
+
+    if (seen.has(key)) return
+
+    seen.add(key)
+    texts.push(text)
+  })
+
+  return texts
+}
+
+export const mergeWordsInRange = (words: WordSegment[], passed: string[]): WordsMerge | null => {
   const indices = passed
-    .map((word) => words.indexOf(word))
+    .map((id) => words.findIndex((segment) => segment.id === id))
     .filter((index) => index !== -1)
     .sort((a, b) => a - b)
 
@@ -38,11 +63,15 @@ export const mergeWordsInRange = (words: string[], passed: string[]): WordsMerge
   if (first === last) return null
 
   const removedWords = words.slice(first, last + 1)
-  const merged = removedWords.join(' ')
+  const merged: WordSegment = {
+    id: removedWords[0].id,
+    text: removedWords.map((segment) => segment.text).join(' '),
+    lineBreak: removedWords[0].lineBreak,
+  }
 
   return {
     merged,
-    removed: new Set(removedWords),
+    removed: new Set(removedWords.map((segment) => segment.id)),
     nextWords: [...words.slice(0, first), merged, ...words.slice(last + 1)],
   }
 }

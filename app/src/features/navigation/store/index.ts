@@ -1,5 +1,7 @@
 import { createEvent, createStore } from 'effector'
 
+import { closeTopBottomSheet } from '@elemental/ui-kit'
+
 import { suppressNextGhostClick } from '../../../lib/ghostClick'
 import type { LanguageCode } from '../../../lib/languages'
 
@@ -10,6 +12,7 @@ export type TextAddDraft = {
 export type Screen =
   | { name: 'courses' }
   | { name: 'course-create'; courseId?: string }
+  | { name: 'course-search' }
   | { name: 'lessons' }
   | { name: 'lesson'; lessonId: string }
   | { name: 'lesson-create'; lessonId?: string; courseId?: string }
@@ -108,6 +111,8 @@ export const $transition = $nav.map((state) => state.transition)
 export const $canGoBack = $stack.map((stack) => stack.length > 1)
 
 export const handleAndroidBack = (): boolean => {
+  if (closeTopBottomSheet()) return true
+
   if (!$canGoBack.getState()) return false
 
   popScreen()

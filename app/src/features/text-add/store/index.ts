@@ -3,8 +3,8 @@ import { createEffect, createEvent, createStore, sample } from 'effector'
 import type { LanguageCode } from '../../../lib/languages'
 import { callNativeSync } from '../../../lib/nativeBridge'
 import { uid } from '../../../lib/uid'
-import { mergeWordsInRange } from '../../../lib/words'
-import type { WordsMerge } from '../../../lib/words'
+import { mergeWordsInRange, selectedWordTexts } from '../../../lib/words'
+import type { WordSegment, WordsMerge } from '../../../lib/words'
 import { scanText } from '../../../transport/ocr'
 import type { ScanTextResult } from '../../../transport/ocr'
 import { translateText } from '../../../transport/translate'
@@ -18,7 +18,7 @@ export type WordPair = {
 export const textChanged = createEvent<string>()
 export const textLangChanged = createEvent<LanguageCode>()
 export const editStarted = createEvent<{ lang: LanguageCode; text: string }>()
-export const segmentsLoaded = createEvent<string[]>()
+export const segmentsLoaded = createEvent<WordSegment[]>()
 export const wordToggled = createEvent<string>()
 export const wordsMerged = createEvent<string[]>()
 export const createCardsClicked = createEvent<'original' | 'translation'>()
@@ -34,7 +34,7 @@ export const resetTextAdd = createEvent()
 
 export const restoreTextAdd = createEvent<{
   text: string
-  words: string[]
+  words: WordSegment[]
   selected: string[]
   textLang: LanguageCode | null
   pairs: WordPair[]
@@ -80,21 +80,23 @@ export const $textLang = createStore<LanguageCode | null>(null)
   .on(restoreTextAdd, (_, snapshot) => snapshot.textLang)
   .reset(resetTextAdd)
 
-export const $words = createStore<string[]>([])
+export const $words = createStore<WordSegment[]>([])
   .on(segmentsLoaded, (_, words) => words)
   .on(textLangChanged, () => [])
   .on(restoreTextAdd, (_, snapshot) => snapshot.words)
   .reset(resetTextAdd)
 
 export const $selected = createStore<string[]>([])
-  .on(segmentsLoaded, (selected, words) => selected.filter((word) => words.includes(word)))
+  .on(segmentsLoaded, (selected, words) =>
+    selected.filter((id) => words.some((segment) => segment.id === id))
+  )
   .on(textLangChanged, () => [])
   .on(restoreTextAdd, (_, snapshot) => snapshot.selected)
   .reset(resetTextAdd)
 
 type WordToggle = {
   selected: string[]
-  words: string[]
+  words: WordSegment[]
 }
 
 const wordToggleComputed = createEvent<WordToggle>()
@@ -102,17 +104,31 @@ const wordToggleComputed = createEvent<WordToggle>()
 sample({
   clock: wordToggled,
   source: { selected: $selected, words: $words },
-  fn: ({ selected, words }, word) => {
-    if (!selected.includes(word)) {
-      return { selected: [...selected, word], words }
+  fn: ({ selected, words }, id) => {
+    const segment = words.find((item) => item.id === id)
+
+    if (!segment) return { selected, words }
+
+    if (!selected.includes(id)) {
+      return { selected: [...selected, id], words }
     }
 
-    return {
-      selected: selected.filter((item) => item !== word),
-      words: word.includes(' ')
-        ? words.flatMap((item) => (item === word ? word.split(' ') : [item]))
-        : words,
-    }
+    const nextWords = segment.text.includes(' ')
+      ? words.flatMap((item) =>
+          item.id === id
+            ? item.text
+                .split(' ')
+                .filter(Boolean)
+                .map((part, index) => ({
+                  id: index === 0 ? item.id : uid(),
+                  text: part,
+                  lineBreak: index === 0 && item.lineBreak,
+                }))
+            : [item]
+        )
+      : words
+
+    return { selected: selected.filter((item) => item !== id), words: nextWords }
   },
   target: wordToggleComputed,
 })
@@ -133,7 +149,9 @@ sample({
 $words.on(wordsMergeComputed, (words, result) => result?.nextWords ?? words)
 
 $selected.on(wordsMergeComputed, (selected, result) =>
-  result ? [...selected.filter((word) => !result.removed.has(word)), result.merged] : selected
+  result
+    ? [...selected.filter((id) => !result.removed.has(id)), result.merged.id]
+    : selected
 )
 
 export const $pairs = createStore<WordPair[]>([])
@@ -152,9 +170,9 @@ export const $pairs = createStore<WordPair[]>([])
 
 sample({
   clock: createCardsClicked,
-  source: $selected,
-  fn: (words, field): WordPair[] =>
-    words.map((word) => ({
+  source: { selected: $selected, words: $words },
+  fn: ({ selected, words }, field): WordPair[] =>
+    selectedWordTexts(words, selected).map((word) => ({
       id: uid(),
       original: field === 'original' ? word : '',
       translation: field === 'translation' ? word : '',
