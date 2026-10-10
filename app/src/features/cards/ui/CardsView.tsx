@@ -402,7 +402,9 @@ export function CardsView({ setId }: { setId: string }) {
       .sort((a, b) => a.order - b.order)[0]
 
     if (next) {
-      pushScreen({ name: 'cards', setId: next.id })
+      const hasText = (next.texts[courseLang] ?? '').trim().length > 0
+
+      pushScreen(hasText ? { name: 'set-intro', setId: next.id } : { name: 'cards', setId: next.id })
       return
     }
 
@@ -516,7 +518,12 @@ export function CardsView({ setId }: { setId: string }) {
 
   const handleOpenSetText = () => {
     setCheckStatus(null)
-    pushScreen({ name: 'set-text', setId })
+
+    const hasText = set
+      ? Object.values(set.texts).some((text) => (text ?? '').trim().length > 0)
+      : false
+
+    pushScreen(hasText ? { name: 'set-intro', setId } : { name: 'set-text', setId })
   }
 
   const handleEditSet = () => {

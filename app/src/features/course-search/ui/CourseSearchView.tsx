@@ -77,7 +77,7 @@ export function CourseSearchView() {
   const effectiveLang = language !== userLang ? language : fallbackLang
 
   const selectedEntries = useMemo(
-    () => catalog.filter((entry) => selected.has(entry.file)),
+    () => catalog.filter((entry) => selected.has(entry.course)),
     [catalog, selected]
   )
 
@@ -141,9 +141,9 @@ export function CourseSearchView() {
               <div className={classes.list}>
                 {catalog.map((entry) => (
                   <Card
-                    key={entry.file}
+                    key={entry.course}
                     padding="m"
-                    onClick={() => courseToggled(entry.file)}
+                    onClick={() => courseToggled(entry.course)}
                   >
                     <Stack spacing="xs">
                       <Stack
@@ -152,7 +152,7 @@ export function CourseSearchView() {
                         spacing="s"
                         verticalAlign="center"
                       >
-                        <Checkbox checked={selected.has(entry.file)} />
+                        <Checkbox checked={selected.has(entry.course)} />
                         <div className={classes.title}>
                           <Text overflow="ellipsis" variant="M / Medium">
                             {entry.i18n.course[userLang] ?? entry.course} (

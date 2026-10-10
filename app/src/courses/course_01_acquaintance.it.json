@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Acquaintance",
+  "lang": "it",
+  "lessons": [
+    {
+      "name": "Nuovi vicini",
+      "tasks": [
+        {
+          "name": "Buongiorno",
+          "text": "Sono le sette del mattino. La nostra famiglia vive al quinto piano. La mamma Giulia è già in cucina. Prepara il caffè e sorride. Il papà Marco legge le notizie e beve il tè. Luca, il figlio maggiore, esce a correre al parco. Sofi disegna al tavolo. Il piccolo Matteo si sveglia per ultimo. Entra in cucina e dice: «Buongiorno a tutti!» Il cane Rocky salta e scodinzola. La gatta Micia dorme sul davanzale. «Buongiorno, Micia!» — dice Matteo. «Svegliati! La colazione è pronta!»",
+          "words": [
+            "buongiorno",
+            "svegliarsi",
+            "cucina",
+            "caffè",
+            "tè",
+            "sorridere",
+            "cane",
+            "gatta",
+            "davanzale",
+            "colazione"
+          ]
+        },
+        {
+          "name": "Ciao e arrivederci",
+          "text": "Tutto il giorno diciamo ciao e arrivederci. La mattina Matteo incontra il suo amico Leo vicino a scuola: «Ciao, Leo!» «Ciao, Matteo! Come stai?» In clinica Giulia sorride alla collega: «Buongiorno, Francesca!» Nel cantiere Marco saluta l'amico: «Ciao, Roberto! Come stai?» La sera tutta la famiglia è di nuovo a casa. «Buonasera a tutti!» — dice papà. Prima di dormire i bambini dicono: «Buonanotte, mamma! Buonanotte, papà!» Ciao e arrivederci sono parole semplici ed educate. Aprono ogni conversazione.",
+          "words": [
+            "ciao",
+            "arrivederci",
+            "buongiorno",
+            "buonasera",
+            "buonanotte",
+            "salutare",
+            "dire arrivederci",
+            "educato",
+            "conversazione",
+            "amico"
+          ]
+        },
+        {
+          "name": "Come stai?",
+          "text": "Dopo la scuola Matteo porta Rocky a passeggio nel cortile. La signora Bianchi è seduta sulla panchina. «Ciao, Matteo! Come stai?» «Sto bene, grazie! E lei?» «Non male, ma le mie gambe sono un po' stanche.» Poi un furgone bianco si ferma vicino a casa. Due uomini portano scatole e un divano. «Nuovi vicini?» — chiede Matteo. «Sì, una famiglia con due bambini. Sono dell'Inghilterra.» Matteo è curioso: «Forse c'è un bambino della mia età?» Rocky abbaia allegramente. Le persone nuove portano sempre storie nuove.",
+          "words": [
+            "Come stai?",
+            "Sto bene",
+            "grazie",
+            "non male",
+            "stanco",
+            "nuovi vicini",
+            "furgone",
+            "portare",
+            "della mia età",
+            "interessante"
+          ]
+        },
+        {
+          "name": "Benvenuti!",
+          "text": "La sera tutta la famiglia scende nel cortile. Giulia saluta un uomo alto con un maglione grigio: «Buonasera! Benvenuti nella nostra casa! Io sono Giulia.» «Buonasera! Mi chiamo Sig. Carter. Piacere!» Una donna sorridente dice: «Ciao! Sono la Sig.ra Carter, e questi sono i nostri figli, Giorgio e Emilia.» Matteo guarda il ragazzo. Ha i capelli rossi e un pallone da calcio. «Ciao! Sono Matteo. Ti aiuto con la scatola?» Giorgio ride: «Grazie! Sei molto gentile!» Emilia si nasconde dietro la madre.",
+          "words": [
+            "buonasera",
+            "benvenuto",
+            "famiglia",
+            "figlio",
+            "figlia",
+            "aiutare",
+            "scatola",
+            "gentile",
+            "nascondersi",
+            "posto nuovo"
+          ]
+        },
+        {
+          "name": "Buonanotte!",
+          "text": "A cena tutti parlano dei nuovi vicini. Sofi dice: «Emilia è timida, ma il suo libro illustrato è bellissimo». Luca dice: «La Sig.ra Carter è architetto, e il Sig. Carter insegna inglese in una scuola di lingue». «Forse ti aiuterà con la pronuncia», sorride la mamma. «Hanno vissuto in Australia», dice papà. Matteo è felice: «Domani dirò: Hello, George! What is your name?» La mamma ride: «Conosci già l'inglese!» È ora di dormire: «Buonanotte, mamma! Buonanotte, papà!» Rocky dorme vicino al suo letto e sogna il calcio.",
+          "words": [
+            "cena",
+            "timida",
+            "architetto",
+            "insegnante",
+            "aiutare",
+            "Australia",
+            "domani",
+            "buonanotte",
+            "sognare",
+            "letto"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Conosciamoci",
+      "tasks": [
+        {
+          "name": "Come ti chiami?",
+          "text": "Il sabato mattina Matteo e Leo giocano a calcio nel cortile. Un ragazzo esce dal portone. Ha i capelli rossi e un pallone sotto il braccio. «Ciao! Posso giocare con voi?» «Certo! Come ti chiami?» «Mi chiamo Giorgio. E tu?» «Sono Matteo, e lui è Leo.» «Piacere, Giorgio!» «Piacere mio!» Giorgio gioca molto bene. Dopo la partita dice: «Siete bravi giocatori! Giochiamo di nuovo domani?» I ragazzi sorridono. Adesso sono amici.",
+          "words": [
+            "Come ti chiami?",
+            "Mi chiamo...",
+            "Piacere",
+            "giocare a calcio",
+            "cortile",
+            "di nuovo",
+            "domani",
+            "sorridere",
+            "amici",
+            "bravo giocatore"
+          ]
+        },
+        {
+          "name": "Di dove sei?",
+          "text": "A casa Matteo chiede: «Giorgio, di dove sei?» «Mio padre è di Londra e mia madre è dell'Australia. Sono nato a Londra.» «Australia! Che bello! Parlate italiano a casa?» «Sì, e mia madre parla un po' di italiano. Impara ogni giorno. E tu? Di dove sei?» «Sono di Roma, sono nato qui. Non sono mai stato in Australia.» «Vieni a casa nostra per il tè! La mamma prepara un ottimo tè con il latte e fa i biscotti.» «Con piacere!»",
+          "words": [
+            "Di dove sei?",
+            "Sono di...",
+            "nato",
+            "Australia",
+            "Inghilterra",
+            "città",
+            "parlare",
+            "un po'",
+            "tè con latte",
+            "biscotti"
+          ]
+        },
+        {
+          "name": "Quanti anni hai?",
+          "text": "I ragazzi si siedono su una panchina e parlano. «Quanti anni hai, Giorgio?» «Ho dodici anni. E tu?» «Io ho dieci anni, e Leo anche. Siamo in quarta.» «Io sono in sesta. Mia sorella Emilia ha nove anni, è in terza.» «Va nella nostra scuola?» «Sì, ma è molto timida. Le piacciono i libri e disegnare.» «Mia sorella Sofi disegna molto bene! Ha quattordici anni.» «Forse diventeranno amiche!» Giorgio guarda l'orologio: «Sono le cinque. Devo andare a casa. Ciao!»",
+          "words": [
+            "Quanti anni hai?",
+            "Ho dodici anni",
+            "quarta",
+            "sesta",
+            "sorella",
+            "timida",
+            "disegno",
+            "diventare amici",
+            "orologio",
+            "andare a casa"
+          ]
+        },
+        {
+          "name": "Parlo un po' d'inglese",
+          "text": "Giorgio vuole imparare parole italiane, e Matteo studia inglese a scuola. «Di' ciao in italiano: Ciao!» — «Ciao!» — «Bravo! Ora di' amico». — «Amico!» — «Fantastico!» I ragazzi ridono e ripetono le parole. La sera Matteo racconta a Sofi: «Giorgio mi insegna l'inglese e io gli insegno l'italiano». «Conosci già parole inglesi?» — «Solo alcune. Ascolta: Hello, George! What is your name?» — «Bravissimo! Anche Emilia disegna molto bene. Ci siamo conosciuti oggi, è molto simpatica. Domenica disegneremo insieme».",
+          "words": [
+            "imparare",
+            "parola",
+            "amico",
+            "ripetere",
+            "ridere",
+            "insegnare",
+            "qualche parola",
+            "disegnare",
+            "conoscersi",
+            "insieme"
+          ]
+        },
+        {
+          "name": "Cosa fai?",
+          "text": "A cena la famiglia gioca a un gioco. La mamma dice: «Sono medico. Aiuto le persone.» Il papà dice: «Sono ingegnere. Costruisco case.» Luca dice: «Sono studente. Studio matematica e informatica.» Sofi dice: «Sono artista. Disegno quadri.» Tocca a Matteo: «Sono calciatore!» Tutti ridono. «E cosa vuoi fare da grande, Matteo?» «Il calciatore e l'addestratore di cani!» La sera Matteo scrive un messaggio a Giorgio: «Cosa fai?» La risposta arriva subito: «Sono studente e anch'io calciatore!»",
+          "words": [
+            "Cosa fai?",
+            "medico",
+            "ingegnere",
+            "studente",
+            "artista",
+            "costruire",
+            "aiutare le persone",
+            "diventare",
+            "messaggio",
+            "risposta"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tè dai Carter",
+      "tasks": [
+        {
+          "name": "Piacere di conoscervi",
+          "text": "La domenica la famiglia sale al sesto piano. La Sig.ra Carter apre la porta: «Buon pomeriggio! Entrate, prego! Fate come a casa vostra.» L'appartamento profuma di tè e biscotti. Il Sig. Carter dice: «Piacere, Giulia e Marco!» I bambini si siedono sul divano morbido. Emilia mostra a Sofi il suo libro illustrato. Giorgio e Matteo giocano con un piccolo robot. «Vi piace la nostra casa?» — chiede Emilia piano. «Sì, è molto accogliente! — dice Sofi. — E i tuoi disegni sono belli!» Emilia sorride per la prima volta.",
+          "words": [
+            "entrate",
+            "fate come a casa",
+            "profumare",
+            "tè",
+            "divano morbido",
+            "libro illustrato",
+            "robot",
+            "accogliente",
+            "bello",
+            "per la prima volta"
+          ]
+        },
+        {
+          "name": "Tè con il latte",
+          "text": "La Sig.ra Carter porta una grande teiera: «In Inghilterra beviamo il tè con il latte. Assaggiate!» Giulia prende una tazza: «Che delizioso! E questi biscotti! Li ha fatti lei?» «Sì, è la ricetta di mia nonna.» Il Sig. Carter chiede a Marco: «Ti piacciono le bici? Voglio comprarne una.» «Sì! Il sabato vado in bici con il mio amico Roberto. Posso aiutarti a scegliere.» Le donne parlano di Londra e delle sue vecchie strade. Emilia ascolta e disegna. «Oggi il tempo è bello, vero?» — dice il Sig. Carter. «Sì, molto bello!»",
+          "words": [
+            "teiera",
+            "tè con latte",
+            "assaggiare",
+            "delizioso",
+            "ricetta",
+            "bicicletta",
+            "andare in bici",
+            "scegliere",
+            "tempo",
+            "strada"
+          ]
+        },
+        {
+          "name": "Parli italiano?",
+          "text": "Il Sig. Carter dice: «Parlo un po' di russo. Ma è difficile!» Giulia sorride: «Lei parla molto bene! Da quanto tempo studia?» «Cinque anni. Adoro i pelmeni russi! A Londra non li conoscevo.» Giorgio ride: «Papà dice pelmeni ogni giorno!» La Sig.ra Carter dice: «Anch'io studio il russo. Ogni mattina leggo una pagina.» «Non è facile — dice Marco —, ma bravissimi!» Matteo sussurra a Giorgio: «Insegnami l'inglese e io ti insegno l'italiano!» «Affare fatto!» — dice Giorgio.",
+          "words": [
+            "parlare russo",
+            "difficile",
+            "studiare",
+            "da quanto tempo?",
+            "pelmeni",
+            "ogni giorno",
+            "pagina",
+            "bravissimo",
+            "sussurrare",
+            "affare fatto"
+          ]
+        },
+        {
+          "name": "Qual è il tuo numero di telefono?",
+          "text": "Dopo il tè, Luca chiede al Sig. Carter: «Potrebbe aiutarmi con l'inglese? Voglio studiare all'estero.» «Certo! Possiamo vederci il mercoledì. Annota il mio numero di telefono: cinque, tre, due, sette, uno, nove.» Luca lo scrive sul taccuino. «Ecco il mio!» Giorgio dà a Matteo un foglietto: «Il mio numero è otto, nove, uno, due, quattro. Chiamami dopo scuola!» Matteo è molto orgoglioso: «Ora ho un vero amico inglese!» I genitori sorridono e bevono il tè. Presto è ora di andare a casa.",
+          "words": [
+            "numero di telefono",
+            "aiutare con l'inglese",
+            "studiare all'estero",
+            "annotare",
+            "taccuino",
+            "numero",
+            "chiamare",
+            "dopo scuola",
+            "orgoglioso",
+            "ora di andare a casa"
+          ]
+        },
+        {
+          "name": "A presto!",
+          "text": "È tardi. La famiglia si saluta. «Grazie per il tè e i biscotti!» «Prego! Tornate presto!» La Sig.ra Carter dà a Giulia un vasetto di marmellata fatta in casa. Emilia regala a Sofi un disegno: due bambine sotto un melo. «Questa sei tu e questa sono io», dice piano. Sofi la abbraccia. Alla porta il Sig. Carter dice: «Sabato giocheremo a calcio nel cortile. Vieni, Matteo!» «Verrò! A presto, Giorgio!» «A presto!» Sulle scale Matteo dice: «Mamma, oggi è stato il giorno più bello!» «Anche per me», dice Sofi.",
+          "words": [
+            "salutarsi",
+            "grazie per...",
+            "Prego",
+            "tornate presto",
+            "marmellata",
+            "disegno",
+            "melo",
+            "abbracciare",
+            "A presto",
+            "il giorno più bello"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Amici nel cortile",
+      "tasks": [
+        {
+          "name": "Una mattina di calcio",
+          "text": "Il sabato mattina Matteo non sta fermo un minuto. Oggi Giorgio e la sua squadra giocano a calcio nel cortile! Anche Rocky lo sente e corre per l'appartamento. Alle dieci arriva l'allenatore Antonio con un fischietto e un pallone. Leo è già lì. Poi arriva Giorgio con il suo pallone rosso. «Pronti?» — chiede Antonio. «Pronti!» — gridano i ragazzi. Oggi ci sono due squadre: quella del cortile e gli ospiti. Antonio sorride: «Ricordate: il gioco è più importante della vittoria. Si comincia!»",
+          "words": [
+            "sabato mattina",
+            "squadra",
+            "allenatore",
+            "fischietto",
+            "pallone",
+            "pronti",
+            "squadra del cortile",
+            "ospiti",
+            "gioco",
+            "più importante di"
+          ]
+        },
+        {
+          "name": "Nel cortile",
+          "text": "La partita comincia. Giorgio corre veloce e passa il pallone a Matteo. Matteo quasi segna, ma il portiere prende il pallone. «Bel tiro!» — grida Giorgio. Leo gioca in difesa e non fa segnare gli ospiti. Improvvisamente Giorgio riceve il pallone, tira — e segna un gol! I ragazzi esultano. Dal balcone la gatta Micia guarda la partita: sembra un vero giudice. Sofi ed Emilia sono sedute su una panchina e disegnano i giocatori. All'intervallo il punteggio è uno a uno. La partita è combattuta!",
+          "words": [
+            "passare il pallone",
+            "segnare",
+            "portiere",
+            "prendere",
+            "tiro",
+            "difesa",
+            "gol",
+            "esultare",
+            "punteggio",
+            "uno a uno"
+          ]
+        },
+        {
+          "name": "Chiacchiere",
+          "text": "I grandi si siedono sulla panchina e guardano la partita. «Oggi il tempo è bello, vero?» — dice il Sig. Carter. «Sì, meraviglioso!» La signora Bianchi dà delle caramelle ai bambini e racconta una storia sul vecchio cortile. Marco e il Sig. Carter parlano di biciclette e del fine settimana. «In estate possiamo andare al parco in bici», dice Marco. «Ottima idea! E in autunno andremo a pescare — ride il Sig. Carter —. Porto i pelmeni!» Tutti ridono. Le chiacchiere rendono la giornata ancora più bella.",
+          "words": [
+            "chiacchiere",
+            "tempo",
+            "meraviglioso",
+            "ogni sabato",
+            "caramelle",
+            "raccontare una storia",
+            "fine settimana",
+            "andare a pescare",
+            "ridere",
+            "ancora meglio"
+          ]
+        },
+        {
+          "name": "Chi ha vinto?",
+          "text": "La partita finisce. Il punteggio è due a due: un pareggio, ma che partita! I ragazzi si stringono la mano. L'allenatore Antonio elogia tutti: «Bravi! Avete giocato come veri amici.» Papà compra il gelato per entrambe le squadre. Giorgio dice: «Sei un grande giocatore, Matteo!» «E tu un grande amico! — risponde Matteo. — Giochiamo di nuovo sabato prossimo?» «Certo!» Gli amici non contano i gol — contano i bei giorni. Oggi è stata una bellissima giornata per entrambe le squadre.",
+          "words": [
+            "pareggio",
+            "stringersi la mano",
+            "elogiare",
+            "bravi",
+            "comprare il gelato",
+            "grande giocatore",
+            "sabato prossimo",
+            "certo",
+            "contare",
+            "bella giornata"
+          ]
+        },
+        {
+          "name": "Siamo amici",
+          "text": "La sera la famiglia cena e parla della partita. Matteo racconta i gol a tutti, e papà mostra le foto dal telefono. Luca dice: «Mercoledì il Sig. Carter mi ha aiutato con la pronuncia. È un bravo insegnante!» «E io imparo con Giorgio — dice Matteo —. Ora siamo veri amici.» La mamma sorride: «I nostri nuovi vicini sono diventati parte della nostra vita.» Il papà alza la tazza: «Ai nuovi amici!» Tutti dicono: «Ai nuovi amici!» Poi Matteo va a letto con un sorriso. Gli amici rendono la vita più bella.",
+          "words": [
+            "partita",
+            "gol",
+            "foto",
+            "pronuncia",
+            "bravo insegnante",
+            "imparare",
+            "veri amici",
+            "parte della vita",
+            "Ai nuovi amici!",
+            "più bella"
+          ]
+        }
+      ]
+    }
+  ]
+}

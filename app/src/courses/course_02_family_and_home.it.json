@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Family & Home",
+  "lang": "it",
+  "lessons": [
+    {
+      "name": "La nostra famiglia",
+      "tasks": [
+        {
+          "name": "Madre e padre",
+          "text": "Questa è mia madre. Si chiama Giulia. Ha quarantadue anni. È medico e lavora in una clinica. Ogni mattina aiuta le persone. È calma e gentile, ma le piace che tutto sia perfetto. La sera legge romanzi gialli. Questo è mio padre. Si chiama Marco. Ha quarantacinque anni. È ingegnere e costruisce case grandi. È forte e divertente. Il sabato gioca a calcio con noi. I miei genitori sono molto diversi, ma sono una squadra fantastica.",
+          "words": [
+            "madre",
+            "padre",
+            "medico",
+            "ingegnere",
+            "aiutare le persone",
+            "gentile",
+            "forte",
+            "divertente",
+            "costruire case",
+            "squadra fantastica"
+          ]
+        },
+        {
+          "name": "Fratelli e sorelle",
+          "text": "Ho un fratello maggiore e una sorella maggiore. Luca ha diciassette anni. È molto intelligente e tranquillo. Studia matematica e informatica, e si alza presto per correre al parco. Sofi ha quattordici anni. È artista. La sua camera è piena di colori, e le sue mani sono spesso colorate. È sognatrice e gentile. E io sono il più piccolo: ho dieci anni. A volte litighiamo per la TV o per il bagno. Ma quando Luca mi aiuta con i compiti e Sofi disegna un poster per la mia squadra, capisco: sono i migliori.",
+          "words": [
+            "fratello maggiore",
+            "sorella maggiore",
+            "il più piccolo",
+            "intelligente",
+            "tranquillo",
+            "alzarsi presto",
+            "correre",
+            "artista",
+            "compiti",
+            "i migliori"
+          ]
+        },
+        {
+          "name": "I nonni",
+          "text": "Mia nonna Rosa vive in una piccola casa vicino alla città. Ha fatto l'insegnante per molti anni. È gentile ma un po' severa. Prepara la migliore torta di mele del mondo. Mio nonno Giuseppe era pilota. Adesso ha un'officina in garage. Ripara vecchie radio e racconta storie divertenti sul cielo. Ogni domenica andiamo da loro in treno. La nonna ci abbraccia e dice: «Mangiate di più, siete troppo magri!» Il nonno mi mostra la sua radio nuova: «Guarda, funziona!»",
+          "words": [
+            "nonna",
+            "nonno",
+            "insegnante",
+            "severa",
+            "torta di mele",
+            "pilota",
+            "officina",
+            "riparare",
+            "treno",
+            "abbracciare"
+          ]
+        },
+        {
+          "name": "Zia, zio e cugino",
+          "text": "La sera guardiamo l'album di famiglia. Questa è mia zia Elena. È la sorella minore della mamma. È giornalista e viaggia per tutto il mondo. Ci porta dei magneti da ogni paese: il frigo ne è pieno! Questo è mio zio Paolo. È professore di storia. E questo è loro figlio Ale. Ha sedici anni e gioca a basket. Ale e Luca litigano sempre: sport o scienza? Ma la sera giocano a scacchi insieme. In estate Ale viene da noi per tutta la settimana.",
+          "words": [
+            "zia",
+            "zio",
+            "cugino",
+            "giornalista",
+            "viaggiare",
+            "magnete",
+            "professore di storia",
+            "basket",
+            "scacchi",
+            "litigare"
+          ]
+        },
+        {
+          "name": "Foto di famiglia",
+          "text": "Guarda questa foto. È stata scattata al compleanno della nonna. Ci siamo tutti: i nonni al centro, mamma e papà, la zia Elena e lo zio Paolo, Ale, Luca, Sofi e io. Sorridiamo tutti. La mamma tiene la sua tazza di tè, e il papà fa una faccia buffa. La vecchia radio del nonno suona una canzone. Quando guardo questa foto, ricordo quel giorno caldo: la torta di mele, le canzoni, le risate. La nostra famiglia è grande e rumorosa, ma molto felice. Questa è casa mia.",
+          "words": [
+            "foto di famiglia",
+            "compleanno",
+            "al centro",
+            "faccia buffa",
+            "ricordo",
+            "risate",
+            "rumorosa",
+            "felice",
+            "casa",
+            "ricordare"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La nostra casa",
+      "tasks": [
+        {
+          "name": "Le stanze",
+          "text": "Il nostro appartamento è al quinto piano. Questo è il soggiorno. Qui guardiamo la TV, parliamo e giochiamo ai giochi da tavolo. Questa è la cucina: la stanza più calda della casa. Poi ci sono il bagno e la camera dei miei genitori. E questa è la mia camera! È piccola, ma mi piace. La camera di Luca è ordinata: computer, libri e navi in miniatura. Quella di Sofi è un atelier: colori, pennelli e disegni alle pareti. E c'è un balcone. La mamma coltiva i fiori, e in estate beviamo il tè guardando il parco.",
+          "words": [
+            "appartamento",
+            "piano",
+            "soggiorno",
+            "cucina",
+            "camera",
+            "ordinato",
+            "balcone",
+            "fiori",
+            "coltivare",
+            "parco"
+          ]
+        },
+        {
+          "name": "La mia camera",
+          "text": "Questa è la mia camera. Ci sono un letto, una scrivania e uno scaffale grande con i LEGO. Sul muro ho i poster dei calciatori. Il mio tappeto da calcio è sul pavimento, e il cesto di Rocky è nell'angolo. La mattina apro la finestra. La camera di Luca è accanto. Ha due monitor e una scacchiera: la sua camera è un laboratorio. La camera di Sofi profuma di colore. I suoi disegni sono ovunque: sui muri, sulla porta e anche sull'armadio. «La mia camera è il mio piccolo mondo», dice. Mi piace.",
+          "words": [
+            "camera",
+            "letto",
+            "scrivania",
+            "scaffale",
+            "poster",
+            "tappeto",
+            "angolo",
+            "finestra",
+            "scacchiera",
+            "mondo"
+          ]
+        },
+        {
+          "name": "I mobili",
+          "text": "Il sabato la nostra famiglia compra mobili nuovi. Un grande furgone porta un armadio, un tavolo e due sedie. Papà e Luca portano le scatole su. «Questo armadio è molto pesante!» — ride papà. Nella mia camera mettiamo il tavolo vicino alla finestra e la lampada sopra. Lo specchio va al muro. Adesso la mia camera sembra più grande! La sera leggo di calcio. Sofi bussa: «Posso prendere il tavolo vecchio per i miei colori?» «Certo!» La mamma dice: «Il divano vecchio resta il migliore». Siamo tutti d'accordo.",
+          "words": [
+            "mobili",
+            "armadio",
+            "tavolo",
+            "sedia",
+            "pesante",
+            "lampada",
+            "specchio",
+            "muro",
+            "divano",
+            "essere d'accordo"
+          ]
+        },
+        {
+          "name": "In cucina",
+          "text": "È mattina. La cucina profuma di caffè e pane fresco. La mamma è ai fornelli e prepara le frittelle. Il frigo è pieno: latte, formaggio, uova e mele del giardino della nonna. «Matteo, prendi i piatti e le tazze, per favore!» Li metto sul tavolo. Luca taglia il pane; Sofi versa il succo. Rocky si siede vicino al tavolo e aspetta: forse qualcuno gli darà un pezzo di frittella. Micia salta sul davanzale e ci guarda. «La nostra cucina è il cuore della casa», dice la mamma. «E la stanza più buona!», aggiungo io.",
+          "words": [
+            "profumare di caffè",
+            "pane",
+            "fornelli",
+            "frittelle",
+            "frigo",
+            "latte",
+            "formaggio",
+            "piatto",
+            "tazza",
+            "il cuore della casa"
+          ]
+        },
+        {
+          "name": "Grande o piccolo",
+          "text": "Il nostro appartamento non è molto grande. Quando ci sediamo tutti e sei a tavola, c'è rumore e poco spazio. Ma in estate il balcone rende la casa più grande. Ci sono un tavolo piccolo, due sedie e tanti fiori. Dal balcone si vedono il parco e il parco giochi. Micia adora dormire sul davanzale, vicino ai fiori. La sera tutta la famiglia beve il tè qui. «La nostra casa è piccola — dice la mamma —, ma piena d'amore.» E io penso: una casa grande va bene, ma una casa calda è meglio.",
+          "words": [
+            "grande",
+            "piccolo",
+            "affollato",
+            "vedere",
+            "parco giochi",
+            "dormire",
+            "fiori",
+            "caldo",
+            "amore",
+            "meglio"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Faccende di casa",
+      "tasks": [
+        {
+          "name": "La mattina",
+          "text": "La nostra mattina sembra un piccolo teatro. Papà si sveglia per primo e fa il caffè. Luca esce a correre e torna alle sette, fresco e contento. Sofi è la più difficile da svegliare. «Sofi, colazione!» «Ancora cinque minuti!» La mamma prepara i panini e la sua borsa è già pronta: «Il mio turno inizia alle otto.» Io porto Rocky a fare una passeggiata. La mattina è sempre felice. Alle otto l'appartamento è tranquillo, e Micia va a dormire sul divano. È l'unica della famiglia a cui piacciono i lunedì mattina!",
+          "words": [
+            "svegliarsi",
+            "fare il caffè",
+            "correre",
+            "colazione",
+            "panino",
+            "borsa",
+            "passeggiata",
+            "tranquillo",
+            "lunedì",
+            "dormire"
+          ]
+        },
+        {
+          "name": "Le faccende",
+          "text": "Il sabato puliamo la casa insieme. Ognuno ha il suo compito. Papà passa l'aspirapolvere e Luca porta fuori la spazzatura. Sofi dà da mangiare a Micia e annaffia i fiori sul balcone. La mamma lava i piatti dopo colazione. E io spolvero gli scaffali e metto in ordine i LEGO. Rocky ci aiuta: porta il suo giocattolo in bocca. «Sei un grande aiutante!» — ride papà. All'una l'appartamento è pulito e profuma di limone. La mamma si guarda intorno: «Ora possiamo pranzare. Avete fatto un ottimo lavoro!»",
+          "words": [
+            "faccende",
+            "passare l'aspirapolvere",
+            "portare fuori la spazzatura",
+            "dare da mangiare alla gatta",
+            "annaffiare i fiori",
+            "lavare i piatti",
+            "spolverare",
+            "mettere in ordine",
+            "aiutante",
+            "limone"
+          ]
+        },
+        {
+          "name": "Cucinare insieme",
+          "text": "La sera cuciniamo la cena insieme. È la nostra tradizione: il sabato ognuno prepara un piatto. La mamma fa la zuppa con le verdure, e Luca taglia l'insalata. Io aiuto papà con la pasta. Sofi prepara una torta di mele per dessert; la cucina profuma deliziosamente. Micia si siede sul davanzale e ci guarda come un giudice. Ci sediamo a tavola, papà dice: «Buon appetito!» e mangiamo. La nostra cena è semplice, ma deliziosa: l'abbiamo preparata insieme.",
+          "words": [
+            "cucinare insieme",
+            "zuppa",
+            "verdure",
+            "insalata",
+            "pasta",
+            "infornare",
+            "torta",
+            "dessert",
+            "delizioso",
+            "Buon appetito!"
+          ]
+        },
+        {
+          "name": "La sera a casa",
+          "text": "Dopo cena arriva il mio momento preferito. Andiamo in soggiorno. Papà accende la TV: «Comincia il calcio!» La mamma sospira: «Ma la mia serie è alle nove!» Luca dice: «E il mio film sullo spazio!» Alla fine giochiamo a un gioco da tavolo, e la TV resta spenta. Rocky mette la testa sul ginocchio di papà, Micia si siede sulla sedia della mamma. Sofi disegna il nostro campionato di famiglia e lo appende al frigo. Alle dieci tutti vanno nelle loro camere. «Buonanotte, la mia squadra preferita!» — dice la mamma.",
+          "words": [
+            "accendere la TV",
+            "calcio",
+            "serie",
+            "film",
+            "gioco da tavolo",
+            "campionato",
+            "frigo",
+            "appendere",
+            "momento preferito",
+            "squadra"
+          ]
+        },
+        {
+          "name": "Gli animali a casa",
+          "text": "I nostri animali sono parte della famiglia. Micia ha tre anni. Sofi l'ha trovata nel cortile quando era una gattina piccolissima. Ora Micia ha una vita da regina: dorme sul davanzale o sulla sedia di Luca. Rocky ha un anno. L'abbiamo preso dal rifugio l'inverno scorso. Adora le palle e il calcio. Ogni mattina lo addestro: «Siedi! Dammi la zampa! Riporta!» Conosce cinque comandi. Rocky e Micia sono amici — beh, quasi. Micia pensa di essere lei il capo. E forse ha ragione!",
+          "words": [
+            "animale",
+            "gatta",
+            "cane",
+            "gattina",
+            "rifugio",
+            "palla",
+            "zampa",
+            "comando",
+            "addestrare",
+            "capo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Domenica dalla nonna",
+      "tasks": [
+        {
+          "name": "La strada per la nonna",
+          "text": "La domenica mattina andiamo alla stazione. Il treno per il paese della nonna parte alle nove. Compriamo i biglietti e cerchiamo i nostri posti. Sofi disegna la vecchia stazione. Luca legge un libro sui computer. Io guardo fuori dal finestrino: prima la città, poi campi verdi e case piccole. Il viaggio dura quaranta minuti. Il nonno ci aspetta sul binario. «Ciao, miei cari piloti!» — ride. Per strada passiamo un meleto e un piccolo fiume. Siamo quasi arrivati!",
+          "words": [
+            "stazione",
+            "treno",
+            "biglietto",
+            "posto",
+            "campo",
+            "viaggio",
+            "binario",
+            "fiume",
+            "quasi arrivati",
+            "paese"
+          ]
+        },
+        {
+          "name": "L'officina del nonno",
+          "text": "Dopo pranzo il nonno mi invita nella sua officina in garage. C'è odore di legno, olio e vecchio tempo. Ci sono scatole di viti, attrezzi al muro e vecchie radio sul tavolo. «Questa era nel mio aereo», dice il nonno. «Funziona?» «Non ancora, ma la ripareremo.» Prendiamo gli attrezzi e apriamo la radio. Il nonno mi parla del cielo e dei suoi voli. Improvvisamente la radio fa un suono: musica! «Funziona!» — grido. Il nonno sorride: «Sei un vero ingegnere, ragazzo mio.»",
+          "words": [
+            "officina",
+            "garage",
+            "vite",
+            "attrezzo",
+            "radio",
+            "aereo",
+            "riparare",
+            "suono",
+            "musica",
+            "ingegnere"
+          ]
+        },
+        {
+          "name": "In giardino",
+          "text": "Il giardino della nonna è un regno verde. Meli, aiuole con margherite e tulipani, e arnie di legno vicino al recinto. In autunno raccogliamo le mele: la nonna tiene il cesto, Sofi sale sulla scala piccola e io prendo le mele. Rocky corre tra gli alberi con un bastone: pensa di aiutare. Papà e il nonno si siedono sulla panchina sotto il grande albero e parlano di pesca. La mamma e la nonna fanno progetti per l'inverno: marmellata di mele, torte, composta. Adoro questi pomeriggi tranquilli.",
+          "words": [
+            "giardino",
+            "melo",
+            "aiuola",
+            "margherita",
+            "tulipano",
+            "arnia",
+            "raccogliere mele",
+            "cesto",
+            "scala",
+            "recinto"
+          ]
+        },
+        {
+          "name": "La torta della nonna",
+          "text": "Alle quattro la nonna chiama: «A tavola tutti!» La cucina profuma di cannella e mele. Al centro del tavolo c'è la sua famosa torta di mele: grande, dorata e calda. «Rosa, questo è un capolavoro!» — dice papà. La nonna sorride: «Mangiate, mangiate! L'ho preparata per voi.» Beviamo il tè con il latte: l'abitudine del nonno dai tempi dei suoi voli. Luca parla della scuola, Sofi mostra i suoi disegni, e io racconto la nostra partita. «Il tuo inglese migliora», dice la mamma. Poi la nonna canta vecchie canzoni.",
+          "words": [
+            "torta",
+            "cannella",
+            "dorata",
+            "capolavoro",
+            "infornare",
+            "abitudine",
+            "partita",
+            "disegni",
+            "canzone",
+            "cantare"
+          ]
+        },
+        {
+          "name": "Il ritorno a casa",
+          "text": "La sera ci salutiamo. La nonna mette mele, marmellata e un pezzo di torta nelle nostre borse. «Tornate domenica prossima, promesso!» Il nonno mi dà la sua vecchia bussola: «Per il futuro pilota». Sul binario salutiamo i nonni con la mano finché il treno parte. Sofi si addormenta sulla spalla della mamma. Luca ascolta la musica; io tengo la bussola e guardo i campi scuri. «Mamma, perché la nonna ci aspetta sempre?» «Perché la famiglia è la cosa più importante del mondo — dice la mamma —. E perché vi vuole molto bene.»",
+          "words": [
+            "salutarsi",
+            "promettere",
+            "bussola",
+            "pilota",
+            "salutare con la mano",
+            "addormentarsi",
+            "spalla",
+            "scuro",
+            "importante",
+            "voler bene"
+          ]
+        }
+      ]
+    }
+  ]
+}

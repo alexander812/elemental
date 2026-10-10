@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Family & Home",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "Nuestra familia",
+      "tasks": [
+        {
+          "name": "Madre y padre",
+          "text": "Esta es mi madre. Se llama Carmen. Tiene cuarenta y dos años. Es médica y trabaja en una clínica. Cada mañana ayuda a la gente. Es tranquila y amable, pero le gusta que todo sea perfecto. Por la noche lee novelas policíacas. Este es mi padre. Se llama Carlos. Tiene cuarenta y cinco años. Es ingeniero y construye casas grandes. Es fuerte y divertido. Los sábados juega al fútbol con nosotros. Mis padres son muy diferentes, pero son un gran equipo.",
+          "words": [
+            "madre",
+            "padre",
+            "médica",
+            "ingeniero",
+            "ayudar a la gente",
+            "amable",
+            "fuerte",
+            "divertido",
+            "construir casas",
+            "gran equipo"
+          ]
+        },
+        {
+          "name": "Hermanos y hermanas",
+          "text": "Tengo un hermano mayor y una hermana mayor. Javi tiene diecisiete años. Es muy inteligente y callado. Estudia matemáticas e informática, y se levanta temprano para correr en el parque. Luci tiene catorce años. Es artista. Su habitación está llena de pinturas, y sus manos casi siempre tienen color. Es soñadora y amable. Y yo soy el más pequeño: tengo diez años. A veces discutimos por la tele o por el baño. Pero cuando Javi me ayuda con los deberes y Luci dibuja un cartel para mi equipo, entiendo: son los mejores.",
+          "words": [
+            "hermano mayor",
+            "hermana mayor",
+            "el más pequeño",
+            "inteligente",
+            "callado",
+            "levantarse temprano",
+            "correr",
+            "artista",
+            "deberes",
+            "los mejores"
+          ]
+        },
+        {
+          "name": "Los abuelos",
+          "text": "Mi abuela Pilar vive en una casa pequeña cerca de la ciudad. Trabajó como maestra muchos años. Es amable, pero un poco estricta. Hace la mejor tarta de manzana del mundo. Mi abuelo Antonio era piloto. Ahora tiene un taller en el garaje. Repara radios viejas y cuenta historias divertidas sobre el cielo. Cada domingo vamos a su casa en tren. La abuela nos abraza y dice: «¡Comed más, estáis muy delgados!» El abuelo me enseña su radio nueva: «¡Mira, funciona!»",
+          "words": [
+            "abuela",
+            "abuelo",
+            "maestra",
+            "estricta",
+            "tarta de manzana",
+            "piloto",
+            "taller",
+            "reparar",
+            "tren",
+            "abrazar"
+          ]
+        },
+        {
+          "name": "Tía, tío y primo",
+          "text": "Por la noche miramos el álbum de familia. Esta es mi tía Isa. Es la hermana pequeña de mamá. Es periodista y viaja por todo el mundo. Nos trae imanes de cada país: ¡la nevera está llena! Este es mi tío Miki. Es profesor de historia. Y este es su hijo Dieguito. Tiene dieciséis años y juega al baloncesto. Dieguito y Javi siempre discuten: ¿deporte o ciencia? Pero por la noche juegan al ajedrez juntos. En verano Dieguito viene a casa toda una semana.",
+          "words": [
+            "tía",
+            "tío",
+            "primo",
+            "periodista",
+            "viajar",
+            "imán",
+            "profesor de historia",
+            "baloncesto",
+            "ajedrez",
+            "discutir"
+          ]
+        },
+        {
+          "name": "Foto de familia",
+          "text": "Mira esta foto. Está hecha en el cumpleaños de la abuela. Estamos todos: los abuelos en el medio, mamá y papá, la tía Isa y el tío Miki, Dieguito, Javi, Luci y yo. Todos sonreímos. Mamá tiene su taza de té, y papá pone una cara divertida. La radio vieja del abuelo toca una canción. Cuando miro esta foto, recuerdo aquel día cálido: la tarta de manzana, las canciones, las risas. Nuestra familia es grande y ruidosa, pero muy feliz. Este es mi hogar.",
+          "words": [
+            "foto de familia",
+            "cumpleaños",
+            "en el medio",
+            "cara divertida",
+            "recuerdo",
+            "risas",
+            "ruidosa",
+            "feliz",
+            "hogar",
+            "recordar"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nuestra casa",
+      "tasks": [
+        {
+          "name": "Las habitaciones",
+          "text": "Nuestro piso está en el quinto. Esta es la sala. Aquí vemos la tele, hablamos y jugamos a juegos de mesa. Esta es la cocina: el lugar más cálido de la casa. También tenemos un baño y el dormitorio de mis padres. ¡Y esta es mi habitación! Es pequeña, pero me gusta. La habitación de Javi está ordenada: ordenador, libros y barcos de maqueta. La de Luci es un estudio de arte: pinturas, pinceles y dibujos en las paredes. Y hay un balcón. Mamá cultiva flores, y en verano tomamos té mirando al parque.",
+          "words": [
+            "piso",
+            "planta",
+            "sala",
+            "cocina",
+            "habitación",
+            "ordenado",
+            "balcón",
+            "flores",
+            "cultivar",
+            "parque"
+          ]
+        },
+        {
+          "name": "Mi habitación",
+          "text": "Esta es mi habitación. Hay una cama, un escritorio y una estantería grande con LEGO. En la pared tengo pósteres de futbolistas. Mi alfombra de fútbol está en el suelo, y la cesta de Toby, en el rincón. Por la mañana abro la ventana. La habitación de Javi está al lado. Tiene dos monitores y un tablero de ajedrez: su cuarto es un laboratorio. El cuarto de Luci huele a pintura. Sus dibujos están por todas partes: en las paredes, en la puerta y hasta en el armario. «Mi cuarto es mi pequeño mundo», dice ella. Me gusta.",
+          "words": [
+            "habitación",
+            "cama",
+            "escritorio",
+            "estantería",
+            "póster",
+            "alfombra",
+            "rincón",
+            "ventana",
+            "tablero de ajedrez",
+            "mundo"
+          ]
+        },
+        {
+          "name": "Los muebles",
+          "text": "El sábado nuestra familia compra muebles nuevos. Una furgoneta grande trae un armario, una mesa y dos sillas. Papá y Javi suben las cajas. «¡Este armario pesa mucho!» — se ríe papá. En mi habitación ponemos la mesa junto a la ventana y la lámpara encima. El espejo va a la pared. ¡Ahora mi cuarto parece más grande! Por la noche me siento en mi silla y leo sobre fútbol. Luci llama: «¿Puedo coger la mesa vieja para mis pinturas?» «¡Claro!» Mamá dice: «El sofá viejo sigue siendo el mejor». Todos estamos de acuerdo.",
+          "words": [
+            "muebles",
+            "armario",
+            "mesa",
+            "silla",
+            "pesado",
+            "lámpara",
+            "espejo",
+            "pared",
+            "sofá",
+            "estar de acuerdo"
+          ]
+        },
+        {
+          "name": "En la cocina",
+          "text": "Es por la mañana. La cocina huele a café y pan recién hecho. Mamá está en los fogones y prepara tortitas. La nevera está llena: leche, queso, huevos y manzanas del jardín de la abuela. «¡Pablito, coge los platos y las tazas, por favor!» Los pongo en la mesa. Javi corta el pan; Luci sirve el zumo. Toby se sienta junto a la mesa y espera: quizá alguien le dé un trozo de tortita. Luna salta al alféizar y nos observa. «Nuestra cocina es el corazón de la casa», dice mamá. «¡Y la habitación más rica!», añado yo.",
+          "words": [
+            "oler a café",
+            "pan",
+            "fogones",
+            "tortitas",
+            "nevera",
+            "leche",
+            "queso",
+            "plato",
+            "taza",
+            "el corazón de la casa"
+          ]
+        },
+        {
+          "name": "Grande o pequeño",
+          "text": "Nuestro piso no es muy grande. Cuando los seis nos sentamos a la mesa, hay ruido y poco espacio. Pero en verano el balcón hace nuestra casa más grande. Allí hay una mesa pequeña, dos sillas y muchas flores. Desde el balcón se ven el parque y el parque infantil. Luna adora dormir en el alféizar, junto a las flores. Por la noche toda la familia toma té aquí. «Nuestra casa es pequeña — dice mamá —, pero está llena de amor.» Y yo pienso: una casa grande está bien, pero un hogar cálido es mejor.",
+          "words": [
+            "grande",
+            "pequeño",
+            "lleno de gente",
+            "ver",
+            "parque infantil",
+            "dormir",
+            "flores",
+            "cálido",
+            "amor",
+            "mejor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tareas de casa",
+      "tasks": [
+        {
+          "name": "La rutina de la mañana",
+          "text": "Nuestra mañana es como un pequeño teatro. Papá se despierta primero y hace café. Javi sale a correr y vuelve a las siete, fresco y contento. A Luci es la que más cuesta despertar. «¡Luci, el desayuno!» «¡Cinco minutos más!» Mamá prepara bocadillos y su bolso ya está listo: «Mi turno empieza a las ocho.» Yo saco a Toby a pasear. Por la mañana siempre está contento. A las ocho el piso se queda tranquilo, y Luna se va a dormir al sofá. ¡Es la única de la familia a la que le gustan los lunes por la mañana!",
+          "words": [
+            "despertarse",
+            "hacer café",
+            "correr",
+            "desayuno",
+            "bocadillo",
+            "bolso",
+            "paseo",
+            "tranquilo",
+            "lunes",
+            "dormir"
+          ]
+        },
+        {
+          "name": "Tareas domésticas",
+          "text": "El sábado limpiamos la casa juntos. Cada uno tiene su tarea. Papá aspira las habitaciones y Javi saca la basura. Luci da de comer a Luna y riega las flores del balcón. Mamá lava los platos después del desayuno. Y yo quito el polvo de las estanterías y pongo mis LEGO en orden. Toby nos ayuda: lleva su juguete en la boca. «¡Eres un gran ayudante!» — se ríe papá. A la una el piso está limpio y huele a limón. Mamá mira alrededor: «Ahora podemos comer. ¡Lo habéis hecho muy bien!»",
+          "words": [
+            "tareas de casa",
+            "aspirar",
+            "sacar la basura",
+            "dar de comer a la gata",
+            "regar las flores",
+            "lavar los platos",
+            "quitar el polvo",
+            "poner en orden",
+            "ayudante",
+            "limón"
+          ]
+        },
+        {
+          "name": "Cocinamos juntos",
+          "text": "Por la tarde cocinamos la cena juntos. Es nuestra tradición: los sábados cada uno prepara un plato. Mamá hace sopa con verduras y Javi corta la ensalada. Yo ayudo a papá con la pasta. Luci hornea una tarta de manzana de postre; la cocina huele delicioso. Luna se sienta en el alféizar y nos mira como un juez. Nos sentamos a la mesa, papá dice: «¡Que aproveche!» y comemos. Nuestra cena es sencilla, pero deliciosa: la hemos hecho juntos.",
+          "words": [
+            "cocinar juntos",
+            "sopa",
+            "verduras",
+            "ensalada",
+            "pasta",
+            "hornear",
+            "tarta",
+            "postre",
+            "delicioso",
+            "¡Que aproveche!"
+          ]
+        },
+        {
+          "name": "La noche en casa",
+          "text": "Después de cenar llega mi momento favorito. Vamos a la sala. Papá enciende la tele: «¡Empieza el fútbol!» Mamá suspira: «¡Pero mi serie es a las nueve!» Javi dice: «¡Y mi película sobre el espacio!» Al final jugamos a un juego de mesa, y la tele se queda apagada. Toby apoya la cabeza en la rodilla de papá, Luna se sienta en la silla de mamá. Luci dibuja nuestro campeonato familiar y lo cuelga en la nevera. A las diez todos se van a sus cuartos. «¡Buenas noches, mi equipo favorito!» — dice mamá.",
+          "words": [
+            "encender la tele",
+            "fútbol",
+            "serie",
+            "película",
+            "juego de mesa",
+            "campeonato",
+            "nevera",
+            "colgar",
+            "momento favorito",
+            "equipo"
+          ]
+        },
+        {
+          "name": "Las mascotas en casa",
+          "text": "Nuestras mascotas son parte de la familia. Luna tiene tres años. Luci la encontró en el patio cuando era una gatita pequeña. Ahora Luna tiene una vida de reina: duerme en el alféizar o en la silla de Javi. Toby tiene un año. Lo adoptamos en un refugio el invierno pasado. Le encantan las pelotas y el fútbol. Cada mañana lo entreno: «¡Siéntate! ¡Dame la pata! ¡Busca!» Sabe cinco órdenes. Toby y Luna son amigos... casi. Luna cree que ella es la jefa. ¡Y quizá tenga razón!",
+          "words": [
+            "mascota",
+            "gata",
+            "perro",
+            "gatita",
+            "refugio",
+            "pelota",
+            "pata",
+            "orden",
+            "entrenar",
+            "jefa"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Domingo en casa de la abuela",
+      "tasks": [
+        {
+          "name": "El camino a casa de la abuela",
+          "text": "El domingo por la mañana vamos a la estación de tren. El tren al pueblo de la abuela sale a las nueve. Compramos los billetes y buscamos nuestros asientos. Luci dibuja la estación vieja. Javi lee un libro sobre ordenadores. Yo miro por la ventana: primero la ciudad, luego campos verdes y casas pequeñas. El viaje dura cuarenta minutos. El abuelo nos espera en el andén. «¡Hola, mis queridos pilotos!» — se ríe. Por el camino pasamos un manzanar y un río pequeño. ¡Casi hemos llegado!",
+          "words": [
+            "estación de tren",
+            "tren",
+            "billete",
+            "asiento",
+            "campo",
+            "viaje",
+            "andén",
+            "río",
+            "casi llegamos",
+            "pueblo"
+          ]
+        },
+        {
+          "name": "El taller del abuelo",
+          "text": "Después de comer, el abuelo me invita a su taller en el garaje. Huele a madera, aceite y tiempo viejo. Hay cajas con tornillos, herramientas en la pared y radios viejas en la mesa. «Esta estaba en mi avión», dice el abuelo. «¿Funciona?» «Todavía no, pero la vamos a reparar.» Cogemos las herramientas y abrimos la radio. El abuelo me habla del cielo y de sus vuelos. De repente la radio hace un sonido: ¡música! «¡Funciona!» — grito. El abuelo sonríe: «Eres un verdadero ingeniero, chico.»",
+          "words": [
+            "taller",
+            "garaje",
+            "tornillo",
+            "herramienta",
+            "radio",
+            "avión",
+            "reparar",
+            "sonido",
+            "música",
+            "ingeniero"
+          ]
+        },
+        {
+          "name": "En el jardín",
+          "text": "El jardín de la abuela es un reino verde. Manzanos, arriates con margaritas y tulipanes, y colmenas de madera junto a la valla. En otoño recogemos manzanas: la abuela sostiene la cesta, Luci sube a la escalera pequeña y yo atrapo las manzanas. Toby corre entre los árboles con un palo: cree que ayuda. Papá y el abuelo se sientan en el banco bajo el árbol grande y hablan de pesca. Mamá y la abuela hacen planes para el invierno: mermelada de manzana, tartas, compota. Me encantan estas tardes tranquilas.",
+          "words": [
+            "jardín",
+            "manzano",
+            "arriate",
+            "margarita",
+            "tulipán",
+            "colmena",
+            "recoger manzanas",
+            "cesta",
+            "escalera",
+            "valla"
+          ]
+        },
+        {
+          "name": "La tarta de la abuela",
+          "text": "A las cuatro la abuela llama: «¡Todos a la mesa!» La cocina huele a canela y manzanas. En el centro de la mesa está su famosa tarta de manzana: grande, dorada y caliente. «Pilar, ¡esto es una obra maestra!» — dice papá. La abuela sonríe: «¡Comed, comed! La hice para vosotros». Tomamos té con leche: la costumbre del abuelo de sus vuelos. Javi habla del colegio, Luci enseña sus dibujos, y yo cuento lo de nuestro partido. «Tu inglés va mejorando», dice mamá. Luego la abuela canta canciones viejas.",
+          "words": [
+            "tarta",
+            "canela",
+            "dorada",
+            "obra maestra",
+            "hornear",
+            "costumbre",
+            "partido",
+            "dibujos",
+            "canción",
+            "cantar"
+          ]
+        },
+        {
+          "name": "De vuelta a casa",
+          "text": "Por la tarde nos despedimos. La abuela nos da manzanas, mermelada y un trozo de tarta. «¡Venid el domingo que viene, prometido!» El abuelo me da su brújula vieja: «Para el futuro piloto». En el andén saludamos a los abuelos con la mano hasta que el tren arranca. Luci se queda dormida en el hombro de mamá. Javi escucha música; yo sostengo la brújula y miro los campos oscuros. «Mamá, ¿por qué la abuela siempre nos espera?» «Porque la familia es lo más importante del mundo — dice mamá —. Y porque os quiere mucho.»",
+          "words": [
+            "despedirse",
+            "prometer",
+            "brújula",
+            "piloto",
+            "saludar con la mano",
+            "quedarse dormido",
+            "hombro",
+            "oscuro",
+            "importante",
+            "querer"
+          ]
+        }
+      ]
+    }
+  ]
+}

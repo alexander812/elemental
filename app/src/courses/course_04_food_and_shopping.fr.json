@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Food & Shopping",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "Au marché",
+      "tasks": [
+        {
+          "name": "Samedi matin",
+          "text": "Le samedi matin, papa réveille Hugo tôt : « Lève-toi, mon assistant ! Aujourd'hui, on va au marché. » Hugo aime cette tradition. Ils prennent deux grands sacs et sortent. En chemin, ils rencontrent M. Carter et Georges. Georges n'a jamais vu un vrai marché — à Londres, il allait au supermarché. Aujourd'hui, il verra un endroit très différent ! À l'entrée, il y a des fleurs, des baies et beaucoup de gens. Ça sent le pain frais et les herbes. Venez, notre vendeur nous attend !",
+          "words": [
+            "marché",
+            "assistant",
+            "sac",
+            "tradition",
+            "supermarché",
+            "fleurs",
+            "baies",
+            "odeur",
+            "pain",
+            "vendeur"
+          ]
+        },
+        {
+          "name": "Chez Monsieur Dupont",
+          "text": "Monsieur Dupont attend déjà à son étal. « Bonjour, Pierre ! Bonjour, petit capitaine ! », dit-il à Hugo. Aujourd'hui, il a un poisson magnifique : du hareng, de la morue et du saumon. Papa choisit un grand poisson pour le dîner. Monsieur Dupont demande : « Et qui est ce jeune homme ? » Georges répond : « Je suis Georges, un ami d'Angleterre. » Monsieur Dupont rit : « L'Angleterre ! Bienvenue à notre marché ! » Papa paie, et le vendeur donne une pomme à chaque garçon. Ce marché est le plus sympathique de la ville !",
+          "words": [
+            "étal",
+            "poisson",
+            "hareng",
+            "morue",
+            "saumon",
+            "choisir",
+            "payer",
+            "pomme",
+            "sympathique",
+            "jeune homme"
+          ]
+        },
+        {
+          "name": "Légumes et fruits",
+          "text": "Ensuite, ils vont aux étals suivants. La liste de maman est longue : des pommes de terre, des tomates, des carottes, des concombres et des oignons. Papa prend du raisin et des prunes. Hugo voit un étal avec du miel et demande : « On peut acheter du miel pour le thé ? » M. Carter achète du fromage et du lait frais. Georges regarde tout et dit : « Ici, on peut tout voir, sentir et choisir. Au supermarché, tout est dans des boîtes ! » Hugo lui apprend : « On dit kilo et demi-kilo — c'est la langue des nombres du marché. »",
+          "words": [
+            "pommes de terre",
+            "tomates",
+            "carottes",
+            "concombres",
+            "oignons",
+            "raisin",
+            "prunes",
+            "miel",
+            "kilo",
+            "demi-kilo"
+          ]
+        },
+        {
+          "name": "Combien ça coûte ?",
+          "text": "À un étal, Hugo voit de belles baies. « Combien ça coûte ? », demande-t-il. Le vendeur répond : « Dix pièces pour une boîte. » Hugo compte son argent : un, deux, trois... dix ! Il donne les pièces soigneusement et prend la boîte : une surprise pour maman. Puis papa lui montre d'autres billets : « Cette pièce, c'est un, ce billet, c'est dix, et celui-ci, cinquante. » « L'argent aime être compté », sourit papa. Hugo est d'accord : « Maintenant, je sais ! Faire les courses est une vraie école des nombres. »",
+          "words": [
+            "combien ça coûte ?",
+            "prix",
+            "pièce",
+            "billet",
+            "argent",
+            "compter",
+            "boîte de baies",
+            "donner",
+            "surprise",
+            "nombres"
+          ]
+        },
+        {
+          "name": "Le retour à la maison",
+          "text": "Les sacs sont lourds, mais le chemin du retour est joyeux. Georges aide et porte un sac. En route, ils parlent de nourriture : le poisson ou la pizza ? Georges dit : « Le poisson, bien sûr ! » À la maison, maman ouvre les sacs : « Des légumes frais, du poisson et du miel ! Et voici ma surprise : des baies ! » Hugo dit fièrement : « Je les ai achetées moi-même. » Maman le serre dans ses bras : « Merci, mon chéri ! » Le soir, la famille mange une soupe aux légumes, et Georges dit : « Votre marché est le meilleur ! »",
+          "words": [
+            "lourd",
+            "sac de pommes de terre",
+            "meilleur",
+            "poisson ou pizza",
+            "ouvrir",
+            "surprise",
+            "acheter",
+            "fièrement",
+            "soupe",
+            "le meilleur"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Au supermarché",
+      "tasks": [
+        {
+          "name": "La liste de courses",
+          "text": "Le soir, papa regarde dans le frigo et dit : « On n'a rien pour le dîner ! » Maman prend une feuille et écrit la liste de courses. Chacun ajoute quelque chose : maman — du lait et du fromage, Lucas — des pâtes, Léa — des fruits et du yaourt, et Hugo — du pain et du chocolat, pour la bonne humeur. Puis Minette se couche juste sur la liste. Rex regarde le papier et veut le manger. Papa sauve la liste juste à temps : « Faire les courses avec cette famille, ce n'est pas facile ! Demain, on achètera tout. »",
+          "words": [
+            "frigo",
+            "liste de courses",
+            "feuille",
+            "ajouter",
+            "lait",
+            "pâtes",
+            "yaourt",
+            "chocolat",
+            "bonne humeur",
+            "acheter"
+          ]
+        },
+        {
+          "name": "Caddies et rayons",
+          "text": "Le mardi, la famille va au supermarché. Hugo prend un grand caddie. Il y a beaucoup de rayons : boissons, viande, poisson, laitages, pain et légumes. Léa lit les noms et aide maman : « Le lait est ici, au rayon laitier. » Lucas regarde les pâtes et choisit les plus longues. Hugo veut mettre des chips dans le caddie, mais maman dit : « Pas de chips aujourd'hui, on a une liste. » Puis elle lui donne une mission : « Trouve six œufs. » Hugo les trouve vite et il est très fier. Le caddie est presque plein.",
+          "words": [
+            "caddie",
+            "rayon",
+            "boissons",
+            "viande",
+            "laitages",
+            "lire",
+            "trouver",
+            "œufs",
+            "chips",
+            "plein"
+          ]
+        },
+        {
+          "name": "À la caisse",
+          "text": "À la caisse, il y a une queue. La caissière scanne la nourriture : lait, fromage, pâtes, pain, œufs, fruits, chocolat... Les prix sur l'écran montent. Papa paie par carte. Puis il reçoit un long ticket. Hugo le regarde : « Tant de nombres ! » Léa vérifie le ticket : « Tout est correct. » Rex et Minette le sentent : quelque chose de bon arrive ! La caissière sourit : « Bonne journée ! » Papa prend les sacs lourds, et la famille rentre. En chemin, Hugo dit : « Faire les courses, c'est comme un sport ! »",
+          "words": [
+            "caisse",
+            "queue",
+            "caissière",
+            "scanner",
+            "écran",
+            "payer",
+            "carte",
+            "ticket",
+            "sac lourd",
+            "sport"
+          ]
+        },
+        {
+          "name": "On range les courses",
+          "text": "À la maison, tous vident les sacs. Maman met le lait, le fromage et le yaourt dans le frigo : « Ce sont des choses froides. » Léa met les pâtes et le pain dans le placard : « Et ça, ce sont des choses sèches. » Lucas lave les tomates, et Hugo cherche le chocolat... Il le trouve et demande : « Je peux manger un morceau ? » « Juste un », dit maman. Les sacs deviennent vides, la cuisine pleine. Papa dit : « Maintenant, nous avons à manger pour toute la semaine ! » Puis la famille boit le thé. Rex aussi reçoit un petit morceau !",
+          "words": [
+            "vider les sacs",
+            "frigo",
+            "choses froides",
+            "placard",
+            "choses sèches",
+            "laver",
+            "vide",
+            "plein",
+            "morceau",
+            "toute la semaine"
+          ]
+        },
+        {
+          "name": "Le dîner selon la liste",
+          "text": "Le soir, la famille prépare le dîner selon la liste de courses. Lucas fait des pâtes au fromage et aux tomates — c'est son jour. Léa coupe des fruits pour une salade. Hugo met la table et pose le pain dans un panier. Maman aide et rit : « Maintenant, vous êtes une vraie équipe de cuisiniers ! » Papa goûte les pâtes : « Délicieux ! » Lucas est fier : « C'est ma recette préférée. » Puis tout le monde mange et parle de la journée. Les meilleurs dîners sont ceux qu'on prépare avec une liste simple.",
+          "words": [
+            "préparer le dîner",
+            "pâtes au fromage",
+            "tomates",
+            "salade de fruits",
+            "panier",
+            "goûter",
+            "délicieux",
+            "recette",
+            "être fier",
+            "équipe de cuisiniers"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "On prépare des pelmenis avec les Carter",
+      "tasks": [
+        {
+          "name": "L'invitation",
+          "text": "M. Carter descend et dit : « J'adore les pelmenis ! Pouvez-vous nous apprendre à les cuisiner ? » Maman rit : « Avec plaisir ! » Le samedi, les Carter arrivent avec farine et viande. Maman donne un tablier à chacun. Émilie reçoit un petit rouleau. Georges demande : « C'est difficile ? » Maman répond : « Non, mais il faut beaucoup de mains. » La cuisine devient bruyante et joyeuse. M. Carter écrit des mots nouveaux : farine, pâte, étaler, farce. Il dit : « Les pelmenis sont ma leçon préférée ! »",
+          "words": [
+            "apprendre",
+            "tablier",
+            "rouleau",
+            "difficile",
+            "farine",
+            "pâte",
+            "farce",
+            "étaler",
+            "carnet",
+            "préféré"
+          ]
+        },
+        {
+          "name": "La pâte et la farce",
+          "text": "D'abord la pâte. Maman met de la farine, de l'eau, un œuf et du sel dans un grand bol. Émilie mélange avec une cuillère, Georges avec ses mains — il a les mains blanches. Ensuite la farce : de la viande, de l'oignon et un peu de poivre. Papa prépare la farce et rit : « Le secret, c'est de ne pas pleurer à cause de l'oignon ! » Léa étale la pâte en un grand cercle fin. Lucas la coupe en petits cercles. M. Carter essaie, mais ses cercles ne sont pas ronds. Peu importe : le goût compte plus que la forme.",
+          "words": [
+            "pâte",
+            "farine",
+            "œuf",
+            "sel",
+            "bol",
+            "mélanger",
+            "viande",
+            "oignon",
+            "étaler",
+            "fin"
+          ]
+        },
+        {
+          "name": "Beaucoup de mains",
+          "text": "La partie la plus intéressante : chacun fait des pelmenis. Maman montre : un cercle de pâte, de la farce au milieu, puis les bords ensemble — et voilà un petit chapeau ! Léa fait des pelmenis grands et petits. Émilie est très soigneuse : ses pelmenis sont petits et nets. Georges fait un énorme pelmeni — il dit que c'est pour papa. Hugo fait des formes drôles : une étoile, un cœur et même un poisson. M. Carter compte : « Un, deux, trois... cinquante ! » Cinquante pelmenis et huit mains. Et un nez blanc — celui d'Émilie !",
+          "words": [
+            "farce",
+            "bords",
+            "chapeau",
+            "soigneuse",
+            "énorme",
+            "forme",
+            "cœur",
+            "compter",
+            "nez",
+            "mains"
+          ]
+        },
+        {
+          "name": "À table !",
+          "text": "Maman fait cuire les pelmenis dans une grande casserole. Tout le monde attend à table. D'abord les pelmenis nagent, puis ils remontent — ils sont prêts ! Maman les met dans les assiettes avec du beurre et des herbes. M. Carter ferme les yeux et goûte le premier pelmeni : « C'est le bonheur ! », dit-il. Émilie mange six pelmenis ! Georges en veut encore. « La recette de mamie fonctionne encore », sourit maman. Pour le dessert, il y a du thé avec de la confiture. La nourriture faite ensemble est toujours la meilleure.",
+          "words": [
+            "casserole",
+            "eau chaude",
+            "nager",
+            "remonter",
+            "beurre",
+            "herbes",
+            "goûter",
+            "bonheur",
+            "en vouloir encore",
+            "confiture"
+          ]
+        },
+        {
+          "name": "Une nouvelle tradition",
+          "text": "Après le dîner, Mme Carter écrit la recette dans son carnet avec trois étoiles : « Très bon ! » Georges résume : « Pâte, farce, eau chaude. Maintenant, on peut cuisiner des pelmenis. » Mme Carter dit : « La prochaine fois, nous vous apprendrons notre plat préféré : la tarte aux pommes et à la cannelle. » Hugo saute : « J'adore les tartes ! » Les parents sourient : « Chaque mois, nous cuisinerons ensemble. » « La pâte et l'amitié grandissent avec beaucoup de mains », dit M. Carter. Tout le monde est d'accord.",
+          "words": [
+            "recette",
+            "carnet",
+            "trois étoiles",
+            "résumer",
+            "la prochaine fois",
+            "tarte aux pommes",
+            "cannelle",
+            "grandir",
+            "être d'accord",
+            "chaque mois"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dîner au café",
+      "tasks": [
+        {
+          "name": "Paul le cuisinier",
+          "text": "Notre voisin Paul est cuisinier. Il travaille dans un petit café près du parc. Le vendredi, il invite toute la famille : « Venez dans mon café, j'ai un nouveau menu ! » Le soir, la famille arrive, et les Carter sont déjà là. Le café est chaud et sent le gâteau. Paul les accueille dans une veste blanche de cuisinier. Hugo demande : « Tu cuisines tout toi-même ? » « Oui, et je suis fier de ma soupe ! », sourit Paul. Puis un serveur aimable apporte les menus. Le dîner sera délicieux !",
+          "words": [
+            "cuisinier",
+            "café",
+            "menu",
+            "inviter",
+            "cuisiner",
+            "veste",
+            "fier",
+            "serveur",
+            "sentir",
+            "délicieux"
+          ]
+        },
+        {
+          "name": "Le menu",
+          "text": "Le menu ressemble à un livre. D'abord les entrées : salade et soupe. Ensuite les plats : poisson avec des pommes de terre, pâtes au fromage et la pizza de Paul. Pour le dessert : glace, tarte et gâteau au chocolat. Les enfants lisent le menu ensemble. Émilie choisit la soupe. Georges veut une pizza. Hugo hésite entre la glace et le gâteau : « Les deux, s'il vous plaît ! » Maman le regarde : « Hugo ! » Il réfléchit : « D'accord, d'abord la glace, puis le gâteau. » Tout le monde rit : « Ça, c'est une décision ! »",
+          "words": [
+            "menu",
+            "entrée",
+            "plat principal",
+            "dessert",
+            "salade",
+            "soupe",
+            "pizza",
+            "glace",
+            "choisir",
+            "décision"
+          ]
+        },
+        {
+          "name": "La commande",
+          "text": "Le serveur demande : « Êtes-vous prêts à commander ? » M. Carter dit poliment : « Je voudrais la soupe et le poisson, s'il vous plaît. » Mme Carter : « Et une salade pour moi, s'il vous plaît. » Les enfants commandent une pizza et de la limonade. Hugo apprend une phrase polie : « Je voudrais... ». « Une clé magique », dit papa. Le serveur sourit : « Bon choix ! » Pendant qu'ils attendent, Paul apporte du pain et du beurre. Émilie goûte sa soupe : « Délicieux ! » Hugo dit « Merci ! », et le serveur répond : « De rien ! »",
+          "words": [
+            "serveur",
+            "commander",
+            "Je voudrais...",
+            "s'il vous plaît",
+            "polie",
+            "phrase",
+            "choix",
+            "pain et beurre",
+            "goûter",
+            "De rien"
+          ]
+        },
+        {
+          "name": "La surprise de Paul",
+          "text": "Après le dîner, Paul arrive avec un grand plat : « C'est ma surprise pour les enfants ! » Il y a de petits gâteaux en forme de ballon, de pinceau et de livre — pour Hugo, Léa et Lucas. Les enfants crient : « Waouh ! » Pour maman, un gâteau-docteur avec un stéthoscope ; pour papa, une maison en gâteau avec un toit rouge. Tout le monde est surpris : « Tu n'es pas cuisinier, tu es artiste ! » Paul rit : « Un cuisinier est toujours un peu artiste. » Puis il apporte du thé pour les adultes et du cacao pour les enfants.",
+          "words": [
+            "surprise",
+            "plat",
+            "forme",
+            "ballon",
+            "pinceau",
+            "livre",
+            "toit",
+            "stéthoscope",
+            "artiste",
+            "cacao"
+          ]
+        },
+        {
+          "name": "L'addition",
+          "text": "Il est tard. Papa demande au serveur : « L'addition, s'il vous plaît. » Le serveur apporte un petit papier. Papa paie. Maman dit : « Merci, Paul ! C'était une soirée merveilleuse ! » Paul répond : « Revenez vite — la prochaine fois, soupe de poisson ! » Georges dit à Hugo : « C'est le meilleur café de la ville ! » Hugo est d'accord : « Et le meilleur cuisinier ! » Sur le chemin du retour, la famille parle. Papa dit : « Aujourd'hui, nous avons appris une phrase importante : “Je voudrais...”. Utilisez-la poliment ! »",
+          "words": [
+            "addition",
+            "payer",
+            "soirée merveilleuse",
+            "revenez vite",
+            "la prochaine fois",
+            "soupe de poisson",
+            "le meilleur",
+            "apprendre",
+            "phrase",
+            "aimable"
+          ]
+        }
+      ]
+    }
+  ]
+}

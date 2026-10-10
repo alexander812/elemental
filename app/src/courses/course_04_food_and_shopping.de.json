@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Food & Shopping",
+  "lang": "de",
+  "lessons": [
+    {
+      "name": "Auf dem Markt",
+      "tasks": [
+        {
+          "name": "Samstagmorgen",
+          "text": "Am Samstagmorgen weckt Papa Felix früh: „Steh auf, mein Assistent! Heute gehen wir auf den Markt.“ Felix mag diese Tradition. Sie nehmen zwei große Taschen und gehen los. Unterwegs treffen sie Herrn Carter und Georg. Georg hat noch nie einen echten Markt gesehen — in London ging er in den Supermarkt. Heute sieht er einen ganz anderen Ort! Am Eingang gibt es Blumen, Beeren und viele Menschen. Überall riecht es nach frischem Brot und Kräutern. Kommt, unser Verkäufer wartet!",
+          "words": [
+            "Markt",
+            "Assistent",
+            "Tasche",
+            "Tradition",
+            "Supermarkt",
+            "Blumen",
+            "Beeren",
+            "Geruch",
+            "Brot",
+            "Verkäufer"
+          ]
+        },
+        {
+          "name": "Bei Herrn Bauer",
+          "text": "Herr Bauer wartet schon an seinem Stand. „Guten Morgen, Thomas! Guten Morgen, kleiner Kapitän!“, sagt er zu Felix. Heute hat er wunderbaren Fisch: Hering, Kabeljau und Lachs. Papa wählt einen großen Fisch für das Abendessen. Herr Bauer fragt: „Und wer ist dieser junge Mann?“ Georg antwortet: „Ich bin Georg, ein Freund aus England.“ Herr Bauer lacht: „England! Willkommen auf unserem Markt!“ Papa bezahlt, und der Verkäufer gibt jedem Jungen einen Apfel. Dieser Markt ist der freundlichste in der Stadt!",
+          "words": [
+            "Stand",
+            "Fisch",
+            "Hering",
+            "Kabeljau",
+            "Lachs",
+            "wählen",
+            "bezahlen",
+            "Apfel",
+            "freundlich",
+            "junger Mann"
+          ]
+        },
+        {
+          "name": "Gemüse und Obst",
+          "text": "Dann gehen sie zu den nächsten Ständen. Mamas Liste ist lang: Kartoffeln, Tomaten, Karotten, Gurken und Zwiebeln. Beim Obst nimmt Papa Weintrauben und Pflaumen. Felix sieht einen Stand mit Honig und fragt: „Können wir Honig für den Tee kaufen?“ Papa nickt: „Ein Glas.“ Herr Carter kauft Käse und frische Milch. Georg schaut sich alles an und sagt: „Hier kann man alles sehen, riechen und auswählen. Im Supermarkt ist alles in Kisten!“ Felix bringt ihm bei: „Man sagt Kilo und halbes Kilo — das ist die Zahlensprache des Marktes.“",
+          "words": [
+            "Kartoffeln",
+            "Tomaten",
+            "Karotten",
+            "Gurken",
+            "Zwiebeln",
+            "Weintrauben",
+            "Pflaumen",
+            "Honig",
+            "Kilo",
+            "halbes Kilo"
+          ]
+        },
+        {
+          "name": "Wie viel kostet das?",
+          "text": "An einem Stand sieht Felix schöne Beeren. „Wie viel kostet das?“, fragt er. Der Verkäufer antwortet: „Zehn Münzen für eine Schachtel.“ Felix zählt sein Geld: eins, zwei, drei... zehn! Er gibt die Münzen vorsichtig und nimmt die Schachtel — eine Überraschung für Mama. Dann zeigt Papa ihm anderes Geld: „Diese Münze ist eins, dieser Schein ist zehn, und dieser ist fünfzig.“ „Geld lässt sich gern zählen“, lächelt Papa. Felix ist einverstanden: „Jetzt weiß ich es! Einkaufen ist eine echte Schule der Zahlen.“",
+          "words": [
+            "wie viel kostet das?",
+            "Preis",
+            "Münze",
+            "Schein",
+            "Geld",
+            "zählen",
+            "Schachtel Beeren",
+            "geben",
+            "Überraschung",
+            "Zahlen"
+          ]
+        },
+        {
+          "name": "Zurück nach Hause",
+          "text": "Die Taschen sind schwer, aber der Heimweg ist fröhlich. Georg hilft und trägt eine Tasche mit Kartoffeln. Unterwegs sprechen die Jungen über Essen: Was ist leckerer — Fisch oder Pizza? Georg sagt: „Natürlich Fisch!“ Zu Hause öffnet Mama die Taschen: „Frisches Gemüse, Fisch und Honig! Und hier ist meine Überraschung — Beeren!“ Felix sagt stolz: „Ich habe sie selbst gekauft.“ Mama umarmt ihn: „Danke, mein Lieber!“ Am Abend isst die Familie Suppe mit frischem Gemüse, und Georg sagt seinen Eltern: „Euer Markt ist der beste!“",
+          "words": [
+            "schwer",
+            "Tasche mit Kartoffeln",
+            "leckerer",
+            "Fisch oder Pizza",
+            "öffnen",
+            "Überraschung",
+            "kaufen",
+            "stolz",
+            "Suppe",
+            "der beste"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Im Supermarkt",
+      "tasks": [
+        {
+          "name": "Die Einkaufsliste",
+          "text": "Am Abend schaut Papa in den Kühlschrank und sagt: „Wir haben nichts für das Abendessen!“ Mama nimmt ein Blatt und schreibt die Einkaufsliste. Jeder fügt etwas hinzu: Mama — Milch und Käse, Lukas — Nudeln, Mia — Obst und Joghurt, und Felix — Brot und Schokolade, für gute Laune. Dann legt sich Mimi direkt auf die Liste. Bello schaut das Papier an und will es fressen. Papa rettet die Liste gerade noch: „Mit dieser Familie einzukaufen ist nicht leicht! Morgen kaufen wir alles.“",
+          "words": [
+            "Kühlschrank",
+            "Einkaufsliste",
+            "Blatt",
+            "hinzufügen",
+            "Milch",
+            "Nudeln",
+            "Joghurt",
+            "Schokolade",
+            "gute Laune",
+            "kaufen"
+          ]
+        },
+        {
+          "name": "Wagen und Regale",
+          "text": "Am Dienstag geht die Familie zusammen in den Supermarkt. Felix nimmt einen großen Einkaufswagen. Er hat viele Regale: Getränke, Fleisch, Fisch, Milchprodukte, Brot und Gemüse. Mia liest die Schilder und hilft Mama: „Die Milch ist hier, im Kühlregal.“ Lukas schaut sich die Nudeln an und wählt die längste. Felix will Chips in den Wagen legen, aber Mama sagt: „Heute keine Chips, wir haben eine Liste.“ Dann gibt sie ihm eine Aufgabe: „Finde sechs Eier.“ Felix findet sie schnell und ist sehr stolz. Der Wagen ist fast voll.",
+          "words": [
+            "Einkaufswagen",
+            "Regal",
+            "Getränke",
+            "Fleisch",
+            "Milchprodukte",
+            "lesen",
+            "finden",
+            "Eier",
+            "Chips",
+            "voll"
+          ]
+        },
+        {
+          "name": "An der Kasse",
+          "text": "An der Kasse ist eine Schlange. Die Kassiererin scannt das Essen: Milch, Käse, Nudeln, Brot, Eier, Obst, Schokolade... Die Preise auf dem Bildschirm steigen. Papa bezahlt mit Karte. Dann bekommt er einen langen Kassenzettel. Felix schaut ihn an: „So viele Zahlen!“ Mia prüft den Kassenzettel: „Alles stimmt.“ Bello und Mimi spüren es: Etwas Leckeres kommt! Die Kassiererin lächelt: „Schönen Tag noch!“ Papa nimmt die schweren Taschen, und die Familie geht nach Hause. Unterwegs sagt Felix: „Einkaufen ist wie Sport!“",
+          "words": [
+            "Kasse",
+            "Schlange",
+            "Kassiererin",
+            "scannen",
+            "Bildschirm",
+            "bezahlen",
+            "Karte",
+            "Kassenzettel",
+            "schwere Tasche",
+            "Sport"
+          ]
+        },
+        {
+          "name": "Zu Hause auspacken",
+          "text": "Zu Hause packen alle die Taschen aus. Mama stellt Milch, Käse und Joghurt in den Kühlschrank: „Das sind kalte Sachen.“ Mia legt die Nudeln und das Brot in den Küchenschrank: „Und das sind trockene Sachen.“ Lukas wäscht die Tomaten, und Felix sucht die Schokolade... Er findet sie und fragt: „Darf ich ein Stück essen?“ „Nur eins“, sagt Mama. Die Taschen werden leer, die Küche voll. Papa sagt: „Jetzt haben wir Essen für die ganze Woche!“ Dann trinkt die Familie Tee mit Schokolade. Bello bekommt auch ein kleines Stück!",
+          "words": [
+            "auspacken",
+            "Kühlschrank",
+            "kalte Sachen",
+            "Küchenschrank",
+            "trockene Sachen",
+            "waschen",
+            "leer",
+            "voll",
+            "Stück",
+            "ganze Woche"
+          ]
+        },
+        {
+          "name": "Abendessen nach der Liste",
+          "text": "Am Abend kocht die Familie das Abendessen nach der Einkaufsliste. Lukas macht Nudeln mit Käse und Tomaten — heute ist sein Tag. Mia schneidet Obst für einen Salat. Felix deckt den Tisch und legt das Brot in einen Korb. Mama hilft und lacht: „Jetzt seid ihr ein echtes Kochteam!“ Papa probiert die Nudeln: „Lecker!“ Lukas ist stolz: „Das ist mein Lieblingsrezept.“ Dann essen alle und sprechen über den Tag. Die besten Abendessen sind die, die man mit einer einfachen Liste macht.",
+          "words": [
+            "Abendessen kochen",
+            "Nudeln mit Käse",
+            "Tomaten",
+            "Obstsalat",
+            "Korb",
+            "probieren",
+            "lecker",
+            "Rezept",
+            "stolz sein",
+            "Kochteam"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pelmeni kochen mit den Carters",
+      "tasks": [
+        {
+          "name": "Die Einladung",
+          "text": "Herr Carter kommt herunter und sagt: „Ich liebe Pelmeni! Könnt ihr uns beibringen, sie zu kochen?“ Mama lacht: „Mit Vergnügen!“ Am Samstag um elf kommen die Carters mit Mehl und Fleisch. Mama gibt jedem eine Schürze. Emily bekommt ein kleines Nudelholz. Georg fragt: „Ist es schwierig?“ Mama antwortet: „Nein, aber es braucht viele Hände.“ Die Küche wird laut und lustig. Herr Carter schreibt neue Wörter: Mehl, Teig, ausrollen, Füllung. Er sagt: „Pelmeni sind meine liebste Stunde!“",
+          "words": [
+            "beibringen",
+            "Schürze",
+            "Nudelholz",
+            "schwierig",
+            "Mehl",
+            "Teig",
+            "Füllung",
+            "ausrollen",
+            "Notizbuch",
+            "Lieblings-"
+          ]
+        },
+        {
+          "name": "Teig und Füllung",
+          "text": "Zuerst der Teig. Mama gibt Mehl, Wasser, ein Ei und Salz in eine große Schüssel. Emily rührt mit dem Löffel, Georg mit den Händen — seine Hände sind weiß. Dann die Füllung: Fleisch, Zwiebel und ein wenig Pfeffer. Papa macht die Füllung und scherzt: „Das Geheimnis ist, nicht wegen der Zwiebel zu weinen!“ Alle lachen. Mia rollt den Teig zu einem großen, dünnen Kreis aus. Lukas schneidet ihn in kleine Kreise. Herr Carter versucht es, aber seine Kreise sind nicht rund.",
+          "words": [
+            "Teig",
+            "Mehl",
+            "Ei",
+            "Salz",
+            "Schüssel",
+            "mischen",
+            "Fleisch",
+            "Zwiebel",
+            "ausrollen",
+            "dünn"
+          ]
+        },
+        {
+          "name": "Viele Hände",
+          "text": "Jetzt der interessanteste Teil: Alle machen Pelmeni. Mama zeigt: ein Kreis aus Teig, ein wenig Füllung in die Mitte, dann die Ränder zusammen — und hier ist ein kleines Hütchen! Mia macht große und kleine Pelmeni. Emily ist sehr sorgfältig: ihre Pelmeni sind klein und ordentlich. Georg macht einen riesigen Pelmeni — er sagt, er ist für Papa. Felix macht lustige Formen: einen Stern, ein Herz und sogar einen Fisch. Herr Carter zählt: „Eins, zwei, drei... fünfzig!“ Fünfzig Pelmeni und acht Hände. Und eine weiße Nase — Emilys!",
+          "words": [
+            "Füllung",
+            "Ränder",
+            "Hütchen",
+            "sorgfältig",
+            "riesig",
+            "Form",
+            "Herz",
+            "zählen",
+            "Nase",
+            "Hände"
+          ]
+        },
+        {
+          "name": "Essen!",
+          "text": "Mama kocht die Pelmeni in einem großen Topf mit heißem Wasser. Alle warten am Tisch. Zuerst schwimmen die Pelmeni wie kleine Boote, dann kommen sie hoch — das heißt, sie sind fertig! Mama legt sie mit Butter und Kräutern auf die Teller. Herr Carter schließt die Augen und probiert den ersten Pelmeni: „Das ist Glück!“, sagt er. Emily isst sechs Pelmeni! Georg will mehr. „Omas Rezept funktioniert wieder“, lächelt Mama. Zum Nachtisch gibt es Tee mit Marmelade. Essen, das man zusammen macht, ist immer am leckersten.",
+          "words": [
+            "Topf",
+            "heißes Wasser",
+            "schwimmen",
+            "hochkommen",
+            "Butter",
+            "Kräuter",
+            "probieren",
+            "Glück",
+            "mehr wollen",
+            "Marmelade"
+          ]
+        },
+        {
+          "name": "Eine neue Tradition",
+          "text": "Nach dem Essen schreibt Frau Carter das Rezept mit drei Sternen in ihr Notizbuch: „Sehr lecker!“ Georg fasst zusammen: „Teig, Füllung, heißes Wasser. Jetzt können wir Pelmeni zu Hause kochen.“ Frau Carter sagt: „Und nächstes Mal zeigen wir euch unser Lieblingsgericht — den englischen Kuchen mit Äpfeln und Zimt.“ Felix springt auf: „Ich liebe Kuchen!“ Die Eltern lächeln: „Dann kochen wir jeden Monat zusammen.“ „Teig und Freundschaft wachsen mit vielen Händen“, sagt Herr Carter. Alle sind einverstanden.",
+          "words": [
+            "Rezept",
+            "Notizbuch",
+            "drei Sterne",
+            "zusammenfassen",
+            "nächstes Mal",
+            "Apfelkuchen",
+            "Zimt",
+            "wachsen",
+            "einverstanden sein",
+            "jeden Monat"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Abendessen im Café",
+      "tasks": [
+        {
+          "name": "Peter der Koch",
+          "text": "Unser Nachbar Peter ist Koch. Er arbeitet in einem kleinen Café am Park. Am Freitag lädt er die ganze Familie ein: „Kommt in mein Café, ich habe ein neues Menü!“ Am Abend kommt die Familie, und die Carters sind schon da. Das Café ist warm und riecht nach Kuchen. Peter empfängt sie in einer weißen Kochjacke. Felix fragt: „Kochst du alles selbst?“ „Ja, und ich bin stolz auf meine Suppe!“, lächelt Peter. Dann bringt ein freundlicher Kellner die Menüs. Das Abendessen wird lecker!",
+          "words": [
+            "Koch",
+            "Café",
+            "Menü",
+            "einladen",
+            "kochen",
+            "Kochjacke",
+            "stolz",
+            "Kellner",
+            "riechen",
+            "lecker"
+          ]
+        },
+        {
+          "name": "Das Menü",
+          "text": "Das Menü ist wie ein kleines Buch. Zuerst die Vorspeisen: Gemüsesalat und Suppe. Dann die Hauptgerichte: Fisch mit Kartoffeln, Nudeln mit Käse und Peters Spezialpizza. Zum Nachtisch: Eis, Apfelkuchen und Schokoladenkuchen. Die Kinder lesen das Menü zusammen. Emily wählt Suppe und Fisch. Georg will Pizza. Felix kann sich nicht zwischen Eis und Kuchen entscheiden, also sagt er: „Beides, bitte!“ Mama schaut ihn an: „Felix!“ Er denkt nach und sagt: „Na gut: erst Eis, dann Kuchen.“ Alle lachen: „Das ist eine echte Entscheidung!“",
+          "words": [
+            "Menü",
+            "Vorspeise",
+            "Hauptgericht",
+            "Nachtisch",
+            "Salat",
+            "Suppe",
+            "Pizza",
+            "Eis",
+            "wählen",
+            "Entscheidung"
+          ]
+        },
+        {
+          "name": "Die Bestellung",
+          "text": "Der Kellner kommt und fragt: „Seid ihr bereit zu bestellen?“ Herr Carter sagt höflich: „Ich möchte die Suppe und den Fisch, bitte.“ Frau Carter: „Und einen Salat für mich, bitte.“ Die Kinder bestellen Pizza und Limonade. Felix lernt einen höflichen Satz: „Ich möchte...“ — „Er funktioniert wie ein Zauberschlüssel“, sagt Papa. Der Kellner lächelt: „Gute Wahl!“ Während sie warten, bringt Peter warmes Brot und Butter. Emily probiert ihre Suppe: „Lecker!“ Felix sagt „Danke!“, und der Kellner antwortet: „Gern geschehen!“",
+          "words": [
+            "Kellner",
+            "bestellen",
+            "Ich möchte...",
+            "bitte",
+            "höflich",
+            "Satz",
+            "Wahl",
+            "Brot und Butter",
+            "probieren",
+            "Gern geschehen"
+          ]
+        },
+        {
+          "name": "Peters Überraschung",
+          "text": "Nach dem Essen kommt Peter mit einem großen Teller an den Tisch: „Das ist meine Überraschung für die Kinder!“ Auf dem Teller liegen kleine Kuchen in Form von Fußball, Pinsel und Buch — für Felix, Mia und Lukas. Die Kinder rufen: „Wow!“ Für Mama gibt es einen Kuchen-Arzt mit Stethoskop, und für Papa ein Kuchen-Haus mit rotem Dach. Alle sind überrascht: „Du bist kein Koch, du bist ein Künstler!“ Peter lacht: „Ein Koch ist immer ein bisschen Künstler.“ Dann bringt er Tee für die Erwachsenen und Kakao für die Kinder.",
+          "words": [
+            "Überraschung",
+            "Teller",
+            "Form",
+            "Fußball",
+            "Pinsel",
+            "Buch",
+            "Dach",
+            "Stethoskop",
+            "Künstler",
+            "Kakao"
+          ]
+        },
+        {
+          "name": "Die Rechnung",
+          "text": "Es ist spät. Papa bittet den Kellner: „Die Rechnung, bitte.“ Der Kellner bringt einen kleinen Zettel. Papa bezahlt. Mama sagt: „Danke, Peter! Es war ein wunderbarer Abend!“ Peter antwortet: „Kommt bald wieder — nächstes Mal mache ich Fischsuppe.“ Georg sagt zu Felix: „Das ist das beste Café in der Stadt!“ Felix ist einverstanden: „Und der beste Koch!“ Auf dem Heimweg sprechen alle über den Abend. Papa sagt: „Heute haben wir einen wichtigen Satz gelernt: 'Ich möchte...'. Benutzt ihn höflich!“",
+          "words": [
+            "Rechnung",
+            "bezahlen",
+            "wunderbarer Abend",
+            "kommt bald wieder",
+            "nächstes Mal",
+            "Fischsuppe",
+            "der beste",
+            "lernen",
+            "Satz",
+            "freundlich"
+          ]
+        }
+      ]
+    }
+  ]
+}

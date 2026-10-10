@@ -26,10 +26,18 @@ import {
   Text,
 } from '@elemental/ui-kit'
 
+import { DEFAULT_COURSE_LANG } from '../../../lib/languages'
 import type { CardSet } from '../../../lib/types'
 import { popScreen, pushScreen } from '../../navigation/store'
 import { $lessons } from '../../lessons/store'
-import { fetchSetsFx, reorderSetsFx, setSetActiveFx, $sets, $setsLoading } from '../store'
+import {
+  fetchSetsFx,
+  reorderSetsFx,
+  setSetActiveFx,
+  $courseLangByLesson,
+  $sets,
+  $setsLoading,
+} from '../store'
 
 const ROW_HEIGHT = 64
 const ROW_GAP = 8
@@ -339,6 +347,7 @@ function SetRow({
 export function SetsView({ lessonId }: { lessonId: string }) {
   const sets = useUnit($sets)
   const lessons = useUnit($lessons)
+  const courseLangByLesson = useUnit($courseLangByLesson)
   const loading = useUnit($setsLoading)
 
   const [drag, setDrag] = useState<DragState | null>(null)
@@ -458,7 +467,10 @@ export function SetsView({ lessonId }: { lessonId: string }) {
       return
     }
 
-    pushScreen({ name: 'cards', setId: set.id })
+    const courseLang = courseLangByLesson.get(set.lessonId) ?? DEFAULT_COURSE_LANG
+    const hasText = (set.texts[courseLang] ?? '').trim().length > 0
+
+    pushScreen(hasText ? { name: 'set-intro', setId: set.id } : { name: 'cards', setId: set.id })
   }
 
   const handleEdit = (set: CardSet) => {

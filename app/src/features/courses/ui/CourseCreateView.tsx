@@ -51,8 +51,8 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
     [options, userLang]
   )
 
-  const sameLanguages = lang === userLang
-  const canApply = name.trim().length > 0 && !sameLanguages
+  const langMismatch = !isEditing && lang === userLang
+  const canApply = name.trim().length > 0 && !langMismatch
   const pending = createPending || updatePending
 
   const handleSubmit = async (event: FormEvent) => {
@@ -119,16 +119,20 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
                 <Text color="contrast-secondary" variant="XS / Medium">
                   Язык курса
                 </Text>
-                <Select
-                  fullWidth
-                  options={langOptions}
-                  value={lang}
-                  onChange={(value) => setLang(value)}
-                />
+                {isEditing ? (
+                  <Text variant="M / Medium">{getLanguageName(lang, languages)}</Text>
+                ) : (
+                  <Select
+                    fullWidth
+                    options={langOptions}
+                    value={lang}
+                    onChange={(value) => setLang(value)}
+                  />
+                )}
               </Stack>
             </Card>
 
-            {sameLanguages ? (
+            {langMismatch ? (
               <FormHelperText variant="error">
                 Язык курса должен отличаться от вашего языка
               </FormHelperText>

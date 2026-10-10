@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Acquaintance",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "Nouveaux voisins",
+      "tasks": [
+        {
+          "name": "Bonjour",
+          "text": "Il est sept heures du matin. Notre famille habite au cinquième étage. Maman Claire est déjà dans la cuisine. Elle prépare du café et sourit. Papa Pierre lit les nouvelles et boit son thé. Lucas, le fils aîné, part courir au parc. Léa dessine à table. Hugo, le petit, se réveille le dernier. Il entre dans la cuisine et dit : « Bonjour tout le monde ! » Le chien Rex saute et remue la queue. La chatte Minette dort sur le rebord de la fenêtre. « Bonjour, Minette ! » dit Hugo. « Réveille-toi ! Le petit-déjeuner est prêt ! »",
+          "words": [
+            "bonjour",
+            "se réveiller",
+            "cuisine",
+            "café",
+            "thé",
+            "sourire",
+            "chien",
+            "chatte",
+            "rebord de la fenêtre",
+            "petit-déjeuner"
+          ]
+        },
+        {
+          "name": "Bonjour et au revoir",
+          "text": "Toute la journée, nous disons bonjour et au revoir. Le matin, Hugo retrouve son ami Jules près de l'école : « Salut, Jules ! » « Salut ! Ça va ? » À la clinique, Claire sourit à sa collègue : « Bonjour, Camille ! » Sur le chantier, Pierre salue son ami : « Salut, Olivier ! » Le soir, la famille est de nouveau à la maison. « Bonsoir tout le monde ! » dit papa. Avant de dormir, les enfants disent : « Bonne nuit, maman ! Bonne nuit, papa ! » Bonjour et au revoir sont des mots simples et polis.",
+          "words": [
+            "bonjour",
+            "au revoir",
+            "salut",
+            "bonsoir",
+            "bonne nuit",
+            "saluer",
+            "dire au revoir",
+            "poli",
+            "conversation",
+            "ami"
+          ]
+        },
+        {
+          "name": "Comment ça va ?",
+          "text": "Après l'école, Hugo promène Rex dans la cour. « Bonjour, Hugo ! Comment ça va ? » « Je vais bien, merci ! » « Pas mal, mais mes vieilles jambes sont fatiguées. » Soudain, une camionnette s'arrête. Deux hommes portent des cartons et un canapé. « De nouveaux voisins ? » demande Hugo. « Oui, une famille avec deux enfants. Ils viennent d'Angleterre. » Hugo est curieux : « Un garçon de mon âge, peut-être ? » Rex aboie joyeusement. Les nouvelles personnes apportent de nouvelles histoires.",
+          "words": [
+            "Comment ça va ?",
+            "Je vais bien",
+            "merci",
+            "pas mal",
+            "fatigué",
+            "nouveaux voisins",
+            "camionnette",
+            "porter",
+            "de mon âge",
+            "intéressant"
+          ]
+        },
+        {
+          "name": "Bienvenue !",
+          "text": "Le soir, toute la famille descend dans la cour. Claire salue un homme grand en pull gris : « Bonsoir ! Bienvenue chez nous ! Je m'appelle Claire. » « Bonsoir ! Je m'appelle M. Carter. Enchanté ! » Une femme dit : « Bonjour ! Je suis Mme Carter, et voici nos enfants, Georges et Émilie. » Hugo regarde le garçon. Il a les cheveux roux et un ballon de football. « Salut ! Je m'appelle Hugo. Je peux t'aider avec le carton ? » Georges rit : « Merci ! Tu es très gentil ! » Émilie se cache derrière sa mère.",
+          "words": [
+            "bonsoir",
+            "bienvenue",
+            "famille",
+            "fils",
+            "fille",
+            "aider",
+            "carton",
+            "gentil",
+            "se cacher",
+            "nouvel endroit"
+          ]
+        },
+        {
+          "name": "Bonne nuit !",
+          "text": "Au dîner, on parle des nouveaux voisins. Léa dit : « Émilie est timide, mais son livre d'images est magnifique. » Lucas dit : « Mme Carter est architecte et M. Carter enseigne l'anglais. » « Il t'aidera peut-être avec la prononciation », sourit maman. « Ils ont vécu en Australie », dit papa. Hugo est content : « Demain, je dirai : Hello, George! What is your name? » Maman rit : « Tu connais déjà l'anglais ! » C'est l'heure de dormir : « Bonne nuit, maman ! Bonne nuit, papa ! » Rex dort et rêve de football.",
+          "words": [
+            "dîner",
+            "timide",
+            "architecte",
+            "professeur",
+            "aider",
+            "Australie",
+            "demain",
+            "bonne nuit",
+            "rêver",
+            "lit"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Faisons connaissance",
+      "tasks": [
+        {
+          "name": "Comment tu t'appelles ?",
+          "text": "Le samedi matin, Hugo et Jules jouent au football dans la cour. Un garçon sort de l'entrée. Il a les cheveux roux et un ballon sous le bras. « Salut ! Je peux jouer avec vous ? » « Bien sûr ! Comment tu t'appelles ? » « Je m'appelle Georges. Et toi ? » « Je suis Hugo, et lui, c'est Jules. » « Enchanté, Georges ! » « Moi aussi ! » Georges joue très bien. Après le match, il dit : « Vous êtes de bons joueurs ! On joue encore demain ? » Les garçons sourient. Maintenant, ils sont amis.",
+          "words": [
+            "Comment tu t'appelles ?",
+            "Je m'appelle...",
+            "Enchanté",
+            "jouer au football",
+            "cour",
+            "encore",
+            "demain",
+            "sourire",
+            "amis",
+            "bon joueur"
+          ]
+        },
+        {
+          "name": "D'où viens-tu ?",
+          "text": "À la maison, Hugo demande : « Georges, d'où viens-tu ? » « Mon père est de Londres et ma mère est d'Australie. Je suis né à Londres. » « L'Australie ! Génial ! Tu parles français à la maison ? » « Oui, et ma mère parle un peu français aussi. Elle apprend chaque jour. Et toi ? D'où viens-tu ? » « Je viens de Paris. Je suis né ici. Je ne suis jamais allé en Australie. » « Viens chez nous pour le thé ! Ma mère prépare un très bon thé au lait et fait des biscuits. » « Avec plaisir ! »",
+          "words": [
+            "D'où viens-tu ?",
+            "Je viens de...",
+            "né",
+            "Australie",
+            "Angleterre",
+            "ville",
+            "parler",
+            "un peu",
+            "thé au lait",
+            "biscuits"
+          ]
+        },
+        {
+          "name": "Quel âge as-tu ?",
+          "text": "Les garçons s'assoient sur un banc et parlent. « Quel âge as-tu, Georges ? » « J'ai douze ans. Et toi ? » « J'ai dix ans, et Jules aussi. Nous sommes en quatrième. » « Moi, je suis en sixième. Ma sœur Émilie a neuf ans, elle est en troisième. » « Elle est dans notre école ? » « Oui, mais elle est très timide. Elle aime les livres et le dessin. » « Ma sœur Léa dessine très bien ! Elle a quatorze ans. » « Elles seront peut-être amies ! » Georges regarde sa montre : « Il est cinq heures. Je dois rentrer. Salut ! »",
+          "words": [
+            "Quel âge as-tu ?",
+            "J'ai douze ans",
+            "quatrième",
+            "sixième",
+            "sœur",
+            "timide",
+            "dessin",
+            "devenir amis",
+            "montre",
+            "rentrer"
+          ]
+        },
+        {
+          "name": "Je parle un peu anglais",
+          "text": "Georges veut apprendre des mots français, et Hugo apprend l'anglais. « Dis bonjour ! » — « Bonjour ! » — « Très bien ! Maintenant, dis ami. » — « Ami ! » Les garçons rient et répètent les mots. Le soir, Hugo raconte à Léa : « Georges m'apprend l'anglais et moi, je lui apprends le français. » « Tu connais déjà des mots anglais ? » — « Quelques-uns. Écoute : Hello, George! What is your name? » — « Excellent ! Émilie dessine très bien aussi. Elle est très gentille. Dimanche, nous dessinerons ensemble. »",
+          "words": [
+            "apprendre",
+            "mot",
+            "ami",
+            "répéter",
+            "rire",
+            "apprendre à quelqu'un",
+            "quelques mots",
+            "dessiner",
+            "se rencontrer",
+            "ensemble"
+          ]
+        },
+        {
+          "name": "Que fais-tu ?",
+          "text": "Au dîner, la famille joue à un jeu. Maman dit : « Je suis médecin. J'aide les gens. » Papa dit : « Je suis ingénieur. Je construis des maisons. » Lucas dit : « Je suis étudiant. J'étudie l'informatique. » Léa dit : « Je suis artiste. Je dessine des tableaux. » C'est le tour de Hugo : « Je suis footballeur ! » « Et que veux-tu devenir, Hugo ? » « Footballeur et dresseur de chiens ! » Le soir, Hugo écrit un message à Georges : « Que fais-tu ? » La réponse arrive : « Je suis écolier et footballeur aussi ! »",
+          "words": [
+            "Que fais-tu ?",
+            "médecin",
+            "ingénieur",
+            "étudiant",
+            "artiste",
+            "construire",
+            "aider les gens",
+            "devenir",
+            "message",
+            "réponse"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Le thé chez les Carter",
+      "tasks": [
+        {
+          "name": "Enchanté de vous rencontrer",
+          "text": "Le dimanche, la famille monte chez les Carter. Mme Carter ouvre la porte : « Bonjour ! Entrez, s'il vous plaît ! Faites comme chez vous. » L'appartement sent le thé et les biscuits. M. Carter dit : « Enchanté, Claire et Pierre ! » Les enfants s'assoient sur le canapé moelleux. Émilie montre à Léa son livre d'images. Georges et Hugo jouent avec un petit robot. « Vous aimez notre appartement ? » demande Émilie. « Oui, c'est très confortable ! dit Léa. Et tes dessins sont beaux ! » Émilie sourit pour la première fois.",
+          "words": [
+            "entrez",
+            "faites comme chez vous",
+            "sentir",
+            "thé",
+            "canapé moelleux",
+            "livre d'images",
+            "robot",
+            "confortable",
+            "beau",
+            "pour la première fois"
+          ]
+        },
+        {
+          "name": "Thé au lait",
+          "text": "Mme Carter apporte une grande théière : « En Angleterre, on boit le thé avec du lait. Goûtez ! » Claire prend une tasse : « C'est délicieux ! Et ces biscuits sont merveilleux ! » « Oui, c'est la recette de ma grand-mère. » M. Carter demande à Pierre : « Tu aimes les vélos ? Je veux en acheter un. » « Oui ! Le samedi, je roule avec mon ami Olivier. Je peux t'aider à choisir. » Les femmes parlent de Londres. Émilie écoute et dessine. « Il fait beau, n'est-ce pas ? » dit M. Carter. « Oui, très beau ! »",
+          "words": [
+            "théière",
+            "thé au lait",
+            "goûter",
+            "délicieux",
+            "recette",
+            "vélo",
+            "rouler",
+            "choisir",
+            "météo",
+            "rue"
+          ]
+        },
+        {
+          "name": "Parlez-vous français ?",
+          "text": "M. Carter dit : « Je parle un peu russe. Mais c'est difficile ! » Claire sourit : « Vous parlez très bien ! Depuis combien de temps étudiez-vous ? » « Cinq ans. J'adore les pelmenis russes ! » Georges rit : « Papa dit pelmeni tous les jours ! » Mme Carter dit : « Moi aussi, j'étudie le russe. Chaque matin, je lis une page. » « Ce n'est pas facile, dit Pierre, mais vous êtes très forts ! » Hugo chuchote à Georges : « Apprends-moi l'anglais et je t'apprends le français ! » « Marché conclu ! » dit Georges.",
+          "words": [
+            "parler français",
+            "difficile",
+            "étudier",
+            "depuis combien de temps ?",
+            "pelmenis",
+            "chaque jour",
+            "page",
+            "très bien",
+            "chuchoter",
+            "marché conclu"
+          ]
+        },
+        {
+          "name": "Quel est ton numéro de téléphone ?",
+          "text": "Après le thé, Lucas demande à M. Carter : « Pourriez-vous m'aider en anglais ? Je veux étudier à l'étranger. » « Bien sûr ! On peut se voir le mercredi. Note mon numéro de téléphone : cinq, trois, deux, sept, un, neuf. » Lucas l'écrit dans son carnet. « Et voici le mien ! » Georges donne à Hugo un petit papier : « Mon numéro, c'est huit, neuf, un, deux, quatre. Appelle-moi après l'école ! » Hugo est très fier : « Maintenant, j'ai un vrai ami anglais ! » Bientôt, il est l'heure de rentrer.",
+          "words": [
+            "numéro de téléphone",
+            "aider en anglais",
+            "étudier à l'étranger",
+            "noter",
+            "carnet",
+            "numéro",
+            "appeler",
+            "après l'école",
+            "fier",
+            "l'heure de rentrer"
+          ]
+        },
+        {
+          "name": "À bientôt !",
+          "text": "Il est tard. La famille se dit au revoir. « Merci pour le thé et les biscuits ! » « De rien ! Revenez bientôt ! » Mme Carter donne à Claire un pot de confiture maison. Émilie offre à Léa un dessin : deux filles sous un pommier. « C'est toi et moi », dit-elle doucement. À la porte, M. Carter dit : « Samedi, on joue au football. Viens, Hugo ! » « Je viendrai ! À bientôt, Georges ! » « À bientôt ! » Dans l'escalier, Hugo dit : « Maman, aujourd'hui, c'était le plus beau jour ! » « Pour moi aussi », dit Léa.",
+          "words": [
+            "se dire au revoir",
+            "merci pour...",
+            "De rien",
+            "revenez bientôt",
+            "confiture",
+            "dessin",
+            "pommier",
+            "serrer dans ses bras",
+            "À bientôt",
+            "le plus beau jour"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Amis dans la cour",
+      "tasks": [
+        {
+          "name": "Un matin de football",
+          "text": "Le samedi matin, Hugo ne tient plus en place. Aujourd'hui, Georges et son équipe jouent au football dans la cour ! Rex le sent aussi et court dans l'appartement. À dix heures, l'entraîneur Antoine arrive avec un sifflet et un ballon. Jules est déjà là. Puis Georges arrive avec son ballon rouge. « Prêts ? » demande Antoine. « Prêts ! » crient les garçons. Aujourd'hui, il y a deux équipes : celle de la cour et les invités. Antoine sourit : « Rappelez-vous : le jeu est plus important que la victoire. On commence ! »",
+          "words": [
+            "samedi matin",
+            "équipe",
+            "entraîneur",
+            "sifflet",
+            "ballon",
+            "prêts",
+            "équipe de la cour",
+            "invités",
+            "jeu",
+            "plus important que"
+          ]
+        },
+        {
+          "name": "Dans la cour",
+          "text": "Le match commence. Georges court vite et passe le ballon à Hugo. Hugo marque presque, mais le gardien attrape le ballon. « Bon tir ! » crie Georges. Jules joue en défense et ne laisse pas marquer les invités. Soudain, Georges reçoit le ballon, tire — et marque un but ! Les garçons crient de joie. Du balcon, la chatte Minette regarde le match : elle ressemble à un vrai juge. Léa et Émilie sont assises sur un banc et dessinent les joueurs. À la mi-temps, le score est un partout. Le match est serré !",
+          "words": [
+            "passer le ballon",
+            "marquer",
+            "gardien",
+            "attraper",
+            "tir",
+            "défense",
+            "but",
+            "crier de joie",
+            "score",
+            "un partout"
+          ]
+        },
+        {
+          "name": "Petite conversation",
+          "text": "Les adultes s'assoient sur le banc et regardent le match. « Il fait beau aujourd'hui, n'est-ce pas ? » dit M. Carter. « Oui, magnifique ! » Madame Blanc donne des bonbons aux enfants et raconte une histoire sur la vieille cour. Pierre et M. Carter parlent de vélos et du week-end. « En été, on peut aller au parc à vélo, dit Pierre. Bonne idée ! Et en automne, on ira à la pêche, rit M. Carter. J'apporterai des pelmenis ! » Tout le monde rit. Une petite conversation rend la journée encore plus agréable.",
+          "words": [
+            "petite conversation",
+            "météo",
+            "magnifique",
+            "chaque samedi",
+            "bonbons",
+            "raconter une histoire",
+            "week-end",
+            "aller à la pêche",
+            "rire",
+            "encore mieux"
+          ]
+        },
+        {
+          "name": "Qui a gagné ?",
+          "text": "Le match se termine. Le score est de deux partout : un match nul, mais quel match ! Les garçons se serrent la main. L'entraîneur Antoine félicite tout le monde : « Bravo ! Vous avez joué comme de vrais amis. » Papa achète des glaces pour les deux équipes. Georges dit : « Tu es un super joueur, Hugo ! » « Et toi, un super ami ! répond Hugo. On rejoue samedi prochain ? » « Bien sûr ! » Les amis ne comptent pas les buts — ils comptent les bons jours. Aujourd'hui était un très bon jour pour les deux équipes.",
+          "words": [
+            "match nul",
+            "se serrer la main",
+            "féliciter",
+            "bravo",
+            "acheter des glaces",
+            "super joueur",
+            "samedi prochain",
+            "bien sûr",
+            "compter",
+            "bonne journée"
+          ]
+        },
+        {
+          "name": "Nous sommes amis",
+          "text": "Le soir, la famille dîne et parle du match. Hugo raconte les buts, et papa montre les photos. Lucas dit : « Mercredi, M. Carter m'a aidé avec ma prononciation. C'est un bon professeur ! » « Et moi, j'apprends avec Georges, dit Hugo. Maintenant, nous sommes de vrais amis. » Maman sourit : « Nos nouveaux voisins font partie de notre vie. » Papa lève sa tasse : « Aux nouveaux amis ! » Tout le monde répète : « Aux nouveaux amis ! » Puis Hugo se couche avec un sourire. Les amis rendent la vie plus belle.",
+          "words": [
+            "match",
+            "but",
+            "photos",
+            "prononciation",
+            "bon professeur",
+            "apprendre",
+            "vrais amis",
+            "partie de la vie",
+            "Aux nouveaux amis !",
+            "plus belle"
+          ]
+        }
+      ]
+    }
+  ]
+}

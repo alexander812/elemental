@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Acquaintance",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "Nuevos vecinos",
+      "tasks": [
+        {
+          "name": "Buenos días",
+          "text": "Son las siete de la mañana. Nuestra familia vive en el quinto piso. Mamá Carmen ya está en la cocina. Prepara café y sonríe. Papá Carlos lee las noticias y bebe su té. Javi, el hijo mayor, sale a correr al parque. Luci dibuja en la mesa. Pablito, el pequeño, se despierta el último. Entra en la cocina y dice: «¡Buenos días a todos!» El perro Toby salta y mueve la cola. La gata Luna duerme en el alféizar. «¡Buenos días, Luna!» — dice Pablito. «¡Despierta! ¡El desayuno está listo!»",
+          "words": [
+            "buenos días",
+            "despertarse",
+            "cocina",
+            "café",
+            "té",
+            "sonreír",
+            "perro",
+            "gata",
+            "alféizar",
+            "desayuno"
+          ]
+        },
+        {
+          "name": "Hola y adiós",
+          "text": "Todo el día decimos hola y adiós. Por la mañana Pablito se encuentra con su amigo Huguito cerca de la escuela: «¡Hola, Huguito!» «¡Hola! ¿Cómo estás?» En la clínica Carmen sonríe a su compañera: «¡Buenos días, Bea!» En la obra Carlos saluda a su amigo: «¡Hola, Andrés!» Por la noche toda la familia está en casa otra vez. «¡Buenas noches a todos!» — dice papá. Antes de dormir los niños dicen: «¡Buenas noches, mamá! ¡Buenas noches, papá!» Hola y adiós son palabras sencillas y educadas. Abren cualquier conversación.",
+          "words": [
+            "hola",
+            "adiós",
+            "buenos días",
+            "buenas tardes",
+            "buenas noches",
+            "saludar",
+            "despedirse",
+            "educado",
+            "conversación",
+            "amigo"
+          ]
+        },
+        {
+          "name": "¿Cómo estás?",
+          "text": "Después de la escuela Pablito pasea a Toby por el patio. Doña Rosa está sentada en su banco. «¡Hola! ¿Cómo estás?» «¡Estoy bien, gracias! ¿Y usted?» «No está mal, pero mis piernas están un poco cansadas.» De repente una furgoneta blanca se para cerca de nuestra casa. Dos hombres llevan cajas y un sofá. «¿Nuevos vecinos?» — pregunta Pablito. «Sí, una familia con dos niños. Son de Inglaterra.» Pablito se alegra: «¿Habrá un niño de mi edad?» Toby ladra contento. La gente nueva siempre trae historias nuevas.",
+          "words": [
+            "¿Cómo estás?",
+            "Estoy bien",
+            "gracias",
+            "no está mal",
+            "cansado",
+            "nuevos vecinos",
+            "furgoneta",
+            "llevar",
+            "de mi edad",
+            "interesante"
+          ]
+        },
+        {
+          "name": "¡Bienvenidos!",
+          "text": "Por la tarde toda la familia baja al patio. Carmen saluda a un hombre alto con un jersey gris: «¡Buenas tardes! ¡Bienvenidos a nuestra casa! Soy Carmen.» «¡Buenas tardes! Me llamo Sr. Carter. ¡Encantado!» Una mujer sonriente dice: «¡Hola! Soy la Sra. Carter, y estos son nuestros hijos, Jorge y Emilia.» Pablito mira al niño. Tiene el pelo pelirrojo y un balón de fútbol. «¡Hola! Soy Pablito. ¿Te ayudo con la caja?» Jorge se ríe: «¡Gracias! ¡Eres muy amable!» Emilia se esconde detrás de su madre.",
+          "words": [
+            "buenas tardes",
+            "bienvenido",
+            "familia",
+            "hijo",
+            "hija",
+            "ayudar",
+            "caja",
+            "amable",
+            "esconderse",
+            "lugar nuevo"
+          ]
+        },
+        {
+          "name": "¡Buenas noches!",
+          "text": "En la cena todos hablan de los nuevos vecinos. Luci dice: «Emilia es tímida, pero su libro de cuentos es precioso». Javi dice: «La Sra. Carter es arquitecta, y el Sr. Carter enseña inglés en una escuela de idiomas». «Quizá te ayude con la pronunciación», sonríe mamá. «Vivían en Australia», dice papá. Pablito está feliz: «¡Mañana diré: Hello, George! What is your name?» Mamá se ríe: «¡Ya sabes inglés!» Es hora de dormir: «¡Buenas noches, mamá! ¡Buenas noches, papá!» Toby duerme cerca de su cama y sueña con el fútbol.",
+          "words": [
+            "cena",
+            "tímida",
+            "arquitecta",
+            "profesor",
+            "ayudar",
+            "Australia",
+            "mañana",
+            "buenas noches",
+            "soñar",
+            "cama"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vamos a conocernos",
+      "tasks": [
+        {
+          "name": "¿Cómo te llamas?",
+          "text": "El sábado por la mañana Pablito y Huguito juegan al fútbol en el patio. Un niño sale del portal. Tiene el pelo pelirrojo y un balón bajo el brazo. «¡Hola! ¿Puedo jugar con vosotros?» «¡Claro! ¿Cómo te llamas?» «Me llamo Jorge. ¿Y tú?» «Soy Pablito, y este es Huguito.» «¡Encantado, Jorge!» «¡Igualmente!» Jorge juega muy bien. Después del partido dice: «¡Sois buenos jugadores! ¿Jugamos otra vez mañana?» Los niños sonríen. Ahora son amigos.",
+          "words": [
+            "¿Cómo te llamas?",
+            "Me llamo...",
+            "Encantado",
+            "jugar al fútbol",
+            "patio",
+            "otra vez",
+            "mañana",
+            "sonreír",
+            "amigos",
+            "buen jugador"
+          ]
+        },
+        {
+          "name": "¿De dónde eres?",
+          "text": "En casa Pablito pregunta: «Jorge, ¿de dónde eres?» «Mi padre es de Londres y mi madre es de Australia. Nací en Londres.» «¡Australia! ¡Qué guay! ¿En casa habláis inglés?» «Sí, y mi madre también habla un poco de español. Aprende cada día. ¿Y tú? ¿De dónde eres?» «Soy de Oviedo, nací aquí. Nunca he estado en Australia.» «¡Ven a casa a tomar el té! Mi madre prepara un té con leche buenísimo y hace galletas.» «¡Con mucho gusto!»",
+          "words": [
+            "¿De dónde eres?",
+            "Soy de...",
+            "nacido",
+            "Australia",
+            "Inglaterra",
+            "ciudad",
+            "hablar",
+            "un poco",
+            "té con leche",
+            "galletas"
+          ]
+        },
+        {
+          "name": "¿Cuántos años tienes?",
+          "text": "Los niños se sientan en un banco y hablan. «¿Cuántos años tienes, Jorge?» «Tengo doce. ¿Y tú?» «Yo tengo diez, y Huguito también. Estamos en cuarto curso.» «Yo estoy en sexto. Mi hermana Emilia tiene nueve años, está en tercero.» «¿Estudia en nuestra escuela?» «Sí, pero es muy tímida. Le gustan los libros y dibujar.» «¡Mi hermana Luci dibuja muy bien! Tiene catorce años.» «¡Quizá se hagan amigas!» Jorge mira su reloj: «Son las cinco. Tengo que ir a casa. ¡Hasta luego!»",
+          "words": [
+            "¿Cuántos años tienes?",
+            "Tengo doce",
+            "cuarto curso",
+            "sexto curso",
+            "hermana",
+            "tímida",
+            "dibujo",
+            "hacerse amigos",
+            "reloj",
+            "ir a casa"
+          ]
+        },
+        {
+          "name": "Hablo un poco de inglés",
+          "text": "Jorge quiere aprender palabras en español, y Pablito estudia inglés en la escuela. «Di hola en español: ¡Hola!» — «¡Hola!» — «¡Muy bien! Ahora di amigo». — «¡Amigo!» Los niños se ríen y repiten las palabras. Por la tarde Pablito le cuenta a Luci: «Jorge me enseña inglés y yo le enseño español». «¿Ya sabes palabras en inglés?» — «Solo unas pocas. Escucha: Hello, George! What is your name?» — «¡Excelente! Emilia también dibuja muy bien. Hoy nos conocimos, es muy simpática. El domingo dibujaremos juntos».",
+          "words": [
+            "aprender",
+            "palabra",
+            "amigo",
+            "repetir",
+            "reír",
+            "enseñar",
+            "unas pocas palabras",
+            "dibujar",
+            "conocerse",
+            "juntos"
+          ]
+        },
+        {
+          "name": "¿A qué te dedicas?",
+          "text": "En la cena la familia juega a un juego. Mamá dice: «Soy médica. Ayudo a la gente.» Papá dice: «Soy ingeniero. Construyo casas.» Javi dice: «Soy estudiante. Estudio matemáticas e informática.» Luci dice: «Soy artista. Dibujo cuadros.» Es el turno de Pablito: «¡Soy futbolista!» Todos se ríen. «¿Y qué quieres ser, Pablito?» «¡Futbolista y adiestrador de perros!» Por la noche Pablito escribe un mensaje a Jorge: «¿A qué te dedicas?» La respuesta llega enseguida: «¡Soy estudiante y también futbolista!»",
+          "words": [
+            "¿A qué te dedicas?",
+            "médica",
+            "ingeniero",
+            "estudiante",
+            "artista",
+            "construir",
+            "ayudar a la gente",
+            "ser",
+            "mensaje",
+            "respuesta"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Té en casa de los Carter",
+      "tasks": [
+        {
+          "name": "Encantado de conoceros",
+          "text": "El domingo la familia sube al sexto piso. La Sra. Carter abre la puerta: «¡Buenas tardes! ¡Pasad, por favor! Sentaos como en casa.» El piso huele a té y galletas. El Sr. Carter dice: «¡Encantado, Carmen! ¡Encantado, Carlos!» Los niños se sientan en un sofá grande y blando. Emilia muestra a Luci su libro de cuentos. Jorge y Pablito juegan con un robot pequeño. «¿Os gusta nuestro piso?» — pregunta Emilia en voz baja. «¡Sí, es muy acogedor! — dice Luci. — ¡Y tus dibujos son preciosos!» Emilia sonríe por primera vez.",
+          "words": [
+            "pasa",
+            "sentaos como en casa",
+            "oler",
+            "té",
+            "sofá blando",
+            "libro de cuentos",
+            "robot",
+            "acogedor",
+            "precioso",
+            "por primera vez"
+          ]
+        },
+        {
+          "name": "Té con leche",
+          "text": "La Sra. Carter trae una tetera grande: «En Inglaterra tomamos té con leche. ¡Probádlo!» Carmen coge una taza: «¡Está delicioso! Y estas galletas son maravillosas. ¿Las ha hecho usted?» «Sí, es la receta de mi abuela.» El Sr. Carter pregunta a Carlos: «¿Te gustan las bicicletas? Quiero comprar una.» «¡Sí! Los sábados monto con mi amigo Andrés. Puedo ayudarte a elegir.» Las mujeres hablan de Londres y sus calles antiguas. Emilia escucha y dibuja. «Hoy hace buen tiempo, ¿verdad?» — dice el Sr. Carter. «Sí, muy bueno.»",
+          "words": [
+            "tetera",
+            "té con leche",
+            "probar",
+            "delicioso",
+            "receta",
+            "bicicleta",
+            "montar",
+            "elegir",
+            "tiempo",
+            "calle"
+          ]
+        },
+        {
+          "name": "¿Hablas español?",
+          "text": "El Sr. Carter dice: «Hablo un poco de español. ¡Pero es difícil!» Carmen sonríe: «¡Habla usted muy bien! ¿Cuánto tiempo lleva estudiando?» «Cinco años. ¡Me encantan los pelmeni rusos! En Londres no los conocía.» Jorge se ríe: «¡Papá dice pelmeni todos los días!» La Sra. Carter dice: «Yo también estudio español. Cada mañana leo una página.» «No es fácil — dice Carlos —, ¡pero lo hacéis muy bien!» Pablito susurra a Jorge: «¡Enséñame inglés y yo te enseño español!» «¡Trato hecho!» — dice Jorge.",
+          "words": [
+            "hablar español",
+            "difícil",
+            "estudiar",
+            "¿cuánto tiempo?",
+            "pelmeni",
+            "cada día",
+            "página",
+            "muy bien",
+            "susurrar",
+            "trato hecho"
+          ]
+        },
+        {
+          "name": "¿Cuál es tu número de teléfono?",
+          "text": "Después del té, Javi pregunta al Sr. Carter: «¿Podría ayudarme con el inglés? Quiero estudiar en el extranjero.» «¡Claro! Podemos quedar los miércoles. Apunta mi número de teléfono: cinco, tres, dos, siete, uno, nueve.» Javi lo escribe en su cuaderno. «¡Y aquí está el mío!» Jorge le da a Pablito un papelito: «Mi número es ocho, nueve, uno, dos, cuatro. ¡Llámame después de la escuela!» Pablito está muy orgulloso: «¡Ahora tengo un amigo inglés de verdad!» Los padres sonríen y toman su té. Pronto es hora de ir a casa.",
+          "words": [
+            "número de teléfono",
+            "ayudar con el inglés",
+            "estudiar en el extranjero",
+            "apuntar",
+            "cuaderno",
+            "número",
+            "llamar",
+            "después de la escuela",
+            "orgulloso",
+            "hora de ir a casa"
+          ]
+        },
+        {
+          "name": "¡Hasta pronto!",
+          "text": "Ya es tarde. La familia se despide. «¡Gracias por el té y las galletas!» «¡De nada! ¡Volved pronto!» La Sra. Carter le da a Carmen un bote de mermelada casera. Emilia le regala a Luci un dibujo: dos niñas bajo un manzano. «Esta eres tú y esta soy yo», dice en voz baja. Luci la abraza. En la puerta el Sr. Carter dice: «El sábado jugaremos al fútbol en el patio. ¡Ven, Pablito!» «¡Vendré! ¡Hasta pronto, Jorge!» «¡Hasta pronto!» En la escalera Pablito dice: «Mamá, ¡hoy fue el mejor día!» «Para mí también», dice Luci.",
+          "words": [
+            "despedirse",
+            "gracias por...",
+            "De nada",
+            "volved pronto",
+            "mermelada",
+            "dibujo",
+            "manzano",
+            "abrazar",
+            "Hasta pronto",
+            "el mejor día"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Amigos en el patio",
+      "tasks": [
+        {
+          "name": "Una mañana de fútbol",
+          "text": "El sábado por la mañana Pablito no puede quedarse quieto. ¡Hoy Jorge y su equipo juegan al fútbol en el patio! Toby también lo siente y corre por el piso. A las diez llega el entrenador Óscar con un silbato y un balón. Huguito ya está allí. Luego llega Jorge con su balón rojo. «¿Listos?» — pregunta Óscar. «¡Listos!» — gritan los niños. Hoy hay dos equipos: el del patio y los invitados. Óscar sonríe: «Recordad: el juego es más importante que la victoria. ¡Empezamos!»",
+          "words": [
+            "sábado por la mañana",
+            "equipo",
+            "entrenador",
+            "silbato",
+            "balón",
+            "listos",
+            "equipo del patio",
+            "invitados",
+            "juego",
+            "más importante que"
+          ]
+        },
+        {
+          "name": "En el patio",
+          "text": "El partido empieza. Jorge corre rápido y pasa el balón a Pablito. Pablito casi marca, pero el portero atrapa el balón. «¡Buen tiro!» — grita Jorge. Huguito juega en defensa y no deja marcar a los invitados. De repente Jorge recibe el balón, dispara y ¡gol! Los niños celebran. Desde el balcón la gata Luna mira el partido: parece una verdadera jueza. Luci y Emilia están sentadas en un banco y dibujan a los jugadores. Al descanso el marcador es uno a uno. ¡El partido está muy reñido!",
+          "words": [
+            "pasar el balón",
+            "marcar",
+            "portero",
+            "atrapar",
+            "tiro",
+            "defensa",
+            "gol",
+            "celebrar",
+            "marcador",
+            "uno a uno"
+          ]
+        },
+        {
+          "name": "Charla informal",
+          "text": "Los mayores se sientan en el banco y miran el partido. «Hoy hace buen tiempo, ¿verdad?» — dice el Sr. Carter. «Sí, maravilloso. Podríamos venir cada sábado.» Doña Rosa da caramelos a los niños y cuenta una historia sobre el viejo patio. Carlos y el Sr. Carter hablan de bicicletas y del fin de semana. «En verano podemos ir al parque en bici», dice Carlos. «¡Buena idea! Y en otoño iremos a pescar — se ríe el Sr. Carter —. ¡Yo llevo los pelmeni!» Todos se ríen. Una charla informal mejora cualquier día.",
+          "words": [
+            "charla informal",
+            "tiempo",
+            "maravilloso",
+            "cada sábado",
+            "caramelos",
+            "contar una historia",
+            "fin de semana",
+            "ir a pescar",
+            "reír",
+            "aún mejor"
+          ]
+        },
+        {
+          "name": "¿Quién ganó?",
+          "text": "El partido termina. El marcador es dos a dos: un empate, ¡pero qué partido! Los niños se dan la mano. El entrenador Óscar felicita a todos: «¡Bien hecho! Habéis jugado como verdaderos amigos.» Doña Rosa da un caramelo a cada jugador. Papá compra helado para los dos equipos. Jorge dice: «¡Eres un gran jugador, Pablito!» «¡Y tú un gran amigo! — responde Pablito —. ¿Jugamos otra vez el sábado que viene?» «¡Claro!» Los amigos no cuentan goles, cuentan buenos días. Hoy fue un día muy bueno para los dos equipos.",
+          "words": [
+            "empate",
+            "darse la mano",
+            "felicitar",
+            "bien hecho",
+            "comprar helado",
+            "gran jugador",
+            "el sábado que viene",
+            "claro",
+            "contar",
+            "buen día"
+          ]
+        },
+        {
+          "name": "Somos amigos",
+          "text": "Por la noche la familia cena y habla del partido. Pablito cuenta los goles, y papá enseña las fotos. Javi dice: «El miércoles el Sr. Carter me ayudó con la pronunciación. ¡Es un buen profesor!» «Y yo aprendo con Jorge — dice Pablito —. Ahora somos amigos de verdad.» Mamá sonríe: «Nuestros nuevos vecinos forman parte de nuestra vida.» Papá levanta su taza: «¡Por los nuevos amigos!» Todos repiten: «¡Por los nuevos amigos!» Luego Pablito se va a la cama con una sonrisa. Los amigos hacen la vida más brillante.",
+          "words": [
+            "partido",
+            "gol",
+            "fotos",
+            "pronunciación",
+            "buen profesor",
+            "aprender",
+            "amigos de verdad",
+            "parte de la vida",
+            "¡Por los nuevos amigos!",
+            "más brillante"
+          ]
+        }
+      ]
+    }
+  ]
+}

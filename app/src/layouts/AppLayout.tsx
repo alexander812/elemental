@@ -64,6 +64,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <SetCreateView lessonId={screen.lessonId} setId={screen.setId} />
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />
+    case 'set-intro':
+      return <SetTextView key={screen.setId} setId={screen.setId} welcome />
     case 'set-text':
       return 'setId' in screen ? (
         <SetTextView key={screen.setId} setId={screen.setId} />

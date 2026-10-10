@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Holidays",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "L'anniversaire de Hugo",
+      "tasks": [
+        {
+          "name": "Une matinée spéciale",
+          "text": "C'est samedi, le sept octobre. C'est l'anniversaire de Hugo ! Il a dix ans. Il se réveille tôt et court à la cuisine. Sur la table, il y a une grande boîte. Dedans, Hugo trouve un ballon de football neuf : un cadeau de papa et maman. Léa lui offre un album coloré pour dessiner. Lucas, un petit robot. Hugo est très content : « Merci ! » Rex entre en courant dans la chambre avec un nœud en papier au cou, et Minette s'assoit sur sa chaise en ronronnant. Quelle matinée merveilleuse !",
+          "words": [
+            "anniversaire",
+            "se réveiller tôt",
+            "cadeau",
+            "boîte",
+            "ballon de football",
+            "album",
+            "robot",
+            "content",
+            "nœud",
+            "merveilleux"
+          ]
+        },
+        {
+          "name": "Les invitations",
+          "text": "Après le petit-déjeuner, Hugo écrit des invitations pour ses amis. Il dessine de petites cartes avec un ballon et écrit : « Tu es invité à mon anniversaire ! Viens dimanche à trois heures. » Léa dessine des ballons colorés sur chaque carte. Hugo prépare quatre invitations : pour Georges et Émilie d'en haut, pour Jules et pour son cousin Théo. Rex veut porter une carte aux voisins lui-même : il la prend dans sa gueule et court à la porte. Tout le monde rit : Rex est le meilleur facteur !",
+          "words": [
+            "invitation",
+            "carte",
+            "inviter",
+            "anniversaire",
+            "ballon",
+            "écrire",
+            "voisin",
+            "facteur",
+            "rire",
+            "trois heures"
+          ]
+        },
+        {
+          "name": "Les invités",
+          "text": "Le dimanche, les invités arrivent à trois heures. Georges et Émilie apportent une grande boîte avec un jeu. Jules offre à Hugo un avion en jouet qu'il a fabriqué lui-même. Et son cousin Théo arrive avec un ballon de basket : « On jouera en été ! » Les enfants jouent, dessinent des affiches et courent dans la cour avec Rex. Mme Carter et maman préparent le thé. Madame Blanc apporte ses fameux biscuits. À quatre heures, tout le monde s'assoit à table.",
+          "words": [
+            "invité",
+            "apporter",
+            "jeu",
+            "avion en jouet",
+            "ballon de basket",
+            "affiche",
+            "cour",
+            "biscuits",
+            "préparer le thé",
+            "à table"
+          ]
+        },
+        {
+          "name": "Le gâteau",
+          "text": "À quatre heures, maman apporte le gâteau d'anniversaire. Il y a dix bougies dessus. La lumière s'éteint, et tout le monde chante : « Joyeux anniversaire ! » Hugo ferme les yeux, fait un vœu et souffle les bougies : un, deux, trois... dix ! Hourra ! Hugo coupe le gâteau : le premier morceau pour maman, le deuxième pour papa, puis pour tous les invités. Émilie dit doucement : « Ton gâteau est le plus délicieux du monde. » Hugo sourit : « C'est parce que maman l'a fait avec amour. » C'est une vraie fête !",
+          "words": [
+            "gâteau",
+            "bougie",
+            "chanter",
+            "faire un vœu",
+            "souffler",
+            "morceau",
+            "délicieux",
+            "amour",
+            "vraie",
+            "fête"
+          ]
+        },
+        {
+          "name": "Bonne nuit, anniversaire !",
+          "text": "Le soir, les invités rentrent chez eux. Hugo est fatigué mais très heureux. Il range les cadeaux sur l'étagère : le ballon, le jeu, l'avion et le ballon de basket. Puis il écrit des cartes de remerciement pour ses amis. Maman dit : « Dix ans, comme tu es grand ! » Hugo serre ses parents dans ses bras : « Merci pour le meilleur anniversaire ! » Rex dort près du lit, et aujourd'hui, il ne rêve pas de football, mais de gâteau. C'était une journée merveilleuse. Bonne nuit !",
+          "words": [
+            "cadeau",
+            "étagère",
+            "carte de remerciement",
+            "serrer dans ses bras",
+            "le meilleur",
+            "rêver",
+            "gâteau",
+            "journée merveilleuse",
+            "fatigué",
+            "bonne nuit"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Les préparatifs de la fête",
+      "tasks": [
+        {
+          "name": "Décorons !",
+          "text": "Décembre arrive, et la première neige tombe. Le soir, les Carter descendent, et tout le monde décore l'appartement ensemble. M. Carter apporte une boîte de guirlandes et de lumières. Les enfants accrochent des flocons de neige en papier aux fenêtres. Léa découpe une grande étoile, et Émilie la peint en doré. Maman prépare du thé chaud au miel, et Minette nous regarde depuis le canapé. Quand tout est prêt, papa éteint la lumière. La pièce brille et ressemble à un conte de fées !",
+          "words": [
+            "décorer",
+            "guirlande",
+            "lumières",
+            "flocon de neige",
+            "étoile",
+            "découper",
+            "peindre",
+            "miel",
+            "briller",
+            "conte de fées"
+          ]
+        },
+        {
+          "name": "Une lettre au Père Noël",
+          "text": "Le samedi, les enfants écrivent des lettres au Père Noël. Hugo écrit : « Cher Père Noël, je veux un grand puzzle et de nouvelles chaussures de football. Apporte aussi un cadeau pour Rex et Minette. » Émilie dessine un flocon de neige pour le Père Noël. Georges demande un livre sur les dinosaures. Puis ils mettent les lettres dans une enveloppe et l'accrochent à la porte. Lucas rit : « Le facteur sera surpris ! » Mme Carter sourit : « Nous écrivons aussi des lettres chaque année. C'est notre tradition. »",
+          "words": [
+            "lettre",
+            "Père Noël",
+            "écrire",
+            "vouloir",
+            "puzzle",
+            "chaussures",
+            "apporter",
+            "enveloppe",
+            "accrocher",
+            "tradition"
+          ]
+        },
+        {
+          "name": "Acheter des cadeaux",
+          "text": "Le dimanche, la famille va faire des courses. Les rues sont pleines de lumières. Dans le magasin, il y a beaucoup de jouets ! Papa demande : « Que voulez-vous acheter pour mamie ? » Léa choisit une écharpe chaude, et Lucas, un livre sur les vieilles voitures pour papi. Hugo regarde un grand ours en peluche pour Émilie. Maman achète de la nourriture pour la fête : des fruits, des bonbons et des biscuits. Ensuite, la famille boit un chocolat chaud au café. Dehors il fait froid, mais tout le monde est content.",
+          "words": [
+            "faire des courses",
+            "magasin",
+            "jouet",
+            "choisir",
+            "écharpe",
+            "ours en peluche",
+            "bonbons",
+            "chocolat chaud",
+            "froid",
+            "chaud"
+          ]
+        },
+        {
+          "name": "Le sapin de Noël",
+          "text": "Le vingt décembre, papa rapporte un vrai sapin de Noël. Il sent la forêt. Lucas monte le sapin. Puis toute la famille le décore : des boules rouges, des étoiles dorées et de petits jouets de mamie. Léa met son vieil ange en papier au sommet. Émilie apporte un bonhomme de neige en jouet. M. Carter dit : « En Australie, Noël, c'est en été — on nage et on mange des glaces ! » Tout le monde sourit. Madame Blanc apporte des sucres d'orge. Le sapin est prêt — et la fête est presque là !",
+          "words": [
+            "sapin de Noël",
+            "boules",
+            "étoile",
+            "ange",
+            "sommet",
+            "surprendre",
+            "été",
+            "glaces",
+            "sucre d'orge",
+            "presque"
+          ]
+        },
+        {
+          "name": "Le menu de fête",
+          "text": "Dans la cuisine, maman et mamie écrivent le menu du Nouvel An. Mamie dit : « Il faut une grande tarte aux pommes. » Maman ajoute : « Et de la salade, et du poisson du marché. » Les enfants demandent une pizza, mais les parents rient. Finalement, le menu a beaucoup de plats : salade, soupe, tarte, fruits et bonbons. Hugo dessine le menu sur une grande feuille et le décore avec un flocon de neige. Maintenant, le frigo est plein, et tout le monde attend la fête. Et ton plat préféré ?",
+          "words": [
+            "menu",
+            "plat",
+            "tarte",
+            "salade",
+            "poisson",
+            "préféré",
+            "attendre",
+            "fruits",
+            "bonbons",
+            "flocon de neige"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Le Nouvel An",
+      "tasks": [
+        {
+          "name": "La table de fête",
+          "text": "Le trente et un décembre, la famille cuisine toute la journée. Papa et Lucas préparent une grande salade, et maman prépare une tarte. Léa met la table : des assiettes blanches, des verres et des fourchettes. Hugo met des mandarines dans un grand bol — au Nouvel An, il y a toujours des mandarines ! Mamie et papi arrivent le soir avec leur tarte aux pommes. Les Carter viennent aussi, avec des biscuits. À huit heures, tout est prêt : la table, le sapin et beaucoup de cadeaux dessous. La fête peut commencer !",
+          "words": [
+            "table de fête",
+            "mettre la table",
+            "assiette",
+            "verre",
+            "fourchette",
+            "mandarine",
+            "arriver",
+            "sous le sapin",
+            "cadeaux",
+            "commencer"
+          ]
+        },
+        {
+          "name": "Minuit",
+          "text": "Cinq minutes avant minuit, tout le monde se tient autour du sapin. L'horloge fait tic-tac. Papa allume la télé : le président parle. Les enfants tiennent leurs verres de jus. Puis l'horloge sonne douze coups ! Hourra ! Bonne année ! Tout le monde dit : « Bonheur, santé et bonne chance ! » Maman et papa se serrent dans les bras, et mamie a des larmes de joie. Dehors, les feux d'artifice illuminent le ciel. Hugo court à la fenêtre : « Regardez, regardez ! » Rex aboie après les feux d'artifice. La nouvelle année est arrivée !",
+          "words": [
+            "minuit",
+            "horloge",
+            "sonner douze coups",
+            "Bonne année",
+            "bonheur",
+            "santé",
+            "bonne chance",
+            "feux d'artifice",
+            "ciel",
+            "se serrer dans les bras"
+          ]
+        },
+        {
+          "name": "Les cadeaux",
+          "text": "Après minuit vient la partie préférée de Hugo : les cadeaux ! Sous le sapin, tout le monde donne et reçoit des cadeaux. Papi offre à Hugo un bateau en bois. Mamie offre aux enfants des chaussettes chaudes et des bonbons. Les Carter offrent à la famille une grande boîte de thé anglais et un livre sur Londres. Léa offre à ses parents un tableau, et Lucas, son propre jeu d'ordinateur sur la famille. Tout le monde dit : « C'est le meilleur jeu du monde ! » Puis tout le monde essaie les nouveaux jeux ensemble.",
+          "words": [
+            "cadeau",
+            "donner",
+            "recevoir",
+            "bateau en bois",
+            "chaussettes",
+            "thé",
+            "propre",
+            "jeu",
+            "le meilleur",
+            "essayer"
+          ]
+        },
+        {
+          "name": "Les jeux d'hiver",
+          "text": "Le deux janvier, la ville est blanche. La neige est épaisse. Les enfants vont au parc avec Rex, Georges et Émilie. Ils font un grand bonhomme de neige : Lucas fait le corps, les enfants font la tête, et Hugo lui donne sa vieille écharpe. M. Carter et papa apportent des luges, et tous descendent la colline. Émilie tombe dans un tas de neige : « Je suis un flocon de neige ! » Rex court et saute dans la neige comme un chiot. Léa dessine le parc d'hiver. Le soir, le bonhomme de neige avec son écharpe sourit dans le parc.",
+          "words": [
+            "neige",
+            "bonhomme de neige",
+            "écharpe",
+            "luge",
+            "colline",
+            "faire",
+            "tas de neige",
+            "rire",
+            "hiver",
+            "blanc"
+          ]
+        },
+        {
+          "name": "La fin des vacances",
+          "text": "Le huit janvier, les vacances sont presque finies. Le sapin brille encore, mais l'école commence demain. Hugo met ses nouvelles chaussures près de la porte. Lucas vérifie son sac, et Léa choisit des crayons pour l'école d'art. Le soir, les Carter descendent chez nous. Émilie dit : « Je ne veux pas que les vacances se terminent. » Maman sourit : « Mais après chaque fête vient un nouveau jour heureux. » Hugo sourit : « Demain, je verrai Georges à l'école ! » Puis tous regardent les photos et se souviennent des fêtes.",
+          "words": [
+            "vacances",
+            "se terminer",
+            "l'école commence",
+            "chaussures",
+            "crayon",
+            "sac",
+            "sourire",
+            "se souvenir",
+            "fête",
+            "nouveau jour"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Noël chez les Carter",
+      "tasks": [
+        {
+          "name": "Le matin de Noël",
+          "text": "Le vingt-cinq décembre, les Carter invitent la famille à fêter Noël. Le matin, Hugo monte avec un petit cadeau pour Émilie. L'appartement des Carter sent la cannelle et les oranges. Près de la fenêtre, il y a un grand sapin avec des chaussettes : de longues chaussettes avec de petits cadeaux dedans. Émilie montre la sienne à Hugo : du chocolat, une petite poupée et une orange. Mme Carter apporte le pudding de Noël. Pour Hugo, tout est nouveau et intéressant. C'est comme un conte de fées !",
+          "words": [
+            "Noël",
+            "inviter",
+            "fêter",
+            "chaussette",
+            "chocolat",
+            "poupée",
+            "orange",
+            "pudding",
+            "sentir",
+            "conte de fées"
+          ]
+        },
+        {
+          "name": "Le repas de Noël",
+          "text": "À deux heures, tout le monde s'assoit à table. Sur la table, il y a une grande dinde avec des légumes et des pommes de terre. Mme Carter dit : « En Australie, nous fêtions Noël en été — avec un barbecue et de la limonade fraîche. Mais maintenant, je préfère Noël en hiver ! » M. Carter raconte Noël à Londres : les rues sont illuminées, et les gens chantent. Mamie dit : « Chaque pays a ses traditions, et c'est merveilleux. » Après le repas, tout le monde joue à des jeux de société. M. Carter gagne pour la première fois !",
+          "words": [
+            "repas",
+            "dinde",
+            "légumes",
+            "pommes de terre",
+            "barbecue",
+            "tradition",
+            "chanson",
+            "jeu de société",
+            "gagner",
+            "différent"
+          ]
+        },
+        {
+          "name": "Une promenade dans la neige",
+          "text": "Après le repas, les deux familles vont se promener. Le parc est blanc et calme. La neige craque sous les bottes. Georges et Hugo font des boules de neige et les lancent à papa — il rit et s'enfuit. Émilie et Léa font un petit chat de neige, et Lucas prend une photo. M. Carter voit un oiseau sur une branche : « En hiver, les oiseaux ont besoin de notre aide. » Les enfants donnent du pain à l'oiseau. Puis tout le monde rentre et boit du thé chaud avec des biscuits. C'est un vrai Noël !",
+          "words": [
+            "promenade",
+            "boule de neige",
+            "lancer",
+            "branche",
+            "oiseau",
+            "aider",
+            "pain",
+            "prendre une photo",
+            "thé chaud",
+            "vrai"
+          ]
+        },
+        {
+          "name": "Cadeaux et vœux",
+          "text": "Le soir, les Carter offrent à la famille des cadeaux de Noël. Maman reçoit une écharpe anglaise chaude, et papa, un livre sur Londres. Les enfants reçoivent des bonbons anglais et un jeu. Hugo offre à M. Carter un dessin : un bonhomme de neige avec un chapeau haut de forme. Léa offre à Mme Carter son tableau du parc d'hiver. Émilie offre à la famille une carte avec les mots : « Merci pour la meilleure année ! » Tout le monde est très heureux. Les cadeaux ne sont pas importants — l'attention et l'amitié le sont.",
+          "words": [
+            "cadeau",
+            "écharpe",
+            "livre",
+            "bonbons",
+            "dessin",
+            "carte",
+            "merci",
+            "heureux",
+            "important",
+            "amitié"
+          ]
+        },
+        {
+          "name": "La plus belle fête",
+          "text": "Hugo n'arrive pas à s'endormir. La journée a été comme un grand cadeau. Il pense aux chaussettes, au pudding et au bonhomme de neige. Maman entre dans sa chambre : « Tu as aimé le Noël anglais ? » « Oui ! Mais notre Nouvel An est plus chaleureux. » Maman rit : « Un jour, tu verras tout toi-même à Londres. » Hugo rêve : « Peut-être que Georges et moi fêterons Noël ensemble. » « Dors bien, mon chéri. Fais de beaux rêves ! » C'était la plus belle fête de sa vie — parce qu'il l'a fêtée avec sa famille et ses amis.",
+          "words": [
+            "s'endormir",
+            "chaussette",
+            "pudding",
+            "bonhomme de neige",
+            "aller",
+            "fêter",
+            "fais de beaux rêves",
+            "fête",
+            "famille",
+            "amis"
+          ]
+        }
+      ]
+    }
+  ]
+}

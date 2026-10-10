@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Holidays",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "El cumpleaños de Pablito",
+      "tasks": [
+        {
+          "name": "Una mañana especial",
+          "text": "Hoy es sábado, siete de octubre. ¡Es el cumpleaños de Pablito! Cumple diez años. Se despierta temprano y corre a la cocina. En la mesa hay una caja grande. Dentro, Pablito encuentra un balón de fútbol nuevo: un regalo de mamá y papá. Luci le da un álbum de colores para dibujar. Javi, un robot pequeño. Pablito está muy feliz: «¡Gracias!» Toby entra corriendo en la habitación con un lazo de papel en el cuello, y Luna se sienta en su silla y ronronea. ¡Qué mañana tan maravillosa!",
+          "words": [
+            "cumpleaños",
+            "despertarse temprano",
+            "regalo",
+            "caja",
+            "balón de fútbol",
+            "álbum",
+            "robot",
+            "feliz",
+            "lazo",
+            "maravilloso"
+          ]
+        },
+        {
+          "name": "Las invitaciones",
+          "text": "Después del desayuno Pablito escribe invitaciones para sus amigos. Dibuja tarjetas pequeñas con un balón y escribe: «¡Estás invitado a mi cumpleaños! Ven el domingo a las tres.» Luci dibuja globos de colores en cada tarjeta. Pablito hace cuatro invitaciones: para Jorge y Emilia de arriba, para Huguito y para su primo Dieguito. Toby quiere llevar una tarjeta a los vecinos él solo: la coge con los dientes y corre a la puerta. Todos se ríen: ¡Toby es el mejor cartero!",
+          "words": [
+            "invitación",
+            "tarjeta",
+            "invitar",
+            "cumpleaños",
+            "globo",
+            "escribir",
+            "vecino",
+            "cartero",
+            "reír",
+            "las tres"
+          ]
+        },
+        {
+          "name": "Los invitados",
+          "text": "El domingo los invitados llegan a las tres. Jorge y Emilia traen una caja grande con un juego. Huguito le da a Pablito un avión de juguete que hizo él mismo. Y su primo Dieguito llega con un balón de baloncesto: «¡Jugaremos en verano!» Los niños juegan, dibujan carteles y corren por el patio con Toby. La Sra. Carter y mamá preparan té. Doña Rosa trae sus famosas galletas. A las cuatro todos se sientan a la mesa.",
+          "words": [
+            "invitado",
+            "traer",
+            "juego",
+            "avión de juguete",
+            "balón de baloncesto",
+            "cartel",
+            "patio",
+            "galletas",
+            "preparar té",
+            "a la mesa"
+          ]
+        },
+        {
+          "name": "La tarta",
+          "text": "A las cuatro mamá trae la tarta de cumpleaños. Tiene diez velas. Se apaga la luz y todos cantan: «¡Cumpleaños feliz!» Pablito cierra los ojos, pide un deseo y apaga las velas: ¡uno, dos, tres... diez! ¡Hurra! Pablito corta la tarta: el primer trozo es para mamá, el segundo para papá, y luego para todos los invitados. Emilia dice en voz baja: «Tu tarta es la más rica del mundo.» Pablito sonríe: «Es porque mamá la hizo con amor.» ¡Es una fiesta de verdad!",
+          "words": [
+            "tarta",
+            "vela",
+            "cantar",
+            "pedir un deseo",
+            "apagar",
+            "trozo",
+            "rico",
+            "amor",
+            "de verdad",
+            "fiesta"
+          ]
+        },
+        {
+          "name": "¡Buenas noches, cumpleaños!",
+          "text": "Por la noche los invitados se van a casa. Pablito está cansado, pero muy feliz. Coloca los regalos en la estantería: el balón, el juego, el avión y el balón de baloncesto. Luego escribe tarjetas de agradecimiento para sus amigos. Mamá dice: «¡Diez años, qué grande eres!» Pablito abraza a sus padres: «¡Gracias por el mejor cumpleaños!» Toby duerme junto a la cama y hoy sueña no con el fútbol, sino con la tarta. Ha sido un día maravilloso. ¡Buenas noches!",
+          "words": [
+            "regalo",
+            "estantería",
+            "tarjeta de agradecimiento",
+            "abrazar",
+            "el mejor",
+            "soñar",
+            "tarta",
+            "día maravilloso",
+            "cansado",
+            "buenas noches"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Preparando las fiestas",
+      "tasks": [
+        {
+          "name": "¡Vamos a decorar!",
+          "text": "Llega diciembre y cae la primera nieve. Por la noche los Carter bajan a casa, y todos decoran el piso juntos. El Sr. Carter trae una caja de guirnaldas y luces. Los niños cuelgan copos de nieve de papel en las ventanas. Luci recorta una estrella grande, y Emilia la pinta de dorado. Mamá prepara té caliente con miel, y Luna nos observa desde el sofá. Cuando todo está listo, papá apaga la luz. ¡La habitación brilla y parece un cuento de hadas!",
+          "words": [
+            "decorar",
+            "guirnalda",
+            "luces",
+            "copo de nieve",
+            "estrella",
+            "recortar",
+            "pintar",
+            "miel",
+            "brillar",
+            "cuento de hadas"
+          ]
+        },
+        {
+          "name": "Una carta a Papá Noel",
+          "text": "El sábado los niños escriben cartas a Papá Noel. Pablito escribe: «Querido Papá Noel, quiero un puzle grande y botas nuevas para el fútbol. Trae algo para Toby y Luna también.» Emilia dibuja un cuadro para Papá Noel: su carta es un copo de nieve precioso. Jorge pide un libro sobre dinosaurios. Luego meten las cartas en un sobre grande y lo cuelgan en la puerta. Javi se ríe: «¡El cartero se sorprenderá!» La Sra. Carter sonríe: «Nosotros también escribimos cartas cada año. Es una tradición familiar muy bonita.»",
+          "words": [
+            "carta",
+            "Papá Noel",
+            "escribir",
+            "querer",
+            "puzle",
+            "botas",
+            "traer",
+            "sobre",
+            "colgar",
+            "tradición"
+          ]
+        },
+        {
+          "name": "Comprando regalos",
+          "text": "El domingo la familia va de compras. Las calles están llenas de luces y música. ¡En la tienda hay tantos juguetes! Papá pregunta: «¿Qué queréis comprar para la abuela?» Luci elige una bufanda caliente, y Javi, un libro sobre coches antiguos para el abuelo. Pablito mira un osito de peluche grande para Emilia. Mamá compra comida para la mesa festiva: fruta, dulces y una caja grande de galletas. Luego la familia toma chocolate caliente en un café pequeño. Fuera hace frío, pero todos están calentitos y felices.",
+          "words": [
+            "ir de compras",
+            "tienda",
+            "juguete",
+            "elegir",
+            "bufanda",
+            "osito de peluche",
+            "dulces",
+            "chocolate caliente",
+            "frío",
+            "caliente"
+          ]
+        },
+        {
+          "name": "El árbol de Navidad",
+          "text": "El veinte de diciembre papá trae un árbol de Navidad de verdad. Huele a bosque. Javi lo sube a casa, y Pablito sujeta la puerta. Luego toda la familia lo decora: bolas rojas, estrellas doradas y juguetes pequeños de la abuela. Luci pone su viejo ángel de papel en la punta. Emilia trae un juguete de muñeco de nieve. El Sr. Carter dice: «En Australia la Navidad es en verano: ¡nadamos y comemos helado!» Todos sonríen. Doña Rosa trae caramelos. ¡El árbol ya está listo, y la fiesta está casi aquí!",
+          "words": [
+            "árbol de Navidad",
+            "bola",
+            "estrella",
+            "ángel",
+            "punta",
+            "sorprender",
+            "verano",
+            "helado",
+            "caramelo",
+            "casi"
+          ]
+        },
+        {
+          "name": "El menú de la fiesta",
+          "text": "En la cocina, mamá y la abuela escriben el menú de Año Nuevo. La abuela dice: «Necesitamos una tarta grande de manzana.» Mamá añade: «Y ensalada, y pescado del mercado.» Los niños piden pizza, pero los padres se ríen. Al final el menú tiene muchos platos: ensalada, sopa, tarta, fruta y dulces. Pablito dibuja el menú en un papel grande y lo decora con un copo de nieve. Ahora la nevera está llena, y todos esperan la fiesta. ¿Y tu plato favorito?",
+          "words": [
+            "menú",
+            "plato",
+            "tarta",
+            "ensalada",
+            "pescado",
+            "favorito",
+            "esperar",
+            "fruta",
+            "dulces",
+            "copo de nieve"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Año Nuevo",
+      "tasks": [
+        {
+          "name": "La mesa festiva",
+          "text": "El treinta y uno de diciembre la familia cocina todo el día. Papá y Javi preparan una ensalada grande, y mamá hornea una tarta. Luci pone la mesa: platos blancos, vasos altos y tenedores. Pablito pone mandarinas en un cuenco grande: ¡en Año Nuevo siempre hay mandarinas! Los abuelos llegan por la noche y traen su tarta de manzana. Los Carter vienen también, con galletas. A las ocho todo está listo: la mesa, el árbol y muchos regalos debajo. ¡Ahora puede empezar la fiesta!",
+          "words": [
+            "mesa festiva",
+            "poner la mesa",
+            "plato",
+            "vaso",
+            "tenedor",
+            "mandarina",
+            "llegar",
+            "debajo del árbol",
+            "regalos",
+            "empezar"
+          ]
+        },
+        {
+          "name": "Las doce",
+          "text": "Cinco minutos antes de la medianoche todos están alrededor del árbol. El reloj de la pared hace tic-tac. Papá enciende la tele, y el presidente habla. Los niños sostienen sus vasos de zumo. ¡Y el reloj da las doce! ¡Hurra! ¡Feliz Año Nuevo! Todos dicen: «¡Felicidad, salud y buena suerte!» Mamá y papá se abrazan, y la abuela tiene lágrimas de alegría. Fuera, los fuegos artificiales iluminan el cielo. Pablito corre a la ventana: «¡Mirad, mirad!» Y Toby ladra a los fuegos. ¡Ha llegado el año nuevo!",
+          "words": [
+            "medianoche",
+            "reloj",
+            "dar las doce",
+            "Feliz Año Nuevo",
+            "felicidad",
+            "salud",
+            "buena suerte",
+            "fuegos artificiales",
+            "cielo",
+            "abrazarse"
+          ]
+        },
+        {
+          "name": "Los regalos",
+          "text": "Después de la medianoche llega la parte favorita de Pablito: ¡los regalos! Debajo del árbol todos dan y reciben regalos. El abuelo le da a Pablito un barco de madera que hizo él mismo. La abuela da a los niños calcetines calientes y dulces. Los Carter regalan a la familia una caja grande de té inglés y un libro sobre Londres. Luci regala a sus padres un cuadro, y Javi, su propio juego de ordenador sobre la familia. Todos dicen: «¡Es el mejor juego del mundo!» Luego llega el momento de probar las cosas nuevas y jugar juntos.",
+          "words": [
+            "regalo",
+            "dar",
+            "recibir",
+            "barco de madera",
+            "calcetines",
+            "té",
+            "propio",
+            "juego",
+            "el mejor",
+            "probar"
+          ]
+        },
+        {
+          "name": "Juegos de invierno",
+          "text": "El dos de enero la ciudad es blanca. La nieve es profunda. Los niños van al parque con Toby, Jorge y Emilia. Hacen un muñeco de nieve grande: Javi hace el cuerpo, los niños la cabeza, y Pablito le da su bufanda vieja. El Sr. Carter y papá traen trineos, y todos bajan la colina. Emilia cae en un montón de nieve y se ríe: «¡Soy un copo de nieve!» Toby corre y salta por la nieve como un cachorro. Luci dibuja el parque de invierno. Por la noche el muñeco de nieve está en el parque con su bufanda y sonríe.",
+          "words": [
+            "nieve",
+            "muñeco de nieve",
+            "bufanda",
+            "trineo",
+            "colina",
+            "hacer",
+            "montón de nieve",
+            "reír",
+            "invierno",
+            "blanco"
+          ]
+        },
+        {
+          "name": "Se acaban las vacaciones",
+          "text": "El ocho de enero las vacaciones casi han terminado. El árbol todavía brilla, pero mañana empieza el colegio. Pablito pone sus botas nuevas junto a la puerta. Javi revisa su mochila, y Luci elige lápices nuevos para la escuela de arte. Por la noche los Carter bajan a casa. Emilia dice: «No quiero que terminen las vacaciones.» Mamá sonríe: «Pero después de cada fiesta llega un nuevo día feliz.» Pablito sonríe: «¡Mañana veré a Jorge en el colegio!» Luego todos miran las fotos y recuerdan las fiestas cálidas.",
+          "words": [
+            "vacaciones",
+            "terminarse",
+            "empieza el colegio",
+            "botas",
+            "lápiz",
+            "mochila",
+            "sonreír",
+            "recordar",
+            "fiesta",
+            "día nuevo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Navidad en casa de los Carter",
+      "tasks": [
+        {
+          "name": "La mañana de Navidad",
+          "text": "El veinticinco de diciembre los Carter invitan a la familia a celebrar la Navidad. Por la mañana Pablito sube con un regalo pequeño para Emilia. El piso de los Carter huele a canela y naranjas. Junto a la ventana hay un árbol grande con calcetines: calcetines largos con regalitos dentro. Emilia le enseña a Pablito el suyo: chocolate, una muñeca pequeña y una naranja. La Sra. Carter trae el pudin de Navidad. Para Pablito todo es nuevo e interesante. ¡Es como un cuento de hadas!",
+          "words": [
+            "Navidad",
+            "invitar",
+            "celebrar",
+            "calcetín",
+            "chocolate",
+            "muñeca",
+            "naranja",
+            "pudin",
+            "oler",
+            "cuento de hadas"
+          ]
+        },
+        {
+          "name": "La comida de Navidad",
+          "text": "A las dos todos se sientan a la mesa. En la mesa hay un pavo grande con verduras y patatas. La Sra. Carter dice: «En Australia celebrábamos la Navidad en verano, con barbacoa y limonada fría. ¡Pero ahora me gusta más la de invierno!» El Sr. Carter cuenta cómo es la Navidad en Londres: las calles están iluminadas, y la gente canta en las plazas. La abuela dice: «Cada país tiene sus tradiciones, y eso es maravilloso.» Después de comer todos juegan a juegos de mesa. ¡El Sr. Carter gana por primera vez!",
+          "words": [
+            "comida",
+            "pavo",
+            "verduras",
+            "patatas",
+            "barbacoa",
+            "tradición",
+            "canción",
+            "juego de mesa",
+            "ganar",
+            "diferente"
+          ]
+        },
+        {
+          "name": "Un paseo por la nieve",
+          "text": "Después de comer las dos familias van a pasear. El parque está blanco y silencioso. La nieve cruje bajo las botas. Jorge y Pablito hacen bolas de nieve y se las lanzan a papá: él se ríe y huye. Emilia y Luci hacen un gato de nieve pequeño, y Javi hace una foto. El Sr. Carter ve un pájaro en una rama: «En invierno, los pájaros necesitan nuestra ayuda.» Los niños le dan pan. Luego todos vuelven a casa y toman té caliente con galletas. ¡Es una Navidad de verdad!",
+          "words": [
+            "paseo",
+            "bola de nieve",
+            "lanzar",
+            "rama",
+            "pájaro",
+            "ayudar",
+            "pan",
+            "hacer una foto",
+            "té caliente",
+            "de verdad"
+          ]
+        },
+        {
+          "name": "Regalos y buenos deseos",
+          "text": "Por la noche los Carter dan a la familia regalos de Navidad. Mamá recibe una bufanda inglesa caliente, y papá, un libro sobre Londres. Los niños reciben dulces ingleses y un juego sobre viajes. Pablito le da al Sr. Carter un dibujo: un muñeco de nieve con sombrero de copa. Luci le da a la Sra. Carter su cuadro del parque de invierno. Emilia da a la familia una tarjeta con las palabras: «¡Gracias por el mejor año!» Todos están muy felices. Los regalos no son lo importante: lo importante son la atención y la amistad.",
+          "words": [
+            "regalo",
+            "bufanda",
+            "libro",
+            "dulces",
+            "dibujo",
+            "tarjeta",
+            "gracias",
+            "feliz",
+            "importante",
+            "amistad"
+          ]
+        },
+        {
+          "name": "La mejor fiesta",
+          "text": "En casa Pablito no puede dormirse. Todo el día ha sido como un gran regalo. Piensa en los calcetines, el pudin y el muñeco de nieve. Mamá entra en su habitación: «¿Te ha gustado la Navidad inglesa?» «¡Sí! Pero nuestro Año Nuevo es más cálido.» Mamá se ríe: «Algún día irás a Londres y lo verás todo con tus ojos.» Pablito sueña: «Quizá Jorge y yo celebremos allí la Navidad juntos.» «Duerme bien, cariño. ¡Dulces sueños!» Ha sido la mejor fiesta de su vida, porque la celebró con su familia y sus amigos.",
+          "words": [
+            "dormirse",
+            "calcetín",
+            "pudin",
+            "muñeco de nieve",
+            "viajar",
+            "celebrar",
+            "dulces sueños",
+            "fiesta",
+            "familia",
+            "amigos"
+          ]
+        }
+      ]
+    }
+  ]
+}

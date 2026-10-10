@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Acquaintance",
+  "lang": "en",
+  "lessons": [
+    {
+      "name": "New Neighbors",
+      "tasks": [
+        {
+          "name": "Good morning",
+          "text": "It is seven o'clock in the morning. Our family lives on the fifth floor. Mother Emma is already in the kitchen. She makes coffee and smiles. Father David reads the news and drinks his tea. Jack, the older son, goes running in the park. Sophie draws at the table. Little Ollie wakes up last. He comes to the kitchen and says: Good morning, everybody! The dog Buddy jumps up and wags his tail. The cat Bella sleeps on the windowsill. Good morning, Bella! says Ollie. Wake up! Breakfast is ready!",
+          "words": [
+            "good morning",
+            "to wake up",
+            "kitchen",
+            "coffee",
+            "tea",
+            "to smile",
+            "dog",
+            "cat",
+            "windowsill",
+            "breakfast"
+          ]
+        },
+        {
+          "name": "Hello and Goodbye",
+          "text": "All day long we say hello and goodbye. In the morning Ollie meets his friend Sam near the school: Hi, Sam! Hello, Ollie! How are you? At the clinic Emma smiles at her colleague: Good morning, Rachel! At the construction site David greets his friend: Hi, Peter! How are you? In the evening the whole family is at home again. Good evening, everybody! says Dad. Before bed the children say: Good night, Mum! Good night, Dad! Hello and goodbye are simple, polite words. They open every conversation.",
+          "words": [
+            "hello",
+            "goodbye",
+            "good morning",
+            "good evening",
+            "good night",
+            "to greet",
+            "to say goodbye",
+            "polite",
+            "conversation",
+            "friend"
+          ]
+        },
+        {
+          "name": "How are you?",
+          "text": "After school Ollie walks Buddy in the courtyard. Mrs. Green sits on her bench near the entrance. Hello, Ollie! How are you? I am fine, thank you! And you? Not bad, but my old legs are a little tired. Suddenly a big white van stops near our house. Two men carry boxes and a sofa. New neighbors? asks Ollie. Yes, says Mrs. Green. A family with two children. They are from England. Ollie smiles: Maybe there is a boy my age? Buddy barks happily. New people always bring new stories.",
+          "words": [
+            "How are you?",
+            "I am fine",
+            "thank you",
+            "not bad",
+            "tired",
+            "new neighbors",
+            "van",
+            "to carry",
+            "of my age",
+            "interesting"
+          ]
+        },
+        {
+          "name": "Welcome!",
+          "text": "In the evening the whole family goes down to the courtyard. Emma says hello to a tall man in a grey sweater: Good evening! Welcome to our house! I am Emma. Good evening! My name is Mr. Carter. Nice to meet you! Then a woman says: Hello! I am Mrs. Carter, and these are our children, George and Emily. Ollie looks at the boy. He has red hair and a football in his hands. Hi! I am Ollie. Can I help you with the box? George laughs: Thank you! You are very kind! Emily hides behind her mother. Moving is a little scary.",
+          "words": [
+            "good evening",
+            "welcome",
+            "family",
+            "son",
+            "daughter",
+            "to help",
+            "box",
+            "kind",
+            "to hide",
+            "new place"
+          ]
+        },
+        {
+          "name": "Good night!",
+          "text": "At dinner everyone talks about the new neighbors. Sophie says: Emily is shy, but her picture book is beautiful. Jack says: Mrs. Carter is an architect. Mr. Carter teaches English at a language school. Maybe he will help you with pronunciation, smiles Mum. They lived in Australia, says Dad. Ollie is happy: Tomorrow I will say: Hello, George! What is your name? Mum laughs: You already know English! Time for bed: Good night, Mum! Good night, Dad! Buddy sleeps near his bed and dreams of football.",
+          "words": [
+            "dinner",
+            "shy",
+            "architect",
+            "teacher",
+            "to help",
+            "Australia",
+            "tomorrow",
+            "good night",
+            "to dream",
+            "bed"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Let's Get Acquainted",
+      "tasks": [
+        {
+          "name": "What is your name?",
+          "text": "On Saturday morning Ollie and Sam play football in the courtyard. A boy comes out of the house. He has red hair and a football under his arm. Hello! Can I play with you? Of course! What is your name? My name is George. And you? I am Ollie, and this is Sam. Nice to meet you, George! Nice to meet you too! George plays very well. After the game he says: You are good players! Let's play again tomorrow. The boys smile. They are friends now.",
+          "words": [
+            "What is your name?",
+            "My name is...",
+            "Nice to meet you",
+            "to play football",
+            "courtyard",
+            "again",
+            "tomorrow",
+            "to smile",
+            "friends",
+            "good player"
+          ]
+        },
+        {
+          "name": "Where are you from?",
+          "text": "At home Ollie asks: George, where are you from? My dad is from London, and my mum is from Australia. I was born in London. Australia! Wow! And do you speak Russian at home? No, but my mum speaks a little Russian. She learns it every day. And you? Where are you from? I am from London too, but from another part of the city. I have never been to Australia. Come to our home for tea! Mum makes very good tea with milk and bakes biscuits. With pleasure!",
+          "words": [
+            "Where are you from?",
+            "I am from...",
+            "born",
+            "Australia",
+            "England",
+            "city",
+            "to speak",
+            "a little",
+            "tea with milk",
+            "biscuits"
+          ]
+        },
+        {
+          "name": "How old are you?",
+          "text": "The boys sit on a bench and talk. How old are you, George? I am twelve. And you? I am ten, and Sam is ten too. We are in the fourth class. And I am in the sixth class. My sister Emily is nine — she is in the third class. Is she in our school? Yes, but she is very shy. She likes books and drawing. My sister Sophie draws very well! She is fourteen. Maybe they will be friends! George looks at his watch: It is five o'clock. I must go home. See you!",
+          "words": [
+            "How old are you?",
+            "I am twelve",
+            "fourth class",
+            "sixth class",
+            "sister",
+            "shy",
+            "drawing",
+            "to be friends",
+            "watch",
+            "to go home"
+          ]
+        },
+        {
+          "name": "I speak a little English",
+          "text": "George wants to learn Russian words, and Ollie learns Russian at school. Say hello in Russian! — Hello! — Good! Now say friend. — Friend! — Great! The boys laugh and repeat the words again and again. In the evening Ollie tells Sophie: George teaches me English, and I teach him Russian. And do you know any English? Only a few words. Say something! — Hello, George! What is your name? — Excellent! By the way, Emily draws very well. We met today and she is very nice. We will draw together on Sunday.",
+          "words": [
+            "to learn",
+            "word",
+            "friend",
+            "to repeat",
+            "to laugh",
+            "to teach",
+            "a few words",
+            "to draw",
+            "to meet",
+            "together"
+          ]
+        },
+        {
+          "name": "What do you do?",
+          "text": "At dinner the family plays a game. Mum says: I am a doctor. I help people. Dad says: I am an engineer. I build houses. Jack says: I am a student. I study maths and computers. Sophie says: I am an artist. I draw pictures. It is Ollie's turn: I am a football player! Everyone laughs. And what do you want to be, Ollie? A football player and a dog trainer! In the evening Ollie writes a message to George: What do you do? The answer comes at once: I am a schoolboy and a football player too!",
+          "words": [
+            "What do you do?",
+            "doctor",
+            "engineer",
+            "student",
+            "artist",
+            "to build",
+            "to help people",
+            "to become",
+            "message",
+            "answer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tea at the Carters",
+      "tasks": [
+        {
+          "name": "Nice to meet you",
+          "text": "On Sunday the family goes upstairs. Mrs. Carter opens the door. Good afternoon! Come in, please! Make yourselves at home. The flat smells of tea and biscuits. Mr. Carter says: Nice to meet you, Emma! Nice to meet you, David! The children sit on a big soft sofa. Emily shows Sophie her picture book. George and Ollie play with a small robot. Do you like our flat? asks Emily quietly. Yes, it is very cosy! says Sophie. And your pictures are beautiful! Emily smiles for the first time.",
+          "words": [
+            "come in",
+            "make yourself at home",
+            "to smell",
+            "tea",
+            "soft sofa",
+            "picture book",
+            "robot",
+            "cosy",
+            "beautiful",
+            "for the first time"
+          ]
+        },
+        {
+          "name": "Tea with milk",
+          "text": "Mrs. Carter brings a big teapot. In England we drink tea with milk. Try it! Emma takes a cup. It is delicious! And these biscuits are wonderful. Did you make them? Yes, it is my grandmother's recipe. Mr. Carter asks David: Do you like bicycles? I want to buy a bike. Yes! On Saturdays I ride with my friend Peter. I can help you choose. The women talk about London and its old streets. Emily listens and draws. Nice weather today, isn't it? says Mr. Carter. Yes, very nice!",
+          "words": [
+            "teapot",
+            "tea with milk",
+            "to try",
+            "delicious",
+            "recipe",
+            "bicycle",
+            "to ride",
+            "to choose",
+            "weather",
+            "street"
+          ]
+        },
+        {
+          "name": "Do you speak Russian?",
+          "text": "Mr. Carter says: I speak a little Russian. But it is difficult! Emma smiles: You speak very well! How long do you study? Five years. I love Russian pelmeni! In London I did not know them. George laughs: Dad says pelmeni every day! Mrs. Carter says: I learn Russian too. Every morning I read one page. It is not easy, says David, but you are doing great! Ollie whispers to George: Teach me English, and I will teach you Russian! Deal! says George.",
+          "words": [
+            "to speak Russian",
+            "difficult",
+            "to study",
+            "how long?",
+            "pelmeni",
+            "every day",
+            "page",
+            "great",
+            "to whisper",
+            "deal"
+          ]
+        },
+        {
+          "name": "What is your phone number?",
+          "text": "After tea Jack asks Mr. Carter: Could you help me with English? I want to study abroad. Of course! We can meet on Wednesdays. Write down my phone number: five, three, two, seven, one, nine. Jack writes it in his notebook. And here is mine! George gives Ollie a small paper: My number is eight, nine, one, two, four. Call me after school! Ollie is very proud: Now I have a real English friend! The parents smile and drink their tea. Soon it is time to go home.",
+          "words": [
+            "phone number",
+            "to help with English",
+            "to study abroad",
+            "to write down",
+            "notebook",
+            "number",
+            "to call",
+            "after school",
+            "proud",
+            "time to go home"
+          ]
+        },
+        {
+          "name": "See you soon!",
+          "text": "It is late. The family says goodbye. Thank you for the tea and biscuits! You are welcome! Come again, please! Mrs. Carter gives Emma a jar of homemade jam. Emily gives Sophie a picture: two girls under an apple tree. This is you and me, she says quietly. Sophie hugs her. At the door Mr. Carter says: On Saturday we will play football in the courtyard. Come, Ollie! I will come! See you soon, George! See you soon! On the stairs Ollie says: Mum, today was the best day! Mine too, says Sophie.",
+          "words": [
+            "to say goodbye",
+            "thank you for...",
+            "You are welcome",
+            "come again",
+            "jam",
+            "picture",
+            "apple tree",
+            "to hug",
+            "See you soon",
+            "the best day"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Friends in the Courtyard",
+      "tasks": [
+        {
+          "name": "A Football Morning",
+          "text": "On Saturday morning Ollie cannot sit still. Today George and his team play football in the courtyard! Buddy feels it too and runs around the flat. At ten o'clock coach Oleg comes with a whistle and a ball. Kiryusha is already there. Then George arrives with his red ball. Ready? asks Oleg. Ready! the boys shout. Today we have two teams: the yard team and the guests. Oleg smiles: Remember: the game is more important than the win. Let's start!",
+          "words": [
+            "Saturday morning",
+            "team",
+            "coach",
+            "whistle",
+            "ball",
+            "ready",
+            "the yard team",
+            "guests",
+            "game",
+            "more important than"
+          ]
+        },
+        {
+          "name": "In the Courtyard",
+          "text": "The game begins. George runs fast and passes the ball to Ollie. Ollie almost scores, but the goalkeeper catches the ball. Great shot! shouts George. Kiryusha plays in defence and does not let the guests score. Suddenly George gets the ball, kicks and scores a goal! The boys cheer. On the balcony Bella the cat watches the game — she looks like a real judge. Sophie and Emily sit on a bench and draw the players. At half-time the score is one to one. The match is hot!",
+          "words": [
+            "to pass the ball",
+            "to score",
+            "goalkeeper",
+            "to catch",
+            "shot",
+            "defence",
+            "goal",
+            "to cheer",
+            "score",
+            "one to one"
+          ]
+        },
+        {
+          "name": "Small Talk",
+          "text": "The grown-ups sit on the bench and watch the match. Nice weather today, isn't it? says Mr. Carter. Yes, wonderful! Mrs. Green gives the children some sweets and tells a story about the old courtyard. David and Mr. Carter talk about bikes and the weekend. In summer we can ride to the park, says David. Great idea! And in autumn we will go fishing, laughs Mr. Carter. I will take pelmeni! Everyone laughs. Small talk makes a friendly day even better.",
+          "words": [
+            "small talk",
+            "weather",
+            "wonderful",
+            "every Saturday",
+            "sweets",
+            "to tell a story",
+            "weekend",
+            "to go fishing",
+            "to laugh",
+            "even better"
+          ]
+        },
+        {
+          "name": "Who won?",
+          "text": "The game ends. The score is two to two — a draw, but what a game! The boys shake hands. Coach Oleg praises everyone: Well done! You played like real friends. Mrs. Green gives each player a sweet. Dad buys ice cream for both teams. George says: You are a great player, Ollie! And you are a great friend! answers Ollie. We will play again next Saturday, right? Of course! Friends do not count goals — friends count good days. Today was a very good day for both teams.",
+          "words": [
+            "draw",
+            "to shake hands",
+            "to praise",
+            "well done",
+            "to buy ice cream",
+            "great player",
+            "next Saturday",
+            "of course",
+            "to count",
+            "good day"
+          ]
+        },
+        {
+          "name": "We are friends",
+          "text": "In the evening the family has dinner and talks about the match. Ollie tells everyone about the goals, and Dad shows the photos from his phone. Jack says: On Wednesday Mr. Carter helped me with my pronunciation. He is a good teacher! And I am learning with George, says Ollie. We are real friends now. Mum smiles: Our new neighbors became a part of our life. Dad raises his cup: To new friends! Everyone says: To new friends! Then Ollie goes to bed with a happy smile. Friends make life brighter.",
+          "words": [
+            "match",
+            "goal",
+            "photos",
+            "pronunciation",
+            "good teacher",
+            "to learn",
+            "real friends",
+            "part of life",
+            "To new friends!",
+            "brighter"
+          ]
+        }
+      ]
+    }
+  ]
+}

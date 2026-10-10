@@ -4,7 +4,15 @@
     {
       "course": "Acquaintance",
       "level": "Beginner",
-      "file": "course_01_acquaintance.json",
+      "files": {
+        "en": "course_01_acquaintance.en.json",
+        "ru": "course_01_acquaintance.ru.json",
+        "es": "course_01_acquaintance.es.json",
+        "fr": "course_01_acquaintance.fr.json",
+        "it": "course_01_acquaintance.it.json",
+        "zh": "course_01_acquaintance.zh.json",
+        "de": "course_01_acquaintance.de.json"
+      },
       "i18n": {
         "course": {
           "en": "Acquaintance",
@@ -16,20 +24,28 @@
           "de": "Bekanntschaft"
         },
         "description": {
-          "en": "Greetings, introductions and first conversation.",
-          "ru": "Приветствия, представление и первый разговор.",
-          "es": "Saludos, presentaciones y primera conversación.",
-          "fr": "Salutations, présentations et première conversation.",
-          "it": "Saluti, presentazioni e prima conversazione.",
-          "zh": "问候、介绍和初次交谈。",
-          "de": "Begrüßungen, Vorstellungen und erstes Gespräch."
+          "en": "New neighbors: meet the family and the Carters. Greetings, introductions, tea and small talk.",
+          "ru": "Новые соседи: знакомимся с семьёй и Картерами — приветствия, представление, чай и лёгкая беседа.",
+          "es": "Nuevos vecinos: conocemos a la familia y a los Carter. Saludos, presentaciones, té y charla informal.",
+          "fr": "De nouveaux voisins : on découvre la famille et les Carter. Salutations, présentations, thé et petite conversation.",
+          "it": "Nuovi vicini: conosciamo la famiglia e i Carter. Saluti, presentazioni, tè e chiacchiere.",
+          "zh": "新邻居：认识一家人和卡特一家。问候、介绍、喝茶和闲聊。",
+          "de": "Neue Nachbarn: Wir lernen die Familie und die Carters kennen. Begrüßungen, Vorstellungen, Tee und Small Talk."
         }
       }
     },
     {
       "course": "Family & Home",
       "level": "Beginner",
-      "file": "course_02_family_and_home.json",
+      "files": {
+        "en": "course_02_family_and_home.en.json",
+        "ru": "course_02_family_and_home.ru.json",
+        "es": "course_02_family_and_home.es.json",
+        "fr": "course_02_family_and_home.fr.json",
+        "it": "course_02_family_and_home.it.json",
+        "zh": "course_02_family_and_home.zh.json",
+        "de": "course_02_family_and_home.de.json"
+      },
       "i18n": {
         "course": {
           "en": "Family & Home",
@@ -41,13 +57,79 @@
           "de": "Familie und Zuhause"
         },
         "description": {
-          "en": "Family members, rooms, furniture and household items.",
-          "ru": "Члены семьи, комнаты, мебель и предметы быта.",
-          "es": "Miembros de la familia, habitaciones, muebles y objetos del hogar.",
-          "fr": "Membres de la famille, pièces, meubles et objets ménagers.",
-          "it": "Membri della famiglia, stanze, mobili e oggetti domestici.",
-          "zh": "家庭成员、房间、家具和家居用品。",
-          "de": "Familienmitglieder, Zimmer, Möbel und Haushaltsgegenstände."
+          "en": "Family life at home: parents, siblings and grandparents, rooms, chores and Sunday at grandma's.",
+          "ru": "Жизнь семьи дома: родители, брат и сестра, бабушка и дедушка, комнаты, домашние дела и воскресенье у бабушки.",
+          "es": "La vida de la familia en casa: padres, hermanos y abuelos, habitaciones, tareas y domingo en casa de la abuela.",
+          "fr": "La vie de famille à la maison : parents, frères et sœurs, grands-parents, pièces, corvées et dimanche chez grand-mère.",
+          "it": "La vita della famiglia a casa: genitori, fratelli e nonni, stanze, faccende e domenica dalla nonna.",
+          "zh": "一家人的居家生活：父母、兄弟姐妹和祖父母、房间、家务，还有在奶奶家的星期天。",
+          "de": "Familienleben zu Hause: Eltern, Geschwister und Großeltern, Zimmer, Hausarbeit und Sonntag bei Oma."
+        }
+      }
+    },
+    {
+      "course": "Holidays",
+      "level": "Beginner",
+      "files": {
+        "en": "course_03_holidays.en.json",
+        "ru": "course_03_holidays.ru.json",
+        "es": "course_03_holidays.es.json",
+        "fr": "course_03_holidays.fr.json",
+        "it": "course_03_holidays.it.json",
+        "zh": "course_03_holidays.zh.json",
+        "de": "course_03_holidays.de.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "Holidays",
+          "ru": "Праздники",
+          "es": "Las fiestas",
+          "fr": "Les fêtes",
+          "it": "Le feste",
+          "zh": "节日",
+          "de": "Feste"
+        },
+        "description": {
+          "en": "Birthday, New Year and Christmas: presents, decorations and winter fun with the Carters.",
+          "ru": "День рождения, Новый год и Рождество: подарки, украшения и зимние забавы с Картерами.",
+          "es": "Cumpleaños, Año Nuevo y Navidad: regalos, adornos y diversión de invierno con los Carter.",
+          "fr": "Anniversaire, Nouvel An et Noël : cadeaux, décorations et jeux d'hiver avec les Carter.",
+          "it": "Compleanno, Capodanno e Natale: regali, decorazioni e giochi d'inverno con i Carter.",
+          "zh": "生日、新年和圣诞节：礼物、装饰，还有和卡特一家一起玩的冬日游戏。",
+          "de": "Geburtstag, Neujahr und Weihnachten: Geschenke, Dekorationen und Winterspaß mit den Carters."
+        }
+      }
+    },
+    {
+      "course": "Food & Shopping",
+      "level": "Beginner",
+      "files": {
+        "en": "course_04_food_and_shopping.en.json",
+        "ru": "course_04_food_and_shopping.ru.json",
+        "es": "course_04_food_and_shopping.es.json",
+        "fr": "course_04_food_and_shopping.fr.json",
+        "it": "course_04_food_and_shopping.it.json",
+        "zh": "course_04_food_and_shopping.zh.json",
+        "de": "course_04_food_and_shopping.de.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "Food & Shopping",
+          "ru": "Еда и покупки",
+          "es": "Comida y compras",
+          "fr": "Nourriture et courses",
+          "it": "Cibo e spesa",
+          "zh": "食物与购物",
+          "de": "Essen und Einkaufen"
+        },
+        "description": {
+          "en": "At the market and the supermarket, cooking pelmeni with the Carters and dinner at a café.",
+          "ru": "На рынке и в супермаркете, лепим пельмени с Картерами и ужинаем в кафе.",
+          "es": "En el mercado y el supermercado, cocinamos pelmeni con los Carter y cenamos en un café.",
+          "fr": "Au marché et au supermarché, on prépare des pelmenis avec les Carter et on dîne au café.",
+          "it": "Al mercato e al supermercato, prepariamo i pelmeni con i Carter e ceniamo al bar.",
+          "zh": "去菜场和超市，和卡特一家一起包饺子，还去咖啡馆吃晚饭。",
+          "de": "Auf dem Markt und im Supermarkt, Pelmeni mit den Carters und Abendessen im Café."
         }
       }
     }

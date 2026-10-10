@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Acquaintance",
+  "lang": "de",
+  "lessons": [
+    {
+      "name": "Neue Nachbarn",
+      "tasks": [
+        {
+          "name": "Guten Morgen",
+          "text": "Es ist sieben Uhr morgens. Unsere Familie wohnt im fünften Stock. Mama Anna ist schon in der Küche. Sie macht Kaffee und lächelt. Papa Thomas liest die Nachrichten und trinkt seinen Tee. Lukas, der ältere Sohn, geht im Park joggen. Mia malt am Tisch. Der kleine Felix wacht als Letzter auf. Er kommt in die Küche und sagt: „Guten Morgen zusammen!“ Der Hund Bello springt auf und wedelt mit dem Schwanz. Die Katze Mimi schläft auf der Fensterbank. „Guten Morgen, Mimi!“ sagt Felix. „Wach auf! Das Frühstück ist fertig!“",
+          "words": [
+            "guten Morgen",
+            "aufwachen",
+            "Küche",
+            "Kaffee",
+            "Tee",
+            "lächeln",
+            "Hund",
+            "Katze",
+            "Fensterbank",
+            "Frühstück"
+          ]
+        },
+        {
+          "name": "Hallo und auf Wiedersehen",
+          "text": "Den ganzen Tag sagen wir Hallo und Auf Wiedersehen. Am Morgen trifft Felix seinen Freund Tim vor der Schule: „Hallo, Tim!“ „Hallo! Wie geht es dir?“ In der Klinik lächelt Anna ihrer Kollegin zu: „Guten Morgen, Sabine!“ Auf der Baustelle grüßt Thomas seinen Freund: „Hallo, Martin!“ Am Abend ist die ganze Familie wieder zu Hause. „Guten Abend zusammen!“ sagt Papa. Vor dem Schlafen sagen die Kinder: „Gute Nacht, Mama! Gute Nacht, Papa!“ Hallo und Auf Wiedersehen sind einfache und höfliche Worte. Sie öffnen jedes Gespräch.",
+          "words": [
+            "hallo",
+            "auf Wiedersehen",
+            "guten Morgen",
+            "guten Abend",
+            "gute Nacht",
+            "grüßen",
+            "sich verabschieden",
+            "höflich",
+            "Gespräch",
+            "Freund"
+          ]
+        },
+        {
+          "name": "Wie geht es dir?",
+          "text": "Nach der Schule geht Felix mit Bello im Hof spazieren. Frau Schmidt sitzt auf ihrer Bank. „Hallo! Wie geht es dir?“ „Mir geht es gut, danke! Und Ihnen?“ „Nicht schlecht, aber meine Beine sind ein wenig müde.“ Plötzlich hält ein weißer Wagen vor unserem Haus. Zwei Männer tragen Kisten und ein Sofa. „Neue Nachbarn?“ fragt Felix. „Ja, eine Familie mit zwei Kindern. Sie kommen aus England.“ Felix freut sich: „Vielleicht ist da ein Junge in meinem Alter?“ Bello bellt fröhlich. Neue Menschen bringen immer neue Geschichten.",
+          "words": [
+            "Wie geht es dir?",
+            "Mir geht es gut",
+            "danke",
+            "nicht schlecht",
+            "müde",
+            "neue Nachbarn",
+            "Wagen",
+            "tragen",
+            "in meinem Alter",
+            "interessant"
+          ]
+        },
+        {
+          "name": "Willkommen!",
+          "text": "Am Abend geht die ganze Familie in den Hof. Anna begrüßt einen großen Mann im grauen Pullover: „Guten Abend! Willkommen in unserem Haus! Ich bin Anna.“ „Guten Abend! Ich heiße Herr Carter. Freut mich!“ Eine Frau sagt: „Hallo! Ich bin Frau Carter, und das sind unsere Kinder, Georg und Emily.“ Felix sieht den Jungen an. Er hat rote Haare und einen Fußball in der Hand. „Hallo! Ich bin Felix. Kann ich dir mit der Kiste helfen?“ Georg lacht: „Danke! Du bist sehr freundlich!“ Emily versteckt sich hinter ihrer Mutter.",
+          "words": [
+            "guten Abend",
+            "willkommen",
+            "Familie",
+            "Sohn",
+            "Tochter",
+            "helfen",
+            "Kiste",
+            "freundlich",
+            "sich verstecken",
+            "neuer Ort"
+          ]
+        },
+        {
+          "name": "Gute Nacht!",
+          "text": "Beim Abendessen sprechen wir über die neuen Nachbarn. Mia sagt: „Emily ist schüchtern, aber ihr Bilderbuch ist wunderschön.“ Lukas sagt: „Frau Carter ist Architektin, und Herr Carter unterrichtet Englisch.“ „Vielleicht hilft er dir mit der Aussprache“, lächelt Mama. „Sie haben in Australien gelebt“, sagt Papa. Felix ist glücklich: „Morgen sage ich: Hello, George! What is your name?“ Mama lacht: „Du kannst ja schon Englisch!“ Zeit zum Schlafen: „Gute Nacht, Mama! Gute Nacht, Papa!“ Bello schläft und träumt vom Fußball.",
+          "words": [
+            "Abendessen",
+            "schüchtern",
+            "Architektin",
+            "Lehrer",
+            "helfen",
+            "Australien",
+            "morgen",
+            "gute Nacht",
+            "träumen",
+            "Bett"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wir lernen uns kennen",
+      "tasks": [
+        {
+          "name": "Wie heißt du?",
+          "text": "Am Samstagmorgen spielen Felix und Tim im Hof Fußball. Ein Junge kommt aus dem Haus. Er hat rote Haare und einen Fußball unter dem Arm. „Hallo! Kann ich mitspielen?“ „Klar! Wie heißt du?“ „Ich heiße Georg. Und du?“ „Ich bin Felix, und das ist Tim.“ „Freut mich, Georg!“ „Mich auch!“ Georg spielt sehr gut. Nach dem Spiel sagt er: „Ihr seid gute Spieler! Spielen wir morgen wieder?“ Die Jungen lächeln. Jetzt sind sie Freunde.",
+          "words": [
+            "Wie heißt du?",
+            "Ich heiße...",
+            "Freut mich",
+            "Fußball spielen",
+            "Hof",
+            "wieder",
+            "morgen",
+            "lächeln",
+            "Freunde",
+            "guter Spieler"
+          ]
+        },
+        {
+          "name": "Woher kommst du?",
+          "text": "Zu Hause fragt Felix: „Georg, woher kommst du?“ „Mein Papa ist aus London und meine Mama aus Australien. Ich bin in London geboren.“ „Australien! Toll! Sprecht ihr zu Hause Deutsch?“ „Ja, und meine Mutter spricht auch ein wenig Deutsch. Sie lernt jeden Tag. Und du? Woher kommst du?“ „Ich komme aus München, ich bin hier geboren. In Australien war ich noch nie.“ „Komm zu uns zum Tee! Mama macht sehr guten Tee mit Milch und backt Kekse.“ „Mit Vergnügen!“",
+          "words": [
+            "Woher kommst du?",
+            "Ich komme aus...",
+            "geboren",
+            "Australien",
+            "England",
+            "Stadt",
+            "sprechen",
+            "ein wenig",
+            "Tee mit Milch",
+            "Kekse"
+          ]
+        },
+        {
+          "name": "Wie alt bist du?",
+          "text": "Die Jungen setzen sich auf eine Bank und sprechen. „Wie alt bist du, Georg?“ „Ich bin zwölf. Und du?“ „Ich bin zehn, und Tim auch. Wir sind in der vierten Klasse.“ „Ich bin in der sechsten Klasse. Meine Schwester Emily ist neun, dritte Klasse.“ „Ist sie in unserer Schule?“ „Ja, aber sie ist sehr schüchtern. Sie mag Bücher und Zeichnen.“ „Meine Schwester Mia zeichnet sehr gut! Sie ist vierzehn.“ „Vielleicht werden sie Freundinnen!“ Georg schaut auf die Uhr: „Es ist fünf Uhr. Ich muss nach Hause. Tschüss!“",
+          "words": [
+            "Wie alt bist du?",
+            "Ich bin zwölf",
+            "vierte Klasse",
+            "sechste Klasse",
+            "Schwester",
+            "schüchtern",
+            "Zeichnen",
+            "Freunde werden",
+            "Uhr",
+            "nach Hause gehen"
+          ]
+        },
+        {
+          "name": "Ich spreche ein wenig Englisch",
+          "text": "Georg will deutsche Wörter lernen, und Felix lernt Englisch in der Schule. „Sag Hallo!“ — „Hallo!“ — „Super! Jetzt sag Freund.“ — „Freund!“ — „Klasse!“ Die Jungen lachen und wiederholen die Wörter. Am Abend erzählt Felix Mia: „Georg bringt mir Englisch bei, und ich bringe ihm Deutsch bei.“ „Kennst du schon englische Wörter?“ — „Nur ein paar. Hör zu: Hello, George! What is your name?“ — „Sehr gut! Emily malt auch sehr gut. Wir haben uns heute kennengelernt, sie ist sehr nett. Am Sonntag malen wir zusammen.“",
+          "words": [
+            "lernen",
+            "Wort",
+            "Freund",
+            "wiederholen",
+            "lachen",
+            "beibringen",
+            "ein paar Wörter",
+            "malen",
+            "kennenlernen",
+            "zusammen"
+          ]
+        },
+        {
+          "name": "Was machst du?",
+          "text": "Beim Abendessen spielt die Familie ein Spiel. Mama sagt: „Ich bin Ärztin. Ich helfe Menschen.“ Papa sagt: „Ich bin Ingenieur. Ich baue Häuser.“ Lukas sagt: „Ich bin Student. Ich studiere Informatik.“ Mia sagt: „Ich bin Künstlerin. Ich male Bilder.“ Felix ist an der Reihe: „Ich bin Fußballspieler!“ Alle lachen. „Und was willst du werden, Felix?“ „Fußballspieler und Hundetrainer!“ Am Abend schreibt Felix eine Nachricht an Georg: „Was machst du?“ Die Antwort kommt: „Ich bin Schüler und auch Fußballspieler!“",
+          "words": [
+            "Was machst du?",
+            "Ärztin",
+            "Ingenieur",
+            "Student",
+            "Künstlerin",
+            "bauen",
+            "Menschen helfen",
+            "werden",
+            "Nachricht",
+            "Antwort"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tee bei den Carters",
+      "tasks": [
+        {
+          "name": "Freut mich, euch kennenzulernen",
+          "text": "Am Sonntag geht die Familie in den sechsten Stock. Frau Carter öffnet die Tür: „Guten Tag! Kommt herein! Fühlt euch wie zu Hause.“ Die Wohnung riecht nach Tee und Keksen. Herr Carter sagt: „Freut mich, Anna! Freut mich, Thomas!“ Die Kinder setzen sich auf ein großes, weiches Sofa. Emily zeigt Mia ihr Bilderbuch. Georg und Felix spielen mit einem kleinen Roboter. „Gefällt euch unsere Wohnung?“ fragt Emily leise. „Ja, sehr gemütlich! sagt Mia. Und deine Bilder sind schön!“ Emily lächelt zum ersten Mal.",
+          "words": [
+            "kommt herein",
+            "fühlt euch wie zu Hause",
+            "riechen",
+            "Tee",
+            "weiches Sofa",
+            "Bilderbuch",
+            "Roboter",
+            "gemütlich",
+            "schön",
+            "zum ersten Mal"
+          ]
+        },
+        {
+          "name": "Tee mit Milch",
+          "text": "Frau Carter bringt eine große Teekanne: „In England trinken wir Tee mit Milch. Probiert mal!“ Anna nimmt eine Tasse: „Das ist lecker! Und diese Kekse! Haben Sie sie gebacken?“ „Ja, das ist das Rezept meiner Großmutter.“ Herr Carter fragt Thomas: „Magst du Fahrräder? Ich will ein Fahrrad kaufen.“ „Ja! Am Samstag fahre ich mit meinem Freund Martin. Ich kann dir beim Aussuchen helfen.“ Die Frauen sprechen über London. Emily hört zu und malt. „Schönes Wetter, nicht wahr?“ sagt Herr Carter. „Ja, sehr schön!“",
+          "words": [
+            "Teekanne",
+            "Tee mit Milch",
+            "probieren",
+            "lecker",
+            "Rezept",
+            "Fahrrad",
+            "fahren",
+            "aussuchen",
+            "Wetter",
+            "Straße"
+          ]
+        },
+        {
+          "name": "Sprichst du Deutsch?",
+          "text": "Herr Carter sagt: „Ich spreche ein wenig Russisch. Aber es ist schwierig!“ Anna lächelt: „Sie sprechen sehr gut! Wie lange lernen Sie schon?“ „Fünf Jahre. Ich liebe russische Pelmeni! In London kannte ich sie nicht.“ Georg lacht: „Papa sagt jeden Tag Pelmeni!“ Frau Carter sagt: „Ich lerne auch Russisch. Jeden Morgen lese ich eine Seite.“ „Es ist nicht leicht“, sagt Thomas, „aber Sie machen das großartig!“ Felix flüstert Georg zu: „Bring mir Englisch bei, und ich bringe dir Deutsch bei!“ „Abgemacht!“ sagt Georg.",
+          "words": [
+            "Russisch sprechen",
+            "schwierig",
+            "lernen",
+            "wie lange?",
+            "Pelmeni",
+            "jeden Tag",
+            "Seite",
+            "großartig",
+            "flüstern",
+            "abgemacht"
+          ]
+        },
+        {
+          "name": "Wie ist deine Telefonnummer?",
+          "text": "Nach dem Tee fragt Lukas Herrn Carter: „Könnten Sie mir mit Englisch helfen? Ich möchte im Ausland studieren.“ „Natürlich! Wir können uns mittwochs treffen. Schreib meine Telefonnummer auf: fünf, drei, zwei, sieben, eins, neun.“ Lukas schreibt sie in sein Notizbuch. „Und hier ist meine!“ Georg gibt Felix einen kleinen Zettel: „Meine Nummer ist acht, neun, eins, zwei, vier. Ruf mich nach der Schule an!“ Felix ist sehr stolz: „Jetzt habe ich einen echten englischen Freund!“ Bald ist es Zeit zu gehen.",
+          "words": [
+            "Telefonnummer",
+            "mit Englisch helfen",
+            "im Ausland studieren",
+            "aufschreiben",
+            "Notizbuch",
+            "Nummer",
+            "anrufen",
+            "nach der Schule",
+            "stolz",
+            "Zeit, nach Hause zu gehen"
+          ]
+        },
+        {
+          "name": "Bis bald!",
+          "text": "Es ist spät. Die Familie verabschiedet sich. „Danke für den Tee und die Kekse!“ „Gern geschehen! Kommt bald wieder!“ Frau Carter gibt Anna ein Glas hausgemachte Marmelade. Emily schenkt Mia ein Bild: zwei Mädchen unter einem Apfelbaum. „Das bist du und das bin ich“, sagt sie leise. Mia umarmt sie. An der Tür sagt Herr Carter: „Am Samstag spielen wir Fußball im Hof. Komm, Felix!“ „Ich komme! Bis bald, Georg!“ „Bis bald!“ Auf der Treppe sagt Felix: „Mama, heute war der schönste Tag!“ „Für mich auch“, sagt Mia.",
+          "words": [
+            "sich verabschieden",
+            "danke für...",
+            "Gern geschehen",
+            "kommt bald wieder",
+            "Marmelade",
+            "Bild",
+            "Apfelbaum",
+            "umarmen",
+            "Bis bald",
+            "der schönste Tag"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Freunde im Hof",
+      "tasks": [
+        {
+          "name": "Ein Fußballmorgen",
+          "text": "Am Samstagmorgen kann Felix kaum stillsitzen. Heute spielen Georg und seine Mannschaft Fußball im Hof! Bello spürt es auch und läuft durch die Wohnung. Um zehn Uhr kommt Trainer Uwe mit einer Pfeife und einem Ball. Tim ist schon da. Dann kommt Georg mit seinem roten Ball. „Seid ihr bereit?“ fragt Uwe. „Bereit!“ rufen die Jungen. Heute gibt es zwei Mannschaften: die Hofmannschaft und die Gäste. Uwe lächelt: „Denkt daran: Das Spiel ist wichtiger als der Sieg. Los geht's!“",
+          "words": [
+            "Samstagmorgen",
+            "Mannschaft",
+            "Trainer",
+            "Pfeife",
+            "Ball",
+            "bereit",
+            "Hofmannschaft",
+            "Gäste",
+            "Spiel",
+            "wichtiger als"
+          ]
+        },
+        {
+          "name": "Im Hof",
+          "text": "Das Spiel beginnt. Georg läuft schnell und passt den Ball zu Felix. Felix schießt fast ein Tor, aber der Torwart fängt den Ball. „Toller Schuss!“ ruft Georg. Tim spielt in der Abwehr und lässt die Gäste nicht treffen. Plötzlich bekommt Georg den Ball, schießt — und trifft! Die Jungen jubeln. Vom Balkon aus schaut Katze Mimi dem Spiel zu — sie sieht wie ein echter Schiedsrichter aus. Mia und Emily sitzen auf einer Bank und malen die Spieler. Zur Halbzeit steht es eins zu eins. Das Spiel ist spannend!",
+          "words": [
+            "den Ball passen",
+            "schießen",
+            "Torwart",
+            "fangen",
+            "Schuss",
+            "Abwehr",
+            "Tor",
+            "jubeln",
+            "Spielstand",
+            "eins zu eins"
+          ]
+        },
+        {
+          "name": "Small Talk",
+          "text": "Die Erwachsenen sitzen auf der Bank und schauen dem Spiel zu. „Schönes Wetter heute, nicht wahr?“ sagt Herr Carter. „Ja, wunderbar!“ Frau Schmidt gibt den Kindern Bonbons und erzählt eine Geschichte über den alten Hof. Thomas und Herr Carter sprechen über Fahrräder und das Wochenende. „Im Sommer können wir mit dem Rad in den Park fahren“, sagt Thomas. „Gute Idee! Und im Herbst gehen wir angeln — Herr Carter lacht —. Ich bringe Pelmeni mit!“ Alle lachen. Small Talk macht den Tag noch schöner.",
+          "words": [
+            "Small Talk",
+            "Wetter",
+            "wunderbar",
+            "jeden Samstag",
+            "Bonbons",
+            "eine Geschichte erzählen",
+            "Wochenende",
+            "angeln gehen",
+            "lachen",
+            "noch besser"
+          ]
+        },
+        {
+          "name": "Wer hat gewonnen?",
+          "text": "Das Spiel endet. Es steht zwei zu zwei — ein Unentschieden, aber was für ein Spiel! Die Jungen geben sich die Hand. Trainer Uwe lobt alle: „Gut gemacht! Ihr habt wie echte Freunde gespielt.“ Papa kauft Eis für beide Mannschaften. Georg sagt: „Du bist ein toller Spieler, Felix!“ „Und du ein toller Freund! — antwortet Felix. — Spielen wir nächsten Samstag wieder?“ „Natürlich!“ Freunde zählen keine Tore — Freunde zählen schöne Tage. Heute war ein sehr schöner Tag für beide Mannschaften.",
+          "words": [
+            "Unentschieden",
+            "sich die Hand geben",
+            "loben",
+            "gut gemacht",
+            "Eis kaufen",
+            "toller Spieler",
+            "nächsten Samstag",
+            "natürlich",
+            "zählen",
+            "schöner Tag"
+          ]
+        },
+        {
+          "name": "Wir sind Freunde",
+          "text": "Am Abend isst die Familie zu Abend und spricht über das Spiel. Felix erzählt von den Toren, und Papa zeigt die Fotos. Lukas sagt: „Am Mittwoch hat Herr Carter mir mit der Aussprache geholfen. Er ist ein guter Lehrer!“ „Und ich lerne mit Georg“, sagt Felix. „Jetzt sind wir echte Freunde.“ Mama lächelt: „Unsere neuen Nachbarn sind ein Teil unseres Lebens geworden.“ Papa hebt seine Tasse: „Auf neue Freunde!“ Alle sagen: „Auf neue Freunde!“ Dann geht Felix mit einem Lächeln ins Bett. Freunde machen das Leben heller.",
+          "words": [
+            "Spiel",
+            "Tor",
+            "Fotos",
+            "Aussprache",
+            "guter Lehrer",
+            "lernen",
+            "echte Freunde",
+            "Teil des Lebens",
+            "Auf neue Freunde!",
+            "heller"
+          ]
+        }
+      ]
+    }
+  ]
+}

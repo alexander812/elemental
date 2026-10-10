@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Food & Shopping",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "En el mercado",
+      "tasks": [
+        {
+          "name": "Sábado por la mañana",
+          "text": "El sábado por la mañana papá despierta a Pablito temprano: «¡Levántate, ayudante mío! Hoy vamos al mercado.» A Pablito le gusta esta tradición. Cogen dos bolsas grandes y salen. Por el camino se encuentran con el Sr. Carter y Jorge. Jorge nunca ha visto un mercado de verdad: en Londres iba al supermercado. ¡Hoy verá un lugar muy diferente! En la entrada hay flores, bayas y mucha gente. Huele a pan fresco y a hierbas. ¡Vamos, nuestro vendedor nos espera!",
+          "words": [
+            "mercado",
+            "ayudante",
+            "bolsa",
+            "tradición",
+            "supermercado",
+            "flores",
+            "bayas",
+            "olor",
+            "pan",
+            "vendedor"
+          ]
+        },
+        {
+          "name": "En el puesto de Don Pepe",
+          "text": "Don Pepe ya espera en su puesto. «¡Buenos días, Carlos! ¡Buenos días, pequeño capitán!», le dice a Pablito. Hoy tiene pescado maravilloso: arenque, bacalao y salmón. Papá elige un pescado grande para la cena. Don Pepe pregunta: «¿Y quién es este joven?» Jorge responde: «Soy Jorge, un amigo de Inglaterra.» Don Pepe se ríe: «¡Inglaterra! ¡Bienvenido a nuestro mercado!» Papá paga, y el vendedor da una manzana a cada niño. ¡Este mercado es el más amable de la ciudad!",
+          "words": [
+            "puesto",
+            "pescado",
+            "arenque",
+            "bacalao",
+            "salmón",
+            "elegir",
+            "pagar",
+            "manzana",
+            "amable",
+            "joven"
+          ]
+        },
+        {
+          "name": "Verduras y fruta",
+          "text": "Luego van a los siguientes puestos. La lista de mamá es larga: patatas, tomates, zanahorias, pepinos y cebollas. Papá coge uvas y ciruelas. Pablito ve un puesto con miel y pregunta: «¿Podemos comprar miel para el té?» Papá asiente: «Un tarro.» El Sr. Carter compra queso y leche fresca. Jorge lo mira todo y dice: «Aquí puedes ver, oler y elegir todo. ¡En el supermercado todo está en cajas!» Pablito le enseña: «Decimos kilo y medio kilo: es el idioma de los números del mercado».",
+          "words": [
+            "patatas",
+            "tomates",
+            "zanahorias",
+            "pepinos",
+            "cebollas",
+            "uvas",
+            "ciruelas",
+            "miel",
+            "kilo",
+            "medio kilo"
+          ]
+        },
+        {
+          "name": "¿Cuánto cuesta?",
+          "text": "En un puesto Pablito ve bayas preciosas. «¿Cuánto cuesta?», pregunta. El vendedor responde: «Diez monedas por una caja.» Pablito cuenta su dinero: uno, dos, tres... ¡diez! Entrega las monedas con cuidado y coge la caja: una sorpresa para mamá. Luego papá le enseña otro dinero: «Esta moneda es uno, este billete es diez, y este es cincuenta.» «Al dinero le gusta que lo cuenten», sonríe papá. Pablito está de acuerdo: «¡Ya lo sé! Ir de compras es una verdadera escuela de números.»",
+          "words": [
+            "¿cuánto cuesta?",
+            "precio",
+            "moneda",
+            "billete",
+            "dinero",
+            "contar",
+            "caja de bayas",
+            "dar",
+            "sorpresa",
+            "números"
+          ]
+        },
+        {
+          "name": "De vuelta a casa",
+          "text": "Las bolsas pesan, pero el camino a casa es alegre. Jorge ayuda y lleva una bolsa de patatas. Por el camino los niños hablan de comida: ¿qué es más rico, pescado o pizza? Jorge dice: «¡Pescado, claro!» En casa mamá abre las bolsas: «¡Verduras frescas, pescado y miel! ¡Y aquí está mi sorpresa: bayas!» Pablito dice con orgullo: «Las compré yo.» Mamá lo abraza: «¡Gracias, querido!» Por la noche la familia come sopa con verduras frescas, y Jorge dice a sus padres: «¡Vuestro mercado es el mejor!»",
+          "words": [
+            "pesado",
+            "bolsa de patatas",
+            "más rico",
+            "pescado o pizza",
+            "abrir",
+            "sorpresa",
+            "comprar",
+            "con orgullo",
+            "sopa",
+            "el mejor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "En el supermercado",
+      "tasks": [
+        {
+          "name": "La lista de la compra",
+          "text": "Por la noche papá mira la nevera y dice: «¡No tenemos nada para cenar!» Mamá coge un papel y escribe la lista de la compra. Cada uno añade algo: mamá, leche y queso; Javi, pasta; Luci, fruta y yogur; y Pablito, pan y chocolate, para estar de buen humor. Entonces Luna se tumba justo encima de la lista. Toby mira el papel y quiere comérselo. Papá salva la lista a tiempo: «¡Hacer la compra con esta familia no es fácil! Mañana lo compraremos todo.»",
+          "words": [
+            "nevera",
+            "lista de la compra",
+            "papel",
+            "añadir",
+            "leche",
+            "pasta",
+            "yogur",
+            "chocolate",
+            "buen humor",
+            "comprar"
+          ]
+        },
+        {
+          "name": "Carros y estanterías",
+          "text": "El martes la familia va junta al supermercado. Pablito coge un carro grande. El supermercado tiene muchas estanterías: bebidas, carne, pescado, lácteos, pan y verduras. Luci lee los nombres y ayuda a mamá: «La leche está aquí, en los lácteos.» Javi mira la pasta y elige la más larga. Pablito quiere poner patatas fritas en el carro, pero mamá dice: «Hoy no, tenemos una lista.» Luego le da otra tarea: «Encuentra seis huevos.» Pablito los encuentra rápido y está muy orgulloso. El carro está casi lleno.",
+          "words": [
+            "carro",
+            "estantería",
+            "bebidas",
+            "carne",
+            "lácteos",
+            "leer",
+            "encontrar",
+            "huevos",
+            "patatas fritas",
+            "lleno"
+          ]
+        },
+        {
+          "name": "En la caja",
+          "text": "En la caja hay una pequeña cola. La cajera escanea la comida: leche, queso, pasta, pan, huevos, fruta, chocolate... Y los precios en la pantalla crecen y crecen. Papá paga con tarjeta. Luego recibe un tique largo. Pablito lo mira: «¡Cuántos números!» Luci revisa el tique: «Todo está bien.» Toby y Luna ya lo sienten en casa: ¡algo rico está llegando! La cajera sonríe: «¡Que tengas un buen día!» Papá coge las bolsas pesadas, y la familia va a casa. Por el camino Pablito dice: «¡Ir de compras es como un deporte!»",
+          "words": [
+            "caja",
+            "cola",
+            "cajera",
+            "escanear",
+            "pantalla",
+            "pagar",
+            "tarjeta",
+            "tique",
+            "bolsa pesada",
+            "deporte"
+          ]
+        },
+        {
+          "name": "Guardando la compra",
+          "text": "En casa todos deshacen las bolsas juntos. Mamá pone la leche, el queso y el yogur en la nevera: «Estas son cosas frías.» Luci pone la pasta y el pan en el armario: «Y estas son cosas secas.» Javi lava los tomates y los pepinos, y Pablito busca el chocolate... Lo encuentra y pregunta: «¿Puedo comer un trozo?» «Solo uno», dice mamá. Las bolsas se quedan vacías, y la cocina, llena. Papá dice: «¡Ahora tenemos comida para toda la semana!» Luego todos toman té con chocolate. ¡Hasta Toby recibe un trocito, si se sienta bien!",
+          "words": [
+            "deshacer las bolsas",
+            "nevera",
+            "cosas frías",
+            "armario de cocina",
+            "cosas secas",
+            "lavar",
+            "vacío",
+            "lleno",
+            "trozo",
+            "toda la semana"
+          ]
+        },
+        {
+          "name": "Cena según la lista",
+          "text": "Por la noche la familia cocina la cena según la lista de la compra. Javi hace pasta con queso y tomates: hoy es su día. Luci corta fruta para una ensalada. Pablito pone la mesa y coloca el pan en un cesto. Mamá ayuda y se ríe: «¡Ahora sois un verdadero equipo de cocineros!» Papá prueba la pasta: «¡Deliciosa!» Javi está orgulloso: «Es mi receta favorita.» Luego todos comen y hablan del día. Las mejores cenas son las que haces con una lista sencilla.",
+          "words": [
+            "cocinar la cena",
+            "pasta con queso",
+            "tomates",
+            "ensalada de fruta",
+            "cesto",
+            "probar",
+            "delicioso",
+            "receta",
+            "estar orgulloso",
+            "equipo de cocineros"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cocinando pelmeni con los Carter",
+      "tasks": [
+        {
+          "name": "La invitación",
+          "text": "El Sr. Carter baja y dice: «¡Me encantan los pelmeni! ¿Podéis enseñarnos a cocinarlos?» Mamá se ríe: «¡Con mucho gusto!» El sábado a las once los Carter vienen con harina y carne. Mamá da un delantal a cada uno. Emilia recibe un rodillo pequeño. Jorge pregunta: «¿Es difícil?» Mamá responde: «No, pero hacen falta muchas manos.» La cocina se vuelve ruidosa y divertida. El Sr. Carter apunta palabras nuevas: harina, masa, estirar, relleno. Dice: «Los pelmeni son mi lección favorita de ruso.»",
+          "words": [
+            "enseñar",
+            "delantal",
+            "rodillo",
+            "difícil",
+            "harina",
+            "masa",
+            "relleno",
+            "estirar",
+            "cuaderno",
+            "favorito"
+          ]
+        },
+        {
+          "name": "La masa y el relleno",
+          "text": "Primero la masa. Mamá pone harina, agua, un huevo y sal en un cuenco grande. Emilia mezcla con una cuchara, y Jorge con las manos: ahora tiene las manos blancas. Luego el relleno: carne, cebolla y un poco de pimienta. Papá prepara el relleno y bromea: «¡El secreto es no llorar por la cebolla!» Todos se ríen. Luci estira la masa en un círculo grande y fino. Javi lo corta en círculos pequeños. El Sr. Carter lo intenta, pero sus círculos no son redondos.",
+          "words": [
+            "masa",
+            "harina",
+            "huevo",
+            "sal",
+            "cuenco",
+            "mezclar",
+            "carne",
+            "cebolla",
+            "estirar",
+            "fino"
+          ]
+        },
+        {
+          "name": "Muchas manos",
+          "text": "Ahora la parte más interesante: todos hacen pelmeni. Mamá enseña: un círculo de masa, un poco de relleno en el medio, y luego los bordes juntos, ¡y aquí hay un sombrerito! Luci hace pelmeni grandes y pequeños. Emilia es muy cuidadosa: sus pelmeni son pequeños y ordenados. Jorge hace un pelmeni enorme: dice que es para papá. Pablito hace formas divertidas: una estrella, un corazón y hasta un pez. El Sr. Carter cuenta: «¡Uno, dos, tres... cincuenta!» Cincuenta pelmeni y ocho manos. ¡Y una nariz blanca: la de Emilia!",
+          "words": [
+            "relleno",
+            "bordes",
+            "sombrerito",
+            "cuidadosa",
+            "enorme",
+            "forma",
+            "corazón",
+            "contar",
+            "nariz",
+            "manos"
+          ]
+        },
+        {
+          "name": "¡A comer!",
+          "text": "Mamá cuece los pelmeni en una olla grande con agua caliente. Todos esperan en la mesa. Primero los pelmeni nadan como barquitos, luego suben: ¡eso significa que están listos! Mamá los pone en los platos con mantequilla y hierbas. El Sr. Carter cierra los ojos y prueba el primer pelmeni: «¡Esto es la felicidad!», dice. ¡Emilia se come seis pelmeni! Jorge quiere más. «La receta de la abuela funciona otra vez», sonríe mamá. De postre hay té con mermelada. La comida hecha juntos siempre es la más rica.",
+          "words": [
+            "olla",
+            "agua caliente",
+            "nadar",
+            "subir",
+            "mantequilla",
+            "hierbas",
+            "probar",
+            "felicidad",
+            "querer más",
+            "mermelada"
+          ]
+        },
+        {
+          "name": "Una nueva tradición",
+          "text": "Después de cenar, la Sra. Carter escribe la receta en su cuaderno con tres estrellas: «¡Muy rico!» Jorge dice: «Masa, relleno, agua caliente. Ahora podemos cocinar pelmeni en casa.» La Sra. Carter dice: «Y la próxima vez os enseñaremos nuestro plato favorito: la tarta inglesa con manzanas y canela.» Pablito salta: «¡Me encantan las tartas!» Los padres sonríen: «Entonces, cada mes cocinaremos juntos: un plato nuevo.» «La masa y la amistad crecen con muchas manos», dice el Sr. Carter. Todos están de acuerdo.",
+          "words": [
+            "receta",
+            "cuaderno",
+            "tres estrellas",
+            "resumir",
+            "la próxima vez",
+            "tarta de manzana",
+            "canela",
+            "crecer",
+            "estar de acuerdo",
+            "cada mes"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cena en el café",
+      "tasks": [
+        {
+          "name": "Pedro, el cocinero",
+          "text": "Nuestro vecino Pedro es cocinero. Trabaja en un café pequeño cerca del parque. El viernes invita a toda la familia: «¡Venid a mi café, tengo un menú nuevo!» Por la noche la familia llega, y los Carter ya están allí. El café está caliente y huele a tarta. Pedro los recibe con una chaqueta blanca de cocinero. Pablito pregunta: «¿Cocinas todo tú mismo?» «¡Sí, y estoy orgulloso de mi sopa!», sonríe Pedro. Luego un camarero amable trae los menús. ¡La cena será deliciosa!",
+          "words": [
+            "cocinero",
+            "café",
+            "menú",
+            "invitar",
+            "cocinar",
+            "chaqueta",
+            "orgulloso",
+            "camarero",
+            "oler",
+            "delicioso"
+          ]
+        },
+        {
+          "name": "El menú",
+          "text": "El menú parece un libro. Primero hay entrantes: ensalada de verduras y sopa. Luego los platos: pescado con patatas, pasta con queso y la pizza especial de Pedro. De postre: helado, tarta de manzana y tarta de chocolate. Los niños leen el menú juntos. Emilia elige sopa y pescado. Jorge quiere pizza. Pablito duda entre el helado y la tarta, así que dice: «¡Los dos, por favor!» Mamá lo mira: «¡Pablito!» Él piensa: «Vale, primero el helado, luego la tarta.» Todos se ríen: «¡Eso es una decisión!»",
+          "words": [
+            "menú",
+            "entrante",
+            "plato principal",
+            "postre",
+            "ensalada",
+            "sopa",
+            "pizza",
+            "helado",
+            "elegir",
+            "decisión"
+          ]
+        },
+        {
+          "name": "El pedido",
+          "text": "El camarero llega y pregunta: «¿Están listos para pedir?» El Sr. Carter dice con educación: «Yo quisiera la sopa y el pescado, por favor.» La Sra. Carter: «Y una ensalada para mí, por favor.» Los niños piden pizza y limonada. Pablito aprende una frase educada: «Yo quisiera...». «Funciona como una llave mágica», dice papá. El camarero sonríe: «¡Buena elección!» Mientras esperan, Pedro trae pan caliente con mantequilla. Emilia prueba su sopa: «¡Deliciosa!» Pablito dice «¡Gracias!», y el camarero responde: «¡De nada!»",
+          "words": [
+            "camarero",
+            "pedir",
+            "Yo quisiera...",
+            "por favor",
+            "educada",
+            "frase",
+            "elección",
+            "pan con mantequilla",
+            "probar",
+            "De nada"
+          ]
+        },
+        {
+          "name": "La sorpresa de Pedro",
+          "text": "Después de cenar Pedro se acerca a la mesa con un plato grande: «¡Esta es mi sorpresa para los niños!» En el plato hay pastelitos con forma de balón de fútbol, pincel y libro: para Pablito, Luci y Javi. Los niños gritan: «¡Guau!» Para mamá hay un pastelito-médica con estetoscopio, y para papá, una casita de pastel con tejado rojo. Todos se sorprenden: «¡No eres cocinero, eres artista!» Pedro se ríe: «Un cocinero siempre es un poco artista.» Luego trae té para los mayores y cacao para los niños.",
+          "words": [
+            "sorpresa",
+            "plato",
+            "forma",
+            "balón de fútbol",
+            "pincel",
+            "libro",
+            "tejado",
+            "estetoscopio",
+            "artista",
+            "cacao"
+          ]
+        },
+        {
+          "name": "La cuenta",
+          "text": "Es tarde. Papá pide al camarero: «La cuenta, por favor.» El camarero trae un papel pequeño. Papá lo mira y paga. Mamá dice: «¡Gracias, Pedro! ¡Ha sido una noche maravillosa!» Pedro responde: «¡Volved pronto! La próxima vez haré sopa de pescado.» Jorge dice a Pablito: «¡Este es el mejor café de la ciudad!» Pablito está de acuerdo: «¡Y el mejor cocinero!» De vuelta a casa la familia habla de la noche. Papá dice: «Hoy aprendimos una frase importante: “Yo quisiera...”. Usadla con educación, y el mundo será más amable.»",
+          "words": [
+            "cuenta",
+            "pagar",
+            "noche maravillosa",
+            "volved pronto",
+            "la próxima vez",
+            "sopa de pescado",
+            "el mejor",
+            "aprender",
+            "frase",
+            "amable"
+          ]
+        }
+      ]
+    }
+  ]
+}

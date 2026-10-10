@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Family & Home",
+  "lang": "de",
+  "lessons": [
+    {
+      "name": "Unsere Familie",
+      "tasks": [
+        {
+          "name": "Mutter und Vater",
+          "text": "Das ist meine Mutter. Sie heißt Anna. Sie ist zweiundvierzig. Sie ist Ärztin und arbeitet in einer Klinik. Jeden Morgen hilft sie Menschen. Sie ist ruhig und freundlich, aber sie mag es, wenn alles perfekt ist. Am Abend liest sie Krimis. Das ist mein Vater. Er heißt Thomas. Er ist fünfundvierzig. Er ist Ingenieur und baut große Häuser. Er ist stark und lustig. Am Samstag spielt er mit uns Fußball. Meine Eltern sind sehr verschieden, aber sie sind ein gutes Team.",
+          "words": [
+            "Mutter",
+            "Vater",
+            "Ärztin",
+            "Ingenieur",
+            "Menschen helfen",
+            "freundlich",
+            "stark",
+            "lustig",
+            "Häuser bauen",
+            "gutes Team"
+          ]
+        },
+        {
+          "name": "Brüder und Schwestern",
+          "text": "Ich habe einen großen Bruder und eine große Schwester. Lukas ist siebzehn. Er ist sehr klug und ruhig. Er lernt Mathematik und Informatik und steht früh auf, um im Park zu laufen. Mia ist vierzehn. Sie ist Künstlerin. Ihr Zimmer ist voller Farben, und ihre Hände sind oft bunt. Sie ist verträumt und freundlich. Und ich bin der Jüngste — ich bin zehn. Manchmal streiten wir uns um den Fernseher. Aber wenn Lukas mir bei den Hausaufgaben hilft und Mia ein Poster für meine Mannschaft malt, verstehe ich: Sie sind die Besten.",
+          "words": [
+            "älterer Bruder",
+            "ältere Schwester",
+            "der Jüngste",
+            "klug",
+            "ruhig",
+            "früh aufstehen",
+            "laufen",
+            "Künstlerin",
+            "Hausaufgaben",
+            "die Besten"
+          ]
+        },
+        {
+          "name": "Großeltern",
+          "text": "Meine Großmutter Ingrid wohnt in einem kleinen Haus am Stadtrand. Sie war viele Jahre Lehrerin. Sie ist freundlich, aber ein wenig streng. Sie backt den besten Apfelkuchen der Welt. Mein Großvater Werner war Pilot. Jetzt hat er eine Werkstatt in der Garage. Er repariert alte Radios und erzählt lustige Geschichten über den Himmel. Jeden Sonntag fahren wir mit dem Zug zu ihnen. Oma umarmt uns und sagt: „Esst mehr, ihr seid zu dünn!“ Opa zeigt mir sein neues Radio: „Schau, es funktioniert!“",
+          "words": [
+            "Großmutter",
+            "Großvater",
+            "Lehrerin",
+            "streng",
+            "Apfelkuchen",
+            "Pilot",
+            "Werkstatt",
+            "reparieren",
+            "Zug",
+            "umarmen"
+          ]
+        },
+        {
+          "name": "Tante, Onkel und Cousin",
+          "text": "Am Abend schauen wir das Familienalbum an. Das ist meine Tante Julia. Sie ist die jüngere Schwester von Mama. Sie ist Journalistin und reist um die ganze Welt. Sie bringt uns Magnete aus jedem Land — der Kühlschrank ist voll davon! Das ist mein Onkel Stefan. Er ist Geschichtsprofessor. Und das ist ihr Sohn Jonas. Er ist sechzehn und spielt Basketball. Jonas und Lukas streiten immer: Sport oder Wissenschaft? Aber am Abend spielen sie zusammen Schach. Im Sommer kommt Jonas eine ganze Woche zu uns.",
+          "words": [
+            "Tante",
+            "Onkel",
+            "Cousin",
+            "Journalistin",
+            "reisen",
+            "Magnet",
+            "Geschichtsprofessor",
+            "Basketball",
+            "Schach",
+            "streiten"
+          ]
+        },
+        {
+          "name": "Familienfoto",
+          "text": "Schau dir dieses Foto an. Es wurde an Omas Geburtstag gemacht. Wir sind alle da: Oma und Opa in der Mitte, Mama und Papa, Tante Julia und Onkel Stefan, Jonas, Lukas, Mia und ich. Wir lächeln alle. Mama hält ihre Teetasse, und Papa macht ein lustiges Gesicht. Opas altes Radio spielt ein Lied. Wenn ich dieses Foto ansehe, erinnere ich mich an diesen warmen Tag: den Apfelkuchen, die Lieder, das Lachen. Unsere Familie ist groß und laut, aber sehr glücklich. Das ist mein Zuhause.",
+          "words": [
+            "Familienfoto",
+            "Geburtstag",
+            "in der Mitte",
+            "lustiges Gesicht",
+            "Erinnerung",
+            "Lachen",
+            "laut",
+            "glücklich",
+            "Zuhause",
+            "sich erinnern"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unser Zuhause",
+      "tasks": [
+        {
+          "name": "Die Zimmer",
+          "text": "Unsere Wohnung liegt im fünften Stock. Das ist das Wohnzimmer. Hier sehen wir fern, sprechen und spielen Brettspiele. Das ist die Küche — der wärmste Ort im Haus. Dann gibt es ein Badezimmer und das Schlafzimmer meiner Eltern. Und das ist mein Zimmer! Es ist klein, aber ich mag es. Lukas' Zimmer ist ordentlich: Computer, Bücher und Schiffsmodelle. Mias Zimmer ist ein Atelier: Farben, Pinsel und Bilder an den Wänden. Und das ist der Balkon. Mama züchtet hier Blumen, und im Sommer trinken wir Tee und schauen in den Park.",
+          "words": [
+            "Wohnung",
+            "Stock",
+            "Wohnzimmer",
+            "Küche",
+            "Zimmer",
+            "ordentlich",
+            "Balkon",
+            "Blumen",
+            "züchten",
+            "Park"
+          ]
+        },
+        {
+          "name": "Mein Zimmer",
+          "text": "Das ist mein Zimmer. Es gibt ein Bett, einen Schreibtisch und ein großes Regal mit LEGO. An der Wand hängen Poster von Fußballspielern. Mein Fußballteppich liegt auf dem Boden, und Bellos Korb steht in der Ecke. Am Morgen öffne ich das Fenster. Lukas' Zimmer ist nebenan. Er hat zwei Monitore und ein Schachbrett — sein Zimmer ist ein Labor. Mias Zimmer riecht nach Farbe. Ihre Bilder sind überall: an den Wänden, an der Tür und sogar am Schrank. „Mein Zimmer ist meine kleine Welt“, sagt sie. Das gefällt mir.",
+          "words": [
+            "Zimmer",
+            "Bett",
+            "Schreibtisch",
+            "Regal",
+            "Poster",
+            "Teppich",
+            "Ecke",
+            "Fenster",
+            "Schachbrett",
+            "Welt"
+          ]
+        },
+        {
+          "name": "Die Möbel",
+          "text": "Am Samstag kauft unsere Familie neue Möbel. Ein großer Wagen bringt einen Schrank, einen Tisch und zwei Stühle. Papa und Lukas tragen die Kisten nach oben. „Dieser Schrank ist sehr schwer!“ lacht Papa. In meinem Zimmer stellen wir den Tisch ans Fenster und die Lampe darauf. Der Spiegel kommt an die Wand. Jetzt sieht mein Zimmer größer aus! Am Abend lese ich über Fußball. Mia klopft: „Kann ich den alten Tisch nehmen?“ „Natürlich!“ Mama sagt: „Das alte Sofa ist immer noch das beste.“ Wir sind alle einverstanden.",
+          "words": [
+            "Möbel",
+            "Schrank",
+            "Tisch",
+            "Stuhl",
+            "schwer",
+            "Lampe",
+            "Spiegel",
+            "Wand",
+            "Sofa",
+            "einverstanden sein"
+          ]
+        },
+        {
+          "name": "In der Küche",
+          "text": "Es ist Morgen. Die Küche riecht nach Kaffee und frischem Brot. Mama steht am Herd und macht Pfannkuchen. Der Kühlschrank ist voll: Milch, Käse, Eier und Äpfel aus Omas Garten. „Felix, nimm bitte die Teller und Tassen!“ Ich stelle sie auf den Tisch. Lukas schneidet das Brot; Mia gießt den Saft ein. Bello sitzt neben dem Tisch und wartet auf ein Stück Pfannkuchen. Mimi springt auf die Fensterbank und schaut uns zu. „Unsere Küche ist das Herz des Hauses“, sagt Mama. „Und das leckerste Zimmer!“, füge ich hinzu.",
+          "words": [
+            "nach Kaffee riechen",
+            "Brot",
+            "Herd",
+            "Pfannkuchen",
+            "Kühlschrank",
+            "Milch",
+            "Käse",
+            "Teller",
+            "Tasse",
+            "das Herz des Hauses"
+          ]
+        },
+        {
+          "name": "Groß oder klein",
+          "text": "Unsere Wohnung ist nicht sehr groß. Wenn wir alle sechs am Tisch sitzen, ist es laut und eng. Aber im Sommer macht der Balkon unser Zuhause größer. Dort stehen ein kleiner Tisch, zwei Stühle und viele Blumen. Vom Balkon sehen wir den Park und den Spielplatz. Mimi schläft am liebsten auf der Fensterbank neben den Blumen. Am Abend trinkt die ganze Familie hier Tee. „Unser Zuhause ist klein“, sagt Mama, „aber voller Liebe.“ Und ich denke: Ein großes Haus ist gut, aber ein warmes Zuhause ist besser.",
+          "words": [
+            "groß",
+            "klein",
+            "eng",
+            "sehen",
+            "Spielplatz",
+            "schlafen",
+            "Blumen",
+            "warm",
+            "Liebe",
+            "besser"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Zu Hause",
+      "tasks": [
+        {
+          "name": "Der Morgen",
+          "text": "Unser Morgen ist wie ein kleines Theater. Papa wacht zuerst auf und macht Kaffee. Lukas geht joggen und kommt um sieben zurück — frisch und zufrieden. Mia ist am schwersten zu wecken. „Mia, Frühstück!“ „Noch fünf Minuten!“ Mama macht Sandwiches und ihre Tasche ist fertig: „Meine Schicht beginnt um acht.“ Ich gehe mit Bello kurz spazieren. Am Morgen ist er immer glücklich. Um acht ist die Wohnung ruhig, und Mimi geht auf dem Sofa schlafen. Sie ist die Einzige in unserer Familie, die Montagmorgen mag!",
+          "words": [
+            "aufwachen",
+            "Kaffee machen",
+            "laufen",
+            "Frühstück",
+            "Sandwich",
+            "Tasche",
+            "Spaziergang",
+            "ruhig",
+            "Montag",
+            "schlafen"
+          ]
+        },
+        {
+          "name": "Hausarbeit",
+          "text": "Am Samstag putzen wir zusammen das Haus. Jeder hat eine Aufgabe. Papa saugt die Zimmer, und Lukas bringt den Müll raus. Mia füttert Mimi und gießt die Blumen auf dem Balkon. Mama spült nach dem Frühstück das Geschirr. Und ich wische den Staub von den Regalen und räume meine LEGO auf. Bello hilft uns: Er trägt sein Spielzeug im Maul. „Du bist ein toller Helfer!“ lacht Papa. Um eins ist die Wohnung sauber und riecht nach Zitrone. Mama schaut sich um: „Jetzt können wir zu Mittag essen. Ihr habt das sehr gut gemacht!“",
+          "words": [
+            "Hausarbeit",
+            "staubsaugen",
+            "den Müll rausbringen",
+            "die Katze füttern",
+            "Blumen gießen",
+            "Geschirr spülen",
+            "Staub wischen",
+            "aufräumen",
+            "Helfer",
+            "Zitrone"
+          ]
+        },
+        {
+          "name": "Zusammen kochen",
+          "text": "Am Abend kochen wir zusammen das Abendessen. Das ist unsere Familientradition: Am Samstag macht jeder ein Gericht. Mama kocht Suppe mit Gemüse, und Lukas schneidet den Salat. Ich helfe Papa mit den Nudeln. Mia backt einen Apfelkuchen als Nachtisch; die Küche riecht wunderbar. Mimi sitzt auf der Fensterbank und schaut uns zu wie eine Richterin. Wir setzen uns an den Tisch, Papa sagt: „Guten Appetit!“ und wir essen. Unser Abendessen ist einfach, aber lecker — weil wir es zusammen gemacht haben.",
+          "words": [
+            "zusammen kochen",
+            "Suppe",
+            "Gemüse",
+            "Salat",
+            "Nudeln",
+            "backen",
+            "Kuchen",
+            "Nachtisch",
+            "lecker",
+            "Guten Appetit"
+          ]
+        },
+        {
+          "name": "Der Abend zu Hause",
+          "text": "Nach dem Abendessen kommt meine Lieblingszeit. Wir gehen ins Wohnzimmer. Papa macht den Fernseher an: „Fußball läuft!“ Mama seufzt: „Aber meine Serie ist um neun!“ Lukas sagt: „Und mein Film über das Weltall!“ Am Ende spielen wir ein Brettspiel am Tisch — und der Fernseher bleibt aus. Bello legt seinen Kopf auf Papas Knie, Mimi sitzt auf Mamas Stuhl. Mia malt unsere Familienmeisterschaft und hängt sie an den Kühlschrank. Um zehn gehen alle in ihre Zimmer. „Gute Nacht, meine Lieblingsmannschaft!“ sagt Mama.",
+          "words": [
+            "den Fernseher anmachen",
+            "Fußball",
+            "Serie",
+            "Film",
+            "Brettspiel",
+            "Meisterschaft",
+            "Kühlschrank",
+            "aufhängen",
+            "Lieblingszeit",
+            "Mannschaft"
+          ]
+        },
+        {
+          "name": "Haustiere zu Hause",
+          "text": "Unsere Haustiere gehören zur Familie. Mimi ist drei. Mia hat sie im Hof gefunden, als sie ein winziges Kätzchen war. Jetzt hat Mimi ein königliches Leben: Sie schläft auf der Fensterbank oder auf Lukas' Stuhl. Bello ist ein Jahr alt. Wir haben ihn letzten Winter aus dem Tierheim geholt. Er liebt Bälle und Fußball. Jeden Morgen trainiere ich ihn: „Sitz! Gib Pfote! Hol!“ Er kennt fünf Kommandos. Bello und Mimi sind Freunde — na ja, fast. Mimi denkt, sie ist die Chefin. Und vielleicht hat sie recht!",
+          "words": [
+            "Haustier",
+            "Katze",
+            "Hund",
+            "Kätzchen",
+            "Tierheim",
+            "Ball",
+            "Pfote",
+            "Kommando",
+            "trainieren",
+            "Chefin"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sonntag bei Oma",
+      "tasks": [
+        {
+          "name": "Der Weg zu Oma",
+          "text": "Am Sonntagmorgen gehen wir zum Bahnhof. Der Zug in Omas Dorf fährt um neun. Wir kaufen Fahrkarten und suchen unsere Plätze. Mia malt den alten Bahnhof. Lukas liest ein Buch über Computer. Ich schaue aus dem Fenster: erst die Stadt, dann grüne Felder und kleine Häuser. Die Reise dauert vierzig Minuten. Opa erwartet uns auf dem Bahnsteig. „Hallo, meine lieben Piloten!“ lacht er. Unterwegs kommen wir an einem Apfelgarten und einem kleinen Fluss vorbei. Wir sind fast da!",
+          "words": [
+            "Bahnhof",
+            "Zug",
+            "Fahrkarte",
+            "Platz",
+            "Feld",
+            "Reise",
+            "Bahnsteig",
+            "Fluss",
+            "fast da",
+            "Dorf"
+          ]
+        },
+        {
+          "name": "Opas Werkstatt",
+          "text": "Nach dem Mittagessen lädt Opa mich in seine Garage ein. Es riecht nach Holz, Öl und alter Zeit. Da sind Kisten mit Schrauben, Werkzeuge an der Wand und alte Radios auf dem Tisch. „Dieses war in meinem Flugzeug“, sagt Opa. „Funktioniert es?“ „Noch nicht, aber wir werden es reparieren.“ Wir nehmen die Werkzeuge und öffnen das Radio. Opa erzählt mir vom Himmel und seinen Flügen. Plötzlich macht das Radio ein Geräusch — Musik! „Es funktioniert!“ rufe ich. Opa lächelt: „Du bist ein echter Ingenieur, mein Junge.“",
+          "words": [
+            "Werkstatt",
+            "Garage",
+            "Schraube",
+            "Werkzeug",
+            "Radio",
+            "Flugzeug",
+            "reparieren",
+            "Geräusch",
+            "Musik",
+            "Ingenieur"
+          ]
+        },
+        {
+          "name": "Im Garten",
+          "text": "Omas Garten ist ein grünes Königreich. Apfelbäume, Blumenbeete mit Gänseblümchen und Tulpen und hölzerne Bienenstöcke am Zaun. Im Herbst pflücken wir Äpfel: Oma hält den Korb, Mia klettert auf die kleine Leiter, und ich fange die Äpfel. Bello läuft mit einem Stock zwischen den Bäumen — er denkt, er hilft. Papa und Opa sitzen auf der Bank unter dem großen Baum und sprechen über das Angeln. Mama und Oma machen Pläne für den Winter: Apfelmarmelade, Kuchen, Kompott. Ich liebe diese ruhigen Nachmittage.",
+          "words": [
+            "Garten",
+            "Apfelbaum",
+            "Blumenbeet",
+            "Gänseblümchen",
+            "Tulpe",
+            "Bienenstock",
+            "Äpfel pflücken",
+            "Korb",
+            "Leiter",
+            "Zaun"
+          ]
+        },
+        {
+          "name": "Omas Kuchen",
+          "text": "Um vier ruft Oma: „Alle an den Tisch!“ Die Küche riecht nach Zimt und Äpfeln. In der Mitte des Tisches steht ihr berühmter Apfelkuchen — groß, golden und warm. „Ingrid, das ist ein Meisterwerk!“ sagt Papa. Oma lächelt nur: „Esst, esst! Ich habe ihn für euch gebacken.“ Wir trinken Tee mit Milch — Opas Gewohnheit aus seiner Fliegerzeit. Lukas erzählt von der Schule, Mia zeigt ihre Bilder, und ich erzähle von unserem Fußballspiel. „Dein Englisch wird besser“, sagt Mama. Dann singt Oma alte Lieder.",
+          "words": [
+            "Kuchen",
+            "Zimt",
+            "golden",
+            "Meisterwerk",
+            "backen",
+            "Gewohnheit",
+            "Spiel",
+            "Bilder",
+            "Lied",
+            "singen"
+          ]
+        },
+        {
+          "name": "Nach Hause",
+          "text": "Am Abend verabschieden wir uns. Oma packt Äpfel, Marmelade und ein Stück Kuchen in unsere Taschen. „Kommt nächsten Sonntag wieder, versprochen!“ Opa gibt mir seinen alten Kompass: „Für den zukünftigen Piloten.“ Auf dem Bahnsteig winken wir Oma und Opa zu, bis der Zug losfährt. Mia schläft auf Mamas Schulter ein. Lukas hört Musik; ich halte den Kompass und schaue auf die dunklen Felder. „Mama, warum wartet Oma immer auf uns?“ „Weil die Familie das Wichtigste auf der Welt ist“, sagt Mama. „Und weil sie euch sehr liebt.“",
+          "words": [
+            "sich verabschieden",
+            "versprechen",
+            "Kompass",
+            "Pilot",
+            "winken",
+            "einschlafen",
+            "Schulter",
+            "dunkel",
+            "wichtig",
+            "lieben"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -56,6 +56,7 @@ const SCREEN_NAMES = new Set<Screen['name']>([
   'lesson-create',
   'set-create',
   'cards',
+  'set-intro',
   'set-text',
   'card-create',
   'cards-restore',
@@ -88,6 +89,7 @@ const isScreen = (value: unknown): value is Screen => {
     case 'set-text':
       return typeof screen.setId === 'string' || typeof screen.draft === 'object'
     case 'cards':
+    case 'set-intro':
     case 'card-create':
     case 'cards-restore':
     case 'words-translate':

@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Holidays",
+  "lang": "it",
+  "lessons": [
+    {
+      "name": "Il compleanno di Matteo",
+      "tasks": [
+        {
+          "name": "Una mattina speciale",
+          "text": "Oggi è sabato, sette ottobre. È il compleanno di Matteo! Compie dieci anni. Si sveglia presto e corre in cucina. Sul tavolo c'è una scatola grande. Dentro, Matteo trova un pallone da calcio nuovo: un regalo di mamma e papà. Sofi gli regala un album colorato per disegnare. Luca, un piccolo robot. Matteo è molto felice: «Grazie!» Rocky entra di corsa in camera con un fiocco di carta al collo, e Micia si siede sulla sua sedia e fa le fusa. Che mattina meravigliosa!",
+          "words": [
+            "compleanno",
+            "svegliarsi presto",
+            "regalo",
+            "scatola",
+            "pallone da calcio",
+            "album",
+            "robot",
+            "felice",
+            "fiocco",
+            "meraviglioso"
+          ]
+        },
+        {
+          "name": "Gli inviti",
+          "text": "Dopo colazione Matteo scrive gli inviti per i suoi amici. Disegna piccole carte con un pallone e scrive: «Sei invitato alla mia festa! Vieni domenica alle tre.» Sofi disegna palloncini colorati su ogni carta. Matteo prepara quattro inviti: per Giorgio ed Emilia di sopra, per Leo e per suo cugino Ale. Rocky vuole portare una carta ai vicini da solo: la prende in bocca e corre alla porta. Tutti ridono: Rocky è il miglior postino!",
+          "words": [
+            "invito",
+            "carta",
+            "invitare",
+            "festa di compleanno",
+            "palloncino",
+            "scrivere",
+            "vicino",
+            "postino",
+            "ridere",
+            "alle tre"
+          ]
+        },
+        {
+          "name": "Gli ospiti",
+          "text": "La domenica gli invitati arrivano alle tre. Giorgio ed Emilia portano una scatola grande con un gioco. Leo regala a Matteo un aereo giocattolo che ha fatto lui stesso. E suo cugino Ale arriva con un pallone da basket: «Giocheremo d'estate!» I bambini giocano, disegnano poster e corrono nel cortile con Rocky. La Sig.ra Carter e la mamma preparano il tè. La signora Bianchi porta i suoi famosi biscotti. Alle quattro tutti si siedono a tavola.",
+          "words": [
+            "invitato",
+            "portare",
+            "gioco",
+            "aereo giocattolo",
+            "pallone da basket",
+            "poster",
+            "cortile",
+            "biscotti",
+            "preparare il tè",
+            "a tavola"
+          ]
+        },
+        {
+          "name": "La torta",
+          "text": "Alle quattro la mamma porta la torta di compleanno. Ci sono dieci candeline. La luce si spegne e tutti cantano: «Tanti auguri a te!» Matteo chiude gli occhi, esprime un desiderio e spegne le candeline: uno, due, tre... dieci! Evviva! Matteo taglia la torta: il primo pezzo alla mamma, il secondo al papà, poi a tutti gli invitati. Emilia dice piano: «La tua torta è la più buona del mondo.» Matteo sorride: «È perché la mamma l'ha fatta con amore.» È una vera festa!",
+          "words": [
+            "torta",
+            "candelina",
+            "cantare",
+            "esprimere un desiderio",
+            "spegnere",
+            "pezzo",
+            "buono",
+            "amore",
+            "vera",
+            "festa"
+          ]
+        },
+        {
+          "name": "Buonanotte, compleanno!",
+          "text": "La sera gli invitati tornano a casa. Matteo è stanco ma molto felice. Mette i regali sullo scaffale: il pallone, il gioco, l'aereo e il pallone da basket. Poi scrive biglietti di ringraziamento per i suoi amici. La mamma dice: «Dieci anni, come sei grande!» Matteo abbraccia i genitori: «Grazie per il compleanno più bello!» Rocky dorme vicino al letto, e oggi sogna non il calcio, ma la torta. È stata una giornata meravigliosa. Buonanotte!",
+          "words": [
+            "regalo",
+            "scaffale",
+            "biglietto di ringraziamento",
+            "abbracciare",
+            "il più bello",
+            "sognare",
+            "torta",
+            "giornata meravigliosa",
+            "stanco",
+            "buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "I preparativi della festa",
+      "tasks": [
+        {
+          "name": "Decoriamo!",
+          "text": "Arriva dicembre e cade la prima neve. La sera i Carter scendono da noi, e tutti decorano l'appartamento insieme. Il Sig. Carter porta una scatola di ghirlande e luci. I bambini appendono fiocchi di neve di carta alle finestre. Sofi ritaglia una stella grande, ed Emilia la dipinge d'oro. La mamma prepara tè caldo con il miele, e Micia ci guarda dal divano. Quando tutto è pronto, papà spegne la luce. La stanza brilla e sembra una favola!",
+          "words": [
+            "decorare",
+            "ghirlanda",
+            "luci",
+            "fiocco di neve",
+            "stella",
+            "ritagliare",
+            "dipingere",
+            "miele",
+            "brillare",
+            "favola"
+          ]
+        },
+        {
+          "name": "Una lettera a Babbo Natale",
+          "text": "Il sabato i bambini scrivono lettere a Babbo Natale. Matteo scrive: «Caro Babbo Natale, voglio un puzzle grande e nuovi scarpini per il calcio. Porta qualcosa anche per Rocky e Micia.» Emilia disegna un quadro per Babbo Natale: la sua lettera è un bellissimo fiocco di neve. Giorgio chiede un libro sui dinosauri. Poi mettono le lettere in una busta grande e la appendono alla porta. Luca ride: «Il postino si sorprenderà!» La Sig.ra Carter sorride: «Anche noi scriviamo lettere ogni anno. È una bella tradizione di famiglia.»",
+          "words": [
+            "lettera",
+            "Babbo Natale",
+            "scrivere",
+            "volere",
+            "puzzle",
+            "scarpini",
+            "portare",
+            "busta",
+            "appendere",
+            "tradizione"
+          ]
+        },
+        {
+          "name": "Comprare i regali",
+          "text": "La domenica la famiglia va a fare compere. Le strade sono piene di luci e musica. Nel negozio ci sono tanti giocattoli! Il papà chiede: «Cosa volete comprare per la nonna?» Sofi sceglie una sciarpa calda, e Luca un libro sulle vecchie auto per il nonno. Matteo guarda un grande orsetto di peluche per Emilia. La mamma compra il cibo per la tavola festiva: frutta, dolci e una scatola grande di biscotti. Poi la famiglia beve cioccolata calda in un piccolo bar. Fuori fa freddo, ma tutti sono al caldo e felici.",
+          "words": [
+            "fare compere",
+            "negozio",
+            "giocattolo",
+            "scegliere",
+            "sciarpa",
+            "orsetto di peluche",
+            "dolci",
+            "cioccolata calda",
+            "freddo",
+            "caldo"
+          ]
+        },
+        {
+          "name": "L'albero di Natale",
+          "text": "Il venti dicembre il papà porta un vero albero di Natale. Profuma di bosco. Luca porta l'albero. Poi tutta la famiglia lo decora: palline rosse, stelle dorate e piccoli giocattoli della nonna. Sofi mette il suo vecchio angelo di carta sulla punta. Emilia porta un pupazzo di neve giocattolo. Il Sig. Carter dice: «In Australia il Natale è d'estate: nuotiamo e mangiamo il gelato!» Tutti sorridono. La signora Bianchi porta le caramelle. L'albero è pronto — e la festa è quasi qui!",
+          "words": [
+            "albero di Natale",
+            "pallina",
+            "stella",
+            "angelo",
+            "punta",
+            "sorprendere",
+            "estate",
+            "gelato",
+            "caramella",
+            "quasi"
+          ]
+        },
+        {
+          "name": "Il menù della festa",
+          "text": "In cucina la mamma e la nonna scrivono il menù di Capodanno. La nonna dice: «Serve una grande torta di mele.» La mamma aggiunge: «E insalata, e pesce dal mercato.» I bambini chiedono la pizza, ma i genitori ridono. Alla fine il menù ha molti piatti: insalata, zuppa, torta, frutta e dolci. Matteo disegna il menù su un foglio grande e lo decora con un fiocco di neve. Ora il frigo è pieno, e tutti aspettano la festa. E qual è il tuo piatto preferito?",
+          "words": [
+            "menù",
+            "piatto",
+            "torta",
+            "insalata",
+            "pesce",
+            "preferito",
+            "aspettare",
+            "frutta",
+            "dolci",
+            "fiocco di neve"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Capodanno",
+      "tasks": [
+        {
+          "name": "La tavola festiva",
+          "text": "Il trentuno dicembre la famiglia cucina tutto il giorno. Papà e Luca preparano una grande insalata, e la mamma prepara una torta. Sofi apparecchia la tavola: piatti bianchi, bicchieri alti e forchette. Matteo mette i mandarini in una ciotola grande — a Capodanno ci sono sempre i mandarini! I nonni arrivano la sera e portano la loro torta di mele. Anche i Carter vengono, con i biscotti. Alle otto tutto è pronto: la tavola, l'albero e tanti regali sotto. Adesso la festa può cominciare!",
+          "words": [
+            "tavola festiva",
+            "apparecchiare",
+            "piatto",
+            "bicchiere",
+            "forchetta",
+            "mandarino",
+            "arrivare",
+            "sotto l'albero",
+            "regali",
+            "cominciare"
+          ]
+        },
+        {
+          "name": "Mezzanotte",
+          "text": "Cinque minuti prima di mezzanotte tutti stanno intorno all'albero. L'orologio fa tic-tac. Il papà accende la TV, e il presidente parla. I bambini tengono i bicchieri di succo. Poi l'orologio batte le dodici! Evviva! Buon anno! Tutti dicono: «Felicità, salute e buona fortuna!» La mamma e il papà si abbracciano, e la nonna ha le lacrime di gioia. Fuori i fuochi d'artificio illuminano il cielo. Matteo corre alla finestra: «Guardate, guardate!» E Rocky abbaia ai fuochi d'artificio. È arrivato il nuovo anno!",
+          "words": [
+            "mezzanotte",
+            "orologio",
+            "battere le dodici",
+            "Buon anno",
+            "felicità",
+            "salute",
+            "buona fortuna",
+            "fuochi d'artificio",
+            "cielo",
+            "abbracciarsi"
+          ]
+        },
+        {
+          "name": "I regali",
+          "text": "Dopo mezzanotte arriva la parte preferita di Matteo: i regali! Sotto l'albero tutti danno e ricevono regali. Il nonno regala a Matteo una barca di legno che ha fatto lui stesso. La nonna regala ai bambini calzini caldi e dolci. I Carter regalano alla famiglia una scatola grande di tè inglese e un libro su Londra. Sofi regala ai genitori un quadro, e Luca il suo gioco al computer sulla famiglia. Tutti dicono: «È il gioco più bello del mondo!» Poi è il momento di provare le cose nuove e giocare insieme.",
+          "words": [
+            "regalo",
+            "dare",
+            "ricevere",
+            "barca di legno",
+            "calzini",
+            "tè",
+            "proprio",
+            "gioco",
+            "il migliore",
+            "provare"
+          ]
+        },
+        {
+          "name": "I giochi d'inverno",
+          "text": "Il due gennaio la città è bianca. La neve è alta. I bambini vanno al parco con Rocky, Giorgio ed Emilia. Fanno un grande pupazzo di neve: Luca fa il corpo, i bambini la testa, e Matteo gli dà la sua vecchia sciarpa. Il Sig. Carter e il papà portano gli slittini, e tutti scendono dalla collina. Emilia cade in un mucchio di neve e ride: «Sono un fiocco di neve!» Rocky corre e salta nella neve come un cucciolo. Sofi disegna il parco d'inverno. La sera il pupazzo di neve è nel parco con la sua sciarpa e sorride.",
+          "words": [
+            "neve",
+            "pupazzo di neve",
+            "sciarpa",
+            "slittino",
+            "collina",
+            "fare",
+            "mucchio di neve",
+            "ridere",
+            "inverno",
+            "bianco"
+          ]
+        },
+        {
+          "name": "La fine delle vacanze",
+          "text": "L'otto gennaio le vacanze sono quasi finite. L'albero brilla ancora, ma domani comincia la scuola. Matteo mette i suoi nuovi scarpini da calcio vicino alla porta. Luca controlla la borsa, e Sofi sceglie matite nuove per la scuola d'arte. La sera i Carter scendono da noi. Emilia dice: «Non voglio che le vacanze finiscano.» La mamma sorride: «Ma dopo ogni festa arriva un nuovo giorno felice.» Matteo sorride: «Domani vedrò Giorgio a scuola!» Poi tutti guardano le foto e ricordano le feste calde.",
+          "words": [
+            "vacanze",
+            "finire",
+            "comincia la scuola",
+            "scarpini",
+            "matita",
+            "borsa",
+            "sorridere",
+            "ricordare",
+            "festa",
+            "giorno nuovo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Natale dai Carter",
+      "tasks": [
+        {
+          "name": "La mattina di Natale",
+          "text": "Il venticinque dicembre i Carter invitano la famiglia a festeggiare il Natale. La mattina Matteo corre di sopra con un piccolo regalo per Emilia. L'appartamento dei Carter profuma di cannella e arance. Vicino alla finestra c'è un grande albero con le calze: calze lunghe con piccoli regali dentro. Emilia mostra la sua a Matteo: cioccolato, una bambola piccola e un'arancia. La Sig.ra Carter porta il budino di Natale. Per Matteo tutto è nuovo e interessante. È come una favola!",
+          "words": [
+            "Natale",
+            "invitare",
+            "festeggiare",
+            "calza",
+            "cioccolato",
+            "bambola",
+            "arancia",
+            "budino",
+            "profumare",
+            "favola"
+          ]
+        },
+        {
+          "name": "Il pranzo di Natale",
+          "text": "Alle due tutti si siedono a tavola. Sul tavolo c'è un grande tacchino con verdure e patate. La Sig.ra Carter dice: «In Australia festeggiavamo il Natale d'estate, con il barbecue e la limonata fredda. Ma ora mi piace di più quello d'inverno!» Il Sig. Carter racconta il Natale a Londra: le strade sono illuminate, e la gente canta nelle piazze. La nonna dice: «Ogni paese ha le sue tradizioni, ed è meraviglioso.» Dopo pranzo tutti giocano ai giochi da tavolo. Il Sig. Carter vince per la prima volta!",
+          "words": [
+            "pranzo",
+            "tacchino",
+            "verdure",
+            "patate",
+            "barbecue",
+            "tradizione",
+            "canzone",
+            "gioco da tavolo",
+            "vincere",
+            "diverso"
+          ]
+        },
+        {
+          "name": "Una passeggiata nella neve",
+          "text": "Dopo pranzo le due famiglie vanno a passeggiare. Il parco è bianco e silenzioso. La neve scricchiola sotto gli stivali. Giorgio e Matteo fanno palle di neve e le lanciano al papà — lui ride e scappa. Emilia e Sofi fanno un piccolo gatto di neve, e Luca scatta una foto. Il Sig. Carter vede un uccello su un ramo: «In inverno gli uccelli hanno bisogno del nostro aiuto.» I bambini danno del pane all'uccello. Poi tutti tornano a casa e bevono tè caldo con i biscotti. È un vero Natale!",
+          "words": [
+            "passeggiata",
+            "palla di neve",
+            "lanciare",
+            "ramo",
+            "uccello",
+            "aiutare",
+            "pane",
+            "scattare una foto",
+            "tè caldo",
+            "vero"
+          ]
+        },
+        {
+          "name": "Regali e auguri",
+          "text": "La sera i Carter regalano alla famiglia i regali di Natale. La mamma riceve una sciarpa inglese calda, e il papà un libro su Londra. I bambini ricevono dolci inglesi e un gioco sui viaggi. Matteo regala al Sig. Carter un disegno: un pupazzo di neve con il cilindro. Sofi regala alla Sig.ra Carter il suo quadro del parco d'inverno. Emilia regala alla famiglia un biglietto con le parole: «Grazie per l'anno più bello!» Tutti sono molto felici. I regali non sono importanti: lo sono l'attenzione e l'amicizia.",
+          "words": [
+            "regalo",
+            "sciarpa",
+            "libro",
+            "dolci",
+            "disegno",
+            "biglietto",
+            "grazie",
+            "felice",
+            "importante",
+            "amicizia"
+          ]
+        },
+        {
+          "name": "La festa più bella",
+          "text": "A casa Matteo non riesce ad addormentarsi. Tutta la giornata è stata come un grande regalo. Pensa alle calze, al budino e al pupazzo di neve. La mamma entra in camera: «Ti è piaciuto il Natale inglese?» «Sì! Ma il nostro Capodanno è più caldo.» La mamma ride: «Un giorno andrai a Londra e vedrai tutto con i tuoi occhi.» Matteo sogna: «Forse io e Giorgio festeggeremo il Natale lì insieme.» «Dormi bene, tesoro. Sogni d'oro!» È stata la festa più bella della sua vita — perché l'ha festeggiata con la famiglia e con gli amici.",
+          "words": [
+            "addormentarsi",
+            "calza",
+            "budino",
+            "pupazzo di neve",
+            "andare",
+            "festeggiare",
+            "sogni d'oro",
+            "festa",
+            "famiglia",
+            "amici"
+          ]
+        }
+      ]
+    }
+  ]
+}

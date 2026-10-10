@@ -156,7 +156,7 @@ export function CoursesView() {
                     verticalAlign="center"
                   >
                     <Text overflow="ellipsis" variant="M / Medium">
-                      {course.name}
+                      {course.name} ({course.lang})
                     </Text>
                     <Stack shrink={0}>
                       <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">

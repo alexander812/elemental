@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Family & Home",
+  "lang": "en",
+  "lessons": [
+    {
+      "name": "Our Family",
+      "tasks": [
+        {
+          "name": "Mother and Father",
+          "text": "This is my mother. Her name is Emma. She is forty-two. She is a doctor and works at a clinic. Every morning she helps people. She is calm and kind, but she likes everything to be perfect. In the evening she reads detective stories. This is my father. His name is David. He is forty-five. He is an engineer and builds big houses. He is strong and funny. On Saturdays he plays football with us. My parents are very different, but they are a great team.",
+          "words": [
+            "mother",
+            "father",
+            "doctor",
+            "engineer",
+            "to help people",
+            "kind",
+            "strong",
+            "funny",
+            "to build houses",
+            "great team"
+          ]
+        },
+        {
+          "name": "Brothers and Sisters",
+          "text": "I have a big brother and a big sister. Jack is seventeen. He is very smart and quiet. He studies maths and computers, and he gets up early to run in the park. Sophie is fourteen. She is an artist. Her room is full of paints, and her hands are often coloured. She is dreamy and kind. And I am the youngest — I am ten. Sometimes we argue about the TV or the bathroom. But when Jack helps me with my homework and Sophie draws a poster for my team, I understand: they are the best.",
+          "words": [
+            "older brother",
+            "older sister",
+            "youngest",
+            "smart",
+            "quiet",
+            "to get up early",
+            "to run",
+            "artist",
+            "homework",
+            "the best"
+          ]
+        },
+        {
+          "name": "Grandparents",
+          "text": "My grandmother Margaret lives in a small house near the city. She worked as a teacher for many years. She is kind but a little strict. She bakes the best apple pie in the world. My grandfather George was a pilot. Now he has a workshop in the garage. He repairs old radios and tells funny stories about the sky. Every Sunday we go to them by train. Grandma hugs us and says: Eat more, you are too thin! Grandpa shows me his new radio: Look, it works!",
+          "words": [
+            "grandmother",
+            "grandfather",
+            "teacher",
+            "strict",
+            "apple pie",
+            "pilot",
+            "workshop",
+            "to repair",
+            "train",
+            "to hug"
+          ]
+        },
+        {
+          "name": "Aunt, Uncle and Cousin",
+          "text": "In the evening we look at the family album. Here is my aunt Sarah. She is Mum's younger sister. She is a journalist and travels all over the world. She brings us magnets from every country — our fridge is full of them! This is my uncle Michael. He is a history professor. And this is their son Harry. He is sixteen and plays basketball. Harry and Jack always argue: sport or science? But in the evening they play chess together. In summer Harry comes to us for the whole week.",
+          "words": [
+            "aunt",
+            "uncle",
+            "cousin",
+            "journalist",
+            "to travel",
+            "magnet",
+            "history professor",
+            "basketball",
+            "chess",
+            "to argue"
+          ]
+        },
+        {
+          "name": "Family Photo",
+          "text": "Look at this photo. It was taken at Grandma's birthday. All of us are here: Grandma and Grandpa in the middle, Mum and Dad, Aunt Sarah and Uncle Michael, Harry, Jack, Sophie and me. We are all smiling. Mum is holding her cup of tea, and Dad is making a funny face. Grandpa's old radio is playing a song. When I look at this photo, I remember that warm day: the apple pie, the songs, the laughter. Our family is big and noisy, but very happy. This is my home.",
+          "words": [
+            "family photo",
+            "birthday",
+            "in the middle",
+            "funny face",
+            "memory",
+            "laughter",
+            "noisy",
+            "happy",
+            "home",
+            "to remember"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Our Home",
+      "tasks": [
+        {
+          "name": "Rooms",
+          "text": "Our flat is on the fifth floor. This is the living room. Here we watch TV, talk and play board games. This is the kitchen — the warmest place in our home. Then we have a bathroom and my parents' bedroom. And this is my room! It is small, but I like it. Jack's room is tidy: a computer, books and model ships. Sophie's room is an art studio: paints, brushes and pictures on the walls. And this is the balcony. Mum grows flowers here, and in summer we drink tea and look at the park.",
+          "words": [
+            "flat",
+            "floor",
+            "living room",
+            "kitchen",
+            "room",
+            "tidy",
+            "balcony",
+            "flowers",
+            "to grow",
+            "park"
+          ]
+        },
+        {
+          "name": "My Room",
+          "text": "This is my room. There is a bed, a desk and a big shelf with LEGO. I have posters of football players on the wall. My football rug is on the floor, and Buddy's basket is in the corner. In the morning I open the window. Jack's room is next door. He has two monitors and a chessboard — his room is a laboratory. Sophie's room smells of paint. Her pictures are everywhere: on the walls, on the door, even on the wardrobe. My room is my little world, she says. I like that.",
+          "words": [
+            "room",
+            "bed",
+            "desk",
+            "shelf",
+            "poster",
+            "rug",
+            "corner",
+            "window",
+            "chessboard",
+            "world"
+          ]
+        },
+        {
+          "name": "Furniture",
+          "text": "On Saturday our family buys new furniture. A big van brings a wardrobe, a table and two chairs. Dad and Jack carry the boxes upstairs. This wardrobe is very heavy! laughs Dad. In my room we put the table near the window and the lamp on it. The mirror goes on the wall. Now my room looks bigger! In the evening I sit on my chair and read about football. Sophie knocks: Can I take the old table for my paints? Of course! Mum says: The old sofa is still the best. We all agree.",
+          "words": [
+            "furniture",
+            "wardrobe",
+            "table",
+            "chair",
+            "heavy",
+            "lamp",
+            "mirror",
+            "wall",
+            "sofa",
+            "to agree"
+          ]
+        },
+        {
+          "name": "In the Kitchen",
+          "text": "Morning. The kitchen smells of coffee and fresh bread. Mum stands at the stove and makes pancakes. The fridge is full: milk, cheese, eggs and apples from Grandma's garden. Ollie, please take the plates and cups! I put them on the table. Jack cuts the bread; Sophie pours the juice. Buddy sits near the table and waits — maybe someone will give him a piece of pancake. Bella jumps on the windowsill and watches us. Our kitchen is the heart of the house, says Mum. And the tastiest room! I add.",
+          "words": [
+            "to smell of coffee",
+            "bread",
+            "stove",
+            "pancakes",
+            "fridge",
+            "milk",
+            "cheese",
+            "plate",
+            "cup",
+            "heart of the house"
+          ]
+        },
+        {
+          "name": "Big or Small",
+          "text": "Our flat is not very big. When all six of us sit at the table, it is noisy and crowded. But in summer the balcony makes our home bigger. There is a small table, two chairs and a lot of flowers. From the balcony we can see the park and the playground. Bella loves to sleep on the windowsill near the flowers. In the evening the whole family drinks tea here. Our home is small, says Mum, but full of love. And I think: a big house is good, but a warm home is better.",
+          "words": [
+            "big",
+            "small",
+            "crowded",
+            "to see",
+            "playground",
+            "to sleep",
+            "flowers",
+            "warm",
+            "love",
+            "better"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Home Activities",
+      "tasks": [
+        {
+          "name": "Morning Routine",
+          "text": "Our morning is like a small theatre. Dad wakes up first and makes coffee. Jack goes running and comes home at seven — fresh and happy. Sophie is the hardest to wake up. Sophie, breakfast! Five more minutes! Mum makes sandwiches and her bag is ready: My shift starts at eight. I take Buddy for a short walk. He is always happy in the morning. At eight o'clock the flat is quiet, and Bella goes to sleep on the sofa. She is the only one in our family who loves Monday mornings!",
+          "words": [
+            "to wake up",
+            "to make coffee",
+            "to run",
+            "breakfast",
+            "sandwich",
+            "bag",
+            "walk",
+            "quiet",
+            "Monday",
+            "to sleep"
+          ]
+        },
+        {
+          "name": "Chores",
+          "text": "On Saturday we clean the house together. Everyone has a job. Dad vacuums the rooms and Jack takes out the rubbish. Sophie feeds Bella and waters the flowers on the balcony. Mum washes the dishes after breakfast. And I dust the shelves and put my LEGO in order. Buddy helps us: he carries his toy in his teeth. You are a great helper! laughs Dad. At one o'clock the flat is clean and smells of lemon. Mum looks around: Now we can have lunch. You all did very well!",
+          "words": [
+            "chores",
+            "to vacuum",
+            "to take out the rubbish",
+            "to feed the cat",
+            "to water flowers",
+            "to wash the dishes",
+            "to dust",
+            "to put in order",
+            "helper",
+            "lemon"
+          ]
+        },
+        {
+          "name": "Cooking Together",
+          "text": "In the evening we cook dinner together. It is our family tradition: on Saturdays everyone makes one dish. Mum cooks soup with vegetables, and Jack cuts the salad. I help Dad with pasta. Sophie bakes an apple cake for dessert; the kitchen smells wonderful. Bella sits on the windowsill and watches us like a judge. We sit at the table, Dad says: Bon appetit! and we eat. Our dinner is simple, but delicious — because we made it together.",
+          "words": [
+            "to cook together",
+            "soup",
+            "vegetables",
+            "salad",
+            "pasta",
+            "to bake",
+            "cake",
+            "dessert",
+            "delicious",
+            "Bon appetit"
+          ]
+        },
+        {
+          "name": "Evening at Home",
+          "text": "After dinner comes my favourite time. We go to the living room. Dad turns on the TV: Football is starting! Mum sighs: But my series is at nine! Jack says: And my film about space! In the end we play a board game at the table — and the TV stays off. Buddy puts his head on Dad's knee, Bella sits on Mum's chair. Sophie draws our family championship and hangs it on the fridge. At ten o'clock everyone goes to their rooms. Good night, my favourite team! says Mum.",
+          "words": [
+            "to turn on the TV",
+            "football",
+            "series",
+            "film",
+            "board game",
+            "championship",
+            "fridge",
+            "to hang",
+            "favourite time",
+            "team"
+          ]
+        },
+        {
+          "name": "Pets at Home",
+          "text": "Our pets are part of the family. Bella is three. Sophie found her in the courtyard when she was a tiny kitten. Now Bella has a royal life: she sleeps on the windowsill or on Jack's chair. Buddy is one year old. He came from an animal shelter last winter. He loves balls and football. Every morning I train him: Sit! Give me your paw! Fetch! He knows five commands. Buddy and Bella are friends — well, almost. Bella thinks she is the boss. And maybe she is right!",
+          "words": [
+            "pet",
+            "cat",
+            "dog",
+            "kitten",
+            "shelter",
+            "ball",
+            "paw",
+            "command",
+            "to train",
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sunday at Grandma's",
+      "tasks": [
+        {
+          "name": "The Road to Grandma's",
+          "text": "On Sunday morning we go to the railway station. The train to Grandma's village leaves at nine. We buy tickets and find our seats. Sophie draws the old station. Jack reads a book about computers. I look out of the window: first the city, then green fields and small houses. The trip takes forty minutes. Grandpa meets us on the platform. Hello, my dear pilots! he laughs. On the road we pass an apple orchard and a small river. We are almost there!",
+          "words": [
+            "railway station",
+            "train",
+            "ticket",
+            "seat",
+            "field",
+            "trip",
+            "platform",
+            "river",
+            "almost there",
+            "village"
+          ]
+        },
+        {
+          "name": "Grandpa's Workshop",
+          "text": "After lunch Grandpa invites me to his garage workshop. It smells of wood, oil and old time. There are boxes with screws, tools on the wall and old radios on the table. This one was in my aeroplane, says Grandpa. Does it work? Not yet, but we will repair it. We take the tools and open the radio. Grandpa tells me about the sky and his flights. Suddenly the radio makes a sound — music! It works! I shout. Grandpa smiles: You are a real engineer, my boy.",
+          "words": [
+            "workshop",
+            "garage",
+            "screw",
+            "tool",
+            "radio",
+            "aeroplane",
+            "to repair",
+            "sound",
+            "music",
+            "engineer"
+          ]
+        },
+        {
+          "name": "In the Garden",
+          "text": "Grandma's garden is a green kingdom. Apple trees, flower beds with daisies and tulips, and wooden beehives near the fence. In autumn we pick apples: Grandma holds the basket, Sophie climbs the small ladder, and I catch the apples. Buddy runs between the trees with a stick — he thinks he helps. Dad and Grandpa sit on the bench under the big tree and talk about fishing. Mum and Grandma make plans for winter: apple jam, pies, compote. I love these quiet afternoons.",
+          "words": [
+            "garden",
+            "apple tree",
+            "flower bed",
+            "daisy",
+            "tulip",
+            "beehive",
+            "to pick apples",
+            "basket",
+            "ladder",
+            "fence"
+          ]
+        },
+        {
+          "name": "Grandma's Pie",
+          "text": "At four o'clock Grandma calls: To the table, everybody! The kitchen smells of cinnamon and apples. In the middle of the table stands her famous apple pie — big, golden and warm. Margaret, this is a masterpiece! says Dad. Grandma just smiles: Eat, eat! I baked it for you. We drink tea with milk — Grandpa's habit from his flights. Jack tells about school, Sophie shows her drawings, and I tell about our football match. Your English is getting better, says Mum. Then Grandma sings old songs.",
+          "words": [
+            "pie",
+            "cinnamon",
+            "golden",
+            "masterpiece",
+            "to bake",
+            "habit",
+            "match",
+            "drawings",
+            "song",
+            "to sing"
+          ]
+        },
+        {
+          "name": "Going Home",
+          "text": "In the evening we say goodbye. Grandma puts apples, jam and a piece of pie into our bags. Come next Sunday, promise! Grandpa gives me his old compass: For the future pilot. On the platform we wave to Grandma and Grandpa until the train moves. Sophie falls asleep on Mum's shoulder. Jack listens to music; I hold the compass and look at the dark fields. Mum, why is Grandma always waiting for us? Because family is the most important thing in the world, she says. And because she loves you very much.",
+          "words": [
+            "to say goodbye",
+            "to promise",
+            "compass",
+            "pilot",
+            "to wave",
+            "to fall asleep",
+            "shoulder",
+            "dark",
+            "important",
+            "to love"
+          ]
+        }
+      ]
+    }
+  ]
+}

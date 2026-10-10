@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Holidays",
+  "lang": "de",
+  "lessons": [
+    {
+      "name": "Felix' Geburtstag",
+      "tasks": [
+        {
+          "name": "Ein besonderer Morgen",
+          "text": "Heute ist Samstag, der siebte Oktober. Felix hat Geburtstag! Er wird zehn Jahre alt. Er wacht früh auf und läuft in die Küche. Auf dem Tisch liegt eine große Kiste. Darin findet Felix einen neuen Fußball — ein Geschenk von Mama und Papa. Mia schenkt ihm ein buntes Album zum Malen. Lukas einen kleinen Roboter. Felix ist sehr glücklich: „Danke!“ Bello läuft mit einer Papierschleife am Hals ins Zimmer, und Mimi setzt sich auf seinen Stuhl und schnurrt. Was für ein wunderbarer Morgen!",
+          "words": [
+            "Geburtstag",
+            "früh aufwachen",
+            "Geschenk",
+            "Kiste",
+            "Fußball",
+            "Album",
+            "Roboter",
+            "glücklich",
+            "Schleife",
+            "wunderbar"
+          ]
+        },
+        {
+          "name": "Die Einladungen",
+          "text": "Nach dem Frühstück schreibt Felix Einladungen für seine Freunde. Er malt kleine Karten mit einem Ball und schreibt: „Du bist zu meinem Geburtstag eingeladen! Komm am Sonntag um drei.“ Mia malt bunte Luftballons auf jede Karte. Felix macht vier Einladungen: für Georg und Emily von oben, für Tim und für seinen Cousin Jonas. Bello will eine Karte selbst zu den Nachbarn bringen — er nimmt sie ins Maul und läuft zur Tür. Alle lachen: Bello ist der beste Postbote!",
+          "words": [
+            "Einladung",
+            "Karte",
+            "einladen",
+            "Geburtstag",
+            "Luftballon",
+            "schreiben",
+            "Nachbar",
+            "Postbote",
+            "lachen",
+            "drei Uhr"
+          ]
+        },
+        {
+          "name": "Die Gäste",
+          "text": "Am Sonntag kommen die Gäste um drei. Georg und Emily bringen eine große Kiste mit einem Spiel. Tim schenkt Felix ein Spielzeugflugzeug, das er selbst gebaut hat. Und Cousin Jonas kommt mit einem Basketball: „Wir spielen im Sommer!“ Die Kinder spielen, malen Poster und laufen mit Bello im Hof. Frau Carter und Mama machen Tee. Frau Schmidt bringt ihre berühmten Kekse. Um vier sitzen alle am Tisch.",
+          "words": [
+            "Gast",
+            "bringen",
+            "Spiel",
+            "Spielzeugflugzeug",
+            "Basketball",
+            "Poster",
+            "Hof",
+            "Kekse",
+            "Tee machen",
+            "am Tisch"
+          ]
+        },
+        {
+          "name": "Die Torte",
+          "text": "Um vier bringt Mama die Geburtstagstorte. Zehn Kerzen brennen darauf. Das Licht geht aus, und alle singen: „Happy Birthday!“ Felix schließt die Augen, wünscht sich etwas und pustet die Kerzen aus — eins, zwei, drei... zehn! Hurra! Felix schneidet die Torte an: das erste Stück für Mama, das zweite für Papa, dann für alle Gäste. Emily sagt leise: „Deine Torte ist die leckerste der Welt.“ Felix lächelt: „Weil Mama sie mit Liebe gebacken hat.“ Das ist ein echtes Fest!",
+          "words": [
+            "Torte",
+            "Kerze",
+            "singen",
+            "sich etwas wünschen",
+            "auspusten",
+            "Stück",
+            "lecker",
+            "Liebe",
+            "echt",
+            "Fest"
+          ]
+        },
+        {
+          "name": "Gute Nacht, Geburtstag!",
+          "text": "Am Abend gehen die Gäste nach Hause. Felix ist müde, aber sehr glücklich. Er stellt die Geschenke ins Regal: den Ball, das Spiel, das Flugzeug und den Basketball. Dann schreibt er Dankeskarten für seine Freunde. Mama sagt: „Zehn Jahre — wie groß du bist!“ Felix umarmt seine Eltern: „Danke für den schönsten Geburtstag!“ Bello schläft neben dem Bett, und heute träumt er nicht vom Fußball, sondern von Torte. Es war ein wunderschöner Tag. Gute Nacht!",
+          "words": [
+            "Geschenk",
+            "Regal",
+            "Dankeskarte",
+            "umarmen",
+            "der schönste",
+            "träumen",
+            "Torte",
+            "wunderschöner Tag",
+            "müde",
+            "gute Nacht"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wir bereiten das Fest vor",
+      "tasks": [
+        {
+          "name": "Lasst uns schmücken!",
+          "text": "Der Dezember kommt, und der erste Schnee fällt. Am Abend kommen die Carters herunter, und alle schmücken zusammen die Wohnung. Herr Carter bringt eine Kiste mit Girlanden und Lichtern. Die Kinder hängen Papierschneeflocken an die Fenster. Mia schneidet einen großen Stern aus, und Emily malt ihn golden an. Mama macht heißen Tee mit Honig, und Mimi schaut uns vom Sofa aus zu. Als alles fertig ist, macht Papa das Licht aus. Das Zimmer leuchtet und sieht aus wie im Märchen!",
+          "words": [
+            "schmücken",
+            "Girlande",
+            "Lichter",
+            "Schneeflocke",
+            "Stern",
+            "ausschneiden",
+            "anmalen",
+            "Honig",
+            "leuchten",
+            "Märchen"
+          ]
+        },
+        {
+          "name": "Ein Brief an den Weihnachtsmann",
+          "text": "Am Samstag schreiben die Kinder Briefe an den Weihnachtsmann. Felix schreibt: „Lieber Weihnachtsmann, ich möchte ein großes Puzzle und neue Fußballschuhe. Bring bitte auch etwas für Bello mit.“ Emily malt eine wunderschöne Schneeflocke für den Weihnachtsmann. Georg wünscht sich ein Buch über Dinosaurier. Dann stecken sie die Briefe in einen Umschlag und hängen ihn an die Tür. Lukas lacht: „Der Postbote wird überrascht sein!“ Frau Carter lächelt: „Wir schreiben auch jedes Jahr Briefe. Das ist unsere Familientradition.“",
+          "words": [
+            "Brief",
+            "Weihnachtsmann",
+            "schreiben",
+            "wollen",
+            "Puzzle",
+            "Fußballschuhe",
+            "mitbringen",
+            "Umschlag",
+            "aufhängen",
+            "Tradition"
+          ]
+        },
+        {
+          "name": "Geschenke kaufen",
+          "text": "Am Sonntag geht die Familie einkaufen. Die Straßen sind voller Lichter und Musik. Im Laden gibt es so viele Spielsachen! Papa fragt: „Was wollt ihr für Oma kaufen?“ Mia wählt einen warmen Schal, und Lukas ein Buch über alte Autos für Opa. Felix schaut sich einen großen Teddybären für Emily an. Mama kauft Essen für den Festtagstisch: Obst, Süßigkeiten und eine große Schachtel Kekse. Dann trinkt die Familie heiße Schokolade in einem kleinen Café. Draußen ist es kalt, aber alle sind warm und glücklich.",
+          "words": [
+            "einkaufen gehen",
+            "Laden",
+            "Spielzeug",
+            "wählen",
+            "Schal",
+            "Teddybär",
+            "Süßigkeiten",
+            "heiße Schokolade",
+            "kalt",
+            "warm"
+          ]
+        },
+        {
+          "name": "Der Weihnachtsbaum",
+          "text": "Am zwanzigsten Dezember bringt Papa einen echten Weihnachtsbaum. Er riecht nach Wald. Lukas trägt den Baum. Dann schmückt die ganze Familie ihn: rote Kugeln, goldene Sterne und kleine Spielsachen von Oma. Mia setzt ihren alten Papierengel auf die Spitze. Emily bringt einen Schneemann als Spielzeug mit. Herr Carter sagt: „In Australien ist Weihnachten im Sommer — wir schwimmen und essen Eis!“ Alle lächeln. Frau Schmidt bringt Zuckerstangen. Der Baum ist fertig — und das Fest ist fast da!",
+          "words": [
+            "Weihnachtsbaum",
+            "Kugel",
+            "Stern",
+            "Engel",
+            "Spitze",
+            "überraschen",
+            "Sommer",
+            "Eis",
+            "Zuckerstange",
+            "fast"
+          ]
+        },
+        {
+          "name": "Das Festmenü",
+          "text": "In der Küche schreiben Mama und Oma das Menü für Neujahr. Oma sagt: „Wir brauchen einen großen Apfelkuchen.“ Mama ergänzt: „Und Salat und Fisch vom Markt.“ Die Kinder möchten Pizza, aber die Eltern lachen. Am Ende hat das Menü viele Gerichte: Salat, Suppe, Kuchen, Obst und Süßigkeiten. Felix malt das Menü auf ein großes Blatt und schmückt es mit einer Schneeflocke. Jetzt ist der Kühlschrank voll, und alle warten auf das Fest. Und was ist dein Lieblingsgericht?",
+          "words": [
+            "Menü",
+            "Gericht",
+            "Kuchen",
+            "Salat",
+            "Fisch",
+            "Lieblings-",
+            "warten auf",
+            "Obst",
+            "Süßigkeiten",
+            "Schneeflocke"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Neujahr",
+      "tasks": [
+        {
+          "name": "Der Festtagstisch",
+          "text": "Am einunddreißigsten Dezember kocht die Familie den ganzen Tag. Papa und Lukas machen einen großen Salat, und Mama backt einen Kuchen. Mia deckt den Tisch: weiße Teller, hohe Gläser und Gabeln. Felix legt Mandarinen in eine große Schüssel — zu Neujahr gibt es immer Mandarinen! Oma und Opa kommen am Abend und bringen ihren Apfelkuchen mit. Die Carters kommen auch, mit Keksen. Um acht ist alles fertig: der Tisch, der Baum und viele Geschenke darunter. Jetzt kann das Fest beginnen!",
+          "words": [
+            "Festtagstisch",
+            "den Tisch decken",
+            "Teller",
+            "Glas",
+            "Gabel",
+            "Mandarine",
+            "ankommen",
+            "unter dem Baum",
+            "Geschenke",
+            "beginnen"
+          ]
+        },
+        {
+          "name": "Zwölf Uhr",
+          "text": "Fünf Minuten vor Mitternacht stehen alle um den Baum. Die Uhr tickt. Papa macht den Fernseher an, und der Präsident spricht. Die Kinder halten ihre Gläser mit Saft. Dann schlägt die Uhr zwölf! Hurra! Frohes neues Jahr! Alle sagen: „Glück, Gesundheit und viel Erfolg!“ Mama und Papa umarmen sich, und Oma hat Freudentränen in den Augen. Draußen erleuchten Feuerwerke den Himmel. Felix läuft zum Fenster: „Schaut, schaut!“ Und Bello bellt das Feuerwerk an. Das neue Jahr ist da!",
+          "words": [
+            "Mitternacht",
+            "Uhr",
+            "zwölf schlagen",
+            "Frohes neues Jahr",
+            "Glück",
+            "Gesundheit",
+            "viel Erfolg",
+            "Feuerwerk",
+            "Himmel",
+            "sich umarmen"
+          ]
+        },
+        {
+          "name": "Die Geschenke",
+          "text": "Nach Mitternacht kommt Felix' Lieblingsteil — die Geschenke! Unter dem Baum geben und bekommen alle Geschenke. Opa schenkt Felix ein Holzboot, das er selbst gebaut hat. Oma schenkt den Kindern warme Socken und Süßigkeiten. Die Carters schenken der Familie eine große Kiste englischen Tee und ein Buch über London. Mia schenkt ihren Eltern ein Bild, und Lukas sein eigenes Computerspiel über die Familie. Alle sagen: „Das ist das beste Spiel der Welt!“ Dann ist Zeit, die neuen Sachen auszuprobieren und zusammen zu spielen.",
+          "words": [
+            "Geschenk",
+            "geben",
+            "bekommen",
+            "Holzboot",
+            "Socken",
+            "Tee",
+            "eigen",
+            "Spiel",
+            "das beste",
+            "ausprobieren"
+          ]
+        },
+        {
+          "name": "Winterspiele",
+          "text": "Am zweiten Januar ist die Stadt weiß. Der Schnee ist tief. Die Kinder gehen mit Bello, Georg und Emily in den Park. Sie bauen einen großen Schneemann: Lukas macht den Körper, die Kinder den Kopf, und Felix gibt dem Schneemann seinen alten Schal. Herr Carter und Papa bringen Schlitten, und alle fahren den Hügel hinunter. Emily fällt in eine Schneewehe und lacht: „Ich bin eine Schneeflocke!“ Bello springt wie ein Welpe durch den Schnee. Mia malt den Winterpark. Am Abend lächelt der Schneemann mit seinem Schal im Park.",
+          "words": [
+            "Schnee",
+            "Schneemann",
+            "Schal",
+            "Schlitten",
+            "Hügel",
+            "bauen",
+            "Schneewehe",
+            "lachen",
+            "Winter",
+            "weiß"
+          ]
+        },
+        {
+          "name": "Die Ferien enden",
+          "text": "Am achten Januar sind die Ferien fast vorbei. Der Baum leuchtet noch, aber morgen beginnt die Schule. Felix stellt seine neuen Fußballschuhe an die Tür. Lukas kontrolliert seine Tasche, und Mia wählt neue Stifte für die Kunstschule. Am Abend kommen die Carters herunter. Emily sagt: „Ich will nicht, dass die Ferien enden.“ Mama lächelt: „Aber nach jedem Fest kommt ein neuer glücklicher Tag.“ Felix lächelt: „Morgen sehe ich Georg in der Schule!“ Dann schauen alle die Fotos an und erinnern sich an die warmen Feste.",
+          "words": [
+            "Ferien",
+            "enden",
+            "Schule beginnt",
+            "Fußballschuhe",
+            "Stift",
+            "Tasche",
+            "lächeln",
+            "sich erinnern",
+            "Fest",
+            "neuer Tag"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weihnachten bei den Carters",
+      "tasks": [
+        {
+          "name": "Der Weihnachtsmorgen",
+          "text": "Am fünfundzwanzigsten Dezember laden die Carters die Familie zum Weihnachtsfest ein. Am Morgen läuft Felix mit einem kleinen Geschenk für Emily nach oben. In der Wohnung der Carters riecht es nach Zimt und Orangen. Am Fenster steht ein großer Baum mit Strümpfen — lange Socken mit kleinen Geschenken darin. Emily zeigt Felix ihren Strumpf: Schokolade, eine kleine Puppe und eine Orange. Frau Carter bringt den Weihnachtspudding. Für Felix ist alles neu und interessant. Es ist wie im Märchen!",
+          "words": [
+            "Weihnachten",
+            "einladen",
+            "feiern",
+            "Strumpf",
+            "Schokolade",
+            "Puppe",
+            "Orange",
+            "Pudding",
+            "riechen",
+            "Märchen"
+          ]
+        },
+        {
+          "name": "Das Weihnachtsessen",
+          "text": "Um zwei sitzen alle am Tisch. Auf dem Tisch steht ein großer Truthahn mit Gemüse und Kartoffeln. Frau Carter sagt: „In Australien haben wir Weihnachten im Sommer gefeiert — mit Grill und kalter Limonade. Aber jetzt mag ich das Winterweihnachten lieber!“ Herr Carter erzählt von Weihnachten in London: Die Straßen sind hell, und die Menschen singen auf den Plätzen. Oma sagt: „Jedes Land hat seine eigenen Traditionen, und das ist wunderbar.“ Nach dem Essen spielen alle Brettspiele. Herr Carter gewinnt zum ersten Mal!",
+          "words": [
+            "Essen",
+            "Truthahn",
+            "Gemüse",
+            "Kartoffeln",
+            "Grill",
+            "Tradition",
+            "Lied",
+            "Brettspiel",
+            "gewinnen",
+            "verschieden"
+          ]
+        },
+        {
+          "name": "Ein Spaziergang im Schnee",
+          "text": "Nach dem Essen gehen die zwei Familien spazieren. Der Park ist weiß und still. Der Schnee knirscht unter den Stiefeln. Georg und Felix machen Schneebälle und werfen sie Papa an — er lacht und läuft weg. Emily und Mia bauen eine kleine Schneekatze, und Lukas macht ein Foto. Herr Carter sieht einen Vogel auf einem Ast: „Im Winter brauchen die Vögel unsere Hilfe.“ Die Kinder geben dem Vogel Brot. Dann gehen alle nach Hause und trinken heißen Tee mit Keksen. Das ist ein echtes Weihnachtsfest!",
+          "words": [
+            "Spaziergang",
+            "Schneeball",
+            "werfen",
+            "Ast",
+            "Vogel",
+            "helfen",
+            "Brot",
+            "fotografieren",
+            "heißer Tee",
+            "echt"
+          ]
+        },
+        {
+          "name": "Geschenke und Wünsche",
+          "text": "Am Abend schenken die Carters der Familie Weihnachtsgeschenke. Mama bekommt einen warmen englischen Schal, und Papa ein Buch über London. Die Kinder bekommen englische Süßigkeiten und ein Spiel über Reisen. Felix schenkt Herrn Carter ein Bild: einen Schneemann mit Zylinder. Mia schenkt Frau Carter ihr Bild vom Winterpark. Emily schenkt der Familie eine Karte mit den Worten: „Danke für das schönste Jahr!“ Alle sind sehr glücklich. Geschenke sind nicht wichtig — Aufmerksamkeit und Freundschaft sind es.",
+          "words": [
+            "Geschenk",
+            "Schal",
+            "Buch",
+            "Süßigkeiten",
+            "Bild",
+            "Karte",
+            "Danke",
+            "glücklich",
+            "wichtig",
+            "Freundschaft"
+          ]
+        },
+        {
+          "name": "Das schönste Fest",
+          "text": "Zu Hause kann Felix nicht einschlafen. Er denkt an die Strümpfe, den Pudding und den Schneemann. Mama kommt in sein Zimmer: „Hat dir das englische Weihnachten gefallen?“ „Ja! Aber unser Neujahr ist wärmer.“ Mama lacht: „Eines Tages fährst du nach London und siehst alles selbst.“ Felix träumt: „Vielleicht feiern Georg und ich zusammen Weihnachten.“ „Schlaf gut, mein Lieber. Süße Träume!“ Es war das schönste Fest in seinem Leben — weil er es mit seiner Familie und seinen Freunden gefeiert hat.",
+          "words": [
+            "einschlafen",
+            "Strumpf",
+            "Pudding",
+            "Schneemann",
+            "fahren",
+            "feiern",
+            "süße Träume",
+            "Fest",
+            "Familie",
+            "Freunde"
+          ]
+        }
+      ]
+    }
+  ]
+}

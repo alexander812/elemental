@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Family & Home",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "Notre famille",
+      "tasks": [
+        {
+          "name": "Mère et père",
+          "text": "Voici ma mère. Elle s'appelle Claire. Elle a quarante-deux ans. Elle est médecin et travaille dans une clinique. Chaque matin, elle aide les gens. Elle est calme et gentille, mais elle aime que tout soit parfait. Le soir, elle lit des romans policiers. Voici mon père. Il s'appelle Pierre. Il a quarante-cinq ans. Il est ingénieur et construit de grandes maisons. Il est fort et drôle. Le samedi, il joue au football avec nous. Mes parents sont très différents, mais ils forment une bonne équipe.",
+          "words": [
+            "mère",
+            "père",
+            "médecin",
+            "ingénieur",
+            "aider les gens",
+            "gentil",
+            "fort",
+            "drôle",
+            "construire des maisons",
+            "bonne équipe"
+          ]
+        },
+        {
+          "name": "Frères et sœurs",
+          "text": "J'ai un frère aîné et une sœur aînée. Lucas a dix-sept ans. Il est très intelligent et tranquille. Il étudie les maths et l'informatique, et il se lève tôt pour courir au parc. Léa a quatorze ans. Elle est artiste. Sa chambre est pleine de peintures, et ses mains sont souvent colorées. Elle est rêveuse. Et moi, je suis le plus jeune : j'ai dix ans. Parfois, on se dispute pour la télé. Mais quand Lucas m'aide avec mes devoirs et que Léa dessine une affiche pour mon équipe, je comprends : ils sont les meilleurs.",
+          "words": [
+            "frère aîné",
+            "sœur aînée",
+            "le plus jeune",
+            "intelligent",
+            "tranquille",
+            "se lever tôt",
+            "courir",
+            "artiste",
+            "devoirs",
+            "les meilleurs"
+          ]
+        },
+        {
+          "name": "Les grands-parents",
+          "text": "Ma grand-mère Marie habite une petite maison près de la ville. Elle a été professeure. Elle est gentille mais un peu stricte. Elle prépare la meilleure tarte aux pommes du monde. Mon grand-père Henri était pilote. Maintenant, il a un atelier dans le garage. Il répare de vieilles radios et raconte des histoires drôles sur le ciel. Chaque dimanche, nous allons chez eux en train. Mamie nous serre dans ses bras et dit : « Mangez plus, vous êtes trop minces ! » Papi me montre sa nouvelle radio : « Regarde, ça marche ! »",
+          "words": [
+            "grand-mère",
+            "grand-père",
+            "professeure",
+            "stricte",
+            "tarte aux pommes",
+            "pilote",
+            "atelier",
+            "réparer",
+            "train",
+            "serrer dans ses bras"
+          ]
+        },
+        {
+          "name": "Tante, oncle et cousin",
+          "text": "Le soir, nous regardons l'album de famille. Voici ma tante Sophie. C'est la sœur cadette de maman. Elle est journaliste et voyage dans le monde entier. Elle nous apporte des aimants de chaque pays : le frigo en est plein ! Voici mon oncle Marc. Il est professeur d'histoire. Et voici leur fils Théo. Il a seize ans et joue au basket. Théo et Lucas se disputent toujours : sport ou science ? Mais le soir, ils jouent aux échecs ensemble. En été, Théo vient chez nous toute la semaine.",
+          "words": [
+            "tante",
+            "oncle",
+            "cousin",
+            "journaliste",
+            "voyager",
+            "aimant",
+            "professeur d'histoire",
+            "basket",
+            "échecs",
+            "se disputer"
+          ]
+        },
+        {
+          "name": "Photo de famille",
+          "text": "Regarde cette photo. Elle a été prise à l'anniversaire de mamie. Nous sommes tous là : les grands-parents au milieu, maman et papa, tante Sophie et oncle Marc, Théo, Lucas, Léa et moi. Nous sourions tous. Maman tient sa tasse de thé, et papa fait une grimace. La vieille radio de papi joue une chanson. Quand je regarde cette photo, je me souviens de ce jour chaleureux : la tarte aux pommes, les chansons, les rires. Notre famille est grande et bruyante, mais très heureuse. C'est ma maison.",
+          "words": [
+            "photo de famille",
+            "anniversaire",
+            "au milieu",
+            "grimace",
+            "souvenir",
+            "rires",
+            "bruyante",
+            "heureuse",
+            "maison",
+            "se souvenir"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Notre maison",
+      "tasks": [
+        {
+          "name": "Les pièces",
+          "text": "Notre appartement est au cinquième étage. Voici le salon. Nous y regardons la télé et jouons aux jeux de société. Voici la cuisine : la pièce la plus chaleureuse. Il y a aussi une salle de bain et la chambre de mes parents. Et voici ma chambre ! Elle est petite, mais je l'aime. La chambre de Lucas est rangée : ordinateur, livres et maquettes de bateaux. Celle de Léa est un atelier : peintures, pinceaux et dessins aux murs. Et il y a un balcon. Maman y cultive des fleurs, et en été nous buvons le thé en regardant le parc.",
+          "words": [
+            "appartement",
+            "étage",
+            "salon",
+            "cuisine",
+            "chambre",
+            "rangé",
+            "balcon",
+            "fleurs",
+            "cultiver",
+            "parc"
+          ]
+        },
+        {
+          "name": "Ma chambre",
+          "text": "Voici ma chambre. Il y a un lit, un bureau et une grande étagère avec des LEGO. J'ai des affiches de footballeurs au mur. Mon tapis de football est par terre, et le panier de Rex est dans un coin. Le matin, j'ouvre la fenêtre. La chambre de Lucas est à côté. Il a deux écrans et un échiquier : sa chambre est un laboratoire. La chambre de Léa sent la peinture. Ses dessins sont partout : aux murs, sur la porte et même sur l'armoire. « Ma chambre est mon petit monde », dit-elle. J'aime bien.",
+          "words": [
+            "chambre",
+            "lit",
+            "bureau",
+            "étagère",
+            "affiche",
+            "tapis",
+            "coin",
+            "fenêtre",
+            "échiquier",
+            "monde"
+          ]
+        },
+        {
+          "name": "Les meubles",
+          "text": "Le samedi, notre famille achète des meubles neufs. Une grande camionnette apporte une armoire, une table et deux chaises. Papa et Lucas montent les cartons. « Cette armoire est très lourde ! » rit papa. Dans ma chambre, nous mettons la table près de la fenêtre et la lampe dessus. Le miroir va au mur. Maintenant, ma chambre semble plus grande ! Le soir, je lis sur le football. Léa frappe : « Je peux prendre la vieille table ? » « Bien sûr ! » Maman dit : « Le vieux canapé reste le meilleur. » Nous sommes tous d'accord.",
+          "words": [
+            "meubles",
+            "armoire",
+            "table",
+            "chaise",
+            "lourd",
+            "lampe",
+            "miroir",
+            "mur",
+            "canapé",
+            "être d'accord"
+          ]
+        },
+        {
+          "name": "Dans la cuisine",
+          "text": "C'est le matin. La cuisine sent le café et le pain frais. Maman est devant la cuisinière et prépare des crêpes. Le frigo est plein : lait, fromage, œufs et pommes du jardin de mamie. « Hugo, prends les assiettes et les tasses ! » Je les mets sur la table. Lucas coupe le pain ; Léa verse le jus. Rex s'assoit près de la table et attend un morceau de crêpe. Minette saute sur le rebord de la fenêtre et nous regarde. « Notre cuisine est le cœur de la maison », dit maman. « Et la pièce la plus délicieuse ! », j'ajoute.",
+          "words": [
+            "sentir le café",
+            "pain",
+            "cuisinière",
+            "crêpes",
+            "frigo",
+            "lait",
+            "fromage",
+            "assiette",
+            "tasse",
+            "le cœur de la maison"
+          ]
+        },
+        {
+          "name": "Grand ou petit",
+          "text": "Notre appartement n'est pas très grand. Quand nous nous asseyons tous les six à table, c'est bruyant et serré. Mais en été, le balcon agrandit notre maison. Il y a une petite table, deux chaises et beaucoup de fleurs. Du balcon, on voit le parc et l'aire de jeux. Minette adore dormir sur le rebord de la fenêtre, près des fleurs. Le soir, toute la famille y boit le thé. « Notre maison est petite, dit maman, mais pleine d'amour. » Et je pense : une grande maison, c'est bien, mais un foyer chaleureux, c'est mieux.",
+          "words": [
+            "grand",
+            "petit",
+            "serré",
+            "voir",
+            "aire de jeux",
+            "dormir",
+            "fleurs",
+            "chaleureux",
+            "amour",
+            "mieux"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "À la maison",
+      "tasks": [
+        {
+          "name": "Le matin",
+          "text": "Notre matin ressemble à un petit théâtre. Papa se réveille le premier et fait du café. Lucas part courir et revient à sept heures, frais et content. Léa est la plus difficile à réveiller. « Léa, le petit-déjeuner ! » « Encore cinq minutes ! » Maman prépare des sandwichs et son sac est prêt : « Mon service commence à huit heures. » Je promène Rex. Le matin, il est toujours content. À huit heures, l'appartement est calme, et Minette va dormir sur le canapé. C'est la seule de la famille qui aime les lundis matin !",
+          "words": [
+            "se réveiller",
+            "faire du café",
+            "courir",
+            "petit-déjeuner",
+            "sandwich",
+            "sac",
+            "promenade",
+            "calme",
+            "lundi",
+            "dormir"
+          ]
+        },
+        {
+          "name": "Les corvées",
+          "text": "Le samedi, nous nettoyons la maison ensemble. Chacun a sa tâche. Papa passe l'aspirateur et Lucas sort les poubelles. Léa nourrit Minette et arrose les fleurs du balcon. Maman fait la vaisselle après le petit-déjeuner. Et moi, je fais la poussière et je range mes LEGO. Rex nous aide : il porte son jouet dans sa gueule. « Tu es un super aide ! » rit papa. À une heure, l'appartement est propre et sent le citron. Maman regarde autour : « Maintenant, on peut déjeuner. Vous avez très bien travaillé ! »",
+          "words": [
+            "corvées",
+            "passer l'aspirateur",
+            "sortir les poubelles",
+            "nourrir le chat",
+            "arroser les fleurs",
+            "faire la vaisselle",
+            "faire la poussière",
+            "ranger",
+            "aide",
+            "citron"
+          ]
+        },
+        {
+          "name": "Cuisiner ensemble",
+          "text": "Le soir, nous préparons le dîner ensemble. C'est notre tradition : le samedi, chacun prépare un plat. Maman fait une soupe de légumes, et Lucas coupe la salade. J'aide papa avec les pâtes. Léa prépare une tarte aux pommes pour le dessert ; la cuisine sent délicieusement bon. Minette s'assoit sur le rebord de la fenêtre et nous regarde comme un juge. Nous nous asseyons à table, papa dit : « Bon appétit ! » et nous mangeons. Notre dîner est simple, mais délicieux — parce que nous l'avons préparé ensemble.",
+          "words": [
+            "cuisiner ensemble",
+            "soupe",
+            "légumes",
+            "salade",
+            "pâtes",
+            "cuire",
+            "tarte",
+            "dessert",
+            "délicieux",
+            "Bon appétit !"
+          ]
+        },
+        {
+          "name": "La soirée à la maison",
+          "text": "Après le dîner vient mon moment préféré. Nous allons au salon. Papa allume la télé : « Le football commence ! » Maman soupire : « Mais ma série est à neuf heures ! » Lucas dit : « Et mon film sur l'espace ! » Finalement, nous jouons à un jeu de société, et la télé reste éteinte. Rex pose sa tête sur le genou de papa, Minette s'assoit sur la chaise de maman. Léa dessine notre championnat de famille et l'accroche au frigo. À dix heures, chacun va dans sa chambre. « Bonne nuit, mon équipe préférée ! » dit maman.",
+          "words": [
+            "allumer la télé",
+            "football",
+            "série",
+            "film",
+            "jeu de société",
+            "championnat",
+            "frigo",
+            "accrocher",
+            "moment préféré",
+            "équipe"
+          ]
+        },
+        {
+          "name": "Les animaux à la maison",
+          "text": "Nos animaux font partie de la famille. Minette a trois ans. Léa l'a trouvée dans la cour quand elle était un petit chaton. Maintenant, Minette a une vie de reine : elle dort sur la chaise de Lucas. Rex a un an. Nous l'avons adopté au refuge l'hiver dernier. Il adore les ballons et le football. Chaque matin, je le dresse : « Assis ! Donne la patte ! Rapporte ! » Il connaît cinq ordres. Rex et Minette sont amis — enfin, presque. Minette pense qu'elle est la chef. Et peut-être qu'elle a raison !",
+          "words": [
+            "animal",
+            "chatte",
+            "chien",
+            "chaton",
+            "refuge",
+            "ballon",
+            "patte",
+            "ordre",
+            "dresser",
+            "chef"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dimanche chez grand-mère",
+      "tasks": [
+        {
+          "name": "La route vers chez mamie",
+          "text": "Le dimanche matin, nous allons à la gare. Le train pour le village de mamie part à neuf heures. Nous achetons les billets et cherchons nos places. Léa dessine la vieille gare. Lucas lit un livre sur les ordinateurs. Je regarde par la fenêtre : d'abord la ville, puis des champs verts et de petites maisons. Le voyage dure quarante minutes. Papi nous attend sur le quai. « Bonjour, mes chers pilotes ! » rit-il. Sur la route, nous passons un verger de pommiers et une petite rivière. Nous sommes presque arrivés !",
+          "words": [
+            "gare",
+            "train",
+            "billet",
+            "place",
+            "champ",
+            "voyage",
+            "quai",
+            "rivière",
+            "presque arrivés",
+            "village"
+          ]
+        },
+        {
+          "name": "L'atelier de papi",
+          "text": "Après le déjeuner, papi m'invite dans son atelier, au garage. Ça sent le bois, l'huile et le vieux temps. Il y a des boîtes de vis, des outils au mur et de vieilles radios sur la table. « Celle-ci était dans mon avion », dit papi. « Elle marche ? » « Pas encore, mais nous allons la réparer. » Nous prenons les outils et ouvrons la radio. Papi me parle du ciel et de ses vols. Soudain, la radio fait un son — de la musique ! « Ça marche ! » je crie. Papi sourit : « Tu es un vrai ingénieur, mon garçon. »",
+          "words": [
+            "atelier",
+            "garage",
+            "vis",
+            "outil",
+            "radio",
+            "avion",
+            "réparer",
+            "son",
+            "musique",
+            "ingénieur"
+          ]
+        },
+        {
+          "name": "Dans le jardin",
+          "text": "Le jardin de mamie est un royaume vert. Des pommiers, des massifs de marguerites et de tulipes, et des ruches en bois près de la clôture. En automne, nous cueillons des pommes : mamie tient le panier, Léa monte sur la petite échelle, et moi, j'attrape les pommes. Rex court entre les arbres avec un bâton — il croit qu'il aide. Papa et papi s'assoient sur le banc sous le grand arbre et parlent de pêche. Maman et mamie font des projets pour l'hiver : confiture de pommes, tartes, compote. J'adore ces après-midi tranquilles.",
+          "words": [
+            "jardin",
+            "pommier",
+            "massif de fleurs",
+            "marguerite",
+            "tulipe",
+            "ruche",
+            "cueillir des pommes",
+            "panier",
+            "échelle",
+            "clôture"
+          ]
+        },
+        {
+          "name": "La tarte de mamie",
+          "text": "À quatre heures, mamie appelle : « À table, tout le monde ! » La cuisine sent la cannelle et les pommes. Au milieu de la table trône sa fameuse tarte aux pommes : grande, dorée et chaude. « Marie, c'est un chef-d'œuvre ! » dit papa. Mamie sourit : « Mangez, mangez ! Je l'ai préparée pour vous. » Nous buvons du thé au lait : l'habitude de papi, du temps de ses vols. Lucas parle de l'école, Léa montre ses dessins, et moi, je raconte notre match. « Ton anglais s'améliore », dit maman. Puis mamie chante de vieilles chansons.",
+          "words": [
+            "tarte",
+            "cannelle",
+            "dorée",
+            "chef-d'œuvre",
+            "cuire",
+            "habitude",
+            "match",
+            "dessins",
+            "chanson",
+            "chanter"
+          ]
+        },
+        {
+          "name": "Le retour à la maison",
+          "text": "Le soir, nous nous disons au revoir. Mamie met des pommes, de la confiture et de la tarte dans nos sacs. « Revenez dimanche prochain, promis ! » Papi me donne sa vieille boussole : « Pour le futur pilote. » Sur le quai, nous faisons signe jusqu'au départ du train. Léa s'endort sur l'épaule de maman. Lucas écoute de la musique ; je regarde les champs sombres. « Maman, pourquoi mamie nous attend toujours ? » « Parce que la famille est la chose la plus importante au monde, dit maman. Et parce qu'elle vous aime très fort. »",
+          "words": [
+            "se dire au revoir",
+            "promettre",
+            "boussole",
+            "pilote",
+            "faire signe",
+            "s'endormir",
+            "épaule",
+            "sombre",
+            "important",
+            "aimer"
+          ]
+        }
+      ]
+    }
+  ]
+}

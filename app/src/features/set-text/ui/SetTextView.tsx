@@ -22,7 +22,7 @@ import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import { parseWords, selectedWordTexts } from '../../../lib/words'
 import type { WordSegment } from '../../../lib/words'
 import { $languages } from '../../languages/store'
-import { popScreen, pushScreen, $transition } from '../../navigation/store'
+import { popScreen, pushScreen, replaceScreen, $stack, $transition } from '../../navigation/store'
 import type { TextAddDraft } from '../../navigation/store'
 import { draftWordsAdded, $draftTexts } from '../../set-create/store'
 import { $courseLangByLesson, $sets } from '../../sets/store'
@@ -64,11 +64,12 @@ type Tooltip = {
   text: string
 }
 
-type SetTextViewProps =
+type SetTextViewProps = (
   | { setId: string; draft?: undefined }
   | { setId?: undefined; draft: TextAddDraft }
+) & { welcome?: boolean }
 
-export function SetTextView({ setId, draft }: SetTextViewProps) {
+export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
   const sets = useUnit($sets)
   const languages = useUnit($languages)
   const userLang = useUnit($userLang)
@@ -77,6 +78,7 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
   const storedLang = useUnit($textLang)
   const words = useUnit($words)
   const selected = useUnit($selected)
+  const stack = useUnit($stack)
   const transition = useUnit($transition)
   const translating = useUnit(translateSetTextFx.pending)
 
@@ -327,10 +329,27 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     popScreen()
   }
 
+  const handleNext = () => {
+    if (!setId) return
+
+    const previous = stack[stack.length - 2]
+
+    if (previous?.name === 'cards' && previous.setId === setId) {
+      popScreen()
+      return
+    }
+
+    replaceScreen({ name: 'cards', setId })
+  }
+
   if (setId && !set) {
     return (
       <Box grow height="100%">
-        <Header back text="Текст задания" onBackClick={() => popScreen()} />
+        <Header
+          back
+          text={welcome ? 'Задание' : 'Текст задания'}
+          onBackClick={() => popScreen()}
+        />
         <EmptyScreen fullHeight icon={<IconViewList fontSize={24} />} text="Задание не найдено" />
       </Box>
     )
@@ -340,7 +359,9 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
     <div className={classes.root}>
       <Header
         back
-        text={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
+        text={
+          welcome ? (set?.name ?? '') : hasAnyText ? 'Изменить текст' : 'Добавить текст'
+        }
         onBackClick={() => popScreen()}
       />
       <div className={classes.layout}>
@@ -370,12 +391,14 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
               </Button>
             </Stack>
           ) : null}
-          <ButtonIcon
-            ariaLabel={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
-            icon={<IconEdit fontSize={24} />}
-            variant="flat"
-            onClick={handleEdit}
-          />
+          {welcome ? null : (
+            <ButtonIcon
+              ariaLabel={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
+              icon={<IconEdit fontSize={24} />}
+              variant="flat"
+              onClick={handleEdit}
+            />
+          )}
         </Stack>
 
         {hasText ? (
@@ -439,17 +462,23 @@ export function SetTextView({ setId, draft }: SetTextViewProps) {
           <FormHelperText variant="error">Не удалось перевести текст</FormHelperText>
         ) : null}
 
-        <Stack direction="row" spacing="s" verticalAlign="center">
-          <Button disabled={!canCreateCards} fullWidth onClick={handleCreateCards}>
-            Создать карточки
+        {welcome ? (
+          <Button fullWidth onClick={handleNext}>
+            Далее
           </Button>
-          <ButtonIcon
-            ariaLabel="Закрыть"
-            icon={<IconClose fontSize={24} />}
-            variant="secondary"
-            onClick={() => popScreen()}
-          />
-        </Stack>
+        ) : (
+          <Stack direction="row" spacing="s" verticalAlign="center">
+            <Button disabled={!canCreateCards} fullWidth onClick={handleCreateCards}>
+              Создать карточки
+            </Button>
+            <ButtonIcon
+              ariaLabel="Закрыть"
+              icon={<IconClose fontSize={24} />}
+              variant="secondary"
+              onClick={() => popScreen()}
+            />
+          </Stack>
+        )}
       </div>
 
       {tooltip ? (

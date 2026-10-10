@@ -9,8 +9,8 @@ export type CatalogTexts = Partial<Record<LanguageCode, string>>
 
 export type CatalogCourseEntry = {
   course: string
-  file: string
   level: string
+  files: Partial<Record<LanguageCode, string>>
   i18n: {
     course: CatalogTexts
     description: CatalogTexts
@@ -19,23 +19,18 @@ export type CatalogCourseEntry = {
 
 export type CatalogTask = {
   name: string
-  i18n: {
-    name: CatalogTexts
-    text: CatalogTexts
-    words: Partial<Record<LanguageCode, string[]>>
-  }
+  text: string
+  words: string[]
 }
 
 export type CatalogLesson = {
   name: string
-  i18n: {
-    name: CatalogTexts
-  }
   tasks: CatalogTask[]
 }
 
 export type CatalogCourseData = {
   parentCourse: string
+  lang: LanguageCode
   lessons: CatalogLesson[]
 }
 
@@ -94,13 +89,13 @@ function pickText(
 
 function buildSet(
   task: CatalogTask,
+  userTask: CatalogTask | undefined,
   lessonId: string,
   order: number,
   payload: { lang: LanguageCode; userLang: LanguageCode }
 ): CardSet {
-  const words = task.i18n?.words ?? {}
-  const originals = words[payload.userLang] ?? []
-  const translations = words[payload.lang] ?? []
+  const originals = userTask?.words ?? []
+  const translations = task.words ?? []
   const count = Math.min(originals.length, translations.length)
   const cards: Card[] = []
 
@@ -120,16 +115,15 @@ function buildSet(
     })
   }
 
-  const texts = task.i18n?.text ?? {}
   const setTexts: CardTexts = {}
 
-  if (texts[payload.userLang]) setTexts[payload.userLang] = texts[payload.userLang] as string
-  if (texts[payload.lang]) setTexts[payload.lang] = texts[payload.lang] as string
+  if (userTask?.text) setTexts[payload.userLang] = userTask.text
+  if (task.text) setTexts[payload.lang] = task.text
 
   return {
     id: uid(),
     lessonId,
-    name: pickText(task.i18n?.name, payload.userLang, payload.lang) || task.name,
+    name: userTask?.name || task.name,
     active: true,
     order,
     swapped: false,
@@ -149,7 +143,14 @@ export async function buildReadyCourses(payload: {
   const sets: CardSet[] = []
 
   for (const entry of payload.entries) {
-    const data = await fetchCatalogCourse(entry.file)
+    const langFile = entry.files?.[payload.lang]
+
+    if (!langFile) continue
+
+    const userLangFile = entry.files?.[payload.userLang]
+    const data = await fetchCatalogCourse(langFile)
+    const userData =
+      userLangFile && userLangFile !== langFile ? await fetchCatalogCourse(userLangFile) : data
     const course: Course = {
       id: uid(),
       name: pickText(entry.i18n?.course, payload.userLang, payload.lang) || entry.course,
@@ -161,20 +162,31 @@ export async function buildReadyCourses(payload: {
 
     courses.push(course)
 
+    let lessonIndex = 0
+
     for (const lesson of data.lessons) {
+      const userLesson = userData.lessons[lessonIndex]
+      lessonIndex += 1
+
       const model: Lesson = {
         id: uid(),
         courseId: course.id,
-        name: pickText(lesson.i18n?.name, payload.userLang, payload.lang) || lesson.name,
+        name: userLesson?.name || lesson.name,
         order: lessons.filter((item) => item.courseId === course.id).length,
       }
 
       lessons.push(model)
 
+      let taskIndex = 0
+
       for (const task of lesson.tasks ?? []) {
+        const userTask = userLesson?.tasks?.[taskIndex]
+        taskIndex += 1
+
         sets.push(
           buildSet(
             task,
+            userTask,
             model.id,
             sets.filter((item) => item.lessonId === model.id).length,
             payload

@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Food & Shopping",
+  "lang": "it",
+  "lessons": [
+    {
+      "name": "Al mercato",
+      "tasks": [
+        {
+          "name": "Sabato mattina",
+          "text": "Il sabato mattina il papà sveglia Matteo presto: «Alzati, mio assistente! Oggi andiamo al mercato.» Matteo ama questa tradizione. Prendono due borse grandi ed escono. Per strada incontrano il Sig. Carter e Giorgio. Giorgio non ha mai visto un vero mercato: a Londra andava al supermercato. Oggi vedrà un posto molto diverso! All'ingresso ci sono fiori, bacche e tanta gente. C'è profumo di pane fresco ed erbe. Venite, il nostro venditore ci aspetta!",
+          "words": [
+            "mercato",
+            "assistente",
+            "borsa",
+            "tradizione",
+            "supermercato",
+            "fiori",
+            "bacche",
+            "profumo",
+            "pane",
+            "venditore"
+          ]
+        },
+        {
+          "name": "Dal signor Mario",
+          "text": "Il signor Mario aspetta già al suo banco. «Buongiorno, Marco! Buongiorno, piccolo capitano!», dice a Matteo. Oggi ha un pesce meraviglioso: aringhe, merluzzo e salmone. Il papà sceglie un pesce grande per cena. Il signor Mario chiede: «E chi è questo giovanotto?» Giorgio risponde: «Sono Giorgio, un amico dall'Inghilterra.» Il signor Mario ride: «Inghilterra! Benvenuto al nostro mercato!» Il papà paga, e il venditore dà una mela a ciascun ragazzo. Questo mercato è il più amichevole della città!",
+          "words": [
+            "banco",
+            "pesce",
+            "aringhe",
+            "merluzzo",
+            "salmone",
+            "scegliere",
+            "pagare",
+            "mela",
+            "amichevole",
+            "giovanotto"
+          ]
+        },
+        {
+          "name": "Verdure e frutta",
+          "text": "Poi vanno ai banchi successivi. La lista della mamma è lunga: patate, pomodori, carote, cetrioli e cipolle. Per la frutta il papà prende uva e prugne. Matteo vede un banco con il miele e chiede: «Possiamo comprare il miele per il tè?» Il papà annuisce: «Un vasetto.» Il Sig. Carter compra formaggio e latte fresco. Giorgio guarda tutto e dice: «Qui puoi vedere, annusare e scegliere tutto. Al supermercato tutto è in scatole!» Matteo gli insegna: «Si dice chilo e mezzo chilo: è la lingua dei numeri del mercato.»",
+          "words": [
+            "patate",
+            "pomodori",
+            "carote",
+            "cetrioli",
+            "cipolle",
+            "uva",
+            "prugne",
+            "miele",
+            "chilo",
+            "mezzo chilo"
+          ]
+        },
+        {
+          "name": "Quanto costa?",
+          "text": "A un banco Matteo vede delle belle bacche. «Quanto costa?», chiede. Il venditore risponde: «Dieci monete per una scatola.» Matteo conta i suoi soldi: uno, due, tre... dieci! Dà le monete con cura e prende la scatola: una sorpresa per la mamma. Poi il papà gli mostra altri soldi: «Questa moneta è uno, questa banconota è dieci, e questa è cinquanta.» «Ai soldi piace essere contati», sorride il papà. Matteo è d'accordo: «Adesso lo so! Fare la spesa è una vera scuola di numeri.»",
+          "words": [
+            "quanto costa?",
+            "prezzo",
+            "moneta",
+            "banconota",
+            "soldi",
+            "contare",
+            "scatola di bacche",
+            "dare",
+            "sorpresa",
+            "numeri"
+          ]
+        },
+        {
+          "name": "Il ritorno a casa",
+          "text": "Le borse sono pesanti, ma la strada verso casa è allegra. Giorgio aiuta e porta una borsa di patate. Per strada i ragazzi parlano di cibo: cosa è più buono, il pesce o la pizza? Giorgio dice: «Il pesce, certo!» A casa la mamma apre le borse: «Verdure fresche, pesce e miele! Ed ecco la mia sorpresa: le bacche!» Matteo dice con orgoglio: «Le ho comprate io.» La mamma lo abbraccia: «Grazie, tesoro!» La sera la famiglia mangia la zuppa con verdure fresche, e Giorgio dice ai suoi genitori: «Il vostro mercato è il migliore!»",
+          "words": [
+            "pesante",
+            "borsa di patate",
+            "più buono",
+            "pesce o pizza",
+            "aprire",
+            "sorpresa",
+            "comprare",
+            "con orgoglio",
+            "zuppa",
+            "il migliore"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Al supermercato",
+      "tasks": [
+        {
+          "name": "La lista della spesa",
+          "text": "La sera il papà guarda nel frigo e dice: «Non abbiamo niente per cena!» La mamma prende un foglio e scrive la lista della spesa. Ognuno aggiunge qualcosa: la mamma — latte e formaggio, Luca — la pasta, Sofi — frutta e yogurt, e Matteo — pane e cioccolato, per il buonumore. Poi Micia si sdraia proprio sulla lista. Rocky guarda il foglio e vuole mangiarlo. Il papà salva la lista appena in tempo: «Fare la spesa con questa famiglia non è facile! Domani compreremo tutto.»",
+          "words": [
+            "frigo",
+            "lista della spesa",
+            "foglio",
+            "aggiungere",
+            "latte",
+            "pasta",
+            "yogurt",
+            "cioccolato",
+            "buonumore",
+            "comprare"
+          ]
+        },
+        {
+          "name": "Carrelli e reparti",
+          "text": "Il martedì la famiglia va al supermercato insieme. Matteo prende un carrello grande. Il supermercato ha molti reparti: bibite, carne, pesce, latticini, pane e verdure. Sofi legge i nomi e aiuta la mamma: «Il latte è qui, nei latticini.» Luca guarda la pasta e sceglie la più lunga. Matteo vuole mettere le patatine nel carrello, ma la mamma dice: «Oggi niente patatine, abbiamo una lista.» Poi gli dà un altro compito: «Trova sei uova.» Matteo le trova subito ed è molto orgoglioso. Il carrello è quasi pieno.",
+          "words": [
+            "carrello",
+            "reparto",
+            "bibite",
+            "carne",
+            "latticini",
+            "leggere",
+            "trovare",
+            "uova",
+            "patatine",
+            "pieno"
+          ]
+        },
+        {
+          "name": "Alla cassa",
+          "text": "Alla cassa c'è una piccola fila. La cassiera passa il cibo: latte, formaggio, pasta, pane, uova, frutta, cioccolato... E i prezzi sullo schermo salgono e salgono. Il papà paga con la carta. Poi riceve uno scontrino lungo. Matteo lo guarda: «Quanti numeri!» Sofi controlla lo scontrino: «Va tutto bene.» Rocky e Micia lo sentono già a casa: sta arrivando qualcosa di buono! La cassiera sorride: «Buona giornata!» Il papà prende le borse pesanti, e la famiglia torna a casa. Per strada Matteo dice: «Fare la spesa è come uno sport!»",
+          "words": [
+            "cassa",
+            "fila",
+            "cassiera",
+            "scansionare",
+            "schermo",
+            "pagare",
+            "carta",
+            "scontrino",
+            "borsa pesante",
+            "sport"
+          ]
+        },
+        {
+          "name": "Sistemiamo la spesa",
+          "text": "A casa tutti svuotano le borse. La mamma mette il latte, il formaggio e lo yogurt nel frigo: «Queste sono cose fredde.» Sofi mette la pasta e il pane nell'armadietto: «E queste sono cose secche.» Luca lava i pomodori, e Matteo cerca il cioccolato... Lo trova e chiede: «Posso mangiare un pezzo?» «Solo uno», dice la mamma. Le borse diventano vuote, la cucina piena. Il papà dice: «Ora abbiamo cibo per tutta la settimana!» Poi la famiglia beve il tè con il cioccolato. Rocky riceve un pezzetto!",
+          "words": [
+            "svuotare le borse",
+            "frigo",
+            "cose fredde",
+            "armadietto",
+            "cose secche",
+            "lavare",
+            "vuoto",
+            "pieno",
+            "pezzo",
+            "tutta la settimana"
+          ]
+        },
+        {
+          "name": "Cena dalla lista",
+          "text": "La sera la famiglia prepara la cena secondo la lista della spesa. Luca fa la pasta con formaggio e pomodori: oggi è il suo giorno. Sofi taglia la frutta per un'insalata. Matteo apparecchia la tavola e mette il pane in un cestino. La mamma aiuta e ride: «Ora siete una vera squadra di cuochi!» Il papà assaggia la pasta: «Deliziosa!» Luca è orgoglioso: «È la mia ricetta preferita.» Poi tutti mangiano e parlano della giornata. Le cene migliori sono quelle che prepari con una lista semplice.",
+          "words": [
+            "preparare la cena",
+            "pasta al formaggio",
+            "pomodori",
+            "insalata di frutta",
+            "cestino",
+            "assaggiare",
+            "delizioso",
+            "ricetta",
+            "essere orgoglioso",
+            "squadra di cuochi"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prepariamo i pelmeni con i Carter",
+      "tasks": [
+        {
+          "name": "L'invito",
+          "text": "Il Sig. Carter scende e dice: «Adoro i pelmeni! Potete insegnarci a cucinarli?» La mamma ride: «Con piacere!» Il sabato alle undici i Carter arrivano con farina e carne. La mamma dà un grembiule a ciascuno. Emilia riceve un matterello piccolo. Giorgio chiede: «È difficile?» La mamma risponde: «No, ma servono molte mani.» La cucina diventa rumorosa e allegra. Il Sig. Carter scrive parole nuove: farina, impasto, stendere, ripieno. Dice: «I pelmeni sono la mia lezione preferita di russo!»",
+          "words": [
+            "insegnare",
+            "grembiule",
+            "matterello",
+            "difficile",
+            "farina",
+            "impasto",
+            "ripieno",
+            "stendere",
+            "taccuino",
+            "preferito"
+          ]
+        },
+        {
+          "name": "Impasto e ripieno",
+          "text": "Prima l'impasto. La mamma mette farina, acqua, un uovo e sale in una ciotola grande. Emilia mescola con il cucchiaio, Giorgio con le mani: adesso ha le mani bianche. Poi il ripieno: carne, cipolla e un po' di pepe. Il papà prepara il ripieno e scherza: «Il segreto è non piangere per la cipolla!» Tutti ridono. Sofi stende l'impasto in un grande cerchio sottile. Luca lo taglia in cerchi piccoli. Anche il Sig. Carter prova, ma i suoi cerchi non sono rotondi. Poco importa: il sapore conta più della forma.",
+          "words": [
+            "impasto",
+            "farina",
+            "uovo",
+            "sale",
+            "ciotola",
+            "mescolare",
+            "carne",
+            "cipolla",
+            "stendere",
+            "sottile"
+          ]
+        },
+        {
+          "name": "Tante mani",
+          "text": "Adesso la parte più interessante: tutti fanno i pelmeni. La mamma mostra: un cerchio di impasto, un po' di ripieno al centro, poi i bordi insieme — ed ecco un cappellino! Sofi fa pelmeni grandi e piccoli. Emilia è molto precisa: i suoi pelmeni sono piccoli e ordinati. Giorgio fa un pelmeni enorme: dice che è per il papà. Matteo fa forme divertenti: una stella, un cuore e anche un pesce. Il Sig. Carter conta: «Uno, due, tre... cinquanta!» Cinquanta pelmeni e otto mani. E un naso bianco: quello di Emilia!",
+          "words": [
+            "ripieno",
+            "bordi",
+            "cappellino",
+            "precisa",
+            "enorme",
+            "forma",
+            "cuore",
+            "contare",
+            "naso",
+            "mani"
+          ]
+        },
+        {
+          "name": "A tavola!",
+          "text": "La mamma cuoce i pelmeni in una pentola grande di acqua calda. Tutti aspettano a tavola. Prima i pelmeni nuotano come barchette, poi salgono: sono pronti! La mamma li mette nei piatti con burro ed erbe. Il Sig. Carter chiude gli occhi e assaggia il primo pelmeni: «Questa è felicità!», dice. Emilia ne mangia sei! Giorgio ne vuole ancora. «La ricetta della nonna funziona di nuovo», sorride la mamma. Per dessert c'è il tè con la marmellata. Il cibo fatto insieme è sempre il più buono.",
+          "words": [
+            "pentola",
+            "acqua calda",
+            "nuotare",
+            "salire",
+            "burro",
+            "erbe",
+            "assaggiare",
+            "felicità",
+            "volerne ancora",
+            "marmellata"
+          ]
+        },
+        {
+          "name": "Una nuova tradizione",
+          "text": "Dopo cena la Sig.ra Carter scrive la ricetta sul taccuino con tre stelle: «Buonissimo!» Giorgio riassume: «Impasto, ripieno, acqua calda. Ora possiamo cucinare i pelmeni a casa.» La Sig.ra Carter dice: «E la prossima volta vi insegneremo il nostro piatto preferito: la torta inglese con mele e cannella.» Matteo salta: «Adoro le torte!» I genitori sorridono: «Allora ogni mese cucineremo insieme: un piatto nuovo.» «L'impasto e l'amicizia crescono con tante mani», dice il Sig. Carter. Tutti sono d'accordo.",
+          "words": [
+            "ricetta",
+            "taccuino",
+            "tre stelle",
+            "riassumere",
+            "la prossima volta",
+            "torta di mele",
+            "cannella",
+            "crescere",
+            "essere d'accordo",
+            "ogni mese"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cena al bar",
+      "tasks": [
+        {
+          "name": "Pietro il cuoco",
+          "text": "Il nostro vicino Pietro è cuoco. Lavora in un piccolo bar vicino al parco. Il venerdì invita tutta la famiglia: «Venite nel mio bar, ho un menù nuovo!» La sera la famiglia arriva, e i Carter sono già lì. Il bar è caldo e profuma di torta. Pietro li accoglie con una giacca bianca da cuoco. Matteo chiede: «Cucini tutto tu?» «Sì, e sono orgoglioso della mia zuppa!», sorride Pietro. Poi un cameriere gentile porta i menù. La cena sarà deliziosa!",
+          "words": [
+            "cuoco",
+            "bar",
+            "menù",
+            "invitare",
+            "cucinare",
+            "giacca",
+            "orgoglioso",
+            "cameriere",
+            "profumare",
+            "delizioso"
+          ]
+        },
+        {
+          "name": "Il menù",
+          "text": "Il menù è come un libro. Prima gli antipasti: insalata di verdure e zuppa. Poi i piatti: pesce con patate, pasta al formaggio e la pizza di Pietro. Per dessert: gelato, torta di mele e torta al cioccolato. I bambini leggono il menù insieme. Emilia sceglie la zuppa e il pesce. Giorgio vuole la pizza. Matteo esita tra gelato e torta: «Tutti e due, per favore!» La mamma lo guarda: «Matteo!» Lui pensa: «Va bene: prima il gelato, poi la torta.» Tutti ridono: «Questa è una decisione!»",
+          "words": [
+            "menù",
+            "antipasto",
+            "piatto principale",
+            "dessert",
+            "insalata",
+            "zuppa",
+            "pizza",
+            "gelato",
+            "scegliere",
+            "decisione"
+          ]
+        },
+        {
+          "name": "L'ordine",
+          "text": "Il cameriere arriva e chiede: «Siete pronti a ordinare?» Il Sig. Carter dice con cortesia: «Vorrei la zuppa e il pesce, per favore.» La Sig.ra Carter: «E un'insalata per me, per favore.» I bambini ordinano pizza e limonata. Matteo impara una frase gentile: «Vorrei...». «Funziona come una chiave magica», dice il papà. Il cameriere sorride: «Ottima scelta!» Mentre aspettano, Pietro porta pane caldo e burro. Emilia assaggia la sua zuppa: «Deliziosa!» Matteo dice «Grazie!», e il cameriere risponde: «Prego!»",
+          "words": [
+            "cameriere",
+            "ordinare",
+            "Vorrei...",
+            "per favore",
+            "gentile",
+            "frase",
+            "scelta",
+            "pane e burro",
+            "assaggiare",
+            "Prego"
+          ]
+        },
+        {
+          "name": "La sorpresa di Pietro",
+          "text": "Dopo cena Pietro si avvicina al tavolo con un piatto grande: «Questa è la mia sorpresa per i bambini!» Sul piatto ci sono piccole torte a forma di pallone, pennello e libro: per Matteo, Sofi e Luca. I bambini gridano: «Wow!» Per la mamma c'è una torta-dottoressa con lo stetoscopio, e per il papà una torta-casa con il tetto rosso. Tutti si sorprendono: «Non sei un cuoco, sei un artista!» Pietro ride: «Un cuoco è sempre un po' artista.» Poi porta il tè per i grandi e la cioccolata per i bambini.",
+          "words": [
+            "sorpresa",
+            "piatto",
+            "forma",
+            "pallone",
+            "pennello",
+            "libro",
+            "tetto",
+            "stetoscopio",
+            "artista",
+            "cioccolata"
+          ]
+        },
+        {
+          "name": "Il conto",
+          "text": "È tardi. Il papà chiede al cameriere: «Il conto, per favore.» Il cameriere porta un piccolo foglio. Il papà paga. La mamma dice: «Grazie, Pietro! È stata una serata meravigliosa!» Pietro risponde: «Tornate presto: prossima volta zuppa di pesce!» Giorgio dice a Matteo: «Questo è il bar più bello della città!» Matteo è d'accordo: «E il cuoco migliore!» Sulla strada di casa si parla della serata. Il papà dice: «Oggi abbiamo imparato una frase importante: “Vorrei...”. Usatela con gentilezza!»",
+          "words": [
+            "conto",
+            "pagare",
+            "serata meravigliosa",
+            "tornate presto",
+            "la prossima volta",
+            "zuppa di pesce",
+            "il migliore",
+            "imparare",
+            "frase",
+            "amichevole"
+          ]
+        }
+      ]
+    }
+  ]
+}

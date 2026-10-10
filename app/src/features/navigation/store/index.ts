@@ -18,6 +18,7 @@ export type Screen =
   | { name: 'lesson-create'; lessonId?: string; courseId?: string }
   | { name: 'set-create'; setId?: string; lessonId?: string }
   | { name: 'cards'; setId: string }
+  | { name: 'set-intro'; setId: string }
   | { name: 'set-text'; setId: string }
   | { name: 'set-text'; draft: TextAddDraft }
   | { name: 'card-create'; setId: string; cardId?: string }
@@ -37,6 +38,7 @@ export type Transition = { kind: 'none' } | { kind: 'push' } | { kind: 'pop'; sc
 
 export const pushScreen = createEvent<Screen>()
 export const popScreen = createEvent()
+export const replaceScreen = createEvent<Screen>()
 export const popTo = createEvent<Screen['name']>()
 export const goToRoot = createEvent()
 export const goToLessons = createEvent()
@@ -64,6 +66,14 @@ export const $nav = createStore<NavState>({
     return {
       stack: state.stack.slice(0, -1),
       transition: { kind: 'pop', screen: state.stack[state.stack.length - 1] },
+    }
+  })
+  .on(replaceScreen, (state, screen) => {
+    if (state.stack.length === 0) return state
+
+    return {
+      stack: [...state.stack.slice(0, -1), screen],
+      transition: { kind: 'push' },
     }
   })
   .on(popTo, (state, name) => {
@@ -122,6 +132,7 @@ export const handleAndroidBack = (): boolean => {
 
 pushScreen.watch(suppressNextGhostClick)
 popScreen.watch(suppressNextGhostClick)
+replaceScreen.watch(suppressNextGhostClick)
 popTo.watch(suppressNextGhostClick)
 goToRoot.watch(suppressNextGhostClick)
 goToLessons.watch(suppressNextGhostClick)
