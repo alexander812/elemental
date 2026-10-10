@@ -24,6 +24,9 @@ export function ThemeView() {
                 <Radio.Option label="Светлая" value="light" />
                 <Radio.Option label="Терракота" value="terracotta" />
                 <Radio.Option label="Тёмная" value="dark" />
+                <Radio.Option label="Полночная" value="midnight" />
+                <Radio.Option label="Камень" value="stone" />
+                <Radio.Option label="Аметист" value="amethyst" />
               </Stack>
             </Radio>
           </Card>

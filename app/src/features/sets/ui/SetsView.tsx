@@ -331,7 +331,7 @@ function SetRow({
               />
               <ButtonIcon
                 ariaLabel="Изменить задание"
-                color="neutral"
+                color="onAccent"
                 icon={<IconEdit fontSize={24} />}
                 size="s"
                 variant="flat"

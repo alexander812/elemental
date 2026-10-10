@@ -8,6 +8,9 @@ export const themeGlobalTypes: GlobalTypes[string] = {
       { value: 'dark', title: 'Dark', right: 'dark' },
       { value: 'light', title: 'Light', right: 'light' },
       { value: 'terracotta', title: 'Terracotta', right: 'terracotta' },
+      { value: 'midnight', title: 'Midnight', right: 'midnight' },
+      { value: 'stone', title: 'Stone', right: 'stone' },
+      { value: 'amethyst', title: 'Amethyst', right: 'amethyst' },
     ],
   },
 };

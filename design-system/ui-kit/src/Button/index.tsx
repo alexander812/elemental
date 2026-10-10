@@ -17,7 +17,7 @@ import classes from './index.module.pcss';
 type JSXButtonProps = JSX.IntrinsicElements['button'];
 
 type ButtonVariant = 'flat' | 'primary' | 'secondary';
-type ButtonColor = 'accent' | 'negative' | 'neutral' | 'positive' | 'warning';
+type ButtonColor = 'accent' | 'negative' | 'neutral' | 'onAccent' | 'positive' | 'warning';
 
 type ButtonSize = 'm' | 's' | 'xs' | 'xxs';
 type ButtonGap = Spacing;
@@ -65,6 +65,7 @@ const hostColorClasses = {
   accent: classes.hostColorAccent,
   negative: classes.hostColorNegative,
   neutral: classes.hostColorNeutral,
+  onAccent: classes.hostColorOnAccent,
   positive: classes.hostColorPositive,
   warning: classes.hostColorWarning,
 };

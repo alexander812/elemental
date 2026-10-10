@@ -15,11 +15,13 @@ export const DEFAULT_SETTINGS: Settings = {
 
 type StoredSettings = Partial<Settings>
 
+const THEMES: ThemeName[] = ['dark', 'light', 'terracotta', 'midnight', 'stone', 'amethyst']
+
 export function readSettings(): Settings {
   const raw = load<StoredSettings>(SETTINGS_KEY, {})
 
   return {
-    theme: raw.theme === 'light' || raw.theme === 'terracotta' ? raw.theme : 'dark',
+    theme: THEMES.includes(raw.theme as ThemeName) ? (raw.theme as ThemeName) : 'dark',
     userLang: typeof raw.userLang === 'string' && raw.userLang ? raw.userLang : DEFAULT_USER_LANG,
     learnAfterChecks: raw.learnAfterChecks === true,
   }

@@ -178,6 +178,20 @@
     --focus-color: var(--contrast-primary);
   }
 
+  &.hostColorOnAccent {
+    background: var(--accent-over);
+    color: var(--accent-bg-default);
+
+    --hover-bg-color: var(--accent-bg-hover);
+    --active-bg-color: var(--accent-bg-active);
+    --focus-color: var(--accent-over);
+  }
+
+  &.hostColorOnAccent:hover:not(.hostLoading),
+  &.hostColorOnAccent:active:not(.hostLoading) {
+    color: var(--accent-over);
+  }
+
   /* Disabled state PRIMARY */
   &[disabled],
   &:disabled {
@@ -220,6 +234,11 @@
     color: var(--contrast-primary);
   }
 
+  &.hostColorOnAccent {
+    color: var(--accent-over);
+    box-shadow: inset 0 0 0 1px var(--accent-over);
+  }
+
   /* Disabled state SECONDARY */
   &[disabled],
   &:disabled {
@@ -253,6 +272,10 @@
 
   &.hostColorNeutral {
     color: var(--contrast-primary);
+  }
+
+  &.hostColorOnAccent {
+    color: var(--accent-over);
   }
 
   &.hostChecked,
