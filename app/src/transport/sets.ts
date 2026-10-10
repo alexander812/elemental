@@ -2,9 +2,9 @@ import { remapTexts } from '../lib/cards'
 import { DEFAULT_COURSE_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
-import type { Card, CardSet, CardTexts, Course, Lesson } from '../lib/types'
+import type { Card, CardSet, CardTexts, Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
-import { ensureDefaultCourse, readCourses } from './courses'
+import { readCourses } from './courses'
 import { ensureDefaultLesson, readLessons } from './lessons'
 import { readSettings } from './settings'
 
@@ -13,15 +13,15 @@ export type { Card, CardSet, CardTexts } from '../lib/types'
 const SETS_KEY = 'sets'
 const SEEDED_KEY = 'seeded'
 
-const WEEKDAYS: [string, string][] = [
-  ['Понедельник', 'Monday'],
-  ['Вторник', 'Tuesday'],
-  ['Среда', 'Wednesday'],
-  ['Четверг', 'Thursday'],
-  ['Пятница', 'Friday'],
-  ['Суббота', 'Saturday'],
-  ['Воскресенье', 'Sunday'],
-]
+const WELCOME_TEXT: Record<LanguageCode, string> = {
+  ru: 'Привет! Я Лекси, я помогу тебе учить иностранный язык качай готовые курсы или создай все что ты хочешь сам.',
+  en: "Hi! I'm Lexi, I'll help you learn a foreign language. Download ready-made courses or create everything you want yourself.",
+  es: '¡Hola! Soy Lexi, te ayudaré a aprender un idioma extranjero. Descarga cursos ya preparados o crea todo lo que quieras tú mismo.',
+  fr: "Salut ! Je suis Lexi, je t'aiderai à apprendre une langue étrangère. Télécharge des cours prêts ou crée tout ce que tu veux toi-même.",
+  it: 'Ciao! Sono Lexi e ti aiuterò a imparare una lingua straniera. Scarica corsi pronti o crea tutto quello che vuoi da solo.',
+  zh: '你好！我是 Lexi，我会帮你学外语。下载现成课程，或者自己创建你想要的一切。',
+  de: 'Hallo! Ich bin Lexi, ich helfe dir, eine Fremdsprache zu lernen. Lade fertige Kurse herunter oder erstelle alles selbst, was du willst.',
+}
 
 function normalizeTexts(texts: CardTexts | undefined): CardTexts {
   if (!texts || typeof texts !== 'object') return {}
@@ -52,32 +52,28 @@ function createCard(
   }
 }
 
-function seedSets(lesson: Lesson, course: Course, userLang: LanguageCode): CardSet[] {
+function seedSets(lesson: Lesson): CardSet[] {
   return [
     {
       id: uid(),
       lessonId: lesson.id,
-      name: 'Дни недели',
+      name: 'Приветствие',
       active: true,
       order: 0,
       swapped: false,
-      texts: {},
-      cards: WEEKDAYS.map(([original, translation]) =>
-        createCard(userLang, course.lang, original, translation)
-      ),
+      examPassed: false,
+      texts: { ...WELCOME_TEXT },
+      cards: [],
     },
   ]
 }
 
 function readSets(): CardSet[] {
   const seeded = load<boolean>(SEEDED_KEY, false)
-  const settings = readSettings()
 
   if (!seeded) {
     const lesson = ensureDefaultLesson()
-    const course =
-      readCourses().find((item) => item.id === lesson.courseId) ?? ensureDefaultCourse()
-    const sets = writeSets(seedSets(lesson, course, settings.userLang))
+    const sets = writeSets(seedSets(lesson))
 
     save(SEEDED_KEY, true)
 
@@ -139,6 +135,7 @@ export async function createSet(payload: {
     active: true,
     order: maxOrder + 1,
     swapped: false,
+    examPassed: false,
     texts: normalizeTexts(payload.texts),
     cards: payload.cards.map((card) => createCard(userLang, courseLang, card.original, card.translation)),
   }
@@ -228,6 +225,11 @@ export async function setSetActive(setId: string, active: boolean): Promise<Card
 export async function setSetSwapped(setId: string, swapped: boolean): Promise<CardSet[]> {
   const sets = readSets()
   return writeSets(patchSet(sets, setId, (set) => ({ ...set, swapped })))
+}
+
+export async function setSetExamPassed(setId: string, examPassed: boolean): Promise<CardSet[]> {
+  const sets = readSets()
+  return writeSets(patchSet(sets, setId, (set) => ({ ...set, examPassed })))
 }
 
 export async function deleteSet(setId: string): Promise<CardSet[]> {
@@ -370,6 +372,7 @@ export async function resetSet(setId: string): Promise<CardSet[]> {
   return writeSets(
     patchSet(sets, setId, (set) => ({
       ...set,
+      examPassed: false,
       cards: set.cards.map((card) => ({
         ...card,
         learned: false,

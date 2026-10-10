@@ -306,11 +306,14 @@ function SetRow({
       >
         <Card borderRadius="m" color="accent" height="100%" onClick={handleCardClick} padding="m">
           <Stack direction="row" spacing="m" verticalAlign="center" height="100%">
-            <Box grow>
+            <Stack direction="row" grow minWidth={0} spacing="xs" verticalAlign="center">
+              {set.examPassed ? (
+                <IconCheckSmall color="var(--positive-text-and-icons)" fontSize={16} />
+              ) : null}
               <Text overflow="ellipsis" variant="M / Medium">
                 {set.name}
               </Text>
-            </Box>
+            </Stack>
             <Stack direction="row" shrink={0} spacing="xs" verticalAlign="center">
               <Chip
                 label={String(learned)}

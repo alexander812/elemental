@@ -18,6 +18,7 @@ export interface CardSet {
   active: boolean
   order: number
   swapped: boolean
+  examPassed: boolean
   texts: CardTexts
   cards: Card[]
 }

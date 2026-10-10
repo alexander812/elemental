@@ -1,4 +1,4 @@
-const CACHE = 'elemental-v1';
+const CACHE = 'elemental-v2';
 const PRECACHE = [
   './',
   'manifest.webmanifest',

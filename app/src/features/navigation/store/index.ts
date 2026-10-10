@@ -18,6 +18,7 @@ export type Screen =
   | { name: 'lesson-create'; lessonId?: string; courseId?: string }
   | { name: 'set-create'; setId?: string; lessonId?: string }
   | { name: 'cards'; setId: string }
+  | { name: 'set-exam'; setId: string }
   | { name: 'set-intro'; setId: string }
   | { name: 'set-text'; setId: string }
   | { name: 'set-text'; draft: TextAddDraft }

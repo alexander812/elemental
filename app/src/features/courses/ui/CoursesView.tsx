@@ -18,6 +18,7 @@ import {
 import type { Course } from '../../../lib/types'
 import { $lessons } from '../../lessons/store'
 import { goToLessons, pushScreen } from '../../navigation/store'
+import { $userLang } from '../../theme/store'
 import { courseSelected, fetchCoursesFx, $courses, $coursesLoading, $currentCourseId } from '../store'
 
 import classes from './CoursesView.module.pcss'
@@ -32,11 +33,14 @@ const lessonWord = (count: number): string => {
   return 'уроков'
 }
 
+const langLabel = (code: string): string => code.charAt(0).toUpperCase() + code.slice(1)
+
 export function CoursesView() {
   const courses = useUnit($courses)
   const lessons = useUnit($lessons)
   const loading = useUnit($coursesLoading)
   const currentCourseId = useUnit($currentCourseId)
+  const userLang = useUnit($userLang)
 
   const [addOpened, setAddOpened] = useState(false)
 
@@ -96,7 +100,7 @@ export function CoursesView() {
   const logo = (
     <img
       alt=""
-      src={`${import.meta.env.BASE_URL}favicon.svg`}
+      src={`${import.meta.env.BASE_URL}icons/emblem.svg`}
       style={{ display: 'block', width: 32, height: 32, marginInlineEnd: 10 }}
     />
   )
@@ -156,7 +160,7 @@ export function CoursesView() {
                     verticalAlign="center"
                   >
                     <Text overflow="ellipsis" variant="M / Medium">
-                      {course.name} ({course.lang})
+                      {course.name} ({langLabel(userLang)}-{langLabel(course.lang)})
                     </Text>
                     <Stack shrink={0}>
                       <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">

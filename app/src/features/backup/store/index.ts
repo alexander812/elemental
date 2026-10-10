@@ -1,5 +1,6 @@
 import { createEffect } from 'effector'
 
+import { clearAll } from '../../../lib/storage'
 import type { BackupData, ImportMode } from '../../../transport/backup'
 import { applyBackup, createBackup, downloadBackup } from '../../../transport/backup'
 
@@ -11,3 +12,8 @@ export const exportBackupFx = createEffect(async (lessonIds: string[]) => {
 export const importBackupFx = createEffect((payload: { backup: BackupData; mode: ImportMode }) =>
   applyBackup(payload.backup, payload.mode)
 )
+
+export const resetDataFx = createEffect(() => {
+  clearAll()
+  window.location.reload()
+})

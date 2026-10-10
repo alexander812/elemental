@@ -3,7 +3,7 @@ import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconEdit, IconEducation, IconMoreVertical, IconPlusBig, IconTrash } from '@elemental/icons'
+import { IconCheckSmall, IconEdit, IconEducation, IconMoreVertical, IconPlusBig, IconTrash } from '@elemental/icons'
 import {
   Box,
   Button,
@@ -22,6 +22,7 @@ import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
 import { deleteCourseFx, $courses, $currentCourseId } from '../../courses/store'
 import type { DeleteCourseMode } from '../../courses/store'
 import { pushScreen } from '../../navigation/store'
+import { $sets } from '../../sets/store'
 import { deleteLessonFx, fetchLessonsFx, reorderLessonsFx, $lessons, $lessonsLoading } from '../store'
 
 const ROW_HEIGHT = 64
@@ -44,6 +45,7 @@ const clamp = (value: number, min: number, max: number) => Math.min(Math.max(val
 type LessonRowProps = {
   lesson: Lesson
   index: number
+  examPassed: boolean
   dragging: boolean
   dragOffsetY: number
   shift: number
@@ -63,6 +65,7 @@ type LessonRowProps = {
 function LessonRow({
   lesson,
   index,
+  examPassed,
   dragging,
   dragOffsetY,
   shift,
@@ -283,11 +286,14 @@ function LessonRow({
       >
         <Card borderRadius="m" color="primary" height="100%" onClick={handleCardClick} padding="m">
           <Stack direction="row" spacing="m" verticalAlign="center" height="100%">
-            <Box grow>
+            <Stack direction="row" grow minWidth={0} spacing="xs" verticalAlign="center">
+              {examPassed ? (
+                <IconCheckSmall color="var(--positive-text-and-icons)" fontSize={16} />
+              ) : null}
               <Text overflow="ellipsis" variant="M / Medium">
                 {lesson.name}
               </Text>
-            </Box>
+            </Stack>
             <ButtonIcon
               ariaLabel="Изменить урок"
               icon={<IconEdit fontSize={24} />}
@@ -308,6 +314,7 @@ function LessonRow({
 
 export function LessonsView() {
   const lessons = useUnit($lessons)
+  const sets = useUnit($sets)
   const courses = useUnit($courses)
   const currentCourseId = useUnit($currentCourseId)
   const loading = useUnit($lessonsLoading)
@@ -356,6 +363,18 @@ export function LessonsView() {
         : [],
     [lessons, course]
   )
+
+  const examPassedByLesson = useMemo(() => {
+    const map = new Map<string, boolean>()
+
+    for (const cardSet of sets) {
+      if (!cardSet.active) continue
+
+      map.set(cardSet.lessonId, (map.get(cardSet.lessonId) ?? true) && cardSet.examPassed)
+    }
+
+    return map
+  }, [sets])
 
   const touchHandlerRef = useRef<(event: TouchEvent) => void>(null)
   const setTouchBlocked = (blocked: boolean) => {
@@ -555,6 +574,7 @@ export function LessonsView() {
                 key={lesson.id}
                 dragOffsetY={drag?.offsetY ?? 0}
                 dragging={isDragged}
+                examPassed={examPassedByLesson.get(lesson.id) ?? false}
                 index={index}
                 lesson={lesson}
                 open={openRowId === lesson.id}

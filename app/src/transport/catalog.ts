@@ -127,6 +127,7 @@ function buildSet(
     active: true,
     order,
     swapped: false,
+    examPassed: false,
     texts: setTexts,
     cards,
   }

@@ -43,9 +43,9 @@ import classes from './CourseSearchView.module.pcss'
 
 const LEVEL_OPTIONS: SelectOption[] = [
   { label: 'Beginner', value: 'beginner' },
-  { label: 'Elementary', value: 'elementary', disabled: true },
-  { label: 'Intermediate', value: 'intermediate', disabled: true },
-  { label: 'Upper-Intermediate', value: 'upper-intermediate', disabled: true },
+  { label: 'Elementary', value: 'elementary' },
+  { label: 'Intermediate', value: 'intermediate' },
+  { label: 'Upper-Intermediate', value: 'upper-intermediate' },
 ]
 
 export function CourseSearchView() {

@@ -1,6 +1,6 @@
 const PREFIX = 'app.'
 
-export const DATA_VERSION = 3
+export const DATA_VERSION = 4
 
 type Envelope<T> = {
   data: T
@@ -39,4 +39,16 @@ export function save<T>(key: string, value: T): void {
 
 export function remove(key: string): void {
   localStorage.removeItem(`${PREFIX}${key}`)
+}
+
+export function clearAll(): void {
+  const keys: string[] = []
+
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const key = localStorage.key(index)
+
+    if (key?.startsWith(PREFIX)) keys.push(key)
+  }
+
+  keys.forEach((key) => localStorage.removeItem(key))
 }

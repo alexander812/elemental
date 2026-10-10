@@ -36,6 +36,7 @@ import { getCardText } from '../../../lib/cards'
 import { isAnswerCorrect } from '../../../lib/checks'
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
+import { recognizeErrorText } from '../../../lib/recognitionErrors'
 import { playError, playSuccess, unlockSounds } from '../../../lib/sounds'
 import type { Card as CardModel } from '../../../lib/types'
 import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
@@ -73,28 +74,6 @@ const SPEAK_ERRORS: Record<string, string> = {
 }
 
 const speakErrorText = (error: Error) => SPEAK_ERRORS[error.message] ?? 'Не удалось озвучить'
-
-const RECOGNIZE_ERRORS: Record<string, string> = {
-  'audio-capture': 'Микрофон недоступен',
-  'no-speech': 'Ничего не расслышали, попробуйте ещё',
-  'not-allowed': 'Разрешите доступ к микрофону',
-  'service-not-allowed': 'Распознавание речи недоступно',
-  asr_download_failed: 'Не удалось скачать распознавание речи',
-  audio_error: 'Микрофон недоступен',
-  audio_unavailable: 'Микрофон недоступен',
-  busy: 'Подождите, распознавание уже идёт',
-  language_not_supported: 'Для этого языка офлайн-распознавание недоступно',
-  network: 'Нет соединения для распознавания',
-  no_speech: 'Ничего не расслышали, попробуйте ещё',
-  not_available: 'Распознавание речи недоступно на устройстве',
-  permission_denied: 'Разрешите доступ к микрофону',
-  recognition_unavailable: 'Распознавание речи недоступно',
-  timeout: 'Не удалось расслышать фразу',
-  unknown_method: 'Обновите приложение',
-}
-
-const recognizeErrorText = (error: Error) =>
-  RECOGNIZE_ERRORS[error.message] ?? 'Не удалось распознать речь'
 
 const now = (): number => Date.now()
 
@@ -413,6 +392,12 @@ export function CardsView({ setId }: { setId: string }) {
 
   const handleAddWord = () => {
     pushScreen({ name: 'card-create', setId })
+  }
+
+  const handleStartExam = () => {
+    cancelAutoLearn()
+    setCheckStatus(null)
+    pushScreen({ name: 'set-exam', setId })
   }
 
   const handleEditCard = (cardId: string) => {
@@ -777,7 +762,17 @@ export function CardsView({ setId }: { setId: string }) {
             </Stack>
           )}
 
-          {!noCards && !confirmDelete && (
+          {!noCards && !confirmDelete && unlearnedCount === 0 ? (
+            <Button
+              fullWidth
+              startIcon={<IconEducation fontSize={16} />}
+              onClick={handleStartExam}
+            >
+              Экзамен
+            </Button>
+          ) : null}
+
+          {!noCards && !confirmDelete && unlearnedCount > 0 ? (
             <Button
               fullWidth
               startIcon={<IconPlusBig fontSize={16} />}
@@ -786,7 +781,7 @@ export function CardsView({ setId }: { setId: string }) {
             >
               Добавить
             </Button>
-          )}
+          ) : null}
         </Stack>
       </Box>
 

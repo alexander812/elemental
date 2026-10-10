@@ -8,7 +8,7 @@ export type { Course } from '../lib/types'
 
 const COURSES_KEY = 'courses'
 
-export const DEFAULT_COURSE_NAME = 'Базовый курс'
+export const DEFAULT_COURSE_NAME = 'Знакомство с Лекси'
 
 export function createDefaultCourse(lang?: LanguageCode): Course {
   return {

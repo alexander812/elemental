@@ -34,6 +34,11 @@ export const setSetSwappedFx = createEffect((payload: { setId: string; swapped: 
   setsApi.setSetSwapped(payload.setId, payload.swapped)
 )
 
+export const setSetExamPassedFx = createEffect(
+  (payload: { setId: string; examPassed: boolean }) =>
+    setsApi.setSetExamPassed(payload.setId, payload.examPassed)
+)
+
 export const updateSetTextFx = createEffect(
   (payload: { setId: string; lang: LanguageCode; text: string }) =>
     setsApi.updateSetText(payload.setId, payload.lang, payload.text)
@@ -90,6 +95,7 @@ export const $sets = createStore<CardSet[]>([])
       updateSetFx.doneData,
       setSetActiveFx.doneData,
       setSetSwappedFx.doneData,
+      setSetExamPassedFx.doneData,
       updateSetTextFx.doneData,
       deleteSetFx.doneData,
       reorderSetsFx.doneData,

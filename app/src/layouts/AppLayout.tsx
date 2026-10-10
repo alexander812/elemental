@@ -29,6 +29,7 @@ import { CoursesView } from '../features/courses/ui/CoursesView'
 import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
 import { LessonsView } from '../features/lessons/ui/LessonsView'
 import { SetCreateView } from '../features/set-create/ui/SetCreateView'
+import { SetExamView } from '../features/set-exam/ui/SetExamView'
 import { MenuView } from '../features/settings/ui/MenuView'
 import { ThemeView } from '../features/settings/ui/ThemeView'
 import { SetsView } from '../features/sets/ui/SetsView'
@@ -64,6 +65,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <SetCreateView lessonId={screen.lessonId} setId={screen.setId} />
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />
+    case 'set-exam':
+      return <SetExamView key={screen.setId} setId={screen.setId} />
     case 'set-intro':
       return <SetTextView key={screen.setId} setId={screen.setId} welcome />
     case 'set-text':

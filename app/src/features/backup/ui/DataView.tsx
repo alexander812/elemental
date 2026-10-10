@@ -3,7 +3,7 @@ import type { ChangeEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconDownload, IconRestore, IconUpload } from '@elemental/icons'
+import { IconDownload, IconRefresh, IconRestore, IconUpload } from '@elemental/icons'
 import {
   Box,
   Button,
@@ -21,18 +21,20 @@ import type { BackupData, ImportMode } from '../../../transport/backup'
 import { $courses } from '../../courses/store'
 import { $lessons } from '../../lessons/store'
 import { goToRoot, popScreen, pushScreen } from '../../navigation/store'
-import { importBackupFx } from '../store'
+import { importBackupFx, resetDataFx } from '../store'
 
 export function DataView() {
   const courses = useUnit($courses)
   const lessons = useUnit($lessons)
   const importing = useUnit(importBackupFx.pending)
+  const resetting = useUnit(resetDataFx.pending)
 
   const inputRef = useRef<HTMLInputElement>(null)
   const [backup, setBackup] = useState<BackupData | null>(null)
   const [fileName, setFileName] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [confirmMerge, setConfirmMerge] = useState(false)
+  const [confirmReset, setConfirmReset] = useState(false)
 
   const cardCount = backup?.sets.reduce((acc, set) => acc + set.cards.length, 0) ?? 0
 
@@ -121,6 +123,21 @@ export function DataView() {
                 title={<Text variant="M / Medium">Импортировать</Text>}
               />
             </ListItem>
+            <ListItem
+              data={{ action: 'reset' }}
+              disabled={importing || resetting}
+              onClick={() => setConfirmReset(true)}
+            >
+              <ListItem.StartBlock
+                icon={<IconRefresh color="var(--accent-text-and-icons)" fontSize={24} />}
+                subtitle={
+                  <Text color="contrast-secondary" variant="XS / Medium">
+                    Вернуться к начальному состоянию
+                  </Text>
+                }
+                title={<Text variant="M / Medium">Сбросить данные</Text>}
+              />
+            </ListItem>
           </Card>
 
           {backup ? (
@@ -190,6 +207,19 @@ export function DataView() {
           ОК
         </Button>
         <Button fullWidth variant="secondary" onClick={() => setConfirmMerge(false)}>
+          Отмена
+        </Button>
+      </ConfirmSheet>
+
+      <ConfirmSheet
+        opened={confirmReset}
+        text="Все курсы, уроки, задания и настройки будут удалены без возможности восстановления. Вернуться к начальному состоянию?"
+        onClosed={() => setConfirmReset(false)}
+      >
+        <Button color="negative" fullWidth loading={resetting} onClick={() => resetDataFx()}>
+          Сбросить
+        </Button>
+        <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
           Отмена
         </Button>
       </ConfirmSheet>

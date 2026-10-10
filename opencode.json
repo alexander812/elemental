@@ -1,5 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [["opencode-headroom", { "enabled": true }]],
-  "instructions": ["PROJECT.md"]
+  "instructions": ["PROJECT.md"],
+  "skills": {
+    "paths": ["skills"]
+  }
 }
