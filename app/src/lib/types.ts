@@ -41,7 +41,7 @@ export interface Course {
   level?: CourseLevel
 }
 
-export type ThemeName = 'dark' | 'light'
+export type ThemeName = 'dark' | 'light' | 'terracotta'
 
 export interface Settings {
   theme: ThemeName

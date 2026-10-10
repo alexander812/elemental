@@ -38,3 +38,24 @@ export const WithIcons: Story = {
 export const Primary: Story = {
   args: { color: 'primary', startIcon: <IconPlusBig fontSize={16} />, label: 'Добавить' },
 };
+
+export const OnAccent: Story = {
+  args: {
+    color: 'onAccent',
+    startIcon: <IconCheck fontSize={16} />,
+    label: '0',
+    variant: 'outlined',
+  },
+  render: (args) => (
+    <div
+      style={{
+        background: 'var(--accent-bg-default)',
+        borderRadius: 12,
+        padding: 16,
+        width: 'max-content',
+      }}
+    >
+      <Chip {...args} />
+    </div>
+  ),
+};

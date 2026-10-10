@@ -20,8 +20,9 @@
         try {
           var raw = localStorage.getItem('app.settings')
           var parsed = raw ? JSON.parse(raw) : null
-          if (parsed && parsed.version === DATA_VERSION && parsed.data && parsed.data.theme === 'light') {
-            canvas = '#edf7ff'
+          if (parsed && parsed.version === DATA_VERSION && parsed.data) {
+            if (parsed.data.theme === 'light') canvas = '#edf7ff'
+            if (parsed.data.theme === 'terracotta') canvas = '#fcf4e4'
           }
         } catch (error) {}
 

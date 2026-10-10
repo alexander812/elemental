@@ -10,6 +10,7 @@ design-system/icons/      # @elemental/icons — SVG-иконки (React)
 design-system/ui-kit/     # @elemental/ui-kit — компоненты, токены, темы, Storybook
 skills/new-project/       # скил opencode для скаффолдинга проектов
 skills/new-course/        # скил opencode: новый готовый курс и новый язык (JSON по языкам, каталог, валидатор)
+skills/new-theme/         # скил opencode: новая цветовая тема (токены, типы, настройки, boot, валидатор)
 PROJECT.md                # этот файл
 ```
 
@@ -103,7 +104,7 @@ Card      { id, texts: { [lang]: string }, learned, deleted, voiceCheck: boolean
 CardSet   { id, lessonId, name, active, order, swapped, examPassed: boolean, texts: { [lang]: string }, cards: Card[] }
 Lesson    { id, courseId, name, order }
 Course    { id, name, description, order, lang, level?: CourseLevel }
-Settings  { theme: 'dark' | 'light', userLang, learnAfterChecks: boolean }
+Settings  { theme: 'dark' | 'light' | 'terracotta', userLang, learnAfterChecks: boolean }
 ```
 
 - Иерархия: курс → уроки → задания → карточки. Задания принадлежат уроку (`CardSet.lessonId`), уроки — курсу (`Lesson.courseId`). Курсы создаются/редактируются на экранах `features/courses`, уроки — на экране уроков (`features/lessons`); удаление урока — свайпом вправо с подтверждением, каскадом удаляет все свои задания (`transport/lessons.deleteLesson` + `transport/sets.deleteSetsByLesson`). Курсы не удаляются (один курс всегда выбран).
@@ -158,7 +159,7 @@ Settings  { theme: 'dark' | 'light', userLang, learnAfterChecks: boolean }
 - **Редактор текста** (`features/text-add`, экран `text-add{setId}` / `text-add{draft}`): открывается кнопкой «Добавить»/«Изменить» на экране «Текст задания». В шапке — «Добавить текст»/«Изменить текст»; сверху `Select` «Язык текста» (языки пользователя/курса), ниже `Textarea` (предзаполнена текущим текстом) и кнопка «Сканировать текст» — показывается только в Android-приложении (когда доступен `window.nativeBridge`), вызывает `scanTextFx` с выбранным языком → `transport/ocr.ts` → нативную камеру с Tesseract, распознанный текст дописывается в поле; «Сохранить» пишет текст (`updateSetTextFx`; в черновике `draftTextSaved` → `$draftTexts`) и возвращает на экран «Текст задания». Выбор слов (`$words`/`$selected`) и `$textLang` живут в сторе `features/text-add` и сохраняются в сессии, поэтому возврат назад их не теряет.
 - **Добавление и редактирование слова** (`features/card-create`): два поля `InputWithVoice` (язык пользователя/язык курса) с названиями языков в подписи и микрофоном для диктовки (распознанный текст дописывается в конец), «Сохранить». В режиме редактирования (`cardId` в экране) поля предзаполнены текстами карточки, заголовок «Изменить слово», сохранение — `updateCardFx` → `transport/sets.updateCard` (тексты под языками пользователя/курса), иначе — `addCardFx`. У каждого поля в фокусе — кнопка перевода (`onTranslate`, `canTranslate` — непустое противоположное поле): берёт текст из парного поля и переводит его в язык этого поля (`translateFx` → `transport/translate.ts` — цепочка провайдеров с фолбэками, без ключа и бэкенда; пока идёт запрос — лоадер, при ошибке — подсказка «введите перевод вручную»).
 - **Настройки** (`features/settings/ui/MenuView.tsx`, экран `settings`): пункты «Тема», «Язык», «Озвучка» (только в Android, при наличии моста), «Проверки» и «Данные».
-- **Тема** (`features/settings/ui/ThemeView.tsx`): светлая/тёмная.
+- **Тема** (`features/settings/ui/ThemeView.tsx`): светлая/терракота/тёмная.
 - **Язык** (`features/settings/ui/LanguageView.tsx`, экран `language`): список языков каталога (Radio), выбранный — `Settings.userLang` (по умолчанию русский); сохранение — `setUserLangFx` → `transport/settings.saveUserLang`.
 - **Озвучка** (`features/voices`, экран `voices`): список 7 языков каталога с локальным нейроголосом Piper (Руслан, Lessac, Sharvard, Siwis, Paola, Thorsten, Huayan) и размером (~64–80 МБ); «Скачать» с прогрессом (`downloadVoiceFx` → `transport/voices.ts` → мост `downloadVoice`) и «Удалить» (`deleteVoiceFx`); пока идёт загрузка, статус опрашивается раз в секунду (`fetchVoicesFx` → `ttsVoices`); ошибки — подсказкой, состояние — `$voices`; в браузере без моста — «Доступно только в Android-приложении». Голоса хранятся в Android-приложении (`filesDir/tts`).
 - **Проверки** (`features/settings/ui/ChecksView.tsx`, экран `checks`): свитч «Переносить в выученные» (`$learnAfterChecks`, `setLearnAfterChecksFx` → `transport/settings.saveLearnAfterChecks`; поле `Settings.learnAfterChecks`); подпись «Если произношение и ввод текста верны».
@@ -185,7 +186,7 @@ Settings  { theme: 'dark' | 'light', userLang, learnAfterChecks: boolean }
 - `BottomSheet` — выезжает снизу поверх остальных элементов (портал через `BottomSheetProvider` в лейауте; провайдер рендерит хост на всё приложение — `position: absolute; inset: 0; z-index: 1000`). Минимальная высота — 200px. Закрытие: свайп вниз за грабер (порог 96px/скорость), тап по оверлею, Escape; `canClose={false}` отключает. `closeTopBottomSheet()` (ui-kit) закрывает верхний открытый sheet — используется в `handleAndroidBack` (аппаратная кнопка «назад»). `Select` открывает список опций в bottom sheet (выбранная отмечена галочкой, недоступные — приглушены; `placeholder` показывается, пока значение не выбрано); `Menu` (меню «…» в шапках) открывает пункты (иконка + подпись) в bottom sheet.
 - `TextPanel` — панель текста на `Card` (`borderColor="contrast-primary"`, прозрачный фон): `text` — две строки с обрезкой (`-webkit-line-clamp`), иначе `placeholder` цветом `contrast-tertiary`; `children` (слова) и `grow` (панель на всю высоту со скроллом внутри) — для экрана «Текст задания».
 - Один компонент = папка: `<Component>.tsx`, `<Component>.module.pcss`, `<Component>.stories.tsx`, `index.ts`; экспорт из `src/index.ts`. Составные — статические поля (`Menu.Item`, `ListItem.StartBlock`).
-- Токены: `src/tokens/colors.json` (dark/light), `corners.json`, `fonts.json`; `npm run generate-tokens` → `tokens.css` + `src/tokens/types.ts`. Стили используют CSS-переменные (`var(--accent-bg-default)` и т.п.).
+- Токены: `src/tokens/colors.json` (dark/light/terracotta), `corners.json`, `fonts.json`; `npm run generate-tokens` → `tokens.css` + `src/tokens/types.ts`. Стили используют CSS-переменные (`var(--accent-bg-default)` и т.п.).
 - Темизация: `ThemeProvider` (root + themeName) проставляет переменные темы на `document.body`; переключение — `$theme` в `features/theme/store` (persist в `app.settings`).
 - Иконки в компонентах ui-kit — через `IconsProvider`/`useIcon`, приложение передаёт карту из `app/src/icons.tsx`.
 

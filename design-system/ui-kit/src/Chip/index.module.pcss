@@ -71,6 +71,30 @@
     color: var(--contrast-primary);
   }
 
+  &.hostColorOnAccent {
+    border: 1px solid var(--accent-over);
+    background-color: var(--accent-over);
+    color: var(--accent-bg-default);
+  }
+
+  &.hostColorOnAccent.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        border-color: var(--accent-bg-hover);
+        background-color: var(--accent-bg-hover);
+        color: var(--accent-over);
+      }
+    }
+
+    &:active {
+      border-color: var(--accent-bg-active);
+      background-color: var(--accent-bg-active);
+      color: var(--accent-over);
+    }
+  }
+
   &.hostChecked {
     border-color: var(--accent-bg-default);
     background-color: var(--accent-bg-default);
@@ -166,6 +190,26 @@
     &:active {
       border-color: var(--contrast-secondary);
       background-color: var(--control-bg-inactive);
+    }
+  }
+
+  &.hostColorOnAccent {
+    border: 1px solid var(--accent-over);
+    background-color: transparent;
+    color: var(--accent-over);
+  }
+
+  &.hostColorOnAccent.hostHasInteraction:not(:disabled) {
+    cursor: pointer;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--accent-bg-hover);
+      }
+    }
+
+    &:active {
+      background-color: var(--accent-bg-active);
     }
   }
 

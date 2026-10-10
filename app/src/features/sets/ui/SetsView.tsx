@@ -316,15 +316,17 @@ function SetRow({
             </Stack>
             <Stack direction="row" shrink={0} spacing="xs" verticalAlign="center">
               <Chip
+                color="onAccent"
                 label={String(learned)}
                 size="s"
-                startIcon={<IconCheckSmall color="var(--positive-text-and-icons)" fontSize={16} />}
+                startIcon={<IconCheckSmall color="var(--accent-over)" fontSize={16} />}
                 variant="outlined"
               />
               <Chip
+                color="onAccent"
                 label={String(notLearned)}
                 size="s"
-                startIcon={<IconClose color="var(--warning-text-and-icons)" fontSize={16} />}
+                startIcon={<IconClose color="var(--accent-over)" fontSize={16} />}
                 variant="outlined"
               />
               <ButtonIcon

@@ -7,6 +7,7 @@ export const themeGlobalTypes: GlobalTypes[string] = {
     items: [
       { value: 'dark', title: 'Dark', right: 'dark' },
       { value: 'light', title: 'Light', right: 'light' },
+      { value: 'terracotta', title: 'Terracotta', right: 'terracotta' },
     ],
   },
 };

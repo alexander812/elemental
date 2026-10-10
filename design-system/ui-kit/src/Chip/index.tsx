@@ -12,7 +12,7 @@ import type { TextVariant } from '../Text';
 
 import classes from './index.module.pcss';
 
-type ChipColor = 'primary' | 'secondary' | 'tertiary';
+type ChipColor = 'onAccent' | 'primary' | 'secondary' | 'tertiary';
 type ChipVariant = 'contained' | 'outlined';
 
 type JSXButtonProps = JSX.IntrinsicElements['button'];
@@ -52,6 +52,7 @@ const spinnerSizes = {
 } as const;
 
 const hostColorClasses = {
+  onAccent: classes.hostColorOnAccent,
   primary: classes.hostColorPrimary,
   secondary: classes.hostColorSecondary,
   tertiary: classes.hostColorTertiary,

@@ -2,7 +2,7 @@ import type { Tokens } from '../tokens';
 
 export type ThemeDir = 'ltr' | 'rtl';
 
-export type ThemeName = 'dark' | 'light';
+export type ThemeName = 'dark' | 'light' | 'terracotta';
 
 export type ThemeDescriptor = {
   dir: ThemeDir;

@@ -22,6 +22,7 @@ export function ThemeView() {
             <Radio name="theme" value={theme} onChange={handleChange}>
               <Stack spacing="l">
                 <Radio.Option label="Светлая" value="light" />
+                <Radio.Option label="Терракота" value="terracotta" />
                 <Radio.Option label="Тёмная" value="dark" />
               </Stack>
             </Radio>
