@@ -1,0 +1,101 @@
+.card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--accent-bg-default);
+  box-shadow: 0 12px 32px 0 rgb(0 0 0 / 24%);
+  color: var(--accent-over);
+  text-align: center;
+}
+
+.micButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  transition:
+    color 150ms ease-in-out,
+    border-color 150ms ease-in-out,
+    background-color 150ms ease-in-out,
+    opacity 150ms ease-in-out;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active {
+    background: rgb(127 127 127 / 24%);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+  }
+}
+
+.micButtonListening {
+  border-color: var(--accent-text-and-icons);
+  color: var(--accent-text-and-icons);
+  opacity: 1;
+  animation: microphonePulse 1.2s ease-in-out infinite;
+}
+
+.listeningDots {
+  display: inline-flex;
+  margin-left: 2px;
+}
+
+.listeningDot {
+  animation: listeningDot 1.2s ease-in-out infinite;
+}
+
+.listeningDot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.listeningDot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes listeningDot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+  }
+
+  30% {
+    opacity: 1;
+  }
+}
+
+@keyframes microphonePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .micButtonListening {
+    animation: none;
+  }
+
+  .listeningDot {
+    animation: none;
+  }
+}
