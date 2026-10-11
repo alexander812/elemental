@@ -57,7 +57,8 @@ import {
   $setsLoading,
 } from '../../sets/store'
 import { $learnAfterChecks, $userLang } from '../../theme/store'
-import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx, speakFx, $asrStatus } from '../store'
+import { $asrProgress, ensureAsrReadyFx } from '../../../shared/ui/RecognitionSheet'
+import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx, speakFx } from '../store'
 import { FlashCard } from './FlashCard'
 import type { CheckStatus, DragPos, Leaving } from './FlashCard'
 
@@ -96,7 +97,7 @@ export function CardsView({ setId }: { setId: string }) {
 
   const deleteSetPending = useUnit(deleteSetFx.pending)
   const resetPending = useUnit(resetSetFx.pending)
-  const asrStatus = useUnit($asrStatus)
+  const asrProgress = useUnit($asrProgress)
   const recognizing = useUnit(recognizeFx.pending)
   const learnAfterChecks = useUnit($learnAfterChecks)
   const languages = useUnit($languages)
@@ -416,6 +417,10 @@ export function CardsView({ setId }: { setId: string }) {
 
     if (!expected) return
 
+    const ready = await ensureAsrReadyFx(courseLang)
+
+    if (!ready) return
+
     unlockSounds()
     setListeningCardId(topCard.id)
 
@@ -705,11 +710,12 @@ export function CardsView({ setId }: { setId: string }) {
                         ? { kind: checkStatus.kind, message: checkStatus.message }
                         : listeningCardId === id
                           ? {
-                              dots: !asrStatus?.downloading,
+                              dots: asrProgress === null,
                               kind: 'listening',
-                              message: asrStatus?.downloading
-                                ? `Загружаю распознавание речи… ${Math.round(asrStatus.progress * 100)}%`
-                                : 'говорите',
+                              message:
+                                asrProgress === null
+                                  ? 'говорите'
+                                  : `Загружаю распознавание речи… ${Math.round(asrProgress * 100)}%`,
                             }
                           : null
                     }

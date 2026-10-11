@@ -1,6 +1,7 @@
 import {
   IconChevronRight,
   IconDownload,
+  IconMicrophone,
   IconPalette,
   IconSound,
   IconTasks,
@@ -12,7 +13,7 @@ import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
 import { popScreen, pushScreen } from '../../navigation/store'
 
 export function MenuView() {
-  const voiceManagerAvailable = isNativeBridgeAvailable()
+  const nativeBridgeAvailable = isNativeBridgeAvailable()
 
   return (
     <Box grow height="100%">
@@ -38,11 +39,25 @@ export function MenuView() {
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
               />
             </ListItem>
-            {voiceManagerAvailable ? (
+            {nativeBridgeAvailable ? (
               <ListItem data={{ screen: 'voices' }} onClick={() => pushScreen({ name: 'voices' })}>
                 <ListItem.StartBlock
                   icon={<IconSound fontSize={24} color="var(--accent-text-and-icons)" />}
                   title={<Text variant="M / Medium">Озвучка</Text>}
+                />
+                <ListItem.EndBlock
+                  content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+                />
+              </ListItem>
+            ) : null}
+            {nativeBridgeAvailable ? (
+              <ListItem
+                data={{ screen: 'recognition' }}
+                onClick={() => pushScreen({ name: 'recognition' })}
+              >
+                <ListItem.StartBlock
+                  icon={<IconMicrophone fontSize={24} color="var(--accent-text-and-icons)" />}
+                  title={<Text variant="M / Medium">Распознавание речи</Text>}
                 />
                 <ListItem.EndBlock
                   content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}

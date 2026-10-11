@@ -17,5 +17,14 @@ const RECOGNIZE_ERRORS: Record<string, string> = {
   unknown_method: 'Обновите приложение',
 }
 
+const ASR_ARTIFACT_ERRORS: Record<string, string> = {
+  asr_download_failed: 'Не удалось скачать распознавание речи',
+  asr_incomplete: 'Загрузка не завершилась, попробуйте ещё раз',
+  storage_unavailable: 'Недостаточно места на устройстве',
+}
+
 export const recognizeErrorText = (error: Error) =>
   RECOGNIZE_ERRORS[error.message] ?? 'Не удалось распознать речь'
+
+export const asrArtifactErrorText = (error: string) =>
+  ASR_ARTIFACT_ERRORS[error] ?? recognizeErrorText(new Error(error))

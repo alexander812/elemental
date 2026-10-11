@@ -8,6 +8,7 @@ import type { InputTextProps } from '@elemental/ui-kit'
 
 import type { LanguageCode } from '../../../lib/languages'
 import { canRecognize, cancelRecognition, recognize } from '../../../transport/recognition'
+import { ensureAsrReadyFx } from '../RecognitionSheet'
 
 import classes from './InputWithVoice.module.pcss'
 
@@ -79,8 +80,13 @@ export function InputWithVoice({
     sessionRef.current += 1
     const session = sessionRef.current
 
-    setListening(true)
     setRecognizeFailed(null)
+
+    const ready = await ensureAsrReadyFx(lang)
+
+    if (sessionRef.current !== session || !ready) return
+
+    setListening(true)
 
     try {
       const result = await recognize(lang)

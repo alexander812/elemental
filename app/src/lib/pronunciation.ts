@@ -1,6 +1,9 @@
 const WORD_STRIP = /^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu
-const SIMILAR_WORD_COST = 0.34
-const GOOD_SCORE = 0.7
+const WORD_DIACRITICS = /\p{M}/gu
+const WORD_VOWELS = /[aeiouyаеёиоуыэюя]/g
+const SIMILAR_WORD_COST = 0.4
+const SIMILAR_WORD_LIMIT = 0.6
+const GOOD_SCORE = 0.6
 
 export type PronunciationWord = {
   matched: boolean
@@ -16,14 +19,25 @@ export type PronunciationAssessment = {
   words: PronunciationWord[]
 }
 
-const normalizeWord = (word: string): string =>
-  word.toLowerCase().replace(/ё/g, 'е').replace(WORD_STRIP, '')
+const collapseDoubles = (word: string): string => word.replace(/(.)\1+/g, '$1')
 
-const levenshtein = (a: string, b: string): number => {
+const normalizeWord = (word: string): string =>
+  collapseDoubles(
+    word
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(WORD_DIACRITICS, '')
+      .replace(WORD_STRIP, '')
+  )
+
+const consonantSkeleton = (word: string): string => collapseDoubles(word.replace(WORD_VOWELS, ''))
+
+const editDistance = (a: string, b: string): number => {
   if (a === b) return 0
   if (a.length === 0) return b.length
   if (b.length === 0) return a.length
 
+  let beforePrevious = new Array<number>(b.length + 1).fill(0)
   let previous = Array.from({ length: b.length + 1 }, (_, index) => index)
 
   for (let i = 1; i <= a.length; i += 1) {
@@ -33,8 +47,13 @@ const levenshtein = (a: string, b: string): number => {
       const cost = a[i - 1] === b[j - 1] ? 0 : 1
 
       current[j] = Math.min(current[j - 1] + 1, previous[j] + 1, previous[j - 1] + cost)
+
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+        current[j] = Math.min(current[j], beforePrevious[j - 2] + 1)
+      }
     }
 
+    beforePrevious = previous
     previous = current
   }
 
@@ -44,7 +63,23 @@ const levenshtein = (a: string, b: string): number => {
 const wordDistance = (a: string, b: string): number => {
   if (a === b) return 0
 
-  return levenshtein(a, b) / Math.max(a.length, b.length, 1)
+  const plain = editDistance(a, b) / Math.max(a.length, b.length, 1)
+  const left = consonantSkeleton(a)
+  const right = consonantSkeleton(b)
+  const skeleton =
+    left.length === 0 || right.length === 0
+      ? 1
+      : editDistance(left, right) / Math.max(left.length, right.length)
+
+  return Math.min(plain, skeleton)
+}
+
+const isSimilarWord = (a: string, b: string): boolean => {
+  const distance = wordDistance(a, b)
+
+  if (distance <= SIMILAR_WORD_COST) return true
+
+  return distance <= SIMILAR_WORD_LIMIT && a[0] === b[0]
 }
 
 export function assessPronunciation(expected: string, transcript: string): PronunciationAssessment {
@@ -88,7 +123,7 @@ export function assessPronunciation(expected: string, transcript: string): Pronu
       const insertion = dp[i][j - 1] + 1
 
       if (substitution <= deletion && substitution <= insertion) {
-        if (distance <= SIMILAR_WORD_COST) matched[i - 1] = true
+        if (isSimilarWord(expectedWords[i - 1], saidWords[j - 1])) matched[i - 1] = true
         i -= 1
         j -= 1
       } else if (deletion <= insertion) {

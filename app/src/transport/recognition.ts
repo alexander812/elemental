@@ -9,12 +9,16 @@ export type RecognitionResult = {
   transcript: string
 }
 
-export type AsrStatus = {
-  downloading: boolean
-  error: string | null
-  installed: boolean
-  progress: number
+export type AsrArtifact = {
+  id: string
+  title: string
+  description: string
   sizeBytes: number
+  languages: string[]
+  installed: boolean
+  downloading: boolean
+  progress: number
+  error: string | null
 }
 
 type BrowserAlternative = {
@@ -184,10 +188,16 @@ export function cancelRecognition(): void {
   stopRecognition(recognition)
 }
 
-export function fetchAsrStatus(): Promise<AsrStatus | null> {
-  if (!isNativeBridgeAvailable()) return Promise.resolve(null)
+export function fetchAsrArtifacts(): Promise<AsrArtifact[]> {
+  if (!isNativeBridgeAvailable()) return Promise.resolve([])
 
-  return callNative<AsrStatus>('asrStatus', {}).then((status) => status ?? null)
+  return callNative<{ artifacts: AsrArtifact[] } | null>('asrStatus', {}).then(
+    (result) => result?.artifacts ?? []
+  )
+}
+
+export function downloadAsr(id: string): Promise<void> {
+  return callNative('downloadAsr', { id }).then(() => undefined)
 }
 
 export function recognize(lang: LanguageCode): Promise<RecognitionResult> {

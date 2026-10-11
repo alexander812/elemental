@@ -32,11 +32,13 @@ import { SetCreateView } from '../features/set-create/ui/SetCreateView'
 import { SetExamView } from '../features/set-exam/ui/SetExamView'
 import { MenuView } from '../features/settings/ui/MenuView'
 import { ThemeView } from '../features/settings/ui/ThemeView'
+import { RecognitionView } from '../features/recognition/ui/RecognitionView'
 import { SetsView } from '../features/sets/ui/SetsView'
 import { SetTextView } from '../features/set-text/ui/SetTextView'
 import { TextAddView } from '../features/text-add/ui/TextAddView'
 import { WordsTranslateView } from '../features/text-add/ui/WordsTranslateView'
 import { VoicesView } from '../features/voices/ui/VoicesView'
+import { RecognitionSheet } from '../shared/ui/RecognitionSheet'
 import { Toast } from '../shared/ui/Toast'
 
 import classes from './AppLayout.module.pcss'
@@ -95,6 +97,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <LanguageView />
     case 'voices':
       return <VoicesView />
+    case 'recognition':
+      return <RecognitionView />
     case 'checks':
       return <ChecksView />
     case 'data':
@@ -110,6 +114,7 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'theme' ||
     name === 'language' ||
     name === 'voices' ||
+    name === 'recognition' ||
     name === 'checks' ||
     name === 'data' ||
     name === 'export'
@@ -207,6 +212,7 @@ export function AppLayout() {
           )}
         </main>
         <AppFooter />
+        <RecognitionSheet onOpenSettings={() => pushScreen({ name: 'recognition' })} />
         <Toast />
       </BottomSheetProvider>
     </div>

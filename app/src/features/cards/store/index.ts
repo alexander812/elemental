@@ -1,11 +1,9 @@
-import { createEffect, createEvent, createStore, sample } from 'effector'
+import { createEffect, createStore, sample } from 'effector'
 
 import type { LanguageCode } from '../../../lib/languages'
-import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
 import type { PronunciationAssessment } from '../../../lib/pronunciation'
 import { assessPronunciation } from '../../../lib/pronunciation'
-import type { AsrStatus } from '../../../transport/recognition'
-import { cancelRecognition, fetchAsrStatus, recognize } from '../../../transport/recognition'
+import { cancelRecognition, recognize } from '../../../transport/recognition'
 import { speak } from '../../../transport/speech'
 
 export const speakFx = createEffect((payload: { text: string; lang: LanguageCode }) =>
@@ -31,30 +29,17 @@ export type PronunciationFeedback = {
   side: RecognitionSide
 }
 
-export const asrStatusReceived = createEvent<AsrStatus | null>()
-
-export const $asrStatus = createStore<AsrStatus | null>(null).on(
-  asrStatusReceived,
-  (_, status) => status
-)
-
 export const recognizeFx = createEffect(async ({ lang, text }: RecognizePayload) => {
-  const polling = isNativeBridgeAvailable()
-    ? setInterval(() => {
-        fetchAsrStatus()
-          .then((status) => asrStatusReceived(status))
-          .catch(() => asrStatusReceived(null))
-      }, 800)
-    : null
+  const result = await recognize(lang)
+  const candidates = [result.transcript, ...result.alternatives]
+    .map((candidate) => candidate.trim())
+    .filter((candidate, index, all) => candidate.length > 0 && all.indexOf(candidate) === index)
 
-  try {
-    const result = await recognize(lang)
+  if (candidates.length === 0) return assessPronunciation(text, '')
 
-    return assessPronunciation(text, result.transcript)
-  } finally {
-    if (polling) clearInterval(polling)
-    asrStatusReceived(null)
-  }
+  return candidates
+    .map((candidate) => assessPronunciation(text, candidate))
+    .reduce((best, current) => (current.score > best.score ? current : best))
 })
 
 export const $pronunciation = createStore<PronunciationFeedback | null>(null)

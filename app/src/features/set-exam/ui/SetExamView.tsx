@@ -21,14 +21,10 @@ import { recognizeErrorText } from '../../../lib/recognitionErrors'
 import { playDisappointment, playError, playSalute, playSuccess, unlockSounds } from '../../../lib/sounds'
 import type { Card as CardModel } from '../../../lib/types'
 import { Confetti } from '../../../shared/ui/Confetti'
+import { $asrProgress, ensureAsrReadyFx } from '../../../shared/ui/RecognitionSheet'
 import { vibrateError, vibrateSuccess } from '../../../transport/haptics'
 import { canRecognize } from '../../../transport/recognition'
-import {
-  cancelRecognizeFx,
-  isRecognizeCancelled,
-  recognizeFx,
-  $asrStatus,
-} from '../../cards/store'
+import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx } from '../../cards/store'
 import { popScreen } from '../../navigation/store'
 import {
   fetchSetsFx,
@@ -69,7 +65,7 @@ export function SetExamView({ setId }: { setId: string }) {
   const sets = useUnit($sets)
   const setsLoading = useUnit($setsLoading)
   const courseLangByLesson = useUnit($courseLangByLesson)
-  const asrStatus = useUnit($asrStatus)
+  const asrProgress = useUnit($asrProgress)
   const recognizing = useUnit(recognizeFx.pending)
   const saveExamPassed = useUnit(setSetExamPassedFx)
 
@@ -145,6 +141,10 @@ export function SetExamView({ setId }: { setId: string }) {
     const expected = getCardText(currentCard, courseLang).text.trim()
 
     if (!expected) return
+
+    const ready = await ensureAsrReadyFx(courseLang)
+
+    if (!ready) return
 
     unlockSounds()
     setStatus(null)
@@ -324,8 +324,8 @@ export function SetExamView({ setId }: { setId: string }) {
                 </button>
                 {recognizing ? (
                   <Text align="center" color="contrast-secondary" variant="S / Medium">
-                    {asrStatus?.downloading ? (
-                      `Загружаю распознавание речи… ${Math.round(asrStatus.progress * 100)}%`
+                    {asrProgress !== null ? (
+                      `Загружаю распознавание речи… ${Math.round(asrProgress * 100)}%`
                     ) : (
                       <>
                         говорите

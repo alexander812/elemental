@@ -31,6 +31,7 @@ export type Screen =
   | { name: 'theme' }
   | { name: 'language' }
   | { name: 'voices' }
+  | { name: 'recognition' }
   | { name: 'checks' }
   | { name: 'data' }
   | { name: 'export' }
