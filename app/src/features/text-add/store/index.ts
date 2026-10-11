@@ -3,7 +3,7 @@ import { createEffect, createEvent, createStore, sample } from 'effector'
 import type { LanguageCode } from '../../../lib/languages'
 import { callNativeSync } from '../../../lib/nativeBridge'
 import { uid } from '../../../lib/uid'
-import { mergeWordsInRange, selectedWordTexts } from '../../../lib/words'
+import { mergeWordsInRange, parseSegmentParts, selectedWordTexts } from '../../../lib/words'
 import type { WordSegment, WordsMerge } from '../../../lib/words'
 import { scanText } from '../../../transport/ocr'
 import type { ScanTextResult } from '../../../transport/ocr'
@@ -21,6 +21,7 @@ export const editStarted = createEvent<{ lang: LanguageCode; text: string }>()
 export const segmentsLoaded = createEvent<WordSegment[]>()
 export const wordToggled = createEvent<string>()
 export const wordsMerged = createEvent<string[]>()
+export const selectionCleared = createEvent()
 export const createCardsClicked = createEvent<'original' | 'translation'>()
 export const pairsReplaced = createEvent<WordPair[]>()
 export const pairOriginalChanged = createEvent<{ id: string; value: string }>()
@@ -57,8 +58,7 @@ export const $scanFailed = createStore(false)
   .on(
     scanTextRecovered,
     (_, payload) =>
-      !payload.ok ||
-      (!payload.data?.cancelled && (payload.data?.text.trim().length ?? 0) === 0)
+      !payload.ok || (!payload.data?.cancelled && (payload.data?.text.trim().length ?? 0) === 0)
   )
   .reset(resetTextAdd)
 
@@ -91,6 +91,7 @@ export const $selected = createStore<string[]>([])
     selected.filter((id) => words.some((segment) => segment.id === id))
   )
   .on(textLangChanged, () => [])
+  .on(selectionCleared, () => [])
   .on(restoreTextAdd, (_, snapshot) => snapshot.selected)
   .reset(resetTextAdd)
 
@@ -116,14 +117,13 @@ sample({
     const nextWords = segment.text.includes(' ')
       ? words.flatMap((item) =>
           item.id === id
-            ? item.text
-                .split(' ')
-                .filter(Boolean)
-                .map((part, index) => ({
-                  id: index === 0 ? item.id : uid(),
-                  text: part,
-                  lineBreak: index === 0 && item.lineBreak,
-                }))
+            ? parseSegmentParts(item.text).map((part, index) => ({
+                id: index === 0 ? item.id : uid(),
+                text: part.text,
+                lineBreak: index === 0 && item.lineBreak,
+                prefix: part.prefix,
+                suffix: part.suffix,
+              }))
             : [item]
         )
       : words
@@ -149,9 +149,7 @@ sample({
 $words.on(wordsMergeComputed, (words, result) => result?.nextWords ?? words)
 
 $selected.on(wordsMergeComputed, (selected, result) =>
-  result
-    ? [...selected.filter((id) => !result.removed.has(id)), result.merged.id]
-    : selected
+  result ? [...selected.filter((id) => !result.removed.has(id)), result.merged.id] : selected
 )
 
 export const $pairs = createStore<WordPair[]>([])

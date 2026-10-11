@@ -21,17 +21,33 @@ import {
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import { parseWords, selectedWordTexts } from '../../../lib/words'
 import type { WordSegment } from '../../../lib/words'
+import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
 import { $languages } from '../../languages/store'
-import { popScreen, pushScreen, replaceScreen, $stack, $transition } from '../../navigation/store'
+import {
+  popScreen,
+  popTo,
+  pushScreen,
+  replaceScreen,
+  $stack,
+  $transition,
+} from '../../navigation/store'
 import type { TextAddDraft } from '../../navigation/store'
 import { draftWordsAdded, $draftTexts } from '../../set-create/store'
-import { $courseLangByLesson, $sets } from '../../sets/store'
+import {
+  deleteCardsFx,
+  deleteSetFx,
+  resetSetFx,
+  $courseLangByLesson,
+  $sets,
+} from '../../sets/store'
+import { SetMenu } from '../../sets/ui/SetMenu'
 import { $userLang } from '../../theme/store'
 import {
   createCardsClicked,
   editStarted,
   resetTextAdd,
   segmentsLoaded,
+  selectionCleared,
   textLangChanged,
   wordToggled,
   wordsMerged,
@@ -65,8 +81,7 @@ type Tooltip = {
 }
 
 type SetTextViewProps = (
-  | { setId: string; draft?: undefined }
-  | { setId?: undefined; draft: TextAddDraft }
+  { setId: string; draft?: undefined } | { setId?: undefined; draft: TextAddDraft }
 ) & { welcome?: boolean }
 
 export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
@@ -81,10 +96,14 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
   const stack = useUnit($stack)
   const transition = useUnit($transition)
   const translating = useUnit(translateSetTextFx.pending)
+  const resetPending = useUnit(resetSetFx.pending)
+  const deletePending = useUnit(deleteSetFx.pending)
 
   const [dragIds, setDragIds] = useState<string[]>([])
   const [tooltip, setTooltip] = useState<Tooltip | null>(null)
   const [translateFailed, setTranslateFailed] = useState(false)
+  const [confirmReset, setConfirmReset] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   const dragRef = useRef<ChipDrag | null>(null)
   const suppressClickRef = useRef(false)
@@ -342,14 +361,38 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
     replaceScreen({ name: 'cards', setId })
   }
 
+  const handleDeleteAllCards = async () => {
+    if (!setId) return
+
+    await deleteCardsFx({ setId, learned: false })
+    await deleteCardsFx({ setId, learned: true })
+  }
+
+  const handleConfirmReset = async () => {
+    if (!setId) return
+
+    await resetSetFx(setId)
+    setConfirmReset(false)
+  }
+
+  const handleConfirmDelete = async () => {
+    if (!setId) return
+
+    await deleteSetFx(setId)
+    setConfirmDelete(false)
+
+    if (stack.some((screen) => screen.name === 'lesson')) {
+      popTo('lesson')
+      return
+    }
+
+    popScreen()
+  }
+
   if (setId && !set) {
     return (
       <Box grow height="100%">
-        <Header
-          back
-          text={welcome ? 'Задание' : 'Текст задания'}
-          onBackClick={() => popScreen()}
-        />
+        <Header back text={welcome ? 'Задание' : 'Текст задания'} onBackClick={() => popScreen()} />
         <EmptyScreen fullHeight icon={<IconViewList fontSize={24} />} text="Задание не найдено" />
       </Box>
     )
@@ -359,9 +402,18 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
     <div className={classes.root}>
       <Header
         back
-        text={
-          welcome ? (set?.name ?? '') : hasAnyText ? 'Изменить текст' : 'Добавить текст'
+        endToolbar={
+          welcome && set ? (
+            <SetMenu
+              setId={set.id}
+              swapped={set.swapped}
+              onDeleteCards={handleDeleteAllCards}
+              onDeleteSet={() => setConfirmDelete(true)}
+              onResetSet={() => setConfirmReset(true)}
+            />
+          ) : undefined
         }
+        text={welcome ? (set?.name ?? '') : hasAnyText ? 'Изменить текст' : 'Добавить текст'}
         onBackClick={() => popScreen()}
       />
       <div className={classes.layout}>
@@ -391,14 +443,26 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
               </Button>
             </Stack>
           ) : null}
-          {welcome ? null : (
-            <ButtonIcon
-              ariaLabel={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
-              icon={<IconEdit fontSize={24} />}
-              variant="flat"
-              onClick={handleEdit}
-            />
-          )}
+          <Stack direction="row" spacing="xs" verticalAlign="center">
+            {words.length > 0 ? (
+              <Button
+                disabled={selected.length === 0}
+                size="s"
+                variant="flat"
+                onClick={() => selectionCleared()}
+              >
+                Очистить
+              </Button>
+            ) : null}
+            {welcome ? null : (
+              <ButtonIcon
+                ariaLabel={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
+                icon={<IconEdit fontSize={24} />}
+                variant="flat"
+                onClick={handleEdit}
+              />
+            )}
+          </Stack>
         </Stack>
 
         {hasText ? (
@@ -412,22 +476,46 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
             >
               <div className={classes.words}>
                 {words.map((segment) => {
-                  const checked =
-                    selected.includes(segment.id) || dragIds.includes(segment.id)
+                  const checked = selected.includes(segment.id) || dragIds.includes(segment.id)
+
+                  if (!segment.text) {
+                    return (
+                      <Fragment key={segment.id}>
+                        {segment.lineBreak ? <span className={classes.lineBreak} /> : null}
+                        <span className={classes.punctuation}>
+                          {`${segment.prefix ?? ''}${segment.suffix ?? ''}`}
+                        </span>
+                      </Fragment>
+                    )
+                  }
 
                   return (
                     <Fragment key={segment.id}>
                       {segment.lineBreak ? <span className={classes.lineBreak} /> : null}
                       <button
                         aria-pressed={checked}
-                        className={checked ? `${classes.word} ${classes.wordChecked}` : classes.word}
+                        className={classes.word}
                         data-word={segment.id}
                         disabled={!interactive}
                         type="button"
                         onClick={() => handleWordClick(segment.id)}
                         onPointerDown={(event) => handleWordPointerDown(event, segment)}
                       >
-                        {segment.text}
+                        {segment.prefix ? (
+                          <span className={classes.punctuation}>{segment.prefix}</span>
+                        ) : null}
+                        <span
+                          className={
+                            checked
+                              ? `${classes.wordText} ${classes.wordChecked}`
+                              : classes.wordText
+                          }
+                        >
+                          {segment.text}
+                        </span>
+                        {segment.suffix ? (
+                          <span className={classes.punctuation}>{segment.suffix}</span>
+                        ) : null}
                       </button>
                     </Fragment>
                   )
@@ -437,20 +525,12 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
           </TextPanel>
         ) : (
           <TextPanel grow>
-            <Stack
-              height="100%"
-              horizontalAlign="center"
-              spacing="s"
-              verticalAlign="center"
-            >
+            <Stack height="100%" horizontalAlign="center" spacing="s" verticalAlign="center">
               <Text color="contrast-tertiary" variant="S / Medium">
                 Текст ещё не заполнен
               </Text>
               {hasAnyText ? (
-                <Button
-                  loading={translating}
-                  onClick={handleTranslate}
-                >
+                <Button loading={translating} onClick={handleTranslate}>
                   Перевести
                 </Button>
               ) : null}
@@ -494,6 +574,32 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
           )}
         </div>
       ) : null}
+
+      <ConfirmSheet
+        opened={confirmReset}
+        text="Вы уверены, что хотите сбросить это задание к первоначальному состоянию?"
+        onClosed={() => setConfirmReset(false)}
+      >
+        <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
+          Да
+        </Button>
+        <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
+          Отмена
+        </Button>
+      </ConfirmSheet>
+
+      <ConfirmSheet
+        opened={confirmDelete}
+        text={`Удалить задание «${set?.name ?? ''}» со всеми карточками?`}
+        onClosed={() => setConfirmDelete(false)}
+      >
+        <Button color="negative" fullWidth loading={deletePending} onClick={handleConfirmDelete}>
+          Удалить
+        </Button>
+        <Button fullWidth variant="secondary" onClick={() => setConfirmDelete(false)}>
+          Отмена
+        </Button>
+      </ConfirmSheet>
     </div>
   )
 }

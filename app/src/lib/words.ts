@@ -2,6 +2,14 @@ export type WordSegment = {
   id: string
   text: string
   lineBreak: boolean
+  prefix?: string
+  suffix?: string
+}
+
+export type WordSegmentParts = {
+  prefix: string
+  text: string
+  suffix: string
 }
 
 export type WordsMerge = {
@@ -9,6 +17,27 @@ export type WordsMerge = {
   removed: Set<string>
   nextWords: WordSegment[]
 }
+
+const WORD_CHAR = /[\p{L}\p{N}\p{M}]/u
+
+const isWordChar = (char: string) => WORD_CHAR.test(char)
+
+const splitTokenParts = (token: string): WordSegmentParts => {
+  let start = 0
+  let end = token.length
+
+  while (start < end && !isWordChar(token[start])) start += 1
+  while (end > start && !isWordChar(token[end - 1])) end -= 1
+
+  return {
+    prefix: token.slice(0, start),
+    text: token.slice(start, end),
+    suffix: token.slice(end),
+  }
+}
+
+export const parseSegmentParts = (text: string): WordSegmentParts[] =>
+  text.split(' ').filter(Boolean).map(splitTokenParts)
 
 export const parseWords = (text: string): WordSegment[] => {
   const words: WordSegment[] = []
@@ -22,7 +51,9 @@ export const parseWords = (text: string): WordSegment[] => {
       return
     }
 
-    words.push({ id: `w${words.length}`, text: part, lineBreak })
+    const { prefix, text: word, suffix } = splitTokenParts(part)
+
+    words.push({ id: `w${words.length}`, text: word, lineBreak, prefix, suffix })
     lineBreak = false
   })
 
@@ -65,7 +96,9 @@ export const mergeWordsInRange = (words: WordSegment[], passed: string[]): Words
   const removedWords = words.slice(first, last + 1)
   const merged: WordSegment = {
     id: removedWords[0].id,
-    text: removedWords.map((segment) => segment.text).join(' '),
+    text: removedWords
+      .map((segment) => `${segment.prefix ?? ''}${segment.text}${segment.suffix ?? ''}`)
+      .join(' '),
     lineBreak: removedWords[0].lineBreak,
   }
 

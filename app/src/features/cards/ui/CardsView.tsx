@@ -10,14 +10,8 @@ import {
   IconCheck,
   IconCheckSmall,
   IconClose,
-  IconEdit,
   IconEducation,
-  IconMoreVertical,
   IconPlusBig,
-  IconRefresh,
-  IconRestore,
-  IconSwapVert,
-  IconTrash,
   IconViewList,
 } from '@elemental/icons'
 import {
@@ -26,7 +20,6 @@ import {
   ButtonIcon,
   EmptyScreen,
   Header,
-  Menu,
   Spinner,
   Stack,
   Text,
@@ -50,12 +43,12 @@ import {
   fetchSetsFx,
   resetSetFx,
   setCardLearnedFx,
-  setSetSwappedFx,
   updateCardChecksFx,
   $courseLangByLesson,
   $sets,
   $setsLoading,
 } from '../../sets/store'
+import { SetMenu } from '../../sets/ui/SetMenu'
 import { $learnAfterChecks, $userLang } from '../../theme/store'
 import { $asrProgress, ensureAsrReadyFx } from '../../../shared/ui/RecognitionSheet'
 import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx, speakFx } from '../store'
@@ -87,7 +80,6 @@ export function CardsView({ setId }: { setId: string }) {
   const [filter, setFilter] = useState<Filter>('unlearned')
   const [excluded, setExcluded] = useState<ReadonlySet<string>>(() => new Set())
   const [flipped, setFlipped] = useState<Record<string, boolean>>({})
-  const [menuOpen, setMenuOpen] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [confirmReset, setConfirmReset] = useState(false)
   const [drag, setDrag] = useState<DragPos | null>(null)
@@ -348,10 +340,6 @@ export function CardsView({ setId }: { setId: string }) {
     setExcluded(new Set())
   }
 
-  const handleRestoreDeleted = () => {
-    pushScreen({ name: 'cards-restore', setId })
-  }
-
   const handleRestart = () => {
     setCheckStatus(null)
     setFlipped({})
@@ -377,14 +365,19 @@ export function CardsView({ setId }: { setId: string }) {
     const next = sets
       .filter(
         (item) =>
-          item.active && item.id !== set.id && item.lessonId === set.lessonId && item.order > set.order
+          item.active &&
+          item.id !== set.id &&
+          item.lessonId === set.lessonId &&
+          item.order > set.order
       )
       .sort((a, b) => a.order - b.order)[0]
 
     if (next) {
       const hasText = (next.texts[courseLang] ?? '').trim().length > 0
 
-      pushScreen(hasText ? { name: 'set-intro', setId: next.id } : { name: 'cards', setId: next.id })
+      pushScreen(
+        hasText ? { name: 'set-intro', setId: next.id } : { name: 'cards', setId: next.id }
+      )
       return
     }
 
@@ -516,16 +509,6 @@ export function CardsView({ setId }: { setId: string }) {
     pushScreen(hasText ? { name: 'set-intro', setId } : { name: 'set-text', setId })
   }
 
-  const handleEditSet = () => {
-    pushScreen({ name: 'set-create', setId })
-  }
-
-  const handleSwap = () => {
-    if (!set) return
-
-    setSetSwappedFx({ setId, swapped: !set.swapped })
-  }
-
   const handleConfirmDeleteSet = async () => {
     await deleteSetFx(setId)
     popScreen()
@@ -540,7 +523,11 @@ export function CardsView({ setId }: { setId: string }) {
             <Spinner size="l" />
           </Stack>
         ) : (
-          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Задание не найдено" />
+          <EmptyScreen
+            fullHeight
+            icon={<IconEducation fontSize={24} />}
+            text="Задание не найдено"
+          />
         )}
       </Box>
     )
@@ -557,47 +544,13 @@ export function CardsView({ setId }: { setId: string }) {
       <Header
         back
         endToolbar={
-          <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
-            <Menu.Trigger>
-              <ButtonIcon
-                ariaLabel="Меню"
-                icon={<IconMoreVertical fontSize={24} />}
-                variant="flat"
-              />
-            </Menu.Trigger>
-            <Menu.Content>
-              <Menu.Item
-                icon={<IconEdit fontSize={16} />}
-                label="Редактировать"
-                onClick={handleEditSet}
-              />
-              <Menu.Item
-                icon={<IconSwapVert fontSize={16} />}
-                label="Поменять местами"
-                onClick={handleSwap}
-              />
-              <Menu.Item
-                icon={<IconTrash fontSize={16} />}
-                label="Удалить все карточки"
-                onClick={handleDeleteAll}
-              />
-              <Menu.Item
-                icon={<IconRestore fontSize={16} />}
-                label="Восстановить удалённые"
-                onClick={handleRestoreDeleted}
-              />
-              <Menu.Item
-                icon={<IconRefresh fontSize={16} />}
-                label="Сбросить"
-                onClick={() => setConfirmReset(true)}
-              />
-              <Menu.Item
-                icon={<IconTrash fontSize={16} />}
-                label="Удалить задание"
-                onClick={() => setConfirmDelete(true)}
-              />
-            </Menu.Content>
-          </Menu.Root>
+          <SetMenu
+            setId={setId}
+            swapped={set.swapped}
+            onDeleteCards={handleDeleteAll}
+            onDeleteSet={() => setConfirmDelete(true)}
+            onResetSet={() => setConfirmReset(true)}
+          />
         }
         text={set.name}
         onBackClick={() => popScreen()}
@@ -769,11 +722,7 @@ export function CardsView({ setId }: { setId: string }) {
           )}
 
           {!noCards && !confirmDelete && unlearnedCount === 0 ? (
-            <Button
-              fullWidth
-              startIcon={<IconEducation fontSize={16} />}
-              onClick={handleStartExam}
-            >
+            <Button fullWidth startIcon={<IconEducation fontSize={16} />} onClick={handleStartExam}>
               Экзамен
             </Button>
           ) : null}

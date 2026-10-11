@@ -18,7 +18,13 @@ import {
 import { getCardText } from '../../../lib/cards'
 import { DEFAULT_COURSE_LANG } from '../../../lib/languages'
 import { recognizeErrorText } from '../../../lib/recognitionErrors'
-import { playDisappointment, playError, playSalute, playSuccess, unlockSounds } from '../../../lib/sounds'
+import {
+  playDisappointment,
+  playError,
+  playSalute,
+  playSuccess,
+  unlockSounds,
+} from '../../../lib/sounds'
 import type { Card as CardModel } from '../../../lib/types'
 import { Confetti } from '../../../shared/ui/Confetti'
 import { $asrProgress, ensureAsrReadyFx } from '../../../shared/ui/RecognitionSheet'
@@ -33,6 +39,7 @@ import {
   $sets,
   $setsLoading,
 } from '../../sets/store'
+import { $userLang } from '../../theme/store'
 
 import classes from './SetExamView.module.pcss'
 
@@ -65,6 +72,7 @@ export function SetExamView({ setId }: { setId: string }) {
   const sets = useUnit($sets)
   const setsLoading = useUnit($setsLoading)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLang = useUnit($userLang)
   const asrProgress = useUnit($asrProgress)
   const recognizing = useUnit(recognizeFx.pending)
   const saveExamPassed = useUnit(setSetExamPassedFx)
@@ -98,9 +106,7 @@ export function SetExamView({ setId }: { setId: string }) {
     () =>
       set
         ? set.cards
-            .filter(
-              (card) => !card.deleted && getCardText(card, courseLang).text.trim().length > 0
-            )
+            .filter((card) => !card.deleted && getCardText(card, courseLang).text.trim().length > 0)
             .map((card) => card.id)
         : [],
     [set, courseLang]
@@ -236,7 +242,11 @@ export function SetExamView({ setId }: { setId: string }) {
             <Spinner size="l" />
           </Stack>
         ) : (
-          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Задание не найдено" />
+          <EmptyScreen
+            fullHeight
+            icon={<IconEducation fontSize={24} />}
+            text="Задание не найдено"
+          />
         )}
       </Box>
     )
@@ -263,13 +273,7 @@ export function SetExamView({ setId }: { setId: string }) {
         {finished ? (
           <Stack spacing="l" height="100%">
             <TextPanel grow>
-              <Stack
-                grow
-                height="100%"
-                horizontalAlign="center"
-                spacing="l"
-                verticalAlign="center"
-              >
+              <Stack grow height="100%" horizontalAlign="center" spacing="l" verticalAlign="center">
                 <ExamSmiley happy={passed} />
                 <Stack spacing="s" width="100%">
                   <Stack direction="row" horizontalAlign="space-between" spacing="m">
@@ -305,7 +309,7 @@ export function SetExamView({ setId }: { setId: string }) {
             <Box grow position="relative" minHeight={280}>
               <div className={classes.card}>
                 <Text align="center" variant="XL / Medium">
-                  {currentCard ? getCardText(currentCard, courseLang).text : ''}
+                  {currentCard ? getCardText(currentCard, userLang).text : ''}
                 </Text>
               </div>
             </Box>

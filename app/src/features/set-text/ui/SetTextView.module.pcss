@@ -36,9 +36,10 @@
 }
 
 .word {
-  padding: 3px 0;
+  display: inline-flex;
+  align-items: baseline;
+  padding: 0;
   border: none;
-  border-radius: 4px;
   background: none;
   color: var(--contrast-primary);
   font-family: var(--font-main);
@@ -56,9 +57,25 @@
   }
 }
 
+.wordText {
+  padding: 3px 0;
+  border-radius: 4px;
+}
+
 .wordChecked {
   background-color: var(--accent-bg-default);
   color: var(--accent-over);
+}
+
+.punctuation {
+  color: var(--contrast-primary);
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tooltip {
