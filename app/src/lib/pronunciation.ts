@@ -1,7 +1,6 @@
 const WORD_STRIP = /^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu
 const WORD_DIACRITICS = /\p{M}/gu
 const WORD_VOWELS = /[aeiouyаеёиоуыэюя]/g
-const SIMILAR_WORD_COST = 0.4
 const SIMILAR_WORD_LIMIT = 0.6
 const GOOD_SCORE = 0.6
 
@@ -77,9 +76,11 @@ const wordDistance = (a: string, b: string): number => {
 const isSimilarWord = (a: string, b: string): boolean => {
   const distance = wordDistance(a, b)
 
-  if (distance <= SIMILAR_WORD_COST) return true
+  if (distance > SIMILAR_WORD_LIMIT) return false
 
-  return distance <= SIMILAR_WORD_LIMIT && a[0] === b[0]
+  if (a[0] === b[0]) return true
+
+  return a.length > 1 && b.length > 1 && (a.endsWith(b) || b.endsWith(a))
 }
 
 export function assessPronunciation(expected: string, transcript: string): PronunciationAssessment {
