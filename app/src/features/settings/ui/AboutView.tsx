@@ -1,6 +1,9 @@
-import { Box, Header, Stack, Text } from '@elemental/ui-kit'
+import { useUnit } from 'effector-react'
+
+import { Box, Card, Header, Stack, Switch, Text } from '@elemental/ui-kit'
 
 import { popScreen } from '../../navigation/store'
+import { $debugMode, setDebugModeFx } from '../../theme/store'
 
 const buildDate = new Date(__BUILD_DATE__).toLocaleDateString('ru-RU', {
   day: 'numeric',
@@ -9,6 +12,8 @@ const buildDate = new Date(__BUILD_DATE__).toLocaleDateString('ru-RU', {
 })
 
 export function AboutView() {
+  const debugMode = useUnit($debugMode)
+
   return (
     <Box grow height="100%">
       <Header back text="О приложении" onBackClick={() => popScreen()} />
@@ -36,6 +41,14 @@ export function AboutView() {
               Дата сборки: {buildDate}
             </Text>
           </Stack>
+          <Card padding="l" width="100%">
+            <Switch
+              checked={debugMode}
+              label="Режим дебага"
+              subLabel="Показывать, что распознала модель, если проверка не удалась"
+              onChange={(value) => setDebugModeFx(value)}
+            />
+          </Card>
         </Stack>
       </Box>
     </Box>

@@ -6,9 +6,6 @@ export const SPEECH_LANG: Record<string, string> = {
   en: 'en-US',
   es: 'es-ES',
   fr: 'fr-FR',
-  it: 'it-IT',
-  zh: 'zh-CN',
-  de: 'de-DE',
 }
 
 function canBrowserSpeak(): boolean {

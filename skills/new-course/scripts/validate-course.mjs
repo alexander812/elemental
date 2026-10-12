@@ -7,8 +7,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const LANGS = ['en', 'ru', 'es', 'fr', 'it', 'zh', 'de']
-const LATIN_LANGS = LANGS.filter((lang) => lang !== 'zh')
+const LANGS = ['en', 'ru', 'es', 'fr']
 const MIN_LEN = 400
 const MAX_LEN = 530
 const TASKS_PER_LESSON = 5
@@ -85,8 +84,6 @@ function validateBase(base) {
 
         if (typeof task.text !== 'string' || !task.text.trim()) {
           errors.push(`${where}: нет text`)
-        } else if (lang === 'zh') {
-          if (task.text.length < 80) warnings.push(`${where}: короткий zh-текст (${task.text.length})`)
         } else if (task.text.length < MIN_LEN || task.text.length > MAX_LEN) {
           warnings.push(`${where}: длина ${task.text.length} вне ${MIN_LEN}–${MAX_LEN}`)
         }
@@ -104,7 +101,7 @@ function validateBase(base) {
     })
   }
 
-  const reference = LATIN_LANGS.find((lang) => wordCounts[lang]?.length) ?? LANGS.find((lang) => wordCounts[lang]?.length)
+  const reference = LANGS.find((lang) => wordCounts[lang]?.length)
 
   if (reference) {
     for (const lang of LANGS) {

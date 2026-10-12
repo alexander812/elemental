@@ -8,9 +8,6 @@ export const LANGUAGES_CATALOG: Language[] = [
   { code: 'en', name: 'English' },
   { code: 'es', name: 'Español' },
   { code: 'fr', name: 'Français' },
-  { code: 'it', name: 'Italiano' },
-  { code: 'zh', name: '中文' },
-  { code: 'de', name: 'Deutsch' },
 ]
 
 export type LanguageCode = string

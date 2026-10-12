@@ -29,18 +29,29 @@ export type PronunciationFeedback = {
   side: RecognitionSide
 }
 
-export const recognizeFx = createEffect(async ({ lang, text }: RecognizePayload) => {
-  const result = await recognize(lang)
-  const candidates = [result.transcript, ...result.alternatives]
-    .map((candidate) => candidate.trim())
-    .filter((candidate, index, all) => candidate.length > 0 && all.indexOf(candidate) === index)
+export type RecognitionOutcome = {
+  assessment: PronunciationAssessment
+  candidates: string[]
+}
 
-  if (candidates.length === 0) return assessPronunciation(text, '')
+export const recognizeFx = createEffect(
+  async ({ lang, text }: RecognizePayload): Promise<RecognitionOutcome> => {
+    const result = await recognize(lang)
+    const candidates = [result.transcript, ...result.alternatives]
+      .map((candidate) => candidate.trim())
+      .filter((candidate, index, all) => candidate.length > 0 && all.indexOf(candidate) === index)
 
-  return candidates
-    .map((candidate) => assessPronunciation(text, candidate))
-    .reduce((best, current) => (current.score > best.score ? current : best))
-})
+    if (candidates.length === 0) {
+      return { assessment: assessPronunciation(text, ''), candidates }
+    }
+
+    const assessment = candidates
+      .map((candidate) => assessPronunciation(text, candidate))
+      .reduce((best, current) => (current.score > best.score ? current : best))
+
+    return { assessment, candidates }
+  }
+)
 
 export const $pronunciation = createStore<PronunciationFeedback | null>(null)
   .on(recognizeFx, () => null)
@@ -49,7 +60,7 @@ export const $pronunciation = createStore<PronunciationFeedback | null>(null)
 sample({
   clock: recognizeFx.done,
   fn: ({ params, result }) => ({
-    assessment: result,
+    assessment: result.assessment,
     cardId: params.cardId,
     side: params.side,
   }),

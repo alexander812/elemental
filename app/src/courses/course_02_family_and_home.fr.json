@@ -111,7 +111,7 @@
           "text": "Voici ma chambre. Il y a un lit, un bureau et une grande étagère avec des LEGO. J'ai des affiches de footballeurs au mur. Mon tapis de football est par terre, et le panier de Rex est dans un coin. Le matin, j'ouvre la fenêtre. La chambre de Lucas est à côté. Il a deux écrans et un échiquier : sa chambre est un laboratoire. La chambre de Léa sent la peinture. Ses dessins sont partout : aux murs, sur la porte et même sur l'armoire. « Ma chambre est mon petit monde », dit-elle. J'aime bien.",
           "words": [
             "chambre",
-            "lit",
+            "un grand lit",
             "bureau",
             "étagère",
             "affiche",
@@ -133,7 +133,7 @@
             "lourd",
             "lampe",
             "miroir",
-            "mur",
+            "sur le mur",
             "canapé",
             "être d'accord"
           ]
@@ -184,7 +184,7 @@
             "courir",
             "petit-déjeuner",
             "sandwich",
-            "sac",
+            "un grand sac",
             "promenade",
             "calme",
             "lundi",
@@ -282,12 +282,12 @@
           "words": [
             "atelier",
             "garage",
-            "vis",
+            "des petites vis",
             "outil",
             "radio",
             "avion",
             "réparer",
-            "son",
+            "un son de musique",
             "musique",
             "ingénieur"
           ]

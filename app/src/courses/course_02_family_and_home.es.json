@@ -57,8 +57,8 @@
           "name": "Tía, tío y primo",
           "text": "Por la noche miramos el álbum de familia. Esta es mi tía Isa. Es la hermana pequeña de mamá. Es periodista y viaja por todo el mundo. Nos trae imanes de cada país: ¡la nevera está llena! Este es mi tío Miki. Es profesor de historia. Y este es su hijo Dieguito. Tiene dieciséis años y juega al baloncesto. Dieguito y Javi siempre discuten: ¿deporte o ciencia? Pero por la noche juegan al ajedrez juntos. En verano Dieguito viene a casa toda una semana.",
           "words": [
-            "tía",
-            "tío",
+            "mi tía Isa",
+            "mi tío Miki",
             "primo",
             "periodista",
             "viajar",
@@ -143,7 +143,7 @@
           "text": "Es por la mañana. La cocina huele a café y pan recién hecho. Mamá está en los fogones y prepara tortitas. La nevera está llena: leche, queso, huevos y manzanas del jardín de la abuela. «¡Pablito, coge los platos y las tazas, por favor!» Los pongo en la mesa. Javi corta el pan; Luci sirve el zumo. Toby se sienta junto a la mesa y espera: quizá alguien le dé un trozo de tortita. Luna salta al alféizar y nos observa. «Nuestra cocina es el corazón de la casa», dice mamá. «¡Y la habitación más rica!», añado yo.",
           "words": [
             "oler a café",
-            "pan",
+            "pan recién hecho",
             "fogones",
             "tortitas",
             "nevera",
@@ -161,7 +161,7 @@
             "grande",
             "pequeño",
             "lleno de gente",
-            "ver",
+            "ver el parque",
             "parque infantil",
             "dormir",
             "flores",
@@ -271,7 +271,7 @@
             "campo",
             "viaje",
             "andén",
-            "río",
+            "un río pequeño",
             "casi llegamos",
             "pueblo"
           ]

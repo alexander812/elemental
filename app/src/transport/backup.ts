@@ -7,7 +7,7 @@ import { fetchLessons, replaceLessons } from './lessons'
 import { fetchSettings, saveSettings } from './settings'
 import { fetchSets, replaceSets } from './sets'
 
-export const BACKUP_VERSION = 6
+export const BACKUP_VERSION = 7
 
 export type BackupData = {
   version: number

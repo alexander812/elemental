@@ -31,6 +31,7 @@ import { getCardText } from '../../../lib/cards'
 import { isAnswerCorrect } from '../../../lib/checks'
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
+import { isShortSingleWord } from '../../../lib/pronunciation'
 import { recognizeErrorText, isSilentRecognitionError } from '../../../lib/recognitionErrors'
 import {
   playDisappointment,
@@ -63,6 +64,7 @@ import {
 } from '../../sets/store'
 import { SetMenu } from '../../sets/ui/SetMenu'
 import {
+  $debugMode,
   $learnAfterChecks,
   $userLang,
   $voiceCheckEnabled,
@@ -93,6 +95,15 @@ const SPEAK_ERRORS: Record<string, string> = {
 
 const speakErrorText = (error: Error) => SPEAK_ERRORS[error.message] ?? 'Не удалось озвучить'
 
+const modelRecognitionText = (candidates: string[]): string =>
+  candidates.length > 0
+    ? `Модель распознала: ${candidates.map((candidate) => `"${candidate}"`).join(', ')}`
+    : 'Модель ничего не распознала'
+
+const VOICE_FALLBACK_HINT = 'Не удалось распознать. Введите слово с клавиатуры.'
+
+const VOICE_FALLBACK_ATTEMPTS = 2
+
 const now = (): number => Date.now()
 
 const noop = () => undefined
@@ -122,6 +133,10 @@ export function CardsView({ setId }: { setId: string }) {
   const [testAuto, setTestAuto] = useState(false)
   const [testAutoTick, setTestAutoTick] = useState(0)
   const [testManualTick, setTestManualTick] = useState(0)
+  const [writeFallbackCards, setWriteFallbackCards] = useState<ReadonlySet<string>>(() => new Set())
+  const [testWriteFallbackCards, setTestWriteFallbackCards] = useState<ReadonlySet<string>>(
+    () => new Set()
+  )
 
   const deleteSetPending = useUnit(deleteSetFx.pending)
   const resetPending = useUnit(resetSetFx.pending)
@@ -133,6 +148,7 @@ export function CardsView({ setId }: { setId: string }) {
   const courseLangByLesson = useUnit($courseLangByLesson)
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
   const writeCheckEnabled = useUnit($writeCheckEnabled)
+  const debugMode = useUnit($debugMode)
 
   const dragRef = useRef<DragPos | null>(null)
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -152,6 +168,8 @@ export function CardsView({ setId }: { setId: string }) {
   const testAutoRef = useRef(false)
   const testAutoCardRef = useRef<string | null>(null)
   const testCardIdRef = useRef<string | null>(null)
+  const voiceFailuresRef = useRef<Map<string, number>>(new Map())
+  const testVoiceFailuresRef = useRef<Map<string, number>>(new Map())
 
   useEffect(() => {
     fetchSetsFx()
@@ -357,9 +375,11 @@ export function CardsView({ setId }: { setId: string }) {
     testCelebratedRef.current = false
     testAdvancingRef.current = false
     testAutoCardRef.current = null
+    testVoiceFailuresRef.current = new Map()
     setTestIndex(0)
     setTestResults([])
     setTestStatus(null)
+    setTestWriteFallbackCards(new Set())
   }
 
   const stopTestAuto = () => {
@@ -370,6 +390,36 @@ export function CardsView({ setId }: { setId: string }) {
     setListeningCardId(null)
 
     if (recognizeFx.pending.getState()) cancelRecognizeFx()
+  }
+
+  const offerWriteFallback = (cardId: string, expected: string): boolean => {
+    if (!isShortSingleWord(expected)) return false
+
+    const failures = (voiceFailuresRef.current.get(cardId) ?? 0) + 1
+
+    voiceFailuresRef.current.set(cardId, failures)
+
+    if (failures < VOICE_FALLBACK_ATTEMPTS) return false
+
+    setWriteFallbackCards((current) => new Set(current).add(cardId))
+
+    return true
+  }
+
+  const offerTestWriteFallback = (cardId: string, expected: string): boolean => {
+    if (!isShortSingleWord(expected)) return false
+
+    const failures = (testVoiceFailuresRef.current.get(cardId) ?? 0) + 1
+
+    testVoiceFailuresRef.current.set(cardId, failures)
+
+    if (failures < VOICE_FALLBACK_ATTEMPTS) return false
+
+    if (testAutoRef.current) stopTestAuto()
+
+    setTestWriteFallbackCards((current) => new Set(current).add(cardId))
+
+    return true
   }
 
   const markTestAnswered = () => {
@@ -437,7 +487,7 @@ export function CardsView({ setId }: { setId: string }) {
     setListeningCardId(cardId)
 
     try {
-      const assessment = await recognizeFx({
+      const { assessment, candidates } = await recognizeFx({
         cardId,
         lang: courseLang,
         side: 'front',
@@ -454,7 +504,11 @@ export function CardsView({ setId }: { setId: string }) {
         flashMic(cardId, 'success')
         playSuccess()
         vibrateSuccess()
-        applyTestVerdict(cardId, true, 'Принятно!')
+        applyTestVerdict(
+          cardId,
+          true,
+          debugMode ? `Принято! ${modelRecognitionText(candidates)}` : 'Принято!'
+        )
         return
       }
 
@@ -464,16 +518,20 @@ export function CardsView({ setId }: { setId: string }) {
 
       const attempt = testAttemptRef.current
       const attemptsLeft = TEST_MAX_ATTEMPTS - attempt
-
-      const message = `Ошибка! Услышано "${assessment.transcript}", нужно ${expected}`
+      const debugText = debugMode ? ` ${modelRecognitionText(candidates)}.` : ''
+      const message = `Ошибка!${debugText}`
 
       if (attemptsLeft <= 0) {
         applyTestVerdict(cardId, false, message)
         return
       }
 
+      const hinted = offerTestWriteFallback(cardId, expected)
+        ? VOICE_FALLBACK_HINT
+        : `Осталось попыток: ${attemptsLeft}`
+
       testAttemptRef.current = attempt + 1
-      setTestStatus({ kind: 'error', message: `${message}. Осталось попыток: ${attemptsLeft}` })
+      setTestStatus({ kind: 'error', message: `${message} ${hinted}` })
 
       if (testAutoRef.current) setTestAutoTick((value) => value + 1)
     } catch (error) {
@@ -483,17 +541,27 @@ export function CardsView({ setId }: { setId: string }) {
       }
 
       if (isSilentRecognitionError(error)) {
+        if (offerTestWriteFallback(cardId, expected)) {
+          setTestStatus({ kind: 'error', message: VOICE_FALLBACK_HINT })
+        } else if (debugMode) {
+          setTestStatus({ kind: 'error', message: modelRecognitionText([]) })
+        }
+
         if (testAutoRef.current) setTestAutoTick((value) => value + 1)
         return
       }
 
       playError()
       vibrateError()
+
+      const errorText = recognizeErrorText(
+        error instanceof Error ? error : new Error('recognition_failed')
+      )
+      const message = offerTestWriteFallback(cardId, expected) ? VOICE_FALLBACK_HINT : errorText
+
       setTestStatus({
         kind: 'error',
-        message: recognizeErrorText(
-          error instanceof Error ? error : new Error('recognition_failed')
-        ),
+        message: debugMode ? `${message}. ${modelRecognitionText([])}` : message,
       })
 
       if (testAutoRef.current) setTestAutoTick((value) => value + 1)
@@ -530,8 +598,8 @@ export function CardsView({ setId }: { setId: string }) {
 
     testCelebratedRef.current = true
 
-    const passed =
-      testResultsRef.current.length === testQueue.length && testResultsRef.current.every(Boolean)
+    const results = testResultsRef.current
+    const passed = results.length === testQueue.length && results.every(Boolean)
 
     if (passed) {
       playTestSuccess()
@@ -540,7 +608,16 @@ export function CardsView({ setId }: { setId: string }) {
     }
 
     setSetExamPassedFx({ setId, examPassed: passed })
-  }, [testMode, testFinished, testQueue.length, setId])
+
+    testQueue.forEach((cardId, index) => {
+      const card = byId.get(cardId)
+      const learned = results[index] === true
+
+      if (card && card.learned !== learned) {
+        setCardLearnedFx({ setId, cardId, learned })
+      }
+    })
+  }, [byId, setId, testFinished, testMode, testQueue])
 
   useEffect(() => {
     if (!voiceCheckEnabled && testAutoRef.current) stopTestAuto()
@@ -586,6 +663,43 @@ export function CardsView({ setId }: { setId: string }) {
     if (!testCardId || testAdvancingRef.current) return
 
     setTestManualTick((value) => value + 1)
+  }
+
+  const handleTestWriteCheck = (value: string) => {
+    const cardId = testCardIdRef.current
+
+    if (!cardId || testAdvancingRef.current) return
+
+    const card = byId.get(cardId)
+
+    if (!card) return
+
+    const expected = getCardText(card, courseLang).text.trim()
+
+    if (!expected) return
+
+    unlockSounds()
+
+    if (isAnswerCorrect(expected, value)) {
+      playSuccess()
+      vibrateSuccess()
+      applyTestVerdict(cardId, true, 'Принято!')
+      return
+    }
+
+    playError()
+    vibrateError()
+
+    const attempt = testAttemptRef.current
+    const attemptsLeft = TEST_MAX_ATTEMPTS - attempt
+
+    if (attemptsLeft <= 0) {
+      applyTestVerdict(cardId, false, 'Ошибка!')
+      return
+    }
+
+    testAttemptRef.current = attempt + 1
+    setTestStatus({ kind: 'error', message: `Ошибка! Осталось попыток: ${attemptsLeft}` })
   }
 
   const handleStartTest = () => {
@@ -816,7 +930,7 @@ export function CardsView({ setId }: { setId: string }) {
     setListeningCardId(topCard.id)
 
     try {
-      const assessment = await recognizeFx({
+      const { assessment, candidates } = await recognizeFx({
         cardId: topCard.id,
         lang: courseLang,
         side: 'front',
@@ -829,17 +943,35 @@ export function CardsView({ setId }: { setId: string }) {
       flashMic(topCard.id, passed ? 'success' : 'error')
 
       if (passed) {
+        voiceFailuresRef.current.delete(topCard.id)
         playSuccess()
         vibrateSuccess()
-        showCheckStatus(topCard.id, 'success', 'Принятно!')
+        showCheckStatus(
+          topCard.id,
+          'success',
+          debugMode ? `Принято! ${modelRecognitionText(candidates)}` : 'Принято!'
+        )
       } else {
         playError()
         vibrateError()
-        showCheckStatus(
-          topCard.id,
-          'error',
-          `Ошибка! Услышано "${assessment.transcript}", нужно ${expected}`
-        )
+
+        if (offerWriteFallback(topCard.id, expected)) {
+          showCheckStatus(
+            topCard.id,
+            'error',
+            debugMode
+              ? `${VOICE_FALLBACK_HINT} ${modelRecognitionText(candidates)}`
+              : VOICE_FALLBACK_HINT
+          )
+        } else {
+          const message = `Ошибка! Услышано "${assessment.transcript}", нужно ${expected}`
+
+          showCheckStatus(
+            topCard.id,
+            'error',
+            debugMode ? `${message}. ${modelRecognitionText(candidates)}` : message
+          )
+        }
       }
 
       const writeReady = !writeCheckEnabled || topCard.writeCheck === true
@@ -849,14 +981,29 @@ export function CardsView({ setId }: { setId: string }) {
       }
     } catch (error) {
       if (isRecognizeCancelled(error)) return
-      if (isSilentRecognitionError(error)) return
+
+      if (isSilentRecognitionError(error)) {
+        if (offerWriteFallback(topCard.id, expected)) {
+          showCheckStatus(topCard.id, 'error', VOICE_FALLBACK_HINT)
+        } else if (debugMode) {
+          showCheckStatus(topCard.id, 'error', modelRecognitionText([]))
+        }
+
+        return
+      }
 
       playError()
       vibrateError()
+
+      const errorText = recognizeErrorText(
+        error instanceof Error ? error : new Error('recognition_failed')
+      )
+      const message = offerWriteFallback(topCard.id, expected) ? VOICE_FALLBACK_HINT : errorText
+
       showCheckStatus(
         topCard.id,
         'error',
-        recognizeErrorText(error instanceof Error ? error : new Error('recognition_failed'))
+        debugMode ? `${message}. ${modelRecognitionText([])}` : message
       )
     } finally {
       setListeningCardId(null)
@@ -879,7 +1026,7 @@ export function CardsView({ setId }: { setId: string }) {
     if (passed) {
       playSuccess()
       vibrateSuccess()
-      showCheckStatus(topCard.id, 'success', 'Принятно!')
+      showCheckStatus(topCard.id, 'success', 'Принято!')
     } else {
       playError()
       vibrateError()
@@ -1038,10 +1185,12 @@ export function CardsView({ setId }: { setId: string }) {
                       listening={listeningCardId === id}
                       micFlash={micFlash?.cardId === id ? micFlash.kind : null}
                       onVoiceCheck={handleTestVoiceCheck}
+                      onWriteCheck={handleTestWriteCheck}
                       testMode
                       voiceCheckEnabled={voiceCheckEnabled}
                       writeCheck={card.writeCheck}
                       writeCheckEnabled={false}
+                      writeCheckFallback={testWriteFallbackCards.has(id)}
                       writePlaceholder={getLanguageName(courseLang, languages)}
                     />
                   )
@@ -1148,6 +1297,7 @@ export function CardsView({ setId }: { setId: string }) {
                     voiceCheckEnabled={voiceCheckEnabled}
                     writeCheck={card.writeCheck}
                     writeCheckEnabled={writeCheckEnabled}
+                    writeCheckFallback={writeFallbackCards.has(id)}
                     writePlaceholder={getLanguageName(courseLang, languages)}
                   />
                 )

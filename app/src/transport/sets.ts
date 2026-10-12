@@ -18,9 +18,6 @@ const WELCOME_TEXT: Record<LanguageCode, string> = {
   en: "Hi! I'm Lexi, I'll help you learn a foreign language. Download ready-made courses or create everything you want yourself.",
   es: '¡Hola! Soy Lexi, te ayudaré a aprender un idioma extranjero. Descarga cursos ya preparados o crea todo lo que quieras tú mismo.',
   fr: "Salut ! Je suis Lexi, je t'aiderai à apprendre une langue étrangère. Télécharge des cours prêts ou crée tout ce que tu veux toi-même.",
-  it: 'Ciao! Sono Lexi e ti aiuterò a imparare una lingua straniera. Scarica corsi pronti o crea tutto quello che vuoi da solo.',
-  zh: '你好！我是 Lexi，我会帮你学外语。下载现成课程，或者自己创建你想要的一切。',
-  de: 'Hallo! Ich bin Lexi, ich helfe dir, eine Fremdsprache zu lernen. Lade fertige Kurse herunter oder erstelle alles selbst, was du willst.',
 }
 
 function normalizeTexts(texts: CardTexts | undefined): CardTexts {

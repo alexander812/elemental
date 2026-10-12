@@ -13,6 +13,7 @@ export const DEFAULT_SETTINGS: Settings = {
   learnAfterChecks: false,
   voiceCheckEnabled: true,
   writeCheckEnabled: false,
+  debugMode: false,
 }
 
 type StoredSettings = Partial<Settings>
@@ -28,6 +29,7 @@ export function readSettings(): Settings {
     learnAfterChecks: raw.learnAfterChecks === true,
     voiceCheckEnabled: raw.voiceCheckEnabled !== false,
     writeCheckEnabled: raw.writeCheckEnabled === true,
+    debugMode: raw.debugMode === true,
   }
 }
 
@@ -59,4 +61,8 @@ export async function saveVoiceCheckEnabled(voiceCheckEnabled: boolean): Promise
 
 export async function saveWriteCheckEnabled(writeCheckEnabled: boolean): Promise<Settings> {
   return saveSettings({ writeCheckEnabled })
+}
+
+export async function saveDebugMode(debugMode: boolean): Promise<Settings> {
+  return saveSettings({ debugMode })
 }

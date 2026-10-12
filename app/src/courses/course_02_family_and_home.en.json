@@ -111,11 +111,11 @@
           "text": "This is my room. There is a bed, a desk and a big shelf with LEGO. I have posters of football players on the wall. My football rug is on the floor, and Buddy's basket is in the corner. In the morning I open the window. Jack's room is next door. He has two monitors and a chessboard — his room is a laboratory. Sophie's room smells of paint. Her pictures are everywhere: on the walls, on the door, even on the wardrobe. My room is my little world, she says. I like that.",
           "words": [
             "room",
-            "bed",
+            "a big bed",
             "desk",
             "shelf",
             "poster",
-            "rug",
+            "a football rug",
             "corner",
             "window",
             "chessboard",
@@ -150,7 +150,7 @@
             "milk",
             "cheese",
             "plate",
-            "cup",
+            "a cup of milk",
             "heart of the house"
           ]
         },
@@ -158,7 +158,7 @@
           "name": "Big or Small",
           "text": "Our flat is not very big. When all six of us sit at the table, it is noisy and crowded. But in summer the balcony makes our home bigger. There is a small table, two chairs and a lot of flowers. From the balcony we can see the park and the playground. Bella loves to sleep on the windowsill near the flowers. In the evening the whole family drinks tea here. Our home is small, says Mum, but full of love. And I think: a big house is good, but a warm home is better.",
           "words": [
-            "big",
+            "a big house",
             "small",
             "crowded",
             "to see",
@@ -184,7 +184,7 @@
             "to run",
             "breakfast",
             "sandwich",
-            "bag",
+            "a big bag",
             "walk",
             "quiet",
             "Monday",
@@ -243,13 +243,13 @@
           "name": "Pets at Home",
           "text": "Our pets are part of the family. Bella is three. Sophie found her in the courtyard when she was a tiny kitten. Now Bella has a royal life: she sleeps on the windowsill or on Jack's chair. Buddy is one year old. He came from an animal shelter last winter. He loves balls and football. Every morning I train him: Sit! Give me your paw! Fetch! He knows five commands. Buddy and Bella are friends — well, almost. Bella thinks she is the boss. And maybe she is right!",
           "words": [
-            "pet",
-            "cat",
-            "dog",
+            "our family pet",
+            "the cat Bella",
+            "the dog Buddy",
             "kitten",
             "shelter",
             "ball",
-            "paw",
+            "give me your paw",
             "command",
             "to train",
             "boss"
@@ -312,7 +312,7 @@
           "name": "Grandma's Pie",
           "text": "At four o'clock Grandma calls: To the table, everybody! The kitchen smells of cinnamon and apples. In the middle of the table stands her famous apple pie — big, golden and warm. Margaret, this is a masterpiece! says Dad. Grandma just smiles: Eat, eat! I baked it for you. We drink tea with milk — Grandpa's habit from his flights. Jack tells about school, Sophie shows her drawings, and I tell about our football match. Your English is getting better, says Mum. Then Grandma sings old songs.",
           "words": [
-            "pie",
+            "an apple pie",
             "cinnamon",
             "golden",
             "masterpiece",

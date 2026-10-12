@@ -74,6 +74,7 @@ export type FlashCardProps = {
   voiceCheckEnabled: boolean
   writeCheck: boolean | null
   writeCheckEnabled: boolean
+  writeCheckFallback?: boolean
   writePlaceholder: string
 }
 
@@ -103,21 +104,24 @@ export function FlashCard({
   voiceCheckEnabled,
   writeCheck,
   writeCheckEnabled,
+  writeCheckFallback = false,
   writePlaceholder,
 }: FlashCardProps) {
   const isTop = depth === 0
 
   const [writeOpen, setWriteOpen] = useState(false)
+  const [writeDismissed, setWriteDismissed] = useState(false)
   const [writeValue, setWriteValue] = useState('')
 
-  const showWriteCheck = !testMode && writeCheckEnabled
+  const showWriteCheck = writeCheckEnabled || writeCheckFallback
+  const fallbackActive = showWriteCheck && writeCheckFallback && !writeDismissed
 
   if (!showWriteCheck && writeOpen) {
     setWriteOpen(false)
     setWriteValue('')
   }
 
-  const writeActive = writeOpen && showWriteCheck
+  const writeActive = (writeOpen && showWriteCheck) || fallbackActive
 
   const badgeOpacity = (value: number) => clamp01(value)
 
@@ -254,12 +258,14 @@ export function FlashCard({
     if (!value) return
 
     setWriteOpen(false)
+    setWriteDismissed(true)
     setWriteValue('')
     onWriteCheck(value)
   }
 
   const handleWriteCancel = () => {
     setWriteOpen(false)
+    setWriteDismissed(true)
     setWriteValue('')
   }
 
@@ -364,6 +370,7 @@ export function FlashCard({
               onClick={(event) => {
                 event.stopPropagation()
                 setWriteValue('')
+                setWriteDismissed(false)
                 setWriteOpen(true)
               }}
               onPointerDown={(event) => event.stopPropagation()}

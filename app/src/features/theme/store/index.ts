@@ -25,6 +25,8 @@ export const setWriteCheckEnabledFx = createEffect((value: boolean) =>
   settingsApi.saveWriteCheckEnabled(value)
 )
 
+export const setDebugModeFx = createEffect((value: boolean) => settingsApi.saveDebugMode(value))
+
 export const $settings = createStore<Settings>(settingsApi.DEFAULT_SETTINGS)
   .on(fetchSettingsFx.doneData, (_, settings) => settings)
   .on(setThemeFx.doneData, (_, settings) => settings)
@@ -32,6 +34,7 @@ export const $settings = createStore<Settings>(settingsApi.DEFAULT_SETTINGS)
   .on(setLearnAfterChecksFx.doneData, (_, settings) => settings)
   .on(setVoiceCheckEnabledFx.doneData, (_, settings) => settings)
   .on(setWriteCheckEnabledFx.doneData, (_, settings) => settings)
+  .on(setDebugModeFx.doneData, (_, settings) => settings)
   .on(importBackupFx.doneData, (_, { settings }) => settings)
 
 export const $theme = $settings.map((settings) => settings.theme)
@@ -39,6 +42,7 @@ export const $userLang = $settings.map((settings) => settings.userLang)
 export const $learnAfterChecks = $settings.map((settings) => settings.learnAfterChecks)
 export const $voiceCheckEnabled = $settings.map((settings) => settings.voiceCheckEnabled)
 export const $writeCheckEnabled = $settings.map((settings) => settings.writeCheckEnabled)
+export const $debugMode = $settings.map((settings) => settings.debugMode)
 
 export const $settingsLoading = createStore(true).on(fetchSettingsFx.finally, () => false)
 

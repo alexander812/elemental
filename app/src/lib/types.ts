@@ -49,4 +49,5 @@ export interface Settings {
   learnAfterChecks: boolean
   voiceCheckEnabled: boolean
   writeCheckEnabled: boolean
+  debugMode: boolean
 }

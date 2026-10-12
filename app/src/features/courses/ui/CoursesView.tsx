@@ -86,12 +86,13 @@ export function CoursesView() {
           <Text align="center" variant="M / Medium">
             Добавить курс
           </Text>
-          <Button fullWidth onClick={handleCreateNew}>
-            Создать новый
-          </Button>
-          <Button fullWidth variant="secondary" onClick={handleFindReady}>
+          <Button fullWidth onClick={handleFindReady}>
             Найти готовый
           </Button>
+          <Button fullWidth variant="secondary" onClick={handleCreateNew}>
+            Создать новый
+          </Button>
+
         </Stack>
       </Box>
     </BottomSheet>

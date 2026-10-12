@@ -3,6 +3,7 @@ const WORD_DIACRITICS = /\p{M}/gu
 const WORD_VOWELS = /[aeiouyаеёиоуыэюя]/g
 const SIMILAR_WORD_LIMIT = 0.6
 const GOOD_SCORE = 0.6
+const SHORT_WORD_MAX_LETTERS = 4
 
 export type PronunciationWord = {
   matched: boolean
@@ -83,6 +84,12 @@ const isSimilarWord = (a: string, b: string): boolean => {
   return a.length > 1 && b.length > 1 && (a.endsWith(b) || b.endsWith(a))
 }
 
+const isShortToken = (tokens: string[]): boolean =>
+  tokens.length === 1 && tokens[0].length <= SHORT_WORD_MAX_LETTERS
+
+export const isShortSingleWord = (text: string): boolean =>
+  isShortToken(text.split(/\s+/).map(normalizeWord).filter(Boolean))
+
 export function assessPronunciation(expected: string, transcript: string): PronunciationAssessment {
   const expectedTokens = expected.split(/\s+/).filter((token) => normalizeWord(token).length > 0)
   const expectedWords = expectedTokens.map(normalizeWord)
@@ -94,6 +101,17 @@ export function assessPronunciation(expected: string, transcript: string): Pronu
 
   if (rows === 0) {
     return { score: 1, transcript, verdict: 'good', words: [] }
+  }
+
+  if (isShortToken(expectedWords)) {
+    const heard = saidWords.length > 0
+
+    return {
+      score: heard ? 1 : 0,
+      transcript,
+      verdict: heard ? 'good' : 'retry',
+      words: expectedTokens.map((text) => ({ matched: heard, text })),
+    }
   }
 
   if (cols > 0) {

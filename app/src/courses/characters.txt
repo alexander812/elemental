@@ -10,9 +10,6 @@
 | en 🇬🇧 | Лондон |
 | es 🇪🇸 | Овьедо |
 | fr 🇫🇷 | Париж |
-| it 🇮🇹 | Рим |
-| zh 🇨🇳 | 北京 |
-| de 🇩🇪 | Мюнхен |
 
 ---
 
@@ -43,9 +40,6 @@
 | en | Emma | Лондон |
 | es | Carmen | Овьедо |
 | fr | Claire | Париж |
-| it | Giulia | Рим |
-| zh | 李梅 (Ли Мэй) | 北京 |
-| de | Anna | Мюнхен |
 
 ---
 
@@ -60,9 +54,6 @@
 | en | David | Лондон |
 | es | Carlos | Овьедо |
 | fr | Pierre | Париж |
-| it | Marco | Рим |
-| zh | 王强 (Ван Цян) | 北京 |
-| de | Thomas | Мюнхен |
 
 ---
 
@@ -77,9 +68,6 @@
 | en | Jack | Лондон |
 | es | Javi | Овьедо |
 | fr | Lucas | Париж |
-| it | Luca | Рим |
-| zh | 王浩 (Ван Хао) | 北京 |
-| de | Lukas | Мюнхен |
 
 ---
 
@@ -94,9 +82,6 @@
 | en | Ollie | Лондон |
 | es | Pablito | Овьедо |
 | fr | Hugo | Париж |
-| it | Matteo | Рим |
-| zh | 王阳 (Ван Ян) | 北京 |
-| de | Felix | Мюнхен |
 
 ---
 
@@ -111,9 +96,6 @@
 | en | Sophie | Лондон |
 | es | Luci | Овьедо |
 | fr | Léa | Париж |
-| it | Sofi | Рим |
-| zh | 王悦 (Ван Юэ) | 北京 |
-| de | Mia | Мюнхен |
 
 ---
 
@@ -128,9 +110,6 @@
 | en | Margaret | Лондон |
 | es | Pilar | Овьедо |
 | fr | Marie | Париж |
-| it | Rosa | Рим |
-| zh | 王秀英 (Ван Сюин) | 北京 |
-| de | Ingrid | Мюнхен |
 
 ---
 
@@ -145,9 +124,6 @@
 | en | George | Лондон |
 | es | Antonio | Овьедо |
 | fr | Henri | Париж |
-| it | Giuseppe | Рим |
-| zh | 王德福 (Ван Дэфу) | 北京 |
-| de | Werner | Мюнхен |
 
 ---
 
@@ -162,9 +138,6 @@
 | en | Sarah | Лондон |
 | es | Isa | Овьедо |
 | fr | Sophie | Париж |
-| it | Elena | Рим |
-| zh | 李芳 (Ли Фан) | 北京 |
-| de | Julia | Мюнхен |
 
 ---
 
@@ -179,9 +152,6 @@
 | en | Michael | Лондон |
 | es | Miki | Овьедо |
 | fr | Marc | Париж |
-| it | Paolo | Рим |
-| zh | 张伟 (Чжан Вэй) | 北京 |
-| de | Stefan | Мюнхен |
 
 ---
 
@@ -196,9 +166,6 @@
 | en | Harry | Лондон |
 | es | Dieguito | Овьедо |
 | fr | Théo | Париж |
-| it | Ale | Рим |
-| zh | 张晨 (Чжан Чэнь) | 北京 |
-| de | Jonas | Мюнхен |
 
 ---
 
@@ -213,9 +180,6 @@
 | en | Robert | Австралия |
 | es | Fernando | Аргентина |
 | fr | Laurent | Канада |
-| it | Antonio | Бразилия |
-| zh | 王明 (Ван Мин) | Сингапур |
-| de | Klaus | Швейцария |
 
 ---
 
@@ -232,9 +196,6 @@
 | en | Ben | Лондон |
 | es | Álex | Овьедо |
 | fr | Nathan | Париж |
-| it | Franci | Рим |
-| zh | 李俊 (Ли Цзюнь) | 北京 |
-| de | Max | Мюнхен |
 
 ---
 
@@ -249,9 +210,6 @@
 | en | Lily | Лондон |
 | es | Martita | Овьедо |
 | fr | Chloé | Париж |
-| it | Chiara | Рим |
-| zh | 陈静 (Чэнь Цзин) | 北京 |
-| de | Lena | Мюнхен |
 
 ---
 
@@ -266,9 +224,6 @@
 | en | Tom | Лондон |
 | es | Sergi | Овьедо |
 | fr | Louis | Париж |
-| it | Davide | Рим |
-| zh | 刘洋 (Лю Ян) | 北京 |
-| de | Paul | Мюнхен |
 
 ---
 
@@ -283,9 +238,6 @@
 | en | Amy | Лондон |
 | es | Sarita | Овьедо |
 | fr | Emma | Париж |
-| it | Marti | Рим |
-| zh | 赵敏 (Чжао Минь) | 北京 |
-| de | Lea | Мюнхен |
 
 ---
 
@@ -300,9 +252,6 @@
 | en | Sam | Лондон |
 | es | Huguito | Овьедо |
 | fr | Jules | Париж |
-| it | Leo | Рим |
-| zh | 孙磊 (Сунь Лэй) | 北京 |
-| de | Tim | Мюнхен |
 
 ---
 
@@ -319,9 +268,6 @@
 | en | Rachel | Лондон |
 | es | Bea | Овьедо |
 | fr | Camille | Париж |
-| it | Francesca | Рим |
-| zh | 周娜 (Чжоу На) | 北京 |
-| de | Sabine | Мюнхен |
 
 ---
 
@@ -336,9 +282,6 @@
 | en | Peter | Лондон |
 | es | Andrés | Овьедо |
 | fr | Olivier | Париж |
-| it | Roberto | Рим |
-| zh | 吴刚 (У Ган) | 北京 |
-| de | Martin | Мюнхен |
 
 ---
 
@@ -355,9 +298,6 @@
 | en | Bella |
 | es | Luna |
 | fr | Minette |
-| it | Micia |
-| zh | 咪咪 |
-| de | Mimi |
 
 ---
 
@@ -372,9 +312,6 @@
 | en | Buddy |
 | es | Toby |
 | fr | Rex |
-| it | Rocky |
-| zh | 旺财 |
-| de | Bello |
 
 ---
 
@@ -389,9 +326,6 @@
 | en | Mrs. Green |
 | es | Doña Rosa |
 | fr | Madame Blanc |
-| it | Signora Bianchi |
-| zh | 王奶奶 |
-| de | Frau Schmidt |
 
 ---
 
@@ -405,9 +339,6 @@
 | en | Peter | Kate | Lucy |
 | es | Pedro | Dani | Sol |
 | fr | Paul | Julie | Lou |
-| it | Pietro | Daria | Sofia |
-| zh | 陈明 | 陈丽 | 小美 |
-| de | Peter | Marie | Lilli |
 
 ---
 
@@ -420,9 +351,6 @@
 | en | Miss Brown |
 | es | Señorita Ana |
 | fr | Madame Petit |
-| it | Signora Rossi |
-| zh | 李老师 |
-| de | Frau Weber |
 
 ---
 
@@ -435,9 +363,6 @@
 | en | Mr. White |
 | es | Don Julio |
 | fr | Monsieur Laurent |
-| it | Signor Verdi |
-| zh | 张老师 |
-| de | Herr Fischer |
 
 ---
 
@@ -450,9 +375,6 @@
 | en | Mr. Fisher |
 | es | Don Pepe |
 | fr | Monsieur Dupont |
-| it | Signor Mario |
-| zh | 老李 |
-| de | Herr Bauer |
 
 ---
 
@@ -465,9 +387,6 @@
 | en | Tom |
 | es | Manolo |
 | fr | Philippe |
-| it | Carlo |
-| zh | 小王 |
-| de | Markus |
 
 ---
 
@@ -480,9 +399,6 @@
 | en | Jim |
 | es | Óscar |
 | fr | Antoine |
-| it | Antonio |
-| zh | 王教练 |
-| de | Uwe |
 
 ---
 
@@ -495,9 +411,6 @@
 | en | Dr. Miller |
 | es | Dra. Vega |
 | fr | Dr. Moreau |
-| it | Dott.ssa Conti |
-| zh | 陈医生 |
-| de | Dr. Wagner |
 
 ---
 
@@ -516,9 +429,6 @@
 | en | Mr. Carter | London, UK |
 | es | Sr. Carter | Londres, Reino Unido |
 | fr | M. Carter | Londres, Royaume-Uni |
-| it | Sig. Carter | Londra, Regno Unito |
-| zh | 卡特先生 | 英国伦敦 |
-| de | Herr Carter | London, Großbritannien |
 
 ---
 
@@ -533,9 +443,6 @@
 | en | Mrs. Carter | Sydney, Australia |
 | es | Sra. Carter | Sídney, Australia |
 | fr | Mme Carter | Sydney, Australie |
-| it | Sig.ra Carter | Sydney, Australia |
-| zh | 卡特太太 | 澳大利亚悉尼 |
-| de | Frau Carter | Sydney, Australien |
 
 ---
 
@@ -550,9 +457,6 @@
 | en | George |
 | es | Jorge |
 | fr | Georges |
-| it | Giorgio |
-| zh | 乔治 |
-| de | Georg |
 
 ---
 
@@ -567,9 +471,6 @@
 | en | Emily |
 | es | Emilia |
 | fr | Émilie |
-| it | Emilia |
-| zh | 艾米丽 |
-| de | Emily |
 
 ---
 
