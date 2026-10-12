@@ -4,6 +4,7 @@ type ExamResultsProps = {
   correctCount: number
   errorCount: number
   onBack: () => void
+  onNext: () => void
   onRetake: () => void
   passed: boolean
 }
@@ -29,6 +30,7 @@ export function ExamResults({
   correctCount,
   errorCount,
   onBack,
+  onNext,
   onRetake,
   passed,
 }: ExamResultsProps) {
@@ -63,6 +65,9 @@ export function ExamResults({
         </Button>
         <Button fullWidth variant="secondary" onClick={onBack}>
           Вернуться к обучению
+        </Button>
+        <Button fullWidth variant="secondary" onClick={onNext}>
+          Перейти к следующему заданию
         </Button>
       </Stack>
     </Stack>

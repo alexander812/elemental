@@ -152,7 +152,15 @@ export function CourseSearchView() {
                         spacing="s"
                         verticalAlign="center"
                       >
-                        <Checkbox checked={selected.has(entry.course)} />
+                        <div
+                          className={classes.checkbox}
+                          onClick={(event) => event.stopPropagation()}
+                        >
+                          <Checkbox
+                            checked={selected.has(entry.course)}
+                            onChange={() => courseToggled(entry.course)}
+                          />
+                        </div>
                         <div className={classes.title}>
                           <Text overflow="ellipsis" variant="M / Medium">
                             {entry.i18n.course[userLang] ?? entry.course} (

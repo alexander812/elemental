@@ -1,4 +1,5 @@
 import {
+  IconBookOpen,
   IconChevronRight,
   IconDownload,
   IconEducation,
@@ -69,6 +70,15 @@ export function MenuView() {
               <ListItem.StartBlock
                 icon={<IconTasks fontSize={24} color="var(--accent-text-and-icons)" />}
                 title={<Text variant="M / Medium">Проверки</Text>}
+              />
+              <ListItem.EndBlock
+                content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+              />
+            </ListItem>
+            <ListItem data={{ screen: 'knowledge' }} onClick={() => pushScreen({ name: 'knowledge' })}>
+              <ListItem.StartBlock
+                icon={<IconBookOpen fontSize={24} color="var(--accent-text-and-icons)" />}
+                title={<Text variant="M / Medium">База знаний</Text>}
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}

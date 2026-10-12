@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import type { FocusEvent } from 'react'
 
 import { IconMicrophone, IconTranslate } from '@elemental/icons'
@@ -59,12 +59,7 @@ export function InputWithVoice({
   const [listening, setListening] = useState(false)
   const [recognizeFailed, setRecognizeFailed] = useState<Error | null>(null)
 
-  const valueRef = useRef(value)
   const sessionRef = useRef(0)
-
-  useEffect(() => {
-    valueRef.current = value
-  }, [value])
 
   const handleRecognize = async () => {
     if (rest.disabled) return
@@ -95,8 +90,7 @@ export function InputWithVoice({
       if (sessionRef.current !== session) return
 
       if (text) {
-        const current = valueRef.current.trimEnd()
-        onChange(current.length > 0 ? `${current} ${text}` : text)
+        onChange(text)
       }
     } catch (error) {
       if (sessionRef.current !== session || isRecognizeCancelled(error)) return

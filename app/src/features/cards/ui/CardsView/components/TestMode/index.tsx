@@ -28,6 +28,7 @@ import { vibrateError, vibrateSuccess } from '../../../../../../transport/haptic
 import { canRecognize } from '../../../../../../transport/recognition'
 import { setKeepAwake } from '../../../../../../transport/wakeLock'
 import { $languages } from '../../../../../languages/store'
+import { $stack, popTo, pushScreen } from '../../../../../navigation/store'
 import {
   setCardLearnedFx,
   setSetExamPassedFx,
@@ -40,9 +41,11 @@ import { FlashCard } from '../FlashCard'
 import type { CheckStatus, Leaving } from '../FlashCard'
 import {
   DECK_DEPTH,
+  findNextSet,
   LEAVE_MS,
   MIC_FLASH_MS,
   modelRecognitionText,
+  nextSetScreen,
   VOICE_FALLBACK_ATTEMPTS,
   VOICE_FALLBACK_HINT,
 } from '../../helpers'
@@ -58,6 +61,7 @@ type MicFlash = { cardId: string; kind: 'error' | 'success' }
 export function TestMode({ setId, onExit }: { setId: string; onExit: () => void }) {
   const sets = useUnit($sets)
   const languages = useUnit($languages)
+  const stack = useUnit($stack)
   const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
@@ -436,6 +440,24 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     setMicFlash(null)
   }
 
+  const handleNextSet = () => {
+    if (!set) return
+
+    const next = findNextSet(sets, set)
+
+    if (next) {
+      pushScreen(nextSetScreen(next, courseLang))
+      return
+    }
+
+    if (stack.some((screen) => screen.name === 'lesson')) {
+      popTo('lesson')
+      return
+    }
+
+    pushScreen({ name: 'lesson', lessonId: set.lessonId })
+  }
+
   const handleTestAutoToggle = () => {
     if (testAutoRef.current) {
       stopTestAuto()
@@ -523,6 +545,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
               errorCount={testErrorCount}
               passed={testPassed}
               onBack={handleExit}
+              onNext={handleNextSet}
               onRetake={handleRetake}
             />
           ) : testQueue.length === 0 ? (

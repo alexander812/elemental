@@ -30,6 +30,7 @@ export type Screen =
   | { name: 'theme' }
   | { name: 'language' }
   | { name: 'voices' }
+  | { name: 'knowledge' }
   | { name: 'recognition' }
   | { name: 'checks' }
   | { name: 'about' }

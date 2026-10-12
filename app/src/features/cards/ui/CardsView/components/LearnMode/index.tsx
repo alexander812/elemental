@@ -26,7 +26,7 @@ import {
 import { SetMenu } from '../../../../../sets/ui/SetMenu'
 import { $userLang, $voiceCheckEnabled, $writeCheckEnabled } from '../../../../../theme/store'
 import { cancelRecognizeFx, recognizeFx } from '../../../../store'
-import { DECK_DEPTH, LEAVE_MS } from '../../helpers'
+import { DECK_DEPTH, findNextSet, LEAVE_MS, nextSetScreen } from '../../helpers'
 import { FlashCard } from '../FlashCard'
 import type { DragPos, Leaving } from '../FlashCard'
 import { TestMode } from '../TestMode'
@@ -344,22 +344,10 @@ export function LearnMode({ setId }: { setId: string }) {
       return
     }
 
-    const next = sets
-      .filter(
-        (item) =>
-          item.active &&
-          item.id !== set.id &&
-          item.lessonId === set.lessonId &&
-          item.order > set.order
-      )
-      .sort((a, b) => a.order - b.order)[0]
+    const next = findNextSet(sets, set)
 
     if (next) {
-      const hasText = (next.texts[courseLang] ?? '').trim().length > 0
-
-      pushScreen(
-        hasText ? { name: 'set-intro', setId: next.id } : { name: 'cards', setId: next.id }
-      )
+      pushScreen(nextSetScreen(next, courseLang))
       return
     }
 

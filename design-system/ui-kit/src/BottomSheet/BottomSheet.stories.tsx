@@ -32,6 +32,29 @@ const InteractiveBottomSheet = () => {
   );
 };
 
+const InteractiveFullHeightBottomSheet = () => {
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <BottomSheetProvider>
+      <Button onClick={() => setOpened(true)}>Открыть во весь экран</Button>
+      <BottomSheet fullHeight opened={opened} onClosed={() => setOpened(false)}>
+        <Box padding="l">
+          <Stack horizontalAlign="center" spacing="m">
+            <Text align="center" variant="S / Medium">
+              Полноэкранная шторка (fullHeight): без грабера и верхних скруглений, закрывается
+              кнопкой, Escape и системной кнопкой «назад».
+            </Text>
+            <Button fullWidth onClick={() => setOpened(false)}>
+              Закрыть
+            </Button>
+          </Stack>
+        </Box>
+      </BottomSheet>
+    </BottomSheetProvider>
+  );
+};
+
 const meta = {
   component: BottomSheet,
   title: 'Overlays/BottomSheet',
@@ -43,3 +66,7 @@ export default meta;
 type Story = StoryObj<typeof BottomSheet>;
 
 export const Default: Story = {};
+
+export const FullHeight: Story = {
+  render: () => <InteractiveFullHeightBottomSheet />,
+};

@@ -11,6 +11,7 @@ import { ExportView } from '../features/backup/ui/ExportView'
 import { CardCreateView } from '../features/card-create/ui/CardCreateView'
 import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
 import { CardsView } from '../features/cards/ui/CardsView'
+import { KnowledgeView } from '../features/knowledge/ui/KnowledgeView'
 import { ChecksView } from '../features/settings/ui/ChecksView'
 import { AboutView } from '../features/settings/ui/AboutView'
 import { LanguageView } from '../features/settings/ui/LanguageView'
@@ -95,6 +96,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <LanguageView />
     case 'voices':
       return <VoicesView />
+    case 'knowledge':
+      return <KnowledgeView />
     case 'recognition':
       return <RecognitionView />
     case 'checks':
@@ -114,6 +117,7 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'theme' ||
     name === 'language' ||
     name === 'voices' ||
+    name === 'knowledge' ||
     name === 'recognition' ||
     name === 'checks' ||
     name === 'about' ||

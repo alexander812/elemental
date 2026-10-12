@@ -13,6 +13,7 @@ import classes from './index.module.pcss';
 type BottomSheetProps = PropsWithChildren<{
   canClose?: boolean;
   dataTest?: string;
+  fullHeight?: boolean;
   onClosed?: () => void;
   opened: boolean;
 }>;
@@ -25,6 +26,7 @@ const BottomSheet = ({
   canClose = true,
   children,
   dataTest = 'BottomSheet',
+  fullHeight = false,
   onClosed,
   opened,
 }: BottomSheetProps) => {
@@ -151,11 +153,15 @@ const BottomSheet = ({
         onClick={handleOverlayClick}
       />
       <div
-        className={classNames(classes.sheet, entered && classes.sheetOpened)}
+        className={classNames(
+          classes.sheet,
+          entered && classes.sheetOpened,
+          fullHeight && classes.sheetFullHeight,
+        )}
         data-test={dataTest}
         style={sheetStyle}
       >
-        {canClose ? (
+        {canClose && !fullHeight ? (
           <div
             className={classes.header}
             onPointerCancel={handlePointerCancel}
