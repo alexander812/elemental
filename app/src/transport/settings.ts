@@ -11,6 +11,8 @@ export const DEFAULT_SETTINGS: Settings = {
   theme: 'dark',
   userLang: DEFAULT_USER_LANG,
   learnAfterChecks: false,
+  voiceCheckEnabled: true,
+  writeCheckEnabled: false,
 }
 
 type StoredSettings = Partial<Settings>
@@ -24,6 +26,8 @@ export function readSettings(): Settings {
     theme: THEMES.includes(raw.theme as ThemeName) ? (raw.theme as ThemeName) : 'dark',
     userLang: typeof raw.userLang === 'string' && raw.userLang ? raw.userLang : DEFAULT_USER_LANG,
     learnAfterChecks: raw.learnAfterChecks === true,
+    voiceCheckEnabled: raw.voiceCheckEnabled !== false,
+    writeCheckEnabled: raw.writeCheckEnabled === true,
   }
 }
 
@@ -47,4 +51,12 @@ export async function saveUserLang(userLang: LanguageCode): Promise<Settings> {
 
 export async function saveLearnAfterChecks(learnAfterChecks: boolean): Promise<Settings> {
   return saveSettings({ learnAfterChecks })
+}
+
+export async function saveVoiceCheckEnabled(voiceCheckEnabled: boolean): Promise<Settings> {
+  return saveSettings({ voiceCheckEnabled })
+}
+
+export async function saveWriteCheckEnabled(writeCheckEnabled: boolean): Promise<Settings> {
+  return saveSettings({ writeCheckEnabled })
 }

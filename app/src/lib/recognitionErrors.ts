@@ -26,5 +26,10 @@ const ASR_ARTIFACT_ERRORS: Record<string, string> = {
 export const recognizeErrorText = (error: Error) =>
   RECOGNIZE_ERRORS[error.message] ?? 'Не удалось распознать речь'
 
+const SILENT_RECOGNIZE_ERRORS = new Set(['no-speech', 'no_speech', 'timeout'])
+
+export const isSilentRecognitionError = (error: unknown) =>
+  error instanceof Error && SILENT_RECOGNIZE_ERRORS.has(error.message)
+
 export const asrArtifactErrorText = (error: string) =>
   ASR_ARTIFACT_ERRORS[error] ?? recognizeErrorText(new Error(error))

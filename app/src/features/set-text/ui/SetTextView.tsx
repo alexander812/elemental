@@ -577,7 +577,7 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
 
       <ConfirmSheet
         opened={confirmReset}
-        text="Вы уверены, что хотите сбросить это задание к первоначальному состоянию?"
+        text="Вы уверены, что хотите сбросить результаты? Карточки вернутся в невыученные, как будто вы их не трогали."
         onClosed={() => setConfirmReset(false)}
       >
         <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>

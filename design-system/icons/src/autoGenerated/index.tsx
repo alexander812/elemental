@@ -190,6 +190,11 @@ export const IconPalette = createIcon(
   />,
 );
 
+export const IconPlay = createIcon(
+  'IconPlay',
+  <path d="M8 5v14l11-7z" fill="currentColor" />,
+);
+
 export const IconPlusBig = createIcon(
   'IconPlusBig',
   <path
@@ -268,6 +273,11 @@ export const IconStarFilled = createIcon(
     fill="currentColor"
     fillRule="evenodd"
   />,
+);
+
+export const IconStop = createIcon(
+  'IconStop',
+  <path d="M6 6h12v12H6z" fill="currentColor" />,
 );
 
 export const IconSwapVert = createIcon(

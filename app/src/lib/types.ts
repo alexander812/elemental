@@ -47,4 +47,6 @@ export interface Settings {
   theme: ThemeName
   userLang: LanguageCode
   learnAfterChecks: boolean
+  voiceCheckEnabled: boolean
+  writeCheckEnabled: boolean
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from 'react'
 import type { PointerEvent as ReactPointerEvent } from 'react'
 
 import { useUnit } from 'effector-react'
@@ -11,7 +11,9 @@ import {
   IconCheckSmall,
   IconClose,
   IconEducation,
+  IconPlay,
   IconPlusBig,
+  IconStop,
   IconViewList,
 } from '@elemental/icons'
 import {
@@ -29,11 +31,21 @@ import { getCardText } from '../../../lib/cards'
 import { isAnswerCorrect } from '../../../lib/checks'
 import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
-import { recognizeErrorText } from '../../../lib/recognitionErrors'
-import { playError, playSuccess, unlockSounds } from '../../../lib/sounds'
+import { recognizeErrorText, isSilentRecognitionError } from '../../../lib/recognitionErrors'
+import {
+  playDisappointment,
+  playError,
+  playSuccess,
+  playTestSuccess,
+  unlockSounds,
+} from '../../../lib/sounds'
 import type { Card as CardModel } from '../../../lib/types'
 import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
+import { Confetti } from '../../../shared/ui/Confetti'
+import { ExamResults } from '../../../shared/ui/ExamResults'
 import { vibrateError, vibrateLong, vibrateShort, vibrateSuccess } from '../../../transport/haptics'
+import { canRecognize } from '../../../transport/recognition'
+import { setKeepAwake } from '../../../transport/wakeLock'
 import { $languages } from '../../languages/store'
 import { popScreen, pushScreen } from '../../navigation/store'
 import {
@@ -43,22 +55,34 @@ import {
   fetchSetsFx,
   resetSetFx,
   setCardLearnedFx,
+  setSetExamPassedFx,
   updateCardChecksFx,
   $courseLangByLesson,
   $sets,
   $setsLoading,
 } from '../../sets/store'
 import { SetMenu } from '../../sets/ui/SetMenu'
-import { $learnAfterChecks, $userLang } from '../../theme/store'
+import {
+  $learnAfterChecks,
+  $userLang,
+  $voiceCheckEnabled,
+  $writeCheckEnabled,
+} from '../../theme/store'
 import { $asrProgress, ensureAsrReadyFx } from '../../../shared/ui/RecognitionSheet'
 import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx, speakFx } from '../store'
 import { FlashCard } from './FlashCard'
 import type { CheckStatus, DragPos, Leaving } from './FlashCard'
 
+import classes from './CardsView.module.pcss'
+
 const SWIPE_THRESHOLD = 110
 const UP_THRESHOLD = 110
 const LEAVE_MS = 260
 const DECK_DEPTH = 3
+const AUTO_DELAY_MS = 1000
+const TEST_VERDICT_MS = 1200
+const TEST_MAX_ATTEMPTS = 3
+const MIC_FLASH_MS = 2000
 
 const SPEAK_ERRORS: Record<string, string> = {
   language_not_supported: 'Нет голоса для этого языка',
@@ -70,6 +94,8 @@ const SPEAK_ERRORS: Record<string, string> = {
 const speakErrorText = (error: Error) => SPEAK_ERRORS[error.message] ?? 'Не удалось озвучить'
 
 const now = (): number => Date.now()
+
+const noop = () => undefined
 
 type Filter = 'learned' | 'unlearned'
 
@@ -86,6 +112,16 @@ export function CardsView({ setId }: { setId: string }) {
   const [leaving, setLeaving] = useState<Leaving | null>(null)
   const [checkStatus, setCheckStatus] = useState<(CheckStatus & { cardId: string }) | null>(null)
   const [listeningCardId, setListeningCardId] = useState<string | null>(null)
+  const [micFlash, setMicFlash] = useState<{ cardId: string; kind: 'error' | 'success' } | null>(
+    null
+  )
+  const [testMode, setTestMode] = useState(false)
+  const [testIndex, setTestIndex] = useState(0)
+  const [testResults, setTestResults] = useState<boolean[]>([])
+  const [testStatus, setTestStatus] = useState<CheckStatus | null>(null)
+  const [testAuto, setTestAuto] = useState(false)
+  const [testAutoTick, setTestAutoTick] = useState(0)
+  const [testManualTick, setTestManualTick] = useState(0)
 
   const deleteSetPending = useUnit(deleteSetFx.pending)
   const resetPending = useUnit(resetSetFx.pending)
@@ -95,13 +131,27 @@ export function CardsView({ setId }: { setId: string }) {
   const languages = useUnit($languages)
   const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const voiceCheckEnabled = useUnit($voiceCheckEnabled)
+  const writeCheckEnabled = useUnit($writeCheckEnabled)
 
   const dragRef = useRef<DragPos | null>(null)
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const autoLearnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const micFlashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const topCardIdRef = useRef<string | null>(null)
   const movedRef = useRef(false)
   const lastTouchRef = useRef(0)
+  const testModeRef = useRef(false)
+  const testIndexRef = useRef(0)
+  const testResultsRef = useRef<boolean[]>([])
+  const testAttemptRef = useRef(1)
+  const testAnsweredRef = useRef(false)
+  const testCelebratedRef = useRef(false)
+  const testAdvancingRef = useRef(false)
+  const testAutoRef = useRef(false)
+  const testAutoCardRef = useRef<string | null>(null)
+  const testCardIdRef = useRef<string | null>(null)
 
   useEffect(() => {
     fetchSetsFx()
@@ -109,8 +159,15 @@ export function CardsView({ setId }: { setId: string }) {
 
   useEffect(() => {
     return () => {
+      testModeRef.current = false
+      testAutoRef.current = false
+
       if (leavingTimerRef.current) clearTimeout(leavingTimerRef.current)
       if (autoLearnTimerRef.current) clearTimeout(autoLearnTimerRef.current)
+      if (micFlashTimerRef.current) clearTimeout(micFlashTimerRef.current)
+      if (advanceTimerRef.current) clearTimeout(advanceTimerRef.current)
+
+      if (recognizeFx.pending.getState()) cancelRecognizeFx()
     }
   }, [])
 
@@ -156,6 +213,23 @@ export function CardsView({ setId }: { setId: string }) {
   const allSwiped = displayedQueue.length === 0
   const noCards = set ? set.cards.every((card) => card.deleted) : true
 
+  const testQueue = useMemo(
+    () =>
+      set
+        ? set.cards
+            .filter((card) => !card.deleted && getCardText(card, courseLang).text.trim().length > 0)
+            .map((card) => card.id)
+        : [],
+    [set, courseLang]
+  )
+
+  const testCardId = testIndex < testQueue.length ? testQueue[testIndex] : undefined
+  const testFinished = testMode && testQueue.length > 0 && testIndex >= testQueue.length
+
+  useEffect(() => {
+    testCardIdRef.current = testCardId ?? null
+  }, [testCardId])
+
   const commitLeave = (action: Leaving['action'], cardId: string) => {
     setLeaving(null)
     setCheckStatus(null)
@@ -191,13 +265,26 @@ export function CardsView({ setId }: { setId: string }) {
     autoLearnTimerRef.current = null
   }
 
-  const startLeave = (action: Leaving['action'], dragPos: DragPos, cardId = topCard?.id) => {
+  const startLeave = (
+    action: Leaving['action'],
+    dragPos: DragPos,
+    cardId = topCard?.id,
+    skipHaptic = false,
+    onCommitted?: () => void
+  ) => {
     if (!cardId) return
 
     cancelAutoLearn()
 
-    if (action === 'later') vibrateShort()
-    if (action === 'learned') vibrateLong()
+    if (micFlashTimerRef.current) clearTimeout(micFlashTimerRef.current)
+
+    micFlashTimerRef.current = null
+    setMicFlash((current) => (current?.cardId === cardId ? null : current))
+
+    if (!skipHaptic) {
+      if (action === 'later') vibrateShort()
+      if (action === 'learned') vibrateLong()
+    }
 
     const leave: Leaving = {
       id: cardId,
@@ -217,12 +304,27 @@ export function CardsView({ setId }: { setId: string }) {
     })
 
     leavingTimerRef.current = setTimeout(() => {
-      commitLeave(action, cardId)
+      if (onCommitted) {
+        onCommitted()
+      } else {
+        commitLeave(action, cardId)
+      }
     }, LEAVE_MS)
   }
 
   const showCheckStatus = (cardId: string, kind: CheckStatus['kind'], message: string) => {
     setCheckStatus({ cardId, kind, message })
+  }
+
+  const flashMic = (cardId: string, kind: 'error' | 'success') => {
+    if (micFlashTimerRef.current) clearTimeout(micFlashTimerRef.current)
+
+    setMicFlash({ cardId, kind })
+
+    micFlashTimerRef.current = setTimeout(() => {
+      micFlashTimerRef.current = null
+      setMicFlash((current) => (current?.cardId === cardId ? null : current))
+    }, MIC_FLASH_MS)
   }
 
   const scheduleAutoLearn = (cardId: string) => {
@@ -237,6 +339,307 @@ export function CardsView({ setId }: { setId: string }) {
 
       startLeave('learned', { x: 0, y: 0, startX: 0, startY: 0, pointerId: -1 }, cardId)
     }, 2000)
+  }
+
+  const resetTestTimers = () => {
+    if (advanceTimerRef.current) {
+      clearTimeout(advanceTimerRef.current)
+      advanceTimerRef.current = null
+    }
+  }
+
+  const resetTestProgress = () => {
+    resetTestTimers()
+    testIndexRef.current = 0
+    testResultsRef.current = []
+    testAttemptRef.current = 1
+    testAnsweredRef.current = false
+    testCelebratedRef.current = false
+    testAdvancingRef.current = false
+    testAutoCardRef.current = null
+    setTestIndex(0)
+    setTestResults([])
+    setTestStatus(null)
+  }
+
+  const stopTestAuto = () => {
+    if (!testAutoRef.current) return
+
+    testAutoRef.current = false
+    setTestAuto(false)
+    setListeningCardId(null)
+
+    if (recognizeFx.pending.getState()) cancelRecognizeFx()
+  }
+
+  const markTestAnswered = () => {
+    if (testAnsweredRef.current) return
+
+    testAnsweredRef.current = true
+
+    if (set?.examPassed) setSetExamPassedFx({ setId, examPassed: false })
+  }
+
+  const applyTestVerdict = (cardId: string, passed: boolean, message: string) => {
+    if (testAdvancingRef.current) return
+
+    testAdvancingRef.current = true
+    markTestAnswered()
+
+    testResultsRef.current = [...testResultsRef.current, passed]
+    setTestResults(testResultsRef.current)
+    setTestStatus({ kind: passed ? 'success' : 'error', message })
+
+    advanceTimerRef.current = setTimeout(() => {
+      advanceTimerRef.current = null
+
+      startLeave(
+        passed ? 'learned' : 'later',
+        { x: 0, y: 0, startX: 0, startY: 0, pointerId: -1 },
+        cardId,
+        true,
+        noop
+      )
+
+      advanceTimerRef.current = setTimeout(() => {
+        advanceTimerRef.current = null
+        testAdvancingRef.current = false
+        setTestStatus(null)
+        testAttemptRef.current = 1
+        setLeaving(null)
+        testIndexRef.current += 1
+        setTestIndex(testIndexRef.current)
+      }, LEAVE_MS)
+    }, TEST_VERDICT_MS)
+  }
+
+  const runTestCheck = useEffectEvent(async (cardId: string) => {
+    if (!testModeRef.current || testCardIdRef.current !== cardId || testAdvancingRef.current) return
+
+    const card = byId.get(cardId)
+
+    if (!card) return
+
+    const expected = getCardText(card, courseLang).text.trim()
+
+    if (!expected) return
+
+    const ready = await ensureAsrReadyFx(courseLang)
+
+    if (!testModeRef.current || testCardIdRef.current !== cardId) return
+
+    if (!ready) {
+      stopTestAuto()
+      return
+    }
+
+    unlockSounds()
+    setListeningCardId(cardId)
+
+    try {
+      const assessment = await recognizeFx({
+        cardId,
+        lang: courseLang,
+        side: 'front',
+        text: expected,
+      })
+
+      if (!testModeRef.current || testCardIdRef.current !== cardId || testAdvancingRef.current) {
+        return
+      }
+
+      markTestAnswered()
+
+      if (assessment.verdict === 'good') {
+        flashMic(cardId, 'success')
+        playSuccess()
+        vibrateSuccess()
+        applyTestVerdict(cardId, true, 'Принятно!')
+        return
+      }
+
+      flashMic(cardId, 'error')
+      playError()
+      vibrateError()
+
+      const attempt = testAttemptRef.current
+      const attemptsLeft = TEST_MAX_ATTEMPTS - attempt
+
+      const message = `Ошибка! Услышано "${assessment.transcript}", нужно ${expected}`
+
+      if (attemptsLeft <= 0) {
+        applyTestVerdict(cardId, false, message)
+        return
+      }
+
+      testAttemptRef.current = attempt + 1
+      setTestStatus({ kind: 'error', message: `${message}. Осталось попыток: ${attemptsLeft}` })
+
+      if (testAutoRef.current) setTestAutoTick((value) => value + 1)
+    } catch (error) {
+      if (isRecognizeCancelled(error)) return
+      if (!testModeRef.current || testCardIdRef.current !== cardId || testAdvancingRef.current) {
+        return
+      }
+
+      if (isSilentRecognitionError(error)) {
+        if (testAutoRef.current) setTestAutoTick((value) => value + 1)
+        return
+      }
+
+      playError()
+      vibrateError()
+      setTestStatus({
+        kind: 'error',
+        message: recognizeErrorText(
+          error instanceof Error ? error : new Error('recognition_failed')
+        ),
+      })
+
+      if (testAutoRef.current) setTestAutoTick((value) => value + 1)
+    } finally {
+      if (testModeRef.current) setListeningCardId(null)
+    }
+  })
+
+  useEffect(() => {
+    if (!testMode || !testAuto || !testCardId || testFinished) return
+
+    if (testAutoCardRef.current !== testCardId) {
+      testAutoCardRef.current = testCardId
+      testAttemptRef.current = 1
+    }
+
+    const timer = setTimeout(() => {
+      runTestCheck(testCardId)
+    }, AUTO_DELAY_MS)
+
+    return () => clearTimeout(timer)
+  }, [testMode, testAuto, testCardId, testAutoTick, testFinished])
+
+  useEffect(() => {
+    if (testManualTick === 0) return
+
+    const cardId = testCardIdRef.current
+
+    if (cardId) runTestCheck(cardId)
+  }, [testManualTick])
+
+  useEffect(() => {
+    if (!testMode || !testFinished || testCelebratedRef.current) return
+
+    testCelebratedRef.current = true
+
+    const passed =
+      testResultsRef.current.length === testQueue.length && testResultsRef.current.every(Boolean)
+
+    if (passed) {
+      playTestSuccess()
+    } else {
+      playDisappointment()
+    }
+
+    setSetExamPassedFx({ setId, examPassed: passed })
+  }, [testMode, testFinished, testQueue.length, setId])
+
+  useEffect(() => {
+    if (!voiceCheckEnabled && testAutoRef.current) stopTestAuto()
+  }, [voiceCheckEnabled])
+
+  useEffect(() => {
+    if (!testMode) return
+
+    void setKeepAwake(true)
+
+    return () => {
+      void setKeepAwake(false)
+    }
+  }, [testMode])
+
+  const handleTestAutoToggle = () => {
+    if (testAutoRef.current) {
+      stopTestAuto()
+      return
+    }
+
+    if (recognizeFx.pending.getState()) cancelRecognizeFx()
+    if (testAdvancingRef.current || !testCardId) return
+
+    testAttemptRef.current = 1
+    testAutoCardRef.current = testCardId
+    setTestStatus(null)
+    testAutoRef.current = true
+    setTestAuto(true)
+  }
+
+  const handleTestVoiceCheck = () => {
+    if (testAutoRef.current) {
+      stopTestAuto()
+      return
+    }
+
+    if (recognizing) {
+      cancelRecognizeFx()
+      return
+    }
+
+    if (!testCardId || testAdvancingRef.current) return
+
+    setTestManualTick((value) => value + 1)
+  }
+
+  const handleStartTest = () => {
+    cancelAutoLearn()
+
+    if (leavingTimerRef.current) {
+      clearTimeout(leavingTimerRef.current)
+      leavingTimerRef.current = null
+    }
+
+    if (recognizeFx.pending.getState()) cancelRecognizeFx()
+
+    resetTestProgress()
+    setCheckStatus(null)
+    setMicFlash(null)
+    setLeaving(null)
+    setDrag(null)
+    dragRef.current = null
+    setFlipped({})
+    testModeRef.current = true
+    setTestMode(true)
+  }
+
+  const handleExitTest = () => {
+    stopTestAuto()
+
+    if (leavingTimerRef.current) {
+      clearTimeout(leavingTimerRef.current)
+      leavingTimerRef.current = null
+    }
+
+    resetTestProgress()
+    testModeRef.current = false
+    setTestMode(false)
+    setLeaving(null)
+    setListeningCardId(null)
+    setCheckStatus(null)
+    setMicFlash(null)
+  }
+
+  const handleRetakeTest = () => {
+    stopTestAuto()
+
+    if (leavingTimerRef.current) {
+      clearTimeout(leavingTimerRef.current)
+      leavingTimerRef.current = null
+    }
+
+    if (recognizeFx.pending.getState()) cancelRecognizeFx()
+
+    resetTestProgress()
+    setLeaving(null)
+    setCheckStatus(null)
+    setMicFlash(null)
   }
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
@@ -321,6 +724,7 @@ export function CardsView({ setId }: { setId: string }) {
 
   const handleFlip = () => {
     if (!topCard || leaving || movedRef.current) return
+
     setFlipped((prev) => ({ ...prev, [topCard.id]: !prev[topCard.id] }))
   }
 
@@ -388,12 +792,6 @@ export function CardsView({ setId }: { setId: string }) {
     pushScreen({ name: 'card-create', setId })
   }
 
-  const handleStartExam = () => {
-    cancelAutoLearn()
-    setCheckStatus(null)
-    pushScreen({ name: 'set-exam', setId })
-  }
-
   const handleEditCard = (cardId: string) => {
     pushScreen({ name: 'card-create', setId, cardId })
   }
@@ -428,6 +826,8 @@ export function CardsView({ setId }: { setId: string }) {
 
       await updateCardChecksFx({ setId, cardId: topCard.id, checks: { voiceCheck: passed } })
 
+      flashMic(topCard.id, passed ? 'success' : 'error')
+
       if (passed) {
         playSuccess()
         vibrateSuccess()
@@ -442,11 +842,14 @@ export function CardsView({ setId }: { setId: string }) {
         )
       }
 
-      if (passed && learnAfterChecks && topCard.writeCheck === true) {
+      const writeReady = !writeCheckEnabled || topCard.writeCheck === true
+
+      if (passed && learnAfterChecks && writeReady) {
         scheduleAutoLearn(topCard.id)
       }
     } catch (error) {
       if (isRecognizeCancelled(error)) return
+      if (isSilentRecognitionError(error)) return
 
       playError()
       vibrateError()
@@ -483,7 +886,9 @@ export function CardsView({ setId }: { setId: string }) {
       showCheckStatus(topCard.id, 'error', `Ошибка! Нужно ${expected}, ваш текст ${value}`)
     }
 
-    if (passed && learnAfterChecks && topCard.voiceCheck === true) {
+    const voiceReady = !voiceCheckEnabled || topCard.voiceCheck === true
+
+    if (passed && learnAfterChecks && voiceReady) {
       scheduleAutoLearn(topCard.id)
     }
   }
@@ -533,7 +938,13 @@ export function CardsView({ setId }: { setId: string }) {
     )
   }
 
-  const deckCards = displayedQueue.slice(0, DECK_DEPTH)
+  const learnDeck = displayedQueue.slice(0, DECK_DEPTH)
+  const testDeck = testQueue.slice(testIndex, testIndex + DECK_DEPTH)
+
+  const testCorrectCount = testResults.filter(Boolean).length
+  const testErrorCount = testResults.length - testCorrectCount
+  const testPassed = testResults.length === testQueue.length && testResults.every(Boolean)
+  const voiceReady = voiceCheckEnabled && canRecognize()
 
   const finishedUnlearned = !isLearnedFilter && allSwiped && unlearnedCount === 0
   const finishedWithRestart = !isLearnedFilter && allSwiped && unlearnedCount > 0
@@ -544,49 +955,100 @@ export function CardsView({ setId }: { setId: string }) {
       <Header
         back
         endToolbar={
-          <SetMenu
-            setId={setId}
-            swapped={set.swapped}
-            onDeleteCards={handleDeleteAll}
-            onDeleteSet={() => setConfirmDelete(true)}
-            onResetSet={() => setConfirmReset(true)}
-          />
+          testMode ? undefined : (
+            <SetMenu
+              setId={setId}
+              swapped={set.swapped}
+              onAddCard={handleAddWord}
+              onDeleteCards={handleDeleteAll}
+              onDeleteSet={() => setConfirmDelete(true)}
+              onResetSet={() => setConfirmReset(true)}
+            />
+          )
         }
-        text={set.name}
-        onBackClick={() => popScreen()}
+        text={testMode ? 'Тест' : set.name}
+        onBackClick={testMode ? handleExitTest : () => popScreen()}
       />
 
       <Box grow padding="m">
         <Stack spacing="l" height="100%">
-          <Stack direction="row" horizontalAlign="space-between">
-            <Button
-              checked={isLearnedFilter}
-              color="neutral"
-              startIcon={<IconCheckSmall fontSize={16} />}
-              variant="secondary"
-              onClick={() => handleFilterChange('learned')}
-            >
-              {learnedCount}
-            </Button>
-            <ButtonIcon
-              ariaLabel="Текст задания"
-              color="neutral"
-              icon={<IconViewList fontSize={24} />}
-              variant="secondary"
-              onClick={handleOpenSetText}
-            />
-            <Button
-              checked={!isLearnedFilter}
-              color="neutral"
-              startIcon={<IconClose fontSize={16} />}
-              variant="secondary"
-              onClick={() => handleFilterChange('unlearned')}
-            >
-              {unlearnedCount}
-            </Button>
-          </Stack>
+          {!testMode ? (
+            <Stack direction="row" horizontalAlign="space-between">
+              <Button
+                checked={isLearnedFilter}
+                color="neutral"
+                startIcon={<IconCheckSmall fontSize={16} />}
+                variant="secondary"
+                onClick={() => handleFilterChange('learned')}
+              >
+                {learnedCount}
+              </Button>
+              <ButtonIcon
+                ariaLabel="Текст задания"
+                color="neutral"
+                icon={<IconViewList fontSize={24} />}
+                variant="secondary"
+                onClick={handleOpenSetText}
+              />
+              <Button
+                checked={!isLearnedFilter}
+                color="neutral"
+                startIcon={<IconClose fontSize={16} />}
+                variant="secondary"
+                onClick={() => handleFilterChange('unlearned')}
+              >
+                {unlearnedCount}
+              </Button>
+            </Stack>
+          ) : null}
 
-          {confirmDelete ? (
+          {testMode ? (
+            testFinished ? (
+              <ExamResults
+                correctCount={testCorrectCount}
+                errorCount={testErrorCount}
+                passed={testPassed}
+                onBack={handleExitTest}
+                onRetake={handleRetakeTest}
+              />
+            ) : testQueue.length === 0 ? (
+              <EmptyScreen
+                fullHeight
+                icon={<IconEducation fontSize={24} />}
+                text="Нет карточек для теста"
+              />
+            ) : (
+              <Box grow position="relative" minHeight={280}>
+                {testDeck.map((id, index) => {
+                  const card = byId.get(id)
+                  if (!card) return null
+
+                  return (
+                    <FlashCard
+                      key={id}
+                      asrProgress={asrProgress}
+                      backText=""
+                      checkStatus={testCardId === id ? testStatus : null}
+                      depth={index}
+                      drag={null}
+                      flipped={false}
+                      frontText={getCardText(card, userLang).text}
+                      interactive={index === 0}
+                      leaving={leaving?.id === id ? leaving : null}
+                      listening={listeningCardId === id}
+                      micFlash={micFlash?.cardId === id ? micFlash.kind : null}
+                      onVoiceCheck={handleTestVoiceCheck}
+                      testMode
+                      voiceCheckEnabled={voiceCheckEnabled}
+                      writeCheck={card.writeCheck}
+                      writeCheckEnabled={false}
+                      writePlaceholder={getLanguageName(courseLang, languages)}
+                    />
+                  )
+                })}
+              </Box>
+            )
+          ) : confirmDelete ? (
             <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
               <Text align="center" color="contrast-secondary" variant="S / Medium">
                 Удалить задание «{set.name}» со всеми карточками?
@@ -647,7 +1109,7 @@ export function CardsView({ setId }: { setId: string }) {
             />
           ) : (
             <Box grow position="relative" minHeight={280}>
-              {deckCards.map((id, index) => {
+              {learnDeck.map((id, index) => {
                 const card = byId.get(id)
                 if (!card) return null
 
@@ -657,20 +1119,12 @@ export function CardsView({ setId }: { setId: string }) {
                 return (
                   <FlashCard
                     key={id}
+                    asrProgress={asrProgress}
                     backText={back.text}
                     checkStatus={
                       checkStatus?.cardId === id
                         ? { kind: checkStatus.kind, message: checkStatus.message }
-                        : listeningCardId === id
-                          ? {
-                              dots: asrProgress === null,
-                              kind: 'listening',
-                              message:
-                                asrProgress === null
-                                  ? 'говорите'
-                                  : `Загружаю распознавание речи… ${Math.round(asrProgress * 100)}%`,
-                            }
-                          : null
+                        : null
                     }
                     depth={index}
                     drag={index === 0 ? drag : null}
@@ -678,6 +1132,8 @@ export function CardsView({ setId }: { setId: string }) {
                     frontText={front.text}
                     interactive={index === 0}
                     leaving={leaving?.id === id ? leaving : null}
+                    listening={listeningCardId === id}
+                    micFlash={micFlash?.cardId === id ? micFlash.kind : null}
                     onEdit={() => handleEditCard(id)}
                     onFlip={handleFlip}
                     onPointerCancel={handlePointerCancel}
@@ -688,9 +1144,10 @@ export function CardsView({ setId }: { setId: string }) {
                     onSpeakFront={() => handleSpeak(front.text, front.lang)}
                     onVoiceCheck={handleVoiceCheck}
                     onWriteCheck={handleWriteCheck}
-                    recognizing={recognizing}
-                    voiceCheck={card.voiceCheck}
+                    testMode={false}
+                    voiceCheckEnabled={voiceCheckEnabled}
                     writeCheck={card.writeCheck}
+                    writeCheckEnabled={writeCheckEnabled}
                     writePlaceholder={getLanguageName(courseLang, languages)}
                   />
                 )
@@ -698,7 +1155,7 @@ export function CardsView({ setId }: { setId: string }) {
             </Box>
           )}
 
-          {!noCards && !confirmDelete && (
+          {!testMode && !noCards && !confirmDelete && (
             <Stack direction="row" horizontalAlign="center" spacing="m" verticalAlign="center">
               <Stack direction="row" spacing="xs" verticalAlign="center">
                 <IconArrowLeft color="var(--positive-text-and-icons)" fontSize={16} />
@@ -721,28 +1178,48 @@ export function CardsView({ setId }: { setId: string }) {
             </Stack>
           )}
 
-          {!noCards && !confirmDelete && unlearnedCount === 0 ? (
-            <Button fullWidth startIcon={<IconEducation fontSize={16} />} onClick={handleStartExam}>
-              Экзамен
+          {testMode && !testFinished && testQueue.length > 0 && !voiceReady ? (
+            <Text align="center" color="contrast-secondary" variant="S / Medium">
+              {voiceCheckEnabled
+                ? 'Распознавание речи недоступно на устройстве'
+                : 'Распознавание речи отключено в настройках'}
+            </Text>
+          ) : null}
+
+          {!testMode && !noCards && !confirmDelete ? (
+            <Button fullWidth startIcon={<IconEducation fontSize={16} />} onClick={handleStartTest}>
+              Тест
             </Button>
           ) : null}
 
-          {!noCards && !confirmDelete && unlearnedCount > 0 ? (
-            <Button
-              fullWidth
-              startIcon={<IconPlusBig fontSize={16} />}
-              variant="secondary"
-              onClick={handleAddWord}
-            >
-              Добавить
-            </Button>
+          {testMode && !testFinished ? (
+            <Stack direction="row" spacing="m" verticalAlign="center">
+              <Button fullWidth onClick={handleExitTest}>
+                Отмена
+              </Button>
+              {testQueue.length > 0 && voiceReady ? (
+                <div className={testAuto ? classes.blink : undefined}>
+                  <ButtonIcon
+                    ariaLabel={
+                      testAuto
+                        ? 'Остановить автоматический режим'
+                        : 'Запустить автоматический режим'
+                    }
+                    icon={testAuto ? <IconStop fontSize={24} /> : <IconPlay fontSize={24} />}
+                    size="m"
+                    variant="secondary"
+                    onClick={handleTestAutoToggle}
+                  />
+                </div>
+              ) : null}
+            </Stack>
           ) : null}
         </Stack>
       </Box>
 
       <ConfirmSheet
         opened={confirmReset}
-        text="Вы уверены, что хотите сбросить это задание к первоначальному состоянию?"
+        text="Вы уверены, что хотите сбросить результаты? Карточки вернутся в невыученные, как будто вы их не трогали."
         onClosed={() => setConfirmReset(false)}
       >
         <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
@@ -752,6 +1229,7 @@ export function CardsView({ setId }: { setId: string }) {
           Отмена
         </Button>
       </ConfirmSheet>
+      {testMode && testFinished && testPassed ? <Confetti /> : null}
     </Box>
   )
 }

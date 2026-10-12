@@ -200,19 +200,41 @@ export function downloadAsr(id: string): Promise<void> {
   return callNative('downloadAsr', { id }).then(() => undefined)
 }
 
+function withTimeout(promise: Promise<RecognitionResult>): Promise<RecognitionResult> {
+  return new Promise<RecognitionResult>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      cancelRecognition()
+      reject(new Error('no-speech'))
+    }, RECOGNITION_TIMEOUT_MS)
+
+    promise.then(
+      (result) => {
+        clearTimeout(timer)
+        resolve(result)
+      },
+      (error) => {
+        clearTimeout(timer)
+        reject(error)
+      }
+    )
+  })
+}
+
 export function recognize(lang: LanguageCode): Promise<RecognitionResult> {
   if (isNativeBridgeAvailable()) {
-    return callNative<RecognitionResult>('recognizeSpeech', { lang }).then(
-      (result) => ({
-        alternatives: Array.isArray(result?.alternatives) ? result.alternatives : [],
-        confidence: typeof result?.confidence === 'number' ? result.confidence : null,
-        transcript: result?.transcript ?? '',
-      }),
-      (error: unknown) => {
-        console.warn('[recognition] native recognize failed', error)
+    return withTimeout(
+      callNative<RecognitionResult>('recognizeSpeech', { lang }).then(
+        (result) => ({
+          alternatives: Array.isArray(result?.alternatives) ? result.alternatives : [],
+          confidence: typeof result?.confidence === 'number' ? result.confidence : null,
+          transcript: result?.transcript ?? '',
+        }),
+        (error: unknown) => {
+          console.warn('[recognition] native recognize failed', error)
 
-        throw error
-      }
+          throw error
+        }
+      )
     )
   }
 

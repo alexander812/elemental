@@ -26,6 +26,59 @@ export function unlockSounds(): void {
   if (audioContext && audioContext.state === 'suspended') {
     void audioContext.resume()
   }
+
+  preloadTestSuccess()
+}
+
+const TEST_SUCCESS_URL = `${import.meta.env.BASE_URL}sounds/test-success.mp3`
+
+let testSuccessRequest: Promise<AudioBuffer | null> | null = null
+
+const loadTestSuccess = (audioContext: AudioContext): Promise<AudioBuffer | null> => {
+  if (!testSuccessRequest) {
+    testSuccessRequest = fetch(TEST_SUCCESS_URL)
+      .then((response) => {
+        if (!response.ok) throw new Error('sound_failed')
+
+        return response.arrayBuffer()
+      })
+      .then((data) => audioContext.decodeAudioData(data))
+      .catch(() => null)
+  }
+
+  return testSuccessRequest
+}
+
+export function preloadTestSuccess(): void {
+  const audioContext = getAudioContext()
+
+  if (audioContext) void loadTestSuccess(audioContext)
+}
+
+export function playTestSuccess(): void {
+  const audioContext = getAudioContext()
+
+  if (!audioContext) {
+    playSalute()
+    return
+  }
+
+  if (audioContext.state === 'suspended') {
+    void audioContext.resume()
+  }
+
+  void loadTestSuccess(audioContext).then((buffer) => {
+    if (!buffer) {
+      playSalute()
+      return
+    }
+
+    const source = audioContext.createBufferSource()
+
+    source.buffer = buffer
+    source.connect(audioContext.destination)
+    source.start()
+  })
 }
 
 type Tone = {

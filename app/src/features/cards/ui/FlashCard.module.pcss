@@ -34,17 +34,36 @@
   }
 }
 
-.actionButtonActive {
-  color: var(--negative-text-and-icons);
-  opacity: 1;
-  animation: microphonePulse 1.2s ease-in-out infinite;
-}
-
 .cardChecks {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
+}
+
+.messageSlot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 40px;
+}
+
+.hintSlot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 20px;
+}
+
+.message {
+  max-width: 100%;
+  padding: 6px 12px;
+  border: 1px solid var(--contrast-tertiary);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--contrast-primary);
 }
 
 .checkButton {

@@ -4,6 +4,7 @@ import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react'
 import { useUnit } from 'effector-react'
 
 import {
+  IconCheck,
   IconCheckSmall,
   IconClose,
   IconEdit,
@@ -17,7 +18,6 @@ import {
   Button,
   ButtonIcon,
   Card,
-  Chip,
   EmptyScreen,
   Header,
   Menu,
@@ -42,7 +42,8 @@ import {
 const ROW_HEIGHT = 64
 const ROW_GAP = 8
 const ROW_STEP = ROW_HEIGHT + ROW_GAP
-const TRASH_WIDTH = 96
+const ACTION_WIDTH = 72
+const REVEAL_WIDTH = ACTION_WIDTH * 2
 const LONG_PRESS_MS = 420
 const MOVE_SLOP = 10
 
@@ -195,7 +196,7 @@ function SetRow({
     }
 
     if (phase === 'swipe') {
-      setDx(clamp(startDx + event.clientX - x, 0, TRASH_WIDTH))
+      setDx(clamp(startDx + event.clientX - x, 0, REVEAL_WIDTH))
       return
     }
 
@@ -225,7 +226,7 @@ function SetRow({
 
     if (phase === 'swipe') {
       setPhase('idle')
-      const nextDx = dx > TRASH_WIDTH / 2 ? TRASH_WIDTH : 0
+      const nextDx = dx > REVEAL_WIDTH / 2 ? REVEAL_WIDTH : 0
       setDx(nextDx)
       onOpen(nextDx > 0 ? set.id : null)
       return
@@ -282,19 +283,49 @@ function SetRow({
           left: 0,
           top: 0,
           bottom: 0,
-          width: TRASH_WIDTH,
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          width: REVEAL_WIDTH,
+          overflow: 'hidden',
           borderRadius: 12,
-          background: 'var(--negative-bg-default)',
-          color: 'var(--negative-over)',
-          cursor: 'pointer',
-          opacity: clamp(dx / TRASH_WIDTH, 0, 1),
+          opacity: clamp(dx / REVEAL_WIDTH, 0, 1),
         }}
-        onClick={() => onDelete(set.id)}
       >
-        <IconTrash fontSize={24} />
+        <button
+          aria-label="Удалить задание"
+          style={{
+            display: 'flex',
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 0,
+            border: 'none',
+            background: 'var(--negative-bg-default)',
+            color: 'var(--negative-over)',
+            cursor: 'pointer',
+          }}
+          type="button"
+          onClick={() => onDelete(set.id)}
+        >
+          <IconTrash fontSize={24} />
+        </button>
+        <button
+          aria-label="Редактировать задание"
+          style={{
+            display: 'flex',
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 0,
+            border: 'none',
+            background: 'var(--accent-bg-default)',
+            color: 'var(--accent-over)',
+            cursor: 'pointer',
+          }}
+          type="button"
+          onClick={() => onEdit(set)}
+        >
+          <IconEdit fontSize={24} />
+        </button>
       </div>
       <div
         style={contentStyle}
@@ -308,39 +339,25 @@ function SetRow({
           <Stack direction="row" spacing="m" verticalAlign="center" height="100%">
             <Stack direction="row" grow minWidth={0} spacing="xs" verticalAlign="center">
               {set.examPassed ? (
-                <IconCheckSmall color="var(--positive-text-and-icons)" fontSize={16} />
+                <IconCheck color="var(--positive-text-and-icons)" fontSize={24} />
               ) : null}
               <Text overflow="ellipsis" variant="M / Medium">
                 {set.name}
               </Text>
             </Stack>
-            <Stack direction="row" shrink={0} spacing="xs" verticalAlign="center">
-              <Chip
-                color="onAccent"
-                label={String(learned)}
-                size="s"
-                startIcon={<IconCheckSmall color="var(--accent-over)" fontSize={16} />}
-                variant="outlined"
-              />
-              <Chip
-                color="onAccent"
-                label={String(notLearned)}
-                size="s"
-                startIcon={<IconClose color="var(--accent-over)" fontSize={16} />}
-                variant="outlined"
-              />
-              <ButtonIcon
-                ariaLabel="Изменить задание"
-                color="onAccent"
-                icon={<IconEdit fontSize={24} />}
-                size="s"
-                variant="flat"
-                onClick={(event) => {
-                  event.stopPropagation()
-                  onEdit(set)
-                }}
-                onPointerDown={(event) => event.stopPropagation()}
-              />
+            <Stack shrink={0} spacing="xxs" horizontalAlign="end">
+              <Stack direction="row" spacing="xxs" verticalAlign="center">
+                <IconCheckSmall color="var(--accent-over)" fontSize={16} />
+                <Text color="accent-over" variant="S Compact / Medium">
+                  {learned}
+                </Text>
+              </Stack>
+              <Stack direction="row" spacing="xxs" verticalAlign="center">
+                <IconClose color="var(--accent-over)" fontSize={16} />
+                <Text color="accent-over" variant="S Compact / Medium">
+                  {notLearned}
+                </Text>
+              </Stack>
             </Stack>
           </Stack>
         </Card>

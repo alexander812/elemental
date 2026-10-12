@@ -6,6 +6,7 @@ const PRECACHE = [
   'icons/emblem.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',
+  'sounds/test-success.mp3',
 ];
 
 self.addEventListener('install', (event) => {

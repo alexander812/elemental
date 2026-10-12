@@ -3,7 +3,7 @@ import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react'
 
 import { useUnit } from 'effector-react'
 
-import { IconCheckSmall, IconEdit, IconEducation, IconMoreVertical, IconPlusBig, IconTrash } from '@elemental/icons'
+import { IconCheck, IconEdit, IconEducation, IconMoreVertical, IconPlusBig, IconTrash } from '@elemental/icons'
 import {
   Box,
   Button,
@@ -28,7 +28,8 @@ import { deleteLessonFx, fetchLessonsFx, reorderLessonsFx, $lessons, $lessonsLoa
 const ROW_HEIGHT = 64
 const ROW_GAP = 8
 const ROW_STEP = ROW_HEIGHT + ROW_GAP
-const TRASH_WIDTH = 96
+const ACTION_WIDTH = 72
+const REVEAL_WIDTH = ACTION_WIDTH * 2
 const LONG_PRESS_MS = 420
 const MOVE_SLOP = 10
 
@@ -175,7 +176,7 @@ function LessonRow({
     }
 
     if (phase === 'swipe') {
-      setDx(clamp(startDx + event.clientX - x, 0, TRASH_WIDTH))
+      setDx(clamp(startDx + event.clientX - x, 0, REVEAL_WIDTH))
       return
     }
 
@@ -205,7 +206,7 @@ function LessonRow({
 
     if (phase === 'swipe') {
       setPhase('idle')
-      const nextDx = dx > TRASH_WIDTH / 2 ? TRASH_WIDTH : 0
+      const nextDx = dx > REVEAL_WIDTH / 2 ? REVEAL_WIDTH : 0
       setDx(nextDx)
       onOpen(nextDx > 0 ? lesson.id : null)
       return
@@ -262,19 +263,49 @@ function LessonRow({
           left: 0,
           top: 0,
           bottom: 0,
-          width: TRASH_WIDTH,
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          width: REVEAL_WIDTH,
+          overflow: 'hidden',
           borderRadius: 12,
-          background: 'var(--negative-bg-default)',
-          color: 'var(--negative-over)',
-          cursor: 'pointer',
-          opacity: clamp(dx / TRASH_WIDTH, 0, 1),
+          opacity: clamp(dx / REVEAL_WIDTH, 0, 1),
         }}
-        onClick={() => onDelete(lesson)}
       >
-        <IconTrash fontSize={24} />
+        <button
+          aria-label="Удалить урок"
+          style={{
+            display: 'flex',
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 0,
+            border: 'none',
+            background: 'var(--negative-bg-default)',
+            color: 'var(--negative-over)',
+            cursor: 'pointer',
+          }}
+          type="button"
+          onClick={() => onDelete(lesson)}
+        >
+          <IconTrash fontSize={24} />
+        </button>
+        <button
+          aria-label="Редактировать урок"
+          style={{
+            display: 'flex',
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 0,
+            border: 'none',
+            background: 'var(--accent-bg-default)',
+            color: 'var(--accent-over)',
+            cursor: 'pointer',
+          }}
+          type="button"
+          onClick={() => onEdit(lesson)}
+        >
+          <IconEdit fontSize={24} />
+        </button>
       </div>
       <div
         style={contentStyle}
@@ -288,23 +319,12 @@ function LessonRow({
           <Stack direction="row" spacing="m" verticalAlign="center" height="100%">
             <Stack direction="row" grow minWidth={0} spacing="xs" verticalAlign="center">
               {examPassed ? (
-                <IconCheckSmall color="var(--positive-text-and-icons)" fontSize={16} />
+                <IconCheck color="var(--positive-text-and-icons)" fontSize={24} />
               ) : null}
               <Text overflow="ellipsis" variant="M / Medium">
                 {lesson.name}
               </Text>
             </Stack>
-            <ButtonIcon
-              ariaLabel="Изменить урок"
-              icon={<IconEdit fontSize={24} />}
-              size="s"
-              variant="flat"
-              onClick={(event) => {
-                event.stopPropagation()
-                onEdit(lesson)
-              }}
-              onPointerDown={(event) => event.stopPropagation()}
-            />
           </Stack>
         </Card>
       </div>

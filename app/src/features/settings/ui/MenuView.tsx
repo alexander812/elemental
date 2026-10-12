@@ -1,6 +1,7 @@
 import {
   IconChevronRight,
   IconDownload,
+  IconEducation,
   IconMicrophone,
   IconPalette,
   IconSound,
@@ -68,6 +69,15 @@ export function MenuView() {
               <ListItem.StartBlock
                 icon={<IconTasks fontSize={24} color="var(--accent-text-and-icons)" />}
                 title={<Text variant="M / Medium">Проверки</Text>}
+              />
+              <ListItem.EndBlock
+                content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+              />
+            </ListItem>
+            <ListItem data={{ screen: 'about' }} onClick={() => pushScreen({ name: 'about' })}>
+              <ListItem.StartBlock
+                icon={<IconEducation fontSize={24} color="var(--accent-text-and-icons)" />}
+                title={<Text variant="M / Medium">О приложении</Text>}
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}

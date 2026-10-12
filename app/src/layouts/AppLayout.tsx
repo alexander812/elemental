@@ -12,6 +12,7 @@ import { CardCreateView } from '../features/card-create/ui/CardCreateView'
 import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
 import { CardsView } from '../features/cards/ui/CardsView'
 import { ChecksView } from '../features/settings/ui/ChecksView'
+import { AboutView } from '../features/settings/ui/AboutView'
 import { LanguageView } from '../features/settings/ui/LanguageView'
 import {
   goToLessons,
@@ -29,7 +30,6 @@ import { CoursesView } from '../features/courses/ui/CoursesView'
 import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
 import { LessonsView } from '../features/lessons/ui/LessonsView'
 import { SetCreateView } from '../features/set-create/ui/SetCreateView'
-import { SetExamView } from '../features/set-exam/ui/SetExamView'
 import { MenuView } from '../features/settings/ui/MenuView'
 import { ThemeView } from '../features/settings/ui/ThemeView'
 import { RecognitionView } from '../features/recognition/ui/RecognitionView'
@@ -67,8 +67,6 @@ function renderScreen(screen: Screen): ReactNode {
       return <SetCreateView lessonId={screen.lessonId} setId={screen.setId} />
     case 'cards':
       return <CardsView key={screen.setId} setId={screen.setId} />
-    case 'set-exam':
-      return <SetExamView key={screen.setId} setId={screen.setId} />
     case 'set-intro':
       return <SetTextView key={screen.setId} setId={screen.setId} welcome />
     case 'set-text':
@@ -101,6 +99,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <RecognitionView />
     case 'checks':
       return <ChecksView />
+    case 'about':
+      return <AboutView />
     case 'data':
       return <DataView />
     case 'export':
@@ -116,6 +116,7 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'voices' ||
     name === 'recognition' ||
     name === 'checks' ||
+    name === 'about' ||
     name === 'data' ||
     name === 'export'
   )
