@@ -18,8 +18,8 @@ import {
 } from '@elemental/icons'
 import { Stack, Text } from '@elemental/ui-kit'
 
-import { canRecognize } from '../../../transport/recognition'
-import { canSpeak } from '../../../transport/speech'
+import { canRecognize } from '../../../../../../transport/recognition'
+import { canSpeak } from '../../../../../../transport/speech'
 
 import classes from './FlashCard.module.pcss'
 
