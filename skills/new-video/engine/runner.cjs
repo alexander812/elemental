@@ -18,6 +18,13 @@
  * steps — массив шагов, ключи шага:
  *   caption          — подпись-плашка снизу (можно без действия)
  *   captionMs        — сколько держать подпись, мс (по умолчанию 2200)
+ *   scene            — карточка сцены: { title: 'Сцена 1', text: 'Для начала загрузим курс.' },
+ *                      текст печатается по буквам; заканчивается затемнением и паузой
+ *   sceneTypeMs      — скорость печати, мс на букву (45)
+ *   sceneHoldMs      — пауза после напечатанного текста (1500)
+ *   hint             — тултип у элемента действия с текстом-подсказкой (до и после действия)
+ *   hintMs           — сколько держать тултип до действия (1400)
+ *   hintAfterMs      — сколько держать тултип после действия (700)
  *   tap              — текст/название элемента (кнопка, radio, текст)
  *   tapAt            — { x, y } — тап по координатам
  *   type             — { target: 'Название поля', text: '...', delay?: 90 }
@@ -154,6 +161,40 @@ function presentationScript(cursorTravel) {
       'box-shadow:0 10px 30px rgba(0,0,0,.45);opacity:0;transition:opacity .28s ease,transform .28s ease;';
     host.appendChild(caption);
 
+    const style = document.createElement('style');
+    style.textContent = '@keyframes __tutBlink { 50% { opacity: 0 } }';
+    host.appendChild(style);
+
+    const scene = document.createElement('div');
+    scene.style.cssText =
+      'position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;gap:18px;' +
+      'padding:0 34px;background:rgba(5,5,5,.9);opacity:0;transition:opacity .4s ease;';
+    const sceneTitle = document.createElement('div');
+    sceneTitle.style.cssText =
+      'font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);';
+    const sceneText = document.createElement('div');
+    sceneText.style.cssText =
+      'font-size:26px;font-weight:600;line-height:1.3;color:#fff;white-space:pre-wrap;';
+    const caret = document.createElement('span');
+    caret.style.cssText =
+      'display:inline-block;width:2px;height:26px;margin-left:2px;vertical-align:-4px;' +
+      'background:rgba(255,255,255,.8);animation:__tutBlink .8s step-end infinite;';
+    scene.append(sceneTitle, sceneText);
+    host.appendChild(scene);
+
+    const hintRing = document.createElement('div');
+    hintRing.style.cssText =
+      'position:absolute;display:none;border:2px solid rgba(255,255,255,.85);border-radius:14px;' +
+      'box-shadow:0 0 0 5px rgba(255,255,255,.12);opacity:0;transition:opacity .2s ease;';
+    host.appendChild(hintRing);
+
+    const hint = document.createElement('div');
+    hint.style.cssText =
+      'position:absolute;display:none;max-width:250px;padding:10px 14px;border-radius:12px;' +
+      'background:rgba(10,10,12,.94);color:#fff;font-size:13px;font-weight:500;line-height:1.35;' +
+      'text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.5);opacity:0;transition:opacity .2s ease;';
+    host.appendChild(hint);
+
     document.body.appendChild(host);
     window.__tutReadyAt = Date.now();
     requestAnimationFrame(() => {
@@ -162,6 +203,7 @@ function presentationScript(cursorTravel) {
     setTimeout(() => fade.remove(), 700);
 
     let hideTimer = 0;
+    let hintHideTimer = 0;
 
     window.__tut = {
       moveTo(x, y) {
@@ -200,6 +242,82 @@ function presentationScript(cursorTravel) {
         clearTimeout(hideTimer);
         caption.style.opacity = '0';
         caption.style.transform = 'translate(-50%,14px)';
+      },
+      scene(title, text, options) {
+        const { typeMs = 45, holdMs = 1500 } = options ?? {};
+
+        return new Promise((resolve) => {
+          cursor.style.opacity = '0';
+          sceneTitle.textContent = title;
+          sceneText.textContent = '';
+          sceneText.appendChild(caret);
+          scene.style.display = 'flex';
+          requestAnimationFrame(() => {
+            scene.style.opacity = '1';
+          });
+
+          let index = 0;
+          const timer = setInterval(() => {
+            index += 1;
+            sceneText.textContent = text.slice(0, index);
+            sceneText.appendChild(caret);
+
+            if (index >= text.length) {
+              clearInterval(timer);
+              caret.remove();
+              setTimeout(() => {
+                scene.style.opacity = '0';
+                setTimeout(() => {
+                  scene.style.display = 'none';
+                  resolve();
+                }, 420);
+              }, holdMs);
+            }
+          }, typeMs);
+        });
+      },
+      hintShow(text, rect) {
+        const gap = 12;
+        const above = rect ? rect.y > 130 : false;
+
+        clearTimeout(hintHideTimer);
+        hint.textContent = text;
+        hint.style.display = 'block';
+
+        if (rect) {
+          const centerX = Math.min(Math.max(rect.x + rect.width / 2, 130), window.innerWidth - 130);
+
+          hint.style.left = `${centerX}px`;
+          hint.style.bottom = 'auto';
+          hint.style.top = above ? `${rect.y - gap}px` : `${rect.y + rect.height + gap}px`;
+          hint.style.transform = above ? 'translate(-50%,-100%)' : 'translate(-50%,0)';
+
+          hintRing.style.display = 'block';
+          hintRing.style.left = `${rect.x - 5}px`;
+          hintRing.style.top = `${rect.y - 5}px`;
+          hintRing.style.width = `${rect.width + 10}px`;
+          hintRing.style.height = `${rect.height + 10}px`;
+        } else {
+          hint.style.left = '50%';
+          hint.style.top = '120px';
+          hint.style.bottom = 'auto';
+          hint.style.transform = 'translate(-50%,0)';
+          hintRing.style.display = 'none';
+        }
+
+        requestAnimationFrame(() => {
+          hint.style.opacity = '1';
+          if (rect) hintRing.style.opacity = '1';
+        });
+      },
+      hintHide() {
+        clearTimeout(hintHideTimer);
+        hint.style.opacity = '0';
+        hintRing.style.opacity = '0';
+        hintHideTimer = setTimeout(() => {
+          hint.style.display = 'none';
+          hintRing.style.display = 'none';
+        }, 250);
       },
     };
   };
@@ -274,7 +392,7 @@ async function find(page, query, timeout = 8000) {
   }
 }
 
-async function tapPoint(page, x, y, pause) {
+async function tapPoint(page, x, y, pause, hideHint = false) {
   await page.evaluate(({ x, y }) => window.__tut.moveTo(x, y), { x, y });
   await page.mouse.move(x, y);
   await page.waitForTimeout(CURSOR_TRAVEL);
@@ -283,17 +401,18 @@ async function tapPoint(page, x, y, pause) {
   await page.waitForTimeout(PRESS);
   await page.mouse.up();
   await page.evaluate(({ x, y }) => window.__tut.release(x, y), { x, y });
+  if (hideHint) await page.evaluate(() => window.__tut.hintHide());
   await page.waitForTimeout(pause ?? PAUSE.tap);
 }
 
-async function tap(page, query, pause) {
+async function tap(page, query, pause, hideHint) {
   const loc = await find(page, query);
   const box = await loc.boundingBox();
   if (!box) throw new Error(`Элемент вне видимой области: «${query}»`);
-  await tapPoint(page, box.x + box.width / 2, box.y + box.height / 2, pause);
+  await tapPoint(page, box.x + box.width / 2, box.y + box.height / 2, pause, hideHint);
 }
 
-async function tapBack(page, pause) {
+async function tapBack(page, pause, hideHint) {
   const point = await page.evaluate(() => {
     const rects = [...document.querySelectorAll('button')]
       .map((el) => el.getBoundingClientRect())
@@ -303,7 +422,7 @@ async function tapBack(page, pause) {
     return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
   });
   if (!point) throw new Error('Кнопка «назад» не найдена');
-  await tapPoint(page, point.x, point.y, pause);
+  await tapPoint(page, point.x, point.y, pause, hideHint);
 }
 
 async function findInput(page, target) {
@@ -345,7 +464,7 @@ async function typeInto(page, step) {
   await field.pressSequentially(step.text, { delay });
 }
 
-async function swipe(page, step) {
+async function swipe(page, step, hideHint = false) {
   const distance = step.distance ?? 220;
   const dir = step.dir ?? 'left';
   const loc = await find(page, step.target);
@@ -364,15 +483,64 @@ async function swipe(page, step) {
   await page.mouse.move(cx + dx, cy + dy, { steps: 12 });
   await page.mouse.up();
   await page.evaluate(({ x, y }) => window.__tut.moveTo(x, y), { x: cx + dx, y: cy + dy });
+  if (hideHint) await page.evaluate(() => window.__tut.hintHide());
   await page.waitForTimeout(step.pause ?? PAUSE.swipe);
 }
 
 async function runStep(page, step) {
+  if (step.scene) {
+    await page.evaluate(
+      ({ scene, typeMs, holdMs }) =>
+        window.__tut.scene(scene.title ?? '', scene.text ?? '', {
+          typeMs,
+          holdMs,
+        }),
+      {
+        scene: step.scene,
+        typeMs: step.sceneTypeMs ?? 45,
+        holdMs: step.sceneHoldMs ?? 1500,
+      }
+    );
+    await page.waitForTimeout(step.pause ?? 400);
+    return;
+  }
+
   if (step.caption) {
     await page.evaluate(
       ({ text, ms }) => window.__tut.caption(text, ms),
       { text: step.caption, ms: step.captionMs ?? 2200 }
     );
+  }
+
+  if (step.hint) {
+    const target = step.tap ?? step.swipe?.target ?? step.type?.target ?? null;
+    let rect = null;
+
+    if (target) {
+      const loc = await find(page, target);
+      rect = await loc.boundingBox();
+    }
+
+    await page.evaluate(
+      ({ text, rect }) => window.__tut.hintShow(text, rect),
+      { text: step.hint, rect }
+    );
+
+    if (process.env.TUT_DEBUG_HINT) {
+      await page.waitForTimeout(250);
+      const state = await page.evaluate(() => {
+        const host = document.getElementById('__tut');
+        const tooltip = host.lastElementChild;
+        return {
+          opacity: getComputedStyle(tooltip).opacity,
+          display: getComputedStyle(tooltip).display,
+          rect: tooltip.getBoundingClientRect().toJSON(),
+        };
+      });
+      console.log('  debug hint:', JSON.stringify({ text: step.hint, target: rect, tooltip: state }));
+    }
+
+    await page.waitForTimeout(step.hintMs ?? 1400);
   }
 
   if (step.speech !== undefined || step.speechError !== undefined || step.speechDelay !== undefined) {
@@ -391,39 +559,32 @@ async function runStep(page, step) {
     );
   }
 
+  const withHint = step.hint !== undefined;
+
   if (step.wait) {
     await page.waitForTimeout(step.wait);
-    return;
-  }
-
-  if (step.tap) {
-    await tap(page, step.tap, step.pause);
-    return;
-  }
-
-  if (step.tapAt) {
-    await tapPoint(page, step.tapAt.x, step.tapAt.y, step.pause);
-    return;
-  }
-
-  if (step.type) {
+  } else if (step.tap) {
+    await tap(page, step.tap, step.pause, withHint);
+  } else if (step.tapAt) {
+    await tapPoint(page, step.tapAt.x, step.tapAt.y, step.pause, withHint);
+  } else if (step.type) {
     await typeInto(page, step.type);
+    if (withHint) await page.evaluate(() => window.__tut.hintHide());
     await page.waitForTimeout(step.pause ?? PAUSE.type);
-    return;
+  } else if (step.swipe) {
+    await swipe(page, step.swipe, withHint);
+  } else if (step.back) {
+    await tapBack(page, step.pause ?? PAUSE.back, withHint);
+  } else if (step.eval) {
+    const result = await page.evaluate(step.eval);
+    if (result !== undefined) console.log('  debug eval →', JSON.stringify(result).slice(0, 400));
+  } else if (withHint) {
+    await page.waitForTimeout(step.pause ?? 1200);
   }
 
-  if (step.swipe) {
-    await swipe(page, step.swipe);
-    return;
-  }
-
-  if (step.back) {
-    await tapBack(page, step.pause ?? PAUSE.back);
-    return;
-  }
-
-  if (step.eval) {
-    await page.evaluate(step.eval);
+  if (withHint) {
+    await page.waitForTimeout(step.hintAfterMs ?? 0);
+    await page.evaluate(() => window.__tut.hintHide());
   }
 }
 
@@ -473,8 +634,10 @@ async function runStep(page, step) {
   for (const step of steps) {
     index += 1;
     const label =
-      step.caption ??
-      (step.tap ? `tap «${step.tap}»` : step.type ? `type «${step.type.target}»` : step.swipe ? `swipe «${step.swipe.target}»` : step.back ? 'back' : step.wait ? `wait ${step.wait}` : step.tapAt ? 'tapAt' : 'eval');
+      step.scene
+        ? `scene «${step.scene.title}»`
+        : (step.caption ??
+          (step.tap ? `tap «${step.tap}»` : step.type ? `type «${step.type.target}»` : step.swipe ? `swipe «${step.swipe.target}»` : step.back ? 'back' : step.wait ? `wait ${step.wait}` : step.tapAt ? 'tapAt' : step.hint ? `hint «${step.hint}»` : 'eval'));
     process.stdout.write(`[${index}/${steps.length}] ${label}\n`);
     timeline.push({
       index,

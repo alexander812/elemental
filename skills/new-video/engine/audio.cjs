@@ -65,6 +65,7 @@ const timeline = fs.existsSync(timelinePath)
 const video = path.join(OUT_DIR, `${name}.webm`);
 const out = path.join(OUT_DIR, `${name}.mp4`);
 const poster = path.join(OUT_DIR, `${name}.jpg`);
+const webmOut = path.join(OUT_DIR, `${name}.fallback.webm`);
 const workDir = fs.mkdtempSync(path.join(os.tmpdir(), 'lexi-audio-'));
 
 const trimOption = opt('trim', '0');
@@ -108,14 +109,32 @@ for (const step of (timeline?.steps ?? [])) {
 const inputs = clips.flatMap((clip) => ['-i', clip.file]);
 const audioArgs = [];
 
-if (clips.length) {
-  const filters = clips.map(
-    (clip, i) => `[${i + 1}:a]adelay=${Math.round(clip.atMs)}|${Math.round(clip.atMs)}[a${i}]`
-  );
-  const mixInputs = clips.map((_, i) => `[a${i}]`).join('');
-  const filter = `${filters.join(';')};${mixInputs}amix=inputs=${clips.length}:normalize=0,aresample=44100,alimiter=limit=0.95[aout]`;
+const filter = clips.length
+  ? (() => {
+      const filters = clips.map(
+        (clip, i) => `[${i + 1}:a]adelay=${Math.round(clip.atMs)}|${Math.round(clip.atMs)}[a${i}]`
+      );
+      const mixInputs = clips.map((_, i) => `[a${i}]`).join('');
 
-  audioArgs.push('-filter_complex', filter, '-map', '0:v', '-map', '[aout]', '-c:a', 'aac', '-b:a', '128k', '-ar', '44100');
+      return `${filters.join(';')};${mixInputs}amix=inputs=${clips.length}:normalize=0,aresample=48000,alimiter=limit=0.95[aout]`;
+    })()
+  : null;
+
+if (filter) {
+  audioArgs.push(
+    '-filter_complex',
+    filter,
+    '-map',
+    '0:v',
+    '-map',
+    '[aout]',
+    '-c:a',
+    'aac',
+    '-b:a',
+    '128k',
+    '-ar',
+    '48000'
+  );
 } else {
   audioArgs.push('-map', '0:v', '-an');
 }
@@ -135,14 +154,13 @@ execFileSync(
     '-c:v',
     'libx264',
     '-crf',
-    '20',
+    '22',
     '-preset',
     'medium',
     '-pix_fmt',
     'yuv420p',
     '-movflags',
     '+faststart',
-    '-shortest',
     out,
   ],
   { stdio: 'inherit' }
@@ -158,39 +176,50 @@ if (posterOption) {
   );
 }
 
-const webmOut = path.join(OUT_DIR, `${name}.fallback.webm`);
 const webmOption = argv.includes('--webm');
 
 if (webmOption) {
-  if (clips.length) {
-    console.log('webm-фолбэк со звуком не собирается — пропускаю');
-  } else {
-    execFileSync(
-      FFMPEG,
-      [
-        '-y',
-        '-hide_banner',
-        '-loglevel',
-        'error',
-        ...(TRIM_MS ? ['-ss', String(TRIM_MS / 1000)] : []),
-        '-i',
-        video,
-        '-c:v',
-        'libvpx-vp9',
-        '-b:v',
-        '0',
-        '-crf',
-        '36',
-        '-row-mt',
-        '1',
-        '-cpu-used',
-        '4',
-        '-an',
-        webmOut,
-      ],
-      { stdio: 'inherit' }
-    );
-  }
+  const webmAudioArgs = filter
+    ? [
+        '-filter_complex',
+        filter,
+        '-map',
+        '0:v',
+        '-map',
+        '[aout]',
+        '-c:a',
+        'libopus',
+        '-b:a',
+        '96k',
+      ]
+    : ['-map', '0:v', '-an'];
+
+  execFileSync(
+    FFMPEG,
+    [
+      '-y',
+      '-hide_banner',
+      '-loglevel',
+      'error',
+      ...(TRIM_MS ? ['-ss', String(TRIM_MS / 1000)] : []),
+      '-i',
+      video,
+      ...inputs,
+      ...webmAudioArgs,
+      '-c:v',
+      'libvpx-vp9',
+      '-b:v',
+      '0',
+      '-crf',
+      '36',
+      '-row-mt',
+      '1',
+      '-cpu-used',
+      '4',
+      webmOut,
+    ],
+    { stdio: 'inherit' }
+  );
 }
 
 fs.rmSync(workDir, { recursive: true, force: true });
@@ -208,7 +237,7 @@ if (to) {
     console.log(`Скопировано: ${path.join(target, `${name}.jpg`)}`);
   }
 
-  if (webmOption && !clips.length) {
+  if (webmOption) {
     fs.copyFileSync(webmOut, path.join(target, `${name}.webm`));
     console.log(`Скопировано: ${path.join(target, `${name}.webm`)}`);
   }
