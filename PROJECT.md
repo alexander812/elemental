@@ -12,6 +12,7 @@ skills/new-project/       # скил opencode для скаффолдинга п
 skills/new-course/        # скил opencode: новый готовый курс и новый язык (JSON по языкам, каталог, валидатор)
 skills/new-theme/         # скил opencode: новая цветовая тема (токены, типы, настройки, boot, валидатор)
 skills/new-video/         # скил opencode: обучающее видео для «Базы знаний» (движок скринкастов, сценарии, бэклог)
+skills/new-onboarding/    # скил opencode: онбординг первого запуска (UI + state, печать текста, подсказки-shake, валидатор)
 .opencode/agents/         # роли субагентов: cards-explorer (карта карточек/теста), asr-doctor (распознавание и произношение), course-editor (курсы), e2e-runner (Playwright-сценарии)
 AGENTS.md                 # инструкции проекта: стиль ответов, проверки, версии данных
 PROJECT.md                # этот файл
