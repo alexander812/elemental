@@ -7,6 +7,7 @@ import type { LanguageCode } from '../../../lib/languages'
 
 export type TextAddDraft = {
   courseLang: LanguageCode
+  userLang: LanguageCode
 }
 
 export type Screen =

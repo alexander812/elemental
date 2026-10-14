@@ -1,3 +1,6 @@
+import { createIntl, createIntlCache } from 'react-intl'
+import type { IntlShape } from 'react-intl'
+
 import type { LanguageCode } from '../languages'
 
 const messageModules = import.meta.glob('./messages/*.json', {
@@ -20,3 +23,26 @@ export const getMessages = (locale: LanguageCode): Record<string, string> =>
   UI_MESSAGES[locale] ?? {}
 
 export const getUiLocales = (): LanguageCode[] => Object.keys(UI_MESSAGES).sort()
+
+const intlCache = createIntlCache()
+const intlByLocale = new Map<LanguageCode, IntlShape>()
+
+export const getIntl = (locale: LanguageCode): IntlShape => {
+  const cached = intlByLocale.get(locale)
+
+  if (cached) return cached
+
+  const intl = createIntl(
+    {
+      defaultLocale: FALLBACK_LOCALE,
+      locale,
+      messages: getMessages(locale),
+      onError: () => {},
+    },
+    intlCache
+  )
+
+  intlByLocale.set(locale, intl)
+
+  return intl
+}

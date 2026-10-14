@@ -28,14 +28,13 @@ import {
 } from '@elemental/ui-kit'
 
 import { remapTexts } from '../../../lib/cards'
-import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, getLanguageName } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
 import { $lessons } from '../../lessons/store'
 import { popScreen, pushScreen, $transition } from '../../navigation/store'
-import { createSetFx, updateSetFx, $courseLangByLesson, $sets } from '../../sets/store'
-import { $userLang } from '../../theme/store'
+import { createSetFx, updateSetFx, $courseLangByLesson, $sets, $userLangByLesson } from '../../sets/store'
 import {
   createEmptyPair,
   draftInitialized,
@@ -58,8 +57,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   const sets = useUnit($sets)
   const lessons = useUnit($lessons)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLangByLesson = useUnit($userLangByLesson)
   const draftLessonId = useUnit($draftLessonId)
   const name = useUnit($draftName)
   const pairs = useUnit($draftPairs)
@@ -79,6 +78,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   const initialLessonId = set?.lessonId ?? lessonId ?? lessons[0]?.id ?? ''
   const initialCourseLang = courseLangByLesson.get(initialLessonId) ?? DEFAULT_COURSE_LANG
   const courseLang = courseLangByLesson.get(draftLessonId) ?? initialCourseLang
+  const initialUserLang = userLangByLesson.get(initialLessonId) ?? DEFAULT_USER_LANG
+  const userLang = userLangByLesson.get(draftLessonId) ?? initialUserLang
 
   const initialDraftRef = useRef({
     pushed: transition.kind === 'push',
@@ -92,7 +93,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
               .map((card) => ({
                 ...createEmptyPair(),
                 cardId: card.id,
-                original: card.texts[userLang] ?? '',
+                original: card.texts[initialUserLang] ?? '',
                 translation: card.texts[initialCourseLang] ?? '',
               }))
           : []
@@ -130,23 +131,23 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     [lessons]
   )
 
-  const applyCourseLang = (nextCourseLang: LanguageCode) => {
+  const applyCoursePair = (nextUserLang: LanguageCode, nextCourseLang: LanguageCode) => {
     setTranslateFailed(false)
     draftTextsRemapped({
       pairs: pairs.map((pair) => {
         const texts = remapTexts(
           { [userLang]: pair.original, [courseLang]: pair.translation },
-          userLang,
+          nextUserLang,
           nextCourseLang
         )
 
         return {
           ...pair,
-          original: texts[userLang] ?? '',
+          original: texts[nextUserLang] ?? '',
           translation: texts[nextCourseLang] ?? '',
         }
       }),
-      texts: remapTexts(draftTexts, userLang, nextCourseLang),
+      texts: remapTexts(draftTexts, nextUserLang, nextCourseLang),
     })
   }
 
@@ -154,9 +155,10 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
     draftLessonChanged(nextLessonId)
 
     const nextCourseLang = courseLangByLesson.get(nextLessonId) ?? DEFAULT_COURSE_LANG
+    const nextUserLang = userLangByLesson.get(nextLessonId) ?? DEFAULT_USER_LANG
 
-    if (nextCourseLang !== courseLang) {
-      applyCourseLang(nextCourseLang)
+    if (nextCourseLang !== courseLang || nextUserLang !== userLang) {
+      applyCoursePair(nextUserLang, nextCourseLang)
     }
   }
 
@@ -170,7 +172,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   }
 
   const handleOpenText = () => {
-    pushScreen({ name: 'set-text', draft: { courseLang } })
+    pushScreen({ name: 'set-text', draft: { userLang, courseLang } })
   }
 
   const handleTranslateAll = async () => {

@@ -8,7 +8,11 @@ import { Box, Button, ButtonIcon, EmptyScreen, Header, Stack, Text } from '@elem
 
 import { getCardText } from '../../../../../../lib/cards'
 import { isAnswerCorrect } from '../../../../../../lib/checks'
-import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../../../../lib/languages'
+import {
+  DEFAULT_COURSE_LANG,
+  DEFAULT_USER_LANG,
+  getLanguageName,
+} from '../../../../../../lib/languages'
 import { isShortSingleWord } from '../../../../../../lib/pronunciation'
 import {
   isSilentRecognitionError,
@@ -35,8 +39,9 @@ import {
   setSetExamPassedFx,
   $courseLangByLesson,
   $sets,
+  $userLangByLesson,
 } from '../../../../../sets/store'
-import { $debugMode, $userLang, $voiceCheckEnabled } from '../../../../../theme/store'
+import { $debugMode, $voiceCheckEnabled } from '../../../../../theme/store'
 import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx } from '../../../../store'
 import { FlashCard } from '../FlashCard'
 import type { CheckStatus, Leaving } from '../FlashCard'
@@ -63,8 +68,8 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const sets = useUnit($sets)
   const languages = useUnit($languages)
   const stack = useUnit($stack)
-  const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLangByLesson = useUnit($userLangByLesson)
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
   const debugMode = useUnit($debugMode)
   const asrProgress = useUnit($asrProgress)
@@ -111,6 +116,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
   const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
+  const courseUserLang = (set ? userLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_USER_LANG
   const byId = useMemo(() => {
     const map = new Map<string, CardModel>()
     set?.cards.forEach((card) => map.set(card.id, card))
@@ -602,7 +608,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
                     depth={index}
                     drag={null}
                     flipped={false}
-                    frontText={getCardText(card, userLang).text}
+                    frontText={getCardText(card, courseUserLang).text}
                     interactive={index === 0}
                     leaving={leaving?.id === id ? leaving : null}
                     listening={listeningCardId === id}

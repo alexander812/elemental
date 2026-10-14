@@ -29,6 +29,7 @@ export async function createCourse(payload: {
   name: string
   description: string
   lang: LanguageCode
+  userLang: LanguageCode
 }): Promise<{ courseId: string; courses: Course[] }> {
   const courses = readCourses()
   const maxOrder = courses.reduce((max, course) => Math.max(max, course.order), -1)
@@ -38,6 +39,7 @@ export async function createCourse(payload: {
     description: payload.description.trim(),
     order: maxOrder + 1,
     lang: payload.lang,
+    userLang: payload.userLang,
   }
 
   return { courseId: course.id, courses: writeCourses([...courses, course]) }

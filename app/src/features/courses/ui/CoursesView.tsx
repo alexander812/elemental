@@ -22,7 +22,6 @@ import { goToLessons, pushScreen } from '../../navigation/store'
 import { $onboardingOpened } from '../../onboarding/store'
 import { useDelayedShake } from '../../onboarding/ui/useDelayedShake'
 import { useShakeHint } from '../../onboarding/ui/useShakeHint'
-import { $userLang } from '../../theme/store'
 import {
   addedCourseShown,
   courseSelected,
@@ -44,7 +43,6 @@ export function CoursesView() {
   const lessons = useUnit($lessons)
   const loading = useUnit($coursesLoading)
   const currentCourseId = useUnit($currentCourseId)
-  const userLang = useUnit($userLang)
   const onboardingOpened = useUnit($onboardingOpened)
   const addedCourseId = useUnit($addedCourseId)
 
@@ -185,7 +183,7 @@ export function CoursesView() {
                       verticalAlign="center"
                     >
                       <Text overflow="ellipsis" variant="M / Medium">
-                        {course.name} ({langLabel(userLang)}-{langLabel(course.lang)})
+                        {course.name} ({langLabel(course.userLang)}-{langLabel(course.lang)})
                       </Text>
                       <Stack shrink={0}>
                         <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">

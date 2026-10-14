@@ -2,8 +2,7 @@ import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
-import { FormattedMessage, useIntl } from 'react-intl'
-import type { IntlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 
 import { IconEducation } from '@elemental/icons'
 import {
@@ -17,7 +16,9 @@ import {
   Text,
 } from '@elemental/ui-kit'
 
+import { getIntl } from '../../../lib/i18n'
 import { getLanguageName } from '../../../lib/languages'
+import type { LanguageCode } from '../../../lib/languages'
 import type { Lesson } from '../../../lib/types'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $courses } from '../../courses/store'
@@ -28,7 +29,11 @@ import { createLessonFx, updateLessonFx, $lessons } from '../store'
 
 const DEFAULT_LESSON_NAME = { id: 'lessons_default_name', defaultMessage: 'Lesson {number}' }
 
-const defaultLessonName = (intl: IntlShape, lessons: Lesson[], courseId: string): string => {
+const defaultLessonName = (
+  userLang: LanguageCode,
+  lessons: Lesson[],
+  courseId: string
+): string => {
   const courseLessons = lessons.filter((lesson) => lesson.courseId === courseId)
   const numbers = courseLessons
     .map((lesson) => /(\d+)\s*$/.exec(lesson.name)?.[1])
@@ -36,9 +41,9 @@ const defaultLessonName = (intl: IntlShape, lessons: Lesson[], courseId: string)
     .map(Number)
 
   if (numbers.length === 0)
-    return intl.formatMessage(DEFAULT_LESSON_NAME, { number: courseLessons.length + 1 })
+    return getIntl(userLang).formatMessage(DEFAULT_LESSON_NAME, { number: courseLessons.length + 1 })
 
-  return intl.formatMessage(DEFAULT_LESSON_NAME, { number: Math.max(...numbers) + 1 })
+  return getIntl(userLang).formatMessage(DEFAULT_LESSON_NAME, { number: Math.max(...numbers) + 1 })
 }
 
 export function LessonCreateView({
@@ -51,11 +56,9 @@ export function LessonCreateView({
   const lessons = useUnit($lessons)
   const courses = useUnit($courses)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
+  const settingsUserLang = useUnit($userLang)
   const createPending = useUnit(createLessonFx.pending)
   const updatePending = useUnit(updateLessonFx.pending)
-
-  const intl = useIntl()
 
   const lesson = useMemo(
     () => (lessonId ? lessons.find((item) => item.id === lessonId) : undefined),
@@ -65,19 +68,20 @@ export function LessonCreateView({
 
   const sortedCourses = useMemo(() => [...courses].sort((a, b) => a.order - b.order), [courses])
 
+  const initialCourseId = lesson?.courseId ?? courseId ?? sortedCourses[0]?.id ?? ''
+  const initialUserLang =
+    sortedCourses.find((item) => item.id === initialCourseId)?.userLang ?? settingsUserLang
+
   const [name, setName] = useState(
-    () =>
-      lesson?.name ??
-      defaultLessonName(intl, lessons, lesson?.courseId ?? courseId ?? sortedCourses[0]?.id ?? '')
+    () => lesson?.name ?? defaultLessonName(initialUserLang, lessons, initialCourseId)
   )
-  const [selectedCourseId, setSelectedCourseId] = useState(
-    lesson?.courseId ?? courseId ?? sortedCourses[0]?.id ?? ''
-  )
+  const [selectedCourseId, setSelectedCourseId] = useState(initialCourseId)
 
   const course = useMemo(
     () => courses.find((item) => item.id === selectedCourseId),
     [courses, selectedCourseId]
   )
+  const courseUserLang = course?.userLang ?? settingsUserLang
 
   const courseOptions = useMemo(
     () => sortedCourses.map((item) => ({ label: item.name, value: item.id })),
@@ -144,7 +148,7 @@ export function LessonCreateView({
               autoFocus
               floatingLabel
               fullWidth
-              lang={userLang}
+              lang={courseUserLang}
               placeholder={
                 <FormattedMessage
                   id="lesson_create_name_placeholder"

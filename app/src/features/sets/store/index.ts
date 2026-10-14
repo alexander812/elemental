@@ -1,6 +1,6 @@
 import { combine, createEffect, createStore } from 'effector'
 
-import { DEFAULT_COURSE_LANG } from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import * as setsApi from '../../../transport/sets'
 import type { CardEditPair, CardPair, CardSet, CardTexts } from '../../../transport/sets'
@@ -124,6 +124,14 @@ export const $courseLangByLesson = combine($lessons, $courses, (lessons, courses
 
   return new Map(
     lessons.map((lesson) => [lesson.id, langByCourse.get(lesson.courseId) ?? DEFAULT_COURSE_LANG])
+  )
+})
+
+export const $userLangByLesson = combine($lessons, $courses, (lessons, courses) => {
+  const langByCourse = new Map(courses.map((course) => [course.id, course.userLang]))
+
+  return new Map(
+    lessons.map((lesson) => [lesson.id, langByCourse.get(lesson.courseId) ?? DEFAULT_USER_LANG])
   )
 })
 

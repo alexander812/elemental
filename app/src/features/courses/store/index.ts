@@ -11,7 +11,7 @@ import { loadCoursesFx } from '../../course-search/store'
 export const fetchCoursesFx = createEffect(() => coursesApi.fetchCourses())
 
 export const createCourseFx = createEffect(
-  (payload: { name: string; description: string; lang: LanguageCode }) =>
+  (payload: { name: string; description: string; lang: LanguageCode; userLang: LanguageCode }) =>
     coursesApi.createCourse(payload)
 )
 

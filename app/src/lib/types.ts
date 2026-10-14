@@ -38,6 +38,7 @@ export interface Course {
   description: string
   order: number
   lang: LanguageCode
+  userLang: LanguageCode
   level?: CourseLevel
 }
 

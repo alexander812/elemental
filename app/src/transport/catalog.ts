@@ -158,6 +158,7 @@ export async function buildReadyCourses(payload: {
       description: pickText(entry.i18n?.description, payload.userLang, payload.lang),
       order: courses.length,
       lang: payload.lang,
+      userLang: payload.userLang,
       level: payload.level,
     }
 

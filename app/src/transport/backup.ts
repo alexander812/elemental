@@ -7,7 +7,7 @@ import { fetchLessons, replaceLessons } from './lessons'
 import { fetchSettings, saveSettings } from './settings'
 import { fetchSets, replaceSets } from './sets'
 
-export const BACKUP_VERSION = 7
+export const BACKUP_VERSION = 8
 
 export type BackupData = {
   version: number
@@ -191,6 +191,7 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
           name: incoming.name,
           description: incoming.description,
           lang: incoming.lang,
+          userLang: incoming.userLang,
           level: incoming.level ?? course.level,
         }
       : course

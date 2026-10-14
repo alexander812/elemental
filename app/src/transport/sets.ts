@@ -1,12 +1,11 @@
 import { remapTexts } from '../lib/cards'
-import { DEFAULT_COURSE_LANG } from '../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Card, CardSet, CardTexts } from '../lib/types'
 import { uid } from '../lib/uid'
 import { readCourses } from './courses'
 import { readLessons } from './lessons'
-import { readSettings } from './settings'
 
 export type { Card, CardSet, CardTexts } from '../lib/types'
 
@@ -58,6 +57,13 @@ function resolveCourseLang(lessonId: string): LanguageCode {
   return course?.lang ?? DEFAULT_COURSE_LANG
 }
 
+function resolveCourseUserLang(lessonId: string): LanguageCode {
+  const lesson = readLessons().find((item) => item.id === lessonId)
+  const course = readCourses().find((item) => item.id === lesson?.courseId)
+
+  return course?.userLang ?? DEFAULT_USER_LANG
+}
+
 function patchSet(sets: CardSet[], setId: string, patch: (set: CardSet) => CardSet): CardSet[] {
   return sets.map((set) => (set.id === setId ? patch(set) : set))
 }
@@ -87,7 +93,7 @@ export async function createSet(payload: {
 }): Promise<{ setId: string; sets: CardSet[] }> {
   const sets = readSets()
   const maxOrder = sets.reduce((max, set) => Math.max(max, set.order), -1)
-  const userLang = readSettings().userLang
+  const userLang = resolveCourseUserLang(payload.lessonId)
   const courseLang = resolveCourseLang(payload.lessonId)
   const newSet: CardSet = {
     id: uid(),
@@ -112,7 +118,7 @@ export async function updateSet(payload: {
   texts?: CardTexts
 }): Promise<CardSet[]> {
   const sets = readSets()
-  const userLang = readSettings().userLang
+  const userLang = resolveCourseUserLang(payload.lessonId)
   const courseLang = resolveCourseLang(payload.lessonId)
   const pairByCardId = new Map(
     payload.pairs
@@ -125,7 +131,9 @@ export async function updateSet(payload: {
 
   return writeSets(
     patchSet(sets, payload.setId, (set) => {
-      const courseLangChanged = resolveCourseLang(set.lessonId) !== courseLang
+      const pairChanged =
+        resolveCourseLang(set.lessonId) !== courseLang ||
+        resolveCourseUserLang(set.lessonId) !== userLang
 
       const cards = set.cards.map((card) => {
         const pair = pairByCardId.get(card.id)
@@ -140,7 +148,7 @@ export async function updateSet(payload: {
           }
         }
 
-        if (!courseLangChanged) return card
+        if (!pairChanged) return card
 
         return {
           ...card,
@@ -154,7 +162,7 @@ export async function updateSet(payload: {
         name: payload.name.trim(),
         texts: payload.texts
           ? normalizeTexts(payload.texts)
-          : courseLangChanged
+          : pairChanged
             ? remapTexts(set.texts, userLang, courseLang)
             : set.texts,
         cards: [...cards, ...newCards],

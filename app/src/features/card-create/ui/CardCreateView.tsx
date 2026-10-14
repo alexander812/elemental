@@ -6,20 +6,25 @@ import { FormattedMessage } from 'react-intl'
 
 import { Box, Button, FormHelperText, Header, Stack } from '@elemental/ui-kit'
 
-import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, getLanguageName } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
 import { popScreen } from '../../navigation/store'
-import { $courseLangByLesson, $sets, addCardFx, updateCardFx } from '../../sets/store'
-import { $userLang } from '../../theme/store'
+import {
+  $courseLangByLesson,
+  $sets,
+  $userLangByLesson,
+  addCardFx,
+  updateCardFx,
+} from '../../sets/store'
 import { translateFx } from '../store'
 
 type TranslateField = 'original' | 'translation'
 
 export function CardCreateView({ setId, cardId }: { setId: string; cardId?: string }) {
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLangByLesson = useUnit($userLangByLesson)
   const sets = useUnit($sets)
   const pending = useUnit(addCardFx.pending)
   const updatePending = useUnit(updateCardFx.pending)
@@ -34,8 +39,9 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
   const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
+  const courseUserLang = (set ? userLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_USER_LANG
 
-  const [original, setOriginal] = useState(() => card?.texts[userLang] ?? '')
+  const [original, setOriginal] = useState(() => card?.texts[courseUserLang] ?? '')
   const [translation, setTranslation] = useState(() => card?.texts[courseLang] ?? '')
   const [translationFailed, setTranslationFailed] = useState(false)
   const [translatingField, setTranslatingField] = useState<TranslateField | null>(null)
@@ -60,8 +66,8 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
 
     if (!source) return
 
-    const from = field === 'original' ? courseLang : userLang
-    const to = field === 'original' ? userLang : courseLang
+    const from = field === 'original' ? courseLang : courseUserLang
+    const to = field === 'original' ? courseUserLang : courseLang
 
     setTranslationFailed(false)
     setTranslatingField(field)
@@ -87,10 +93,10 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
       await updateCardFx({
         setId,
         cardId: card.id,
-        texts: { [userLang]: original, [courseLang]: translation },
+        texts: { [courseUserLang]: original, [courseLang]: translation },
       })
     } else {
-      await addCardFx({ setId, texts: { [userLang]: original, [courseLang]: translation } })
+      await addCardFx({ setId, texts: { [courseUserLang]: original, [courseLang]: translation } })
     }
 
     popScreen()
@@ -117,8 +123,8 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
               canTranslate={canTranslateOriginal}
               floatingLabel
               fullWidth
-              lang={userLang}
-              placeholder={getLanguageName(userLang, languages)}
+              lang={courseUserLang}
+              placeholder={getLanguageName(courseUserLang, languages)}
               size="m"
               translating={translatingField === 'original'}
               value={original}

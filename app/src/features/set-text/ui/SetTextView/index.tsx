@@ -16,7 +16,7 @@ import {
   TextPanel,
 } from '@elemental/ui-kit'
 
-import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, getLanguageName } from '../../../../lib/languages'
 import { parseWords, selectedWordTexts } from '../../../../lib/words'
 import { ConfirmSheet } from '../../../../shared/ui/ConfirmSheet'
 import { $languages } from '../../../languages/store'
@@ -36,9 +36,9 @@ import {
   resetSetFx,
   $courseLangByLesson,
   $sets,
+  $userLangByLesson,
 } from '../../../sets/store'
 import { SetMenu } from '../../../sets/ui/SetMenu'
-import { $userLang } from '../../../theme/store'
 import {
   createCardsClicked,
   editStarted,
@@ -62,8 +62,8 @@ type SetTextViewProps = (
 export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
   const sets = useUnit($sets)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLangByLesson = useUnit($userLangByLesson)
   const draftTexts = useUnit($draftTexts)
   const storedLang = useUnit($textLang)
   const words = useUnit($words)
@@ -84,9 +84,11 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
     (set ? courseLangByLesson.get(set.lessonId) : undefined) ??
     draft?.courseLang ??
     DEFAULT_COURSE_LANG
+  const courseUserLang =
+    (set ? userLangByLesson.get(set.lessonId) : undefined) ?? draft?.userLang ?? DEFAULT_USER_LANG
   const texts = setId ? (set?.texts ?? {}) : draftTexts
   const lang = storedLang ?? courseLang
-  const otherLang = lang === userLang ? courseLang : userLang
+  const otherLang = lang === courseUserLang ? courseLang : courseUserLang
   const currentText = (texts[lang] ?? '').trim()
   const oppositeText = (texts[otherLang] ?? '').trim()
   const hasAnyText = currentText.length > 0 || oppositeText.length > 0
@@ -112,7 +114,7 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
       return
     }
 
-    pushScreen({ name: 'text-add', draft: { courseLang } })
+    pushScreen({ name: 'text-add', draft: { userLang: courseUserLang, courseLang } })
   }
 
   const handleTranslate = async () => {
@@ -136,7 +138,7 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
   const handleCreateCards = () => {
     if (!canCreateCards) return
 
-    const field = lang === userLang ? 'original' : 'translation'
+    const field = lang === courseUserLang ? 'original' : 'translation'
 
     if (setId) {
       createCardsClicked(field)
@@ -256,12 +258,12 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
                 {getLanguageName(courseLang, languages)}
               </Button>
               <Button
-                checked={lang === userLang}
+                checked={lang === courseUserLang}
                 size="s"
-                variant={lang === userLang ? 'secondary' : 'flat'}
-                onClick={() => textLangChanged(userLang)}
+                variant={lang === courseUserLang ? 'secondary' : 'flat'}
+                onClick={() => textLangChanged(courseUserLang)}
               >
-                {getLanguageName(userLang, languages)}
+                {getLanguageName(courseUserLang, languages)}
               </Button>
             </Stack>
           ) : null}

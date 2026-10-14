@@ -33,12 +33,20 @@ export function LanguageView() {
               </Stack>
             </Radio>
           </Card>
-          <Text color="contrast-tertiary" variant="XS / Medium">
-            <FormattedMessage
-              id="language_hint"
-              defaultMessage="Your language: translations and hints will be shown in it"
-            />
-          </Text>
+          <Stack spacing="s">
+            <Text color="contrast-tertiary" variant="XS / Medium">
+              <FormattedMessage
+                id="language_hint"
+                defaultMessage="Your language: the interface and new courses will be in it"
+              />
+            </Text>
+            <Text color="contrast-tertiary" variant="XS / Medium">
+              <FormattedMessage
+                id="language_courses_hint"
+                defaultMessage="Loaded courses keep their language pair — to change it, load the course again"
+              />
+            </Text>
+          </Stack>
         </Stack>
       </Box>
     </Box>

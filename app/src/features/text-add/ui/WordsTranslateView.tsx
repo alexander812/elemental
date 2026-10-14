@@ -5,12 +5,11 @@ import { IconTranslate } from '@elemental/icons'
 
 import { Box, Button, Divider, FormHelperText, Header, Stack } from '@elemental/ui-kit'
 
-import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, getLanguageName } from '../../../lib/languages'
 import { InputWithVoice } from '../../../shared/ui/InputWithVoice'
 import { $languages } from '../../languages/store'
 import { popScreen, popTo } from '../../navigation/store'
-import { addCardsFx, $courseLangByLesson, $sets } from '../../sets/store'
-import { $userLang } from '../../theme/store'
+import { addCardsFx, $courseLangByLesson, $sets, $userLangByLesson } from '../../sets/store'
 import {
   pairOriginalChanged,
   pairTranslationChanged,
@@ -26,11 +25,12 @@ export function WordsTranslateView({ setId }: { setId: string }) {
   const translating = useUnit(translateAllFx.pending)
   const adding = useUnit(addCardsFx.pending)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLangByLesson = useUnit($userLangByLesson)
   const sets = useUnit($sets)
   const set = sets.find((item) => item.id === setId)
   const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
+  const courseUserLang = (set ? userLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_USER_LANG
 
   const canTranslate = pairs.some(
     (pair) => pair.original.trim().length > 0 || pair.translation.trim().length > 0
@@ -40,7 +40,7 @@ export function WordsTranslateView({ setId }: { setId: string }) {
     pairs.every((pair) => pair.original.trim().length > 0 && pair.translation.trim().length > 0)
 
   const handleTranslateAll = () => {
-    translateAllFx({ pairs, userLang, courseLang })
+    translateAllFx({ pairs, userLang: courseUserLang, courseLang })
   }
 
   const handleAdd = async () => {
@@ -49,7 +49,7 @@ export function WordsTranslateView({ setId }: { setId: string }) {
     await addCardsFx({
       setId,
       texts: pairs.map((pair) => ({
-        [userLang]: pair.original,
+        [courseUserLang]: pair.original,
         [courseLang]: pair.translation,
       })),
     })
@@ -75,8 +75,8 @@ export function WordsTranslateView({ setId }: { setId: string }) {
               <InputWithVoice
                 floatingLabel
                 fullWidth
-                lang={userLang}
-                placeholder={getLanguageName(userLang, languages)}
+                lang={courseUserLang}
+                placeholder={getLanguageName(courseUserLang, languages)}
                 size="m"
                 value={pair.original}
                 onChange={(value) => pairOriginalChanged({ id: pair.id, value })}

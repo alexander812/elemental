@@ -29,7 +29,7 @@ import { courseSelected, createCourseFx, updateCourseFx, $courses } from '../sto
 export function CourseCreateView({ courseId }: { courseId?: string }) {
   const courses = useUnit($courses)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
+  const settingsUserLang = useUnit($userLang)
   const createPending = useUnit(createCourseFx.pending)
   const updatePending = useUnit(updateCourseFx.pending)
 
@@ -40,6 +40,7 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
     [courses, courseId]
   )
   const isEditing = courseId !== undefined
+  const courseUserLang = course?.userLang ?? settingsUserLang
 
   const [name, setName] = useState(course?.name ?? '')
   const [description, setDescription] = useState(course?.description ?? '')
@@ -50,11 +51,11 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
     [languages]
   )
   const langOptions = useMemo(
-    () => options.map((option) => ({ ...option, disabled: option.value === userLang })),
-    [options, userLang]
+    () => options.map((option) => ({ ...option, disabled: option.value === settingsUserLang })),
+    [options, settingsUserLang]
   )
 
-  const langMismatch = !isEditing && lang === userLang
+  const langMismatch = !isEditing && lang === settingsUserLang
   const canApply = name.trim().length > 0 && !langMismatch
   const pending = createPending || updatePending
 
@@ -73,6 +74,7 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
       name,
       description,
       lang,
+      userLang: settingsUserLang,
     })
 
     courseSelected(createdCourseId)
@@ -116,7 +118,7 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
               autoFocus
               floatingLabel
               fullWidth
-              lang={userLang}
+              lang={courseUserLang}
               placeholder={
                 <FormattedMessage
                   id="course_create_name_placeholder"
@@ -171,7 +173,7 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
                 id="course_create_inheritance"
                 defaultMessage="{from} → {to} · inherited by the course's lessons and sets"
                 values={{
-                  from: getLanguageName(userLang, languages),
+                  from: getLanguageName(courseUserLang, languages),
                   to: getLanguageName(lang, languages),
                 }}
               />

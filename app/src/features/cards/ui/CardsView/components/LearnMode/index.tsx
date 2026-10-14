@@ -8,7 +8,11 @@ import { IconEducation } from '@elemental/icons'
 import { Box, Button, Header, Stack } from '@elemental/ui-kit'
 
 import { getCardText } from '../../../../../../lib/cards'
-import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../../../../lib/languages'
+import {
+  DEFAULT_COURSE_LANG,
+  DEFAULT_USER_LANG,
+  getLanguageName,
+} from '../../../../../../lib/languages'
 import type { Card as CardModel } from '../../../../../../lib/types'
 import { ConfirmSheet } from '../../../../../../shared/ui/ConfirmSheet'
 import { $asrProgress } from '../../../../../../shared/ui/RecognitionSheet'
@@ -25,9 +29,10 @@ import {
   setCardLearnedFx,
   $courseLangByLesson,
   $sets,
+  $userLangByLesson,
 } from '../../../../../sets/store'
 import { SetMenu } from '../../../../../sets/ui/SetMenu'
-import { $userLang, $voiceCheckEnabled, $writeCheckEnabled } from '../../../../../theme/store'
+import { $voiceCheckEnabled, $writeCheckEnabled } from '../../../../../theme/store'
 import { cancelRecognizeFx, recognizeFx } from '../../../../store'
 import { DECK_DEPTH, findNextSet, LEAVE_MS, nextSetScreen } from '../../helpers'
 import { FlashCard } from '../FlashCard'
@@ -49,8 +54,8 @@ export function LearnMode({ setId }: { setId: string }) {
   const sets = useUnit($sets)
   const asrProgress = useUnit($asrProgress)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLangByLesson = useUnit($userLangByLesson)
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
   const writeCheckEnabled = useUnit($writeCheckEnabled)
   const deleteSetPending = useUnit(deleteSetFx.pending)
@@ -86,6 +91,7 @@ export function LearnMode({ setId }: { setId: string }) {
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
   const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
+  const courseUserLang = (set ? userLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_USER_LANG
   const byId = useMemo(() => {
     const map = new Map<string, CardModel>()
     set?.cards.forEach((card) => map.set(card.id, card))
@@ -493,8 +499,8 @@ export function LearnMode({ setId }: { setId: string }) {
                 const card = byId.get(id)
                 if (!card) return null
 
-                const front = getCardText(card, set?.swapped ? userLang : courseLang)
-                const back = getCardText(card, set?.swapped ? courseLang : userLang)
+                const front = getCardText(card, set?.swapped ? courseUserLang : courseLang)
+                const back = getCardText(card, set?.swapped ? courseLang : courseUserLang)
 
                 return (
                   <FlashCard

@@ -15,14 +15,13 @@ import {
   Textarea,
 } from '@elemental/ui-kit'
 
-import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../lib/languages'
+import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, getLanguageName } from '../../../lib/languages'
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
 import { $languages } from '../../languages/store'
 import { popScreen } from '../../navigation/store'
 import type { TextAddDraft } from '../../navigation/store'
 import { draftTextSaved } from '../../set-create/store'
-import { $courseLangByLesson, $sets, updateSetTextFx } from '../../sets/store'
-import { $userLang } from '../../theme/store'
+import { $courseLangByLesson, $sets, $userLangByLesson, updateSetTextFx } from '../../sets/store'
 import {
   scanTextFx,
   textChanged,
@@ -43,8 +42,8 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
   const storedLang = useUnit($textLang)
   const sets = useUnit($sets)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
   const courseLangByLesson = useUnit($courseLangByLesson)
+  const userLangByLesson = useUnit($userLangByLesson)
   const scanPending = useUnit(scanTextFx.pending)
   const scanFailed = useUnit($scanFailed)
   const saving = useUnit(updateSetTextFx.pending)
@@ -55,10 +54,12 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
     (set ? courseLangByLesson.get(set.lessonId) : undefined) ??
     draft?.courseLang ??
     DEFAULT_COURSE_LANG
+  const courseUserLang =
+    (set ? userLangByLesson.get(set.lessonId) : undefined) ?? draft?.userLang ?? DEFAULT_USER_LANG
   const lang = storedLang ?? courseLang
   const langOptions = [
     { label: getLanguageName(courseLang, languages), value: courseLang },
-    { label: getLanguageName(userLang, languages), value: userLang },
+    { label: getLanguageName(courseUserLang, languages), value: courseUserLang },
   ]
 
   const scanAvailable = isNativeBridgeAvailable()

@@ -7,21 +7,21 @@ import { IconEducation, IconRestore } from '@elemental/icons'
 import { Box, Button, Card, Checkbox, EmptyScreen, Header, Stack } from '@elemental/ui-kit'
 
 import { getCardText } from '../../../lib/cards'
-import { getLanguageName } from '../../../lib/languages'
+import { DEFAULT_USER_LANG, getLanguageName } from '../../../lib/languages'
 import { $languages } from '../../languages/store'
 import { popScreen } from '../../navigation/store'
-import { restoreCardsFx, $sets } from '../../sets/store'
-import { $userLang } from '../../theme/store'
+import { restoreCardsFx, $sets, $userLangByLesson } from '../../sets/store'
 
 export function CardsRestoreView({ setId }: { setId: string }) {
   const sets = useUnit($sets)
   const languages = useUnit($languages)
-  const userLang = useUnit($userLang)
+  const userLangByLesson = useUnit($userLangByLesson)
   const pending = useUnit(restoreCardsFx.pending)
 
   const [selected, setSelected] = useState<ReadonlySet<string>>(() => new Set())
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
+  const courseUserLang = (set ? userLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_USER_LANG
   const deletedCards = useMemo(() => set?.cards.filter((card) => card.deleted) ?? [], [set])
 
   const toggle = (cardId: string) => {
@@ -81,7 +81,7 @@ export function CardsRestoreView({ setId }: { setId: string }) {
             <Card padding="m">
               <Stack spacing="l">
                 {deletedCards.map((card) => {
-                  const { lang, text } = getCardText(card, userLang)
+                  const { lang, text } = getCardText(card, courseUserLang)
 
                   return (
                     <Checkbox
