@@ -21,6 +21,7 @@ export const updateCourseFx = createEffect(
 )
 
 export const courseSelected = createEvent<string>()
+export const addedCourseShown = createEvent()
 
 export type DeleteCourseMode = 'with-lessons' | 'course-only'
 
@@ -80,6 +81,13 @@ export const $currentCourseId = createStore<string | null>(null)
 export const $coursesLoading = createStore(false)
   .on(fetchCoursesFx, () => true)
   .on(fetchCoursesFx.finally, () => false)
+
+export const $addedCourseId = createStore<string | null>(null)
+  .on(createCourseFx.doneData, (_, { courseId }) => courseId)
+  .on(loadCoursesFx.doneData, (_, result) =>
+    result.status === 'done' ? (result.addedCourseIds[0] ?? null) : null
+  )
+  .reset(addedCourseShown)
 
 export const $coursesLoaded = createStore(false).on(fetchCoursesFx.finally, () => true)
 

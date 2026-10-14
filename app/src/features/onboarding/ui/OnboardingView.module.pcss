@@ -1,0 +1,73 @@
+.overlay {
+  display: flex;
+  position: absolute;
+  z-index: 900;
+  inset: 0;
+  flex-direction: column;
+  padding: calc(64px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));
+  background: var(--surface-canvas);
+}
+
+.close {
+  position: absolute;
+  top: calc(8px + env(safe-area-inset-top));
+  right: 8px;
+}
+
+.emblem {
+  display: block;
+  width: 96px;
+  height: 96px;
+}
+
+.title {
+  width: 100%;
+  min-height: 72px;
+}
+
+.description {
+  width: 100%;
+  min-height: 96px;
+}
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: text-bottom;
+  background: var(--accent-bg-default);
+  animation: caretBlink 800ms step-end infinite;
+}
+
+@keyframes caretBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.actions {
+  transition: opacity 400ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.actionsVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+
+  .actions {
+    transition: none;
+  }
+}

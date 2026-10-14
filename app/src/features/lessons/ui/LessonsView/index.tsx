@@ -11,7 +11,7 @@ import {
   Header,
   Menu,
   Spinner,
-  Stack,
+  Stack, Text,
 } from '@elemental/ui-kit'
 
 import type { Lesson } from '../../../../lib/types'
@@ -20,6 +20,8 @@ import { ConfirmSheet } from '../../../../shared/ui/ConfirmSheet'
 import { deleteCourseFx, $courses, $currentCourseId } from '../../../courses/store'
 import type { DeleteCourseMode } from '../../../courses/store'
 import { pushScreen } from '../../../navigation/store'
+import { $onboardingOpened } from '../../../onboarding/store'
+import { useShakeHint } from '../../../onboarding/ui/useShakeHint'
 import { $sets } from '../../../sets/store'
 import {
   deleteLessonFx,
@@ -38,6 +40,7 @@ export function LessonsView() {
   const loading = useUnit($lessonsLoading)
   const deletePending = useUnit(deleteLessonFx.pending)
   const deleteCoursePending = useUnit(deleteCourseFx.pending)
+  const onboardingOpened = useUnit($onboardingOpened)
 
   const [pendingDelete, setPendingDelete] = useState<Lesson | null>(null)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -76,6 +79,8 @@ export function LessonsView() {
 
     return map
   }, [sets])
+
+  const firstLessonShake = useShakeHint('first-lesson', !onboardingOpened && visible.length > 0)
 
   const reorder = useRowReorder(
     visible.map((lesson) => lesson.id),
@@ -167,7 +172,19 @@ export function LessonsView() {
             <Spinner size="l" />
           </Stack>
         ) : (
-          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Курс не найден" />
+          <EmptyScreen
+            action={
+              <Button
+                startIcon={<IconPlusBig fontSize={16} />}
+                onClick={() => pushScreen({ name: 'course-create' })}
+              >
+                Добавить курс
+              </Button>
+            }
+            fullHeight
+            icon={<IconEducation fontSize={24} />}
+            text="Пока нет ни одного курса"
+          />
         )}
       </Box>
     )
@@ -194,19 +211,25 @@ export function LessonsView() {
   return (
     <Box grow height="100%">
       {header}
+      <Box padding="0 m 0 m">
+        <Text variant="M / Medium">
+          Уроки
+        </Text>
+      </Box>
       <Box grow padding="m">
         <div style={{ display: 'flex', flexDirection: 'column', gap: ROW_GAP }}>
           {visible.map((lesson, index) => (
-            <LessonRow
-              key={lesson.id}
-              examPassed={examPassedByLesson.get(lesson.id) ?? false}
-              index={index}
-              lesson={lesson}
-              reorder={reorder}
-              onDelete={handleDelete}
-              onEdit={handleEdit}
-              onTap={handleTap}
-            />
+            <div key={lesson.id} {...(index === 0 ? firstLessonShake : {})}>
+              <LessonRow
+                examPassed={examPassedByLesson.get(lesson.id) ?? false}
+                index={index}
+                lesson={lesson}
+                reorder={reorder}
+                onDelete={handleDelete}
+                onEdit={handleEdit}
+                onTap={handleTap}
+              />
+            </div>
           ))}
         </div>
       </Box>

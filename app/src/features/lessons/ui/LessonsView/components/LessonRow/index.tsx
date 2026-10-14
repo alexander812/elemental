@@ -35,7 +35,7 @@ export function LessonRow({
       onEdit={() => onEdit(lesson)}
       onTap={() => onTap(lesson)}
     >
-      <Stack direction="row" grow minWidth={0} spacing="xs" verticalAlign="center">
+      <Stack direction="row" grow height="100%" minWidth={0} spacing="xs" verticalAlign="center">
         {examPassed ? <IconCheck color="var(--positive-text-and-icons)" fontSize={24} /> : null}
         <Text overflow="ellipsis" variant="M / Medium">
           {lesson.name}

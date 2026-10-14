@@ -2,23 +2,15 @@ import { remapTexts } from '../lib/cards'
 import { DEFAULT_COURSE_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
-import type { Card, CardSet, CardTexts, Lesson } from '../lib/types'
+import type { Card, CardSet, CardTexts } from '../lib/types'
 import { uid } from '../lib/uid'
 import { readCourses } from './courses'
-import { ensureDefaultLesson, readLessons } from './lessons'
+import { readLessons } from './lessons'
 import { readSettings } from './settings'
 
 export type { Card, CardSet, CardTexts } from '../lib/types'
 
 const SETS_KEY = 'sets'
-const SEEDED_KEY = 'seeded'
-
-const WELCOME_TEXT: Record<LanguageCode, string> = {
-  ru: 'Привет! Я Лекси, я помогу тебе учить иностранный язык качай готовые курсы или создай все что ты хочешь сам.',
-  en: "Hi! I'm Lexi, I'll help you learn a foreign language. Download ready-made courses or create everything you want yourself.",
-  es: '¡Hola! Soy Lexi, te ayudaré a aprender un idioma extranjero. Descarga cursos ya preparados o crea todo lo que quieras tú mismo.',
-  fr: "Salut ! Je suis Lexi, je t'aiderai à apprendre une langue étrangère. Télécharge des cours prêts ou crée tout ce que tu veux toi-même.",
-}
 
 function normalizeTexts(texts: CardTexts | undefined): CardTexts {
   if (!texts || typeof texts !== 'object') return {}
@@ -49,34 +41,7 @@ function createCard(
   }
 }
 
-function seedSets(lesson: Lesson): CardSet[] {
-  return [
-    {
-      id: uid(),
-      lessonId: lesson.id,
-      name: 'Приветствие',
-      active: true,
-      order: 0,
-      swapped: false,
-      examPassed: false,
-      texts: { ...WELCOME_TEXT },
-      cards: [],
-    },
-  ]
-}
-
 function readSets(): CardSet[] {
-  const seeded = load<boolean>(SEEDED_KEY, false)
-
-  if (!seeded) {
-    const lesson = ensureDefaultLesson()
-    const sets = writeSets(seedSets(lesson))
-
-    save(SEEDED_KEY, true)
-
-    return sets
-  }
-
   return load<CardSet[]>(SETS_KEY, [])
 }
 
@@ -102,7 +67,6 @@ export async function fetchSets(): Promise<CardSet[]> {
 }
 
 export async function replaceSets(sets: CardSet[]): Promise<CardSet[]> {
-  save(SEEDED_KEY, true)
   return writeSets(sets)
 }
 

@@ -14,6 +14,8 @@ import { $asrProgress } from '../../../../../../shared/ui/RecognitionSheet'
 import { vibrateLong, vibrateShort } from '../../../../../../transport/haptics'
 import { $languages } from '../../../../../languages/store'
 import { popScreen, pushScreen } from '../../../../../navigation/store'
+import { $onboardingOpened } from '../../../../../onboarding/store'
+import { useShakeHint } from '../../../../../onboarding/ui/useShakeHint'
 import {
   deleteCardFx,
   deleteCardsFx,
@@ -52,6 +54,7 @@ export function LearnMode({ setId }: { setId: string }) {
   const writeCheckEnabled = useUnit($writeCheckEnabled)
   const deleteSetPending = useUnit(deleteSetFx.pending)
   const resetPending = useUnit(resetSetFx.pending)
+  const onboardingOpened = useUnit($onboardingOpened)
 
   const [filter, setFilter] = useState<Filter>('unlearned')
   const [excluded, setExcluded] = useState<ReadonlySet<string>>(() => new Set())
@@ -61,11 +64,13 @@ export function LearnMode({ setId }: { setId: string }) {
   const [drag, setDrag] = useState<DragPos | null>(null)
   const [leaving, setLeaving] = useState<Leaving | null>(null)
   const [testMode, setTestMode] = useState(false)
+  const [sweptAll, setSweptAll] = useState(false)
 
   const dragRef = useRef<DragPos | null>(null)
   const leavingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const autoLearnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const topCardIdRef = useRef<string | null>(null)
+  const prevQueueLengthRef = useRef(0)
   const movedRef = useRef(false)
   const lastTouchRef = useRef(0)
 
@@ -106,6 +111,14 @@ export function LearnMode({ setId }: { setId: string }) {
     topCardIdRef.current = topCard?.id ?? null
   }, [topCard?.id])
 
+  useEffect(() => {
+    const previousLength = prevQueueLengthRef.current
+
+    prevQueueLengthRef.current = displayedQueue.length
+
+    if (previousLength > 0 && displayedQueue.length === 0) setSweptAll(true)
+  }, [displayedQueue.length])
+
   const learnedCount = useMemo(
     () =>
       set ? set.cards.reduce((acc, card) => (card.learned && !card.deleted ? acc + 1 : acc), 0) : 0,
@@ -117,8 +130,23 @@ export function LearnMode({ setId }: { setId: string }) {
     [set]
   )
 
+  const activeDeck = useMemo(() => (set ? set.cards.filter((card) => !card.deleted) : []), [set])
+
+  const counter = useMemo(() => {
+    if (!topCard) return undefined
+
+    const index = activeDeck.findIndex((card) => card.id === topCard.id)
+
+    return index === -1 ? undefined : { current: index + 1, total: activeDeck.length }
+  }, [activeDeck, topCard])
+
   const allSwiped = displayedQueue.length === 0
   const noCards = set ? set.cards.every((card) => card.deleted) : true
+
+  const testHintShake = useShakeHint(
+    'test-button',
+    !onboardingOpened && sweptAll && !testMode && !noCards && !confirmDelete && !isLearnedFilter
+  )
 
   const commitLeave = (action: Leaving['action'], cardId: string) => {
     setLeaving(null)
@@ -477,6 +505,7 @@ export function LearnMode({ setId }: { setId: string }) {
                         ? { kind: checkStatus.kind, message: checkStatus.message }
                         : null
                     }
+                    counter={index === 0 ? counter : undefined}
                     depth={index}
                     drag={index === 0 ? drag : null}
                     flipped={!!flipped[id]}
@@ -510,9 +539,11 @@ export function LearnMode({ setId }: { setId: string }) {
           {!noCards && !confirmDelete ? <SwipeHints /> : null}
 
           {!noCards && !confirmDelete ? (
-            <Button fullWidth startIcon={<IconEducation fontSize={16} />} onClick={handleStartTest}>
-              Тест
-            </Button>
+            <div {...testHintShake}>
+              <Button fullWidth startIcon={<IconEducation fontSize={16} />} onClick={handleStartTest}>
+                Тест
+              </Button>
+            </div>
           ) : null}
         </Stack>
       </Box>

@@ -18,10 +18,23 @@ import {
 import type { Course } from '../../../lib/types'
 import { $lessons } from '../../lessons/store'
 import { goToLessons, pushScreen } from '../../navigation/store'
+import { $onboardingOpened } from '../../onboarding/store'
+import { useDelayedShake } from '../../onboarding/ui/useDelayedShake'
+import { useShakeHint } from '../../onboarding/ui/useShakeHint'
 import { $userLang } from '../../theme/store'
-import { courseSelected, fetchCoursesFx, $courses, $coursesLoading, $currentCourseId } from '../store'
+import {
+  addedCourseShown,
+  courseSelected,
+  fetchCoursesFx,
+  $addedCourseId,
+  $courses,
+  $coursesLoading,
+  $currentCourseId,
+} from '../store'
 
 import classes from './CoursesView.module.pcss'
+
+const ADDED_COURSE_SHAKE_DELAY_MS = 1000
 
 const lessonWord = (count: number): string => {
   const mod10 = count % 10
@@ -41,6 +54,8 @@ export function CoursesView() {
   const loading = useUnit($coursesLoading)
   const currentCourseId = useUnit($currentCourseId)
   const userLang = useUnit($userLang)
+  const onboardingOpened = useUnit($onboardingOpened)
+  const addedCourseId = useUnit($addedCourseId)
 
   const [addOpened, setAddOpened] = useState(false)
 
@@ -59,6 +74,17 @@ export function CoursesView() {
   }, [lessons])
 
   const visible = useMemo(() => [...courses].sort((a, b) => a.order - b.order), [courses])
+
+  const addHintShake = useShakeHint(
+    'courses-add',
+    !onboardingOpened && !loading && visible.length === 0
+  )
+
+  const addedCourseShake = useDelayedShake(
+    addedCourseId !== null,
+    ADDED_COURSE_SHAKE_DELAY_MS,
+    addedCourseShown
+  )
 
   const handleOpen = (course: Course) => {
     courseSelected(course.id)
@@ -123,9 +149,11 @@ export function CoursesView() {
         <Header startToolbar={logo} text="Lexi" />
         <EmptyScreen
           action={
-            <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
-              Добавить курс
-            </Button>
+            <div {...addHintShake}>
+              <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
+                Добавить курс
+              </Button>
+            </div>
           }
           fullHeight
           icon={<IconEducation fontSize={24} />}
@@ -139,43 +167,49 @@ export function CoursesView() {
   return (
     <Box grow height="100%">
       <Header startToolbar={logo} text="Lexi" />
+      <Box padding="0 m 0 m">
+        <Text variant="M / Medium">
+          Курсы
+        </Text>
+      </Box>
       <Box grow padding="m">
         <div className={classes.list}>
           {visible.map((course) => {
             const count = lessonCounts.get(course.id) ?? 0
 
             return (
-              <Card
-                key={course.id}
-                active={course.id === currentCourseId}
-                borderRadius="m"
-                color="primary"
-                padding="m"
-                onClick={() => handleOpen(course)}
-              >
-                <Stack spacing="xs" height="100%">
-                  <Stack
-                    direction="row"
-                    horizontalAlign="space-between"
-                    spacing="s"
-                    verticalAlign="center"
-                  >
-                    <Text overflow="ellipsis" variant="M / Medium">
-                      {course.name} ({langLabel(userLang)}-{langLabel(course.lang)})
-                    </Text>
-                    <Stack shrink={0}>
-                      <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">
-                        {count} {lessonWord(count)}
+              <div key={course.id} {...(course.id === addedCourseId ? addedCourseShake : {})}>
+                <Card
+                  active={course.id === currentCourseId}
+                  borderRadius="m"
+                  color="primary"
+                  padding="m"
+                  onClick={() => handleOpen(course)}
+                >
+                  <Stack spacing="xs" height="100%">
+                    <Stack
+                      direction="row"
+                      horizontalAlign="space-between"
+                      spacing="s"
+                      verticalAlign="center"
+                    >
+                      <Text overflow="ellipsis" variant="M / Medium">
+                        {course.name} ({langLabel(userLang)}-{langLabel(course.lang)})
                       </Text>
+                      <Stack shrink={0}>
+                        <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">
+                          {count} {lessonWord(count)}
+                        </Text>
+                      </Stack>
                     </Stack>
+                    <div className={classes.description}>
+                      <Text color="contrast-secondary" variant="XS / Medium">
+                        {course.description}
+                      </Text>
+                    </div>
                   </Stack>
-                  <div className={classes.description}>
-                    <Text color="contrast-secondary" variant="XS / Medium">
-                      {course.description}
-                    </Text>
-                  </div>
-                </Stack>
-              </Card>
+                </Card>
+              </div>
             )
           })}
         </div>

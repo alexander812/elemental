@@ -11,7 +11,7 @@ import {
   Header,
   Menu,
   Spinner,
-  Stack,
+  Stack, Text,
 } from '@elemental/ui-kit'
 
 import { DEFAULT_COURSE_LANG } from '../../../../lib/languages'
@@ -159,7 +159,14 @@ export function SetsView({ lessonId }: { lessonId: string }) {
   return (
     <Box grow height="100%">
       {header}
+
+      <Box padding="0 m 0 m">
+        <Text variant="M / Medium">
+          Задания
+        </Text>
+      </Box>
       <Box grow padding="m">
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: ROW_GAP }}>
           {visible.map((set, index) => (
             <SetRow

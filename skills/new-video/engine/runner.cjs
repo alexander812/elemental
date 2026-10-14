@@ -15,17 +15,23 @@
  *
  * Сценарий (обычный CommonJS-модуль): { name, seed, steps }
  * seed — данные localStorage в формате моделей приложения (без конверта).
+ * initScripts — дополнительные init-скрипты страницы (моки моста, окружения);
+ * routes — подмена сетевых запросов: [{ pattern: <шаблон URL как в route>, respond: (url) => json | null }].
  * steps — массив шагов, ключи шага:
  *   caption          — подпись-плашка снизу (можно без действия)
  *   captionMs        — сколько держать подпись, мс (по умолчанию 2200)
- *   scene            — карточка сцены: { title: 'Сцена 1', text: 'Для начала загрузим курс.' },
+ *   scene            — карточка шага: { title: 'Шаг 1', text: 'Для начала загрузим курс.' },
  *                      текст печатается по буквам; заканчивается затемнением и паузой
  *   sceneTypeMs      — скорость печати, мс на букву (45)
  *   sceneHoldMs      — пауза после напечатанного текста (1500)
  *   hint             — тултип у элемента действия с текстом-подсказкой (до и после действия)
  *   hintMs           — сколько держать тултип до действия (1400)
  *   hintAfterMs      — сколько держать тултип после действия (700)
+ *   hintRing         — false: без рамки вокруг элемента (для круглых кнопок вроде микрофона)
  *   tap              — текст/название элемента (кнопка, radio, текст)
+ *   touch            — true: тап тач-событием (нужно для переворота карточки: мышь
+ *                      не доходит из-за pointer-capture); работает с tap/tapAt
+ *   hold             — длинное нажатие: { target: 'word', ms?: 1600 } (перевод по удержанию)
  *   tapAt            — { x, y } — тап по координатам
  *   type             — { target: 'Название поля', text: '...', delay?: 90 }
  *   swipe            — { target: 'Monday', dir: 'left'|'right'|'up'|'down', distance?: 220 }
@@ -276,7 +282,7 @@ function presentationScript(cursorTravel) {
           }, typeMs);
         });
       },
-      hintShow(text, rect) {
+      hintShow(text, rect, ring) {
         const gap = 12;
         const above = rect ? rect.y > 130 : false;
 
@@ -292,11 +298,15 @@ function presentationScript(cursorTravel) {
           hint.style.top = above ? `${rect.y - gap}px` : `${rect.y + rect.height + gap}px`;
           hint.style.transform = above ? 'translate(-50%,-100%)' : 'translate(-50%,0)';
 
-          hintRing.style.display = 'block';
-          hintRing.style.left = `${rect.x - 5}px`;
-          hintRing.style.top = `${rect.y - 5}px`;
-          hintRing.style.width = `${rect.width + 10}px`;
-          hintRing.style.height = `${rect.height + 10}px`;
+          if (ring !== false) {
+            hintRing.style.display = 'block';
+            hintRing.style.left = `${rect.x - 5}px`;
+            hintRing.style.top = `${rect.y - 5}px`;
+            hintRing.style.width = `${rect.width + 10}px`;
+            hintRing.style.height = `${rect.height + 10}px`;
+          } else {
+            hintRing.style.display = 'none';
+          }
         } else {
           hint.style.left = '50%';
           hint.style.top = '120px';
@@ -307,7 +317,7 @@ function presentationScript(cursorTravel) {
 
         requestAnimationFrame(() => {
           hint.style.opacity = '1';
-          if (rect) hintRing.style.opacity = '1';
+          if (rect && ring !== false) hintRing.style.opacity = '1';
         });
       },
       hintHide() {
@@ -392,24 +402,30 @@ async function find(page, query, timeout = 8000) {
   }
 }
 
-async function tapPoint(page, x, y, pause, hideHint = false) {
+async function tapPoint(page, x, y, pause, hideHint = false, touch = false) {
   await page.evaluate(({ x, y }) => window.__tut.moveTo(x, y), { x, y });
-  await page.mouse.move(x, y);
+  if (!touch) await page.mouse.move(x, y);
   await page.waitForTimeout(CURSOR_TRAVEL);
   await page.evaluate(({ x, y }) => window.__tut.press(x, y), { x, y });
-  await page.mouse.down();
-  await page.waitForTimeout(PRESS);
-  await page.mouse.up();
+
+  if (touch) {
+    await page.touchscreen.tap(x, y);
+  } else {
+    await page.mouse.down();
+    await page.waitForTimeout(PRESS);
+    await page.mouse.up();
+  }
+
   await page.evaluate(({ x, y }) => window.__tut.release(x, y), { x, y });
   if (hideHint) await page.evaluate(() => window.__tut.hintHide());
   await page.waitForTimeout(pause ?? PAUSE.tap);
 }
 
-async function tap(page, query, pause, hideHint) {
+async function tap(page, query, pause, hideHint, touch = false) {
   const loc = await find(page, query);
   const box = await loc.boundingBox();
   if (!box) throw new Error(`Элемент вне видимой области: «${query}»`);
-  await tapPoint(page, box.x + box.width / 2, box.y + box.height / 2, pause, hideHint);
+  await tapPoint(page, box.x + box.width / 2, box.y + box.height / 2, pause, hideHint, touch);
 }
 
 async function tapBack(page, pause, hideHint) {
@@ -487,6 +503,27 @@ async function swipe(page, step, hideHint = false) {
   await page.waitForTimeout(step.pause ?? PAUSE.swipe);
 }
 
+async function hold(page, holdStep, pause, hideHint = false) {
+  const ms = holdStep.ms ?? 1600;
+  const loc = await find(page, holdStep.target);
+  const box = await loc.boundingBox();
+  if (!box) throw new Error(`Элемент вне видимой области: «${holdStep.target}»`);
+
+  const x = box.x + box.width / 2;
+  const y = box.y + box.height / 2;
+
+  await page.evaluate(({ x, y }) => window.__tut.moveTo(x, y), { x, y });
+  await page.mouse.move(x, y);
+  await page.waitForTimeout(CURSOR_TRAVEL);
+  await page.evaluate(({ x, y }) => window.__tut.press(x, y), { x, y });
+  await page.mouse.down();
+  await page.waitForTimeout(ms);
+  await page.mouse.up();
+  await page.evaluate(({ x, y }) => window.__tut.release(x, y), { x, y });
+  if (hideHint) await page.evaluate(() => window.__tut.hintHide());
+  await page.waitForTimeout(pause ?? 600);
+}
+
 async function runStep(page, step) {
   if (step.scene) {
     await page.evaluate(
@@ -522,8 +559,8 @@ async function runStep(page, step) {
     }
 
     await page.evaluate(
-      ({ text, rect }) => window.__tut.hintShow(text, rect),
-      { text: step.hint, rect }
+      ({ text, rect, ring }) => window.__tut.hintShow(text, rect, ring),
+      { text: step.hint, rect, ring: step.hintRing }
     );
 
     if (process.env.TUT_DEBUG_HINT) {
@@ -564,15 +601,17 @@ async function runStep(page, step) {
   if (step.wait) {
     await page.waitForTimeout(step.wait);
   } else if (step.tap) {
-    await tap(page, step.tap, step.pause, withHint);
+    await tap(page, step.tap, step.pause, withHint, step.touch === true);
   } else if (step.tapAt) {
-    await tapPoint(page, step.tapAt.x, step.tapAt.y, step.pause, withHint);
+    await tapPoint(page, step.tapAt.x, step.tapAt.y, step.pause, withHint, step.touch === true);
   } else if (step.type) {
     await typeInto(page, step.type);
     if (withHint) await page.evaluate(() => window.__tut.hintHide());
     await page.waitForTimeout(step.pause ?? PAUSE.type);
   } else if (step.swipe) {
-    await swipe(page, step.swipe, withHint);
+    await swipe(page, { pause: step.pause, ...step.swipe }, withHint);
+  } else if (step.hold) {
+    await hold(page, step.hold, step.pause, withHint);
   } else if (step.back) {
     await tapBack(page, step.pause ?? PAUSE.back, withHint);
   } else if (step.eval) {
@@ -606,13 +645,44 @@ async function runStep(page, step) {
 
   await context.addInitScript(presentationScript, CURSOR_TRAVEL);
   await context.addInitScript(mockSpeechScript);
-  await context.addInitScript(
-    seedScript,
+
+  for (const script of scenario.initScripts ?? []) {
+    if (typeof script === 'function') {
+      await context.addInitScript(script);
+    } else {
+      await context.addInitScript(script.fn, script.arg);
+    }
+  }
+
+  for (const entry of scenario.routes ?? []) {
+    await context.route(entry.pattern, async (route) => {
+      const response = entry.respond(route.request().url());
+
+      if (response === null || response === undefined) {
+        await route.continue();
+        return;
+      }
+
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify(response),
+      });
+    });
+  }
+
+  await context.addInitScript(seedScript, [
+    ...Object.entries(scenario.seed).map(([key, data]) => [`app.${key}`, envelope(data)]),
     [
-      ...Object.entries(scenario.seed).map(([key, data]) => [`app.${key}`, envelope(data)]),
-      ['app.seeded', envelope(true)],
-    ]
-  );
+      'app.onboarding',
+      envelope(
+        scenario.seed.onboarding ?? {
+          completed: true,
+          hints: { 'courses-add': true, 'first-lesson': true, 'test-button': true },
+        },
+      ),
+    ],
+  ]);
 
   const page = await context.newPage();
   const videoT0 = Date.now();
@@ -637,7 +707,7 @@ async function runStep(page, step) {
       step.scene
         ? `scene «${step.scene.title}»`
         : (step.caption ??
-          (step.tap ? `tap «${step.tap}»` : step.type ? `type «${step.type.target}»` : step.swipe ? `swipe «${step.swipe.target}»` : step.back ? 'back' : step.wait ? `wait ${step.wait}` : step.tapAt ? 'tapAt' : step.hint ? `hint «${step.hint}»` : 'eval'));
+          (step.tap ? `tap «${step.tap}»` : step.type ? `type «${step.type.target}»` : step.swipe ? `swipe «${step.swipe.target}»` : step.hold ? `hold «${step.hold.target}»` : step.back ? 'back' : step.wait ? `wait ${step.wait}` : step.tapAt ? 'tapAt' : step.hint ? `hint «${step.hint}»` : 'eval'));
     process.stdout.write(`[${index}/${steps.length}] ${label}\n`);
     timeline.push({
       index,

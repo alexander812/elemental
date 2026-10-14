@@ -3,7 +3,7 @@
  *
  * name — имя ролика (используется в именах файлов: <name>.webm/.mp4/.webm/.jpg);
  * seed — что лежит в localStorage на старте (ключи app.courses/app.lessons/app.sets/app.settings);
- *        app.seeded движок ставит сам;
+ *        app.onboarding движок проставляет сам (completed + все подсказки показаны), можно переопределить;
  * steps — порядок действий.
  *
  * Правила:

@@ -1,6 +1,6 @@
 const PREFIX = 'app.'
 
-export const DATA_VERSION = 7
+export const DATA_VERSION = 8
 
 type Envelope<T> = {
   data: T

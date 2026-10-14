@@ -1,4 +1,3 @@
-import { DEFAULT_COURSE_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Course } from '../lib/types'
@@ -8,42 +7,8 @@ export type { Course } from '../lib/types'
 
 const COURSES_KEY = 'courses'
 
-export const DEFAULT_COURSE_NAME = 'Знакомство с Лекси'
-
-export function createDefaultCourse(lang?: LanguageCode): Course {
-  return {
-    id: uid(),
-    name: DEFAULT_COURSE_NAME,
-    description: '',
-    order: 0,
-    lang: lang ?? DEFAULT_COURSE_LANG,
-  }
-}
-
 export function readCourses(): Course[] {
-  const raw = load<Course[] | null>(COURSES_KEY, null)
-
-  if (raw === null) {
-    const course = createDefaultCourse()
-
-    save(COURSES_KEY, [course])
-    return [course]
-  }
-
-  return raw
-}
-
-export function ensureDefaultCourse(): Course {
-  const courses = readCourses()
-
-  if (courses.length > 0) {
-    return [...courses].sort((a, b) => a.order - b.order)[0]
-  }
-
-  const course = createDefaultCourse()
-  save(COURSES_KEY, [course])
-
-  return course
+  return load<Course[]>(COURSES_KEY, [])
 }
 
 function writeCourses(courses: Course[]): Course[] {

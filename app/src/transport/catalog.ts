@@ -200,13 +200,17 @@ export async function buildReadyCourses(payload: {
   return { courses, lessons, sets }
 }
 
+function isSameNameAndLang(a: Course, b: Course): boolean {
+  return a.name === b.name && a.lang === b.lang
+}
+
 export function findReadyCourseDuplicates(
   ready: ReadyCourses,
   existing: Course[],
   level: CourseLevel
 ): Course[] {
   return ready.courses.filter((course) =>
-    existing.some((item) => item.level === level && item.name === course.name)
+    existing.some((item) => item.level === level && isSameNameAndLang(item, course))
   )
 }
 
@@ -215,9 +219,10 @@ export async function applyReadyCourses(
   level: CourseLevel
 ): Promise<ReadyCourses> {
   const existingCourses = await fetchCourses()
-  const incomingNames = new Set(ready.courses.map((course) => course.name))
   const removedCourses = existingCourses.filter(
-    (course) => course.level === level && incomingNames.has(course.name)
+    (course) =>
+      course.level === level &&
+      ready.courses.some((incoming) => isSameNameAndLang(incoming, course))
   )
   const removedCourseIds = new Set(removedCourses.map((course) => course.id))
   const existingLessons = await fetchLessons()

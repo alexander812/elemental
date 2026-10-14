@@ -52,6 +52,7 @@ export type FlashCardProps = {
   asrProgress: number | null
   backText: string
   checkStatus: CheckStatus | null
+  counter?: { current: number; total: number } | undefined
   depth: number
   drag: DragPos | null
   flipped: boolean
@@ -82,6 +83,7 @@ export function FlashCard({
   asrProgress,
   backText,
   checkStatus,
+  counter,
   depth,
   drag,
   flipped,
@@ -294,6 +296,14 @@ export function FlashCard({
     </Text>
   ) : null
 
+  const cardCounter = counter ? (
+    <div className={classes.counter}>
+      <Text align="center" color="contrast-secondary" variant="M / Medium">
+        {counter.current} / {counter.total}
+      </Text>
+    </div>
+  ) : null
+
   const checkControls = (
     <Stack spacing="s" horizontalAlign="center">
       <div className={classes.messageSlot}>{statusMessage}</div>
@@ -411,6 +421,7 @@ export function FlashCard({
               </Text>
               {showActions ? checkControls : null}
             </Stack>
+            {cardCounter}
             {showActions && !testMode ? cardActions(onSpeakFront) : null}
           </div>
           <div
@@ -430,6 +441,7 @@ export function FlashCard({
                 {backText}
               </Text>
             </Stack>
+            {cardCounter}
             {showActions && !testMode ? cardActions(onSpeakBack) : null}
           </div>
         </div>

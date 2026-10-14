@@ -21,7 +21,7 @@ export const fetchCatalogFx = createEffect((level: CourseLevel) =>
 
 export type LoadCoursesResult =
   | { status: 'duplicates'; duplicates: string[] }
-  | { status: 'done'; ready: ReadyCourses }
+  | { status: 'done'; ready: ReadyCourses; addedCourseIds: string[] }
 
 export const loadCoursesFx = createEffect(
   async (payload: {
@@ -43,7 +43,11 @@ export const loadCoursesFx = createEffect(
 
     const applied = await catalogApi.applyReadyCourses(ready, payload.level)
 
-    return { status: 'done', ready: applied }
+    return {
+      status: 'done',
+      ready: applied,
+      addedCourseIds: ready.courses.map((course) => course.id),
+    }
   }
 )
 

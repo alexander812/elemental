@@ -8,10 +8,13 @@ import { BottomSheetProvider } from '@elemental/ui-kit'
 
 import { DataView } from '../features/backup/ui/DataView'
 import { ExportView } from '../features/backup/ui/ExportView'
+import { $appReady } from '../features/boot/store'
 import { CardCreateView } from '../features/card-create/ui/CardCreateView'
 import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
 import { CardsView } from '../features/cards/ui/CardsView'
 import { KnowledgeView } from '../features/knowledge/ui/KnowledgeView'
+import { OnboardingView } from '../features/onboarding/ui/OnboardingView'
+import { $onboardingOpened } from '../features/onboarding/store'
 import { ChecksView } from '../features/settings/ui/ChecksView'
 import { AboutView } from '../features/settings/ui/AboutView'
 import { LanguageView } from '../features/settings/ui/LanguageView'
@@ -97,7 +100,7 @@ function renderScreen(screen: Screen): ReactNode {
     case 'voices':
       return <VoicesView />
     case 'knowledge':
-      return <KnowledgeView />
+      return <KnowledgeView key={screen.videoId} videoId={screen.videoId} />
     case 'recognition':
       return <RecognitionView />
     case 'checks':
@@ -182,6 +185,8 @@ export function AppLayout() {
   const stack = useUnit($stack)
   const screen = useUnit($screen)
   const transition = useUnit($transition)
+  const appReady = useUnit($appReady)
+  const onboardingOpened = useUnit($onboardingOpened)
 
   const mainRef = useRef<HTMLElement>(null)
 
@@ -219,6 +224,7 @@ export function AppLayout() {
         <AppFooter />
         <RecognitionSheet onOpenSettings={() => pushScreen({ name: 'recognition' })} />
         <Toast />
+        {appReady && onboardingOpened ? <OnboardingView /> : null}
       </BottomSheetProvider>
     </div>
   )

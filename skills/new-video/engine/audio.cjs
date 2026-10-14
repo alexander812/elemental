@@ -13,6 +13,10 @@
  *   --offset=<мс>       сдвиг всех реплик
  *   --voice-ru=, --voice-en=, --voice-es=, --voice-fr=
  *
+ * Голос шага (`voice` в сценарии): имя голоса `say` либо `edge:<голос>` — нейросетевой
+ * голос edge-tts (нужен `python3 -m pip install --user edge-tts`, например
+ * `edge:ru-RU-DmitryNeural`). `sayRate` для edge пересчитывается в проценты скорости.
+ *
  * Каталог результатов — тот же $TUT_OUT, что у runner.cjs (по умолчанию $TMPDIR/opencode/tutorial-out).
  */
 
@@ -89,14 +93,57 @@ function sayClip(text, voice, rate, file) {
   }
 }
 
+const EDGE_PREFIX = 'edge:';
+const EDGE_ATTEMPTS = 4;
+
+const sleepMs = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+
+// Нейросетевой голос edge-tts (например, edge:ru-RU-DmitryNeural).
+// Нужен python3 и пакет: python3 -m pip install --user edge-tts
+// Сервис иногда отвечает «No audio was received» — пробуем несколько раз.
+function edgeClip(text, voice, rate, file) {
+  const args = ['-m', 'edge_tts', '--voice', voice, '--text', text, '--write-media', file];
+
+  if (rate) {
+    const percent = Math.round((rate / 175 - 1) * 100);
+    args.push('--rate', `${percent > 0 ? '+' : ''}${percent}%`);
+  }
+
+  for (let attempt = 1; attempt <= EDGE_ATTEMPTS; attempt += 1) {
+    try {
+      execFileSync('python3', args, { stdio: 'ignore' });
+
+      if (fs.existsSync(file) && fs.statSync(file).size > 0) return;
+    } catch {
+      /* пробуем ещё раз */
+    }
+
+    if (attempt < EDGE_ATTEMPTS) sleepMs(2500);
+  }
+
+  throw new Error(
+    `Не удалось озвучить «${text}» голосом ${voice}. Поставь edge-tts: python3 -m pip install --user edge-tts`
+  );
+}
+
+function voiceClip(text, voice, rate, file) {
+  if (voice && voice.startsWith(EDGE_PREFIX)) {
+    edgeClip(text, voice.slice(EDGE_PREFIX.length), rate, file);
+    return;
+  }
+
+  sayClip(text, voice, rate, file);
+}
+
 const clips = [];
 
 for (const step of (timeline?.steps ?? [])) {
   if (!step.say) continue;
 
   const voice = step.voice ?? VOICES[step.sayLang] ?? null;
-  const file = path.join(workDir, `say-${step.index}.aiff`);
-  sayClip(step.say, voice, step.sayRate, file);
+  const edge = voice?.startsWith(EDGE_PREFIX) ?? false;
+  const file = path.join(workDir, `voice-${step.index}.${edge ? 'mp3' : 'aiff'}`);
+  voiceClip(step.say, voice, step.sayRate, file);
 
   const atMs = timeline.leadMs + step.atMs + (step.sayDelay ?? 600) + OFFSET_MS - TRIM_MS;
   clips.push({ file, atMs: Math.max(0, atMs), text: step.say });

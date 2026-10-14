@@ -11,8 +11,10 @@ import { VideoCard } from './components/VideoCard'
 
 import classes from './index.module.pcss'
 
-export function KnowledgeView() {
-  const [activeVideo, setActiveVideo] = useState<KnowledgeVideo | null>(null)
+export function KnowledgeView({ videoId }: { videoId?: string }) {
+  const [activeVideo, setActiveVideo] = useState<KnowledgeVideo | null>(
+    () => KNOWLEDGE_VIDEOS.find((video) => video.id === videoId) ?? null
+  )
 
   return (
     <Box grow height="100%">

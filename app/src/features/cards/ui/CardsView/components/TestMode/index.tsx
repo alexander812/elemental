@@ -528,6 +528,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   }
 
   const testDeck = testQueue.slice(testIndex, testIndex + DECK_DEPTH)
+  const testCounter = { current: testIndex + 1, total: testQueue.length }
   const testCorrectCount = testResults.filter(Boolean).length
   const testErrorCount = testResults.length - testCorrectCount
   const testPassed = testResults.length === testQueue.length && testResults.every(Boolean)
@@ -566,6 +567,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
                     asrProgress={asrProgress}
                     backText=""
                     checkStatus={testCardId === id ? testStatus : null}
+                    counter={index === 0 ? testCounter : undefined}
                     depth={index}
                     drag={null}
                     flipped={false}

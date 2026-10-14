@@ -1,47 +1,13 @@
 import { load, save } from '../lib/storage'
 import type { Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
-import { ensureDefaultCourse } from './courses'
 
 export type { Lesson } from '../lib/types'
 
 const LESSONS_KEY = 'lessons'
 
-export const DEFAULT_LESSON_NAME = 'Урок 1'
-
-export function createDefaultLesson(courseId?: string): Lesson {
-  return {
-    id: uid(),
-    courseId: courseId ?? ensureDefaultCourse().id,
-    name: DEFAULT_LESSON_NAME,
-    order: 0,
-  }
-}
-
 export function readLessons(): Lesson[] {
-  const raw = load<Lesson[] | null>(LESSONS_KEY, null)
-
-  if (raw === null) {
-    const lesson = createDefaultLesson()
-
-    save(LESSONS_KEY, [lesson])
-    return [lesson]
-  }
-
-  return raw
-}
-
-export function ensureDefaultLesson(): Lesson {
-  const lessons = readLessons()
-
-  if (lessons.length > 0) {
-    return [...lessons].sort((a, b) => a.order - b.order)[0]
-  }
-
-  const lesson = createDefaultLesson()
-  save(LESSONS_KEY, [lesson])
-
-  return lesson
+  return load<Lesson[]>(LESSONS_KEY, [])
 }
 
 function writeLessons(lessons: Lesson[]): Lesson[] {
