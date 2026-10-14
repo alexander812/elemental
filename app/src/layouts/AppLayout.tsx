@@ -14,7 +14,7 @@ import { CardsRestoreView } from '../features/cards/ui/CardsRestoreView'
 import { CardsView } from '../features/cards/ui/CardsView'
 import { KnowledgeView } from '../features/knowledge/ui/KnowledgeView'
 import { OnboardingView } from '../features/onboarding/ui/OnboardingView'
-import { $onboardingOpened } from '../features/onboarding/store'
+import { $onboardingOpened, $taskOnboardingOpened } from '../features/onboarding/store'
 import { ChecksView } from '../features/settings/ui/ChecksView'
 import { AboutView } from '../features/settings/ui/AboutView'
 import { LanguageView } from '../features/settings/ui/LanguageView'
@@ -187,11 +187,13 @@ export function AppLayout() {
   const transition = useUnit($transition)
   const appReady = useUnit($appReady)
   const onboardingOpened = useUnit($onboardingOpened)
+  const taskOnboardingOpened = useUnit($taskOnboardingOpened)
 
   const mainRef = useRef<HTMLElement>(null)
 
   const entering = transition.kind === 'push'
   const leavingScreen = transition.kind === 'pop' ? transition.screen : null
+  const isTaskScreen = screen.name === 'set-intro' || screen.name === 'cards'
 
   useLayoutEffect(() => {
     mainRef.current?.scrollTo({ top: 0 })
@@ -231,6 +233,9 @@ export function AppLayout() {
         <RecognitionSheet onOpenSettings={() => pushScreen({ name: 'recognition' })} />
         <Toast />
         {appReady && onboardingOpened ? <OnboardingView /> : null}
+        {appReady && !onboardingOpened && taskOnboardingOpened && isTaskScreen ? (
+          <OnboardingView variant="task" />
+        ) : null}
       </BottomSheetProvider>
     </div>
   )

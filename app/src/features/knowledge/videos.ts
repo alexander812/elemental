@@ -9,6 +9,7 @@ export type KnowledgeVideo = {
 const asset = (path: string): string => `${import.meta.env.BASE_URL}${path}`
 
 export const GENERAL_VIDEO_ID = 'overview'
+export const TASK_VIDEO_ID = 'task'
 
 export const KNOWLEDGE_VIDEOS: KnowledgeVideo[] = [
   {
@@ -26,10 +27,17 @@ export const KNOWLEDGE_VIDEOS: KnowledgeVideo[] = [
     poster: asset('videos/add-ready-course.jpg'),
   },
   {
-    id: 'task',
+    id: TASK_VIDEO_ID,
     title: 'Работа с заданиями',
     src: asset('videos/task.mp4'),
     webm: asset('videos/task.webm'),
     poster: asset('videos/task.jpg'),
+  },
+  {
+    id: 'settings',
+    title: 'Настройки и данные',
+    src: asset('videos/settings.mp4'),
+    webm: asset('videos/settings.webm'),
+    poster: asset('videos/settings.jpg'),
   },
 ]

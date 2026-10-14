@@ -3,46 +3,75 @@ import { useEffect, useMemo, useState } from 'react'
 import { IconClose } from '@elemental/icons'
 import { Button, ButtonIcon, Stack, Text } from '@elemental/ui-kit'
 
-import { GENERAL_VIDEO_ID } from '../../knowledge/videos'
+import { GENERAL_VIDEO_ID, TASK_VIDEO_ID } from '../../knowledge/videos'
 import { pushScreen } from '../../navigation/store'
-import { onboardingCompleted } from '../store'
+import { onboardingCompleted, taskOnboardingCompleted } from '../store'
 
 import classes from './OnboardingView.module.pcss'
 
-const TITLE = 'Добро пожаловать в Лекси'
-const DESCRIPTION =
-  'Учите иностранные слова по флеш-карточкам: добавляйте готовые курсы или создавайте свои, проверяйте произношение и проходите тесты.'
+export type OnboardingVariant = 'general' | 'task'
+
+type OnboardingContent = {
+  title: string
+  description: string
+  videoId: string
+}
+
+const CONTENT: Record<OnboardingVariant, OnboardingContent> = {
+  general: {
+    title: 'Добро пожаловать в Лекси',
+    description:
+      'Учите иностранные слова по флеш-карточкам: добавляйте готовые курсы или создавайте свои, проверяйте произношение и проходите тесты.',
+    videoId: GENERAL_VIDEO_ID,
+  },
+  task: {
+    title: 'Как работать с заданием',
+    description:
+      'Текст — главное в задании, а карточки помогут выучить слова из него. Листайте их свайпами, проверяйте произношение и проходите тест.',
+    videoId: TASK_VIDEO_ID,
+  },
+}
 
 const TYPE_DELAY_MS = 40
-const TOTAL_LENGTH = TITLE.length + DESCRIPTION.length
 
-export function OnboardingView() {
+const completeOnboarding = (variant: OnboardingVariant) => {
+  if (variant === 'task') {
+    taskOnboardingCompleted()
+  } else {
+    onboardingCompleted()
+  }
+}
+
+export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVariant }) {
+  const { title: fullTitle, description: fullDescription, videoId } = CONTENT[variant]
+  const totalLength = fullTitle.length + fullDescription.length
+
   const reduceMotion = useMemo(
     () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     []
   )
 
-  const [charCount, setCharCount] = useState(() => (reduceMotion ? TOTAL_LENGTH : 0))
+  const [charCount, setCharCount] = useState(() => (reduceMotion ? totalLength : 0))
 
   useEffect(() => {
-    if (reduceMotion || charCount >= TOTAL_LENGTH) return
+    if (reduceMotion || charCount >= totalLength) return
 
     const timer = window.setTimeout(() => setCharCount((count) => count + 1), TYPE_DELAY_MS)
 
     return () => window.clearTimeout(timer)
-  }, [charCount, reduceMotion])
+  }, [charCount, reduceMotion, totalLength])
 
-  const typed = charCount >= TOTAL_LENGTH
-  const title = TITLE.slice(0, charCount)
-  const description = DESCRIPTION.slice(0, Math.max(0, charCount - TITLE.length))
+  const typed = charCount >= totalLength
+  const title = fullTitle.slice(0, charCount)
+  const description = fullDescription.slice(0, Math.max(0, charCount - fullTitle.length))
 
   const handleVideo = () => {
-    onboardingCompleted()
-    pushScreen({ name: 'knowledge', videoId: GENERAL_VIDEO_ID })
+    completeOnboarding(variant)
+    pushScreen({ name: 'knowledge', videoId })
   }
 
   const handleKnowledge = () => {
-    onboardingCompleted()
+    completeOnboarding(variant)
     pushScreen({ name: 'knowledge' })
   }
 
@@ -53,7 +82,7 @@ export function OnboardingView() {
           ariaLabel="Закрыть"
           icon={<IconClose fontSize={24} />}
           variant="flat"
-          onClick={() => onboardingCompleted()}
+          onClick={() => completeOnboarding(variant)}
         />
       </div>
 

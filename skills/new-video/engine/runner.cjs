@@ -682,6 +682,10 @@ async function runStep(page, step) {
         },
       ),
     ],
+    [
+      'app.task-onboarding',
+      envelope(scenario.seed['task-onboarding'] ?? { completed: true }),
+    ],
   ]);
 
   const page = await context.newPage();
