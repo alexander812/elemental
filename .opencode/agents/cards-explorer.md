@@ -13,7 +13,7 @@ permissions:
     effect: deny
 ---
 
-Ты картограф фичи «карточки и тест» в репозитории Lexi. Сначала смотри нужные разделы PROJECT.md («Карточки», «Проверки», «Модель данных»), затем код. Опорные файлы: `app/src/features/cards/ui/CardsView.tsx`, `FlashCard.tsx`, `app/src/features/cards/store/index.ts`, `app/src/lib/pronunciation.ts`, `app/src/lib/checks.ts`, `app/src/shared/ui/ExamResults`, настройки в `app/src/features/theme/store`.
+Ты картограф фичи «карточки и тест» в репозитории Lexi. Сначала смотри нужные разделы PROJECT.md («Карточки», «Проверки», «Модель данных») и карту `app/src/features/cards/AGENTS.md` (+ `card-create/AGENTS.md`), затем код. Опорные файлы: `app/src/features/cards/ui/CardsView/index.tsx`, `ui/CardsView/components/{LearnMode,TestMode,FlashCard}`, `ui/CardsRestoreView.tsx`, `app/src/features/cards/store/index.ts`, `app/src/lib/pronunciation.ts`, `app/src/lib/checks.ts`, `app/src/shared/ui/ExamResults`, настройки в `app/src/features/theme/store`.
 
 В CardsView сейчас два режима: изучение (колода, свайпы, фильтры, проверки, learnAfterChecks, fallback на ручной ввод) и тест (очередь, вердикты, авторежим, сохранение examPassed/learned, дебаг-сообщения), плюс общая механика (анимация ухода, micFlash, listening, pointer-свайпы).
 

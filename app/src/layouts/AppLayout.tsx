@@ -215,8 +215,14 @@ export function AppLayout() {
           >
             {renderScreen(screen)}
           </div>
+          {/* inert: уходящий экран — копия снятого со стека, он не должен
+              перехватывать фокус (autoFocus заново открывал клавиатуру) */}
           {leavingScreen && (
-            <div className={classes.screenExiting} onAnimationEnd={() => transitionEnded()}>
+            <div
+              className={classes.screenExiting}
+              inert
+              onAnimationEnd={() => transitionEnded()}
+            >
               {renderScreen(leavingScreen)}
             </div>
           )}

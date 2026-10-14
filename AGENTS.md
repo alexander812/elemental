@@ -20,3 +20,22 @@
 ## Карта проекта
 
 - `PROJECT.md` — основная карта (архитектура, экраны, модель данных). Читать нужные разделы перед работой с фичей, целиком не перечитывать.
+- `app/src/features/<фича>/AGENTS.md` — фичевая карта: файлы, внешние связи, инварианты, кто здесь работает (агент/скилл). Подхватывается сама при работе с папкой.
+
+## Маршрутизация фич
+
+- Разбор фичи (несколько файлов, незнакомый код) — сначала субагент из таблицы, самому по репозиторию не искать. Правка одного файла — без субагента.
+- Заходя в папку фичи, читай её `AGENTS.md`.
+
+| Триггеры в запросе | Папки | Агент | Скилл |
+| --- | --- | --- | --- |
+| карточки, колода, тест, свайпы, проверки слова | `app/src/features/cards`, `card-create` | cards-explorer | — |
+| урок, задание, текст задания, пары слов, редактор текста, скан | `app/src/features/lessons`, `sets`, `set-create`, `set-text`, `text-add` | sets-explorer | — |
+| распознавание, произношение, озвучка, микрофон | `app/src/features/recognition`, `voices`, `app/src/lib/pronunciation.ts` | asr-doctor | — |
+| готовый курс, новый язык, перевод курса (контент JSON) | `app/src/courses` | course-editor | new-course |
+| экраны курсов, поиск готовых, каталог (код) | `app/src/features/courses`, `course-search` | — (встроенный `explore`) | — |
+| онбординг | `app/src/features/onboarding` | — | new-onboarding |
+| видео, база знаний | `app/src/features/knowledge`, `app/public/videos` | — | new-video |
+| тема, цвета, палитра | `app/src/features/theme`, токены `design-system/ui-kit` | — | new-theme |
+| бэкап, данные, версии localStorage | `app/src/features/backup`, `app/src/lib/storage.ts` | — | — |
+| e2e-прогон | — | e2e-runner | — |
