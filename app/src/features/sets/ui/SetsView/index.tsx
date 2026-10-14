@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconEdit, IconEducation, IconMoreVertical, IconPlusBig } from '@elemental/icons'
 import {
@@ -34,6 +35,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
   const lessons = useUnit($lessons)
   const courseLangByLesson = useUnit($courseLangByLesson)
   const loading = useUnit($setsLoading)
+  const intl = useIntl()
 
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -93,7 +95,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
         <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
           <Menu.Trigger>
             <ButtonIcon
-              ariaLabel="Меню урока"
+              ariaLabel={intl.formatMessage({ id: 'sets_lesson_menu', defaultMessage: 'Lesson menu' })}
               icon={<IconMoreVertical fontSize={24} />}
               variant="flat"
             />
@@ -101,7 +103,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
           <Menu.Content>
             <Menu.Item
               icon={<IconEdit fontSize={16} />}
-              label="Редактировать урок"
+              label={<FormattedMessage id="sets_edit_lesson" defaultMessage="Edit lesson" />}
               onClick={handleEditLesson}
             />
           </Menu.Content>
@@ -121,7 +123,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
             <Spinner size="l" />
           </Stack>
         ) : (
-          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Урок не найден" />
+          <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text={<FormattedMessage id="sets_lesson_not_found" defaultMessage="Lesson not found" />} />
         )}
       </Box>
     )
@@ -145,12 +147,12 @@ export function SetsView({ lessonId }: { lessonId: string }) {
         <EmptyScreen
           action={
             <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
-              Добавить задание
+              <FormattedMessage id="sets_add_set" defaultMessage="Add set" />
             </Button>
           }
           fullHeight
           icon={<IconEducation fontSize={24} />}
-          text="Пока в уроке нет заданий"
+          text={<FormattedMessage id="sets_empty" defaultMessage="No sets in this lesson yet" />}
         />
       </Box>
     )
@@ -162,7 +164,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
 
       <Box padding="0 m 0 m">
         <Text variant="M / Medium">
-          Задания
+          <FormattedMessage id="sets_title" defaultMessage="Sets" />
         </Text>
       </Box>
       <Box grow padding="m">
@@ -188,7 +190,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
           variant="secondary"
           onClick={handleAddNew}
         >
-          Добавить задание
+          <FormattedMessage id="sets_add_set" defaultMessage="Add set" />
         </Button>
       </Box>
     </Box>

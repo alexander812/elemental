@@ -1,4 +1,5 @@
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { IconTranslate } from '@elemental/icons'
 
@@ -59,7 +60,13 @@ export function WordsTranslateView({ setId }: { setId: string }) {
 
   return (
     <Box grow height="100%">
-      <Header back text="Проверьте перевод" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={
+          <FormattedMessage id="words_translate_title" defaultMessage="Check the translation" />
+        }
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         <Stack spacing="l">
           {pairs.map((pair, index) => (
@@ -88,7 +95,10 @@ export function WordsTranslateView({ setId }: { setId: string }) {
 
           {translateFailed ? (
             <FormHelperText variant="error">
-              Не удалось перевести часть слов — введите перевод вручную
+              <FormattedMessage
+                id="words_translate_failed"
+                defaultMessage="Some words couldn't be translated — enter the translation manually"
+              />
             </FormHelperText>
           ) : null}
 
@@ -100,11 +110,11 @@ export function WordsTranslateView({ setId }: { setId: string }) {
             variant="secondary"
             onClick={handleTranslateAll}
           >
-            Перевести все
+            <FormattedMessage id="words_translate_translate_all" defaultMessage="Translate all" />
           </Button>
 
           <Button disabled={!canAdd} fullWidth loading={adding} onClick={handleAdd}>
-            Добавить
+            <FormattedMessage id="common_add" defaultMessage="Add" />
           </Button>
         </Stack>
       </Box>

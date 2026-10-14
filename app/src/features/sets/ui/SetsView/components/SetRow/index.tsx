@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 
 import { IconCheck, IconCheckSmall, IconClose } from '@elemental/icons'
 import { Stack, Text } from '@elemental/ui-kit'
+import { useIntl } from 'react-intl'
 
 import type { CardSet } from '../../../../../../lib/types'
 import { SwipeRow } from '../../../../../../shared/ui/SwipeRow'
@@ -25,13 +26,14 @@ type SetRowProps = {
 
 export function SetRow({ index, reorder, set, onDelete, onEdit, onTap }: SetRowProps) {
   const { learned, notLearned } = useMemo(() => getCounts(set), [set])
+  const intl = useIntl()
 
   return (
     <SwipeRow
       {...reorder.rowProps(set.id, index)}
       color="accent"
-      deleteLabel="Удалить задание"
-      editLabel="Редактировать задание"
+      deleteLabel={intl.formatMessage({ id: 'sets_delete_set', defaultMessage: 'Delete set' })}
+      editLabel={intl.formatMessage({ id: 'sets_edit_set', defaultMessage: 'Edit set' })}
       onDelete={() => onDelete(set.id)}
       onEdit={() => onEdit(set)}
       onTap={() => onTap(set)}

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconEdit, IconEducation, IconMoreVertical, IconPlusBig, IconTrash } from '@elemental/icons'
 import {
@@ -41,6 +42,8 @@ export function LessonsView() {
   const deletePending = useUnit(deleteLessonFx.pending)
   const deleteCoursePending = useUnit(deleteCourseFx.pending)
   const onboardingOpened = useUnit($onboardingOpened)
+
+  const intl = useIntl()
 
   const [pendingDelete, setPendingDelete] = useState<Lesson | null>(null)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -137,7 +140,10 @@ export function LessonsView() {
           <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
             <Menu.Trigger>
               <ButtonIcon
-                ariaLabel="Меню курса"
+                ariaLabel={intl.formatMessage({
+                  id: 'lessons_course_menu',
+                  defaultMessage: 'Course menu',
+                })}
                 icon={<IconMoreVertical fontSize={24} />}
                 variant="flat"
               />
@@ -145,13 +151,15 @@ export function LessonsView() {
             <Menu.Content>
               <Menu.Item
                 icon={<IconEdit fontSize={16} />}
-                label="Редактировать курс"
+                label={<FormattedMessage id="lessons_edit_course" defaultMessage="Edit course" />}
                 onClick={handleEditCourse}
               />
               {!isBaseCourse ? (
                 <Menu.Item
                   icon={<IconTrash fontSize={16} />}
-                  label="Удалить курс"
+                  label={
+                    <FormattedMessage id="lessons_delete_course" defaultMessage="Delete course" />
+                  }
                   onClick={() => setConfirmCourseDelete(true)}
                 />
               ) : null}
@@ -159,7 +167,7 @@ export function LessonsView() {
           </Menu.Root>
         ) : null
       }
-      text={course?.name ?? 'Уроки'}
+      text={course?.name ?? <FormattedMessage id="lessons_title" defaultMessage="Lessons" />}
     />
   )
 
@@ -178,12 +186,12 @@ export function LessonsView() {
                 startIcon={<IconPlusBig fontSize={16} />}
                 onClick={() => pushScreen({ name: 'course-create' })}
               >
-                Добавить курс
+                <FormattedMessage id="courses_add" defaultMessage="Add course" />
               </Button>
             }
             fullHeight
             icon={<IconEducation fontSize={24} />}
-            text="Пока нет ни одного курса"
+            text={<FormattedMessage id="courses_empty" defaultMessage="No courses yet" />}
           />
         )}
       </Box>
@@ -197,12 +205,14 @@ export function LessonsView() {
         <EmptyScreen
           action={
             <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
-              Добавить урок
+              <FormattedMessage id="lessons_add" defaultMessage="Add lesson" />
             </Button>
           }
           fullHeight
           icon={<IconEducation fontSize={24} />}
-          text="Пока в курсе нет уроков"
+          text={
+            <FormattedMessage id="lessons_empty" defaultMessage="The course has no lessons yet" />
+          }
         />
       </Box>
     )
@@ -213,7 +223,7 @@ export function LessonsView() {
       {header}
       <Box padding="0 m 0 m">
         <Text variant="M / Medium">
-          Уроки
+          <FormattedMessage id="lessons_title" defaultMessage="Lessons" />
         </Text>
       </Box>
       <Box grow padding="m">
@@ -240,26 +250,38 @@ export function LessonsView() {
           variant="secondary"
           onClick={handleAddNew}
         >
-          Добавить урок
+          <FormattedMessage id="lessons_add" defaultMessage="Add lesson" />
         </Button>
       </Box>
 
       <ConfirmSheet
         opened={pendingDelete !== null}
-        text={`При удалении урока «${pendingDelete?.name}» все вложенные в него задания и карточки будут удалены без возможности восстановления.`}
+        text={
+          <FormattedMessage
+            id="lessons_delete_confirm"
+            defaultMessage="Deleting the lesson “{name}” will also delete all its sets and cards permanently."
+            values={{ name: pendingDelete?.name }}
+          />
+        }
         onClosed={() => setPendingDelete(null)}
       >
         <Button color="negative" fullWidth loading={deletePending} onClick={handleConfirmDelete}>
-          Удалить
+          <FormattedMessage id="common_delete" defaultMessage="Delete" />
         </Button>
         <Button fullWidth variant="secondary" onClick={() => setPendingDelete(null)}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
 
       <ConfirmSheet
         opened={confirmCourseDelete}
-        text={`Удалить курс «${course?.name}»? Уроки можно удалить вместе с курсом или перенести в «${baseCourse?.name}».`}
+        text={
+          <FormattedMessage
+            id="lessons_delete_course_confirm"
+            defaultMessage="Delete the course “{course}”? You can delete its lessons with it or move them to “{base}”."
+            values={{ course: course?.name, base: baseCourse?.name }}
+          />
+        }
         onClosed={() => setConfirmCourseDelete(false)}
       >
         <Button
@@ -268,7 +290,10 @@ export function LessonsView() {
           loading={deleteCoursePending}
           onClick={() => handleDeleteCourse('with-lessons')}
         >
-          Удалить курс и уроки
+          <FormattedMessage
+            id="lessons_delete_course_with_lessons"
+            defaultMessage="Delete course and lessons"
+          />
         </Button>
         <Button
           disabled={deleteCoursePending}
@@ -276,7 +301,7 @@ export function LessonsView() {
           variant="secondary"
           onClick={() => handleDeleteCourse('course-only')}
         >
-          Удалить только курс
+          <FormattedMessage id="lessons_delete_course_only" defaultMessage="Delete course only" />
         </Button>
         <Button
           disabled={deleteCoursePending}
@@ -284,7 +309,7 @@ export function LessonsView() {
           variant="secondary"
           onClick={() => setConfirmCourseDelete(false)}
         >
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
     </Box>

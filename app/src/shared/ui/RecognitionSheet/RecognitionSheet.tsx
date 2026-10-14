@@ -1,8 +1,9 @@
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { BottomSheet, Box, Button, FormHelperText, ProgressBar, Stack, Text } from '@elemental/ui-kit'
 
-import { asrArtifactErrorText } from '../../../lib/recognitionErrors'
+import { asrArtifactErrorDescriptor } from '../../../lib/recognitionErrors'
 
 import { $asrError, $asrProgress, $asrSheetOpened, asrSheetClosed } from './model'
 
@@ -14,6 +15,7 @@ export function RecognitionSheet({ onOpenSettings }: RecognitionSheetProps) {
   const opened = useUnit($asrSheetOpened)
   const progress = useUnit($asrProgress)
   const error = useUnit($asrError)
+  const intl = useIntl()
 
   const handleOpenSettings = () => {
     asrSheetClosed()
@@ -25,22 +27,54 @@ export function RecognitionSheet({ onOpenSettings }: RecognitionSheetProps) {
       <Box padding="l">
         <Stack spacing="m">
           <Text align="center" variant="M / Medium">
-            {progress === null ? 'Распознавание речи не загружено' : 'Загружаю распознавание речи'}
+            {progress === null
+              ? intl.formatMessage({
+                  id: 'asr_sheet_not_downloaded',
+                  defaultMessage: "Speech recognition isn't downloaded",
+                })
+              : intl.formatMessage({
+                  id: 'asr_sheet_downloading',
+                  defaultMessage: 'Downloading speech recognition',
+                })}
           </Text>
           <Text align="center" color="contrast-secondary" variant="S / Medium">
             {progress === null
-              ? 'Скачайте модель один раз — и диктовка с проверкой произношения будет работать офлайн.'
-              : 'Модель скачивается один раз и работает офлайн. После загрузки повторите нажатие на микрофон.'}
+              ? intl.formatMessage({
+                  id: 'asr_sheet_download_hint',
+                  defaultMessage:
+                    'Download the model once and dictation with pronunciation check will work offline.',
+                })
+              : intl.formatMessage({
+                  id: 'asr_sheet_downloading_hint',
+                  defaultMessage:
+                    'The model downloads once and works offline. Tap the microphone again after it loads.',
+                })}
           </Text>
           <ProgressBar value={progress ?? 0} />
           <Text align="center" color="contrast-secondary" variant="XS / Medium">
-            {progress === null ? 'Не загружено' : `Загрузка… ${Math.round(progress * 100)}%`}
+            {progress === null
+              ? intl.formatMessage({
+                  id: 'asr_sheet_status_not_downloaded',
+                  defaultMessage: 'Not downloaded',
+                })
+              : intl.formatMessage(
+                  {
+                    id: 'asr_sheet_status_progress',
+                    defaultMessage: 'Loading… {percent}%',
+                  },
+                  { percent: Math.round(progress * 100) }
+                )}
           </Text>
           {error ? (
-            <FormHelperText variant="error">{asrArtifactErrorText(error)}</FormHelperText>
+            <FormHelperText variant="error">
+              {intl.formatMessage(asrArtifactErrorDescriptor(error))}
+            </FormHelperText>
           ) : null}
           <Button fullWidth onClick={handleOpenSettings}>
-            Настройки распознавания
+            <FormattedMessage
+              id="asr_sheet_settings"
+              defaultMessage="Speech recognition settings"
+            />
           </Button>
         </Stack>
       </Box>

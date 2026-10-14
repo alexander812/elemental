@@ -11,7 +11,8 @@
     "typecheck": "tsc -b --noEmit",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
+    "i18n": "node scripts/i18n.mjs"
   },
   "dependencies": {
     "@elemental/icons": "1.0.0",
@@ -21,7 +22,8 @@
     "effector": "^23.4.4",
     "effector-react": "^23.3.0",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-intl": "^12.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

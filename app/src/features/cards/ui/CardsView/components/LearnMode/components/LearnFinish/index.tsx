@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl'
+
 import { IconCheck, IconCheckSmall, IconEducation, IconPlusBig } from '@elemental/icons'
 import { Button, EmptyScreen, Stack, Text } from '@elemental/ui-kit'
 
@@ -29,13 +31,17 @@ export function LearnFinish({
     return (
       <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
         <Text align="center" color="contrast-secondary" variant="S / Medium">
-          Удалить задание «{setName}» со всеми карточками?
+          <FormattedMessage
+            id="cards_finish_delete_confirm"
+            defaultMessage={'Delete the set "{setName}" with all its cards?'}
+            values={{ setName }}
+          />
         </Text>
         <Button color="negative" loading={deletePending} onClick={onConfirmDeleteSet}>
-          Удалить
+          <FormattedMessage id="common_delete" defaultMessage="Delete" />
         </Button>
         <Button variant="secondary" onClick={onCancelDeleteSet}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </Stack>
     )
@@ -46,12 +52,17 @@ export function LearnFinish({
       <EmptyScreen
         action={
           <Button startIcon={<IconPlusBig fontSize={16} />} onClick={onAddCard}>
-            Добавить
+            <FormattedMessage id="common_add" defaultMessage="Add" />
           </Button>
         }
         fullHeight
         icon={<IconEducation fontSize={24} />}
-        text="Пока в задании нет карточек"
+        text={
+          <FormattedMessage
+            id="cards_finish_no_cards"
+            defaultMessage="There are no cards in this set yet"
+          />
+        }
       />
     )
   }
@@ -60,11 +71,16 @@ export function LearnFinish({
     return (
       <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
         <Text align="center" color="contrast-secondary" variant="S / Medium">
-          Вы посмотрели все карточки
+          <FormattedMessage
+            id="cards_finish_viewed_all"
+            defaultMessage="You viewed all the cards"
+          />
         </Text>
-        <Button onClick={onRestart}>Начать сначала</Button>
+        <Button onClick={onRestart}>
+          <FormattedMessage id="cards_finish_restart" defaultMessage="Start over" />
+        </Button>
         <Button variant="secondary" onClick={onNextSet}>
-          Перейти к следующему заданию
+          <FormattedMessage id="cards_finish_next_set" defaultMessage="Go to the next set" />
         </Button>
       </Stack>
     )
@@ -75,10 +91,10 @@ export function LearnFinish({
       <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
         <IconCheck color="var(--positive-text-and-icons)" fontSize={32} />
         <Text align="center" color="contrast-secondary" variant="S / Medium">
-          Все карточки выучены
+          <FormattedMessage id="cards_finish_all_learned" defaultMessage="All cards learned" />
         </Text>
         <Button variant="secondary" onClick={onNextSet}>
-          Перейти к следующему заданию
+          <FormattedMessage id="cards_finish_next_set" defaultMessage="Go to the next set" />
         </Button>
       </Stack>
     )
@@ -88,17 +104,26 @@ export function LearnFinish({
     return (
       <Stack grow horizontalAlign="center" spacing="m" verticalAlign="center">
         <Text align="center" color="contrast-secondary" variant="S / Medium">
-          Вы посмотрели все выученные карточки
+          <FormattedMessage
+            id="cards_finish_viewed_learned"
+            defaultMessage="You viewed all learned cards"
+          />
         </Text>
-        <Button onClick={onRestart}>Повторить</Button>
+        <Button onClick={onRestart}>
+          <FormattedMessage id="cards_finish_repeat" defaultMessage="Repeat" />
+        </Button>
         <Button variant="secondary" onClick={onNextSet}>
-          Перейти к следующему заданию
+          <FormattedMessage id="cards_finish_next_set" defaultMessage="Go to the next set" />
         </Button>
       </Stack>
     )
   }
 
   return (
-    <EmptyScreen fullHeight icon={<IconCheckSmall fontSize={24} />} text="Нет выученных карточек" />
+    <EmptyScreen
+      fullHeight
+      icon={<IconCheckSmall fontSize={24} />}
+      text={<FormattedMessage id="cards_finish_no_learned" defaultMessage="No learned cards" />}
+    />
   )
 }

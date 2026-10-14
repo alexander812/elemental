@@ -1,9 +1,10 @@
 import { createEvent, createStore } from 'effector'
+import type { MessageDescriptor } from 'react-intl'
 
-export const showToast = createEvent<string>()
+export const showToast = createEvent<MessageDescriptor>()
 export const hideToast = createEvent()
 
-export const $toast = createStore<string | null>(null)
+export const $toast = createStore<MessageDescriptor | null>(null)
   .on(showToast, (_, text) => text)
   .reset(hideToast)
 

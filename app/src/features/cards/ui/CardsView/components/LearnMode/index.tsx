@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { PointerEvent as ReactPointerEvent } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { IconEducation } from '@elemental/icons'
 import { Box, Button, Header, Stack } from '@elemental/ui-kit'
@@ -541,7 +542,7 @@ export function LearnMode({ setId }: { setId: string }) {
           {!noCards && !confirmDelete ? (
             <div {...testHintShake}>
               <Button fullWidth startIcon={<IconEducation fontSize={16} />} onClick={handleStartTest}>
-                Тест
+                <FormattedMessage id="cards_mode_test" defaultMessage="Test" />
               </Button>
             </div>
           ) : null}
@@ -550,14 +551,19 @@ export function LearnMode({ setId }: { setId: string }) {
 
       <ConfirmSheet
         opened={confirmReset}
-        text="Вы уверены, что хотите сбросить результаты? Карточки вернутся в невыученные, как будто вы их не трогали."
+        text={
+          <FormattedMessage
+            id="cards_reset_confirm"
+            defaultMessage="Are you sure you want to reset the results? The cards will go back to unlearned as if you never touched them."
+          />
+        }
         onClosed={() => setConfirmReset(false)}
       >
         <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
-          Да
+          <FormattedMessage id="cards_reset_confirm_yes" defaultMessage="Yes" />
         </Button>
         <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
     </Box>

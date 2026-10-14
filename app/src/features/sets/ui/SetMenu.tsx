@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { FormattedMessage, useIntl } from 'react-intl'
+
 import {
   IconEdit,
   IconMoreVertical,
@@ -32,48 +34,55 @@ export function SetMenu({
   swapped,
 }: SetMenuProps) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const intl = useIntl()
 
   return (
     <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
       <Menu.Trigger>
-        <ButtonIcon ariaLabel="Меню" icon={<IconMoreVertical fontSize={24} />} variant="flat" />
+        <ButtonIcon
+          ariaLabel={intl.formatMessage({ id: 'sets_menu', defaultMessage: 'Menu' })}
+          icon={<IconMoreVertical fontSize={24} />}
+          variant="flat"
+        />
       </Menu.Trigger>
       <Menu.Content>
         {onAddCard ? (
           <Menu.Item
             icon={<IconPlusBig fontSize={16} />}
-            label="Добавить карточку"
+            label={<FormattedMessage id="sets_add_card" defaultMessage="Add card" />}
             onClick={onAddCard}
           />
         ) : null}
         <Menu.Item
           icon={<IconEdit fontSize={16} />}
-          label="Редактировать"
+          label={<FormattedMessage id="common_edit" defaultMessage="Edit" />}
           onClick={() => pushScreen({ name: 'set-create', setId })}
         />
         <Menu.Item
           icon={<IconSwapVert fontSize={16} />}
-          label="Поменять местами"
+          label={<FormattedMessage id="sets_swap" defaultMessage="Swap" />}
           onClick={() => setSetSwappedFx({ setId, swapped: !swapped })}
         />
         <Menu.Item
           icon={<IconTrash fontSize={16} />}
-          label="Удалить все карточки"
+          label={<FormattedMessage id="sets_delete_all_cards" defaultMessage="Delete all cards" />}
           onClick={onDeleteCards}
         />
         <Menu.Item
           icon={<IconRestore fontSize={16} />}
-          label="Восстановить удалённые"
+          label={
+            <FormattedMessage id="sets_restore_cards" defaultMessage="Restore deleted cards" />
+          }
           onClick={() => pushScreen({ name: 'cards-restore', setId })}
         />
         <Menu.Item
           icon={<IconRefresh fontSize={16} />}
-          label="Сбросить результаты"
+          label={<FormattedMessage id="sets_reset_results" defaultMessage="Reset results" />}
           onClick={onResetSet}
         />
         <Menu.Item
           icon={<IconTrash fontSize={16} />}
-          label="Удалить задание"
+          label={<FormattedMessage id="sets_delete_set" defaultMessage="Delete set" />}
           onClick={onDeleteSet}
         />
       </Menu.Content>

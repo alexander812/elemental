@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl'
+
 import { IconPlay } from '@elemental/icons'
 import { Card, Text } from '@elemental/ui-kit'
 
@@ -20,7 +22,9 @@ export function VideoCard({ onPlay, video }: VideoCardProps) {
           <IconPlay fontSize={32} />
         </div>
         <div className={classes.title}>
-          <Text variant="XL / CAPS">{video.title}</Text>
+          <Text variant="XL / CAPS">
+            <FormattedMessage {...video.title} />
+          </Text>
         </div>
       </div>
     </Card>

@@ -1,4 +1,5 @@
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { Box, Card, Header, Radio, Stack, Text } from '@elemental/ui-kit'
 
@@ -16,7 +17,11 @@ export function LanguageView() {
 
   return (
     <Box grow height="100%">
-      <Header back text="Язык" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={<FormattedMessage id="language_title" defaultMessage="Language" />}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         <Stack spacing="m">
           <Card padding="l">
@@ -29,7 +34,10 @@ export function LanguageView() {
             </Radio>
           </Card>
           <Text color="contrast-tertiary" variant="XS / Medium">
-            Ваш язык: переводы и подсказки будут на нём
+            <FormattedMessage
+              id="language_hint"
+              defaultMessage="Your language: translations and hints will be shown in it"
+            />
           </Text>
         </Stack>
       </Box>

@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl'
+
 import { Button, Stack, Text, TextPanel } from '@elemental/ui-kit'
 
 type ExamResultsProps = {
@@ -42,7 +44,7 @@ export function ExamResults({
           <Stack spacing="s" width="100%">
             <Stack direction="row" horizontalAlign="space-between" spacing="m">
               <Text color="contrast-primary" variant="M / Medium">
-                Правильных ответов
+                <FormattedMessage id="exam_results_correct" defaultMessage="Correct answers" />
               </Text>
               <Text color="positive-text-and-icons" variant="M / Medium">
                 {correctCount}
@@ -50,7 +52,7 @@ export function ExamResults({
             </Stack>
             <Stack direction="row" horizontalAlign="space-between" spacing="m">
               <Text color="contrast-primary" variant="M / Medium">
-                Ошибок
+                <FormattedMessage id="exam_results_errors" defaultMessage="Errors" />
               </Text>
               <Text color="negative-text-and-icons" variant="M / Medium">
                 {errorCount}
@@ -61,13 +63,13 @@ export function ExamResults({
       </TextPanel>
       <Stack spacing="m">
         <Button fullWidth onClick={onRetake}>
-          Пройти тест снова
+          <FormattedMessage id="exam_results_retake" defaultMessage="Retake the test" />
         </Button>
         <Button fullWidth variant="secondary" onClick={onBack}>
-          Вернуться к обучению
+          <FormattedMessage id="exam_results_back" defaultMessage="Back to learning" />
         </Button>
         <Button fullWidth variant="secondary" onClick={onNext}>
-          Перейти к следующему заданию
+          <FormattedMessage id="cards_finish_next_set" defaultMessage="Go to the next set" />
         </Button>
       </Stack>
     </Stack>

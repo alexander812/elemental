@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconScan } from '@elemental/icons'
 
@@ -47,6 +48,7 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
   const scanPending = useUnit(scanTextFx.pending)
   const scanFailed = useUnit($scanFailed)
   const saving = useUnit(updateSetTextFx.pending)
+  const intl = useIntl()
 
   const set = setId ? sets.find((item) => item.id === setId) : undefined
   const courseLang =
@@ -79,7 +81,7 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
     <div className={classes.root}>
       <Header
         back
-        text={wasEditing ? 'Изменить текст' : 'Добавить текст'}
+        text={wasEditing ? <FormattedMessage id="text_add_edit_title" defaultMessage="Edit text" /> : <FormattedMessage id="text_add_add_title" defaultMessage="Add text" />}
         onBackClick={() => popScreen()}
       />
       <div className={classes.layout}>
@@ -87,13 +89,13 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
           <Stack spacing="l">
             <Stack spacing="s">
               <Text color="contrast-secondary" variant="XS / Medium">
-                Язык текста
+                <FormattedMessage id="text_add_text_lang" defaultMessage="Text language" />
               </Text>
               <Select fullWidth options={langOptions} value={lang} onChange={textLangChanged} />
             </Stack>
             <Textarea
               fullWidth
-              placeholder="Введите или вставьте текст"
+              placeholder={intl.formatMessage({ id: 'text_add_placeholder', defaultMessage: 'Type or paste the text' })}
               rows={6}
               value={text}
               onChange={textChanged}
@@ -107,14 +109,14 @@ export function TextAddView({ setId, draft }: TextAddViewProps) {
                 variant="secondary"
                 onClick={() => scanTextFx(lang)}
               >
-                Сканировать текст
+                <FormattedMessage id="text_add_scan" defaultMessage="Scan text" />
               </Button>
             ) : null}
             {scanFailed ? (
-              <FormHelperText variant="error">Не удалось распознать текст</FormHelperText>
+              <FormHelperText variant="error"><FormattedMessage id="text_add_scan_failed" defaultMessage="Couldn't recognize the text" /></FormHelperText>
             ) : null}
             <Button disabled={!text.trim()} fullWidth loading={saving} onClick={handleSave}>
-              Сохранить
+              <FormattedMessage id="common_save" defaultMessage="Save" />
             </Button>
           </Stack>
         </div>

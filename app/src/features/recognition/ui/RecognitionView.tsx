@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
+import type { IntlShape } from 'react-intl'
 
 import { IconCheck } from '@elemental/icons'
 import {
@@ -15,7 +17,7 @@ import {
 } from '@elemental/ui-kit'
 
 import { isNativeBridgeAvailable } from '../../../lib/nativeBridge'
-import { asrArtifactErrorText } from '../../../lib/recognitionErrors'
+import { asrArtifactErrorDescriptor } from '../../../lib/recognitionErrors'
 import {
   $asrArtifacts,
   downloadAsrFx,
@@ -23,9 +25,14 @@ import {
 } from '../../../shared/ui/RecognitionSheet'
 import { popScreen } from '../../navigation/store'
 
-const formatSize = (sizeBytes: number) => `${Math.round(sizeBytes / 1024 / 1024)} МБ`
+const formatSize = (intl: IntlShape, sizeBytes: number) =>
+  intl.formatMessage(
+    { id: 'recognition_size_mb', defaultMessage: '{size} MB' },
+    { size: Math.round(sizeBytes / 1024 / 1024) }
+  )
 
 export function RecognitionView() {
+  const intl = useIntl()
   const artifacts = useUnit($asrArtifacts)
   const available = isNativeBridgeAvailable()
 
@@ -35,12 +42,18 @@ export function RecognitionView() {
 
   return (
     <Box grow height="100%">
-      <Header back text="Распознавание речи" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={<FormattedMessage id="recognition_title" defaultMessage="Speech recognition" />}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         <Stack spacing="m">
           <Text color="contrast-secondary" variant="S / Medium">
-            Модели работают офлайн: скачайте один раз, и диктовка с проверкой произношения будет без
-            интернета. Для английского есть отдельная модель — она точнее на коротких словах.
+            <FormattedMessage
+              id="recognition_description"
+              defaultMessage="The models work offline: download them once and dictation with pronunciation check will work without the internet. There is a separate model for English — it is more accurate on short words."
+            />
           </Text>
           {artifacts.map((artifact) => (
             <Card key={artifact.id} padding="l">
@@ -53,7 +66,7 @@ export function RecognitionView() {
                 <Stack grow spacing="xs">
                   <Text variant="M / Medium">{artifact.title}</Text>
                   <Text color="contrast-tertiary" variant="XS / Medium">
-                    {artifact.description} · {formatSize(artifact.sizeBytes)}
+                    {artifact.description} · {formatSize(intl, artifact.sizeBytes)}
                   </Text>
                 </Stack>
                 <Stack shrink={0}>
@@ -68,20 +81,25 @@ export function RecognitionView() {
                     </Stack>
                   ) : (
                     <Button variant="secondary" onClick={() => downloadAsrFx(artifact.id)}>
-                      Загрузить
+                      <FormattedMessage id="recognition_download" defaultMessage="Download" />
                     </Button>
                   )}
                 </Stack>
               </Stack>
               {artifact.error ? (
                 <FormHelperText variant="error">
-                  {asrArtifactErrorText(artifact.error)}
+                  {intl.formatMessage(asrArtifactErrorDescriptor(artifact.error))}
                 </FormHelperText>
               ) : null}
             </Card>
           ))}
           {!available ? (
-            <FormHelperText variant="error">Доступно только в Android-приложении</FormHelperText>
+            <FormHelperText variant="error">
+              <FormattedMessage
+                id="recognition_android_only"
+                defaultMessage="Available only in the Android app"
+              />
+            </FormHelperText>
           ) : null}
         </Stack>
       </Box>

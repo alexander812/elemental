@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconEducation } from '@elemental/icons'
 import {
@@ -31,6 +32,8 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
   const userLang = useUnit($userLang)
   const createPending = useUnit(createCourseFx.pending)
   const updatePending = useUnit(updateCourseFx.pending)
+
+  const intl = useIntl()
 
   const course = useMemo(
     () => (courseId ? courses.find((item) => item.id === courseId) : undefined),
@@ -79,8 +82,16 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
   if (isEditing && !course) {
     return (
       <Box grow height="100%">
-        <Header back text="Изменить курс" onBackClick={() => popScreen()} />
-        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Курс не найден" />
+        <Header
+          back
+          text={<FormattedMessage id="course_create_edit" defaultMessage="Edit course" />}
+          onBackClick={() => popScreen()}
+        />
+        <EmptyScreen
+          fullHeight
+          icon={<IconEducation fontSize={24} />}
+          text={<FormattedMessage id="course_create_not_found" defaultMessage="Course not found" />}
+        />
       </Box>
     )
   }
@@ -89,7 +100,13 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
     <Box grow height="100%">
       <Header
         back
-        text={isEditing ? 'Изменить курс' : 'Новый курс'}
+        text={
+          isEditing ? (
+            <FormattedMessage id="course_create_edit" defaultMessage="Edit course" />
+          ) : (
+            <FormattedMessage id="course_create_new" defaultMessage="New course" />
+          )
+        }
         onBackClick={() => popScreen()}
       />
       <Box grow padding="m">
@@ -100,7 +117,12 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
               floatingLabel
               fullWidth
               lang={userLang}
-              placeholder="Название курса"
+              placeholder={
+                <FormattedMessage
+                  id="course_create_name_placeholder"
+                  defaultMessage="Course name"
+                />
+              }
               size="m"
               value={name}
               onChange={setName}
@@ -108,7 +130,10 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
 
             <Textarea
               fullWidth
-              placeholder="Описание курса"
+              placeholder={intl.formatMessage({
+                id: 'course_create_description_placeholder',
+                defaultMessage: 'Course description',
+              })}
               rows={3}
               value={description}
               onChange={setDescription}
@@ -117,7 +142,7 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
             <Card padding="l">
               <Stack spacing="xs">
                 <Text color="contrast-secondary" variant="XS / Medium">
-                  Язык курса
+                  <FormattedMessage id="course_create_lang" defaultMessage="Course language" />
                 </Text>
                 {isEditing ? (
                   <Text variant="M / Medium">{getLanguageName(lang, languages)}</Text>
@@ -134,17 +159,30 @@ export function CourseCreateView({ courseId }: { courseId?: string }) {
 
             {langMismatch ? (
               <FormHelperText variant="error">
-                Язык курса должен отличаться от вашего языка
+                <FormattedMessage
+                  id="course_create_lang_mismatch"
+                  defaultMessage="Course language must be different from your language"
+                />
               </FormHelperText>
             ) : null}
 
             <Text color="contrast-tertiary" variant="XS / Medium">
-              {getLanguageName(userLang, languages)} → {getLanguageName(lang, languages)} ·
-              наследуется уроками и заданиями курса
+              <FormattedMessage
+                id="course_create_inheritance"
+                defaultMessage="{from} → {to} · inherited by the course's lessons and sets"
+                values={{
+                  from: getLanguageName(userLang, languages),
+                  to: getLanguageName(lang, languages),
+                }}
+              />
             </Text>
 
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">
-              {isEditing ? 'Сохранить' : 'Применить'}
+              {isEditing ? (
+                <FormattedMessage id="common_save" defaultMessage="Save" />
+              ) : (
+                <FormattedMessage id="common_apply" defaultMessage="Apply" />
+              )}
             </Button>
           </Stack>
         </form>

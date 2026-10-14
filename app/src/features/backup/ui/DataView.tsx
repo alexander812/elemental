@@ -2,6 +2,7 @@ import { useMemo, useRef, useState } from 'react'
 import type { ChangeEvent } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconDownload, IconRefresh, IconRestore, IconUpload } from '@elemental/icons'
 import {
@@ -24,6 +25,7 @@ import { goToRoot, popScreen, pushScreen } from '../../navigation/store'
 import { importBackupFx, resetDataFx } from '../store'
 
 export function DataView() {
+  const intl = useIntl()
   const courses = useUnit($courses)
   const lessons = useUnit($lessons)
   const importing = useUnit(importBackupFx.pending)
@@ -63,7 +65,9 @@ export function DataView() {
     } catch {
       setBackup(null)
       setFileName('')
-      setError('Не удалось прочитать файл')
+      setError(
+        intl.formatMessage({ id: 'data_read_error', defaultMessage: "Couldn't read the file" })
+      )
     }
   }
 
@@ -76,7 +80,12 @@ export function DataView() {
       await importBackupFx({ backup, mode })
       goToRoot()
     } catch {
-      setError('Не удалось импортировать данные')
+      setError(
+        intl.formatMessage({
+          id: 'data_import_error',
+          defaultMessage: "Couldn't import the data",
+        })
+      )
     }
   }
 
@@ -93,7 +102,11 @@ export function DataView() {
 
   return (
     <Box grow height="100%">
-      <Header back text="Данные" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={<FormattedMessage id="data_title" defaultMessage="Data" />}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         <Stack spacing="m">
           <Card padding="0">
@@ -102,10 +115,17 @@ export function DataView() {
                 icon={<IconDownload color="var(--accent-text-and-icons)" fontSize={24} />}
                 subtitle={
                   <Text color="contrast-secondary" variant="XS / Medium">
-                    Выбрать уроки и сохранить в файл
+                    <FormattedMessage
+                      id="data_export_subtitle"
+                      defaultMessage="Select lessons and save them to a file"
+                    />
                   </Text>
                 }
-                title={<Text variant="M / Medium">Экспортировать</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="data_export" defaultMessage="Export" />
+                  </Text>
+                }
               />
             </ListItem>
             <ListItem
@@ -117,10 +137,17 @@ export function DataView() {
                 icon={<IconUpload color="var(--accent-text-and-icons)" fontSize={24} />}
                 subtitle={
                   <Text color="contrast-secondary" variant="XS / Medium">
-                    Добавить или заменить уроки из файла
+                    <FormattedMessage
+                      id="data_import_subtitle"
+                      defaultMessage="Add or replace lessons from a file"
+                    />
                   </Text>
                 }
-                title={<Text variant="M / Medium">Импортировать</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="data_import" defaultMessage="Import" />
+                  </Text>
+                }
               />
             </ListItem>
             <ListItem
@@ -132,10 +159,17 @@ export function DataView() {
                 icon={<IconRefresh color="var(--accent-text-and-icons)" fontSize={24} />}
                 subtitle={
                   <Text color="contrast-secondary" variant="XS / Medium">
-                    Вернуться к начальному состоянию
+                    <FormattedMessage
+                      id="data_reset_subtitle"
+                      defaultMessage="Go back to the initial state"
+                    />
                   </Text>
                 }
-                title={<Text variant="M / Medium">Сбросить данные</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="data_reset_data" defaultMessage="Reset data" />
+                  </Text>
+                }
               />
             </ListItem>
           </Card>
@@ -148,17 +182,27 @@ export function DataView() {
                   <Stack spacing="xxs">
                     <Text variant="M / Medium">{fileName}</Text>
                     <Text color="contrast-secondary" variant="XS / Medium">
-                      {backup.courses.length} курсов · {backup.lessons.length} уроков ·{' '}
-                      {backup.sets.length} заданий · {cardCount} карточек
+                      <FormattedMessage
+                        id="data_backup_summary"
+                        defaultMessage="{courses, plural, one {# course} other {# courses}} · {lessons, plural, one {# lesson} other {# lessons}} · {sets, plural, one {# set} other {# sets}} · {cards, plural, one {# card} other {# cards}}"
+                        values={{
+                          courses: backup.courses.length,
+                          lessons: backup.lessons.length,
+                          sets: backup.sets.length,
+                          cards: cardCount,
+                        }}
+                      />
                     </Text>
                   </Stack>
                 </Stack>
                 <FormHelperText variant="warning">
-                  «Слияние» добавит уроки из файла к текущим, «Замена» полностью заменит все данные
-                  приложения
+                  <FormattedMessage
+                    id="data_merge_warning"
+                    defaultMessage={'"Merge" will add the lessons from the file to the current ones, "Replace" will completely replace all the app data'}
+                  />
                 </FormHelperText>
                 <Button fullWidth loading={importing} onClick={handleMerge}>
-                  Слияние
+                  <FormattedMessage id="data_merge" defaultMessage="Merge" />
                 </Button>
                 <Button
                   disabled={importing}
@@ -166,7 +210,7 @@ export function DataView() {
                   variant="secondary"
                   onClick={() => runImport('replace')}
                 >
-                  Замена
+                  <FormattedMessage id="data_import_replace" defaultMessage="Replace" />
                 </Button>
                 <Button
                   disabled={importing}
@@ -174,7 +218,7 @@ export function DataView() {
                   variant="secondary"
                   onClick={() => setBackup(null)}
                 >
-                  Отмена
+                  <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
                 </Button>
               </Stack>
             </Card>
@@ -195,32 +239,41 @@ export function DataView() {
       <ConfirmSheet
         opened={confirmMerge}
         text={
-          <>
-            Такие уроки уже есть:{' '}
-            {duplicates.map((item) => `«${item.name}» (${item.courseName})`).join(', ')}.
-            Импортируемые уроки полностью перезапишут их вместе с заданиями и карточками.
-          </>
+          <FormattedMessage
+            id="data_merge_confirm"
+            defaultMessage="These lessons already exist: {duplicates}. The imported lessons will completely overwrite them along with their sets and cards."
+            values={{
+              duplicates: duplicates
+                .map((item) => `«${item.name}» (${item.courseName})`)
+                .join(', '),
+            }}
+          />
         }
         onClosed={() => setConfirmMerge(false)}
       >
         <Button fullWidth loading={importing} onClick={() => runImport('merge')}>
-          ОК
+          <FormattedMessage id="common_ok" defaultMessage="OK" />
         </Button>
         <Button fullWidth variant="secondary" onClick={() => setConfirmMerge(false)}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
 
       <ConfirmSheet
         opened={confirmReset}
-        text="Все курсы, уроки, задания и настройки будут удалены без возможности восстановления. Вернуться к начальному состоянию?"
+        text={
+          <FormattedMessage
+            id="data_reset_confirm"
+            defaultMessage="All courses, lessons, sets and settings will be deleted with no way to restore them. Go back to the initial state?"
+          />
+        }
         onClosed={() => setConfirmReset(false)}
       >
         <Button color="negative" fullWidth loading={resetting} onClick={() => resetDataFx()}>
-          Сбросить
+          <FormattedMessage id="data_reset" defaultMessage="Reset" />
         </Button>
         <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
     </Box>

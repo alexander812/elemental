@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { IconEducation, IconPlusBig } from '@elemental/icons'
 import {
@@ -35,16 +36,6 @@ import {
 import classes from './CoursesView.module.pcss'
 
 const ADDED_COURSE_SHAKE_DELAY_MS = 1000
-
-const lessonWord = (count: number): string => {
-  const mod10 = count % 10
-  const mod100 = count % 100
-
-  if (mod10 === 1 && mod100 !== 11) return 'урок'
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return 'урока'
-
-  return 'уроков'
-}
 
 const langLabel = (code: string): string => code.charAt(0).toUpperCase() + code.slice(1)
 
@@ -110,13 +101,13 @@ export function CoursesView() {
       <Box padding="l">
         <Stack spacing="m">
           <Text align="center" variant="M / Medium">
-            Добавить курс
+            <FormattedMessage id="courses_add" defaultMessage="Add course" />
           </Text>
           <Button fullWidth onClick={handleFindReady}>
-            Найти готовый
+            <FormattedMessage id="courses_find_ready" defaultMessage="Find a ready-made course" />
           </Button>
           <Button fullWidth variant="secondary" onClick={handleCreateNew}>
-            Создать новый
+            <FormattedMessage id="courses_create_new" defaultMessage="Create new" />
           </Button>
 
         </Stack>
@@ -151,13 +142,13 @@ export function CoursesView() {
           action={
             <div {...addHintShake}>
               <Button startIcon={<IconPlusBig fontSize={16} />} onClick={handleAddNew}>
-                Добавить курс
+                <FormattedMessage id="courses_add" defaultMessage="Add course" />
               </Button>
             </div>
           }
           fullHeight
           icon={<IconEducation fontSize={24} />}
-          text="Пока нет ни одного курса"
+          text={<FormattedMessage id="courses_empty" defaultMessage="No courses yet" />}
         />
         {addSheet}
       </Box>
@@ -169,7 +160,7 @@ export function CoursesView() {
       <Header startToolbar={logo} text="Lexi" />
       <Box padding="0 m 0 m">
         <Text variant="M / Medium">
-          Курсы
+          <FormattedMessage id="courses_title" defaultMessage="Courses" />
         </Text>
       </Box>
       <Box grow padding="m">
@@ -198,7 +189,11 @@ export function CoursesView() {
                       </Text>
                       <Stack shrink={0}>
                         <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">
-                          {count} {lessonWord(count)}
+                          <FormattedMessage
+                            id="courses_lessons_count"
+                            defaultMessage="{count, plural, one {# lesson} other {# lessons}}"
+                            values={{ count }}
+                          />
                         </Text>
                       </Stack>
                     </Stack>
@@ -221,7 +216,7 @@ export function CoursesView() {
           variant="secondary"
           onClick={handleAddNew}
         >
-          Добавить курс
+          <FormattedMessage id="courses_add" defaultMessage="Add course" />
         </Button>
       </Box>
       {addSheet}

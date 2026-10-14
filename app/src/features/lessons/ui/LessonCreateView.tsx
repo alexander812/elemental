@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
+import type { IntlShape } from 'react-intl'
 
 import { IconEducation } from '@elemental/icons'
 import {
@@ -24,16 +26,19 @@ import { popScreen, pushScreen } from '../../navigation/store'
 import { $userLang } from '../../theme/store'
 import { createLessonFx, updateLessonFx, $lessons } from '../store'
 
-const defaultLessonName = (lessons: Lesson[], courseId: string): string => {
+const DEFAULT_LESSON_NAME = { id: 'lessons_default_name', defaultMessage: 'Lesson {number}' }
+
+const defaultLessonName = (intl: IntlShape, lessons: Lesson[], courseId: string): string => {
   const courseLessons = lessons.filter((lesson) => lesson.courseId === courseId)
   const numbers = courseLessons
-    .map((lesson) => /^Урок\s+(\d+)$/.exec(lesson.name)?.[1])
+    .map((lesson) => /(\d+)\s*$/.exec(lesson.name)?.[1])
     .filter((value): value is string => value !== undefined)
     .map(Number)
 
-  if (numbers.length === 0) return `Урок ${courseLessons.length + 1}`
+  if (numbers.length === 0)
+    return intl.formatMessage(DEFAULT_LESSON_NAME, { number: courseLessons.length + 1 })
 
-  return `Урок ${Math.max(...numbers) + 1}`
+  return intl.formatMessage(DEFAULT_LESSON_NAME, { number: Math.max(...numbers) + 1 })
 }
 
 export function LessonCreateView({
@@ -50,6 +55,8 @@ export function LessonCreateView({
   const createPending = useUnit(createLessonFx.pending)
   const updatePending = useUnit(updateLessonFx.pending)
 
+  const intl = useIntl()
+
   const lesson = useMemo(
     () => (lessonId ? lessons.find((item) => item.id === lessonId) : undefined),
     [lessons, lessonId]
@@ -61,7 +68,7 @@ export function LessonCreateView({
   const [name, setName] = useState(
     () =>
       lesson?.name ??
-      defaultLessonName(lessons, lesson?.courseId ?? courseId ?? sortedCourses[0]?.id ?? '')
+      defaultLessonName(intl, lessons, lesson?.courseId ?? courseId ?? sortedCourses[0]?.id ?? '')
   )
   const [selectedCourseId, setSelectedCourseId] = useState(
     lesson?.courseId ?? courseId ?? sortedCourses[0]?.id ?? ''
@@ -103,8 +110,16 @@ export function LessonCreateView({
   if (isEditing && !lesson) {
     return (
       <Box grow height="100%">
-        <Header back text="Изменить урок" onBackClick={() => popScreen()} />
-        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Урок не найден" />
+        <Header
+          back
+          text={<FormattedMessage id="lesson_create_edit" defaultMessage="Edit lesson" />}
+          onBackClick={() => popScreen()}
+        />
+        <EmptyScreen
+          fullHeight
+          icon={<IconEducation fontSize={24} />}
+          text={<FormattedMessage id="lesson_create_not_found" defaultMessage="Lesson not found" />}
+        />
       </Box>
     )
   }
@@ -113,7 +128,13 @@ export function LessonCreateView({
     <Box grow height="100%">
       <Header
         back
-        text={isEditing ? 'Изменить урок' : 'Новый урок'}
+        text={
+          isEditing ? (
+            <FormattedMessage id="lesson_create_edit" defaultMessage="Edit lesson" />
+          ) : (
+            <FormattedMessage id="lesson_create_new" defaultMessage="New lesson" />
+          )
+        }
         onBackClick={() => popScreen()}
       />
       <Box grow padding="m">
@@ -124,7 +145,12 @@ export function LessonCreateView({
               floatingLabel
               fullWidth
               lang={userLang}
-              placeholder="Название урока"
+              placeholder={
+                <FormattedMessage
+                  id="lesson_create_name_placeholder"
+                  defaultMessage="Lesson name"
+                />
+              }
               size="m"
               value={name}
               onChange={setName}
@@ -133,7 +159,7 @@ export function LessonCreateView({
             <Card padding="l">
               <Stack spacing="xs">
                 <Text color="contrast-secondary" variant="XS / Medium">
-                  Курс
+                  <FormattedMessage id="lesson_create_course" defaultMessage="Course" />
                 </Text>
                 <Select
                   fullWidth
@@ -147,19 +173,26 @@ export function LessonCreateView({
             <Card padding="l">
               <Stack spacing="xs">
                 <Text color="contrast-secondary" variant="XS / Medium">
-                  Язык курса
+                  <FormattedMessage id="lesson_create_lang" defaultMessage="Course language" />
                 </Text>
                 <Text variant="M / Medium">
                   {course ? getLanguageName(course.lang, languages) : '—'}
                 </Text>
                 <Text color="contrast-tertiary" variant="XS / Medium">
-                  Наследуется из курса
+                  <FormattedMessage
+                    id="lesson_create_inherited"
+                    defaultMessage="Inherited from the course"
+                  />
                 </Text>
               </Stack>
             </Card>
 
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">
-              {isEditing ? 'Сохранить' : 'Применить'}
+              {isEditing ? (
+                <FormattedMessage id="common_save" defaultMessage="Save" />
+              ) : (
+                <FormattedMessage id="common_apply" defaultMessage="Apply" />
+              )}
             </Button>
           </Stack>
         </form>

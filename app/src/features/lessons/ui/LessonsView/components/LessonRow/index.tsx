@@ -1,3 +1,5 @@
+import { useIntl } from 'react-intl'
+
 import { IconCheck } from '@elemental/icons'
 import { Stack, Text } from '@elemental/ui-kit'
 
@@ -25,12 +27,17 @@ export function LessonRow({
   onEdit,
   onTap,
 }: LessonRowProps) {
+  const intl = useIntl()
+
   return (
     <SwipeRow
       {...reorder.rowProps(lesson.id, index)}
       color="primary"
-      deleteLabel="Удалить урок"
-      editLabel="Редактировать урок"
+      deleteLabel={intl.formatMessage({
+        id: 'lessons_row_delete',
+        defaultMessage: 'Delete lesson',
+      })}
+      editLabel={intl.formatMessage({ id: 'lessons_row_edit', defaultMessage: 'Edit lesson' })}
       onDelete={() => onDelete(lesson)}
       onEdit={() => onEdit(lesson)}
       onTap={() => onTap(lesson)}

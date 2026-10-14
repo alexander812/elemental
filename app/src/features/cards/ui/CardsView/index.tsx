@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { IconEducation } from '@elemental/icons'
 import { Box, EmptyScreen, Header, Spinner, Stack } from '@elemental/ui-kit'
@@ -22,7 +23,11 @@ export function CardsView({ setId }: { setId: string }) {
   if (!set) {
     return (
       <Box grow height="100%">
-        <Header back text="Задание" onBackClick={() => popScreen()} />
+        <Header
+          back
+          text={<FormattedMessage id="cards_set_title" defaultMessage="Set" />}
+          onBackClick={() => popScreen()}
+        />
         {setsLoading ? (
           <Stack grow verticalAlign="center" horizontalAlign="center" height="100%">
             <Spinner size="l" />
@@ -31,7 +36,7 @@ export function CardsView({ setId }: { setId: string }) {
           <EmptyScreen
             fullHeight
             icon={<IconEducation fontSize={24} />}
-            text="Задание не найдено"
+            text={<FormattedMessage id="cards_set_not_found" defaultMessage="Set not found" />}
           />
         )}
       </Box>

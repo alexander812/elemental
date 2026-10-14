@@ -94,6 +94,6 @@ sample({ clock: levelSelected, target: fetchCatalogFx })
 loadCoursesFx.doneData.watch((result) => {
   if (result.status !== 'done') return
 
-  showToast('Загрузка успешно завершена')
+  showToast({ id: 'course_search_loaded', defaultMessage: 'Courses loaded' })
   goToRoot()
 })

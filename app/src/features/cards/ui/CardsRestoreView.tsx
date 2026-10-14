@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { IconEducation, IconRestore } from '@elemental/icons'
 import { Box, Button, Card, Checkbox, EmptyScreen, Header, Stack } from '@elemental/ui-kit'
@@ -47,21 +48,33 @@ export function CardsRestoreView({ setId }: { setId: string }) {
   if (!set) {
     return (
       <Box grow height="100%">
-        <Header back text="Восстановить удалённые" onBackClick={() => popScreen()} />
-        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Задание не найдено" />
+        <Header
+          back
+          text={<FormattedMessage id="cards_restore_title" defaultMessage="Restore deleted" />}
+          onBackClick={() => popScreen()}
+        />
+        <EmptyScreen
+          fullHeight
+          icon={<IconEducation fontSize={24} />}
+          text={<FormattedMessage id="cards_set_not_found" defaultMessage="Set not found" />}
+        />
       </Box>
     )
   }
 
   return (
     <Box grow height="100%">
-      <Header back text="Восстановить удалённые" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={<FormattedMessage id="cards_restore_title" defaultMessage="Restore deleted" />}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         {deletedCards.length === 0 ? (
           <EmptyScreen
             fullHeight
             icon={<IconRestore fontSize={24} />}
-            text="Нет удалённых карточек"
+            text={<FormattedMessage id="cards_restore_empty" defaultMessage="No deleted cards" />}
           />
         ) : (
           <Stack spacing="l" height="100%">
@@ -88,7 +101,7 @@ export function CardsRestoreView({ setId }: { setId: string }) {
               loading={pending}
               onClick={handleRestore}
             >
-              Восстановить
+              <FormattedMessage id="common_restore" defaultMessage="Restore" />
             </Button>
           </Stack>
         )}

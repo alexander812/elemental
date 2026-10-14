@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconDownload, IconEducation } from '@elemental/icons'
 import {
@@ -59,6 +60,8 @@ export function CourseSearchView() {
   const languages = useUnit($languages)
   const userLang = useUnit($userLang)
 
+  const intl = useIntl()
+
   useEffect(() => {
     screenOpened()
   }, [])
@@ -83,8 +86,20 @@ export function CourseSearchView() {
 
   const duplicatesText = duplicates
     ? duplicates.length === 1
-      ? `Курс «${duplicates[0]}» уже есть у вас. Заменить его?`
-      : `Курсы ${duplicates.map((name) => `«${name}»`).join(', ')} уже есть у вас. Заменить их?`
+      ? intl.formatMessage(
+          {
+            id: 'course_search_duplicate_one',
+            defaultMessage: 'You already have the course “{name}”. Replace it?',
+          },
+          { name: duplicates[0] }
+        )
+      : intl.formatMessage(
+          {
+            id: 'course_search_duplicate_many',
+            defaultMessage: 'You already have the courses {names}. Replace them?',
+          },
+          { names: duplicates.map((name) => `“${name}”`).join(', ') }
+        )
     : ''
 
   const handleLoad = (replace: boolean) => {
@@ -101,7 +116,11 @@ export function CourseSearchView() {
 
   return (
     <Box grow height="100%">
-      <Header back text="Готовые курсы" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={<FormattedMessage id="course_search_title" defaultMessage="Ready-made courses" />}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         <Stack height="100%" spacing="m">
           <Stack direction="row" spacing="s">
@@ -109,7 +128,10 @@ export function CourseSearchView() {
               <Select
                 fullWidth
                 options={LEVEL_OPTIONS}
-                placeholder="Выберите уровень"
+                placeholder={intl.formatMessage({
+                  id: 'course_search_level_placeholder',
+                  defaultMessage: 'Select level',
+                })}
                 value={level ?? ''}
                 onChange={(value) => levelSelected(value as CourseLevel)}
               />
@@ -129,14 +151,25 @@ export function CourseSearchView() {
               <EmptyScreen
                 fullHeight
                 icon={<IconEducation fontSize={24} />}
-                text="Выберите уровень, чтобы увидеть готовые курсы"
+                text={
+                  <FormattedMessage
+                    id="course_search_select_level"
+                    defaultMessage="Select a level to see ready-made courses"
+                  />
+                }
               />
             ) : catalogLoading ? (
               <Stack height="100%" horizontalAlign="center" verticalAlign="center">
                 <Spinner size="l" />
               </Stack>
             ) : catalog.length === 0 ? (
-              <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Курсы не найдены" />
+              <EmptyScreen
+                fullHeight
+                icon={<IconEducation fontSize={24} />}
+                text={
+                  <FormattedMessage id="course_search_empty" defaultMessage="No courses found" />
+                }
+              />
             ) : (
               <div className={classes.list}>
                 {catalog.map((entry) => (
@@ -191,7 +224,7 @@ export function CourseSearchView() {
             startIcon={<IconDownload fontSize={24} />}
             onClick={() => handleLoad(false)}
           >
-            Загрузить
+            <FormattedMessage id="course_search_load" defaultMessage="Load" />
           </Button>
         </div>
       ) : null}
@@ -202,10 +235,10 @@ export function CourseSearchView() {
         onClosed={() => duplicatesCancelled()}
       >
         <Button fullWidth onClick={() => handleLoad(true)}>
-          Заменить
+          <FormattedMessage id="course_search_replace" defaultMessage="Replace" />
         </Button>
         <Button fullWidth variant="secondary" onClick={() => duplicatesCancelled()}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
     </Box>

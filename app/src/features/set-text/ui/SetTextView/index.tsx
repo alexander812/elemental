@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconClose, IconEdit, IconViewList } from '@elemental/icons'
 import {
@@ -72,6 +73,7 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
   const translating = useUnit(translateSetTextFx.pending)
   const resetPending = useUnit(resetSetFx.pending)
   const deletePending = useUnit(deleteSetFx.pending)
+  const intl = useIntl()
 
   const [translateFailed, setTranslateFailed] = useState(false)
   const [confirmReset, setConfirmReset] = useState(false)
@@ -190,8 +192,22 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
   if (setId && !set) {
     return (
       <Box grow height="100%">
-        <Header back text={welcome ? 'Задание' : 'Текст задания'} onBackClick={() => popScreen()} />
-        <EmptyScreen fullHeight icon={<IconViewList fontSize={24} />} text="Задание не найдено" />
+        <Header
+          back
+          text={
+            welcome ? (
+              <FormattedMessage id="set_text_welcome_title" defaultMessage="Set" />
+            ) : (
+              <FormattedMessage id="set_text_title" defaultMessage="Set text" />
+            )
+          }
+          onBackClick={() => popScreen()}
+        />
+        <EmptyScreen
+          fullHeight
+          icon={<IconViewList fontSize={24} />}
+          text={<FormattedMessage id="set_text_not_found" defaultMessage="Set not found" />}
+        />
       </Box>
     )
   }
@@ -211,7 +227,15 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
             />
           ) : undefined
         }
-        text={welcome ? (set?.name ?? '') : hasAnyText ? 'Изменить текст' : 'Добавить текст'}
+        text={
+          welcome ? (
+            (set?.name ?? '')
+          ) : hasAnyText ? (
+            <FormattedMessage id="set_text_edit" defaultMessage="Edit text" />
+          ) : (
+            <FormattedMessage id="set_text_add" defaultMessage="Add text" />
+          )
+        }
         onBackClick={() => popScreen()}
       />
       <div className={classes.layout}>
@@ -249,12 +273,16 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
                 variant="flat"
                 onClick={() => selectionCleared()}
               >
-                Очистить
+                <FormattedMessage id="common_clear" defaultMessage="Clear" />
               </Button>
             ) : null}
             {welcome ? null : (
               <ButtonIcon
-                ariaLabel={hasAnyText ? 'Изменить текст' : 'Добавить текст'}
+                ariaLabel={intl.formatMessage(
+                  hasAnyText
+                    ? { id: 'set_text_edit', defaultMessage: 'Edit text' }
+                    : { id: 'set_text_add', defaultMessage: 'Add text' }
+                )}
                 icon={<IconEdit fontSize={24} />}
                 variant="flat"
                 onClick={handleEdit}
@@ -275,11 +303,14 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
           <TextPanel grow>
             <Stack height="100%" horizontalAlign="center" spacing="s" verticalAlign="center">
               <Text color="contrast-tertiary" variant="S / Medium">
-                Текст ещё не заполнен
+                <FormattedMessage
+                  id="set_text_empty"
+                  defaultMessage="Text hasn't been filled in yet"
+                />
               </Text>
               {hasAnyText ? (
                 <Button loading={translating} onClick={handleTranslate}>
-                  Перевести
+                  <FormattedMessage id="set_text_translate" defaultMessage="Translate" />
                 </Button>
               ) : null}
             </Stack>
@@ -287,20 +318,25 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
         )}
 
         {translateFailed ? (
-          <FormHelperText variant="error">Не удалось перевести текст</FormHelperText>
+          <FormHelperText variant="error">
+            <FormattedMessage
+              id="set_text_translate_failed"
+              defaultMessage="Couldn't translate the text"
+            />
+          </FormHelperText>
         ) : null}
 
         {welcome ? (
           <Button fullWidth onClick={handleNext}>
-            Далее
+            <FormattedMessage id="common_next" defaultMessage="Next" />
           </Button>
         ) : (
           <Stack direction="row" spacing="s" verticalAlign="center">
             <Button disabled={!canCreateCards} fullWidth onClick={handleCreateCards}>
-              Создать карточки
+              <FormattedMessage id="set_text_create_cards" defaultMessage="Create cards" />
             </Button>
             <ButtonIcon
-              ariaLabel="Закрыть"
+              ariaLabel={intl.formatMessage({ id: 'common_close', defaultMessage: 'Close' })}
               icon={<IconClose fontSize={24} />}
               variant="secondary"
               onClick={() => popScreen()}
@@ -311,27 +347,38 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
 
       <ConfirmSheet
         opened={confirmReset}
-        text="Вы уверены, что хотите сбросить результаты? Карточки вернутся в невыученные, как будто вы их не трогали."
+        text={
+          <FormattedMessage
+            id="set_text_reset_confirm"
+            defaultMessage="Are you sure you want to reset the results? The cards will become unlearned again, as if you hadn't touched them."
+          />
+        }
         onClosed={() => setConfirmReset(false)}
       >
         <Button fullWidth loading={resetPending} onClick={handleConfirmReset}>
-          Да
+          <FormattedMessage id="set_text_confirm_yes" defaultMessage="Yes" />
         </Button>
         <Button fullWidth variant="secondary" onClick={() => setConfirmReset(false)}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
 
       <ConfirmSheet
         opened={confirmDelete}
-        text={`Удалить задание «${set?.name ?? ''}» со всеми карточками?`}
+        text={
+          <FormattedMessage
+            id="set_text_delete_confirm"
+            defaultMessage="Delete set “{name}” with all its cards?"
+            values={{ name: set?.name ?? '' }}
+          />
+        }
         onClosed={() => setConfirmDelete(false)}
       >
         <Button color="negative" fullWidth loading={deletePending} onClick={handleConfirmDelete}>
-          Удалить
+          <FormattedMessage id="common_delete" defaultMessage="Delete" />
         </Button>
         <Button fullWidth variant="secondary" onClick={() => setConfirmDelete(false)}>
-          Отмена
+          <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
         </Button>
       </ConfirmSheet>
     </div>

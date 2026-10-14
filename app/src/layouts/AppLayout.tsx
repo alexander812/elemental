@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from 'react'
 import type { ReactNode } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { IconBookOpen, IconSettings, IconViewList } from '@elemental/icons'
 import { BottomSheetProvider } from '@elemental/ui-kit'
@@ -159,7 +160,7 @@ function AppFooter() {
         onClick={handleCourses}
       >
         <IconViewList fontSize={24} />
-        Курсы
+        <FormattedMessage id="nav_courses" defaultMessage="Courses" />
       </button>
       <button
         className={`${classes.footerButton} ${isLessonsActive ? classes.footerButtonActive : ''}`}
@@ -167,7 +168,7 @@ function AppFooter() {
         onClick={handleLessons}
       >
         <IconBookOpen fontSize={24} />
-        Уроки
+        <FormattedMessage id="nav_lessons" defaultMessage="Lessons" />
       </button>
       <button
         className={`${classes.footerButton} ${isMenuActive ? classes.footerButtonActive : ''}`}
@@ -175,7 +176,7 @@ function AppFooter() {
         onClick={handleMenu}
       >
         <IconSettings fontSize={24} />
-        Настройки
+        <FormattedMessage id="nav_settings" defaultMessage="Settings" />
       </button>
     </div>
   )
@@ -217,8 +218,8 @@ export function AppLayout() {
           >
             {renderScreen(screen)}
           </div>
-          {/* inert: уходящий экран — копия снятого со стека, он не должен
-              перехватывать фокус (autoFocus заново открывал клавиатуру) */}
+          {/* inert: the leaving screen is a copy popped from the stack, it must not
+              capture focus (autoFocus reopened the keyboard) */}
           {leavingScreen && (
             <div
               className={classes.screenExiting}

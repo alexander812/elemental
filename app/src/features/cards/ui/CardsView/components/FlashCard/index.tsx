@@ -6,6 +6,8 @@ import type {
   ReactElement,
 } from 'react'
 
+import { FormattedMessage, useIntl } from 'react-intl'
+
 import {
   IconCheck,
   IconClose,
@@ -110,6 +112,7 @@ export function FlashCard({
   writePlaceholder,
 }: FlashCardProps) {
   const isTop = depth === 0
+  const intl = useIntl()
 
   const [writeOpen, setWriteOpen] = useState(false)
   const [writeDismissed, setWriteDismissed] = useState(false)
@@ -240,8 +243,18 @@ export function FlashCard({
 
   const cardActions = (onSpeak: () => void) => (
     <div className={classes.cardActions}>
-      {actionButton('Изменить', <IconEdit fontSize={24} />, onEdit)}
-      {canSpeak() ? actionButton('Озвучить', <IconSound fontSize={24} />, onSpeak) : null}
+      {actionButton(
+        intl.formatMessage({ id: 'cards_edit', defaultMessage: 'Edit' }),
+        <IconEdit fontSize={24} />,
+        onEdit
+      )}
+      {canSpeak()
+        ? actionButton(
+            intl.formatMessage({ id: 'cards_card_speak', defaultMessage: 'Speak' }),
+            <IconSound fontSize={24} />,
+            onSpeak
+          )
+        : null}
     </div>
   )
 
@@ -282,10 +295,13 @@ export function FlashCard({
   const listeningHint = listening ? (
     <Text align="center" color="inherit" variant="S / Medium">
       {asrProgress !== null ? (
-        `Загружаю распознавание речи… ${Math.round(asrProgress * 100)}%`
+        intl.formatMessage(
+          { id: 'cards_asr_loading', defaultMessage: 'Loading speech recognition… {progress}%' },
+          { progress: Math.round(asrProgress * 100) }
+        )
       ) : (
         <>
-          говорите
+          <FormattedMessage id="cards_listening_hint" defaultMessage="speak now" />
           <span className={classes.listeningDots}>
             <span className={classes.listeningDot}>.</span>
             <span className={classes.listeningDot}>.</span>
@@ -325,7 +341,7 @@ export function FlashCard({
             onChange={(event) => setWriteValue(event.target.value)}
           />
           <button
-            aria-label="ОК"
+            aria-label={intl.formatMessage({ id: 'common_ok', defaultMessage: 'OK' })}
             className={`${classes.checkButton} ${
               writeValue.trim() ? classes.checkButtonSuccess : classes.checkButtonIdle
             }`}
@@ -336,7 +352,7 @@ export function FlashCard({
             <IconCheck fontSize={24} />
           </button>
           <button
-            aria-label="Отмена"
+            aria-label={intl.formatMessage({ id: 'common_cancel', defaultMessage: 'Cancel' })}
             className={`${classes.checkButton} ${classes.checkButtonIdle}`}
             type="button"
             onClick={(event) => {
@@ -352,7 +368,17 @@ export function FlashCard({
         <div className={classes.cardChecks}>
           {showVoiceCheck ? (
             <button
-              aria-label={listening ? 'Остановить запись' : 'Проверить произношение'}
+              aria-label={
+                listening
+                  ? intl.formatMessage({
+                      id: 'cards_check_stop_recording',
+                      defaultMessage: 'Stop recording',
+                    })
+                  : intl.formatMessage({
+                      id: 'cards_check_pronunciation',
+                      defaultMessage: 'Check pronunciation',
+                    })
+              }
               className={`${classes.checkButton} ${
                 listening
                   ? classes.checkButtonListening
@@ -374,7 +400,10 @@ export function FlashCard({
           ) : null}
           {showWriteCheck ? (
             <button
-              aria-label="Проверить ввод текста"
+              aria-label={intl.formatMessage({
+                id: 'cards_check_typing',
+                defaultMessage: 'Check typing',
+              })}
               className={`${classes.checkButton} ${checkStateClass(writeCheck)}`}
               type="button"
               onClick={(event) => {
@@ -448,13 +477,16 @@ export function FlashCard({
         {isTop && !leaving && !testMode && (
           <>
             <div style={badgeStyle('left')}>
-              <IconCheck fontSize={20} /> выучено
+              <IconCheck fontSize={20} />{' '}
+              <FormattedMessage id="cards_swipe_learned" defaultMessage="learned" />
             </div>
             <div style={badgeStyle('right')}>
-              <IconRefresh fontSize={20} /> позже
+              <IconRefresh fontSize={20} />{' '}
+              <FormattedMessage id="cards_swipe_later" defaultMessage="later" />
             </div>
             <div style={badgeStyle('up')}>
-              <IconTrash fontSize={20} /> удалить
+              <IconTrash fontSize={20} />{' '}
+              <FormattedMessage id="cards_swipe_delete" defaultMessage="delete" />
             </div>
           </>
         )}

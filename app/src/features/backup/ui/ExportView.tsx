@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconDownload, IconEducation } from '@elemental/icons'
 import {
@@ -23,6 +24,7 @@ import { exportBackupFx } from '../store'
 import classes from './ExportView.module.pcss'
 
 export function ExportView() {
+  const intl = useIntl()
   const courses = useUnit($courses)
   const lessons = useUnit($lessons)
   const exporting = useUnit(exportBackupFx.pending)
@@ -93,25 +95,35 @@ export function ExportView() {
       await exportBackupFx([...effective])
       popScreen()
     } catch {
-      setError('Не удалось сохранить файл')
+      setError(
+        intl.formatMessage({ id: 'export_save_error', defaultMessage: "Couldn't save the file" })
+      )
     }
   }
 
   return (
     <Box grow height="100%">
-      <Header back text="Экспорт" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={<FormattedMessage id="export_title" defaultMessage="Export" />}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         {allLessonIds.length === 0 ? (
           <EmptyScreen
             fullHeight
             icon={<IconEducation fontSize={24} />}
-            text="Пока нет уроков для экспорта"
+            text={<FormattedMessage id="export_empty" defaultMessage="No lessons to export yet" />}
           />
         ) : (
           <Stack spacing="m" height="100%">
             <Card padding="m">
               <Stack spacing="l">
-                <Checkbox checked={allSelected} label="Выбрать все" onChange={toggleAll} />
+                <Checkbox
+                  checked={allSelected}
+                  label={<FormattedMessage id="common_select_all" defaultMessage="Select all" />}
+                  onChange={toggleAll}
+                />
                 {sortedCourses.map((course) => {
                   const courseLessons = lessonsByCourse.get(course.id) ?? []
                   const courseChecked = courseLessons.some((lesson) => effective.has(lesson.id))
@@ -149,7 +161,7 @@ export function ExportView() {
               startIcon={<IconDownload fontSize={24} />}
               onClick={handleExport}
             >
-              Экспортировать
+              <FormattedMessage id="export_button" defaultMessage="Export" />
             </Button>
           </Stack>
         )}

@@ -10,7 +10,7 @@
 
 ## Проверки
 
-- Перед сдачей: `npm run lint`, `npm run typecheck`, `npm run build`.
+- Перед сдачей: `npm run lint`, `npm run typecheck`, `npm run build`; при правках текстов интерфейса — ещё `npm run i18n -- --check` (структура переводов + дрейф английских текстов относительно `messages/en.json`; список непереведённых — `npm run i18n`, устаревшие переводы — `npm run i18n -- --stale`, принять снимок — `npm run i18n -- --write-en`).
 - e2e — Playwright-скрипты в `$TMPDIR/opencode/e2e` (вне репозитория, не коммитятся), пример — `cards-test-mode.cjs`; команды и сценарии — PROJECT.md «Проверка изменений».
 
 ## Данные
@@ -21,6 +21,7 @@
 
 - `PROJECT.md` — основная карта (архитектура, экраны, модель данных). Читать нужные разделы перед работой с фичей, целиком не перечитывать.
 - `app/src/features/<фича>/AGENTS.md` — фичевая карта: файлы, внешние связи, инварианты, кто здесь работает (агент/скилл). Подхватывается сама при работе с папкой.
+- Локализация: новые тексты интерфейса — сообщения react-intl с английским `defaultMessage`; переводы ru/es/fr не добавлять автоматически — только по явному запросу (где перевода нет, показывается английский). Правила и скрипт — PROJECT.md «Локализация интерфейса».
 
 ## Маршрутизация фич
 
@@ -32,8 +33,9 @@
 | карточки, колода, тест, свайпы, проверки слова | `app/src/features/cards`, `card-create` | cards-explorer | — |
 | урок, задание, текст задания, пары слов, редактор текста, скан | `app/src/features/lessons`, `sets`, `set-create`, `set-text`, `text-add` | sets-explorer | — |
 | распознавание, произношение, озвучка, микрофон | `app/src/features/recognition`, `voices`, `app/src/lib/pronunciation.ts` | asr-doctor | — |
-| готовый курс, новый язык, перевод курса (контент JSON) | `app/src/courses` | course-editor | new-course |
+| готовый курс, новый язык курса (контент JSON) | `app/src/courses` | course-editor | new-course |
 | экраны курсов, поиск готовых, каталог (код) | `app/src/features/courses`, `course-search` | — (встроенный `explore`) | — |
+| язык интерфейса, локализация, переводы UI, i18n | `app/src/lib/i18n`, `app/scripts/i18n.mjs` | — | new-language |
 | онбординг | `app/src/features/onboarding` | — | new-onboarding |
 | видео, база знаний | `app/src/features/knowledge`, `app/public/videos` | — | new-video |
 | тема, цвета, палитра | `app/src/features/theme`, токены `design-system/ui-kit` | — | new-theme |

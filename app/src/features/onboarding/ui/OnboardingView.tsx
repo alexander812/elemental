@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { FormattedMessage, useIntl } from 'react-intl'
+import type { MessageDescriptor } from 'react-intl'
+
 import { IconClose } from '@elemental/icons'
 import { Button, ButtonIcon, Stack, Text } from '@elemental/ui-kit'
 
@@ -12,22 +15,28 @@ import classes from './OnboardingView.module.pcss'
 export type OnboardingVariant = 'general' | 'task'
 
 type OnboardingContent = {
-  title: string
-  description: string
+  title: MessageDescriptor
+  description: MessageDescriptor
   videoId: string
 }
 
 const CONTENT: Record<OnboardingVariant, OnboardingContent> = {
   general: {
-    title: 'Добро пожаловать в Лекси',
-    description:
-      'Учите иностранные слова по флеш-карточкам: добавляйте готовые курсы или создавайте свои, проверяйте произношение и проходите тесты.',
+    title: { id: 'onboarding_general_title', defaultMessage: 'Welcome to Lexi' },
+    description: {
+      id: 'onboarding_general_description',
+      defaultMessage:
+        'Learn foreign words with flashcards: add ready-made courses or create your own, check pronunciation and take tests.',
+    },
     videoId: GENERAL_VIDEO_ID,
   },
   task: {
-    title: 'Как работать с заданием',
-    description:
-      'Текст — главное в задании, а карточки помогут выучить слова из него. Листайте их свайпами, проверяйте произношение и проходите тест.',
+    title: { id: 'onboarding_task_title', defaultMessage: 'How to work with a set' },
+    description: {
+      id: 'onboarding_task_description',
+      defaultMessage:
+        'The text is the main part of a set, and the cards help you learn the words from it. Swipe through them, check pronunciation and take the test.',
+    },
     videoId: TASK_VIDEO_ID,
   },
 }
@@ -43,7 +52,10 @@ const completeOnboarding = (variant: OnboardingVariant) => {
 }
 
 export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVariant }) {
-  const { title: fullTitle, description: fullDescription, videoId } = CONTENT[variant]
+  const intl = useIntl()
+  const { title: titleDescriptor, description: descriptionDescriptor, videoId } = CONTENT[variant]
+  const fullTitle = intl.formatMessage(titleDescriptor)
+  const fullDescription = intl.formatMessage(descriptionDescriptor)
   const totalLength = fullTitle.length + fullDescription.length
 
   const reduceMotion = useMemo(
@@ -79,7 +91,7 @@ export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVa
     <div className={classes.overlay}>
       <div className={classes.close}>
         <ButtonIcon
-          ariaLabel="Закрыть"
+          ariaLabel={intl.formatMessage({ id: 'common_close', defaultMessage: 'Close' })}
           icon={<IconClose fontSize={24} />}
           variant="flat"
           onClick={() => completeOnboarding(variant)}
@@ -108,10 +120,13 @@ export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVa
       <div className={`${classes.actions} ${typed ? classes.actionsVisible : ''}`}>
         <Stack spacing="s">
           <Button fullWidth onClick={handleVideo}>
-            Смотреть видео
+            <FormattedMessage id="onboarding_watch_video" defaultMessage="Watch video" />
           </Button>
           <Button fullWidth variant="secondary" onClick={handleKnowledge}>
-            Открыть базу знаний
+            <FormattedMessage
+              id="onboarding_open_knowledge"
+              defaultMessage="Open the knowledge base"
+            />
           </Button>
         </Stack>
       </div>

@@ -1,3 +1,5 @@
+import { useIntl } from 'react-intl'
+
 import { IconCheckSmall, IconClose, IconViewList } from '@elemental/icons'
 import { Button, ButtonIcon, Stack } from '@elemental/ui-kit'
 
@@ -18,6 +20,8 @@ export function FilterBar({
   onFilterChange,
   onOpenSetText,
 }: FilterBarProps) {
+  const intl = useIntl()
+
   return (
     <Stack direction="row" horizontalAlign="space-between">
       <Button
@@ -30,7 +34,7 @@ export function FilterBar({
         {learnedCount}
       </Button>
       <ButtonIcon
-        ariaLabel="Текст задания"
+        ariaLabel={intl.formatMessage({ id: 'cards_filter_set_text', defaultMessage: 'Set text' })}
         color="neutral"
         icon={<IconViewList fontSize={24} />}
         variant="secondary"

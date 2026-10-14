@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage } from 'react-intl'
 
 import { Box, Button, FormHelperText, Header, Stack } from '@elemental/ui-kit'
 
@@ -99,7 +100,13 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
     <Box grow height="100%">
       <Header
         back
-        text={isEditing ? 'Изменить' : 'Добавить'}
+        text={
+          isEditing ? (
+            <FormattedMessage id="cards_edit" defaultMessage="Edit" />
+          ) : (
+            <FormattedMessage id="common_add" defaultMessage="Add" />
+          )
+        }
         onBackClick={() => popScreen()}
       />
       <Box grow padding="m">
@@ -132,11 +139,14 @@ export function CardCreateView({ setId, cardId }: { setId: string; cardId?: stri
             />
             {translationFailed ? (
               <FormHelperText variant="error">
-                Не удалось перевести — введите перевод вручную
+                <FormattedMessage
+                  id="card_create_translate_failed"
+                  defaultMessage="Translation failed — enter the translation manually"
+                />
               </FormHelperText>
             ) : null}
             <Button disabled={!canSave} fullWidth loading={pending || updatePending} type="submit">
-              Сохранить
+              <FormattedMessage id="common_save" defaultMessage="Save" />
             </Button>
           </Stack>
         </form>

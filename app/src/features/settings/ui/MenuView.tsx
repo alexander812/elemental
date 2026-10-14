@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl'
+
 import {
   IconBookOpen,
   IconChevronRight,
@@ -19,14 +21,22 @@ export function MenuView() {
 
   return (
     <Box grow height="100%">
-      <Header back text="Настройки" onBackClick={() => popScreen()} />
+      <Header
+        back
+        text={<FormattedMessage id="settings_title" defaultMessage="Settings" />}
+        onBackClick={() => popScreen()}
+      />
       <Box grow padding="m">
         <Stack spacing="s">
           <Card padding="0">
             <ListItem data={{ screen: 'theme' }} onClick={() => pushScreen({ name: 'theme' })}>
               <ListItem.StartBlock
                 icon={<IconPalette fontSize={24} color="var(--accent-text-and-icons)" />}
-                title={<Text variant="M / Medium">Тема</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="settings_menu_theme" defaultMessage="Theme" />
+                  </Text>
+                }
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
@@ -35,7 +45,11 @@ export function MenuView() {
             <ListItem data={{ screen: 'language' }} onClick={() => pushScreen({ name: 'language' })}>
               <ListItem.StartBlock
                 icon={<IconTranslate fontSize={24} color="var(--accent-text-and-icons)" />}
-                title={<Text variant="M / Medium">Язык</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="settings_menu_language" defaultMessage="Language" />
+                  </Text>
+                }
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
@@ -45,7 +59,11 @@ export function MenuView() {
               <ListItem data={{ screen: 'voices' }} onClick={() => pushScreen({ name: 'voices' })}>
                 <ListItem.StartBlock
                   icon={<IconSound fontSize={24} color="var(--accent-text-and-icons)" />}
-                  title={<Text variant="M / Medium">Озвучка</Text>}
+                  title={
+                    <Text variant="M / Medium">
+                      <FormattedMessage id="settings_menu_voices" defaultMessage="Voice" />
+                    </Text>
+                  }
                 />
                 <ListItem.EndBlock
                   content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
@@ -59,7 +77,14 @@ export function MenuView() {
               >
                 <ListItem.StartBlock
                   icon={<IconMicrophone fontSize={24} color="var(--accent-text-and-icons)" />}
-                  title={<Text variant="M / Medium">Распознавание речи</Text>}
+                  title={
+                    <Text variant="M / Medium">
+                      <FormattedMessage
+                        id="settings_menu_recognition"
+                        defaultMessage="Speech recognition"
+                      />
+                    </Text>
+                  }
                 />
                 <ListItem.EndBlock
                   content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
@@ -69,7 +94,11 @@ export function MenuView() {
             <ListItem data={{ screen: 'checks' }} onClick={() => pushScreen({ name: 'checks' })}>
               <ListItem.StartBlock
                 icon={<IconTasks fontSize={24} color="var(--accent-text-and-icons)" />}
-                title={<Text variant="M / Medium">Проверки</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="settings_menu_checks" defaultMessage="Checks" />
+                  </Text>
+                }
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
@@ -78,7 +107,14 @@ export function MenuView() {
             <ListItem data={{ screen: 'knowledge' }} onClick={() => pushScreen({ name: 'knowledge' })}>
               <ListItem.StartBlock
                 icon={<IconBookOpen fontSize={24} color="var(--accent-text-and-icons)" />}
-                title={<Text variant="M / Medium">База знаний</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage
+                      id="settings_menu_knowledge"
+                      defaultMessage="Knowledge base"
+                    />
+                  </Text>
+                }
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
@@ -87,7 +123,11 @@ export function MenuView() {
             <ListItem data={{ screen: 'about' }} onClick={() => pushScreen({ name: 'about' })}>
               <ListItem.StartBlock
                 icon={<IconEducation fontSize={24} color="var(--accent-text-and-icons)" />}
-                title={<Text variant="M / Medium">О приложении</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="settings_menu_about" defaultMessage="About" />
+                  </Text>
+                }
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
@@ -96,7 +136,11 @@ export function MenuView() {
             <ListItem data={{ screen: 'data' }} onClick={() => pushScreen({ name: 'data' })}>
               <ListItem.StartBlock
                 icon={<IconDownload fontSize={24} color="var(--accent-text-and-icons)" />}
-                title={<Text variant="M / Medium">Данные</Text>}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="settings_menu_data" defaultMessage="Data" />
+                  </Text>
+                }
               />
               <ListItem.EndBlock
                 content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}

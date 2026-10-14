@@ -1,4 +1,5 @@
 import { useUnit } from 'effector-react'
+import { useIntl } from 'react-intl'
 
 import { Card, Text } from '@elemental/ui-kit'
 
@@ -8,6 +9,7 @@ import classes from './Toast.module.pcss'
 
 export function Toast() {
   const message = useUnit($toast)
+  const intl = useIntl()
 
   if (!message) return null
 
@@ -15,7 +17,7 @@ export function Toast() {
     <div className={classes.host}>
       <Card borderColor="contrast-primary" color="surfaceElevation2" elevated padding="m">
         <Text align="center" variant="S / Medium">
-          {message}
+          {intl.formatMessage(message)}
         </Text>
       </Card>
     </div>

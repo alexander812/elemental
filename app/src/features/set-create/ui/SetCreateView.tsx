@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { FormEvent } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import {
   IconEducation,
@@ -67,6 +68,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   const createPending = useUnit(createSetFx.pending)
   const updatePending = useUnit(updateSetFx.pending)
   const translatePending = useUnit(translatePairsFx.pending)
+  const intl = useIntl()
 
   const set = useMemo(
     () => (setId ? sets.find((item) => item.id === setId) : undefined),
@@ -256,8 +258,8 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
   if (isEditing && !set) {
     return (
       <Box grow height="100%">
-        <Header back text="Изменить задание" onBackClick={() => popScreen()} />
-        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text="Задание не найдено" />
+        <Header back text={<FormattedMessage id="set_create_edit_title" defaultMessage="Edit set" />} onBackClick={() => popScreen()} />
+        <EmptyScreen fullHeight icon={<IconEducation fontSize={24} />} text={<FormattedMessage id="set_create_not_found" defaultMessage="Set not found" />} />
       </Box>
     )
   }
@@ -270,7 +272,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
           <Menu.Root open={menuOpen} onToggle={setMenuOpen}>
             <Menu.Trigger>
               <ButtonIcon
-                ariaLabel="Меню задания"
+                ariaLabel={intl.formatMessage({ id: 'set_create_menu', defaultMessage: 'Set menu' })}
                 icon={<IconMoreVertical fontSize={24} />}
                 variant="flat"
               />
@@ -279,13 +281,13 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
               <Menu.Item
                 disabled={!canTranslate || translatePending}
                 icon={<IconTranslate fontSize={16} />}
-                label="Перевести всё"
+                label={<FormattedMessage id="set_create_translate_all" defaultMessage="Translate all" />}
                 onClick={handleTranslateAll}
               />
             </Menu.Content>
           </Menu.Root>
         }
-        text={isEditing ? 'Изменить задание' : 'Новое задание'}
+        text={isEditing ? <FormattedMessage id="set_create_edit_title" defaultMessage="Edit set" /> : <FormattedMessage id="set_create_new_title" defaultMessage="New set" />}
         onBackClick={() => popScreen()}
       />
       <Box grow padding="m">
@@ -296,7 +298,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
               floatingLabel
               fullWidth
               lang={userLang}
-              placeholder="Название"
+              placeholder={<FormattedMessage id="set_create_name" defaultMessage="Name" />}
               size="m"
               value={name}
               onChange={draftNameChanged}
@@ -304,14 +306,14 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
 
             <TextPanel
               onClick={handleOpenText}
-              placeholder="Нажмите чтобы добавить текст"
+              placeholder={intl.formatMessage({ id: 'set_create_text_placeholder', defaultMessage: 'Tap to add text' })}
               text={panelText}
             />
 
             <Card padding="l">
               <Stack spacing="xs">
                 <Text color="contrast-secondary" variant="XS / Medium">
-                  Урок
+                  <FormattedMessage id="set_create_lesson" defaultMessage="Lesson" />
                 </Text>
                 <Select
                   fullWidth
@@ -363,7 +365,7 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
 
             {translateFailed ? (
               <FormHelperText variant="error">
-                Не удалось перевести — введите перевод вручную
+                <FormattedMessage id="set_create_translate_failed" defaultMessage="Couldn't translate — enter the translation manually" />
               </FormHelperText>
             ) : null}
 
@@ -373,11 +375,11 @@ export function SetCreateView({ setId, lessonId }: { setId?: string; lessonId?: 
               variant="secondary"
               onClick={handleAddPair}
             >
-              Добавить
+              <FormattedMessage id="common_add" defaultMessage="Add" />
             </Button>
 
             <Button disabled={!canApply} fullWidth loading={pending} type="submit">
-              {isEditing ? 'Сохранить' : 'Применить'}
+              {isEditing ? <FormattedMessage id="common_save" defaultMessage="Save" /> : <FormattedMessage id="common_apply" defaultMessage="Apply" />}
             </Button>
           </Stack>
         </form>

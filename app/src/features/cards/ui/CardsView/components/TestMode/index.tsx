@@ -1,6 +1,7 @@
 import { useEffect, useEffectEvent, useMemo, useRef, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconEducation, IconPlay, IconStop } from '@elemental/icons'
 import { Box, Button, ButtonIcon, EmptyScreen, Header, Stack, Text } from '@elemental/ui-kit'
@@ -11,7 +12,7 @@ import { DEFAULT_COURSE_LANG, getLanguageName } from '../../../../../../lib/lang
 import { isShortSingleWord } from '../../../../../../lib/pronunciation'
 import {
   isSilentRecognitionError,
-  recognizeErrorText,
+  recognizeErrorDescriptor,
 } from '../../../../../../lib/recognitionErrors'
 import {
   playDisappointment,
@@ -68,6 +69,17 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const debugMode = useUnit($debugMode)
   const asrProgress = useUnit($asrProgress)
   const recognizing = useUnit(recognizeFx.pending)
+
+  const intl = useIntl()
+  const acceptedText = intl.formatMessage({
+    id: 'cards_check_accepted',
+    defaultMessage: 'Accepted!',
+  })
+  const errorVerdictText = intl.formatMessage({
+    id: 'cards_check_error',
+    defaultMessage: 'Error!',
+  })
+  const voiceFallbackHint = intl.formatMessage(VOICE_FALLBACK_HINT)
 
   const [testIndex, setTestIndex] = useState(0)
   const [testResults, setTestResults] = useState<boolean[]>([])
@@ -285,7 +297,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
         applyTestVerdict(
           cardId,
           true,
-          debugMode ? `Принято! ${modelRecognitionText(candidates)}` : 'Принято!'
+          debugMode ? `${acceptedText} ${modelRecognitionText(intl, candidates)}` : acceptedText
         )
         return
       }
@@ -296,17 +308,22 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
       const attempt = testAttemptRef.current
       const attemptsLeft = TEST_MAX_ATTEMPTS - attempt
-      const debugText = debugMode ? ` ${modelRecognitionText(candidates)}.` : ''
-      const message = `Ошибка!${debugText}`
+      const debugText = debugMode ? ` ${modelRecognitionText(intl, candidates)}.` : ''
+      const message = `${errorVerdictText}${debugText}`
 
       if (attemptsLeft <= 0) {
         applyTestVerdict(cardId, false, message)
         return
       }
 
-      const hinted = offerTestWriteFallback(cardId, expected)
-        ? VOICE_FALLBACK_HINT
-        : `Осталось попыток: ${attemptsLeft}`
+      const attemptsText = intl.formatMessage(
+        {
+          id: 'cards_check_attempts_left',
+          defaultMessage: '{attemptsLeft, plural, one {# attempt left} other {# attempts left}}',
+        },
+        { attemptsLeft }
+      )
+      const hinted = offerTestWriteFallback(cardId, expected) ? voiceFallbackHint : attemptsText
 
       testAttemptRef.current = attempt + 1
       setTestStatus({ kind: 'error', message: `${message} ${hinted}` })
@@ -320,9 +337,9 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
       if (isSilentRecognitionError(error)) {
         if (offerTestWriteFallback(cardId, expected)) {
-          setTestStatus({ kind: 'error', message: VOICE_FALLBACK_HINT })
+          setTestStatus({ kind: 'error', message: voiceFallbackHint })
         } else if (debugMode) {
-          setTestStatus({ kind: 'error', message: modelRecognitionText([]) })
+          setTestStatus({ kind: 'error', message: modelRecognitionText(intl, []) })
         }
 
         if (testAutoRef.current) setTestAutoTick((value) => value + 1)
@@ -332,14 +349,14 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
       playError()
       vibrateError()
 
-      const errorText = recognizeErrorText(
-        error instanceof Error ? error : new Error('recognition_failed')
+      const errorText = intl.formatMessage(
+        recognizeErrorDescriptor(error instanceof Error ? error : new Error('recognition_failed'))
       )
-      const message = offerTestWriteFallback(cardId, expected) ? VOICE_FALLBACK_HINT : errorText
+      const message = offerTestWriteFallback(cardId, expected) ? voiceFallbackHint : errorText
 
       setTestStatus({
         kind: 'error',
-        message: debugMode ? `${message}. ${modelRecognitionText([])}` : message,
+        message: debugMode ? `${message}. ${modelRecognitionText(intl, [])}` : message,
       })
 
       if (testAutoRef.current) setTestAutoTick((value) => value + 1)
@@ -508,7 +525,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     if (isAnswerCorrect(expected, value)) {
       playSuccess()
       vibrateSuccess()
-      applyTestVerdict(cardId, true, 'Принято!')
+      applyTestVerdict(cardId, true, acceptedText)
       return
     }
 
@@ -519,12 +536,20 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     const attemptsLeft = TEST_MAX_ATTEMPTS - attempt
 
     if (attemptsLeft <= 0) {
-      applyTestVerdict(cardId, false, 'Ошибка!')
+      applyTestVerdict(cardId, false, errorVerdictText)
       return
     }
 
+    const attemptsText = intl.formatMessage(
+      {
+        id: 'cards_check_attempts_left',
+        defaultMessage: '{attemptsLeft, plural, one {# attempt left} other {# attempts left}}',
+      },
+      { attemptsLeft }
+    )
+
     testAttemptRef.current = attempt + 1
-    setTestStatus({ kind: 'error', message: `Ошибка! Осталось попыток: ${attemptsLeft}` })
+    setTestStatus({ kind: 'error', message: `${errorVerdictText} ${attemptsText}` })
   }
 
   const testDeck = testQueue.slice(testIndex, testIndex + DECK_DEPTH)
@@ -536,7 +561,11 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
   return (
     <Box grow height="100%">
-      <Header back text="Тест" onBackClick={handleExit} />
+      <Header
+        back
+        text={<FormattedMessage id="cards_mode_test" defaultMessage="Test" />}
+        onBackClick={handleExit}
+      />
 
       <Box grow padding="m">
         <Stack spacing="l" height="100%">
@@ -553,7 +582,9 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
             <EmptyScreen
               fullHeight
               icon={<IconEducation fontSize={24} />}
-              text="Нет карточек для теста"
+              text={
+                <FormattedMessage id="cards_test_no_cards" defaultMessage="No cards for the test" />
+              }
             />
           ) : (
             <Box grow position="relative" minHeight={280}>
@@ -592,24 +623,38 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
           {!testFinished && testQueue.length > 0 && !voiceReady ? (
             <Text align="center" color="contrast-secondary" variant="S / Medium">
-              {voiceCheckEnabled
-                ? 'Распознавание речи недоступно на устройстве'
-                : 'Распознавание речи отключено в настройках'}
+              {voiceCheckEnabled ? (
+                <FormattedMessage
+                  id="cards_test_asr_unavailable"
+                  defaultMessage="Speech recognition is unavailable on this device"
+                />
+              ) : (
+                <FormattedMessage
+                  id="cards_test_asr_disabled"
+                  defaultMessage="Speech recognition is disabled in settings"
+                />
+              )}
             </Text>
           ) : null}
 
           {!testFinished ? (
             <Stack direction="row" spacing="m" verticalAlign="center">
               <Button fullWidth onClick={handleExit}>
-                Отмена
+                <FormattedMessage id="common_cancel" defaultMessage="Cancel" />
               </Button>
               {testQueue.length > 0 && voiceReady ? (
                 <div className={testAuto ? classes.blink : undefined}>
                   <ButtonIcon
                     ariaLabel={
                       testAuto
-                        ? 'Остановить автоматический режим'
-                        : 'Запустить автоматический режим'
+                        ? intl.formatMessage({
+                            id: 'cards_test_auto_stop',
+                            defaultMessage: 'Stop auto mode',
+                          })
+                        : intl.formatMessage({
+                            id: 'cards_test_auto_start',
+                            defaultMessage: 'Start auto mode',
+                          })
                     }
                     icon={testAuto ? <IconStop fontSize={24} /> : <IconPlay fontSize={24} />}
                     size="m"

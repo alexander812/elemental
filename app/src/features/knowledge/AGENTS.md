@@ -6,4 +6,4 @@
 
 Скилл: `new-video` — движок скринкастов (`skills/new-video/engine`), сценарии (`skills/new-video/scenarios`), бэклог `SCENARIOS.md`; обязателен для съёмки и добавления роликов.
 
-Инварианты: у каждого ролика — mp4 + webm + poster; новое видео добавляется в `KNOWLEDGE_VIDEOS` и в `app/public/videos`.
+Инварианты: у каждого ролика — mp4 + webm + poster; новое видео добавляется в `KNOWLEDGE_VIDEOS` и в `app/public/videos`; `title` — `MessageDescriptor` (id + английский `defaultMessage`, переводы — по запросу в `lib/i18n/messages`, сами ролики на русском).

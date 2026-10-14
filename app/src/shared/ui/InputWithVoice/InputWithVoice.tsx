@@ -1,12 +1,15 @@
 import { useRef, useState } from 'react'
 import type { FocusEvent } from 'react'
 
+import { useIntl } from 'react-intl'
+
 import { IconMicrophone, IconTranslate } from '@elemental/icons'
 
 import { InputText, Stack } from '@elemental/ui-kit'
 import type { InputTextProps } from '@elemental/ui-kit'
 
 import type { LanguageCode } from '../../../lib/languages'
+import { recognizeErrorDescriptor } from '../../../lib/recognitionErrors'
 import { canRecognize, cancelRecognition, recognize } from '../../../transport/recognition'
 import { ensureAsrReadyFx } from '../RecognitionSheet'
 
@@ -21,28 +24,6 @@ export type InputWithVoiceProps = Omit<InputTextProps, 'endIcon' | 'onChange' | 
   value: string
 }
 
-const RECOGNIZE_ERRORS: Record<string, string> = {
-  'audio-capture': 'Микрофон недоступен',
-  'no-speech': 'Ничего не расслышали, попробуйте ещё',
-  'not-allowed': 'Разрешите доступ к микрофону',
-  'service-not-allowed': 'Распознавание речи недоступно',
-  asr_download_failed: 'Не удалось скачать распознавание речи',
-  audio_error: 'Микрофон недоступен',
-  audio_unavailable: 'Микрофон недоступен',
-  busy: 'Подождите, распознавание уже идёт',
-  language_not_supported: 'Для этого языка офлайн-распознавание недоступно',
-  network: 'Нет соединения для распознавания',
-  no_speech: 'Ничего не расслышали, попробуйте ещё',
-  not_available: 'Распознавание речи недоступно на устройстве',
-  permission_denied: 'Разрешите доступ к микрофону',
-  recognition_unavailable: 'Распознавание речи недоступно',
-  timeout: 'Не удалось расслышать фразу',
-  unknown_method: 'Обновите приложение',
-}
-
-const recognizeErrorText = (error: Error) =>
-  RECOGNIZE_ERRORS[error.message] ?? 'Не удалось распознать речь'
-
 const isRecognizeCancelled = (error: unknown) =>
   error instanceof Error && (error.message === 'cancelled' || error.message === 'aborted')
 
@@ -55,6 +36,7 @@ export function InputWithVoice({
   translating,
   ...rest
 }: InputWithVoiceProps) {
+  const intl = useIntl()
   const [focused, setFocused] = useState(false)
   const [listening, setListening] = useState(false)
   const [recognizeFailed, setRecognizeFailed] = useState<Error | null>(null)
@@ -104,7 +86,17 @@ export function InputWithVoice({
   const microphone =
     focused && canRecognize() ? (
       <button
-        aria-label={listening ? 'Остановить диктовку' : 'Продиктовать'}
+        aria-label={
+          listening
+            ? intl.formatMessage({
+                id: 'input_voice_stop_dictation',
+                defaultMessage: 'Stop dictation',
+              })
+            : intl.formatMessage({
+                id: 'input_voice_start_dictation',
+                defaultMessage: 'Dictate',
+              })
+        }
         className={`${classes.mic} ${listening ? classes.micActive : ''}`}
         disabled={rest.disabled}
         type="button"
@@ -118,7 +110,10 @@ export function InputWithVoice({
   const translate =
     focused && onTranslate ? (
       <button
-        aria-label="Перевести"
+        aria-label={intl.formatMessage({
+          id: 'input_voice_translate',
+          defaultMessage: 'Translate',
+        })}
         className={`${classes.mic} ${translating ? classes.translateBusy : ''}`}
         disabled={rest.disabled || translating || !(canTranslate ?? value.trim().length > 0)}
         type="button"
@@ -154,7 +149,11 @@ export function InputWithVoice({
       <InputText
         {...rest}
         endIcon={endIcon}
-        error={recognizeFailed ? recognizeErrorText(recognizeFailed) : rest.error}
+        error={
+          recognizeFailed
+            ? intl.formatMessage(recognizeErrorDescriptor(recognizeFailed))
+            : rest.error
+        }
         helperText={recognizeFailed ? undefined : rest.helperText}
         value={value}
         onChange={onChange}

@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 import type { PointerEvent as ReactPointerEvent } from 'react'
 
 import { Spinner, Text, TextPanel } from '@elemental/ui-kit'
+import { FormattedMessage } from 'react-intl'
 
 import type { LanguageCode } from '../../../../../../lib/languages'
 import type { WordSegment } from '../../../../../../lib/words'
@@ -281,7 +282,10 @@ export function WordsPanel({ interactive, lang, otherLang, selected, words }: Wo
             <Spinner size="s" />
           ) : tooltip.status === 'error' ? (
             <Text color="contrast-secondary" variant="S / Medium">
-              Не удалось перевести
+              <FormattedMessage
+                id="set_text_word_translate_failed"
+                defaultMessage="Couldn't translate"
+              />
             </Text>
           ) : (
             <Text variant="S / Medium">{tooltip.text}</Text>

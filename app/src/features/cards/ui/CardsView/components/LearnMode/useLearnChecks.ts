@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { useUnit } from 'effector-react'
+import { useIntl } from 'react-intl'
 
 import { getCardText } from '../../../../../../lib/cards'
 import { isAnswerCorrect } from '../../../../../../lib/checks'
@@ -8,7 +9,7 @@ import type { LanguageCode } from '../../../../../../lib/languages'
 import { isShortSingleWord } from '../../../../../../lib/pronunciation'
 import {
   isSilentRecognitionError,
-  recognizeErrorText,
+  recognizeErrorDescriptor,
 } from '../../../../../../lib/recognitionErrors'
 import { playError, playSuccess, unlockSounds } from '../../../../../../lib/sounds'
 import type { Card as CardModel } from '../../../../../../lib/types'
@@ -51,6 +52,13 @@ export function useLearnChecks({
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
   const writeCheckEnabled = useUnit($writeCheckEnabled)
   const debugMode = useUnit($debugMode)
+
+  const intl = useIntl()
+  const acceptedText = intl.formatMessage({
+    id: 'cards_check_accepted',
+    defaultMessage: 'Accepted!',
+  })
+  const voiceFallbackHint = intl.formatMessage(VOICE_FALLBACK_HINT)
 
   const [checkStatus, setCheckStatus] = useState<(CheckStatus & { cardId: string }) | null>(null)
   const [listeningCardId, setListeningCardId] = useState<string | null>(null)
@@ -134,7 +142,7 @@ export function useLearnChecks({
         showCheckStatus(
           topCard.id,
           'success',
-          debugMode ? `Принято! ${modelRecognitionText(candidates)}` : 'Принято!'
+          debugMode ? `${acceptedText} ${modelRecognitionText(intl, candidates)}` : acceptedText
         )
       } else {
         playError()
@@ -145,16 +153,22 @@ export function useLearnChecks({
             topCard.id,
             'error',
             debugMode
-              ? `${VOICE_FALLBACK_HINT} ${modelRecognitionText(candidates)}`
-              : VOICE_FALLBACK_HINT
+              ? `${voiceFallbackHint} ${modelRecognitionText(intl, candidates)}`
+              : voiceFallbackHint
           )
         } else {
-          const message = `Ошибка! Услышано "${assessment.transcript}", нужно ${expected}`
+          const message = intl.formatMessage(
+            {
+              id: 'cards_check_voice_error',
+              defaultMessage: 'Error! Heard "{heard}", expected {expected}',
+            },
+            { heard: assessment.transcript, expected }
+          )
 
           showCheckStatus(
             topCard.id,
             'error',
-            debugMode ? `${message}. ${modelRecognitionText(candidates)}` : message
+            debugMode ? `${message}. ${modelRecognitionText(intl, candidates)}` : message
           )
         }
       }
@@ -169,9 +183,9 @@ export function useLearnChecks({
 
       if (isSilentRecognitionError(error)) {
         if (offerWriteFallback(topCard.id, expected)) {
-          showCheckStatus(topCard.id, 'error', VOICE_FALLBACK_HINT)
+          showCheckStatus(topCard.id, 'error', voiceFallbackHint)
         } else if (debugMode) {
-          showCheckStatus(topCard.id, 'error', modelRecognitionText([]))
+          showCheckStatus(topCard.id, 'error', modelRecognitionText(intl, []))
         }
 
         return
@@ -180,15 +194,15 @@ export function useLearnChecks({
       playError()
       vibrateError()
 
-      const errorText = recognizeErrorText(
-        error instanceof Error ? error : new Error('recognition_failed')
+      const errorText = intl.formatMessage(
+        recognizeErrorDescriptor(error instanceof Error ? error : new Error('recognition_failed'))
       )
-      const message = offerWriteFallback(topCard.id, expected) ? VOICE_FALLBACK_HINT : errorText
+      const message = offerWriteFallback(topCard.id, expected) ? voiceFallbackHint : errorText
 
       showCheckStatus(
         topCard.id,
         'error',
-        debugMode ? `${message}. ${modelRecognitionText([])}` : message
+        debugMode ? `${message}. ${modelRecognitionText(intl, [])}` : message
       )
     } finally {
       setListeningCardId(null)
@@ -211,11 +225,21 @@ export function useLearnChecks({
     if (passed) {
       playSuccess()
       vibrateSuccess()
-      showCheckStatus(topCard.id, 'success', 'Принято!')
+      showCheckStatus(topCard.id, 'success', acceptedText)
     } else {
       playError()
       vibrateError()
-      showCheckStatus(topCard.id, 'error', `Ошибка! Нужно ${expected}, ваш текст ${value}`)
+      showCheckStatus(
+        topCard.id,
+        'error',
+        intl.formatMessage(
+          {
+            id: 'cards_check_write_error',
+            defaultMessage: 'Error! Expected {expected}, you typed {value}',
+          },
+          { expected, value }
+        )
+      )
     }
 
     const voiceReady = !voiceCheckEnabled || topCard.voiceCheck === true
@@ -232,7 +256,7 @@ export function useLearnChecks({
       await speakFx({ text, lang })
     } catch (error) {
       const failure = error instanceof Error ? error : new Error('speak_failed')
-      showCheckStatus(topCard.id, 'error', speakErrorText(failure))
+      showCheckStatus(topCard.id, 'error', speakErrorText(intl, failure))
     }
   }
 
