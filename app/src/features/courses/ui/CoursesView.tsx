@@ -16,12 +16,15 @@ import {
   Text,
 } from '@elemental/ui-kit'
 
+import { getCourseLessonCounts, getLessonTaskCounts, getProgressRatio } from '../../../lib/progress'
 import type { Course } from '../../../lib/types'
 import { $lessons } from '../../lessons/store'
 import { goToLessons, pushScreen } from '../../navigation/store'
 import { $onboardingOpened } from '../../onboarding/store'
 import { useDelayedShake } from '../../onboarding/ui/useDelayedShake'
 import { useShakeHint } from '../../onboarding/ui/useShakeHint'
+import { $sets } from '../../sets/store'
+import { TileProgress } from '../../../shared/ui/TileProgress'
 import {
   addedCourseShown,
   courseSelected,
@@ -41,6 +44,7 @@ const langLabel = (code: string): string => code.charAt(0).toUpperCase() + code.
 export function CoursesView() {
   const courses = useUnit($courses)
   const lessons = useUnit($lessons)
+  const sets = useUnit($sets)
   const loading = useUnit($coursesLoading)
   const currentCourseId = useUnit($currentCourseId)
   const onboardingOpened = useUnit($onboardingOpened)
@@ -52,15 +56,10 @@ export function CoursesView() {
     fetchCoursesFx()
   }, [])
 
-  const lessonCounts = useMemo(() => {
-    const counts = new Map<string, number>()
-
-    lessons.forEach((lesson) => {
-      counts.set(lesson.courseId, (counts.get(lesson.courseId) ?? 0) + 1)
-    })
-
-    return counts
-  }, [lessons])
+  const lessonCounts = useMemo(
+    () => getCourseLessonCounts(lessons, getLessonTaskCounts(sets)),
+    [lessons, sets]
+  )
 
   const visible = useMemo(() => [...courses].sort((a, b) => a.order - b.order), [courses])
 
@@ -164,15 +163,18 @@ export function CoursesView() {
       <Box grow padding="m">
         <div className={classes.list}>
           {visible.map((course) => {
-            const count = lessonCounts.get(course.id) ?? 0
+            const counts = lessonCounts.get(course.id)
+            const count = counts?.total ?? 0
 
             return (
               <div key={course.id} {...(course.id === addedCourseId ? addedCourseShake : {})}>
                 <Card
                   active={course.id === currentCourseId}
                   borderRadius="m"
+                  clipContent
                   color="primary"
                   padding="m"
+                  position="relative"
                   onClick={() => handleOpen(course)}
                 >
                   <Stack spacing="xs" height="100%">
@@ -201,6 +203,7 @@ export function CoursesView() {
                       </Text>
                     </div>
                   </Stack>
+                  <TileProgress value={getProgressRatio(counts)} />
                 </Card>
               </div>
             )

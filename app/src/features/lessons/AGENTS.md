@@ -1,6 +1,6 @@
 # Уроки (список и редактор)
 
-`ui/LessonsView/index.tsx` — вкладка «Уроки»: шапка с меню курса (редактировать, удалить с каскадом), список уроков со свайпами и перетаскиванием, галочка «все тесты пройдены», подсказки онбординга; `ui/LessonsView/components/LessonRow`; `ui/LessonCreateView.tsx` — создание/редактирование (имя, селект курса, язык курса только для отображения).
+`ui/LessonsView/index.tsx` — вкладка «Уроки»: шапка с меню курса (редактировать, удалить с каскадом), список уроков со свайпами и перетаскиванием, галочка «все тесты пройдены», полоса прогресса по пройденным заданиям, подсказки онбординга; `ui/LessonsView/components/LessonRow`; `ui/LessonCreateView.tsx` — создание/редактирование (имя, селект курса, язык курса только для отображения).
 
 Файлы: `store/index.ts` — `fetchLessonsFx`, `createLessonFx`, `updateLessonFx`, `deleteLessonFx` (каскад: `transport/sets.deleteSetsByLesson`), `reorderLessonsFx`, `$lessons`.
 

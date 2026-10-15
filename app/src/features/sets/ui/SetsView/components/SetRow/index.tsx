@@ -26,6 +26,8 @@ type SetRowProps = {
 
 export function SetRow({ index, reorder, set, onDelete, onEdit, onTap }: SetRowProps) {
   const { learned, notLearned } = useMemo(() => getCounts(set), [set])
+  const total = learned + notLearned
+  const progress = total > 0 ? learned / total : 0
   const intl = useIntl()
 
   return (
@@ -34,6 +36,8 @@ export function SetRow({ index, reorder, set, onDelete, onEdit, onTap }: SetRowP
       color="accent"
       deleteLabel={intl.formatMessage({ id: 'sets_delete_set', defaultMessage: 'Delete set' })}
       editLabel={intl.formatMessage({ id: 'sets_edit_set', defaultMessage: 'Edit set' })}
+      progress={progress}
+      progressTone="accentOver"
       onDelete={() => onDelete(set.id)}
       onEdit={() => onEdit(set)}
       onTap={() => onTap(set)}

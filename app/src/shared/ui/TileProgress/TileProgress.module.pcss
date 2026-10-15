@@ -1,0 +1,24 @@
+.host {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  height: 4px;
+}
+
+.bar {
+  height: 100%;
+  transition: width 200ms ease-in-out;
+  background-color: var(--accent-bg-default);
+}
+
+.accentOver .bar {
+  background-color: var(--accent-over);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
+}

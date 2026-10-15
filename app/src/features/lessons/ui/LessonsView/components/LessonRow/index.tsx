@@ -12,6 +12,7 @@ type LessonRowProps = {
   examPassed: boolean
   index: number
   lesson: Lesson
+  progress: number
   reorder: RowReorder
   onDelete: (lesson: Lesson) => void
   onEdit: (lesson: Lesson) => void
@@ -22,6 +23,7 @@ export function LessonRow({
   examPassed,
   index,
   lesson,
+  progress,
   reorder,
   onDelete,
   onEdit,
@@ -38,6 +40,7 @@ export function LessonRow({
         defaultMessage: 'Delete lesson',
       })}
       editLabel={intl.formatMessage({ id: 'lessons_row_edit', defaultMessage: 'Edit lesson' })}
+      progress={progress}
       onDelete={() => onDelete(lesson)}
       onEdit={() => onEdit(lesson)}
       onTap={() => onTap(lesson)}

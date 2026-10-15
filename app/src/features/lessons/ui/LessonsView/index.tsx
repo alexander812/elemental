@@ -15,6 +15,7 @@ import {
   Stack, Text,
 } from '@elemental/ui-kit'
 
+import { getLessonTaskCounts, getProgressRatio } from '../../../../lib/progress'
 import type { Lesson } from '../../../../lib/types'
 import { ROW_GAP, useRowReorder } from '../../../../shared/ui/SwipeRow/useRowReorder'
 import { ConfirmSheet } from '../../../../shared/ui/ConfirmSheet'
@@ -71,17 +72,7 @@ export function LessonsView() {
     [lessons, course]
   )
 
-  const examPassedByLesson = useMemo(() => {
-    const map = new Map<string, boolean>()
-
-    for (const cardSet of sets) {
-      if (!cardSet.active) continue
-
-      map.set(cardSet.lessonId, (map.get(cardSet.lessonId) ?? true) && cardSet.examPassed)
-    }
-
-    return map
-  }, [sets])
+  const lessonTaskCounts = useMemo(() => getLessonTaskCounts(sets), [sets])
 
   const firstLessonShake = useShakeHint('first-lesson', !onboardingOpened && visible.length > 0)
 
@@ -228,19 +219,24 @@ export function LessonsView() {
       </Box>
       <Box grow padding="m">
         <div style={{ display: 'flex', flexDirection: 'column', gap: ROW_GAP }}>
-          {visible.map((lesson, index) => (
-            <div key={lesson.id} {...(index === 0 ? firstLessonShake : {})}>
-              <LessonRow
-                examPassed={examPassedByLesson.get(lesson.id) ?? false}
-                index={index}
-                lesson={lesson}
-                reorder={reorder}
-                onDelete={handleDelete}
-                onEdit={handleEdit}
-                onTap={handleTap}
-              />
-            </div>
-          ))}
+          {visible.map((lesson, index) => {
+            const counts = lessonTaskCounts.get(lesson.id)
+
+            return (
+              <div key={lesson.id} {...(index === 0 ? firstLessonShake : {})}>
+                <LessonRow
+                  examPassed={counts !== undefined && counts.passed === counts.total}
+                  index={index}
+                  lesson={lesson}
+                  progress={getProgressRatio(counts)}
+                  reorder={reorder}
+                  onDelete={handleDelete}
+                  onEdit={handleEdit}
+                  onTap={handleTap}
+                />
+              </div>
+            )
+          })}
         </div>
       </Box>
       <Box padding="m">

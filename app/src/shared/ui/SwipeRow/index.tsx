@@ -4,6 +4,9 @@ import type { PointerEvent as ReactPointerEvent, ReactNode } from 'react'
 import { IconEdit, IconTrash } from '@elemental/icons'
 import { Card } from '@elemental/ui-kit'
 
+import { TileProgress } from '../TileProgress'
+import type { TileProgressTone } from '../TileProgress'
+
 import type { RowReorderRowProps } from './useRowReorder'
 
 import classes from './SwipeRow.module.pcss'
@@ -19,6 +22,8 @@ type SwipeRowProps = RowReorderRowProps & {
   color: 'accent' | 'primary'
   deleteLabel: string
   editLabel: string
+  progress?: number
+  progressTone?: TileProgressTone
   onDelete: () => void
   onEdit: () => void
   onTap: () => void
@@ -37,6 +42,8 @@ export function SwipeRow({
   color,
   deleteLabel,
   editLabel,
+  progress,
+  progressTone,
   onDelete,
   onEdit,
   onOpen,
@@ -240,8 +247,17 @@ export function SwipeRow({
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerCancel}
       >
-        <Card borderRadius="m" color={color} height="100%" onClick={handleCardClick} padding="m">
+        <Card
+          borderRadius="m"
+          clipContent={progress !== undefined}
+          color={color}
+          height="100%"
+          onClick={handleCardClick}
+          padding="m"
+          position={progress !== undefined ? 'relative' : undefined}
+        >
           {children}
+          {progress !== undefined ? <TileProgress tone={progressTone} value={progress} /> : null}
         </Card>
       </div>
     </div>
