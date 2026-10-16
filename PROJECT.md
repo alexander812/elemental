@@ -58,8 +58,8 @@ npm run storybook      # Storybook ui-kit (порт 8080)
 
 ## Деплой (GitHub Pages)
 
-- Workflow `.github/workflows/deploy.yml`: push в `main` (или ручной запуск) → `npm ci` → сборка `@elemental/app` → публикация `app/dist` на GitHub Pages: `https://lexi.casa/` (кастомный домен, сайт в корне).
-- `base` в `app/vite.config.ts` — `/` (можно переопределить `DEPLOY_BASE`), поэтому сборка не привязана к подпути `/elemental/`; локальная разработка и preview не меняются. URL `https://alexander812.github.io/elemental/` больше не используется (GitHub редиректит его на кастомный домен).
+- Workflow `.github/workflows/deploy.yml`: push в `main` (или ручной запуск) → `npm ci` → сборка `@elemental/app` → публикация `app/dist` на GitHub Pages: `https://app.lexi.casa/` (кастомный домен, сайт в корне).
+- `base` в `app/vite.config.ts` — `/` (можно переопределить `DEPLOY_BASE`), поэтому сборка не привязана к подпути `/elemental/`; локальная разработка и preview не меняются. URL `https://alexander812.github.io/elemental/` больше не используется (GitHub редиректит его на кастомный домен). Домены: `app.lexi.casa` — сайт, `lexi.casa`/`www.lexi.casa` — не обслуживаются (GitHub Pages отдаёт 404, пока они не добавлены в настройки).
 - При первом запуске workflow сам включает Pages (`configure-pages` с `enablement: true`), источник — GitHub Actions.
 
 ## PWA
@@ -226,7 +226,7 @@ Settings  { theme: 'dark' | 'light' | 'terracotta' | 'midnight' | 'stone' | 'ame
 ## Android-обёртка
 
 - `/Users/a.smirnov/p/lexi-android` — отдельный репозиторий (создан из шаблона `/Users/a.smirnov/p/android-webview-template`): WebView-обёртка Lexi с мостом `vibrate`/`deviceInfo`/`scanText`/`speak`, OCR на Tesseract4Android (вшиты ru/en, остальные языки скачиваются при первом использовании).
-- URL веб-приложения настраивается в `app/webview.properties` (debug → `webview.devUrl`, release → `webview.prodUrl` = GitHub Pages).
+- URL веб-приложения настраивается в `app/webview.properties` (debug → `webview.devUrl`, release → `webview.prodUrl` = `https://app.lexi.casa/`).
 - Аппаратная кнопка «назад»: `MainActivity` выполняет в WebView `(window.__lexiBack && window.__lexiBack()) === true`; веб-приложение регистрирует `window.__lexiBack = handleAndroidBack` (`main.tsx` → `features/navigation/store`), который при открытом bottom sheet закрывает его (`closeTopBottomSheet`) и возвращает `true`, иначе при стеке больше одного экрана делает `popScreen()` и возвращает `true` (как кнопка «назад»), иначе — переход по истории WebView (`canGoBack`), иначе сворачивание приложения `moveTaskToBack(true)` (обработчик остаётся включённым); `handlingBack` сбрасывается по таймауту, чтобы обработчик не «залипал».
 - Кнопка «Сканировать текст» на экране `text-add` работает через `lib/nativeBridge.ts`; в браузере она скрыта.
 - Вибрация при свайпах карточек — `transport/haptics.ts` → `callNative('vibrate', { durationMs })` (в Android `NativeBridge` использует `VibrationEffect.createOneShot`, ограничение 1–10000мс); в браузере вызовов нет.
