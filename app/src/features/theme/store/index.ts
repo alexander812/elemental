@@ -27,6 +27,10 @@ export const setWriteCheckEnabledFx = createEffect((value: boolean) =>
 
 export const setDebugModeFx = createEffect((value: boolean) => settingsApi.saveDebugMode(value))
 
+export const setProgressionEnabledFx = createEffect((value: boolean) =>
+  settingsApi.saveProgressionEnabled(value)
+)
+
 export const $settings = createStore<Settings>(settingsApi.DEFAULT_SETTINGS)
   .on(fetchSettingsFx.doneData, (_, settings) => settings)
   .on(setThemeFx.doneData, (_, settings) => settings)
@@ -35,6 +39,7 @@ export const $settings = createStore<Settings>(settingsApi.DEFAULT_SETTINGS)
   .on(setVoiceCheckEnabledFx.doneData, (_, settings) => settings)
   .on(setWriteCheckEnabledFx.doneData, (_, settings) => settings)
   .on(setDebugModeFx.doneData, (_, settings) => settings)
+  .on(setProgressionEnabledFx.doneData, (_, settings) => settings)
   .on(importBackupFx.doneData, (_, { settings }) => settings)
 
 export const $theme = $settings.map((settings) => settings.theme)
@@ -43,6 +48,7 @@ export const $learnAfterChecks = $settings.map((settings) => settings.learnAfter
 export const $voiceCheckEnabled = $settings.map((settings) => settings.voiceCheckEnabled)
 export const $writeCheckEnabled = $settings.map((settings) => settings.writeCheckEnabled)
 export const $debugMode = $settings.map((settings) => settings.debugMode)
+export const $progressionEnabled = $settings.map((settings) => settings.progressionEnabled)
 
 export const $settingsLoading = createStore(true).on(fetchSettingsFx.finally, () => false)
 

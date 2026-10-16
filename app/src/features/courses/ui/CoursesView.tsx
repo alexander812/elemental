@@ -23,6 +23,7 @@ import { goToLessons, pushScreen } from '../../navigation/store'
 import { $onboardingOpened } from '../../onboarding/store'
 import { useDelayedShake } from '../../onboarding/ui/useDelayedShake'
 import { useShakeHint } from '../../onboarding/ui/useShakeHint'
+import { ProgressChip } from '../../progression/ui/ProgressChip'
 import { $sets } from '../../sets/store'
 import { TileProgress } from '../../../shared/ui/TileProgress'
 import {
@@ -120,10 +121,12 @@ export function CoursesView() {
     />
   )
 
+  const header = <Header endToolbar={<ProgressChip />} startToolbar={logo} text="Lexi" />
+
   if (loading && visible.length === 0) {
     return (
       <Box grow height="100%">
-        <Header startToolbar={logo} text="Lexi" />
+        {header}
         <Stack grow verticalAlign="center" horizontalAlign="center" height="100%">
           <Spinner size="l" />
         </Stack>
@@ -134,7 +137,7 @@ export function CoursesView() {
   if (visible.length === 0) {
     return (
       <Box grow height="100%">
-        <Header startToolbar={logo} text="Lexi" />
+        {header}
         <EmptyScreen
           action={
             <div {...addHintShake}>
@@ -154,7 +157,7 @@ export function CoursesView() {
 
   return (
     <Box grow height="100%">
-      <Header startToolbar={logo} text="Lexi" />
+      {header}
       <Box padding="0 m 0 m">
         <Text variant="M / Medium">
           <FormattedMessage id="courses_title" defaultMessage="Courses" />

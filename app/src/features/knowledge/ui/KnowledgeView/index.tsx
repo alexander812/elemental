@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { FormattedMessage, useIntl } from 'react-intl'
 
@@ -6,6 +6,7 @@ import { IconClose } from '@elemental/icons'
 import { BottomSheet, Box, Header, Stack, Text } from '@elemental/ui-kit'
 
 import { popScreen } from '../../../navigation/store'
+import { knowledgeOpened } from '../../../progression/store'
 import { KNOWLEDGE_VIDEOS } from '../../videos'
 import type { KnowledgeVideo } from '../../videos'
 
@@ -18,6 +19,10 @@ export function KnowledgeView({ videoId }: { videoId?: string }) {
   const [activeVideo, setActiveVideo] = useState<KnowledgeVideo | null>(
     () => KNOWLEDGE_VIDEOS.find((video) => video.id === videoId) ?? null
   )
+
+  useEffect(() => {
+    knowledgeOpened()
+  }, [])
 
   return (
     <Box grow height="100%">

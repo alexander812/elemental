@@ -51,4 +51,78 @@ export interface Settings {
   voiceCheckEnabled: boolean
   writeCheckEnabled: boolean
   debugMode: boolean
+  progressionEnabled: boolean
+}
+
+export type ProgressionCheckKind = 'voice' | 'write'
+
+export type ProgressionBurn = {
+  amount: number
+  at: string
+  dismissed: boolean
+}
+
+export type ProgressionCertificate = {
+  courseId: string
+  courseName: string
+  date: string
+}
+
+export type ProgressionCounters = {
+  day: string
+  dayWords: number
+  dayTests: number
+  dayErrorless: number
+  dayChecks: number
+  dayLessons: number
+  dayFromText: number
+  dayOwnSets: number
+  week: string
+  weekWords: number
+  weekTests: number
+  weekChecks: number
+  weekLessons: number
+  totalWords: number
+  totalTests: number
+  totalLessons: number
+  totalOwnSets: number
+  totalCoursesLoaded: number
+}
+
+export type ProgressionQuestLog = {
+  day: string
+  daily: string[]
+  dailyDone: string[]
+  week: string
+  weekly: string[]
+  weeklyDone: string[]
+  storyDone: string[]
+  discoveryDone: string[]
+}
+
+export type ProgressionRewarded = {
+  cards: string[]
+  checks: string[]
+  sets: string[]
+  errorlessSets: string[]
+  lessons: string[]
+  courses: string[]
+}
+
+export type Progression = {
+  schema: number
+  xpLocked: number
+  xpBurning: number
+  coins: number
+  lastActiveDay: string | null
+  frozenDays: number
+  activeDays: string[]
+  authoring: { day: string; count: number }
+  rewarded: ProgressionRewarded
+  counters: ProgressionCounters
+  flags: { themeChanged: boolean; knowledgeOpened: boolean }
+  quests: ProgressionQuestLog
+  burn: ProgressionBurn | null
+  pinDay: string | null
+  certificates: ProgressionCertificate[]
 }

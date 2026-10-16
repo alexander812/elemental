@@ -37,6 +37,7 @@
 | экраны курсов, поиск готовых, каталог (код) | `app/src/features/courses`, `course-search` | — (встроенный `explore`) | — |
 | язык интерфейса, локализация, переводы UI, i18n | `app/src/lib/i18n`, `app/scripts/i18n.mjs` | — | new-language |
 | онбординг | `app/src/features/onboarding` | — | new-onboarding |
+| прогресс, XP, монеты, уровни, квесты, мотивация | `app/src/features/progression` | — | — |
 | видео, база знаний | `app/src/features/knowledge`, `app/public/videos` | — | new-video |
 | тема, цвета, палитра | `app/src/features/theme`, токены `design-system/ui-kit` | — | new-theme |
 | бэкап, данные, версии localStorage | `app/src/features/backup`, `app/src/lib/storage.ts` | — | — |

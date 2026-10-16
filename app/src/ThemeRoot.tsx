@@ -7,6 +7,7 @@ import { IntlProvider, ReactIntlErrorCode } from 'react-intl'
 
 import { fetchCoursesFx } from './features/courses/store'
 import { fetchLessonsFx } from './features/lessons/store'
+import { fetchProgressionFx } from './features/progression/store'
 import { fetchSetsFx } from './features/sets/store'
 import { fetchSettingsFx, $theme, $userLang } from './features/theme/store'
 import { icons } from './icons'
@@ -21,6 +22,7 @@ export function ThemeRoot({ children }: { children: ReactNode }) {
     fetchCoursesFx()
     fetchLessonsFx()
     fetchSetsFx()
+    fetchProgressionFx()
   }, [])
 
   useEffect(() => {

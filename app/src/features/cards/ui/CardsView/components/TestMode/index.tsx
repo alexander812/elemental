@@ -34,6 +34,8 @@ import { canRecognize } from '../../../../../../transport/recognition'
 import { setKeepAwake } from '../../../../../../transport/wakeLock'
 import { $languages } from '../../../../../languages/store'
 import { $stack, popTo, pushScreen } from '../../../../../navigation/store'
+import { testCompleted } from '../../../../../progression/store'
+import { ProgressChip } from '../../../../../progression/ui/ProgressChip'
 import {
   setCardLearnedFx,
   setSetExamPassedFx,
@@ -41,7 +43,7 @@ import {
   $sets,
   $userLangByLesson,
 } from '../../../../../sets/store'
-import { $debugMode, $voiceCheckEnabled } from '../../../../../theme/store'
+import { $debugMode, $progressionEnabled, $voiceCheckEnabled } from '../../../../../theme/store'
 import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx } from '../../../../store'
 import { FlashCard } from '../FlashCard'
 import type { CheckStatus, Leaving } from '../FlashCard'
@@ -72,6 +74,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const userLangByLesson = useUnit($userLangByLesson)
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
   const debugMode = useUnit($debugMode)
+  const progressionEnabled = useUnit($progressionEnabled)
   const asrProgress = useUnit($asrProgress)
   const recognizing = useUnit(recognizeFx.pending)
 
@@ -106,6 +109,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const testIndexRef = useRef(0)
   const testResultsRef = useRef<boolean[]>([])
   const testAttemptRef = useRef(1)
+  const testMistakeRef = useRef(false)
   const testAnsweredRef = useRef(false)
   const testCelebratedRef = useRef(false)
   const testAdvancingRef = useRef(false)
@@ -183,6 +187,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     testIndexRef.current = 0
     testResultsRef.current = []
     testAttemptRef.current = 1
+    testMistakeRef.current = false
     testAnsweredRef.current = false
     testCelebratedRef.current = false
     testAdvancingRef.current = false
@@ -234,6 +239,8 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
   const applyTestVerdict = (cardId: string, passed: boolean, message: string) => {
     if (testAdvancingRef.current) return
+
+    if (!passed) testMistakeRef.current = true
 
     testAdvancingRef.current = true
     markTestAnswered()
@@ -311,6 +318,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
       flashMic(cardId, 'error')
       playError()
       vibrateError()
+      testMistakeRef.current = true
 
       const attempt = testAttemptRef.current
       const attemptsLeft = TEST_MAX_ATTEMPTS - attempt
@@ -409,6 +417,8 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     }
 
     setSetExamPassedFx({ setId, examPassed: passed })
+
+    if (passed) testCompleted({ setId, errorless: !testMistakeRef.current })
 
     testQueue.forEach((cardId, index) => {
       const card = byId.get(cardId)
@@ -537,6 +547,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
     playError()
     vibrateError()
+    testMistakeRef.current = true
 
     const attempt = testAttemptRef.current
     const attemptsLeft = TEST_MAX_ATTEMPTS - attempt
@@ -569,7 +580,13 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     <Box grow height="100%">
       <Header
         back
-        text={<FormattedMessage id="cards_mode_test" defaultMessage="Test" />}
+        text={
+          progressionEnabled ? (
+            <ProgressChip />
+          ) : (
+            <FormattedMessage id="cards_mode_test" defaultMessage="Test" />
+          )
+        }
         onBackClick={handleExit}
       />
 

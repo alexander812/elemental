@@ -19,6 +19,8 @@ import { DEFAULT_COURSE_LANG } from '../../../../lib/languages'
 import type { CardSet } from '../../../../lib/types'
 import { popScreen, pushScreen } from '../../../navigation/store'
 import { $lessons } from '../../../lessons/store'
+import { ProgressChip } from '../../../progression/ui/ProgressChip'
+import { $progressionEnabled } from '../../../theme/store'
 import { useRowReorder, ROW_GAP } from '../../../../shared/ui/SwipeRow/useRowReorder'
 import {
   fetchSetsFx,
@@ -35,6 +37,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
   const lessons = useUnit($lessons)
   const courseLangByLesson = useUnit($courseLangByLesson)
   const loading = useUnit($setsLoading)
+  const progressionEnabled = useUnit($progressionEnabled)
   const intl = useIntl()
 
   const [menuOpen, setMenuOpen] = useState(false)
@@ -109,7 +112,7 @@ export function SetsView({ lessonId }: { lessonId: string }) {
           </Menu.Content>
         </Menu.Root>
       }
-      text={lesson?.name ?? ''}
+      text={progressionEnabled ? <ProgressChip /> : (lesson?.name ?? '')}
       onBackClick={() => popScreen()}
     />
   )

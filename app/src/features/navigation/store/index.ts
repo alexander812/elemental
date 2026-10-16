@@ -12,6 +12,7 @@ export type TextAddDraft = {
 
 export type Screen =
   | { name: 'courses' }
+  | { name: 'progress' }
   | { name: 'course-create'; courseId?: string }
   | { name: 'course-search' }
   | { name: 'lessons' }

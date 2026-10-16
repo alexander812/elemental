@@ -24,7 +24,9 @@ import type { DeleteCourseMode } from '../../../courses/store'
 import { pushScreen } from '../../../navigation/store'
 import { $onboardingOpened } from '../../../onboarding/store'
 import { useShakeHint } from '../../../onboarding/ui/useShakeHint'
+import { ProgressChip } from '../../../progression/ui/ProgressChip'
 import { $sets } from '../../../sets/store'
+import { $progressionEnabled } from '../../../theme/store'
 import {
   deleteLessonFx,
   fetchLessonsFx,
@@ -43,6 +45,7 @@ export function LessonsView() {
   const deletePending = useUnit(deleteLessonFx.pending)
   const deleteCoursePending = useUnit(deleteCourseFx.pending)
   const onboardingOpened = useUnit($onboardingOpened)
+  const progressionEnabled = useUnit($progressionEnabled)
 
   const intl = useIntl()
 
@@ -158,7 +161,14 @@ export function LessonsView() {
           </Menu.Root>
         ) : null
       }
-      text={course?.name ?? <FormattedMessage id="lessons_title" defaultMessage="Lessons" />}
+      text={
+        progressionEnabled ? (
+          <ProgressChip />
+        ) : (
+          (course?.name ?? <FormattedMessage id="lessons_title" defaultMessage="Lessons" />)
+        )
+      }
+      textVariant={progressionEnabled ? 'secondary' : undefined}
     />
   )
 

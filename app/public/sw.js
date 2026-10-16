@@ -1,11 +1,20 @@
-const CACHE = 'elemental-v2';
+const CACHE = 'elemental-v3';
 const PRECACHE = [
   './',
+  'offline.html',
   'manifest.webmanifest',
   'favicon.svg',
   'icons/emblem.svg',
   'icons/icon-192.png',
   'icons/icon-512.png',
+  'icons/levels/level-0.svg',
+  'icons/levels/level-1.svg',
+  'icons/levels/level-2.svg',
+  'icons/levels/level-3.svg',
+  'icons/levels/level-4.svg',
+  'icons/levels/level-5.svg',
+  'icons/rewards/coin.svg',
+  'icons/rewards/xp.svg',
   'sounds/test-success.mp3',
 ];
 
@@ -44,7 +53,13 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE).then((cache) => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(new URL('./', self.registration.scope).toString())),
+        .catch(() =>
+          caches.match(new URL('./', self.registration.scope).toString()).then((shell) => {
+            if (shell) return shell;
+
+            return caches.match(new URL('offline.html', self.registration.scope).toString());
+          }),
+        ),
     );
     return;
   }

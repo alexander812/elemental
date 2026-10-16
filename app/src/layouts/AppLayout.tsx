@@ -16,6 +16,11 @@ import { CardsView } from '../features/cards/ui/CardsView'
 import { KnowledgeView } from '../features/knowledge/ui/KnowledgeView'
 import { OnboardingView } from '../features/onboarding/ui/OnboardingView'
 import { $onboardingOpened, $taskOnboardingOpened } from '../features/onboarding/store'
+import { BurnNotice } from '../features/progression/ui/BurnNotice'
+import { LevelUpNotice } from '../features/progression/ui/LevelUpNotice'
+import { ProgressView } from '../features/progression/ui/ProgressView'
+import { $activeBurn, $levelUp, burnCheck } from '../features/progression/store'
+import { $progressionEnabled } from '../features/theme/store'
 import { ChecksView } from '../features/settings/ui/ChecksView'
 import { AboutView } from '../features/settings/ui/AboutView'
 import { LanguageView } from '../features/settings/ui/LanguageView'
@@ -52,6 +57,8 @@ function renderScreen(screen: Screen): ReactNode {
   switch (screen.name) {
     case 'courses':
       return <CoursesView />
+    case 'progress':
+      return <ProgressView />
     case 'course-create':
       return <CourseCreateView courseId={screen.courseId} />
     case 'course-search':
@@ -134,7 +141,7 @@ function AppFooter() {
   const screen = useUnit($screen)
 
   const isMenuActive = isSettingsScreen(screen.name)
-  const isCoursesActive = screen.name === 'courses'
+  const isCoursesActive = screen.name === 'courses' || screen.name === 'progress'
   const isLessonsActive = !isMenuActive && !isCoursesActive
 
   const handleCourses = () => {
@@ -189,6 +196,9 @@ export function AppLayout() {
   const appReady = useUnit($appReady)
   const onboardingOpened = useUnit($onboardingOpened)
   const taskOnboardingOpened = useUnit($taskOnboardingOpened)
+  const activeBurn = useUnit($activeBurn)
+  const levelUp = useUnit($levelUp)
+  const progressionEnabled = useUnit($progressionEnabled)
 
   const mainRef = useRef<HTMLElement>(null)
 
@@ -207,6 +217,16 @@ export function AppLayout() {
 
     return () => clearTimeout(timer)
   }, [leavingScreen])
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (!document.hidden) burnCheck()
+    }
+
+    document.addEventListener('visibilitychange', handleVisibility)
+
+    return () => document.removeEventListener('visibilitychange', handleVisibility)
+  }, [])
 
   return (
     <div className={classes.app}>
@@ -233,6 +253,10 @@ export function AppLayout() {
         <AppFooter />
         <RecognitionSheet onOpenSettings={() => pushScreen({ name: 'recognition' })} />
         <Toast />
+        {appReady && !onboardingOpened && progressionEnabled && activeBurn ? <BurnNotice /> : null}
+        {appReady && !onboardingOpened && progressionEnabled && levelUp !== null ? (
+          <LevelUpNotice />
+        ) : null}
         {appReady && onboardingOpened ? <OnboardingView /> : null}
         {appReady && !onboardingOpened && taskOnboardingOpened && isTaskScreen ? (
           <OnboardingView variant="task" />

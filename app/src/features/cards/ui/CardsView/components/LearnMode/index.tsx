@@ -21,6 +21,7 @@ import { $languages } from '../../../../../languages/store'
 import { popScreen, pushScreen } from '../../../../../navigation/store'
 import { $onboardingOpened } from '../../../../../onboarding/store'
 import { useShakeHint } from '../../../../../onboarding/ui/useShakeHint'
+import { ProgressChip } from '../../../../../progression/ui/ProgressChip'
 import {
   deleteCardFx,
   deleteCardsFx,
@@ -32,7 +33,11 @@ import {
   $userLangByLesson,
 } from '../../../../../sets/store'
 import { SetMenu } from '../../../../../sets/ui/SetMenu'
-import { $voiceCheckEnabled, $writeCheckEnabled } from '../../../../../theme/store'
+import {
+  $progressionEnabled,
+  $voiceCheckEnabled,
+  $writeCheckEnabled,
+} from '../../../../../theme/store'
 import { cancelRecognizeFx, recognizeFx } from '../../../../store'
 import { DECK_DEPTH, findNextSet, LEAVE_MS, nextSetScreen } from '../../helpers'
 import { FlashCard } from '../FlashCard'
@@ -61,6 +66,7 @@ export function LearnMode({ setId }: { setId: string }) {
   const deleteSetPending = useUnit(deleteSetFx.pending)
   const resetPending = useUnit(resetSetFx.pending)
   const onboardingOpened = useUnit($onboardingOpened)
+  const progressionEnabled = useUnit($progressionEnabled)
 
   const [filter, setFilter] = useState<Filter>('unlearned')
   const [excluded, setExcluded] = useState<ReadonlySet<string>>(() => new Set())
@@ -468,7 +474,7 @@ export function LearnMode({ setId }: { setId: string }) {
             onResetSet={() => setConfirmReset(true)}
           />
         }
-        text={set?.name ?? ''}
+        text={progressionEnabled ? <ProgressChip /> : (set?.name ?? '')}
         onBackClick={() => popScreen()}
       />
 

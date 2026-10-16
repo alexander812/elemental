@@ -8,6 +8,7 @@ import {
   IconMicrophone,
   IconPalette,
   IconSound,
+  IconStar,
   IconTasks,
   IconTranslate,
 } from '@elemental/icons'
@@ -97,6 +98,19 @@ export function MenuView() {
                 title={
                   <Text variant="M / Medium">
                     <FormattedMessage id="settings_menu_checks" defaultMessage="Checks" />
+                  </Text>
+                }
+              />
+              <ListItem.EndBlock
+                content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+              />
+            </ListItem>
+            <ListItem data={{ screen: 'progress' }} onClick={() => pushScreen({ name: 'progress' })}>
+              <ListItem.StartBlock
+                icon={<IconStar fontSize={24} color="var(--accent-text-and-icons)" />}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="settings_menu_progress" defaultMessage="Progress" />
                   </Text>
                 }
               />

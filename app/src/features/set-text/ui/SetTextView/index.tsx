@@ -17,6 +17,7 @@ import {
 } from '@elemental/ui-kit'
 
 import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG, getLanguageName } from '../../../../lib/languages'
+import type { LanguageCode } from '../../../../lib/languages'
 import { parseWords, selectedWordTexts } from '../../../../lib/words'
 import { ConfirmSheet } from '../../../../shared/ui/ConfirmSheet'
 import { $languages } from '../../../languages/store'
@@ -105,6 +106,12 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
   useEffect(() => {
     segmentsLoaded(parseWords(currentText))
   }, [currentText, lang])
+
+  const handleLangSelect = (nextLang: LanguageCode) => {
+    if (nextLang === lang) return
+
+    textLangChanged(nextLang)
+  }
 
   const handleEdit = () => {
     editStarted({ lang, text: texts[lang] ?? '' })
@@ -253,7 +260,7 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
                 checked={lang === courseLang}
                 size="s"
                 variant={lang === courseLang ? 'secondary' : 'flat'}
-                onClick={() => textLangChanged(courseLang)}
+                onClick={() => handleLangSelect(courseLang)}
               >
                 {getLanguageName(courseLang, languages)}
               </Button>
@@ -261,7 +268,7 @@ export function SetTextView({ setId, draft, welcome }: SetTextViewProps) {
                 checked={lang === courseUserLang}
                 size="s"
                 variant={lang === courseUserLang ? 'secondary' : 'flat'}
-                onClick={() => textLangChanged(courseUserLang)}
+                onClick={() => handleLangSelect(courseUserLang)}
               >
                 {getLanguageName(courseUserLang, languages)}
               </Button>

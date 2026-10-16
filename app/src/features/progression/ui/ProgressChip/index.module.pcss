@@ -1,0 +1,80 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px 4px 4px;
+  border: none;
+  border-radius: 999px;
+  color: var(--contrast-primary);
+  font: inherit;
+  background: var(--control-bg-default);
+  cursor: pointer;
+}
+
+.chipRisk {
+  color: var(--warning-text-and-icons);
+  background: var(--warning-transparent);
+}
+
+.metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.metricIcon {
+  display: inline-flex;
+}
+
+.value {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.wink {
+  animation: wink 620ms ease;
+}
+
+.flip {
+  animation: flip 620ms ease;
+}
+
+@keyframes wink {
+  0% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scaleX(1.15) scaleY(0.15);
+  }
+
+  70% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(180deg) scale(1.15);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wink,
+  .flip {
+    animation: none;
+  }
+}

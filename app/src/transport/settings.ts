@@ -14,6 +14,7 @@ export const DEFAULT_SETTINGS: Settings = {
   voiceCheckEnabled: true,
   writeCheckEnabled: false,
   debugMode: false,
+  progressionEnabled: true,
 }
 
 type StoredSettings = Partial<Settings>
@@ -30,6 +31,7 @@ export function readSettings(): Settings {
     voiceCheckEnabled: raw.voiceCheckEnabled !== false,
     writeCheckEnabled: raw.writeCheckEnabled === true,
     debugMode: raw.debugMode === true,
+    progressionEnabled: raw.progressionEnabled !== false,
   }
 }
 
@@ -65,4 +67,8 @@ export async function saveWriteCheckEnabled(writeCheckEnabled: boolean): Promise
 
 export async function saveDebugMode(debugMode: boolean): Promise<Settings> {
   return saveSettings({ debugMode })
+}
+
+export async function saveProgressionEnabled(progressionEnabled: boolean): Promise<Settings> {
+  return saveSettings({ progressionEnabled })
 }
