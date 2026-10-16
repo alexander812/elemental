@@ -58,8 +58,8 @@ npm run storybook      # Storybook ui-kit (порт 8080)
 
 ## Деплой (GitHub Pages)
 
-- Workflow `.github/workflows/deploy.yml`: push в `main` (или ручной запуск) → `npm ci` → сборка `@elemental/app` с `DEPLOY_BASE=/elemental/` → публикация `app/dist` на GitHub Pages: `https://alexander812.github.io/elemental/`.
-- `base` в `app/vite.config.ts` берётся из `DEPLOY_BASE` (по умолчанию `/`), локальная разработка и preview не меняются.
+- Workflow `.github/workflows/deploy.yml`: push в `main` (или ручной запуск) → `npm ci` → сборка `@elemental/app` → публикация `app/dist` на GitHub Pages: `https://lexi.casa/` (кастомный домен, сайт в корне).
+- `base` в `app/vite.config.ts` — `/` (можно переопределить `DEPLOY_BASE`), поэтому сборка не привязана к подпути `/elemental/`; локальная разработка и preview не меняются. URL `https://alexander812.github.io/elemental/` больше не используется (GitHub редиректит его на кастомный домен).
 - При первом запуске workflow сам включает Pages (`configure-pages` с `enablement: true`), источник — GitHub Actions.
 
 ## PWA

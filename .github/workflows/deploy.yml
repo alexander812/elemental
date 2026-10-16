@@ -37,8 +37,6 @@ jobs:
 
       - name: Build app
         run: npm run build --workspace @elemental/app
-        env:
-          DEPLOY_BASE: /elemental/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
