@@ -38,7 +38,8 @@ jobs:
       - name: Build app
         run: npm run build --workspace @elemental/app
         env:
-          VITE_POSTHOG_KEY: ${{ secrets.VITE_POSTHOG_KEY }}
+          VITE_AMPLITUDE_KEY: ${{ secrets.VITE_AMPLITUDE_KEY }}
+          VITE_AMPLITUDE_SERVER_ZONE: ${{ vars.VITE_AMPLITUDE_SERVER_ZONE }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

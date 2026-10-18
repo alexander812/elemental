@@ -1,23 +1,82 @@
-import type { PostHog } from 'posthog-js'
-
 import { isNativeBridgeAvailable } from './nativeBridge'
+import { uid } from './uid'
 
 type AnalyticsProperty = string | number | boolean | null | undefined | string[]
 type AnalyticsProperties = Record<string, AnalyticsProperty>
 
+type AmplitudeModule = typeof import('@amplitude/analytics-browser')
+
 type QueuedEvent = {
   event: string
-  properties?: AnalyticsProperties
+  properties: AnalyticsProperties
 }
 
-const apiKey: string | undefined = import.meta.env.VITE_POSTHOG_KEY
-const apiHost: string = import.meta.env.VITE_POSTHOG_HOST ?? 'https://eu.i.posthog.com'
+const apiKey: string | undefined = import.meta.env.VITE_AMPLITUDE_KEY
+const serverZone: 'EU' | 'US' =
+  import.meta.env.VITE_AMPLITUDE_SERVER_ZONE === 'EU' ? 'EU' : 'US'
+const analyticsIdCookie = 'lexi_analytics_id'
+const analyticsIdStorage = 'lexi.analytics.id'
 
-let client: PostHog | null = null
-let initialization: Promise<void> | null = null
-let failed = false
-let traits: AnalyticsProperties = {}
-let queue: QueuedEvent[] = []
+const isDntEnabled = (): boolean => {
+  const windowWithDnt = window as Window & { doNotTrack?: string }
+
+  return navigator.doNotTrack === '1' || windowWithDnt.doNotTrack === '1'
+}
+
+const canTrack = Boolean(apiKey) && !isDntEnabled()
+
+const readCookie = (name: string): string | null => {
+  const prefix = `${name}=`
+  const part = document.cookie.split('; ').find((item) => item.startsWith(prefix))
+
+  return part ? decodeURIComponent(part.slice(prefix.length)) : null
+}
+
+const writeCookie = (name: string, value: string): void => {
+  const secure = window.location.protocol === 'https:' ? '; Secure' : ''
+  const host = window.location.hostname
+  const domain = host === 'lexi.casa' || host.endsWith('.lexi.casa') ? '; Domain=.lexi.casa' : ''
+
+  document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=31536000; SameSite=Lax${secure}${domain}`
+}
+
+const readStoredId = (): string | null => {
+  try {
+    return window.localStorage.getItem(analyticsIdStorage)
+  } catch {
+    return null
+  }
+}
+
+const storeId = (id: string): void => {
+  try {
+    window.localStorage.setItem(analyticsIdStorage, id)
+  } catch {
+    return
+  }
+}
+
+const ensureAnalyticsId = (): string => {
+  const cookieId = readCookie(analyticsIdCookie)
+
+  if (cookieId) {
+    storeId(cookieId)
+    return cookieId
+  }
+
+  const storedId = readStoredId()
+
+  if (storedId) {
+    writeCookie(analyticsIdCookie, storedId)
+    return storedId
+  }
+
+  const id = uid()
+  storeId(id)
+  writeCookie(analyticsIdCookie, id)
+
+  return id
+}
 
 const isStandalone = (): boolean => {
   const navigatorWithStandalone = navigator as Navigator & { standalone?: boolean }
@@ -29,44 +88,55 @@ const isStandalone = (): boolean => {
 }
 
 const baseTraits = (): AnalyticsProperties => ({
+  surface: 'app',
   platform: isNativeBridgeAvailable() ? 'android' : 'web',
   standalone: isStandalone(),
   app_version: __APP_VERSION__,
   host: window.location.hostname,
 })
 
-const flush = () => {
-  if (!client) return
+let traits: AnalyticsProperties = baseTraits()
+let sdk: AmplitudeModule | null = null
+let initialization: Promise<void> | null = null
+let failed = false
+let queue: QueuedEvent[] = []
 
+const flushQueue = (module: AmplitudeModule): void => {
   const events = queue
   queue = []
 
-  for (const event of events) {
-    client.capture(event.event, event.properties)
+  for (const item of events) {
+    module.track(item.event, item.properties)
   }
 }
 
 const start = (): Promise<void> => {
-  if (!apiKey || failed) return Promise.resolve()
+  if (!apiKey || !canTrack || failed) return Promise.resolve()
   if (initialization) return initialization
 
-  initialization = import('posthog-js')
-    .then(({ default: posthog }) => {
-      posthog.init(apiKey, {
-        api_host: apiHost,
-        autocapture: false,
-        capture_pageview: false,
-        capture_pageleave: false,
-        cross_subdomain_cookie: true,
-        disable_session_recording: true,
-        persistence: 'localStorage+cookie',
-        person_profiles: 'identified_only',
-        respect_dnt: true,
-      })
+  initialization = import('@amplitude/analytics-browser')
+    .then((module) => {
+      const deviceId = ensureAnalyticsId()
 
-      client = posthog
-      posthog.register({ ...baseTraits(), ...traits })
-      flush()
+      module.init(apiKey, {
+        serverZone,
+        deviceId,
+        appVersion: __APP_VERSION__,
+        autocapture: false,
+        identityStorage: 'localStorage',
+        enableDiagnostics: false,
+        enableRequestBodyCompression: false,
+        flushIntervalMillis: 1500,
+        flushQueueSize: 10,
+        remoteConfig: { fetchRemoteConfig: false },
+        trackingOptions: { ipAddress: false },
+        transport: { type: 'fetch', enableKeepalive: true },
+        logLevel: module.Types.LogLevel.None,
+      })
+      module.setDeviceId(deviceId)
+
+      sdk = module
+      flushQueue(module)
     })
     .catch(() => {
       failed = true
@@ -81,21 +151,21 @@ export const initAnalytics = (): void => {
 }
 
 export const track = (event: string, properties?: AnalyticsProperties): void => {
-  if (!apiKey) return
+  if (!canTrack) return
 
-  if (client) {
-    client.capture(event, properties)
+  const eventProperties = { ...traits, ...properties }
+
+  if (sdk) {
+    sdk.track(event, eventProperties)
     return
   }
 
   if (failed) return
 
-  queue.push({ event, properties })
+  queue.push({ event, properties: eventProperties })
   void start()
 }
 
 export const setAnalyticsTraits = (next: AnalyticsProperties): void => {
   traits = { ...traits, ...next }
-
-  if (client) client.register(traits)
 }

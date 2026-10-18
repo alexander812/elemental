@@ -51,7 +51,7 @@ npm run storybook      # Storybook ui-kit (порт 8080)
 ## Деплой (GitHub Pages)
 
 - Workflow `.github/workflows/deploy.yml`: push в `main` (или ручной запуск) → `npm ci` → сборка `@elemental/app` → публикация `app/dist` на GitHub Pages: `https://app.lexi.casa/` (кастомный домен, сайт в корне).
-- Ключ аналитики берётся из GitHub Secrets: `VITE_POSTHOG_KEY` прокидывается в шаг сборки; без секрета аналитика молчит.
+- Ключ аналитики берётся из GitHub Secrets: `VITE_AMPLITUDE_KEY` прокидывается в шаг сборки; без секрета аналитика молчит.
 - Критично: `package-lock.json` обязан содержать платформенные optional-пакеты (`node_modules/rolldown`, `node_modules/lightningcss-*`, `@rolldown/binding-*`, `@rollup/rollup-*`, `@esbuild/*`). Если их нет, чистая установка на Linux оставляет Vite 8 без `rolldown` и сборка падает (`ERR_MODULE_NOT_FOUND: Cannot find package 'rolldown'`).
 - Нельзя добавлять платформенные пакеты прямыми зависимостями и нельзя использовать `overrides` (например, для esbuild): на чужой платформе npm падает с `EBADPLATFORM` на платформенных optional-пакетах. Платформы обеспечивает только полный lockfile.
 - Проверка целостности lock: `grep -c '"node_modules/rolldown"' package-lock.json` и `grep -c 'lightningcss-linux-x64-gnu' package-lock.json` (должны быть > 0).
@@ -67,14 +67,16 @@ npm run storybook      # Storybook ui-kit (порт 8080)
 
 ## Аналитика
 
-PostHog Cloud EU (`https://eu.i.posthog.com`), общий проект с лендингом `lexi-home`. Без
-`VITE_POSTHOG_KEY` фасад молчит и `posthog-js` не загружается (динамический import после старта).
-Анонимный `distinct_id` хранится в localStorage + cookie на `.lexi.casa`, поэтому landing → app
-веб-воронка склеивается; `identify` не вызывается, профили людей не создаются.
+Amplitude Free, общий проект с лендингом `lexi-home`. Регион задаётся `VITE_AMPLITUDE_SERVER_ZONE`:
+по умолчанию `US`, для EU-проекта — `EU`. Без `VITE_AMPLITUDE_KEY` фасад молчит
+и `@amplitude/analytics-browser` не загружается (динамический import после старта). Анонимный
+`device_id` хранится в cookie `lexi_analytics_id` на `.lexi.casa` + localStorage, поэтому
+landing → app веб-воронка склеивается; `user_id`/`identify` не используются.
 
 - `app/src/lib/analytics.ts` — `initAnalytics()` (в `main.tsx`), `track()`, `setAnalyticsTraits()`;
-  очередь событий до загрузки SDK; общие свойства `platform` (web/android), `standalone`,
-  `app_version`, `host`, `theme`, `ui_lang`.
+  общие свойства `surface`, `platform` (web/android), `standalone`, `app_version`, `host`,
+  `theme`, `ui_lang`. Неотправленные события SDK хранит в LocalStorage и досылает при следующем
+  запуске/появлении сети; запросы идут с `keepalive`.
 - События приложения:
   | Событие | Где | Свойства |
   | --- | --- | --- |
@@ -85,11 +87,14 @@ PostHog Cloud EU (`https://eu.i.posthog.com`), общий проект с лен
   | `test_finished` | `TestMode` при завершении (включая retake) | task-свойства, `correct`, `errors`, `total`, `passed`, `errorless` |
   | `level_up` | `progression/store` по `$levelUp` | `level`, `previous_level`, `xp_total` |
 - Тексты карточек, ответы и другие пользовательские данные в свойства не попадают.
-- Приватность: autocapture, session replay, pageleave и авто-`$pageview` выключены, `respect_dnt`.
-- Настройка: создать проект PostHog Cloud EU → взять ключ `phc_...` → добавить `VITE_POSTHOG_KEY`
-  в GitHub Secrets репозитория `elemental` (workflow Pages) и в локальный `app/.env` по шаблону
-  `app/.env.example`. Передеплоить приложение.
-- Проверка: PostHog → Activity; локально — `.env` с ключом, затем открыть задание/тест.
+- Приватность: `autocapture: false` отключает pageview, sessions, attribution и form/file tracking;
+  session replay в Analytics SDK нет; IP-адрес в события не добавляется (`trackingOptions.ipAddress: false`);
+  при `Do Not Track` аналитика не запускается; отправляются только перечисленные события.
+- Настройка: взять API key проекта Amplitude → добавить `VITE_AMPLITUDE_KEY` в GitHub Secrets
+  репозитория `elemental` (workflow Pages) и в локальный `app/.env` по шаблону `app/.env.example`.
+  Для EU-проекта задать `VITE_AMPLITUDE_SERVER_ZONE=EU`; по умолчанию используется US.
+  Передеплоить приложение.
+- Проверка: Amplitude → Events / User Activity; локально — `.env` с ключом, затем открыть задание/тест.
 
 ## Архитектура приложения (`app/src`)
 
@@ -126,7 +131,7 @@ lib/
   words.ts               # parseWords (разбор текста на сегменты как написано: токены по пробелам, знаки пунктуации по краям слова выносятся в prefix/suffix сегмента — тап выделяет только слово без знака; без дедупа, переносы строк сохраняются; у сегмента id), parseSegmentParts (разбор текста выражения обратно на сегменты), selectedWordTexts (тексты выбранных сегментов без повторов) и mergeWordsInRange (объединение соседних сегментов в выражение) — общие для text-add и set-text
   progress.ts            # счётчики прогресса для полос на плашках: getLessonTaskCounts (по урокам — активные задания и сколько прошло тест), getCourseLessonCounts (по курсам — уроки; урок пройден, если все его активные задания с пройденным тестом), getProgressRatio (доля 0..1, для пустого счётчика 0)
   ghostClick.ts          # подавитель «призрачных» кликов после тач-навигации
-  analytics.ts           # PostHog-фасад: initAnalytics/track/setAnalyticsTraits, динамический import, очередь до init
+  analytics.ts           # Amplitude-фасад: initAnalytics/track/setAnalyticsTraits, динамический import, анонимный device_id
   nativeBridge.ts        # клиент моста в Android-обёртку: window.AndroidBridge, callNative, isNativeBridgeAvailable
   pronunciation.ts       # оценка произношения: assessPronunciation(expected, transcript) — нормализация (диакритика, удвоения), сравнение слов по Дамерау-Левенштейну (прощаются перестановки букв) и согласному скелету; первая буква должна совпадать (пропуск начальных букв прощается), выравнивание слов, вердикт good/retry; одиночное слово короче 5 букв по тексту не оценивается (распознавание таких слов ненадёжно) — любое непустое услышанное слово даёт good, пустое — retry; isShortSingleWord(text) отдаёт это же правило наружу (фолбэк ввода с клавиатуры)
   recognitionErrors.ts   # recognizeErrorText(error), isSilentRecognitionError(error) (no-speech/no_speech/timeout — молчание, без сообщения) и asrArtifactErrorText(code) — русские тексты ошибок распознавания речи и загрузки артефактов (общие для карточек и теста, шита и настроек)

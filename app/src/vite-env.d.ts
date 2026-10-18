@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_POSTHOG_KEY?: string
-  readonly VITE_POSTHOG_HOST?: string
+  readonly VITE_AMPLITUDE_KEY?: string
+  readonly VITE_AMPLITUDE_SERVER_ZONE?: 'US' | 'EU'
 }
 
 declare const __APP_VERSION__: string

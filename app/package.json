@@ -19,9 +19,9 @@
     "@elemental/ui-kit": "1.0.0",
     "@fontsource-variable/inter": "^5.2.8",
     "clsx": "^2.1.1",
+    "@amplitude/analytics-browser": "^2.48.0",
     "effector": "^23.4.4",
     "effector-react": "^23.3.0",
-    "posthog-js": "^1.438.12",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-intl": "^12.1.4"
