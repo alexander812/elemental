@@ -1,5 +1,6 @@
 import { createEffect, createEvent, createStore, sample } from 'effector'
 
+import { track } from '../../../lib/analytics'
 import { DEFAULT_COURSE_LANG } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import type { CourseLevel } from '../../../lib/types'
@@ -51,7 +52,7 @@ export const loadCoursesFx = createEffect(
   }
 )
 
-export const $level = createStore<CourseLevel | null>(null)
+export const $level = createStore<CourseLevel | null>('beginner')
   .on(levelSelected, (_, level) => level)
   .reset(screenOpened)
 
@@ -65,6 +66,11 @@ export const $catalog = createStore<CatalogCourseEntry[]>([])
   .reset(levelSelected, screenOpened)
 
 export const $catalogLoading = fetchCatalogFx.pending
+
+export const $catalogLoaded = createStore(false)
+  .on(fetchCatalogFx.doneData, () => true)
+  .on(fetchCatalogFx.fail, () => true)
+  .reset(levelSelected, screenOpened)
 
 export const $selected = createStore<ReadonlySet<string>>(new Set())
   .on(courseToggled, (selected, file) => {
@@ -89,6 +95,8 @@ export const $duplicates = createStore<string[] | null>(null)
 
 export const $loadPending = loadCoursesFx.pending
 
+sample({ clock: screenOpened, fn: (): CourseLevel => 'beginner', target: fetchCatalogFx })
+
 sample({ clock: levelSelected, target: fetchCatalogFx })
 
 loadCoursesFx.doneData.watch((result) => {
@@ -96,4 +104,22 @@ loadCoursesFx.doneData.watch((result) => {
 
   showToast({ id: 'course_search_loaded', defaultMessage: 'Courses loaded' })
   goToRoot()
+})
+
+loadCoursesFx.done.watch(({ params, result }) => {
+  if (result.status !== 'done') return
+
+  const addedCourses = result.ready.courses.filter((course) =>
+    result.addedCourseIds.includes(course.id)
+  )
+
+  track('course_downloaded', {
+    course_count: addedCourses.length,
+    course_ids: result.addedCourseIds,
+    course_names: addedCourses.map((course) => course.name),
+    level: params.level,
+    course_lang: params.lang,
+    user_lang: params.userLang,
+    replaced: params.replace,
+  })
 })

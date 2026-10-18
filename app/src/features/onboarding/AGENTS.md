@@ -1,6 +1,6 @@
 # Онбординг
 
-`ui/OnboardingView.tsx` — полноэкранный экран поверх приложения (проп `variant`: `general` | `task`): эмблема, печатающийся текст, проявляющиеся кнопки «Смотреть видео» (открывает `knowledge` с `GENERAL_VIDEO_ID` для `general` и `TASK_VIDEO_ID` для `task`) и «Открыть базу знаний», крестик. `general` — первый запуск, `task` — первое открытие задания (экраны `set-intro`/`cards`). `ui/useShakeHint.ts` / `ui/useDelayedShake.ts` — подсказки-shake (`shake.module.pcss`).
+`ui/OnboardingView.tsx` — полноэкранный экран поверх приложения (проп `variant`: `general` | `task`): эмблема, печатающийся текст, проявляющиеся кнопки «Смотреть видео» (играет `GENERAL_VIDEO_ID` для `general` и `TASK_VIDEO_ID` для `task` прямо в оверлее, по окончании ролика — «Закрыть») и «Пропустить», крестик. `general` — первый запуск, `task` — первое открытие задания (экраны `set-intro`/`cards`); после закрытия `general` всегда открывается экран курсов (`goToRoot`), навигация в базу знаний из онбординга убрана. `ui/useShakeHint.ts` / `ui/useDelayedShake.ts` — подсказки-shake (`shake.module.pcss`).
 
 Файлы: `store/index.ts` — флаги `completed`/`hints` в `app.onboarding` (`$onboardingOpened`, `$onboardingHints`, `onboardingCompleted`, `hintShown`, тип `OnboardingHint`) и флаг `completed` в `app.task-onboarding` (`$taskOnboardingOpened`, `taskOnboardingCompleted`).
 

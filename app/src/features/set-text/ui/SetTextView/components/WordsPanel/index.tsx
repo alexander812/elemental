@@ -17,11 +17,11 @@ const TOOLTIP_EDGE = 72
 
 type ChipDrag = {
   active: boolean
+  currentId: string
   pointerId: number
   startId: string
   startX: number
   startY: number
-  ids: string[]
 }
 
 type Tooltip = {
@@ -84,6 +84,17 @@ export function WordsPanel({ interactive, lang, otherLang, selected, words }: Wo
     return word?.dataset.word ?? null
   }
 
+  const rangeIds = (startId: string, endId: string): string[] => {
+    const start = words.findIndex((segment) => segment.id === startId)
+    const end = words.findIndex((segment) => segment.id === endId)
+
+    if (start === -1 || end === -1) return [startId]
+
+    const [from, to] = start <= end ? [start, end] : [end, start]
+
+    return words.slice(from, to + 1).map((segment) => segment.id)
+  }
+
   const handleWordPointerDown = (
     event: ReactPointerEvent<HTMLButtonElement>,
     segment: WordSegment
@@ -95,11 +106,11 @@ export function WordsPanel({ interactive, lang, otherLang, selected, words }: Wo
     suppressClickRef.current = false
     dragRef.current = {
       active: false,
+      currentId: segment.id,
       pointerId: event.pointerId,
       startId: segment.id,
       startX: event.clientX,
       startY: event.clientY,
-      ids: [],
     }
 
     const target = event.currentTarget
@@ -155,7 +166,7 @@ export function WordsPanel({ interactive, lang, otherLang, selected, words }: Wo
       }
 
       drag.active = true
-      drag.ids = [drag.startId]
+      drag.currentId = drag.startId
       setDragIds([drag.startId])
       setTooltip(null)
       setTouchBlocked(true)
@@ -164,9 +175,9 @@ export function WordsPanel({ interactive, lang, otherLang, selected, words }: Wo
 
     const word = findWordAt(event.clientX, event.clientY)
 
-    if (word && !drag.ids.includes(word)) {
-      drag.ids.push(word)
-      setDragIds([...drag.ids])
+    if (word && word !== drag.currentId) {
+      drag.currentId = word
+      setDragIds(rangeIds(drag.startId, word))
     }
   }
 
@@ -185,8 +196,10 @@ export function WordsPanel({ interactive, lang, otherLang, selected, words }: Wo
     setTouchBlocked(false)
     suppressClickRef.current = true
 
-    if (drag.ids.length > 1) {
-      wordsMerged(drag.ids)
+    const ids = rangeIds(drag.startId, drag.currentId)
+
+    if (ids.length > 1) {
+      wordsMerged(ids)
     }
   }
 

@@ -16,6 +16,7 @@ import {
   restoreSession,
   saveSession,
 } from './features/session/store'
+import { initAnalytics } from './lib/analytics'
 import { installGhostClickSuppressor } from './lib/ghostClick'
 import { callNativeSync } from './lib/nativeBridge'
 
@@ -28,6 +29,7 @@ declare global {
 }
 
 installGhostClickSuppressor()
+initAnalytics()
 
 window.__lexiBack = handleAndroidBack
 

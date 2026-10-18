@@ -6,7 +6,7 @@
 - `ui/CardsView/index.tsx` — режимы (изучение/тест), общая механика (анимация ухода, micFlash, listening, pointer-свайпы), результаты.
 - `ui/CardsView/components/LearnMode` — колода, свайпы, фильтры (`FilterBar`), `useLearnChecks.ts` (микрофон/ввод, `learnAfterChecks`, фолбэк на клавиатуру), `SwipeHints`, `LearnFinish`.
 - `ui/CardsView/components/TestMode` — очередь теста, вердикты, авторежим, сохранение `examPassed`/`learned`, дебаг-сообщения.
-- `ui/CardsView/components/FlashCard` — карточка: флип (CSS 3D), pointer-свайпы (порог 110px), вибрация, счётчик «N / M», кнопки проверок и озвучки.
+- `ui/CardsView/components/FlashCard` — карточка: флип (CSS 3D), pointer-свайпы (порог 110px), вибрация, счётчик «N / M», кнопки проверок и озвучки, подсказка «Говорите по-английски» (язык курса) во время записи.
 - `ui/CardsView/helpers.ts` — общие хелперы; `store/index.ts` — `speakFx`, `$speakFailed`, `recognizeFx`, `cancelRecognizeFx`, `$pronunciation`, `$recognizeFailed`.
 - `ui/CardsRestoreView.tsx` — восстановление удалённых карточек.
 

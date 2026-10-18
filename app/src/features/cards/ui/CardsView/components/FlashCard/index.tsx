@@ -7,6 +7,7 @@ import type {
 } from 'react'
 
 import { FormattedMessage, useIntl } from 'react-intl'
+import type { MessageDescriptor } from 'react-intl'
 
 import {
   IconCheck,
@@ -20,10 +21,23 @@ import {
 } from '@elemental/icons'
 import { Stack, Text } from '@elemental/ui-kit'
 
+import type { LanguageCode } from '../../../../../../lib/languages'
 import { canRecognize } from '../../../../../../transport/recognition'
 import { canSpeak } from '../../../../../../transport/speech'
 
 import classes from './FlashCard.module.pcss'
+
+const LISTENING_HINTS: Record<string, MessageDescriptor> = {
+  en: { id: 'cards_listening_hint_en', defaultMessage: 'Speak in English' },
+  es: { id: 'cards_listening_hint_es', defaultMessage: 'Speak in Spanish' },
+  fr: { id: 'cards_listening_hint_fr', defaultMessage: 'Speak in French' },
+  ru: { id: 'cards_listening_hint_ru', defaultMessage: 'Speak in Russian' },
+}
+
+const defaultListeningHint: MessageDescriptor = {
+  id: 'cards_listening_hint',
+  defaultMessage: 'speak now',
+}
 
 export type Leaving = {
   id: string
@@ -60,6 +74,7 @@ export type FlashCardProps = {
   flipped: boolean
   frontText: string
   interactive: boolean
+  language: LanguageCode
   leaving: Leaving | null
   listening: boolean
   micFlash: 'error' | 'success' | null
@@ -91,6 +106,7 @@ export function FlashCard({
   flipped,
   frontText,
   interactive,
+  language,
   leaving,
   listening,
   micFlash,
@@ -301,7 +317,7 @@ export function FlashCard({
         )
       ) : (
         <>
-          <FormattedMessage id="cards_listening_hint" defaultMessage="speak now" />
+          {intl.formatMessage(LISTENING_HINTS[language] ?? defaultListeningHint)}
           <span className={classes.listeningDots}>
             <span className={classes.listeningDot}>.</span>
             <span className={classes.listeningDot}>.</span>

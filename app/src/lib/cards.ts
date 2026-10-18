@@ -12,6 +12,8 @@ export function remapTexts(
   }
 }
 
+export const getCardTextStrict = (card: Card, lang: LanguageCode): string => card.texts[lang] ?? ''
+
 export function getCardText(
   card: Card,
   preferred: LanguageCode

@@ -1,6 +1,6 @@
 # Текст задания
 
-`ui/SetTextView/index.tsx` — экран `set-text{setId|draft}` и приветственный `set-intro` (режим `welcome`); панель слов — `components/WordsPanel`: табы языков (язык курса первым), выбор/объединение сегментов, «Очистить», кнопка edit → `text-add`, тултип перевода по удержанию 2 с, «Создать карточки» (`addCardsFx`), «Далее» в welcome.
+`ui/SetTextView/index.tsx` — экран `set-text{setId|draft}` и приветственный `set-intro` (режим `welcome`); панель слов — `components/WordsPanel`: табы языков (язык курса первым), выбор/объединение сегментов (drag выделяет диапазон от стартового слова до текущего под пальцем; диапазон сокращается при движении назад, переносы строк не растягивают выбор на всю строку), «Очистить», кнопка edit → `text-add`, тултип перевода по удержанию 2 с, «Создать карточки» (`addCardsFx`), «Далее» в welcome.
 
 Файлы: `store/index.ts` — `translateSegmentFx`, `translateSetTextFx`; разбор сегментов — `lib/words.ts` (`parseWords`, `parseSegmentParts`, `selectedWordTexts`, `mergeWordsInRange`).
 

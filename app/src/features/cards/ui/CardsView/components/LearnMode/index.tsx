@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl'
 import { IconEducation } from '@elemental/icons'
 import { Box, Button, Header, Stack } from '@elemental/ui-kit'
 
+import { track } from '../../../../../../lib/analytics'
 import { getCardText } from '../../../../../../lib/cards'
 import {
   DEFAULT_COURSE_LANG,
@@ -18,6 +19,7 @@ import { ConfirmSheet } from '../../../../../../shared/ui/ConfirmSheet'
 import { $asrProgress } from '../../../../../../shared/ui/RecognitionSheet'
 import { vibrateLong, vibrateShort } from '../../../../../../transport/haptics'
 import { $languages } from '../../../../../languages/store'
+import { $lessons } from '../../../../../lessons/store'
 import { popScreen, pushScreen } from '../../../../../navigation/store'
 import { $onboardingOpened } from '../../../../../onboarding/store'
 import { useShakeHint } from '../../../../../onboarding/ui/useShakeHint'
@@ -38,6 +40,7 @@ import {
   $voiceCheckEnabled,
   $writeCheckEnabled,
 } from '../../../../../theme/store'
+import { taskAnalyticsProperties } from '../../../../analytics'
 import { cancelRecognizeFx, recognizeFx } from '../../../../store'
 import { DECK_DEPTH, findNextSet, LEAVE_MS, nextSetScreen } from '../../helpers'
 import { FlashCard } from '../FlashCard'
@@ -59,6 +62,7 @@ export function LearnMode({ setId }: { setId: string }) {
   const sets = useUnit($sets)
   const asrProgress = useUnit($asrProgress)
   const languages = useUnit($languages)
+  const lessons = useUnit($lessons)
   const courseLangByLesson = useUnit($courseLangByLesson)
   const userLangByLesson = useUnit($userLangByLesson)
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
@@ -98,6 +102,11 @@ export function LearnMode({ setId }: { setId: string }) {
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
   const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
   const courseUserLang = (set ? userLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_USER_LANG
+  const taskProperties = useMemo(
+    () => (set ? taskAnalyticsProperties(set, lessons, courseLang, courseUserLang) : null),
+    [set, lessons, courseLang, courseUserLang]
+  )
+  const swipedTaskRef = useRef(false)
   const byId = useMemo(() => {
     const map = new Map<string, CardModel>()
     set?.cards.forEach((card) => map.set(card.id, card))
@@ -259,7 +268,14 @@ export function LearnMode({ setId }: { setId: string }) {
     micFlash,
     resetChecks,
     writeFallbackCards,
-  } = useLearnChecks({ courseLang, scheduleAutoLearn, setId, topCard })
+  } = useLearnChecks({ courseLang, scheduleAutoLearn, setId, task: taskProperties, topCard })
+
+  const trackTaskSwiped = () => {
+    if (swipedTaskRef.current || !taskProperties) return
+
+    swipedTaskRef.current = true
+    track('task_swiped', taskProperties)
+  }
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (leaving || !topCard || displayedQueue.length === 0) return
@@ -318,16 +334,19 @@ export function LearnMode({ setId }: { setId: string }) {
     const horizontal = Math.abs(state.x) > Math.abs(state.y)
 
     if (state.y < -UP_THRESHOLD && !horizontal) {
+      trackTaskSwiped()
       startLeave('delete', state)
       return
     }
 
     if (state.x > SWIPE_THRESHOLD && horizontal) {
+      trackTaskSwiped()
       startLeave('later', state)
       return
     }
 
     if (state.x < -SWIPE_THRESHOLD && horizontal) {
+      trackTaskSwiped()
       startLeave('learned', state)
       return
     }
@@ -524,6 +543,7 @@ export function LearnMode({ setId }: { setId: string }) {
                     flipped={!!flipped[id]}
                     frontText={front.text}
                     interactive={index === 0}
+                    language={courseLang}
                     leaving={leaving?.id === id ? leaving : null}
                     listening={listeningCardId === id}
                     micFlash={micFlash?.cardId === id ? micFlash.kind : null}

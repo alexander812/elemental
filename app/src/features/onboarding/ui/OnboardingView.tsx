@@ -6,8 +6,8 @@ import type { MessageDescriptor } from 'react-intl'
 import { IconClose } from '@elemental/icons'
 import { Button, ButtonIcon, Stack, Text } from '@elemental/ui-kit'
 
-import { GENERAL_VIDEO_ID, TASK_VIDEO_ID } from '../../knowledge/videos'
-import { pushScreen } from '../../navigation/store'
+import { GENERAL_VIDEO_ID, KNOWLEDGE_VIDEOS, TASK_VIDEO_ID } from '../../knowledge/videos'
+import { goToRoot } from '../../navigation/store'
 import { onboardingCompleted, taskOnboardingCompleted } from '../store'
 
 import classes from './OnboardingView.module.pcss'
@@ -64,6 +64,13 @@ export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVa
   )
 
   const [charCount, setCharCount] = useState(() => (reduceMotion ? totalLength : 0))
+  const [videoOpen, setVideoOpen] = useState(false)
+  const [videoEnded, setVideoEnded] = useState(false)
+
+  const video = useMemo(
+    () => KNOWLEDGE_VIDEOS.find((item) => item.id === videoId) ?? null,
+    [videoId]
+  )
 
   useEffect(() => {
     if (reduceMotion || charCount >= totalLength) return
@@ -77,14 +84,15 @@ export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVa
   const title = fullTitle.slice(0, charCount)
   const description = fullDescription.slice(0, Math.max(0, charCount - fullTitle.length))
 
-  const handleVideo = () => {
+  const complete = () => {
     completeOnboarding(variant)
-    pushScreen({ name: 'knowledge', videoId })
+
+    if (variant === 'general') goToRoot()
   }
 
-  const handleKnowledge = () => {
-    completeOnboarding(variant)
-    pushScreen({ name: 'knowledge' })
+  const handleVideo = () => {
+    setVideoEnded(false)
+    setVideoOpen(true)
   }
 
   return (
@@ -92,44 +100,67 @@ export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVa
       <div className={classes.close}>
         <ButtonIcon
           ariaLabel={intl.formatMessage({ id: 'common_close', defaultMessage: 'Close' })}
+          color={videoOpen ? 'onAccent' : undefined}
           icon={<IconClose fontSize={24} />}
           variant="flat"
-          onClick={() => completeOnboarding(variant)}
+          onClick={complete}
         />
       </div>
 
-      <Stack grow horizontalAlign="center" spacing="l" verticalAlign="start">
-        <img
-          alt=""
-          className={classes.emblem}
-          src={`${import.meta.env.BASE_URL}icons/emblem.svg`}
-        />
-        <div className={classes.title}>
-          <Text as="h1" variant="XL / Medium">
-            {title}
-            {typed ? null : <span className={classes.caret} />}
-          </Text>
+      {videoOpen && video ? (
+        <div className={classes.videoLayer}>
+          <video
+            autoPlay
+            className={classes.videoPlayer}
+            controls
+            playsInline
+            poster={video.poster}
+            onEnded={() => setVideoEnded(true)}
+          >
+            <source src={video.src} type="video/mp4" />
+            <source src={video.webm} type="video/webm" />
+          </video>
+          {videoEnded ? (
+            <div className={classes.videoActions}>
+              <Button fullWidth onClick={complete}>
+                <FormattedMessage id="common_close" defaultMessage="Close" />
+              </Button>
+            </div>
+          ) : null}
         </div>
-        <div className={classes.description}>
-          <Text color="contrast-secondary" variant="M / Medium">
-            {description}
-          </Text>
-        </div>
-      </Stack>
-
-      <div className={`${classes.actions} ${typed ? classes.actionsVisible : ''}`}>
-        <Stack spacing="s">
-          <Button fullWidth onClick={handleVideo}>
-            <FormattedMessage id="onboarding_watch_video" defaultMessage="Watch video" />
-          </Button>
-          <Button fullWidth variant="secondary" onClick={handleKnowledge}>
-            <FormattedMessage
-              id="onboarding_open_knowledge"
-              defaultMessage="Open the knowledge base"
+      ) : (
+        <>
+          <Stack grow horizontalAlign="center" spacing="l" verticalAlign="start">
+            <img
+              alt=""
+              className={classes.emblem}
+              src={`${import.meta.env.BASE_URL}icons/emblem.svg`}
             />
-          </Button>
-        </Stack>
-      </div>
+            <div className={classes.title}>
+              <Text as="h1" variant="XL / Medium">
+                {title}
+                {typed ? null : <span className={classes.caret} />}
+              </Text>
+            </div>
+            <div className={classes.description}>
+              <Text color="contrast-secondary" variant="M / Medium">
+                {description}
+              </Text>
+            </div>
+          </Stack>
+
+          <div className={`${classes.actions} ${typed ? classes.actionsVisible : ''}`}>
+            <Stack spacing="s">
+              <Button fullWidth onClick={handleVideo}>
+                <FormattedMessage id="onboarding_watch_video" defaultMessage="Watch video" />
+              </Button>
+              <Button fullWidth variant="secondary" onClick={complete}>
+                <FormattedMessage id="onboarding_skip" defaultMessage="Skip" />
+              </Button>
+            </Stack>
+          </div>
+        </>
+      )}
     </div>
   )
 }

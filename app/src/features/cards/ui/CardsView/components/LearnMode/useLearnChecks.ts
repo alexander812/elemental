@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useUnit } from 'effector-react'
 import { useIntl } from 'react-intl'
 
-import { getCardText } from '../../../../../../lib/cards'
+import { track } from '../../../../../../lib/analytics'
+import { getCardTextStrict } from '../../../../../../lib/cards'
 import { isAnswerCorrect } from '../../../../../../lib/checks'
 import type { LanguageCode } from '../../../../../../lib/languages'
 import { isShortSingleWord } from '../../../../../../lib/pronunciation'
@@ -22,6 +23,7 @@ import {
   $voiceCheckEnabled,
   $writeCheckEnabled,
 } from '../../../../../theme/store'
+import type { TaskAnalyticsProperties } from '../../../../analytics'
 import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx, speakFx } from '../../../../store'
 import {
   MIC_FLASH_MS,
@@ -38,6 +40,7 @@ type UseLearnChecksOptions = {
   courseLang: LanguageCode
   scheduleAutoLearn: (cardId: string) => void
   setId: string
+  task: TaskAnalyticsProperties | null
   topCard: CardModel | undefined
 }
 
@@ -45,6 +48,7 @@ export function useLearnChecks({
   courseLang,
   scheduleAutoLearn,
   setId,
+  task,
   topCard,
 }: UseLearnChecksOptions) {
   const recognizing = useUnit(recognizeFx.pending)
@@ -111,7 +115,7 @@ export function useLearnChecks({
       return
     }
 
-    const expected = getCardText(topCard, courseLang).text.trim()
+    const expected = getCardTextStrict(topCard, courseLang).trim()
 
     if (!expected) return
 
@@ -137,6 +141,15 @@ export function useLearnChecks({
 
       if (passed) {
         voiceFailuresRef.current.delete(topCard.id)
+
+        if (task) {
+          track('voice_check_succeeded', {
+            ...task,
+            card_id: topCard.id,
+            mode: 'learn',
+          })
+        }
+
         playSuccess()
         vibrateSuccess()
         showCheckStatus(
@@ -212,7 +225,7 @@ export function useLearnChecks({
   const handleWriteCheck = async (value: string) => {
     if (!topCard) return
 
-    const expected = getCardText(topCard, courseLang).text.trim()
+    const expected = getCardTextStrict(topCard, courseLang).trim()
 
     if (!expected) return
 

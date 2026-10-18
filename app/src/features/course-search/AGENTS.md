@@ -1,8 +1,8 @@
 # Поиск готовых курсов
 
-`ui/CourseSearchView.tsx` — селекты уровня и языка (bottom sheet), список карточек с чекбоксами, «Загрузить» (sticky), `ConfirmSheet` замены дубликатов.
+`ui/CourseSearchView.tsx` — селекты уровня и языка (bottom sheet; уровень по умолчанию Beginner, остальные уровни неактивны), список карточек с чекбоксами, «Загрузить» (sticky), `ConfirmSheet` замены дубликатов.
 
-Файлы: `store/index.ts` — `levelSelected`, `languageSelected`, `courseToggled`, `duplicatesCancelled`, `screenOpened`, `fetchCatalogFx` (ленивая загрузка JSON каталога), `loadCoursesFx` + `buildReadyCourses` (сборка курсов, уроков, заданий и карточек из пары языковых файлов), `$catalog`, `$selected`, `$duplicates`, `$level`, `$language`.
+Файлы: `store/index.ts` — `levelSelected`, `languageSelected`, `courseToggled`, `duplicatesCancelled`, `screenOpened`, `fetchCatalogFx` (загрузка JSON каталога; при открытии экрана сразу грузится Beginner), `loadCoursesFx` + `buildReadyCourses` (сборка курсов, уроков, заданий и карточек из пары языковых файлов), `$catalog`, `$selected`, `$duplicates`, `$level`, `$language`.
 
 Внешние связи: `transport/catalog.ts` (`import.meta.glob`), `transport/courses.ts`, `features/lessons/store`, `features/sets/store`, `features/courses/store`, `features/theme/store`, `shared/ui/ConfirmSheet`, `shared/ui/Toast`, `lib/languages.ts`.
 

@@ -32,6 +32,7 @@ import {
   loadCoursesFx,
   screenOpened,
   $catalog,
+  $catalogLoaded,
   $catalogLoading,
   $duplicates,
   $language,
@@ -44,15 +45,16 @@ import classes from './CourseSearchView.module.pcss'
 
 const LEVEL_OPTIONS: SelectOption[] = [
   { label: 'Beginner', value: 'beginner' },
-  { label: 'Elementary', value: 'elementary' },
-  { label: 'Intermediate', value: 'intermediate' },
-  { label: 'Upper-Intermediate', value: 'upper-intermediate' },
+  { label: 'Elementary', value: 'elementary', disabled: true },
+  { label: 'Intermediate', value: 'intermediate', disabled: true },
+  { label: 'Upper-Intermediate', value: 'upper-intermediate', disabled: true },
 ]
 
 export function CourseSearchView() {
   const level = useUnit($level)
   const language = useUnit($language)
   const catalog = useUnit($catalog)
+  const catalogLoaded = useUnit($catalogLoaded)
   const catalogLoading = useUnit($catalogLoading)
   const selected = useUnit($selected)
   const loadPending = useUnit($loadPending)
@@ -158,7 +160,7 @@ export function CourseSearchView() {
                   />
                 }
               />
-            ) : catalogLoading ? (
+            ) : catalogLoading || !catalogLoaded ? (
               <Stack height="100%" horizontalAlign="center" verticalAlign="center">
                 <Spinner size="l" />
               </Stack>

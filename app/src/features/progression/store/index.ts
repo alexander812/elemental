@@ -1,5 +1,6 @@
 import { combine, createEffect, createEvent, createStore, sample } from 'effector'
 
+import { track } from '../../../lib/analytics'
 import type { Progression } from '../../../lib/types'
 import * as progressionApi from '../../../transport/progression'
 import { loadCoursesFx } from '../../course-search/store'
@@ -87,24 +88,37 @@ export const $pinCooldown = $progression.map((progression) =>
   pinCooldownLeft(progression, todayIso())
 )
 
-type LevelWatch = { last: number; notice: number | null }
+type LevelWatch = { last: number; notice: number | null; from: number | null }
 
-const $levelWatch = createStore<LevelWatch>({ last: 0, notice: null })
+const $levelWatch = createStore<LevelWatch>({ last: 0, notice: null, from: null })
   .on(fetchProgressionFx.doneData, (_, stored) => ({
     last: levelIndex(isProgression(stored) ? stored : createDefaultProgression()),
     notice: null,
+    from: null,
   }))
   .on($progression, (state, progression) => {
     const next = levelIndex(progression)
 
-    if (next > state.last) return { last: next, notice: next }
+    if (next > state.last) return { last: next, notice: next, from: state.last }
     if (next === state.last) return state
 
-    return { last: next, notice: null }
+    return { last: next, notice: null, from: null }
   })
-  .on(dismissLevelUp, (state) => (state.notice === null ? state : { ...state, notice: null }))
+  .on(dismissLevelUp, (state) =>
+    state.notice === null ? state : { ...state, notice: null, from: null }
+  )
 
 export const $levelUp = $levelWatch.map((state) => state.notice)
+
+$levelUp.watch((level) => {
+  if (level === null) return
+
+  track('level_up', {
+    level,
+    previous_level: $levelWatch.getState().from,
+    xp_total: $xpTotal.getState(),
+  })
+})
 
 sample({ clock: $progression, target: saveProgressionFx })
 

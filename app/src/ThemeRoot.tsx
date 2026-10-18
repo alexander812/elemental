@@ -11,6 +11,7 @@ import { fetchProgressionFx } from './features/progression/store'
 import { fetchSetsFx } from './features/sets/store'
 import { fetchSettingsFx, $theme, $userLang } from './features/theme/store'
 import { icons } from './icons'
+import { setAnalyticsTraits } from './lib/analytics'
 import { FALLBACK_LOCALE, getMessages } from './lib/i18n'
 
 export function ThemeRoot({ children }: { children: ReactNode }) {
@@ -28,6 +29,10 @@ export function ThemeRoot({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = userLang
   }, [userLang])
+
+  useEffect(() => {
+    setAnalyticsTraits({ theme, ui_lang: userLang })
+  }, [theme, userLang])
 
   return (
     <IntlProvider

@@ -6,7 +6,8 @@ import { FormattedMessage, useIntl } from 'react-intl'
 import { IconEducation, IconPlay, IconStop } from '@elemental/icons'
 import { Box, Button, ButtonIcon, EmptyScreen, Header, Stack, Text } from '@elemental/ui-kit'
 
-import { getCardText } from '../../../../../../lib/cards'
+import { track } from '../../../../../../lib/analytics'
+import { getCardText, getCardTextStrict } from '../../../../../../lib/cards'
 import { isAnswerCorrect } from '../../../../../../lib/checks'
 import {
   DEFAULT_COURSE_LANG,
@@ -33,6 +34,7 @@ import { vibrateError, vibrateSuccess } from '../../../../../../transport/haptic
 import { canRecognize } from '../../../../../../transport/recognition'
 import { setKeepAwake } from '../../../../../../transport/wakeLock'
 import { $languages } from '../../../../../languages/store'
+import { $lessons } from '../../../../../lessons/store'
 import { $stack, popTo, pushScreen } from '../../../../../navigation/store'
 import { testCompleted } from '../../../../../progression/store'
 import { ProgressChip } from '../../../../../progression/ui/ProgressChip'
@@ -44,6 +46,7 @@ import {
   $userLangByLesson,
 } from '../../../../../sets/store'
 import { $debugMode, $progressionEnabled, $voiceCheckEnabled } from '../../../../../theme/store'
+import { taskAnalyticsProperties } from '../../../../analytics'
 import { cancelRecognizeFx, isRecognizeCancelled, recognizeFx } from '../../../../store'
 import { FlashCard } from '../FlashCard'
 import type { CheckStatus, Leaving } from '../FlashCard'
@@ -70,6 +73,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const sets = useUnit($sets)
   const languages = useUnit($languages)
   const stack = useUnit($stack)
+  const lessons = useUnit($lessons)
   const courseLangByLesson = useUnit($courseLangByLesson)
   const userLangByLesson = useUnit($userLangByLesson)
   const voiceCheckEnabled = useUnit($voiceCheckEnabled)
@@ -121,6 +125,10 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
   const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
   const courseUserLang = (set ? userLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_USER_LANG
+  const taskProperties = useMemo(
+    () => (set ? taskAnalyticsProperties(set, lessons, courseLang, courseUserLang) : null),
+    [set, lessons, courseLang, courseUserLang]
+  )
   const byId = useMemo(() => {
     const map = new Map<string, CardModel>()
     set?.cards.forEach((card) => map.set(card.id, card))
@@ -131,7 +139,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     () =>
       set
         ? set.cards
-            .filter((card) => !card.deleted && getCardText(card, courseLang).text.trim().length > 0)
+            .filter((card) => !card.deleted && getCardTextStrict(card, courseLang).trim().length > 0)
             .map((card) => card.id)
         : [],
     [set, courseLang]
@@ -273,7 +281,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
     if (!card) return
 
-    const expected = getCardText(card, courseLang).text.trim()
+    const expected = getCardTextStrict(card, courseLang).trim()
 
     if (!expected) return
 
@@ -304,6 +312,14 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
       markTestAnswered()
 
       if (assessment.verdict === 'good') {
+        if (taskProperties) {
+          track('voice_check_succeeded', {
+            ...taskProperties,
+            card_id: cardId,
+            mode: 'test',
+          })
+        }
+
         flashMic(cardId, 'success')
         playSuccess()
         vibrateSuccess()
@@ -418,6 +434,19 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
     setSetExamPassedFx({ setId, examPassed: passed })
 
+    if (taskProperties) {
+      const correct = results.filter(Boolean).length
+
+      track('test_finished', {
+        ...taskProperties,
+        correct,
+        errors: results.length - correct,
+        total: testQueue.length,
+        passed,
+        errorless: !testMistakeRef.current,
+      })
+    }
+
     if (passed) testCompleted({ setId, errorless: !testMistakeRef.current })
 
     testQueue.forEach((cardId, index) => {
@@ -428,7 +457,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
         setCardLearnedFx({ setId, cardId, learned })
       }
     })
-  }, [byId, setId, testFinished, testQueue])
+  }, [byId, setId, taskProperties, testFinished, testQueue])
 
   useEffect(() => {
     if (!voiceCheckEnabled && testAutoRef.current) stopTestAuto()
@@ -532,7 +561,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
     if (!card) return
 
-    const expected = getCardText(card, courseLang).text.trim()
+    const expected = getCardTextStrict(card, courseLang).trim()
 
     if (!expected) return
 
@@ -627,6 +656,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
                     flipped={false}
                     frontText={getCardText(card, courseUserLang).text}
                     interactive={index === 0}
+                    language={courseLang}
                     leaving={leaving?.id === id ? leaving : null}
                     listening={listeningCardId === id}
                     micFlash={micFlash?.cardId === id ? micFlash.kind : null}
