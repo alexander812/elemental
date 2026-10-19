@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Weather and Seasons",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "El pronóstico",
+      "tasks": [
+        {
+          "name": "La aplicación del tiempo",
+          "text": "Pablito abre la aplicación del tiempo en el móvil de mamá. Una nube gris con tres gotas aparece en la pantalla. Lluvia todo el día, lee. Está decepcionado porque el entrenamiento de fútbol es al aire libre. Pero la aplicación también muestra un pequeño sol para mañana. Mamá dice: Aquí el tiempo cambia rápido. Coge el paraguas y una chaqueta caliente. En el desayuno el cielo todavía está claro. Pero cuando los niños llegan al colegio, las primeras gotas caen sobre la acera. Pablito abre su paraguas con una sonrisa orgullosa.",
+          "words": [
+            "aplicación del tiempo",
+            "nube gris",
+            "gota de lluvia",
+            "decepcionado",
+            "entrenamiento de fútbol",
+            "sol para mañana",
+            "el tiempo cambia rápido",
+            "paraguas",
+            "chaqueta caliente",
+            "tener razón"
+          ]
+        },
+        {
+          "name": "Qué ponerse",
+          "text": "Luci está delante del armario. El pronóstico anuncia viento, lluvia y quizá un poco de sol. Un tiempo perfecto para varias capas, dice mamá. Luci elige una camiseta, un jersey caliente y un impermeable ligero. Añade una bufanda brillante y sus botas viejas. Pablito no encuentra su otra bota, y Toby está durmiendo encima. ¡Perro malo!, se ríe Pablito. Javi coge una gorra porque va a correr. Mamá revisa a todos en la puerta: paraguas, botas, bufanda. ¡Parecéis un equipo del tiempo!, dice.",
+          "words": [
+            "armario",
+            "pronóstico",
+            "capas de ropa",
+            "camiseta",
+            "jersey caliente",
+            "impermeable ligero",
+            "bufanda brillante",
+            "botas viejas",
+            "gorra",
+            "estar listo"
+          ]
+        },
+        {
+          "name": "El parque ventoso",
+          "text": "Después del colegio el viento es tan fuerte que los árboles se inclinan. Pablito y Jorge llevan sus cometas al parque. La cometa de Jorge es roja, la de Pablito azul con una cola larga. Corren por la hierba y dejan que el viento las levante cada vez más alto. Una ráfaga empuja a Jorge y casi se cae. ¡Cuidado!, grita Pablito. Las hojas vuelan alrededor como pájaros pequeños. Toby ladra a las cometas y quiere atrapar las colas. Un anciano en un banco se ríe: ¡No veía un día tan ventoso desde hace años!",
+          "words": [
+            "viento fuerte",
+            "árboles se inclinan",
+            "cometa",
+            "cola larga",
+            "correr por la hierba",
+            "ráfaga",
+            "cuidado",
+            "hojas vuelan",
+            "ladrar a",
+            "brazos cansados"
+          ]
+        },
+        {
+          "name": "Un arcoíris",
+          "text": "La lluvia se detiene tan de repente como empezó. El sol sale de detrás de una nube y aparece un arcoíris sobre los tejados. ¡Mirad!, grita Luci. Todos corren al balcón. El arcoíris es brillante y perfecto, con todos sus colores. La señora Carter llama desde el piso de arriba: ¡Rápido, haced una foto antes de que desaparezca! Carlos hace tres fotos, pero el arcoíris se desvanece poco a poco. Emilia dice: Quizá sigue allí, solo que invisible. Mamá sonríe: Qué idea tan bonita.",
+          "words": [
+            "la lluvia se detiene",
+            "sale el sol",
+            "arcoíris",
+            "sobre los tejados",
+            "todos sus colores",
+            "hacer una foto",
+            "desvanecerse",
+            "invisible",
+            "ciudad mojada",
+            "todo parece nuevo"
+          ]
+        },
+        {
+          "name": "La primera helada",
+          "text": "Una mañana la hierba está blanca por la helada. Pablito sale corriendo en zapatillas y vuelve enseguida. ¡Hace un frío que pela! Los charcos junto a la entrada están cubiertos de hielo fino. Luci lo toca con la bota y el hielo se rompe como el cristal. El abuelo llama desde el pueblo: Cubrid los manzanos jóvenes esta noche. Carlos busca mantas viejas para el jardín. Carmen prepara té caliente con miel y limón. La gata se niega a dejar el radiador caliente. El invierno aún no ha llegado, dice mamá, pero ya llama a la puerta.",
+          "words": [
+            "helada",
+            "salir corriendo",
+            "zapatillas",
+            "helar",
+            "hielo fino",
+            "romperse como el cristal",
+            "cubrir los árboles",
+            "té caliente con miel",
+            "radiador",
+            "llamar a la puerta"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Un sábado de lluvia",
+      "tasks": [
+        {
+          "name": "Hoy no hay fútbol",
+          "text": "Pablito se despierta temprano porque hoy es el gran partido de fútbol. Pero cuando mira por la ventana, el patio está gris y la lluvia golpea el tejado. El partido se cancela. Pablito se sienta en el suelo y suspira. Jorge lo llama: Solo es lluvia. Podemos jugar otro día. Pero Pablito ha esperado toda la semana. Mamá prepara tortitas y dice: Un día de lluvia también puede ser bueno. Solo necesitas un plan nuevo. Pablito mira los juegos de mesa en la estantería. Quizá tenga razón. Llama a Jorge y lo invita a su casa.",
+          "words": [
+            "despertarse temprano",
+            "gran partido",
+            "patio gris",
+            "la lluvia golpea el tejado",
+            "el partido se cancela",
+            "suspirar",
+            "esperar toda la semana",
+            "tortitas",
+            "plan nuevo",
+            "juegos de mesa"
+          ]
+        },
+        {
+          "name": "Juegos de mesa",
+          "text": "Pronto el salón se llena de jugadores. Jorge trae una caja de cartas, Luci elige un juego de mesa sobre viajeros y Javi se une. El juego es sencillo: responde preguntas y recorre el mundo. Jorge conoce muchas capitales, pero Luci es más rápida con las banderas. Pablito cae en una pregunta difícil: ¿Cuál es el río más largo del mundo? Piensa mucho. ¿El Nilo? Todos aplauden. Luna salta al tablero y se tumba sobre África. El juego se detiene mientras mueven a la gata. Mamá trae bocadillos y té.",
+          "words": [
+            "salón",
+            "juego de mesa",
+            "viajero",
+            "pregunta",
+            "recorrer el mundo",
+            "capital",
+            "bandera",
+            "río más largo",
+            "mover a la gata",
+            "la lluvia sigue"
+          ]
+        },
+        {
+          "name": "Horneando con papá",
+          "text": "Por la tarde papá y Pablito deciden hornear galletas. Encuentran la receta de la abuela en un cuaderno viejo. Harina, mantequilla, azúcar, huevos y un poco de canela. Pablito mide la harina y cubre la mitad de la mesa. Carlos se ríe: Hornear también es ciencia. Hay que ser preciso. Mezclan la masa y Pablito corta estrellas, corazones y un dinosaurio raro. Mientras las galletas están en el horno, la cocina huele de maravilla. Luci entra y coge dos antes de que se enfríen. Carlos finge no verlo.",
+          "words": [
+            "hornear galletas",
+            "receta",
+            "harina",
+            "mantequilla",
+            "canela",
+            "medir",
+            "masa",
+            "cortar formas",
+            "horno",
+            "primera tanda"
+          ]
+        },
+        {
+          "name": "Charcos y botas",
+          "text": "La lluvia se hace más ligera y Pablito ya no puede quedarse dentro. Se pone las botas y llama a Jorge. El patio está lleno de charcos, y cada uno es un pequeño mar. Los chicos saltan de charco en charco, levantando grandes salpicaduras. Jorge resbala y cae sobre la hierba mojada, pero se ríe. Toby corre tras ellos y bebe de un charco. Una vecina abre la ventana y grita: ¡Os vais a resfriar! Pero los chicos llevan impermeables y botas. Construyen una pequeña presa con palos y miran cómo cambia la dirección del agua.",
+          "words": [
+            "la lluvia se hace ligera",
+            "charco",
+            "pequeño mar",
+            "salpicar",
+            "resbalar",
+            "hierba mojada",
+            "beber de un charco",
+            "resfriarse",
+            "construir una presa",
+            "botas llenas de agua"
+          ]
+        },
+        {
+          "name": "Una tarde cálida",
+          "text": "Por la noche vuelve la lluvia, pero ahora a nadie le importa. Mamá prepara una olla grande de sopa y papá enciende una vela en la mesa. La familia se sienta junta con calcetines calientes. Pablito cuenta lo de los charcos y Luci enseña las galletas con forma de dinosaurio. Javi pone música suave. Luna duerme en el radiador y Toby se tumba bajo la mesa, esperando migas. Después de cenar ven una película antigua bajo una manta. El viento sopla fuera y la lluvia golpea la ventana. Se está bien en casa.",
+          "words": [
+            "olla de sopa",
+            "encender una vela",
+            "calcetines calientes",
+            "música suave",
+            "debajo de la mesa",
+            "esperar migas",
+            "película antigua",
+            "bajo una manta",
+            "la lluvia golpea la ventana",
+            "sentirse bien en casa"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La primera nieve",
+      "tasks": [
+        {
+          "name": "Mañana blanca",
+          "text": "Pablito se despierta y ve una luz extraña en la habitación. Todo está blanco y silencioso. ¡Nieve! Corre a la ventana y pega la nariz al cristal. El patio, los coches y los tejados han desaparecido bajo una manta blanca y espesa. Toby ladra a los copos y trata de atraparlos con la boca. Luci entra envuelta en una manta y sonríe. Hoy el colegio puede empezar más tarde, dice mamá. Los niños vitorean. En el desayuno miran caer la nieve y caer. La ciudad parece una tarta de cumpleaños gigante.",
+          "words": [
+            "luz extraña",
+            "nieve",
+            "pegar la nariz al cristal",
+            "manta blanca y espesa",
+            "copos que caen",
+            "atrapar con la boca",
+            "el colegio empieza más tarde",
+            "vitorear",
+            "tarta de cumpleaños gigante",
+            "gorro blanco"
+          ]
+        },
+        {
+          "name": "Un muñeco de nieve",
+          "text": "Después del desayuno toda la familia sale. La nieve es perfecta para un muñeco. Pablito hace rodar una bola pequeña hasta que se vuelve grande. Jorge la empuja por el patio. Hacen la segunda bola y la levantan encima. Luci encuentra una zanahoria para la nariz y dos piedras para los ojos. Papá le da su bufanda vieja y mamá trae un gorro. El muñeco parece serio y un poco sorprendido. Emilia le pone un nombre: Señor Escarcha. Toby no está seguro con el nuevo vecino y le ladra. Todos se ríen.",
+          "words": [
+            "hacer rodar una bola",
+            "empujar",
+            "levantar encima",
+            "zanahoria",
+            "piedras para los ojos",
+            "bufanda vieja",
+            "gorro",
+            "serio y sorprendido",
+            "poner un nombre",
+            "ladrar al vecino"
+          ]
+        },
+        {
+          "name": "Tirarse en trineo",
+          "text": "Detrás del colegio hay una colina pequeña. Hoy está blanca y llena de niños. Pablito y Jorge traen un trineo viejo de madera del garaje. La primera bajada es rápida y con baches. La nieve vuela hacia sus caras y gritan de alegría. Luego Emilia quiere probar. Tiene un poco de miedo, así que Pablito se sienta detrás y sujeta la cuerda. ¿Lista? ¡Vamos! El trineo vuela colina abajo y Emilia se ríe todo el camino. Abajo caen en un montón de nieve blanda. Papá hace una foto para el álbum familiar.",
+          "words": [
+            "colina pequeña",
+            "llena de niños",
+            "trineo de madera",
+            "rápido y con baches",
+            "nieve vuela a la cara",
+            "gritar de alegría",
+            "sujetar la cuerda",
+            "montón de nieve blanda",
+            "álbum familiar",
+            "subir la colina"
+          ]
+        },
+        {
+          "name": "Copos de nieve",
+          "text": "Luci quiere dibujar un copo de nieve, pero cada uno que hace parece distinto. Eso es lo importante, dice Don Julio en la escuela de arte. Los copos reales nunca son iguales. Muestra a la clase fotos tomadas con un microscopio. Los niños ven estrellas, agujas y pequeñas ruedas de hielo. Luci coge papel negro y un lápiz blanco. Dibuja despacio, línea a línea. Emilia se sienta a su lado y copia el patrón. Sus copos no son perfectos, pero son hermosos. En casa Luci los cuelga en la ventana.",
+          "words": [
+            "copo de nieve",
+            "parecer distinto",
+            "lo importante",
+            "microscopio",
+            "aguja",
+            "pequeña rueda de hielo",
+            "papel negro",
+            "línea a línea",
+            "copiar el patrón",
+            "cobrar vida"
+          ]
+        },
+        {
+          "name": "Té caliente junto a la ventana",
+          "text": "Por la noche todavía nieva. La familia se reúne en el salón con té y galletas. La abuela llama desde el pueblo y dice que su camino también está blanco. El abuelo ya ha despejado un sendero hasta la puerta. Pablito les cuenta lo del trineo y el muñeco. Luci promete enviar un dibujo. Después de la llamada, papá pone otro tronco en la estufa. Luna se sienta en el alféizar y mira los copos. Toby duerme junto al radiador caliente. Mamá abre un libro de historias de invierno.",
+          "words": [
+            "todavía nieva",
+            "reunirse en el salón",
+            "pueblo",
+            "despejar un sendero",
+            "trineo",
+            "muñeco de nieve",
+            "enviar un dibujo",
+            "poner un tronco en la estufa",
+            "alféizar",
+            "historias de invierno"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Planes de verano",
+      "tasks": [
+        {
+          "name": "El día más largo",
+          "text": "Junio trae el día más largo del año. El sol se queda en el cielo hasta tarde. La familia va al parque después de cenar. Los niños juegan al fútbol y las personas mayores se sientan en los bancos a hablar. La furgoneta de los helados toca la misma cancioncilla. Pablito y Luci se tumban en la hierba y miran las nubes volverse rosas. Mamá dice: En invierno este parque está oscuro a las cinco. Javi responde: Por eso el verano parece un regalo. Se quedan hasta que aparecen las primeras estrellas.",
+          "words": [
+            "día más largo del año",
+            "el sol se queda en el cielo",
+            "después de cenar",
+            "furgoneta de helados",
+            "cancioncilla",
+            "tumbarse en la hierba",
+            "nubes se vuelven rosas",
+            "oscuro a las cinco",
+            "el verano parece un regalo",
+            "primeras estrellas"
+          ]
+        },
+        {
+          "name": "Una carta desde Sídney",
+          "text": "Llega un sobre grueso de Australia. Es de la hermana de la señora Carter, que vive en Sídney. Dentro hay fotos del mar, un koala y un puente muy grande. Invita a la familia Carter a visitarla en diciembre. Emilia lee la carta en voz alta. Jorge dice: ¡En diciembre allí es verano! Pablito no puede imaginar el invierno sin nieve. La señora Carter sonríe: La Navidad en la playa es rara, pero agradable. Los niños miran las fotos y hacen muchas preguntas. Quizá algún día toda la familia viaje a Australia.",
+          "words": [
+            "sobre grueso",
+            "Australia",
+            "hermana",
+            "koala",
+            "puente muy grande",
+            "invitar",
+            "diciembre",
+            "Navidad en la playa",
+            "hacer preguntas",
+            "olas cálidas"
+          ]
+        },
+        {
+          "name": "El proyecto del jardín",
+          "text": "La abuela envía una caja de semillas desde el pueblo. Hay tomates, pepinos, girasoles y pequeñas semillas de manzana. Los niños deciden hacer un jardín en el balcón. Papá trae macetas y tierra, y mamá encuentra guantes viejos. Pablito pone las semillas en la tierra y las riega cada mañana. Luci dibuja un letrero para cada maceta. Después de una semana aparecen los primeros brotes verdes. Pablito está tan contento que llama a la abuela enseguida. Ella dice: Ahora ten paciencia. Un jardín te enseña a esperar.",
+          "words": [
+            "caja de semillas",
+            "tomate",
+            "pepino",
+            "girasol",
+            "semilla de manzana",
+            "maceta y tierra",
+            "guantes viejos",
+            "regar cada mañana",
+            "brote verde",
+            "tener paciencia"
+          ]
+        },
+        {
+          "name": "Acampada junto al lago",
+          "text": "A finales de julio la familia va de acampada a un lago. Papá monta la tienda mientras mamá revisa la comida. Pablito y Luci recogen ramas secas para el fuego. Por la noche cocinan sopa sobre las llamas y miran la puesta de sol detrás de los árboles. El lago se vuelve oscuro y silencioso. Javi le enseña a Pablito las estrellas y le dice los nombres de tres constelaciones. Entonces oyen un ruido extraño en los arbustos. Todos se quedan quietos. Un pequeño erizo sale y los mira. Pablito se ríe de alivio.",
+          "words": [
+            "acampada",
+            "lago",
+            "montar la tienda",
+            "ramas secas",
+            "fuego",
+            "cocinar sopa",
+            "puesta de sol tras los árboles",
+            "constelación",
+            "erizo",
+            "con alivio"
+          ]
+        },
+        {
+          "name": "El último día del verano",
+          "text": "El último día de agosto es cálido y dorado. Mañana empieza el colegio. Los niños preparan sus mochilas y encuentran los uniformes limpios. Pablito está triste porque el verano termina, pero emocionado por ver a sus amigos. La familia pasa la tarde en el balcón. Los tomates del jardín por fin están rojos. Hacen una ensalada con ellos y beben té mientras el cielo se vuelve naranja. Luci dice: Ha sido un buen verano. Tuvimos lluvia, nieve en el pueblo y sol junto al lago. Papá levanta su taza: Y muchos veranos más.",
+          "words": [
+            "último día de agosto",
+            "el colegio empieza mañana",
+            "uniforme limpio",
+            "ver a los amigos",
+            "tomates del jardín",
+            "hacer una ensalada",
+            "el cielo se vuelve naranja",
+            "buen verano",
+            "levantar una taza",
+            "un año nuevo"
+          ]
+        }
+      ]
+    }
+  ]
+}

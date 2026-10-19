@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Work and Dreams",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "Les parents au travail",
+      "tasks": [
+        {
+          "name": "Un matin chargé",
+          "text": "Le lundi matin, tout le monde est occupé dans la famille. Maman Claire a l'équipe du matin à la clinique. Elle met sa blouse blanche, prend son sac et embrasse les enfants. Papa Pierre a une réunion importante sur le chantier. Il roule les grands plans et les met dans la voiture. Lucas a le club de programmation avant l'école, et Léa doit finir un dessin pour son cours d'art. Hugo nourrit Rex et Minette. À sept heures et demie, la famille quitte l'appartement ensemble.",
+          "words": [
+            "équipe du matin",
+            "blouse blanche",
+            "réunion importante",
+            "chantier",
+            "rouler les plans",
+            "club de programmation",
+            "cours d'art",
+            "nourrir",
+            "route différente",
+            "se retrouver au dîner"
+          ]
+        },
+        {
+          "name": "La clinique de maman",
+          "text": "Maman travaille comme médecin dans une clinique de la ville. Sa journée commence par une courte réunion avec les infirmières. Puis elle ouvre la porte de son cabinet et appelle le premier patient. Un vieil homme tousse beaucoup, une jeune femme a mal à la tête et un garçon a un doigt cassé. Claire écoute chacun attentivement. Elle écrit des ordonnances et explique comment prendre le médicament. L'infirmière Camille apporte du thé et une nouvelle chemise.",
+          "words": [
+            "médecin",
+            "clinique de la ville",
+            "infirmière",
+            "patient",
+            "grosse toux",
+            "mal de tête",
+            "doigt cassé",
+            "ordonnance",
+            "expliquer",
+            "plus calme"
+          ]
+        },
+        {
+          "name": "Les plans de papa",
+          "text": "Papa est ingénieur et construit des ponts et des maisons. Aujourd'hui, il montre ses plans à Hugo sur la table de la cuisine. Les lignes ressemblent à une langue secrète. Cette longue ligne est la route, explique papa, et ces petits carrés sont les fenêtres. Hugo trouve la place de la future école et pose son doigt dessus. Pierre rit : Oui, c'est la nouvelle école près du parc. Le projet est difficile parce que la rivière est profonde. Papa et son collègue Olivier doivent tout mesurer deux fois.",
+          "words": [
+            "ingénieur",
+            "plan",
+            "langue secrète",
+            "ligne",
+            "carré",
+            "future école",
+            "rivière profonde",
+            "mesurer",
+            "casque",
+            "patience"
+          ]
+        },
+        {
+          "name": "Que veux-tu devenir ?",
+          "text": "À l'école, Madame Petit demande à la classe : Que voulez-vous devenir quand vous serez grands ? Les enfants ont beaucoup de réponses. Jules veut être footballeur et Emma nageuse. Chloé rêve de la scène et Louis veut construire des robots. Hugo n'arrive pas à choisir : vétérinaire, cuisinier, conducteur de train ou entraîneur de football ? Madame Petit sourit : Vous n'avez pas besoin de choisir aujourd'hui. Parlez de leur métier avec vos parents. Le lendemain, Hugo demande à maman comment se passe son travail.",
+          "words": [
+            "grandir",
+            "footballeur",
+            "nageuse",
+            "scène",
+            "construire des robots",
+            "vétérinaire",
+            "conducteur de train",
+            "choisir",
+            "aider les gens",
+            "partie importante"
+          ]
+        },
+        {
+          "name": "Une conversation en famille",
+          "text": "Le soir, la famille est assise autour de la table. Papa parle du nouveau pont et maman de ses patients. Lucas dit qu'il veut étudier la programmation à l'université. Léa montre un dessin pour un livre d'enfants et dit : Je veux faire des images comme ça. Hugo écoute et demande soudain : Est-ce difficile de choisir un seul métier ? Maman répond : Certains choisissent tôt, d'autres plus tard. L'important, c'est d'apprendre et d'essayer. Papa ajoute : Et de bien faire son travail. Rex pose sa tête sur le genou de Hugo.",
+          "words": [
+            "s'asseoir à table",
+            "étudier la programmation",
+            "université",
+            "livre d'enfants",
+            "choisir un métier",
+            "tôt",
+            "plus tard",
+            "essayer",
+            "bien faire son travail",
+            "les rêves ont besoin de temps"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Une journée à la clinique",
+      "tasks": [
+        {
+          "name": "La salle d'attente",
+          "text": "La salle d'attente est pleine de monde. Une mère tient un bébé endormi, deux étudiants lisent des magazines et un vieil homme s'appuie sur sa canne. L'infirmière Camille marche entre les chaises et sourit à tout le monde. Le médecin va vous recevoir bientôt, dit-elle. Hugo est venu après l'école pour apporter à maman le déjeuner qu'elle a oublié. Il s'assoit tranquillement et regarde. Sa mère ouvre la porte du cabinet et appelle : Monsieur Brown, s'il vous plaît ! Le vieil homme se lève lentement. Hugo est fier de sa mère.",
+          "words": [
+            "salle d'attente",
+            "bébé endormi",
+            "magazine",
+            "canne",
+            "sourire à tout le monde",
+            "déjeuner oublié",
+            "observer",
+            "être fier",
+            "voix calme",
+            "aider les gens"
+          ]
+        },
+        {
+          "name": "Un petit patient",
+          "text": "Une jeune mère amène un garçon avec beaucoup de fièvre. Il a cinq ans et semble effrayé. Claire s'agenouille et dit doucement : Bonjour, je suis Claire. Je vais écouter ton cœur. Le garçon cache son visage dans le manteau de sa mère. Claire lui donne un petit jouet en bois : Tu peux tenir ceci pendant que j'écoute ? Le garçon fait oui de la tête. Le cœur bat fort et vite. Claire explique quoi faire : du repos, de l'eau et des médicaments. Elle écrit tout sur un papier pour la mère.",
+          "words": [
+            "forte fièvre",
+            "effrayé",
+            "s'agenouiller",
+            "écouter le cœur",
+            "jouet en bois",
+            "faire oui de la tête",
+            "fort et rapide",
+            "repos",
+            "mot gentil",
+            "moins effrayant"
+          ]
+        },
+        {
+          "name": "La longue journée",
+          "text": "L'après-midi est particulièrement chargé. Deux patients arrivent en même temps, le téléphone sonne et une chemise manque. Claire reste calme et note tout. Camille lui apporte une tasse de café, mais Claire oublie de la boire. À cinq heures, il y a une urgence : un garçon est tombé de vélo et s'est blessé au bras. Claire l'examine vite et l'envoie faire une radio. La mère du garçon pleure, et Claire dit : Il est courageux. Tout ira bien. Ce n'est qu'à huit heures qu'elle retire sa blouse blanche.",
+          "words": [
+            "après-midi",
+            "particulièrement chargé",
+            "en même temps",
+            "rester calme",
+            "noter",
+            "oublier de boire",
+            "urgence",
+            "se blesser au bras",
+            "radio",
+            "mal aux pieds"
+          ]
+        },
+        {
+          "name": "Le conseil du médecin",
+          "text": "À la fin de la journée, le docteur Moreau, la chef, frappe à la porte de Claire. Elle travaille à la clinique depuis trente ans et connaît chaque coin. Tu as bien travaillé aujourd'hui, dit-elle. Mais rappelle-toi : tu ne peux pas aider tout le monde si tu oublies de te reposer. Claire sourit, fatiguée. Le docteur Moreau raconte sa première année comme médecin : elle oubliait aussi de déjeuner et restait tard. L'expérience t'apprend à écouter aussi ton propre corps. Elles boivent du thé ensemble dans la salle du personnel.",
+          "words": [
+            "médecin chef",
+            "frapper à la porte",
+            "trente ans",
+            "oublier de se reposer",
+            "fatiguée",
+            "première année comme médecin",
+            "expérience",
+            "écouter son corps",
+            "salle du personnel",
+            "rentrer"
+          ]
+        },
+        {
+          "name": "À la maison après le travail",
+          "text": "Quand Claire rentre, la cuisine sent la soupe. Pierre a déjà mis la table et les enfants attendent. Comment était ta journée ?, demande Hugo. Longue, répond maman, mais bonne. Elle raconte l'histoire du garçon au bras cassé et du petit patient qui avait peur. Léa dit : Tu aides les gens tous les jours. C'est formidable. Claire enlève ses chaussures et pose ses pieds sur un petit coussin. Rex se couche à côté d'elle. La famille parle de petites choses : l'école, le football, une nouvelle recette.",
+          "words": [
+            "rentrer",
+            "odeur de soupe",
+            "mettre la table",
+            "longue journée",
+            "bras cassé",
+            "avoir peur",
+            "enlever ses chaussures",
+            "coussin",
+            "s'endormir",
+            "couvrir d'un plaid"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sur le chantier",
+      "tasks": [
+        {
+          "name": "La sécurité d'abord",
+          "text": "Le samedi, Pierre emmène Hugo et Georges sur le chantier. Avant d'entrer, il leur donne des casques et des gilets brillants. La sécurité d'abord ! dit-il. Les garçons doivent rester près de lui et suivre les flèches blanches. Une grue soulève de lourds blocs très haut, et les ouvriers en vestes orange se déplacent comme une équipe. Pierre leur montre les règles de sécurité : ne pas courir, ne pas toucher les machines, toujours écouter le signal. Georges pose beaucoup de questions. Pourquoi ce mur est-il couvert ?",
+          "words": [
+            "chantier",
+            "casque",
+            "gilet brillant",
+            "la sécurité d'abord",
+            "flèche blanche",
+            "grue",
+            "bloc lourd",
+            "règles de sécurité",
+            "signal",
+            "gens prudents"
+          ]
+        },
+        {
+          "name": "La grue",
+          "text": "Le grutier est assis dans une petite cabine très haut au-dessus du sol. Il ne voit pas chaque coin du chantier, alors un ouvrier au sol lui donne des signaux avec les mains et par radio. Georges regarde bouche bée. La grue soulève une longue poutre métallique et la tourne lentement dans l'air. On dirait un bras géant. Pierre explique : Un mauvais signal et la poutre pourrait tomber. C'est pourquoi chaque mouvement est prévu. Hugo demande s'il peut essayer la radio, et le grutier le laisse dire : La voie est libre !",
+          "words": [
+            "grutier",
+            "petite cabine",
+            "très haut",
+            "donner des signaux",
+            "radio",
+            "poutre métallique",
+            "bras géant",
+            "mauvais signal",
+            "la voie est libre",
+            "se poser doucement"
+          ]
+        },
+        {
+          "name": "Les plans",
+          "text": "Dans le bureau du chantier, Pierre ouvre un grand plan sur la table. Il montre un nouveau pont sur la rivière. Hugo voit la route, la piste cyclable et un petit parc sous le pont. Que sont ces chiffres ?, demande Georges. Pierre explique : Ils montrent la longueur et la hauteur. Chaque ligne a un sens. Les ouvriers ne peuvent pas construire sans ce papier. Georges essaie de lire une mesure et se trompe. Pierre rit : Ne t'inquiète pas. J'ai fait beaucoup d'erreurs quand j'ai commencé. C'est pourquoi nous vérifions deux fois.",
+          "words": [
+            "bureau du chantier",
+            "plan",
+            "nouveau pont",
+            "piste cyclable",
+            "longueur et hauteur",
+            "mesure",
+            "se tromper",
+            "vérifier deux fois",
+            "dessiner un pont",
+            "toboggan"
+          ]
+        },
+        {
+          "name": "La pause thé",
+          "text": "À midi, les ouvriers s'arrêtent pour une pause. Ils s'assoient sur des caisses et des bancs près du bureau. Pierre sort un thermos et verse du thé pour tout le monde. Les sandwichs sont simples mais délicieux au grand air. Olivier raconte l'histoire d'une grue qui a soulevé un piano. Les ouvriers rient. Un autre montre des photos de sa petite fille. Hugo et Georges écoutent les adultes. Ils apprennent beaucoup de choses.",
+          "words": [
+            "pause thé",
+            "thermos",
+            "verser le thé",
+            "sandwich simple",
+            "grand air",
+            "raconter une histoire",
+            "montrer des photos",
+            "adultes",
+            "métiers différents",
+            "petite ville"
+          ]
+        },
+        {
+          "name": "Le nouveau pont",
+          "text": "Un an plus tard, le nouveau pont est prêt. Toute la famille vient à l'inauguration. Le pont est blanc et léger, et sa piste cyclable brille au soleil. Pierre se tient avec les ouvriers et le maire. Le maire dit : Ce pont relie deux parties de la ville. Mais il montre aussi ce que les gens peuvent faire ensemble. Tout le monde applaudit. Hugo et Georges sont les premiers enfants à traverser le pont à vélo. Depuis le milieu, ils voient le parc, la rivière et l'horloge de la vieille gare. Pierre les regarde et sourit.",
+          "words": [
+            "inauguration",
+            "blanc et léger",
+            "maire",
+            "relier deux parties",
+            "ensemble",
+            "traverser le pont",
+            "à vélo",
+            "depuis le milieu",
+            "vraie route",
+            "le résultat reste"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Les métiers de rêve",
+      "tasks": [
+        {
+          "name": "La journée des métiers",
+          "text": "Aujourd'hui, c'est la journée des métiers à l'école de Hugo. Les parents viennent parler de leur travail. Un pilote montre des photos de nuages, un cuisinier apporte de petits gâteaux et un jardinier donne une petite plante à chacun. Maman Claire parle de son métier de médecin. Elle explique que le plus difficile n'est pas la médecine, mais d'annoncer de mauvaises nouvelles. Papa Pierre montre son casque et une maquette de pont. Les enfants les font passer.",
+          "words": [
+            "journée des métiers",
+            "pilote",
+            "cuisinier",
+            "jardinier",
+            "petite plante",
+            "le plus difficile",
+            "mauvaises nouvelles",
+            "faire passer",
+            "curieux",
+            "courageux"
+          ]
+        },
+        {
+          "name": "La leçon de monsieur Carter",
+          "text": "Monsieur Carter est professeur depuis vingt ans. Il raconte à la classe pourquoi il a choisi ce métier. Enfant, il avait peur de parler devant les gens. Un professeur l'a aidé et lui a dit : Ta voix compte. Des années plus tard, il a voulu faire la même chose pour d'autres enfants. Enseigner, ce n'est pas seulement la grammaire, dit-il. C'est aider les gens à trouver leur voix. La classe est silencieuse. Puis Emma demande : Est-ce difficile d'apprendre une langue ? Monsieur Carter répond : Au début, oui.",
+          "words": [
+            "professeur",
+            "choisir un métier",
+            "avoir peur",
+            "devant les gens",
+            "ta voix compte",
+            "des années plus tard",
+            "grammaire",
+            "trouver sa voix",
+            "chaque erreur est un pas",
+            "timide"
+          ]
+        },
+        {
+          "name": "Émilie et les animaux",
+          "text": "Émilie veut devenir vétérinaire. À la maison, elle a une boîte pleine de livres sur les animaux. Elle sait pourquoi les chats ronronnent, comment dorment les lapins et ce dont les chiens ont besoin chaque jour. Le dimanche, elle visite le refuge animalier avec madame Carter. Le refuge est plein de chats et de chiens sans maison. Émilie aide à laver les bols et à brosser un grand chien gris. Le chien est vieux et timide, mais il remue la queue quand elle lui parle.",
+          "words": [
+            "vétérinaire",
+            "livres sur les animaux",
+            "refuge animalier",
+            "sans maison",
+            "laver les bols",
+            "brosser un chien",
+            "timide",
+            "remuer la queue",
+            "travail salissant",
+            "patient et doux"
+          ]
+        },
+        {
+          "name": "Le choix de Hugo",
+          "text": "Hugo n'arrive toujours pas à choisir un métier. Le lundi, il veut être conducteur de train, le mardi cuisinier, le mercredi footballeur. Georges rit : Tu changes d'avis chaque jour ! Hugo réfléchit et dit : Peut-être que je veux d'abord essayer beaucoup de choses. Maman est d'accord : C'est un bon plan. Tu n'as que dix ans. Au dîner, la famille joue. Chacun décrit un métier sans dire son nom, et les autres devinent. Léa imite une peintre, Lucas un programmeur, papa un constructeur.",
+          "words": [
+            "conducteur de train",
+            "cuisinier",
+            "footballeur",
+            "changer d'avis",
+            "essayer beaucoup de choses",
+            "bon plan",
+            "décrire un métier",
+            "deviner",
+            "imiter",
+            "être beaucoup de choses"
+          ]
+        },
+        {
+          "name": "Suis ton rêve",
+          "text": "Le soir, Hugo s'assoit près de la fenêtre avec Rex. Les lumières de la ville brillent en bas et l'horloge de la vieille gare indique neuf heures. Il pense à tous les métiers qu'il a vus : médecin, ingénieur, professeur, vétérinaire, cuisinier, conducteur. Chaque personne fait quelque chose d'utile. Peut-être qu'un métier n'est pas une seule grande réponse, pense-t-il. C'est un chemin que l'on construit pas à pas, comme le pont de papa. Maman entre et s'assoit à côté de lui. À quoi penses-tu ?, demande-t-elle.",
+          "words": [
+            "lumières de la ville",
+            "horloge de la vieille gare",
+            "utile",
+            "une seule grande réponse",
+            "chemin",
+            "pas à pas",
+            "l'avenir",
+            "apprendre et essayer",
+            "être gentil",
+            "le reste viendra"
+          ]
+        }
+      ]
+    }
+  ]
+}

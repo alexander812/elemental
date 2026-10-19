@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Around the City",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "Se déplacer",
+      "tasks": [
+        {
+          "name": "La route du matin",
+          "text": "Le lundi matin, Hugo et sa mère partent tôt. Ils marchent jusqu'à l'arrêt de bus près du parc. Le bus numéro sept arrive dans trois minutes. Claire achète deux billets et ils s'assoient près de la fenêtre. Les rues sont animées : voitures, cyclistes et une grande camionnette jaune. Au troisième arrêt, un groupe d'écoliers monte. Hugo cède sa place à une dame âgée. Elle sourit et dit : Merci, jeune homme ! À la station de métro, ils descendent et prennent l'escalier. La rame attend déjà.",
+          "words": [
+            "arrêt de bus",
+            "billet",
+            "arriver",
+            "foule",
+            "écoliers",
+            "céder sa place",
+            "dame âgée",
+            "escalier",
+            "station de métro",
+            "attendre"
+          ]
+        },
+        {
+          "name": "La carte du métro",
+          "text": "À la maison, Lucas montre à Hugo une carte du métro. Chaque ligne a sa couleur et son numéro. La ligne rouge traverse le centre, la bleue va au stade. Pour aller au musée, il faut changer de rame à la station du Parc. Hugo suit le trajet du doigt. On dirait une toile d'araignée multicolore ! Lucas dit : Lis les panneaux au-dessus du quai et suis les flèches. Si tu te perds, demande à un agent. Demain, les garçons voyageront seuls pour la première fois. Hugo est un peu nerveux, mais impatient.",
+          "words": [
+            "carte du métro",
+            "ligne",
+            "couleur",
+            "centre",
+            "stade",
+            "changer de rame",
+            "quai",
+            "panneau",
+            "se perdre",
+            "agent de station"
+          ]
+        },
+        {
+          "name": "Une nouvelle piste cyclable",
+          "text": "Une nouvelle piste cyclable ouvre le long de la rivière. Léa et Chloé y vont après l'école d'art. La piste est large et vert vif. Un panneau dit : Réservé aux cyclistes. Léa fait tinter sa sonnette et rit. Elles passent un vieux pont, un petit café et une rangée d'arbres. Près du parc, Chloé s'arrête soudain : Regarde, un petit chat ! Le chaton est assis entre les vélos et semble effrayé. Léa le prend doucement et lit l'adresse sur son collier. Les filles ramènent le chaton chez lui, et son propriétaire est très heureux.",
+          "words": [
+            "piste cyclable",
+            "rivière",
+            "large",
+            "vert vif",
+            "sonner",
+            "vieux pont",
+            "rangée d’arbres",
+            "chaton",
+            "collier",
+            "propriétaire"
+          ]
+        },
+        {
+          "name": "À l’arrêt de bus",
+          "text": "Madame Blanc attend le bus avec deux sacs lourds. Le bus est en retard et il commence à pleuvoir. Hugo sort en courant avec un parapluie et l'aide à porter les sacs jusqu'à l'abri. Ils s'assoient sur un banc sec. Madame Blanc lui raconte les vieux tramways qui passaient ici il y a longtemps. Elle se souvient du contrôleur, des sièges en bois et de la cloche. Hugo écoute avec intérêt. Quand le bus arrive enfin, ils montent ensemble. À l'arrêt suivant, Madame Blanc dit : Merci, mon petit.",
+          "words": [
+            "attendre le bus",
+            "sac lourd",
+            "être en retard",
+            "commencer à pleuvoir",
+            "parapluie",
+            "abri de bus",
+            "banc sec",
+            "vieux tramway",
+            "contrôleur",
+            "avec intérêt"
+          ]
+        },
+        {
+          "name": "Le raccourci de papa",
+          "text": "Le vendredi, Pierre conduit les enfants à l'école. La route principale est pleine de voitures, alors il choisit un raccourci par de petites rues. Ils passent d'abord une boulangerie, puis un garage et une minuscule place avec une fontaine. Hugo regarde les numéros des maisons et indique le chemin. Tourne à gauche ici ! Maintenant, tout droit ! À un coin, une camionnette de livraison bloque le passage. Pierre rit : Voilà mon raccourci ! Ils font demi-tour et prennent une autre rue. Finalement, ils arrivent juste à temps.",
+          "words": [
+            "route principale",
+            "raccourci",
+            "petite rue",
+            "boulangerie",
+            "garage",
+            "place avec une fontaine",
+            "numéro de maison",
+            "tourner à gauche",
+            "camionnette de livraison",
+            "juste à temps"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Demander son chemin",
+      "tasks": [
+        {
+          "name": "Où est le musée ?",
+          "text": "Les Carter veulent visiter le musée de la ville. Près du parc, ils rencontrent Hugo et demandent : Excusez-moi, pourriez-vous nous indiquer le chemin du musée ? Hugo sourit : Bien sûr ! Allez tout droit dans cette rue, puis tournez à droite aux feux. Le musée est à gauche, en face d'une grande librairie. Madame Carter répète le trajet pour le retenir. Monsieur Carter dit : Ton anglais est très bon ! Hugo rit : Je m'entraîne avec Georges tous les jours. La famille marche ensemble jusqu'au coin.",
+          "words": [
+            "demander le chemin",
+            "excusez-moi",
+            "aller tout droit",
+            "tourner à droite",
+            "feux",
+            "à gauche",
+            "en face de",
+            "répéter le trajet",
+            "librairie",
+            "se dire au revoir"
+          ]
+        },
+        {
+          "name": "Le téléphone perdu",
+          "text": "Georges ne trouve plus son téléphone. Il cherche dans ses poches, sous le banc et dans son sac. Rien ! Hugo dit : Ne t'inquiète pas. Demandons aux gens du parc. Ils s'approchent d'une jeune femme avec une poussette. Excusez-moi, avez-vous vu un téléphone noir ? Non, désolée. Puis ils demandent à un homme qui promène son chien. Il montre la fontaine : J'ai vu quelque chose de noir près de l'eau. Les garçons courent et trouvent le téléphone sur un petit mur en pierre. Georges est soulagé : Merci !",
+          "words": [
+            "perdre son téléphone",
+            "chercher dans les poches",
+            "sac d’école",
+            "jeune femme",
+            "poussette",
+            "montrer du doigt",
+            "fontaine",
+            "mur en pierre",
+            "soulagé",
+            "veste"
+          ]
+        },
+        {
+          "name": "De l’autre côté du pont",
+          "text": "Madame Carter a besoin d'une pharmacie. La plus proche est de l'autre côté de la rivière. Hugo dessine une carte simple sur un morceau de papier : d'abord le pont, puis la place, puis le deuxième coin. Ils marchent ensemble et parlent de la ville. Madame Carter dit qu'à Sydney les rues sont plus larges et la rivière bien plus grande. Hugo répond qu'il n'a jamais vu la mer. Vraiment ? demande-t-elle. Alors il faudra venir nous voir un jour ! À la pharmacie, elle achète des médicaments pour Émilie, qui a un gros rhume.",
+          "words": [
+            "pharmacie",
+            "de l’autre côté de la rivière",
+            "morceau de papier",
+            "pont",
+            "place",
+            "coin",
+            "plus large",
+            "la mer",
+            "médicament",
+            "chocolat chaud"
+          ]
+        },
+        {
+          "name": "Une question polie",
+          "text": "Monsieur Carter donne à Hugo une courte leçon de questions polies. Excusez-moi, pourriez-vous me dire où se trouve la banque ?, demande-t-il lentement. Hugo répète la phrase. Bien ! Maintenant, demande le chemin du théâtre. Pourriez-vous me dire comment aller au théâtre ? Excellent ! Monsieur Carter explique : En anglais, les questions polies sont plus longues, mais les gens y répondent plus volontiers. Hugo s'entraîne avec Georges devant la porte. Excuse-moi, pourrais-tu me dire où sont mes chaussures de football ?",
+          "words": [
+            "question polie",
+            "excusez-moi",
+            "pourriez-vous me dire",
+            "lentement",
+            "répéter une phrase",
+            "théâtre",
+            "expliquer",
+            "volontiers",
+            "chaussures de football",
+            "sous le canapé"
+          ]
+        },
+        {
+          "name": "Le bon bus",
+          "text": "Émilie veut rendre visite à son amie, mais elle a peur de prendre le mauvais bus. Hugo regarde le plan des lignes avec elle. Le numéro sept va à la bibliothèque, le douze à la piscine et le vingt-trois au centre commercial. Il te faut le douze, dit-il. Descends après le pont, à la rue Verte. Émilie répète le nom de l'arrêt trois fois. À l'arrêt, Hugo dit : N'oublie pas, demande au conducteur si tu n'es pas sûre. Émilie sourit : Merci pour ton aide !",
+          "words": [
+            "mauvais bus",
+            "plan des lignes",
+            "bibliothèque",
+            "piscine",
+            "centre commercial",
+            "descendre",
+            "nom de l’arrêt",
+            "conducteur",
+            "être sûr",
+            "toute seule"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La vieille gare",
+      "tasks": [
+        {
+          "name": "Des billets pour grand-mère",
+          "text": "Le samedi, la famille va à la vieille gare. Le bâtiment a une grande tour avec une horloge et de lourdes portes vitrées. Pierre achète les billets au guichet : quatre allers-retours pour le village. La guichetière dit : Le train part du quai trois à dix heures quinze. Ne soyez pas en retard ! Hugo lit le tableau des départs. Il trouve leur train entre deux trains rapides pour la capitale. Claire vérifie les sacs : une tarte, des pulls chauds et un livre pour grand-mère.",
+          "words": [
+            "gare",
+            "tour de l’horloge",
+            "guichet",
+            "billet aller-retour",
+            "quai",
+            "tableau des départs",
+            "train rapide",
+            "annoncer",
+            "wagon",
+            "aventure"
+          ]
+        },
+        {
+          "name": "La tour de l’horloge",
+          "text": "Tante Sophie attend sous la tour de l'horloge. Elle vient de rentrer d'un long voyage et porte une valise jaune vif. Vous êtes juste à l'heure ! dit-elle. Regardez l'horloge de la gare : elle retarde de dix minutes. Ils rient et marchent ensemble vers le quai. Sophie offre aux enfants de petits cadeaux : des cartes postales de trois pays et une boîte de bonbons. Hugo demande : Tante Sophie, combien de langues parles-tu ? Elle répond : Deux bien et trois mal ! Puis elle montre les mots qu'elle a appris dans l'avion.",
+          "words": [
+            "tante",
+            "tour de l’horloge",
+            "valise jaune vif",
+            "juste à l’heure",
+            "dix minutes de retard",
+            "carte postale",
+            "trois pays",
+            "boîte de bonbons",
+            "langue",
+            "répéter"
+          ]
+        },
+        {
+          "name": "Dans le train",
+          "text": "Le train traverse lentement la ville, puis plus vite entre les champs verts. Hugo s'assoit près de la fenêtre et compte les petites gares, les vaches et les toits rouges. Un contrôleur vient vérifier les billets. Il sourit aux enfants et dit : Le prochain arrêt est le vôtre. Claire ouvre le sac avec la tarte, et tout le wagon sent la pomme et la cannelle. Sophie raconte une histoire de train de nuit en Italie. Dehors, la pluie commence, et les gouttes glissent sur la vitre comme de petits trains.",
+          "words": [
+            "avancer lentement",
+            "champs verts",
+            "compter",
+            "contrôleur",
+            "vérifier les billets",
+            "prochain arrêt",
+            "odeur de pommes",
+            "cannelle",
+            "train de nuit",
+            "vitre"
+          ]
+        },
+        {
+          "name": "Le jardin de grand-mère",
+          "text": "Grand-mère Marie attend devant la barrière de sa petite maison. Le jardin est plein de pommiers, de fleurs rouges et d'abeilles qui bourdonnent. Grand-père Henri est dans son atelier et répare une vieille radio. Il sort les mains couvertes d'huile et embrasse tout le monde. Le déjeuner est déjà sur la table : soupe, pain frais et la fameuse tarte aux pommes. Après le repas, Hugo aide grand-mère à cueillir des pommes. Léa dessine le jardin et Lucas essaie de réparer la barrière. La chatte dort dans une brouette.",
+          "words": [
+            "jardin",
+            "pommier",
+            "abeilles qui bourdonnent",
+            "atelier",
+            "réparer",
+            "pain frais",
+            "tarte aux pommes",
+            "cueillir des pommes",
+            "brouette",
+            "écouter des histoires"
+          ]
+        },
+        {
+          "name": "Le dernier train pour rentrer",
+          "text": "Le temps passe vite. Après le dîner, grand-père regarde sa montre et dit : Le dernier train part dans trente minutes ! Tout le monde se précipite vers la voiture. La route est sombre et les phares éclairent les arbres. À la gare, ils courent sur le quai juste au moment où le train apparaît. Grand-mère fait signe depuis la barrière : Au revoir ! Revenez vite ! Dans le wagon, Hugo s'endort sur l'épaule de sa mère. Léa tient le pot de confiture de pommes. Le train les ramène chez eux à travers la nuit calme.",
+          "words": [
+            "le temps passe vite",
+            "dernier train",
+            "se dépêcher",
+            "phares",
+            "faire signe",
+            "confiture de pommes",
+            "épaule",
+            "nuit calme",
+            "journée parfaite",
+            "être d’accord"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Une journée en ville",
+      "tasks": [
+        {
+          "name": "Le musée",
+          "text": "Le dimanche, la famille visite le musée de la ville. Le bâtiment ressemble à un immense palais avec des colonnes et de hautes fenêtres. Dans la première salle, il y a des os de dinosaure. Hugo lit le panneau : Ce dinosaure a vécu il y a des millions d'années. Waouh ! Dans la salle suivante, Léa trouve des tableaux de vieilles rues et de bateaux. Lucas étudie la maquette du premier pont. Soudain, les lumières s'éteignent un instant. Tout le monde rit nerveusement. Le gardien explique : C'est une partie du spectacle.",
+          "words": [
+            "musée",
+            "palais",
+            "colonnes",
+            "os de dinosaure",
+            "il y a des millions d’années",
+            "tableau",
+            "bateau",
+            "maquette du pont",
+            "gardien",
+            "surprise"
+          ]
+        },
+        {
+          "name": "Déjeuner au café",
+          "text": "Après le musée, tout le monde a faim. Ils choisissent un petit café près de la rivière. Le serveur apporte les menus et demande : Vous êtes prêts à commander ? Pierre prend la soupe, Claire une salade au fromage, et les enfants veulent des pâtes. Hugo hésite entre une pizza et des crêpes. Le serveur sourit : Pourquoi pas les deux ? D'abord la pizza, puis les crêpes en dessert. Tout le monde rit. En attendant, ils regardent les bateaux sur la rivière. Les plats arrivent chauds et sentent très bon.",
+          "words": [
+            "avoir faim",
+            "menu",
+            "commander",
+            "soupe",
+            "salade au fromage",
+            "pâtes",
+            "choisir",
+            "crêpes",
+            "dessert",
+            "addition"
+          ]
+        },
+        {
+          "name": "Le parc de la ville",
+          "text": "Après le déjeuner, la famille marche jusqu'au parc de la ville. Il y a un grand étang avec des canards et de petits bateaux. Hugo veut ramer et Lucas accepte de l'aider. Ils prennent un bateau bleu pour une demi-heure. Léa s'assoit sur la rive et dessine le pont. Claire et Pierre boivent un café sur un banc. Un musicien de rue joue du violon sous un arbre. Georges et Émilie les rejoignent avec un sac de pain pour les canards. Les canards n'ont pas du tout peur !",
+          "words": [
+            "parc de la ville",
+            "étang",
+            "canard",
+            "petit bateau",
+            "ramer",
+            "rive",
+            "musicien de rue",
+            "violon",
+            "sac de pain",
+            "manches mouillées"
+          ]
+        },
+        {
+          "name": "Le plan pluie",
+          "text": "Soudain, le ciel devient gris et de grosses gouttes tombent sur le parc. La famille se cache sous un arbre, mais la pluie devient plus forte. Pierre dit : Nouveau plan ! Nous allons au cinéma. Ils courent à l'arrêt de bus et arrivent au vieux cinéma juste avant le début du film. Le film raconte l'histoire d'un chien courageux qui traverse tout le pays. Hugo serre Rex dans son imagination. Quand ils sortent, les rues brillent de pluie.",
+          "words": [
+            "le ciel devient gris",
+            "grosses gouttes",
+            "se cacher sous un arbre",
+            "la pluie devient plus forte",
+            "cinéma",
+            "chien courageux",
+            "traverser le pays",
+            "imagination",
+            "flaque",
+            "miroir"
+          ]
+        },
+        {
+          "name": "Rentrer en métro",
+          "text": "Le soir, la famille rentre en métro. La station est chaude et pleine de lumière. Les rames vont et viennent, et les gens se pressent dans toutes les directions. Hugo compte les arrêts : un, deux, trois... Au quatrième, ils changent de ligne. Un musicien joue de la guitare sur le quai, et une petite fille danse avec sa mère. Léa sourit : Le métro est comme une ville sous la ville. À leur station, ils montent l'escalier. La pluie s'est arrêtée et l'air sent bon. La maison est proche.",
+          "words": [
+            "rentrer en métro",
+            "station chaude",
+            "pleine de lumière",
+            "dans toutes les directions",
+            "compter les arrêts",
+            "changer de ligne",
+            "guitare",
+            "quai",
+            "escalier",
+            "air frais"
+          ]
+        }
+      ]
+    }
+  ]
+}

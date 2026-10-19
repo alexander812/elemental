@@ -1,0 +1,346 @@
+{
+  "parentCourse": "School Days",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "La journée d’école",
+      "tasks": [
+        {
+          "name": "Tôt le matin",
+          "text": "Le réveil sonne à sept heures. Hugo cache sa tête sous l'oreiller, mais Rex saute sur le lit et lui lèche le visage. D'accord, d'accord, je suis réveillé ! Au petit-déjeuner, Claire prépare de la bouillie et du thé. Léa ne trouve pas son sac d'école et Lucas l'aide à chercher sous le canapé. À huit heures, les enfants quittent la maison. L'école est à deux arrêts seulement. La cour est pleine de voix, de vélos et de ballons. Quand la cloche sonne, tout le monde court vers les portes. Une nouvelle journée d'école commence.",
+          "words": [
+            "réveil",
+            "oreiller",
+            "lécher",
+            "bouillie",
+            "sac d’école",
+            "chercher",
+            "cour de l’école",
+            "cloche",
+            "courir vers les portes",
+            "journée d’école"
+          ]
+        },
+        {
+          "name": "L’emploi du temps",
+          "text": "Dans la classe, Madame Petit écrit l'emploi du temps au tableau. Le lundi est chargé : maths, anglais, histoire, art et sport. Hugo regarde la dernière leçon et sourit. Il adore le sport ! Mais d'abord, il y a un contrôle de maths. Lucas dit : Ne t'inquiète pas, il n'y a que dix questions. À la récréation, les enfants comparent leurs emplois du temps. Certains ont musique, d'autres géographie. La classe sent la craie, le papier et les pommes. Hugo écrit les leçons dans son cahier avec des couleurs différentes.",
+          "words": [
+            "emploi du temps",
+            "tableau",
+            "maths",
+            "histoire",
+            "cours de sport",
+            "contrôle",
+            "récréation",
+            "comparer",
+            "cahier",
+            "fête de l’école"
+          ]
+        },
+        {
+          "name": "La première leçon",
+          "text": "La première leçon est les maths. Madame Petit écrit trois problèmes au tableau. Hugo lit le premier deux fois et lève la main. La maîtresse sourit : Oui, Hugo ? Je crois que je connais la réponse ! Il l'explique lentement, et la classe écoute. Au bureau voisin, Jules dessine une fusée au lieu de chiffres. Madame Petit lui touche l'épaule doucement : Jules, la fusée peut attendre. Tout le monde rit, mais gentiment. Après le contrôle, la maîtresse dit : Vous avez bien travaillé aujourd'hui. Les devoirs sont page vingt.",
+          "words": [
+            "leçon de maths",
+            "problème",
+            "lever la main",
+            "réponse",
+            "expliquer",
+            "fusée",
+            "au lieu de",
+            "doucement",
+            "devoirs",
+            "page vingt"
+          ]
+        },
+        {
+          "name": "La grande récréation",
+          "text": "Quand la cloche sonne pour la grande récréation, la cour devient une mer bruyante d'enfants. Hugo et Jules courent au terrain de football. Georges les rejoint avec son ballon rouge. Aujourd'hui, les équipes sont mixtes : grands et petits jouent ensemble. Une fille nommée Emma marque le premier but, et tout le monde applaudit. Sur le banc, Léa partage ses sandwichs avec Chloé. Le soleil d'automne est chaud et les feuilles sont dorées. Trop vite, la cloche sonne encore. Les garçons se disent au revoir jusqu'à demain.",
+          "words": [
+            "grande récréation",
+            "mer bruyante d’enfants",
+            "terrain de football",
+            "équipes mixtes",
+            "marquer un but",
+            "applaudir",
+            "sandwich",
+            "feuilles d’automne",
+            "se dire au revoir",
+            "énergie"
+          ]
+        },
+        {
+          "name": "Les devoirs",
+          "text": "Après l'école, Hugo prend un goûter et s'assoit à son bureau. Les devoirs du jour sont une petite histoire sur sa famille. Il écrit sur maman, papa, Lucas et Léa, puis ajoute Rex et Minette. Mais comment s'écrit « rebord de fenêtre » ? Il demande à Léa, et elle lui montre les lettres. Pierre regarde la page et sourit : Ton histoire est drôle. J'aime la partie sur le chat ! À huit heures, l'histoire est prête. Hugo la lit à haute voix devant toute la famille. Tout le monde applaudit. Demain, il la lira en classe.",
+          "words": [
+            "devoirs",
+            "prendre un goûter",
+            "bureau",
+            "petite histoire",
+            "épeler",
+            "lettre",
+            "à haute voix",
+            "applaudir",
+            "en classe",
+            "pas si difficile que"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cours et professeurs",
+      "tasks": [
+        {
+          "name": "Le cours d’anglais",
+          "text": "En cours d'anglais, Madame Petit écrit une question au tableau : What did you do at the weekend ? Les élèves travaillent par deux. Hugo demande à Georges : Qu'est-ce que tu as fait ? Georges répond : J'ai joué au football et regardé un film avec mon père. Puis Georges interroge Hugo sur son dimanche. Ils essaient d'utiliser de nouveaux mots : musée, pont, crêpes. Madame Petit marche entre les bureaux et écoute. Très bien ! dit-elle. Rappelez-vous : le passé pour les actions terminées.",
+          "words": [
+            "cours d’anglais",
+            "question",
+            "par deux",
+            "week-end",
+            "temps passé",
+            "action terminée",
+            "écouter",
+            "phrase",
+            "visiter un musée",
+            "génial"
+          ]
+        },
+        {
+          "name": "L’histoire prend vie",
+          "text": "Le cours d'histoire parle de la vieille ville. Le professeur montre des photos du premier pont, du marché et de la gare. Lucas lève la main : Mon grand-père a une radio de cette époque. Vraiment ? demande le professeur. Peux-tu apporter une photo ? Le lendemain, Lucas apporte une vieille photo en noir et blanc. La classe voit un jeune homme en uniforme de soldat près de la gare. C'est grand-père Henri ! Il a l'air sérieux et très jeune. Le professeur dit : L'histoire, ce ne sont pas seulement des dates.",
+          "words": [
+            "cours d’histoire",
+            "vieille ville",
+            "premier pont",
+            "gare",
+            "grand-père",
+            "photo",
+            "en noir et blanc",
+            "uniforme de soldat",
+            "l’histoire, ce sont les gens",
+            "fier"
+          ]
+        },
+        {
+          "name": "La salle d’art",
+          "text": "La salle d'art sent la peinture et le papier. Aujourd'hui, la classe dessine la vue depuis la fenêtre. Léa choisit la vieille église, Chloé la rivière et Georges le terrain de football. Monsieur Laurent se promène et donne des conseils : Regardez la lumière. Où tombe l'ombre ? Léa mélange du bleu et du blanc pour le ciel. Son église ressemble à un bateau qui flotte au-dessus des toits. À la fin, les dessins sont accrochés au mur. Tout le monde vote pour son préféré.",
+          "words": [
+            "salle d’art",
+            "peinture",
+            "vue depuis la fenêtre",
+            "église",
+            "conseil",
+            "ombre",
+            "mélanger les couleurs",
+            "accrocher au mur",
+            "voter",
+            "de mémoire"
+          ]
+        },
+        {
+          "name": "Un contrôle difficile",
+          "text": "Lucas a un contrôle de maths important vendredi. Le jeudi soir, il n'arrive pas à dormir. Et si j'échoue ? demande-t-il. Léa lui apporte un verre d'eau et dit : Tu as travaillé toute la semaine. Crois en toi. Le matin, Pierre lui prépare un petit-déjeuner spécial. À l'école, la classe est silencieuse. Lucas lit chaque question deux fois et vérifie ses réponses. Le dernier problème est difficile, mais il se souvient d'un exercice similaire dans son cahier. Quand les résultats arrivent, Lucas voit une bonne note.",
+          "words": [
+            "contrôle important",
+            "échouer",
+            "verre d’eau",
+            "croire en soi",
+            "petit-déjeuner spécial",
+            "silencieux",
+            "vérifier les réponses",
+            "problème similaire",
+            "bonne note",
+            "travail acharné"
+          ]
+        },
+        {
+          "name": "La réunion parents-professeurs",
+          "text": "Le jeudi soir, Claire et Pierre vont à la réunion parents-professeurs. Madame Petit leur montre les dessins et les contrôles de Hugo. Il est bon en maths, dit-elle, mais il parle trop doucement en classe. À la maison, les parents parlent avec Hugo. Nous sommes fiers de toi, dit Claire. Mais essaie de parler plus fort, ajoute Pierre. Hugo promet de s'entraîner pendant le dîner. Le lendemain, il raconte à la classe l'histoire de sa chatte. Sa voix est encore un peu faible, mais tout le monde l'entend.",
+          "words": [
+            "réunion parents-professeurs",
+            "contrôle",
+            "être bon en maths",
+            "parler doucement",
+            "être fier de",
+            "parler plus fort",
+            "promettre",
+            "s’entraîner",
+            "étoile autocollante",
+            "devant les gens"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Les clubs après l’école",
+      "tasks": [
+        {
+          "name": "Choisir un club",
+          "text": "Le lundi, le couloir de l'école est couvert d'affiches colorées. Football, chorale, théâtre, science, échecs, photo ! Hugo lit chaque affiche deux fois. Il veut le football, mais le club de science promet des volcans et des fusées. Léa choisit le théâtre parce qu'elle aime les costumes. Lucas s'inscrit au club d'échecs et à celui de science. Un professeur explique : Vous pouvez essayer un club cette semaine et changer la semaine prochaine. Hugo écrit son nom sur deux listes.",
+          "words": [
+            "couloir de l’école",
+            "affiche colorée",
+            "chorale",
+            "club de théâtre",
+            "club de science",
+            "échecs",
+            "photographie",
+            "s’inscrire",
+            "essayer",
+            "discuter"
+          ]
+        },
+        {
+          "name": "Entraînement de football",
+          "text": "Après l'école, le club de football se retrouve sur le terrain. L'entraîneur Antoine donne un coup de sifflet. Aujourd'hui, l'équipe travaille les passes et les tirs. Hugo est le plus petit joueur, mais il est rapide. Il prend le ballon, dépasse deux garçons et marque ! L'entraîneur applaudit : Bien joué ! Pense à lever la tête avant de passer. Georges est un défenseur solide et Jules un gardien malin. À la fin, ils jouent un petit match. L'équipe rouge gagne d'un but. Tout le monde se serre la main.",
+          "words": [
+            "club de football",
+            "entraîneur",
+            "sifflet",
+            "travailler les passes",
+            "tirer",
+            "rapide",
+            "marquer",
+            "défenseur",
+            "gardien",
+            "travail d’équipe"
+          ]
+        },
+        {
+          "name": "La chorale de l’école",
+          "text": "La chorale de l'école se retrouve dans la salle de musique. Madame Petit joue du piano et vingt enfants sont debout sur deux rangs. Aujourd'hui, ils apprennent une chanson sur les quatre saisons. D'abord chantent les voix hautes, puis les voix basses. Hugo chante trop fort et fait rire Georges. La maîtresse s'arrête : Écoutez les autres. Une chorale est une seule voix faite de plusieurs. Ils recommencent, et cette fois la chanson est magnifique. Après la répétition, ils préparent le concert d'hiver.",
+          "words": [
+            "chorale de l’école",
+            "salle de musique",
+            "piano",
+            "chanson",
+            "voix haute",
+            "chanter trop fort",
+            "s’écouter",
+            "concert d’hiver",
+            "grande salle",
+            "répéter les paroles"
+          ]
+        },
+        {
+          "name": "Le club de théâtre",
+          "text": "Le club de théâtre prépare une courte pièce sur une princesse courageuse et un dragon malin. Léa joue la princesse et Georges le dragon. À la première répétition, tout va mal : la couronne tombe, le dragon oublie son texte et la porte du château ne s'ouvre pas. La professeure rit : C'est pour cela qu'on répète ! Ils recommencent encore et encore. Léa apprend à parler lentement et clairement. Georges rend sa voix de dragon plus grave. Le jour du spectacle, la salle est pleine.",
+          "words": [
+            "club de théâtre",
+            "pièce",
+            "princesse courageuse",
+            "dragon malin",
+            "répétition",
+            "couronne",
+            "oublier son texte",
+            "porte du château",
+            "public",
+            "coulisses"
+          ]
+        },
+        {
+          "name": "Le club de science",
+          "text": "Au club de science, les enfants construisent un petit volcan. Ils mélangent du bicarbonate, du vinaigre et du colorant rouge. Reculez ! dit le professeur. Le mélange pétille et une mousse rouge descend la montagne en papier. Tout le monde dit : Waouh ! Puis ils font une deuxième expérience avec un ballon et une bouteille en plastique. Le ballon gonfle tout seul. Lucas explique : Le gaz le pousse. Monsieur Carter, qui aide au club aujourd'hui, sourit : Tu expliques mieux que mes élèves !",
+          "words": [
+            "club de science",
+            "volcan",
+            "bicarbonate",
+            "vinaigre",
+            "colorant",
+            "pétiller",
+            "ballon",
+            "bouteille en plastique",
+            "gaz",
+            "indice"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La fête de l’école",
+      "tasks": [
+        {
+          "name": "Les grands préparatifs",
+          "text": "La fête de l'école a lieu vendredi. Toute la classe aide aux préparatifs. Certains enfants peignent une grande affiche, d'autres construisent des stands avec des cartons et des tables. L'équipe de Hugo fabrique un panneau : Jeux et prix. Léa dessine des ballons et des étoiles autour des lettres. Madame Petit apporte une boîte de vieux jouets pour la table des prix. Georges et Jules s'entraînent à un jeu de ballon, et Chloé range des livres pour le stand de livres. Chacun a une tâche.",
+          "words": [
+            "fête de l’école",
+            "préparatif",
+            "affiche",
+            "stand",
+            "panneau",
+            "prix",
+            "jeu de ballon",
+            "stand de livres",
+            "directrice",
+            "travail d’équipe"
+          ]
+        },
+        {
+          "name": "Gâteaux et livres",
+          "text": "La fête commence à dix heures. La salle est pleine de parents, d'enfants et de musique. Au stand de gâteaux, la tarte aux pommes de grand-mère Marie disparaît en dix minutes. Hugo travaille au stand de jeux : trois balles pour une pièce. Georges gagne un petit chien en peluche et l'offre à Émilie. Au stand de livres, Léa vend de vieilles histoires pour très peu d'argent. Un garçon achète un livre sur les dragons et le lit aussitôt par terre. Monsieur Carter essaie trois fois de gagner un prix et échoue.",
+          "words": [
+            "stand de gâteaux",
+            "tarte aux pommes",
+            "disparaître",
+            "stand de jeux",
+            "gagner un prix",
+            "chien en peluche",
+            "stand de livres",
+            "vieilles histoires",
+            "caisse",
+            "presque vide"
+          ]
+        },
+        {
+          "name": "Le spectacle de talents",
+          "text": "À deux heures, le spectacle de talents commence. La directrice accueille tout le monde, et la salle devient silencieuse. D'abord, la chorale chante la chanson des saisons. Puis Chloé danse et Jules fait des tours de magie avec des cartes. Léa et Georges jouent une courte scène de leur pièce sur le dragon. Hugo est nerveux avant son tour. Il va raconter une histoire drôle sur Rex. Sa voix tremble d'abord, mais le public rit au bon moment. Quand il termine, les gens applaudissent fort.",
+          "words": [
+            "spectacle de talents",
+            "accueillir",
+            "devenir silencieux",
+            "danser",
+            "tours de magie",
+            "jouer une scène",
+            "nerveux",
+            "la voix tremble",
+            "applaudir fort",
+            "pouce levé"
+          ]
+        },
+        {
+          "name": "Un visiteur surprise",
+          "text": "Au milieu de la fête, un homme grand avec une barbe rousse entre dans la salle. C'est monsieur Carter ! Il apporte une caisse de livres anglais pour le stand de livres. Les enfants crient de joie. Monsieur Carter accepte aussi d'être juré du concours de dessin. Il regarde chaque dessin attentivement et pose des questions aux artistes. Le gagnant est un dessin de la cour de l'école un jour de pluie. L'artiste est Émilie ! Elle se cache derrière sa mère, mais tout le monde applaudit.",
+          "words": [
+            "visiteur surprise",
+            "barbe rousse",
+            "livres anglais",
+            "crier de joie",
+            "être juré",
+            "concours de dessin",
+            "attentivement",
+            "gagnant",
+            "se cacher",
+            "partager"
+          ]
+        },
+        {
+          "name": "Après la fête",
+          "text": "À six heures, la fête est terminée. La salle ressemble à un champ de bataille de papier, de cartons et de miettes. Toute la classe reste pour ranger. Hugo ramasse les ballons, Léa empile les livres et Georges porte les cartons vides au recyclage. Madame Petit apporte du thé et des biscuits pour tout le monde. La caisse contient assez d'argent pour le refuge animalier. Les enfants crient de joie en entendant la somme. Avant de partir, ils s'assoient sur scène et regardent la salle vide. C'était une bonne journée.",
+          "words": [
+            "la fête est finie",
+            "champ de bataille",
+            "miettes",
+            "ranger",
+            "empiler les livres",
+            "bac de recyclage",
+            "biscuit",
+            "refuge animalier",
+            "somme",
+            "éteindre les lumières"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Travel and Languages",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "Un voyage à Londres",
+      "tasks": [
+        {
+          "name": "L’invitation",
+          "text": "Monsieur Carter a un congrès de professeurs à Londres le mois prochain. Il demande aux parents de Hugo : Est-ce que Hugo pourrait venir avec nous une semaine ? Georges serait ravi de lui montrer la ville. Hugo n'en croit pas ses oreilles. Un vrai voyage en Angleterre ! Maman regarde papa, et papa sourit. Ils disent oui, à une condition : Hugo doit appeler la maison chaque soir. Au dîner, la famille étudie une carte de Londres. Lucas montre les musées, Léa trouve un grand parc et Hugo pose son doigt sur la Tamise.",
+          "words": [
+            "congrès de professeurs",
+            "le mois prochain",
+            "montrer la ville",
+            "en croire ses oreilles",
+            "vrai voyage",
+            "une condition",
+            "appeler la maison chaque soir",
+            "carte de Londres",
+            "Tamise",
+            "imagination"
+          ]
+        },
+        {
+          "name": "Préparer la valise",
+          "text": "Le dimanche, Hugo prépare sa valise. Maman lui donne une liste : passeport, billet, vêtements, brosse à dents et un petit cadeau pour les Carter. Il roule trois T-shirts, deux pantalons et un pull chaud. La valise semble pleine au bout de dix minutes. Est-ce que j'ai besoin de mes chaussures de football ?, demande Hugo. Georges dit oui, parce qu'il y a un parc près de chez eux. Maman ajoute un imperméable et une casquette. Papa glisse une petite photo de la famille dans la poche avant. La nuit, Hugo n'arrive pas à dormir.",
+          "words": [
+            "préparer la valise",
+            "liste",
+            "passeport",
+            "billet",
+            "brosse à dents",
+            "petit cadeau",
+            "rouler les vêtements",
+            "chaussures de football",
+            "poche avant",
+            "vérifier trois fois"
+          ]
+        },
+        {
+          "name": "À l’aéroport",
+          "text": "L'aéroport est plus grand que toute la ville, pense Hugo. Les gens se pressent avec des valises, et les écrans montrent des villes lointaines. Monsieur Carter les emmène au comptoir d'enregistrement. La femme pèse les sacs et leur donne les cartes d'embarquement. Puis vient le contrôle de sécurité : ceintures enlevées, téléphones dans une boîte, sacs dans une machine. Hugo est nerveux, mais l'agent sourit et dit : Tout est bon. À la porte d'embarquement, ils attendent avec du thé et des sandwichs.",
+          "words": [
+            "aéroport",
+            "comptoir d’enregistrement",
+            "peser les sacs",
+            "carte d’embarquement",
+            "sécurité",
+            "téléphone dans une boîte",
+            "tout est bon",
+            "porte d’embarquement",
+            "moteurs",
+            "embarquement"
+          ]
+        },
+        {
+          "name": "Prêts au décollage",
+          "text": "Hugo a la place près de la fenêtre. Il regarde les employés de l'aéroport agiter leurs bâtons orange. L'avion avance lentement, puis de plus en plus vite. Soudain, le sol disparaît, et son estomac se serre. Ils volent ! En bas, les maisons ressemblent à des jouets et la rivière à un ruban d'argent. Georges montre un nuage qui ressemble à un dragon. Madame Carter lit un livre, et monsieur Carter dort la bouche ouverte. Une hôtesse apporte du jus et un petit sachet de noix. Hugo appelle maman depuis l'avion.",
+          "words": [
+            "place près de la fenêtre",
+            "employés de l’aéroport",
+            "bâtons orange",
+            "le sol disparaît",
+            "voler",
+            "maisons comme des jouets",
+            "ruban d’argent",
+            "hôtesse",
+            "sachet de noix",
+            "merveilleuse semaine"
+          ]
+        },
+        {
+          "name": "Bienvenue à Londres",
+          "text": "Quand ils atterrissent, le ciel est gris et une pluie douce tombe. Bienvenue à Londres ! dit monsieur Carter. Ils passent le contrôle des passeports et récupèrent les valises. Dehors, des taxis noirs et des bus rouges avancent dans la circulation. Hugo entend de l'anglais partout et se sent un peu timide. Le chauffeur de taxi demande : C'est votre première fois à Londres ? Oui ! répond Hugo avec fierté. Ils passent devant de vieilles maisons, de petits jardins et un immense parc.",
+          "words": [
+            "atterrir",
+            "pluie douce",
+            "contrôle des passeports",
+            "récupérer les valises",
+            "taxi noir",
+            "bus rouge",
+            "première fois à Londres",
+            "rue calme",
+            "porte bleue",
+            "ta chambre pour la semaine"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Histoires de Londres",
+      "tasks": [
+        {
+          "name": "Un bus rouge à impériale",
+          "text": "Le premier matin, Georges emmène Hugo dans un bus rouge à impériale. Ils montent les escaliers et s'assoient tout devant à l'étage. D'ici, la ville ressemble à un film. Ils passent Trafalgar Square, où les pigeons se posent sur les lions, et Big Ben, qui brille dans la lumière grise. Hugo prend des photos pour sa famille. Une femme assise à côté l'entend parler et demande : Tu viens de Russie ? Oui, de Saint-Pétersbourg. Elle sourit : J'ai toujours voulu y aller. Ils parlent jusqu'à son arrêt.",
+          "words": [
+            "bus à impériale",
+            "étage supérieur",
+            "place à l’avant",
+            "passer une place",
+            "pigeon",
+            "lion",
+            "lumière grise",
+            "prendre des photos",
+            "parler",
+            "meilleure façon de voir la ville"
+          ]
+        },
+        {
+          "name": "Le musée des dinosaures",
+          "text": "Le Musée d'histoire naturelle ressemble à un palais. À l'intérieur, un squelette géant de dinosaure se dresse dans la grande salle. Hugo en fait le tour, bouche bée. Les os sont plus hauts qu'une maison ! Georges lit le panneau : Ce dinosaure mangeait des plantes et a vécu il y a soixante-dix millions d'années. Dans la salle suivante, ils voient une maquette de baleine bleue suspendue au plafond. Émilie adorerait ça, dit Hugo. Il filme une courte vidéo pour elle.",
+          "words": [
+            "musée d’histoire naturelle",
+            "palais",
+            "squelette de dinosaure",
+            "grande salle",
+            "os plus hauts qu’une maison",
+            "il y a soixante-dix millions d’années",
+            "baleine bleue",
+            "filmer une courte vidéo",
+            "salle des tremblements de terre",
+            "plus amusant que prévu"
+          ]
+        },
+        {
+          "name": "Le thé à quatre heures",
+          "text": "La mère de monsieur Carter les invite à prendre le thé. Sa maison est petite, avec un jardin plein de roses. La table est déjà mise : sandwichs, scones, confiture et une grande théière. Hugo ne sait pas ce qu'est un scone. Goûte-le avec du beurre et de la confiture, dit la grand-mère. C'est chaud et délicieux. Tout le monde parle lentement et pose des questions à Hugo sur la Russie. Il raconte la neige, les pelmenis et son chien. La grand-mère dit : Tu parles très bien anglais. Hugo est fier.",
+          "words": [
+            "inviter à prendre le thé",
+            "jardin plein de roses",
+            "table mise",
+            "scone",
+            "confiture",
+            "grande théière",
+            "chaud et délicieux",
+            "parler lentement",
+            "vraie tradition",
+            "boîte de scones"
+          ]
+        },
+        {
+          "name": "La Tamise",
+          "text": "L'après-midi, ils prennent un bateau sur la Tamise. Le vent est froid, mais le soleil apparaît entre les nuages. Ils passent sous Tower Bridge, et tout le monde lève les yeux. Le pont s'ouvre lentement pour laisser passer un grand navire. Hugo n'a jamais vu ça. Un guide raconte des histoires sur le fleuve : vieux navires, incendies et écrivains célèbres. Georges et Hugo sont à l'avant et laissent le vent leur décoiffer les cheveux. Madame Carter les photographie. Regarde, dit Georges en montrant l'eau.",
+          "words": [
+            "prendre un bateau",
+            "Tamise",
+            "Tower Bridge",
+            "lever les yeux",
+            "le pont s’ouvre",
+            "grand navire",
+            "guide",
+            "le vent les décoiffe",
+            "petit phoque",
+            "plein de surprises"
+          ]
+        },
+        {
+          "name": "Une carte postale à la maison",
+          "text": "Le dernier soir, Hugo écrit des cartes postales à sa famille. Une pour maman et papa, une pour Lucas, une pour Léa et une drôle pour Émilie. Il choisit des images de bus rouges, la rivière et un garde avec un grand chapeau. Écrire en anglais est facile maintenant, mais il veut aussi écrire en russe. Chère maman, je vais bien. Londres est gris et beau. J'ai vu un phoque et mangé un scone. Georges te salue. À dimanche. Il achète des timbres dans la petite boutique et met les cartes dans une boîte rouge.",
+          "words": [
+            "écrire des cartes postales",
+            "carte drôle",
+            "garde avec un grand chapeau",
+            "écrire en anglais",
+            "chère maman",
+            "dire bonjour",
+            "acheter des timbres",
+            "boîte aux lettres rouge",
+            "plus vieille que grand-père",
+            "arriver à bon port"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "De nouveaux mots, de nouveaux amis",
+      "tasks": [
+        {
+          "name": "Une leçon d’anglais",
+          "text": "Le mardi matin, monsieur Carter donne à Hugo une courte leçon. Ils s'assoient dans la cuisine avec du thé et un cahier. Le sujet du jour : les phrases polies. Pourriez-vous m'aider ? Voulez-vous du thé ? Je suis désolé, je ne comprends pas. Hugo répète chaque phrase et l'écrit. Puis ils jouent un dialogue à la boutique. Monsieur Carter est le vendeur, et Hugo achète une carte postale et un plan. Il se trompe sur le prix et rit. Monsieur Carter dit : Une erreur n'est pas une catastrophe. C'est une leçon.",
+          "words": [
+            "courte leçon",
+            "sujet",
+            "phrase polie",
+            "pourriez-vous m’aider",
+            "voulez-vous du thé",
+            "je ne comprends pas",
+            "écrire",
+            "dialogue",
+            "erreur",
+            "sans peur"
+          ]
+        },
+        {
+          "name": "Le chien du voisin",
+          "text": "Dans le jardin voisin vit un petit chien brun nommé Patch. Il aboie après Hugo à travers la clôture. Georges dit : Il est gentil, juste curieux. Ils vont rencontrer le voisin, un garçon nommé Charlie. Charlie a onze ans et adore le football. Patch court autour d'eux et apporte un ballon. Les garçons jouent dans le jardin jusqu'à ce que le ballon passe par-dessus la clôture dans la rue. Hugo grimpe pour le récupérer et rencontre un facteur qui rit : Tu es courageux ! Quand Hugo revient, Patch l'attend avec un bâton.",
+          "words": [
+            "chien du voisin",
+            "chien brun",
+            "à travers la clôture",
+            "gentil et curieux",
+            "voisin",
+            "onze ans",
+            "apporter un ballon",
+            "passer par-dessus la clôture",
+            "facteur",
+            "lancer un bâton"
+          ]
+        },
+        {
+          "name": "Jour de marché",
+          "text": "Le mercredi, ils visitent un marché de rue. Les stands sont pleins de fruits, de vieux livres, de vêtements et de souvenirs étranges. Georges achète un petit bus rouge pour sa collection. Hugo veut un cadeau pour Léa, alors il regarde les dessins. Il trouve un tableau d'une chatte qui ressemble à Minette. Combien ça coûte ?, demande-t-il. Le vendeur dit : Quinze livres. Hugo trouve que c'est trop et demande poliment : Pourriez-vous le faire à douze ? Le vendeur sourit : Pour toi, treize. Ils se serrent la main.",
+          "words": [
+            "marché de rue",
+            "stand",
+            "vieux livres",
+            "souvenir",
+            "collection",
+            "combien ça coûte",
+            "trop cher",
+            "le faire à douze",
+            "se serrer la main",
+            "vrai voyageur"
+          ]
+        },
+        {
+          "name": "Un malentendu",
+          "text": "À midi, Hugo veut commander du fish and chips. Il demande au serveur : Avez-vous du fish and ships ? Le serveur a l'air perplexe. Des navires ? Georges commence à rire. Non, non, chips ! dit Hugo en rougissant. Le serveur sourit gentiment : Fish and chips, bien sûr. Quand le plat arrive, il est chaud et croustillant. Hugo se sent bête, mais Georges dit : Ma mère a demandé un jour un poulet avec un chapeau au lieu d'un poulet avec du riz. Ils rient si fort que les gens à la table voisine se retournent.",
+          "words": [
+            "commander à manger",
+            "fish and chips",
+            "serveur",
+            "perplexe",
+            "rougir",
+            "chaud et croustillant",
+            "se sentir bête",
+            "au lieu de",
+            "rire de soi",
+            "rendre tout plus facile"
+          ]
+        },
+        {
+          "name": "L’amitié sans mots",
+          "text": "Le vendredi après-midi, Charlie invite les garçons à jouer au football dans le parc. Un groupe d'enfants du quartier attend déjà. Hugo est nerveux : Et si je ne les comprends pas ? Georges dit : Regarde juste le ballon. Le match commence, et les mots deviennent moins importants. Hugo passe, court et marque un but. Une fille crie : Beau tir ! Ça, il comprend. Après le match, tout le monde s'assoit sur l'herbe et boit de l'eau. Charlie apprend à Hugo un nouveau mot : mate. En Angleterre, un ami est souvent un mate.",
+          "words": [
+            "enfants du quartier",
+            "regarder le ballon",
+            "moins important",
+            "passer",
+            "marquer un but",
+            "beau tir",
+            "après le match",
+            "ami",
+            "merci, l’ami",
+            "langue que tout le monde connaît"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Le retour à la maison",
+      "tasks": [
+        {
+          "name": "Le dernier petit-déjeuner",
+          "text": "Le dimanche matin, la maison sent le pain grillé et le café. Il est temps de rentrer. Madame Carter prépare un petit-déjeuner spécial, et Émilie dessine un adieu pour Hugo. Le dessin montre un bus rouge, un dinosaure et deux garçons avec un ballon. Georges offre à Hugo un petit badge avec le drapeau de Londres. Hugo leur donne une boîte de bonbons russes et un aimant de Saint-Pétersbourg. Merci pour tout, dit-il. Monsieur Carter sourit : Tu as été un invité merveilleux. Le taxi attend dehors.",
+          "words": [
+            "dernier petit-déjeuner",
+            "odeur de pain grillé et de café",
+            "il est temps de rentrer",
+            "dessin d’adieu",
+            "bus rouge",
+            "badge avec le drapeau de Londres",
+            "boîte de bonbons russes",
+            "aimant",
+            "invité merveilleux",
+            "les souvenirs resteront"
+          ]
+        },
+        {
+          "name": "Le vol du retour",
+          "text": "L'avion s'élève au-dessus de Londres, et la ville devient une carte grise avec une rivière d'argent. Hugo regarde par la fenêtre jusqu'à ce que les nuages cachent tout. Il est triste et heureux à la fois. Georges dort déjà, et monsieur Carter lit un journal. Madame Carter demande : Quel a été le meilleur moment de la semaine ? Hugo réfléchit. Le phoque ? Le dinosaure ? Le football ? Peut-être le thé chez la grand-mère de Georges. Mais aussi le retour à la maison. Il répond : Tout.",
+          "words": [
+            "s’élever au-dessus de la ville",
+            "carte grise",
+            "rivière d’argent",
+            "tout cacher",
+            "triste et heureux",
+            "journal",
+            "meilleur moment de la semaine",
+            "tout",
+            "atterrir",
+            "vert et familier"
+          ]
+        },
+        {
+          "name": "Une surprise à l’aéroport",
+          "text": "Quand Hugo passe la porte des arrivées, il voit un groupe familier. Maman, papa, Lucas et Léa attendent avec une grande pancarte : Bienvenue à la maison, Hugo ! Il court vers eux et les embrasse tous à la fois. Maman dit : Tu nous as manqué ! Papa prend sa valise, et Léa pose mille questions. Léa tient un bouquet de ballons. Hugo donne à maman la carte postale qu'il a écrite pour Émilie dans l'avion. Monsieur Carter serre la main de papa et dit : C'était un grand voyageur.",
+          "words": [
+            "porte des arrivées",
+            "groupe familier",
+            "bienvenue à la maison",
+            "embrasser tout le monde",
+            "manquer à quelqu’un",
+            "mille questions",
+            "bouquet de ballons",
+            "serrer la main",
+            "grand voyageur",
+            "avec des yeux nouveaux"
+          ]
+        },
+        {
+          "name": "Présentation en classe",
+          "text": "Le lundi, Hugo apporte ses photos à l'école. Madame Petit dit : Aujourd'hui, Hugo va nous raconter son voyage. Il se tient devant la classe et se sent de nouveau nerveux. Puis il voit Georges sourire et commence. Il montre le bus rouge, le dinosaure, la rivière et le phoque. Il raconte le thé à quatre heures et le mot mate. La classe pose beaucoup de questions : Est-ce que voler fait peur ? Tu as mangé du fish and chips ? Il répond à tout. Madame Petit dit : Tu as parlé clairement et courageusement. Hugo se sent fier.",
+          "words": [
+            "apporter des photos",
+            "raconter le voyage",
+            "devant la classe",
+            "nerveux de nouveau",
+            "parler clairement",
+            "courageusement",
+            "poser beaucoup de questions",
+            "répondre à tout",
+            "badge de Georges",
+            "histoire à partager"
+          ]
+        },
+        {
+          "name": "Le prochain voyage",
+          "text": "Le soir, Hugo s'allonge sur son lit et regarde la carte au-dessus de son bureau. Londres est maintenant un petit point, mais il est plein de souvenirs. Il pense à tous les endroits qu'il veut voir : la mer, les montagnes et peut-être l'Australie. Léa entre et demande : Tu y retournerais ? Bien sûr ! dit-il. Mais la prochaine fois, je veux que toute la famille vienne. Léa sourit : Alors il faudra économiser. Ils font un plan : un bocal pour les pièces, une liste de lieux et une promesse de pratiquer l'anglais chaque jour.",
+          "words": [
+            "carte au-dessus du bureau",
+            "petit point",
+            "plein de souvenirs",
+            "endroits à voir",
+            "la mer et les montagnes",
+            "y retourner",
+            "économiser",
+            "bocal pour les pièces",
+            "liste de lieux",
+            "première pièce"
+          ]
+        }
+      ]
+    }
+  ]
+}

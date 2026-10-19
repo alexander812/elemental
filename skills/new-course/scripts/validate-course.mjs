@@ -18,6 +18,21 @@ const target = process.argv[2]
 
 const read = (file) => JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'))
 
+const catalogFiles = () =>
+  fs
+    .readdirSync(dir)
+    .filter((file) => /^courses_.*\.json$/.test(file))
+    .sort()
+
+const readCatalogs = () =>
+  catalogFiles().map((file) => {
+    try {
+      return { file, data: read(file) }
+    } catch (err) {
+      return { file, error: err.message }
+    }
+  })
+
 function validateBase(base) {
   const errors = []
   const warnings = []
@@ -124,27 +139,42 @@ function validateBase(base) {
 }
 
 function catalogEntry(base) {
-  let catalog
-  try {
-    catalog = read('courses_beginner.json')
-  } catch (err) {
-    return { error: `courses_beginner.json не читается: ${err.message}` }
+  const catalogs = readCatalogs()
+  const errors = []
+  let found = false
+
+  for (const catalog of catalogs) {
+    if (catalog.error) {
+      errors.push(`${catalog.file} не читается: ${catalog.error}`)
+      continue
+    }
+
+    const entry = catalog.data.courses?.find(
+      (item) =>
+        item.files && Object.values(item.files).some((file) => file.startsWith(`${base}.`))
+    )
+
+    if (!entry) continue
+
+    found = true
+
+    for (const lang of LANGS) {
+      if (entry.files?.[lang] !== `${base}.${lang}.json`) {
+        errors.push(
+          `${catalog.file}: files.${lang} — «${entry.files?.[lang] ?? 'нет'}»`
+        )
+      }
+      if (!entry.i18n?.course?.[lang]) {
+        errors.push(`${catalog.file}: нет i18n.course.${lang}`)
+      }
+      if (!entry.i18n?.description?.[lang]) {
+        errors.push(`${catalog.file}: нет i18n.description.${lang}`)
+      }
+    }
   }
 
-  const entry = catalog.courses?.find(
-    (item) =>
-      item.files && Object.values(item.files).some((file) => file.startsWith(`${base}.`))
-  )
-
-  if (!entry) return { error: `courses_beginner.json: курс «${base}» не зарегистрирован` }
-
-  const errors = []
-  for (const lang of LANGS) {
-    if (entry.files?.[lang] !== `${base}.${lang}.json`) {
-      errors.push(`Каталог: files.${lang} — «${entry.files?.[lang] ?? 'нет'}»`)
-    }
-    if (!entry.i18n?.course?.[lang]) errors.push(`Каталог: нет i18n.course.${lang}`)
-    if (!entry.i18n?.description?.[lang]) errors.push(`Каталог: нет i18n.description.${lang}`)
+  if (!found && errors.length === 0) {
+    return { error: `${base}: курс не зарегистрирован ни в одном каталоге` }
   }
 
   return { errors }
@@ -172,18 +202,24 @@ function report(base, { checkCatalog }) {
 }
 
 if (target === '--all') {
-  let catalog
-  try {
-    catalog = read('courses_beginner.json')
-  } catch (err) {
-    console.error(`✕ courses_beginner.json не читается: ${err.message}`)
-    process.exit(1)
+  const bases = new Set()
+  const catalogErrors = []
+
+  for (const catalog of readCatalogs()) {
+    if (catalog.error) {
+      catalogErrors.push(`${catalog.file} не читается: ${catalog.error}`)
+      continue
+    }
+
+    for (const entry of catalog.data.courses ?? []) {
+      const file = entry.files?.en ?? Object.values(entry.files ?? {})[0]
+      if (typeof file === 'string') bases.add(file.replace(/\.[a-z-]+\.json$/, ''))
+    }
   }
 
-  const bases = new Set()
-  for (const entry of catalog.courses ?? []) {
-    const file = entry.files?.en ?? Object.values(entry.files ?? {})[0]
-    if (typeof file === 'string') bases.add(file.replace(/\.[a-z-]+\.json$/, ''))
+  if (catalogErrors.length) {
+    for (const error of catalogErrors) console.error('✕', error)
+    process.exit(1)
   }
 
   const results = [...bases].map((base) => report(base, { checkCatalog: false }))

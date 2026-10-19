@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Travel and Languages",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "Un viaje a Londres",
+      "tasks": [
+        {
+          "name": "La invitación",
+          "text": "El señor Carter tiene un congreso de profesores en Londres el próximo mes. Pregunta a los padres de Pablito: ¿Puede Pablito venir con nosotros una semana? A Jorge le encantará mostrarle la ciudad. Pablito no puede creerlo. ¡Un viaje de verdad a Inglaterra! Carmen mira a Carlos y Carlos sonríe. Dicen que sí, con una condición: Pablito debe llamar a casa cada noche. En la cena la familia estudia un mapa de Londres. Javi enseña los museos, Luci encuentra un parque grande y Pablito pone el dedo en el río Támesis.",
+          "words": [
+            "congreso de profesores",
+            "el próximo mes",
+            "mostrar la ciudad",
+            "creer tus oídos",
+            "viaje de verdad",
+            "una condición",
+            "llamar a casa cada noche",
+            "mapa de Londres",
+            "río Támesis",
+            "imaginación"
+          ]
+        },
+        {
+          "name": "Preparar la maleta",
+          "text": "El domingo Pablito prepara su maleta. Mamá le da una lista: pasaporte, billete, ropa, cepillo de dientes y un pequeño regalo para los Carter. Enrolla tres camisetas, dos pantalones y un jersey caliente. La maleta parece llena después de diez minutos. ¿Necesito las botas de fútbol?, pregunta Pablito. Jorge dice que sí, porque hay un parque cerca de su casa. Mamá añade un impermeable y una gorra. Papá pone una pequeña foto de la familia en el bolsillo delantero. Por la noche Pablito no puede dormir.",
+          "words": [
+            "preparar la maleta",
+            "lista",
+            "pasaporte",
+            "billete",
+            "cepillo de dientes",
+            "pequeño regalo",
+            "enrollar la ropa",
+            "botas de fútbol",
+            "bolsillo delantero",
+            "comprobar tres veces"
+          ]
+        },
+        {
+          "name": "En el aeropuerto",
+          "text": "El aeropuerto es más grande que todo el pueblo, piensa Pablito. La gente corre con maletas y las pantallas muestran ciudades lejanas. El señor Carter los lleva al mostrador de facturación. La mujer pesa las bolsas y les da las tarjetas de embarque. Luego viene la seguridad: quitarse el cinturón, móviles en una caja, bolsas por una máquina. Pablito está nervioso, pero el agente sonríe y dice: Todo bien. En la puerta de embarque esperan con té y bocadillos. Un avión blanco enorme está fuera de la ventana.",
+          "words": [
+            "aeropuerto",
+            "mostrador de facturación",
+            "pesar las bolsas",
+            "tarjeta de embarque",
+            "seguridad",
+            "móvil en una caja",
+            "todo bien",
+            "puerta de embarque",
+            "motores",
+            "embarque"
+          ]
+        },
+        {
+          "name": "Listos para despegar",
+          "text": "Pablito tiene el asiento de la ventana. Mira a los trabajadores del aeropuerto agitar sus palos naranjas. El avión avanza despacio, luego cada vez más rápido. De repente la tierra desaparece y siente algo raro en el estómago. ¡Están volando! Abajo, las casas parecen juguetes y el río una cinta de plata. Jorge señala una nube que parece un dragón. La señora Carter lee un libro y el señor Carter duerme con la boca abierta. Una azafata trae zumo y una bolsita de frutos secos. Pablito llama a mamá desde el avión.",
+          "words": [
+            "asiento de ventana",
+            "trabajadores del aeropuerto",
+            "palos naranjas",
+            "la tierra desaparece",
+            "volar",
+            "casas como juguetes",
+            "cinta de plata",
+            "azafata",
+            "bolsita de frutos secos",
+            "semana maravillosa"
+          ]
+        },
+        {
+          "name": "Bienvenidos a Londres",
+          "text": "Cuando aterrizan, el cielo está gris y cae una lluvia suave. ¡Bienvenidos a Londres!, dice el señor Carter. Pasan el control de pasaportes y recogen las maletas. Fuera, taxis negros y autobuses rojos avanzan en el tráfico. Pablito oye inglés por todas partes y se siente un poco tímido. El taxista pregunta: ¿Primera vez en Londres? ¡Sí!, responde Pablito con orgullo. Pasan junto a casas antiguas, jardines pequeños y un parque enorme. La familia Carter vive en una calle tranquila con casas blancas y puertas azules.",
+          "words": [
+            "aterrizar",
+            "lluvia suave",
+            "control de pasaportes",
+            "recoger maletas",
+            "taxi negro",
+            "autobús rojo",
+            "primera vez en Londres",
+            "calle tranquila",
+            "puerta azul",
+            "tu habitación por una semana"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Historias de Londres",
+      "tasks": [
+        {
+          "name": "Un autobús rojo de dos pisos",
+          "text": "La primera mañana Jorge lleva a Pablito en un autobús rojo de dos pisos. Suben las escaleras y se sientan al frente de la planta superior. Desde aquí la ciudad parece una película. Pasan por Trafalgar Square, donde las palomas se posan en los leones, y por Big Ben, que brilla con luz gris. Pablito hace fotos para su familia. Una mujer sentada al lado lo oye hablar y pregunta: ¿Eres de Rusia? Sí, de San Petersburgo. Ella sonríe: Siempre he querido visitarla. Hablan hasta su parada.",
+          "words": [
+            "autobús de dos pisos",
+            "planta superior",
+            "asiento delantero",
+            "pasar por una plaza",
+            "paloma",
+            "león",
+            "luz gris",
+            "hacer fotos",
+            "hablar",
+            "mejor forma de ver la ciudad"
+          ]
+        },
+        {
+          "name": "El museo de los dinosaurios",
+          "text": "El Museo de Historia Natural parece un palacio. Dentro, un esqueleto gigante de dinosaurio está en la sala principal. Pablito lo rodea con la boca abierta. ¡Los huesos son más altos que una casa! Jorge lee el cartel: Este dinosaurio comía plantas y vivió hace setenta millones de años. En la sala siguiente ven una maqueta de una ballena azul colgada del techo. A Emilia le encantaría, dice Pablito. Graba un vídeo corto para ella. Luego visitan la sala de los terremotos, donde el suelo tiembla bajo sus pies.",
+          "words": [
+            "museo de historia natural",
+            "palacio",
+            "esqueleto de dinosaurio",
+            "sala principal",
+            "huesos más altos que una casa",
+            "hace setenta millones de años",
+            "ballena azul",
+            "grabar un vídeo corto",
+            "sala de terremotos",
+            "más divertido de lo esperado"
+          ]
+        },
+        {
+          "name": "Té a las cuatro",
+          "text": "La madre del señor Carter los invita a tomar el té. Su casa es pequeña, con un jardín lleno de rosas. La mesa ya está puesta: bocadillos, scones, mermelada y una tetera grande. Pablito no sabe qué es un scone. Pruébalo con mantequilla y mermelada, dice la abuela. Está caliente y delicioso. Todos hablan despacio y preguntan a Pablito por Rusia. Él les cuenta lo de la nieve, los pelmeni y su perro. La abuela dice: Hablas muy bien inglés. Pablito se siente orgulloso. El té a las cuatro es una verdadera tradición.",
+          "words": [
+            "invitar a tomar el té",
+            "jardín lleno de rosas",
+            "mesa puesta",
+            "scone",
+            "mermelada",
+            "tetera grande",
+            "caliente y delicioso",
+            "hablar despacio",
+            "verdadera tradición",
+            "caja de scones"
+          ]
+        },
+        {
+          "name": "El Támesis",
+          "text": "Por la tarde toman un barco por el río Támesis. El viento es frío, pero el sol aparece entre las nubes. Pasan bajo Tower Bridge y todos miran hacia arriba. El puente se abre despacio para dejar pasar un barco alto. Pablito nunca ha visto nada igual. Un guía cuenta historias del río: barcos viejos, incendios y escritores famosos. Jorge y Pablito están en la proa y dejan que el viento les despeine. La señora Carter les hace una foto. Mira, dice Jorge, señalando el agua.",
+          "words": [
+            "tomar un barco",
+            "río Támesis",
+            "Tower Bridge",
+            "mirar hacia arriba",
+            "el puente se abre",
+            "barco alto",
+            "guía",
+            "el viento les despeina",
+            "pequeña foca",
+            "lleno de sorpresas"
+          ]
+        },
+        {
+          "name": "Una postal a casa",
+          "text": "La última tarde Pablito escribe postales a su familia. Una para Carmen y Carlos, una para Javi, una para Luci y otra divertida para Emilia. Elige imágenes de autobuses rojos, el río y un guardia con un sombrero alto. Escribir en inglés ahora es fácil, pero también quiere escribir en ruso. Querida mamá, estoy bien. Londres es gris y hermoso. Vi una foca y comí un scone. Jorge manda saludos. Nos vemos el domingo. Compra sellos en la tienda pequeña y mete las postales en un buzón rojo. El buzón es más viejo que el abuelo.",
+          "words": [
+            "escribir postales",
+            "postal divertida",
+            "guardia con sombrero alto",
+            "escribir en inglés",
+            "querida mamá",
+            "mandar saludos",
+            "comprar sellos",
+            "buzón rojo",
+            "más viejo que el abuelo",
+            "llegar bien"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Palabras nuevas, amigos nuevos",
+      "tasks": [
+        {
+          "name": "Una clase de inglés",
+          "text": "El martes por la mañana el señor Carter le da a Pablito una clase corta. Se sientan en la cocina con té y un cuaderno. El tema de hoy: frases corteses. ¿Podría ayudarme? ¿Quiere té? Lo siento, no entiendo. Pablito repite cada frase y la apunta. Luego practican un diálogo en la tienda. El señor Carter es el vendedor y Pablito compra una postal y un mapa. Se equivoca con el precio y se ríe. El señor Carter dice: Un error no es un desastre. Es una lección. Al final Pablito puede pedir ayuda sin miedo.",
+          "words": [
+            "clase corta",
+            "tema",
+            "frase cortés",
+            "¿podría ayudarme?",
+            "¿quiere té?",
+            "no entiendo",
+            "apuntar",
+            "diálogo",
+            "error",
+            "sin miedo"
+          ]
+        },
+        {
+          "name": "El perro del vecino",
+          "text": "En el jardín de al lado vive un perro pequeño y marrón llamado Patch. Ladra a Pablito a través de la valla. Jorge dice: Es amable, solo curioso. Van a conocer al vecino, un chico llamado Charlie. Charlie tiene once años y le encanta el fútbol. Patch corre a su alrededor y trae una pelota. Los chicos juegan en el jardín hasta que la pelota vuela por encima de la valla a la calle. Pablito salta para recuperarla y se encuentra con un cartero que se ríe: ¡Eres valiente! Cuando Pablito vuelve, Patch lo espera con un palo.",
+          "words": [
+            "perro del vecino",
+            "perro marrón",
+            "a través de la valla",
+            "amable y curioso",
+            "vecino",
+            "once años",
+            "traer una pelota",
+            "volar sobre la valla",
+            "cartero",
+            "lanzar un palo"
+          ]
+        },
+        {
+          "name": "Día de mercado",
+          "text": "El miércoles visitan un mercado callejero. Los puestos están llenos de fruta, libros viejos, ropa y recuerdos extraños. Jorge compra un autobús rojo pequeño para su colección. Pablito quiere un regalo para Luci, así que mira los dibujos. Encuentra un cuadro de una gata que parece Luna. ¿Cuánto cuesta?, pregunta. El vendedor dice: Quince libras. Pablito cree que es demasiado y pregunta con educación: ¿Podría dejarlo en doce? El vendedor sonríe: Para ti, trece. Se dan la mano. Pablito se siente un verdadero viajero.",
+          "words": [
+            "mercado callejero",
+            "puesto",
+            "libros viejos",
+            "recuerdo",
+            "colección",
+            "¿cuánto cuesta?",
+            "demasiado",
+            "dejarlo en doce",
+            "darse la mano",
+            "verdadero viajero"
+          ]
+        },
+        {
+          "name": "Un malentendido",
+          "text": "En la comida Pablito quiere pedir fish and chips. Pregunta al camarero: ¿Tienen fish and ships? El camarero parece confundido. ¿Barcos? Jorge empieza a reírse. ¡No, no, chips!, dice Pablito, poniéndose rojo. El camarero sonríe amablemente: Fish and chips, por supuesto. Cuando llega la comida, está caliente y crujiente. Pablito se siente tonto, pero Jorge dice: Mi madre una vez pidió un pollo con sombrero en vez de pollo con arroz. Se ríen tan fuerte que la gente de la mesa de al lado se gira.",
+          "words": [
+            "pedir comida",
+            "fish and chips",
+            "camarero",
+            "confundido",
+            "ponerse rojo",
+            "caliente y crujiente",
+            "sentirse tonto",
+            "en vez de",
+            "reírse de uno mismo",
+            "hacer todo más fácil"
+          ]
+        },
+        {
+          "name": "Amistad sin palabras",
+          "text": "El viernes por la tarde Charlie invita a los chicos a jugar al fútbol en el parque. Un grupo de niños del barrio ya espera. Pablito está nervioso: ¿Y si no los entiendo? Jorge dice: Solo mira la pelota. El partido empieza y las palabras se vuelven menos importantes. Pablito pasa, corre y marca un gol. Una niña grita: ¡Gran tiro! Eso lo entiende. Después del partido todos se sientan en la hierba y beben agua. Charlie le enseña a Pablito una palabra nueva: mate. En Inglaterra, un amigo suele ser un mate.",
+          "words": [
+            "niños del barrio",
+            "mirar la pelota",
+            "menos importante",
+            "pasar",
+            "marcar un gol",
+            "gran tiro",
+            "después del partido",
+            "amigo",
+            "gracias, amigo",
+            "idioma que todos conocen"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La vuelta a casa",
+      "tasks": [
+        {
+          "name": "El último desayuno",
+          "text": "El domingo por la mañana la casa huele a tostadas y café. Es hora de volver a casa. La señora Carter prepara un desayuno especial y Emilia dibuja un cuadro de despedida para Pablito. El dibujo muestra un autobús rojo, un dinosaurio y dos chicos con un balón. Jorge le regala a Pablito una insignia con la bandera de Londres. Pablito les da una caja de dulces rusos y un imán de San Petersburgo. Gracias por todo, dice. El señor Carter sonríe: Fuiste un invitado maravilloso. El taxi espera fuera.",
+          "words": [
+            "último desayuno",
+            "olor a tostadas y café",
+            "hora de volver a casa",
+            "dibujo de despedida",
+            "autobús rojo",
+            "insignia con la bandera de Londres",
+            "caja de dulces rusos",
+            "imán",
+            "invitado maravilloso",
+            "los recuerdos quedarán"
+          ]
+        },
+        {
+          "name": "El vuelo a casa",
+          "text": "El avión se eleva sobre Londres y la ciudad se convierte en un mapa gris con un río de plata. Pablito mira por la ventana hasta que las nubes lo esconden todo. Se siente triste y feliz a la vez. Jorge ya duerme y el señor Carter lee un periódico. La señora Carter pregunta: ¿Qué fue lo mejor de la semana? Pablito piensa. ¿La foca? ¿El dinosaurio? ¿El fútbol? Quizá el té con la abuela de Jorge. Pero también volver a casa. Responde: Todo. Luego cierra los ojos y sueña con autobuses rojos.",
+          "words": [
+            "elevarse sobre la ciudad",
+            "mapa gris",
+            "río de plata",
+            "esconderlo todo",
+            "triste y feliz",
+            "periódico",
+            "lo mejor de la semana",
+            "todo",
+            "aterrizar",
+            "verde y conocido"
+          ]
+        },
+        {
+          "name": "Una sorpresa en el aeropuerto",
+          "text": "Cuando Pablito sale por la puerta de llegadas, ve un grupo conocido. Carmen, Carlos, Javi y Luci esperan con un cartel grande: ¡Bienvenido a casa, Pablito! Corre hacia ellos y abraza a todos a la vez. Mamá dice: ¡Te hemos echado de menos! Papá coge la maleta y Luci hace mil preguntas. Luci sostiene un montón de globos. Pablito le da a mamá la postal que escribió para Emilia en el avión. El señor Carter estrecha la mano de Carlos y dice: Ha sido un gran viajero. De camino a casa Pablito habla sin parar.",
+          "words": [
+            "puerta de llegadas",
+            "grupo conocido",
+            "bienvenido a casa",
+            "abrazar a todos",
+            "echar de menos",
+            "mil preguntas",
+            "montón de globos",
+            "estrechar la mano",
+            "gran viajero",
+            "con ojos nuevos"
+          ]
+        },
+        {
+          "name": "Contar en clase",
+          "text": "El lunes Pablito lleva sus fotos al colegio. La señorita Ana dice: Hoy Pablito nos contará su viaje. Se pone delante de la clase y vuelve a sentirse nervioso. Entonces ve a Jorge sonriendo y empieza. Muestra el autobús rojo, el dinosaurio, el río y la foca. Cuenta lo del té a las cuatro y la palabra mate. La clase hace muchas preguntas: ¿Daba miedo volar? ¿Comiste fish and chips? Responde a todo. La señorita Ana dice: Hablaste con claridad y valentía. Pablito siente calor por dentro. Al final muestra la insignia de Jorge.",
+          "words": [
+            "llevar fotos",
+            "contar el viaje",
+            "delante de la clase",
+            "nervioso otra vez",
+            "hablar con claridad",
+            "con valentía",
+            "hacer muchas preguntas",
+            "responder a todo",
+            "insignia de Jorge",
+            "historia que compartir"
+          ]
+        },
+        {
+          "name": "El próximo viaje",
+          "text": "Por la noche Pablito se tumba en la cama y mira el mapa sobre su escritorio. Londres es ahora un punto pequeño, pero está lleno de recuerdos. Piensa en todos los lugares que quiere ver: el mar, las montañas y quizá Australia. Luci entra y pregunta: ¿Volverías? ¡Claro!, dice él. Pero la próxima vez quiero que vaya toda la familia. Luci sonríe: Entonces tendremos que ahorrar. Hacen un plan: un tarro para monedas, una lista de lugares y una promesa de practicar inglés cada día.",
+          "words": [
+            "mapa sobre el escritorio",
+            "punto pequeño",
+            "lleno de recuerdos",
+            "lugares que ver",
+            "el mar y las montañas",
+            "volver",
+            "ahorrar dinero",
+            "tarro para monedas",
+            "lista de lugares",
+            "primera moneda"
+          ]
+        }
+      ]
+    }
+  ]
+}

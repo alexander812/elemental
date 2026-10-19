@@ -2,9 +2,13 @@ import type { MessageDescriptor } from 'react-intl'
 
 import type { Progression } from '../../../lib/types'
 
+// XP закрепляется вехами по 500, а уровни привязаны к объёму курсов:
+// Beginner (4 курса) → Practitioner, Beginner + Elementary (6 курсов) → Expert.
+// Master и Guru открываются на следующих уровнях курсов.
 export const MILESTONE_XP = 500
-export const GURU_XP = 3000
-export const MAX_LEVEL = 5
+export const LEVEL_THRESHOLDS = [0, 4000, 8000, 18000, 28000, 40000]
+export const GURU_XP = LEVEL_THRESHOLDS[LEVEL_THRESHOLDS.length - 1]
+export const MAX_LEVEL = LEVEL_THRESHOLDS.length - 1
 
 export const LEVEL_NAMES: MessageDescriptor[] = [
   { id: 'levels_novice', defaultMessage: 'Novice' },
@@ -18,7 +22,13 @@ export const LEVEL_NAMES: MessageDescriptor[] = [
 export const levelIndex = (progression: Progression): number => {
   if (progression.xpLocked >= GURU_XP && progression.certificates.length > 0) return MAX_LEVEL
 
-  return Math.min(MAX_LEVEL - 1, Math.floor(progression.xpLocked / MILESTONE_XP))
+  let index = 0
+
+  for (let candidate = 0; candidate < MAX_LEVEL; candidate += 1) {
+    if (progression.xpLocked >= LEVEL_THRESHOLDS[candidate]) index = candidate
+  }
+
+  return index
 }
 
 export const isGuruLocked = (progression: Progression): boolean =>
@@ -29,7 +39,7 @@ export const nextLevelThreshold = (progression: Progression): number | null => {
 
   if (index >= MAX_LEVEL) return null
 
-  return index === MAX_LEVEL - 1 ? GURU_XP : (index + 1) * MILESTONE_XP
+  return LEVEL_THRESHOLDS[index + 1]
 }
 
 export const levelProgress = (progression: Progression): number => {
@@ -38,8 +48,8 @@ export const levelProgress = (progression: Progression): number => {
   if (index >= MAX_LEVEL) return 1
 
   const xp = progression.xpLocked + progression.xpBurning
-  const from = index * MILESTONE_XP
-  const to = index === MAX_LEVEL - 1 ? GURU_XP : (index + 1) * MILESTONE_XP
+  const from = LEVEL_THRESHOLDS[index]
+  const to = LEVEL_THRESHOLDS[index + 1]
 
   if (xp >= to || to <= from) return 1
 

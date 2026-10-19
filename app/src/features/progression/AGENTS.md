@@ -5,7 +5,7 @@
 Файлы:
 - `model/progression.ts` — типы событий (`ProgressionEvent`), дефолт, reducer (`applyProgressionEvents`: normalize → burnCheck → события → квесты), вехи/кристаллизация XP, цены (заморозка 50, закрепление max(30, XP/10), восстановление max(50, XP/5), авторские +10 XP до 3/день), `isProgression`.
 - `model/quests.ts` — определения квестов (daily-пул, weekly-пул, сюжетная цепочка «Первый курс» по порядку, разовые discovery), награды монеты+XP, генерация дня/недели.
-- `model/levels.ts` — `MILESTONE_XP = 500`, `GURU_XP = 3000`, имена уровней, `levelIndex`/`levelProgress`/`nextLevelThreshold` (Гуру — только 3000 несгораемых + завершённый курс).
+- `model/levels.ts` — `MILESTONE_XP = 500`, пороги уровней `LEVEL_THRESHOLDS = [0, 4000, 8000, 18000, 28000, 40000]`, `GURU_XP = 40000`, имена уровней, `levelIndex`/`levelProgress`/`nextLevelThreshold` (Гуру — только 40000 несгораемых + завершённый курс; Beginner + Elementary дают первые четыре уровня).
 - `model/dates.ts` — локальные день/неделя (`todayIso`, `isoWeekKey`, `daysBetween`).
 - `model/completions.ts` — `buildCompletionEvents`: закрытие урока/курса по `$sets`/`$lessons`/`$courses` (критерий урока — все активные задания с пройденным тестом).
 - `store/index.ts` — `$progression` (+save в `app.progression`), `fetchProgressionFx`, `queuedProgressionEvent` → `progressionEvent` (центральный гейт: загрузка прогресса + настройки + `Settings.progressionEnabled`), эмиттеры (`testCompleted`, `knowledgeOpened`), действия (`buyFreeze`, `buyPin`, `restoreBurn`, `dismissBurnNotice`, `dismissLevelUp`, `burnCheck`), производные (`$xpTotal`, `$level`, `$daysUntilBurn`, `$burnRisk`, `$freshBurn`, `$activeBurn`, `$pinCooldown`, `$levelUp`), подписка на события sets/course-search/theme. При включении настройки после выключения — событие `resumed` (свежее окно, старый burn сбрасывается).
@@ -22,7 +22,7 @@
 - Настройка `Settings.progressionEnabled` (по умолчанию включена, свитч на экране «Прогресс», пункт меню настроек «Прогресс»): при выключении виджет скрывается (в шапках возвращаются названия), награды не начисляются, сгорание не срабатывает; прогресс сохраняется. При включении — `resumed`: свежее окно, старый burn сбрасывается.
 - Награды идемпотентны: id карточек/проверок/заданий/уроков/курсов хранятся в `rewarded`; `resetSet` право на награду не возвращает. Повторная загрузка курса из каталога создаёт новые id — награды слов можно получить заново (принято).
 - XP: `xpLocked` всегда кратен 500; `xpBurning < 500`; сгорание — 2 полных пропущенных дня (`daysUntilBurn <= 0`), проверяется при загрузке, visibilitychange и любом событии; заморозка даёт +1 день (до 3), закрепление переводит сгораемые в несгораемые (кулдаун 2 дня), восстановление — в течение 24 ч после сгорания.
-- Уровень считается только от несгораемых XP; «Гуру» требует завершённый курс (сертификат).
+- Уровень считается только от несгораемых XP; «Гуру» требует завершённый курс (сертификат). Пороги: Learner 4000, Practitioner 8000 (Beginner), Expert 18000 (Beginner + Elementary), Master 28000, Guru 40000.
 - Активный день = начислен XP (`markActive`); квесты закрываются автоматически при выполнении метрики (монеты + XP).
 - Тексты — react-intl с английским `defaultMessage` (переводы по запросу); `app.progression` — отдельный ключ, `DATA_VERSION` не поднимался; в бэкап прогресс не входит (экспорт/импорт его не трогают).
 

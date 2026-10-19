@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Travel and Languages",
+  "lang": "en",
+  "lessons": [
+    {
+      "name": "A Trip to London",
+      "tasks": [
+        {
+          "name": "The Invitation",
+          "text": "Mr. Carter has a teachers' conference in London next month. He asks Ollie's parents: Could Ollie come with us for a week? George would love to show him the city. Ollie cannot believe his ears. A real trip to England! Mum looks at Dad, and Dad smiles. They say yes, but with one condition: Ollie must call home every evening. At dinner the family studies a map of London. Jack shows the museums, Sophie finds a big park, and Ollie puts a finger on the River Thames.",
+          "words": [
+            "teachers’ conference",
+            "next month",
+            "to show the city",
+            "to believe your ears",
+            "real trip",
+            "one condition",
+            "to call home every evening",
+            "map of London",
+            "River Thames",
+            "imagination"
+          ]
+        },
+        {
+          "name": "Packing a Suitcase",
+          "text": "On Sunday Ollie packs his suitcase. Mum gives him a list: passport, ticket, clothes, toothbrush and a small present for the Carters. He rolls three T-shirts, two pairs of trousers and a warm sweater. The suitcase looks full after ten minutes. Do I need my football boots? asks Ollie. George says yes, because there is a park near their house. Mum adds a raincoat and a cap. Dad puts a small photo of the family in the front pocket. At night Ollie cannot sleep. He checks the passport three times and reads the list again.",
+          "words": [
+            "to pack a suitcase",
+            "list",
+            "passport",
+            "ticket",
+            "toothbrush",
+            "small present",
+            "to roll clothes",
+            "football boots",
+            "front pocket",
+            "to check three times"
+          ]
+        },
+        {
+          "name": "At the Airport",
+          "text": "The airport is bigger than the whole town, thinks Ollie. People hurry with suitcases, and screens show cities far away. Mr. Carter takes them to the check-in desk. The woman weighs the bags and gives them boarding passes. Then comes security: belts off, phones in a box, bags through a machine. Ollie is nervous, but the officer smiles and says: All clear. At the gate they wait with tea and sandwiches. A huge white plane stands outside the window. Ollie counts the engines twice. George laughs: There are two, not twenty.",
+          "words": [
+            "airport",
+            "check-in desk",
+            "to weigh the bags",
+            "boarding pass",
+            "security",
+            "phone in a box",
+            "all clear",
+            "gate",
+            "engines",
+            "boarding now"
+          ]
+        },
+        {
+          "name": "Ready for Takeoff",
+          "text": "Ollie has the window seat. He watches the airport workers wave their orange sticks. The plane moves slowly, then faster and faster. Suddenly the ground disappears, and his stomach feels strange. They are flying! Below, the houses look like toys and the river like a silver ribbon. George points at a cloud that looks like a dragon. Mrs. Carter reads a book, and Mr. Carter sleeps with his mouth open. A flight attendant brings juice and a small bag of nuts. Ollie calls Mum from the plane. I can see the clouds from above!",
+          "words": [
+            "window seat",
+            "airport workers",
+            "orange sticks",
+            "ground disappears",
+            "to fly",
+            "houses look like toys",
+            "silver ribbon",
+            "flight attendant",
+            "bag of nuts",
+            "wonderful week"
+          ]
+        },
+        {
+          "name": "Welcome to London",
+          "text": "When they land, the sky is grey and soft rain is falling. Welcome to London! says Mr. Carter. They pass passport control and collect the suitcases. Outside, black taxis and red buses move through the traffic. Ollie hears English everywhere and feels a little shy. The taxi driver asks: First time in London? Yes! Ollie answers proudly. They drive past old houses, small gardens and a huge park. The Carter family lives in a quiet street with white houses and blue doors. George opens the door: This is your room for the week.",
+          "words": [
+            "to land",
+            "soft rain",
+            "passport control",
+            "to collect suitcases",
+            "black taxi",
+            "red bus",
+            "first time in London",
+            "quiet street",
+            "blue door",
+            "your room for the week"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "London Stories",
+      "tasks": [
+        {
+          "name": "A Red Double-Decker",
+          "text": "On the first morning George takes Ollie on a red double-decker bus. They climb the stairs and sit at the very front of the top deck. From here the city looks like a film. They pass Trafalgar Square, where pigeons sit on the lions, and Big Ben, which shines in the grey light. Ollie takes photos for his family. A woman next to them hears him speak and asks: Are you from Russia? Yes, from Saint Petersburg. She smiles: I have always wanted to visit. They talk until her stop. The bus is slow, but it is the best way to see London.",
+          "words": [
+            "double-decker bus",
+            "top deck",
+            "front seat",
+            "to pass a square",
+            "pigeon",
+            "lion",
+            "grey light",
+            "to take photos",
+            "to talk",
+            "best way to see the city"
+          ]
+        },
+        {
+          "name": "The Museum of Dinosaurs",
+          "text": "The Natural History Museum looks like a palace. Inside, a giant dinosaur skeleton stands in the main hall. Ollie walks around it with his mouth open. The bones are taller than a house! George reads the sign: This dinosaur ate plants and lived seventy million years ago. In the next room they see a model of a blue whale hanging from the ceiling. Emily would love this, says Ollie. He takes a short video for her. Then they visit the earthquake room, where the floor shakes under their feet. Ollie holds the wall and laughs.",
+          "words": [
+            "natural history museum",
+            "palace",
+            "dinosaur skeleton",
+            "main hall",
+            "bones taller than a house",
+            "seventy million years ago",
+            "blue whale",
+            "to take a short video",
+            "earthquake room",
+            "more fun than expected"
+          ]
+        },
+        {
+          "name": "Tea at Four",
+          "text": "Mr. Carter's mother invites them for tea. Her house is small, with a garden full of roses. The table is already set: sandwiches, scones, jam and a large pot of tea. Ollie does not know what a scone is. Try it with butter and jam, says the grandmother. It is warm and delicious. Everyone speaks slowly and asks Ollie questions about Russia. He tells them about snow, pelmeni and his dog. The grandmother says: You speak English very well. Ollie feels proud. Tea at four is a real tradition here.",
+          "words": [
+            "to invite for tea",
+            "garden full of roses",
+            "table is set",
+            "scone",
+            "jam",
+            "large pot of tea",
+            "warm and delicious",
+            "to speak slowly",
+            "real tradition",
+            "box of scones"
+          ]
+        },
+        {
+          "name": "The Thames",
+          "text": "In the afternoon they take a boat on the River Thames. The wind is cold, but the sun appears between the clouds. They pass under Tower Bridge, and everyone looks up. The bridge opens slowly to let a tall ship through. Ollie has never seen anything like it. A guide tells stories about the river: old ships, fires and famous writers. George and Ollie stand at the front and let the wind mess their hair. Mrs. Carter takes a photo of them. Look, says George, pointing at the water.",
+          "words": [
+            "to take a boat",
+            "River Thames",
+            "Tower Bridge",
+            "to look up",
+            "bridge opens",
+            "tall ship",
+            "guide",
+            "wind messes their hair",
+            "small seal",
+            "full of surprises"
+          ]
+        },
+        {
+          "name": "A Postcard Home",
+          "text": "On the last evening Ollie writes postcards to his family. One for Mum and Dad, one for Jack, one for Sophie and a funny one for Emily. He chooses pictures of red buses, the river and a guard with a tall hat. Writing in English is easy now, but he wants to write in Russian too. Dear Mum, I am fine. London is grey and beautiful. I saw a seal and ate a scone. George says hello. See you on Sunday. He buys stamps at the little shop and puts the cards in a red post box. The post box is older than Grandpa.",
+          "words": [
+            "to write postcards",
+            "funny card",
+            "guard with a tall hat",
+            "to write in English",
+            "Dear Mum",
+            "to say hello",
+            "to buy stamps",
+            "red post box",
+            "older than Grandpa",
+            "to arrive safely"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New Words, New Friends",
+      "tasks": [
+        {
+          "name": "An English Lesson",
+          "text": "On Tuesday morning Mr. Carter gives Ollie a short lesson. They sit in the kitchen with tea and a notebook. Today's topic: polite phrases. Could you help me? Would you like some tea? I am sorry, I do not understand. Ollie repeats each phrase and writes it down. Then they practise a dialogue at the shop. Mr. Carter is the seller, and Ollie buys a postcard and a map. He makes a mistake with the price and laughs. Mr. Carter says: A mistake is not a disaster. It is a lesson. By the end Ollie can ask for help without fear.",
+          "words": [
+            "short lesson",
+            "topic",
+            "polite phrase",
+            "could you help me",
+            "would you like some tea",
+            "I do not understand",
+            "to write down",
+            "dialogue",
+            "mistake",
+            "without fear"
+          ]
+        },
+        {
+          "name": "The Neighbour’s Dog",
+          "text": "In the garden next door lives a small brown dog named Patch. He barks at Ollie through the fence. George says: He is friendly, just curious. They go to meet the neighbour, a boy named Charlie. Charlie is eleven and loves football. Patch runs around them and brings a ball. The boys play in the garden until the ball flies over the fence into the street. Ollie climbs over to get it and meets a postman who laughs: You are brave! When Ollie returns, Patch is waiting with a stick. They throw it again and again.",
+          "words": [
+            "neighbour’s dog",
+            "brown dog",
+            "through the fence",
+            "friendly and curious",
+            "neighbour",
+            "eleven years old",
+            "to bring a ball",
+            "to fly over the fence",
+            "postman",
+            "to throw a stick"
+          ]
+        },
+        {
+          "name": "Market Day",
+          "text": "On Wednesday they visit a street market. The stalls are full of fruit, old books, clothes and strange souvenirs. George buys a small red bus for his collection. Ollie wants a present for Sophie, so he looks at the drawings. He finds a picture of a cat that looks like Bella. How much is it? he asks. The seller says: Fifteen pounds. Ollie thinks it is too much and asks politely: Could you make it twelve? The seller smiles: For you, thirteen. They shake hands. Ollie feels like a real traveller.",
+          "words": [
+            "street market",
+            "stall",
+            "old books",
+            "souvenir",
+            "collection",
+            "How much is it?",
+            "too much",
+            "to make it twelve",
+            "to shake hands",
+            "real traveller"
+          ]
+        },
+        {
+          "name": "A Misunderstanding",
+          "text": "At lunch Ollie wants to order fish and chips. He asks the waiter: Do you have fish and ships? The waiter looks confused. Ships? George starts to laugh. No, no, chips! says Ollie, turning red. The waiter smiles kindly: Fish and chips, of course. When the food arrives, it is hot and crispy. Ollie feels silly, but George says: My mum once asked for a chicken with a hat instead of a chicken with rice. They laugh so loudly that the people at the next table turn around.",
+          "words": [
+            "to order food",
+            "fish and chips",
+            "waiter",
+            "confused",
+            "to turn red",
+            "hot and crispy",
+            "to feel silly",
+            "instead of",
+            "to laugh at yourself",
+            "to make everything easier"
+          ]
+        },
+        {
+          "name": "Friendship Without Words",
+          "text": "On Friday afternoon Charlie invites the boys to play football in the park. A group of local children is already waiting. Ollie is nervous: What if I do not understand them? George says: Just watch the ball. The game begins, and words become less important. Ollie passes, runs and scores a goal. A girl shouts: Great shot! He understands that. After the match everyone sits on the grass and drinks water. Charlie teaches Ollie a new word: mate. In England, a friend is often a mate. Ollie tries it: Thanks, mate! Everyone smiles.",
+          "words": [
+            "local children",
+            "to watch the ball",
+            "less important",
+            "to pass",
+            "to score a goal",
+            "great shot",
+            "after the match",
+            "mate",
+            "thanks, mate",
+            "language everybody knows"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Coming Home",
+      "tasks": [
+        {
+          "name": "Last Breakfast",
+          "text": "On Sunday morning the house smells of toast and coffee. It is time to go home. Mrs. Carter makes a special breakfast, and Emily draws a goodbye picture for Ollie. The picture shows a red bus, a dinosaur and two boys with a football. George gives Ollie a small badge with the London flag. Ollie gives them a box of Russian sweets and a magnet from Saint Petersburg. Thank you for everything, he says. Mr. Carter smiles: You were a wonderful guest. The taxi waits outside. Ollie hugs everyone, even Emily, who is usually shy.",
+          "words": [
+            "last breakfast",
+            "smell of toast and coffee",
+            "time to go home",
+            "goodbye picture",
+            "red bus",
+            "badge with the London flag",
+            "box of Russian sweets",
+            "magnet",
+            "wonderful guest",
+            "memories will stay"
+          ]
+        },
+        {
+          "name": "The Flight Home",
+          "text": "The plane rises above London, and the city becomes a grey map with a silver river. Ollie looks out of the window until the clouds hide everything. He feels sad and happy at the same time. George is already asleep, and Mr. Carter is reading a newspaper. Mrs. Carter asks: What was the best part of the week? Ollie thinks. The seal? The dinosaur? The football? Maybe the tea with George's grandmother. But also coming home. He answers: All of it. Then he closes his eyes and dreams of red buses.",
+          "words": [
+            "to rise above the city",
+            "grey map",
+            "silver river",
+            "to hide everything",
+            "sad and happy",
+            "newspaper",
+            "best part of the week",
+            "all of it",
+            "to land",
+            "green and familiar"
+          ]
+        },
+        {
+          "name": "A Surprise at the Airport",
+          "text": "When Ollie comes through the arrivals door, he sees a familiar group. Mum, Dad, Jack and Sophie are waiting with a big sign: Welcome home, Ollie! He runs to them and hugs everyone at once. Mum says: We missed you! Dad takes his suitcase, and Sophie asks a thousand questions. Sophie holds a bunch of balloons. Ollie gives Mum the postcard he wrote for Emily on the plane. Mr. Carter shakes Dad's hand and says: He was a great traveller. On the way home Ollie talks without stopping.",
+          "words": [
+            "arrivals door",
+            "familiar group",
+            "welcome home",
+            "to hug everyone",
+            "to miss someone",
+            "a thousand questions",
+            "bunch of balloons",
+            "to shake hands",
+            "great traveller",
+            "with new eyes"
+          ]
+        },
+        {
+          "name": "Show and Tell",
+          "text": "On Monday Ollie brings his photos to school. Miss Brown says: Today Ollie will tell us about his trip. He stands in front of the class and feels nervous again. Then he sees George smiling and begins. He shows the red bus, the dinosaur, the river and the seal. He tells about tea at four and the word mate. The class asks many questions: Was it scary to fly? Did you eat fish and chips? He answers everything. Miss Brown says: You spoke clearly and bravely. Ollie feels warm inside. At the end he shows the badge from George.",
+          "words": [
+            "to bring photos",
+            "to tell about the trip",
+            "in front of the class",
+            "nervous again",
+            "to speak clearly",
+            "bravely",
+            "to ask many questions",
+            "to answer everything",
+            "badge from George",
+            "story to share"
+          ]
+        },
+        {
+          "name": "The Next Journey",
+          "text": "In the evening Ollie lies on his bed and looks at the map above his desk. London is a small dot now, but it is full of memories. He thinks about all the places he wants to see: the sea, the mountains and maybe Australia. Sophie comes in and asks: Would you go again? Of course! he says. But next time I want the whole family to come. Sophie smiles: Then we need to save money. They make a plan: a jar for coins, a list of places and a promise to practise English every day.",
+          "words": [
+            "map above the desk",
+            "small dot",
+            "full of memories",
+            "places to see",
+            "the sea and the mountains",
+            "to go again",
+            "to save money",
+            "jar for coins",
+            "list of places",
+            "first coin"
+          ]
+        }
+      ]
+    }
+  ]
+}

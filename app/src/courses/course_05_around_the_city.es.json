@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Around the City",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "Cómo moverse",
+      "tasks": [
+        {
+          "name": "La ruta de la mañana",
+          "text": "El lunes por la mañana Pablito y su madre salen temprano. Caminan hasta la parada de autobús junto al parque. El autobús número siete llega en tres minutos. Carmen compra dos billetes y se sientan junto a la ventana. Las calles están llenas: coches, ciclistas y una furgoneta amarilla. En la tercera parada sube un grupo de escolares. Pablito cede su asiento a una señora mayor. Ella sonríe y dice: ¡Gracias, joven! En la estación de metro bajan y descienden las escaleras. El tren ya espera.",
+          "words": [
+            "parada de autobús",
+            "billete",
+            "llegar",
+            "multitud",
+            "escolares",
+            "ceder el asiento",
+            "señora mayor",
+            "escaleras",
+            "estación de metro",
+            "esperar"
+          ]
+        },
+        {
+          "name": "El mapa del metro",
+          "text": "En casa, Javi le muestra a Pablito un mapa del metro. Cada línea tiene su color y su número. La línea roja cruza el centro y la azul va al estadio. Para llegar al museo, hay que cambiar de tren en la estación del Parque. Pablito sigue la ruta con el dedo. ¡Parece una telaraña de colores! Javi dice: Lee los carteles sobre el andén y sigue las flechas. Si te pierdes, pregunta a un trabajador de la estación. Mañana los chicos viajarán solos por primera vez. Pablito está un poco nervioso, pero emocionado.",
+          "words": [
+            "mapa del metro",
+            "línea",
+            "color",
+            "centro",
+            "estadio",
+            "cambiar de tren",
+            "andén",
+            "cartel",
+            "perderse",
+            "trabajador de la estación"
+          ]
+        },
+        {
+          "name": "Un nuevo carril bici",
+          "text": "Un nuevo carril bici se abre junto al río. Luci y Martita van allí después de la escuela de arte. El carril es ancho y de color verde brillante. Un cartel dice: Solo ciclistas. Luci toca el timbre y se ríe. Pasan junto a un puente viejo, una pequeña cafetería y una fila de árboles. Cerca del parque, Martita se detiene de repente: ¡Mira, un gatito! El gatito está entre las bicicletas y parece asustado. Luci lo coge con cuidado y lee la dirección de su collar. Las chicas llevan al gatito a casa y su dueño está muy contento.",
+          "words": [
+            "carril bici",
+            "río",
+            "ancho",
+            "verde brillante",
+            "tocar el timbre",
+            "puente viejo",
+            "fila de árboles",
+            "gatito",
+            "collar",
+            "dueño"
+          ]
+        },
+        {
+          "name": "En la parada del autobús",
+          "text": "Doña Rosa espera el autobús con dos bolsas pesadas. El autobús llega tarde y empieza a llover. Pablito sale corriendo con un paraguas y la ayuda a llevar las bolsas hasta la marquesina. Se sientan en un banco seco. Doña Rosa le cuenta cómo eran los viejos tranvías que pasaban por aquí hace muchos años. Recuerda al revisor, los asientos de madera y la campana. Pablito escucha con interés. Cuando por fin llega el autobús, suben juntos. En la siguiente parada, Doña Rosa dice: Gracias, querido.",
+          "words": [
+            "esperar el autobús",
+            "bolsa pesada",
+            "llegar tarde",
+            "empezar a llover",
+            "paraguas",
+            "marquesina",
+            "banco seco",
+            "tranvía viejo",
+            "revisor",
+            "con interés"
+          ]
+        },
+        {
+          "name": "El atajo de papá",
+          "text": "El viernes Carlos lleva a los niños al colegio. La carretera principal está llena de coches, así que elige un atajo por calles pequeñas. Primero pasan una panadería, luego un taller y una plaza diminuta con una fuente. Pablito mira los números de las casas y da indicaciones. ¡Gira a la izquierda aquí! ¡Ahora sigue recto! En una esquina, una furgoneta de reparto bloquea el paso. Carlos se ríe: ¡Menudo atajo! Dan la vuelta y toman otra calle. Al final llegan justo a tiempo. La próxima vez, dice Luci, ¡iremos en metro!",
+          "words": [
+            "carretera principal",
+            "atajo",
+            "calle pequeña",
+            "panadería",
+            "taller",
+            "plaza con una fuente",
+            "número de casa",
+            "girar a la izquierda",
+            "furgoneta de reparto",
+            "justo a tiempo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cómo llegar",
+      "tasks": [
+        {
+          "name": "¿Dónde está el museo?",
+          "text": "Los Carter quieren visitar el museo de la ciudad. Cerca del parque se encuentran con Pablito y le preguntan: Perdone, ¿podría decirnos cómo llegar al museo? Pablito sonríe: ¡Claro! Sigan recto por esta calle y luego giren a la derecha en el semáforo. El museo está a la izquierda, frente a una librería grande. La señora Carter repite la ruta para recordarla. El señor Carter dice: ¡Tu inglés es muy bueno! Pablito se ríe: Practico con Jorge todos los días. La familia camina junta hasta la esquina.",
+          "words": [
+            "preguntar el camino",
+            "perdone",
+            "seguir recto",
+            "girar a la derecha",
+            "semáforo",
+            "a la izquierda",
+            "frente a",
+            "repetir la ruta",
+            "librería",
+            "despedirse"
+          ]
+        },
+        {
+          "name": "El teléfono perdido",
+          "text": "Jorge no encuentra su teléfono. Mira en los bolsillos, debajo del banco y en su mochila. ¡Nada! Pablito dice: No te preocupes. Preguntemos a la gente del parque. Se acercan a una joven con un carrito de bebé. Perdone, ¿ha visto un teléfono negro? No, lo siento. Luego preguntan a un hombre que pasea a su perro. Él señala la fuente: Vi algo negro junto al agua. Los chicos corren y encuentran el teléfono sobre un muro bajo de piedra. Jorge respira aliviado: ¡Gracias! Dentro están los números de mis padres.",
+          "words": [
+            "perder el teléfono",
+            "buscar en los bolsillos",
+            "mochila",
+            "joven",
+            "carrito de bebé",
+            "señalar",
+            "fuente",
+            "muro de piedra",
+            "aliviado",
+            "chaqueta"
+          ]
+        },
+        {
+          "name": "Al otro lado del puente",
+          "text": "La señora Carter necesita una farmacia. La más cercana está al otro lado del río. Pablito dibuja un mapa sencillo en un papel: primero el puente, luego la plaza y después la segunda esquina. Caminan juntos y hablan de la ciudad. La señora Carter dice que en Sídney las calles son más anchas y el río es mucho más grande. Pablito responde que nunca ha visto el mar. ¿De verdad?, pregunta ella. ¡Entonces algún día tienes que visitarnos! En la farmacia compra medicina para Emilia, que tiene un resfriado fuerte.",
+          "words": [
+            "farmacia",
+            "al otro lado del río",
+            "trozo de papel",
+            "puente",
+            "plaza",
+            "esquina",
+            "más ancha",
+            "el mar",
+            "medicina",
+            "chocolate caliente"
+          ]
+        },
+        {
+          "name": "Una pregunta cortés",
+          "text": "El señor Carter le da a Pablito una breve lección de preguntas corteses. Perdone, ¿podría decirme dónde está el banco?, pregunta despacio. Pablito repite la frase. ¡Bien! Ahora pregunta cómo llegar al teatro. ¿Podría decirme cómo llegar al teatro? ¡Excelente! El señor Carter explica: En inglés, las preguntas corteses suenan más largas, pero la gente las responde con más gusto. Pablito practica con Jorge en la puerta. Perdona, ¿podrías decirme dónde están mis botas de fútbol? Jorge se ríe y señala debajo del sofá.",
+          "words": [
+            "pregunta cortés",
+            "perdone",
+            "¿podría decirme?",
+            "despacio",
+            "repetir una frase",
+            "teatro",
+            "explicar",
+            "con gusto",
+            "botas de fútbol",
+            "debajo del sofá"
+          ]
+        },
+        {
+          "name": "El autobús correcto",
+          "text": "Emilia quiere visitar a su amiga, pero tiene miedo de tomar el autobús equivocado. Pablito mira con ella el mapa de rutas. El número siete va a la biblioteca, el doce a la piscina y el veintitrés al centro comercial. Necesitas el doce, dice él. Bájate después del puente, en la calle Verde. Emilia repite el nombre de la parada tres veces. En la parada, Pablito dice: Recuerda, pregunta al conductor si no estás segura. Emilia sonríe: ¡Gracias por tu ayuda! Por la noche lo llama: ¡Encontré el camino y volví sola a casa!",
+          "words": [
+            "autobús equivocado",
+            "mapa de rutas",
+            "biblioteca",
+            "piscina",
+            "centro comercial",
+            "bajarse",
+            "nombre de la parada",
+            "conductor",
+            "estar seguro",
+            "sola"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La vieja estación",
+      "tasks": [
+        {
+          "name": "Billetes para la abuela",
+          "text": "El sábado la familia va a la vieja estación de tren. El edificio tiene una torre alta con reloj y grandes puertas de cristal. Carlos compra los billetes en la taquilla: cuatro de ida y vuelta al pueblo. La taquillera dice: El tren sale del andén tres a las diez y cuarto. ¡No lleguen tarde! Pablito lee el tablón de salidas. Encuentra su tren entre dos rápidos a la capital. Carmen revisa las bolsas: pastel, jerséis calientes y un libro para la abuela. En el andén, una voz fuerte anuncia: El tren al pueblo está listo.",
+          "words": [
+            "estación de tren",
+            "torre del reloj",
+            "taquilla",
+            "billete de ida y vuelta",
+            "andén",
+            "tablón de salidas",
+            "tren rápido",
+            "anunciar",
+            "vagón",
+            "aventura"
+          ]
+        },
+        {
+          "name": "La torre del reloj",
+          "text": "La tía Isa espera bajo la torre del reloj. Acaba de volver de un largo viaje y lleva una maleta amarilla brillante. ¡Llegáis justo a tiempo!, dice. Mirad el reloj de la estación: va diez minutos atrasado. Se ríen y caminan juntos hacia el andén. Isa les da pequeños regalos: postales de tres países y una caja de dulces. Pablito pregunta: Tía Isa, ¿cuántos idiomas hablas? Ella responde: ¡Dos bien y tres mal! Luego les enseña las palabras que aprendió en el avión. Todos intentan repetirlas.",
+          "words": [
+            "tía",
+            "torre del reloj",
+            "maleta amarilla",
+            "justo a tiempo",
+            "diez minutos atrasado",
+            "postal",
+            "tres países",
+            "caja de dulces",
+            "idioma",
+            "repetir"
+          ]
+        },
+        {
+          "name": "En el tren",
+          "text": "El tren avanza despacio por la ciudad y luego más rápido entre campos verdes. Pablito se sienta junto a la ventana y cuenta estaciones pequeñas, vacas y tejados rojos. Un revisor viene a comprobar los billetes. Sonríe a los niños y dice: La próxima parada es la vuestra. Carmen abre la bolsa con el pastel y todo el vagón huele a manzana y canela. Isa cuenta una historia sobre un tren nocturno en Italia. Fuera empieza a llover y las gotas corren por el cristal como pequeños trenes.",
+          "words": [
+            "avanzar despacio",
+            "campos verdes",
+            "contar",
+            "revisor",
+            "comprobar billetes",
+            "próxima parada",
+            "olor a manzana",
+            "canela",
+            "tren nocturno",
+            "cristal"
+          ]
+        },
+        {
+          "name": "El jardín de la abuela",
+          "text": "La abuela Pilar espera en la puerta de su pequeña casa. El jardín está lleno de manzanos, flores rojas y abejas que zumban. El abuelo Antonio está en su taller, arreglando una radio vieja. Sale con las manos manchadas de aceite y abraza a todos. La comida ya está en la mesa: sopa, pan fresco y la famosa tarta de manzana. Después de comer, Pablito ayuda a la abuela a recoger manzanas. Luci dibuja el jardín y Javi intenta arreglar la puerta. La gata duerme en una carretilla.",
+          "words": [
+            "jardín",
+            "manzano",
+            "abejas que zumban",
+            "taller",
+            "arreglar",
+            "pan fresco",
+            "tarta de manzana",
+            "recoger manzanas",
+            "carretilla",
+            "escuchar historias"
+          ]
+        },
+        {
+          "name": "El último tren a casa",
+          "text": "El tiempo pasa rápido. Después de cenar, el abuelo mira su reloj y dice: ¡El último tren sale en treinta minutos! Todos corren al coche. La carretera está oscura y los faros iluminan los árboles. En la estación corren al andén justo cuando aparece el tren. La abuela saluda desde la puerta: ¡Adiós! ¡Volved pronto! Dentro del vagón, Pablito se duerme en el hombro de su madre. Luci sostiene el tarro de mermelada de manzana. El tren los lleva a casa por la noche tranquila. En la puerta, Carlos susurra: Un día perfecto.",
+          "words": [
+            "el tiempo pasa rápido",
+            "último tren",
+            "darse prisa",
+            "faros",
+            "saludar con la mano",
+            "mermelada de manzana",
+            "hombro",
+            "noche tranquila",
+            "día perfecto",
+            "estar de acuerdo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Un día en la ciudad",
+      "tasks": [
+        {
+          "name": "El museo",
+          "text": "El domingo la familia visita el museo de la ciudad. El edificio parece un palacio enorme con columnas y ventanas altas. En la primera sala hay huesos de dinosaurio. Pablito lee el cartel: Este dinosaurio vivió hace millones de años. ¡Vaya! En la sala siguiente, Luci encuentra cuadros de calles antiguas y barcos. Javi estudia la maqueta del primer puente. De pronto, las luces se apagan un momento. Todos se ríen con nervios. El guardia explica: Es parte del espectáculo.",
+          "words": [
+            "museo",
+            "palacio",
+            "columnas",
+            "huesos de dinosaurio",
+            "hace millones de años",
+            "cuadro",
+            "barco",
+            "maqueta del puente",
+            "guardia",
+            "sorpresa"
+          ]
+        },
+        {
+          "name": "Comida en el café",
+          "text": "Después del museo todos tienen hambre. Eligen una pequeña cafetería junto al río. El camarero trae los menús y pregunta: ¿Están listos para pedir? Carlos toma sopa, Carmen una ensalada con queso y los niños quieren pasta. Pablito no sabe si elegir pizza o tortitas. El camarero sonríe: ¿Por qué no las dos? Primero pizza y luego tortitas de postre. Todos se ríen. Mientras esperan, miran los barcos en el río. La comida llega caliente y huele de maravilla. Al final, Carlos pide la cuenta.",
+          "words": [
+            "tener hambre",
+            "menú",
+            "pedir",
+            "sopa",
+            "ensalada con queso",
+            "pasta",
+            "decidir",
+            "tortitas",
+            "postre",
+            "cuenta"
+          ]
+        },
+        {
+          "name": "El parque de la ciudad",
+          "text": "Después de comer, la familia camina hasta el parque de la ciudad. Hay un estanque grande con patos y barcas pequeñas. Pablito quiere remar y Javi acepta ayudarlo. Alquilan una barca azul por media hora. Luci se sienta en la orilla y dibuja el puente. Carmen y Carlos toman café en un banco. Un músico callejero toca el violín bajo un árbol. Jorge y Emilia se unen con una bolsa de pan para los patos. ¡Los patos no tienen nada de timidez! Cuando vuelve la barca, Pablito tiene las mangas mojadas y una cara feliz.",
+          "words": [
+            "parque de la ciudad",
+            "estanque",
+            "pato",
+            "barca pequeña",
+            "remar",
+            "orilla",
+            "músico callejero",
+            "violín",
+            "bolsa de pan",
+            "mangas mojadas"
+          ]
+        },
+        {
+          "name": "El plan de lluvia",
+          "text": "De repente, el cielo se pone gris y grandes gotas caen sobre el parque. La familia se esconde bajo un árbol, pero la lluvia se hace más fuerte. Carlos dice: ¡Nuevo plan! Vamos al cine. Corren a la parada de autobús y llegan al viejo cine justo antes de que empiece la película. La película trata de un perro valiente que viaja por todo el país. Pablito abraza a Toby con la imaginación. Cuando salen, las calles brillan con la lluvia. La ciudad parece distinta: letreros luminosos, paraguas y charcos como pequeños espejos.",
+          "words": [
+            "el cielo se pone gris",
+            "gotas grandes",
+            "esconderse bajo un árbol",
+            "la lluvia se hace más fuerte",
+            "cine",
+            "perro valiente",
+            "viajar por el país",
+            "imaginación",
+            "charco",
+            "espejo"
+          ]
+        },
+        {
+          "name": "A casa en metro",
+          "text": "Por la noche la familia vuelve a casa en metro. La estación está cálida y llena de luz. Los trenes van y vienen, y la gente se apresura en todas direcciones. Pablito cuenta las paradas: una, dos, tres... En la cuarta cambian de línea. Un músico toca la guitarra en el andén y una niña pequeña baila con su madre. Luci sonríe: El metro es como una ciudad bajo la ciudad. En su estación suben las escaleras. Ha dejado de llover y el aire huele a fresco. La casa está cerca. Pablito bosteza y dice: Hoy fue una aventura de verdad.",
+          "words": [
+            "volver a casa en metro",
+            "estación cálida",
+            "llena de luz",
+            "en todas direcciones",
+            "contar paradas",
+            "cambiar de línea",
+            "guitarra",
+            "andén",
+            "escaleras",
+            "aire fresco"
+          ]
+        }
+      ]
+    }
+  ]
+}

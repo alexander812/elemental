@@ -1,0 +1,346 @@
+{
+  "parentCourse": "School Days",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "El día de colegio",
+      "tasks": [
+        {
+          "name": "Temprano por la mañana",
+          "text": "El despertador suena a las siete. Pablito esconde la cabeza bajo la almohada, pero Toby salta a la cama y le lame la cara. ¡Vale, vale, ya estoy despierto! En el desayuno, Carmen prepara gachas y té. Luci no encuentra su mochila y Javi la ayuda a buscar debajo del sofá. A las ocho los niños salen de casa. El colegio está a solo dos paradas. El patio está lleno de voces, bicicletas y balones. Cuando suena el timbre, todos corren hacia las puertas. Empieza un nuevo día de escuela.",
+          "words": [
+            "despertador",
+            "almohada",
+            "lamer",
+            "gachas",
+            "mochila",
+            "buscar",
+            "patio del colegio",
+            "timbre",
+            "correr a las puertas",
+            "día de escuela"
+          ]
+        },
+        {
+          "name": "El horario",
+          "text": "En el aula, la señorita Ana escribe el horario en la pizarra. El lunes está lleno: matemáticas, inglés, historia, arte y educación física. Pablito mira la última clase y sonríe. ¡Le encanta la educación física! Pero primero hay un examen de matemáticas. Javi dice: No te preocupes, solo son diez preguntas. En el recreo los niños comparan sus horarios. Algunos tienen música, otros geografía. El aula huele a tiza, papel y manzanas. Pablito escribe las clases en su cuaderno con colores diferentes.",
+          "words": [
+            "horario",
+            "pizarra",
+            "matemáticas",
+            "historia",
+            "educación física",
+            "examen",
+            "recreo",
+            "comparar",
+            "cuaderno",
+            "feria escolar"
+          ]
+        },
+        {
+          "name": "La primera clase",
+          "text": "La primera clase es matemáticas. La señorita Ana escribe tres problemas en la pizarra. Pablito lee el primero dos veces y levanta la mano. La profesora sonríe: ¿Sí, Pablito? ¡Creo que sé la respuesta! Lo explica despacio y la clase escucha. En la mesa de al lado, Huguito dibuja un cohete en lugar de números. La señorita Ana le toca el hombro con suavidad: Huguito, el cohete puede esperar. Todos se ríen, pero con cariño. Después del examen la profesora dice: Hoy habéis trabajado bien. Los deberes están en la página veinte.",
+          "words": [
+            "clase de matemáticas",
+            "problema",
+            "levantar la mano",
+            "respuesta",
+            "explicar",
+            "cohete",
+            "en lugar de",
+            "con suavidad",
+            "deberes",
+            "página veinte"
+          ]
+        },
+        {
+          "name": "El recreo grande",
+          "text": "Cuando suena el timbre del recreo grande, el patio se convierte en un mar ruidoso de niños. Pablito y Huguito corren al campo de fútbol. Jorge se une con su balón rojo. Hoy los equipos son mixtos: mayores y pequeños juegan juntos. Una niña llamada Sarita marca el primer gol, y todos animan. En el banco, Luci comparte bocadillos con Martita. El sol de otoño es cálido y las hojas son doradas. Demasiado pronto suena otra vez el timbre. Los chicos se despiden hasta mañana.",
+          "words": [
+            "recreo grande",
+            "mar ruidoso de niños",
+            "campo de fútbol",
+            "equipos mixtos",
+            "marcar un gol",
+            "animar",
+            "bocadillo",
+            "hojas de otoño",
+            "despedirse",
+            "energía"
+          ]
+        },
+        {
+          "name": "Los deberes",
+          "text": "Después del colegio, Pablito merienda y se sienta en su escritorio. Los deberes de hoy son un cuento corto sobre su familia. Escribe sobre mamá, papá, Javi y Luci, y luego añade a Toby y Luna. Pero, ¿cómo se escribe «alféizar»? Pregunta a Luci y ella le enseña las letras. Carlos mira la página y sonríe: Tu cuento es divertido. ¡Me gusta la parte del gato! A las ocho el cuento está listo. Pablito lo lee en voz alta para toda la familia. Todos aplauden. Mañana lo leerá en clase.",
+          "words": [
+            "deberes",
+            "merendar",
+            "escritorio",
+            "cuento corto",
+            "deletrear",
+            "letra",
+            "en voz alta",
+            "aplaudir",
+            "en clase",
+            "no tan difícil como"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clases y profesores",
+      "tasks": [
+        {
+          "name": "La clase de inglés",
+          "text": "En la clase de inglés, la señorita Ana escribe una pregunta en la pizarra: What did you do at the weekend? Los alumnos trabajan en parejas. Pablito pregunta a Jorge: ¿Qué hiciste? Jorge responde: Jugué al fútbol y vi una película con mi padre. Luego Jorge pregunta a Pablito por su domingo. Intentan usar palabras nuevas: museo, puente, tortitas. La señorita Ana camina entre las mesas y escucha. ¡Muy bien!, dice. Recordad: pasado para acciones terminadas. Al final cada uno dice una frase a la clase.",
+          "words": [
+            "clase de inglés",
+            "pregunta",
+            "en parejas",
+            "fin de semana",
+            "tiempo pasado",
+            "acción terminada",
+            "escuchar",
+            "frase",
+            "visitar un museo",
+            "genial"
+          ]
+        },
+        {
+          "name": "La historia cobra vida",
+          "text": "La clase de historia trata de la ciudad antigua. El profesor muestra fotos del primer puente, el mercado y la estación de tren. Javi levanta la mano: Mi abuelo tiene una radio de esa época. ¿De verdad?, pregunta el profesor. ¿Puedes traer una foto? Al día siguiente Javi trae una foto antigua en blanco y negro. La clase ve a un joven con uniforme de soldado cerca de la estación. ¡Es el abuelo Antonio! Parece serio y muy joven. El profesor dice: La historia no son solo fechas. Son personas y sus historias.",
+          "words": [
+            "clase de historia",
+            "ciudad antigua",
+            "primer puente",
+            "estación de tren",
+            "abuelo",
+            "fotografía",
+            "en blanco y negro",
+            "uniforme de soldado",
+            "la historia son personas",
+            "orgulloso"
+          ]
+        },
+        {
+          "name": "El aula de arte",
+          "text": "El aula de arte huele a pintura y papel. Hoy la clase dibuja la vista desde la ventana. Luci elige la iglesia vieja, Martita el río y Jorge el campo de fútbol. Don Julio pasea y da consejos: Mirad la luz. ¿Dónde cae la sombra? Luci mezcla azul y blanco para el cielo. Su iglesia parece un barco que flota sobre los tejados. Al final cuelgan los dibujos en la pared. Todos votan por su favorito. Gana un pequeño cuadro de una gata en el alféizar. Luci se ríe: ¡Es Luna! La dibujé de memoria.",
+          "words": [
+            "aula de arte",
+            "pintura",
+            "vista desde la ventana",
+            "iglesia",
+            "consejo",
+            "sombra",
+            "mezclar colores",
+            "colgar en la pared",
+            "votar",
+            "de memoria"
+          ]
+        },
+        {
+          "name": "Un examen difícil",
+          "text": "Javi tiene un examen importante de matemáticas el viernes. El jueves por la noche no puede dormir. ¿Y si suspendo?, pregunta. Luci le trae un vaso de agua y dice: Has estudiado toda la semana. Confía en ti. Por la mañana, Carlos le prepara un desayuno especial. En el colegio, el aula está en silencio. Javi lee cada pregunta dos veces y comprueba sus respuestas. El último problema es difícil, pero recuerda uno parecido de su cuaderno. Cuando llegan los resultados, Javi ve una nota alta. Llama a casa enseguida.",
+          "words": [
+            "examen importante",
+            "suspender",
+            "vaso de agua",
+            "confiar en ti",
+            "desayuno especial",
+            "en silencio",
+            "comprobar respuestas",
+            "problema parecido",
+            "nota alta",
+            "esfuerzo"
+          ]
+        },
+        {
+          "name": "La reunión de padres",
+          "text": "El jueves por la noche, Carmen y Carlos van a la reunión de padres. La señorita Ana les enseña los dibujos y los exámenes de Pablito. Es bueno en matemáticas, dice, pero habla demasiado bajo en clase. En casa los padres hablan con Pablito. Estamos orgullosos de ti, dice Carmen. Pero intenta hablar más alto, añade Carlos. Pablito promete practicar durante la cena. Al día siguiente cuenta a la clase lo de su gata. Su voz aún es un poco baja, pero todos lo oyen. La señorita Ana le da una pequeña estrella.",
+          "words": [
+            "reunión de padres",
+            "examen",
+            "ser bueno en matemáticas",
+            "hablar bajo",
+            "estar orgulloso de",
+            "hablar más alto",
+            "prometer",
+            "practicar",
+            "estrella adhesiva",
+            "delante de la gente"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Clubes extraescolares",
+      "tasks": [
+        {
+          "name": "Elegir un club",
+          "text": "El lunes el pasillo del colegio está lleno de carteles de colores. ¡Fútbol, coro, teatro, ciencia, ajedrez, fotografía! Pablito lee cada cartel dos veces. Quiere fútbol, pero el club de ciencia promete volcanes y cohetes. Luci elige teatro porque le gustan los disfraces. Javi se apunta al club de ajedrez y al de ciencia. Un profesor explica: Podéis probar un club esta semana y cambiar la próxima. Pablito escribe su nombre en dos listas. Luego tiene una idea: ¿Quizá Jorge quiera apuntarse también?",
+          "words": [
+            "pasillo del colegio",
+            "cartel de colores",
+            "coro",
+            "club de teatro",
+            "club de ciencia",
+            "ajedrez",
+            "fotografía",
+            "apuntarse",
+            "probar",
+            "hablar de"
+          ]
+        },
+        {
+          "name": "Entrenamiento de fútbol",
+          "text": "Después del colegio, el club de fútbol se reúne en el campo. El entrenador Óscar hace sonar su silbato. Hoy el equipo practica pases y tiros. Pablito es el jugador más pequeño, pero es rápido. Coge el balón, pasa a dos chicos y ¡marca! El entrenador aplaude: ¡Bien hecho! Recuerda mirar antes de pasar. Jorge es un defensor fuerte y Huguito un portero listo. Al final juegan un partido corto. El equipo rojo gana por un gol. Todos se dan la mano. El entrenador dice: El resultado no es lo más importante. El trabajo en equipo sí.",
+          "words": [
+            "club de fútbol",
+            "entrenador",
+            "silbato",
+            "practicar pases",
+            "tirar",
+            "rápido",
+            "marcar",
+            "defensor",
+            "portero",
+            "trabajo en equipo"
+          ]
+        },
+        {
+          "name": "El coro escolar",
+          "text": "El coro escolar se reúne en el aula de música. La señorita Ana toca el piano y veinte niños están en dos filas. Hoy aprenden una canción sobre las cuatro estaciones. Primero cantan las voces altas y luego las bajas. Pablito canta demasiado fuerte y hace reír a Jorge. La profesora se detiene: Escuchad a los demás. Un coro es una sola voz hecha de muchas. Lo intentan otra vez y esta vez la canción suena preciosa. Después del ensayo preparan el concierto de invierno.",
+          "words": [
+            "coro escolar",
+            "aula de música",
+            "piano",
+            "canción",
+            "voz alta",
+            "cantar demasiado fuerte",
+            "escucharse",
+            "concierto de invierno",
+            "salón grande",
+            "repasar la letra"
+          ]
+        },
+        {
+          "name": "El club de teatro",
+          "text": "El club de teatro prepara una obra corta sobre una princesa valiente y un dragón listo. Luci hace de princesa y Jorge de dragón. En el primer ensayo todo sale mal: la corona se cae, el dragón olvida su texto y la puerta del castillo no se abre. La profesora se ríe: ¡Por eso ensayamos! Repiten una y otra vez. Luci aprende a hablar despacio y claro. Jorge hace más grave su voz de dragón. El día de la función el salón está lleno. La puerta del castillo se abre por fin y el público aplaude.",
+          "words": [
+            "club de teatro",
+            "obra",
+            "princesa valiente",
+            "dragón listo",
+            "ensayo",
+            "corona",
+            "olvidar el texto",
+            "puerta del castillo",
+            "público",
+            "entre bastidores"
+          ]
+        },
+        {
+          "name": "El club de ciencia",
+          "text": "En el club de ciencia los niños construyen un pequeño volcán. Mezclan bicarbonato, vinagre y colorante rojo. ¡Atrás!, dice el profesor. La mezcla burbujea y una espuma roja baja por la montaña de papel. Todos dicen: ¡Guau! Luego hacen un segundo experimento con un globo y una botella de plástico. El globo se hincha solo. Javi explica: El gas lo empuja. El señor Carter, que hoy ayuda en el club, sonríe: ¡Explicas mejor que mis alumnos! Los niños escriben los resultados en un cuaderno.",
+          "words": [
+            "club de ciencia",
+            "volcán",
+            "bicarbonato",
+            "vinagre",
+            "colorante",
+            "burbujear",
+            "globo",
+            "botella de plástico",
+            "gas",
+            "pista"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La feria escolar",
+      "tasks": [
+        {
+          "name": "Grandes preparativos",
+          "text": "La feria escolar es el viernes. Toda la clase ayuda en los preparativos. Unos niños pintan un cartel grande, otros construyen puestos con cajas y mesas. El equipo de Pablito hace un letrero: Juegos y premios. Luci dibuja globos y estrellas alrededor de las letras. La señorita Ana trae una caja de juguetes viejos para la mesa de premios. Jorge y Huguito practican un juego de pelota, y Martita coloca libros para el puesto de libros. Todos tienen una tarea. La directora recorre el salón y sonríe: Así se ve el trabajo en equipo.",
+          "words": [
+            "feria escolar",
+            "preparativo",
+            "cartel",
+            "puesto",
+            "letrero",
+            "premio",
+            "juego de pelota",
+            "puesto de libros",
+            "directora",
+            "trabajo en equipo"
+          ]
+        },
+        {
+          "name": "Pasteles y libros",
+          "text": "La feria empieza a las diez. El salón está lleno de padres, niños y música. En el puesto de pasteles, la tarta de manzana de la abuela Pilar desaparece en diez minutos. Pablito trabaja en el puesto de juegos: tres pelotas por una moneda. Jorge gana un perro de juguete y se lo regala a Emilia. En el puesto de libros, Luci vende historias viejas por muy poco dinero. Un niño compra un libro sobre dragones y lo lee enseguida en el suelo. El señor Carter intenta ganar un premio tres veces y falla. Todos se ríen con él.",
+          "words": [
+            "puesto de pasteles",
+            "tarta de manzana",
+            "desaparecer",
+            "puesto de juegos",
+            "ganar un premio",
+            "perro de juguete",
+            "puesto de libros",
+            "historias viejas",
+            "caja",
+            "casi vacío"
+          ]
+        },
+        {
+          "name": "El espectáculo de talentos",
+          "text": "A las dos empieza el espectáculo de talentos. La directora da la bienvenida y el salón se queda en silencio. Primero canta el coro la canción de las estaciones. Luego Martita baila y Huguito hace trucos de magia con cartas. Luci y Jorge representan una escena corta de su obra del dragón. Pablito está nervioso antes de su turno. Contará una historia divertida sobre Toby. Al principio le tiembla la voz, pero el público se ríe en el momento justo. Cuando termina, todos aplauden con fuerza.",
+          "words": [
+            "espectáculo de talentos",
+            "dar la bienvenida",
+            "quedarse en silencio",
+            "bailar",
+            "trucos de magia",
+            "representar una escena",
+            "nervioso",
+            "voz tiembla",
+            "aplaudir fuerte",
+            "pulgar arriba"
+          ]
+        },
+        {
+          "name": "Un visitante sorpresa",
+          "text": "En mitad de la feria entra en el salón un hombre alto con barba roja. ¡Es el señor Carter! Trae una caja de libros ingleses para el puesto de libros. Los niños vitorean. El señor Carter también acepta ser jurado del concurso de dibujo. Mira cada dibujo con atención y hace preguntas a los artistas. Gana un dibujo del patio del colegio en un día de lluvia. ¡La artista es Emilia! Ella se esconde detrás de su madre, pero todos aplauden. El señor Carter dice: El arte nos muestra lo que vemos cada día de una forma nueva.",
+          "words": [
+            "visitante sorpresa",
+            "barba roja",
+            "libros ingleses",
+            "vitorear",
+            "ser jurado",
+            "concurso de dibujo",
+            "con atención",
+            "ganador",
+            "esconderse",
+            "compartir"
+          ]
+        },
+        {
+          "name": "Después de la feria",
+          "text": "A las seis termina la feria. El salón parece un campo de batalla de papel, cajas y migas. Toda la clase se queda a limpiar. Pablito recoge pelotas, Luci apila libros y Jorge lleva cajas vacías al contenedor de reciclaje. La señorita Ana trae té y galletas para todos. La caja contiene suficiente dinero para el refugio de animales. Los niños vitorean cuando oyen la cantidad. Antes de irse, se sientan en el escenario y miran el salón vacío. Ha sido un buen día. El año que viene harán la feria aún más grande.",
+          "words": [
+            "la feria termina",
+            "campo de batalla",
+            "migas",
+            "limpiar",
+            "apilar libros",
+            "contenedor de reciclaje",
+            "galleta",
+            "refugio de animales",
+            "cantidad",
+            "apagar las luces"
+          ]
+        }
+      ]
+    }
+  ]
+}

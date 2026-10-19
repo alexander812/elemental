@@ -6,6 +6,6 @@
 
 Внешние связи: `transport/catalog.ts` (`import.meta.glob`), `transport/courses.ts`, `features/lessons/store`, `features/sets/store`, `features/courses/store`, `features/theme/store`, `shared/ui/ConfirmSheet`, `shared/ui/Toast`, `lib/languages.ts`.
 
-Оркестрация: код — встроенный `explore`. Контент и каталог (`app/src/courses/*.json`, `courses_beginner.json`) — skill `new-course` + агент `course-editor`.
+Оркестрация: код — встроенный `explore`. Контент и каталоги уровней (`app/src/courses/*.json`, `courses_<level>.json`) — skill `new-course` + агент `course-editor`.
 
 Инварианты: карточки собираются попарно по индексу слов из двух языковых файлов; дубликат — по уровню + названию + языку курса; замена каскадно удаляет старые уроки и задания.

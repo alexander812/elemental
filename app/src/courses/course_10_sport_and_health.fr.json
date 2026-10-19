@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Sport and Health",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "Entraînement de football",
+      "tasks": [
+        {
+          "name": "Échauffement",
+          "text": "Le mardi après-midi, l'équipe de football de l'école se retrouve sur le terrain. L'entraîneur Antoine attend déjà avec un sifflet et un sac de ballons. Avant de jouer, on s'échauffe ! dit-il. Les garçons courent autour du terrain, étirent leurs jambes et se passent le ballon par deux. Hugo a d'abord sommeil, mais au bout de cinq minutes son corps se réveille. Georges et Jules courent jusqu'à la clôture et reviennent. L'entraîneur explique : Un bon échauffement protège les muscles.",
+          "words": [
+            "équipe de football",
+            "entraîneur",
+            "sifflet",
+            "s’échauffer",
+            "étirer les jambes",
+            "se passer le ballon par deux",
+            "somnolent",
+            "protéger les muscles",
+            "se blesser",
+            "l’entraînement commence"
+          ]
+        },
+        {
+          "name": "Passes et tirs",
+          "text": "Aujourd'hui, l'équipe travaille les passes et les tirs. L'entraîneur Antoine place cinq cônes sur l'herbe. Les garçons doivent courir entre eux, passer à un partenaire et tirer au but. Hugo est rapide, mais ses tirs volent trop haut. Garde le pied bas, dit l'entraîneur. Regarde le ballon, pas le ciel. Hugo recommence. Cette fois, le ballon entre droit dans le filet. L'équipe crie de joie. Georges passe bien et trouve Jules avec un long ballon. Jules est gardien aujourd'hui, alors il essaie d'arrêter tous les tirs.",
+          "words": [
+            "travailler les passes",
+            "tirer",
+            "cône",
+            "partenaire",
+            "but",
+            "garder le pied bas",
+            "regarder le ballon",
+            "dans le filet",
+            "long ballon",
+            "couvert de boue"
+          ]
+        },
+        {
+          "name": "Travail d’équipe",
+          "text": "L'entraîneur Antoine divise l'équipe en deux groupes. L'équipe rouge doit garder le ballon pendant dix passes. L'équipe bleue doit le prendre. Au début, l'équipe rouge perd le ballon après trois passes. Chacun essaie de tout faire seul. Arrêtez ! dit l'entraîneur. Le football n'est pas une course. Parlez-vous ! Les garçons commencent à appeler les noms et à montrer du doigt. Hugo passe à Georges, Georges à Jules, Jules à Hugo. Un, deux, trois... dix ! L'équipe rouge gagne. L'entraîneur sourit : Vous voyez ?",
+          "words": [
+            "diviser en groupes",
+            "garder le ballon",
+            "dix passes",
+            "prendre le ballon",
+            "tout faire seul",
+            "se parler",
+            "appeler les noms",
+            "montrer du doigt",
+            "gagner en groupe",
+            "boire de l’eau"
+          ]
+        },
+        {
+          "name": "Le premier match",
+          "text": "Le samedi, l'équipe joue son premier match contre une école du quartier voisin. Les garçons portent des maillots rouges et des chaussettes blanches. Hugo a les mains froides, mais pas à cause du temps. En première mi-temps, l'autre équipe marque. Notre équipe semble fatiguée et triste. À la pause, l'entraîneur Antoine ne crie pas. Il dit : On peut encaisser un but, mais on ne peut pas perdre son courage. En seconde mi-temps, les garçons jouent ensemble. Georges passe, Hugo court et Jules marque !",
+          "words": [
+            "premier match",
+            "quartier voisin",
+            "maillot rouge",
+            "chaussettes blanches",
+            "mains froides",
+            "première mi-temps",
+            "marquer",
+            "à la pause",
+            "perdre son courage",
+            "match nul"
+          ]
+        },
+        {
+          "name": "Après le coup de sifflet",
+          "text": "Après le match, les deux équipes se serrent la main. Un garçon de l'autre équipe dit à Hugo : Tu cours très vite ! Hugo sourit : Votre gardien est excellent. Ils échangent les noms de leurs écoles. L'entraîneur Antoine apporte un sac d'oranges, et les joueurs s'assoient sur l'herbe. L'entraîneur dit : Aujourd'hui, j'ai vu quelque chose de plus important que les buts. J'ai vu une équipe. Les garçons crient de joie. Hugo a mal aux jambes et son maillot est sale, mais il est heureux.",
+          "words": [
+            "se serrer la main",
+            "l’autre équipe",
+            "gardien",
+            "échanger les noms",
+            "sac d’oranges",
+            "plus important que les buts",
+            "mal aux jambes",
+            "maillot sale",
+            "on n’a pas perdu",
+            "c’est ça qui compte"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Une petite blessure",
+      "tasks": [
+        {
+          "name": "La chute",
+          "text": "Pendant l'entraînement, Hugo saute pour le ballon et retombe mal sur sa cheville. Il tombe sur l'herbe et tient sa jambe. Ça fait mal ! L'entraîneur Antoine court vers lui et lui dit de ne pas bouger. Georges apporte une bouteille d'eau froide et l'enveloppe dans une serviette. L'entraîneur examine la cheville doucement : Elle est gonflée, mais je ne pense pas qu'elle soit cassée. Hugo essaie de se lever, mais la douleur est vive. Jules appelle la mère de Hugo, et elle arrive en quinze minutes. Ils vont à la clinique.",
+          "words": [
+            "sauter pour le ballon",
+            "mal retomber",
+            "cheville",
+            "ne pas bouger",
+            "bouteille d’eau froide",
+            "envelopper dans une serviette",
+            "gonflement",
+            "cassé",
+            "douleur vive",
+            "manquer le match"
+          ]
+        },
+        {
+          "name": "À la clinique",
+          "text": "À la clinique, le docteur Moreau regarde la cheville de Hugo. Elle la bouge doucement et demande : Est-ce que ça fait mal ici ? Un peu. Et là ? Non. Bien. La radio ne montre aucune fracture, seulement un ligament étiré. Il te faut du repos, de la glace et un bandage, dit-elle. Pas de football pendant deux semaines. Hugo fait la grimace. Le docteur Moreau sourit : Si tu te reposes maintenant, tu joueras pendant des années. Si tu te dépêches, tu risques de te blesser gravement. Maman acquiesce.",
+          "words": [
+            "examiner la cheville",
+            "est-ce que ça fait mal",
+            "radio",
+            "os cassés",
+            "ligament étiré",
+            "repos et glace",
+            "bandage",
+            "deux semaines sans football",
+            "se dépêcher",
+            "partie du sport"
+          ]
+        },
+        {
+          "name": "Regarder depuis le banc",
+          "text": "Hugo ne peut pas jouer, alors il vient à l'entraînement avec son bandage et s'assoit sur le banc. D'abord, il se sent inutile. Puis l'entraîneur Antoine lui demande de regarder le jeu et de noter ce que l'équipe peut améliorer. Hugo prend un carnet. Il voit que les garçons courent trop sans le ballon. Il voit aussi que Jules quitte son but trop tôt. À la fin, il montre ses notes à l'entraîneur. Excellentes observations ! dit Antoine. Un bon joueur apprend aussi depuis le banc. Hugo sourit.",
+          "words": [
+            "s’asseoir sur le banc",
+            "inutile",
+            "regarder le match",
+            "noter",
+            "améliorer",
+            "carnet",
+            "sans le ballon",
+            "quitter le but",
+            "observation",
+            "partie de l’équipe"
+          ]
+        },
+        {
+          "name": "La convalescence",
+          "text": "Les jours sans football sont longs. Hugo fait des exercices pour sa cheville chaque matin. Au début, ils sont ennuyeux, mais maman fait un tableau avec des étoiles. Chaque jour, il ajoute une étoile. Georges lui rend visite et lui raconte les entraînements. L'équipe te manque, dit-il. Hugo aussi manque à l'équipe. Après une semaine, il peut marcher sans douleur. Le docteur Moreau dit : Bien. Maintenant tu peux faire du vélo, mais pas encore courir. Hugo roule lentement dans le parc, avec Rex qui court à côté de lui.",
+          "words": [
+            "jours longs",
+            "faire des exercices",
+            "ennuyeux",
+            "tableau avec des étoiles",
+            "rendre visite",
+            "manquer à l’équipe",
+            "marcher sans douleur",
+            "faire du vélo",
+            "guérison",
+            "patient et important"
+          ]
+        },
+        {
+          "name": "De retour sur le terrain",
+          "text": "Deux semaines plus tard, Hugo revient à l'entraînement. Il arrive tôt et fait le tour du terrain pour s'échauffer. Sa cheville semble solide. L'entraîneur Antoine lui donne un gilet jaune et dit : Commence doucement. Hugo passe le ballon, court un peu et s'arrête. Rien ne fait mal. Georges sourit : Bon retour ! L'équipe fait un cercle et applaudit. Hugo est timide et heureux à la fois. À la fin de l'entraînement, il marque un but du pied gauche. Tout le monde crie de joie.",
+          "words": [
+            "revenir à l’entraînement",
+            "arriver tôt",
+            "s’échauffer",
+            "la cheville semble solide",
+            "gilet jaune",
+            "commencer doucement",
+            "rien ne fait mal",
+            "bon retour",
+            "marquer du pied gauche",
+            "c’est bon d’être de retour"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Habitudes saines",
+      "tasks": [
+        {
+          "name": "Bien dormir",
+          "text": "Hugo veille tard avec un nouveau jeu vidéo. Le matin, il n'arrive pas à ouvrir les yeux. Maman dit : Ton corps a besoin de sommeil, surtout quand tu joues au football. Elle explique que les enfants ont besoin d'environ dix heures. Hugo regarde son écran et soupire. Ce soir-là, la famille instaure une nouvelle règle : pas d'écrans après neuf heures. Ils lisent des livres à la place. Minette s'endort sur les pieds de Léa, et Rex ronfle sous le lit. Hugo pense qu'il ne dormira pas, mais ses yeux se ferment vite.",
+          "words": [
+            "veiller tard",
+            "jeu vidéo",
+            "ouvrir les yeux",
+            "avoir besoin de sommeil",
+            "environ dix heures",
+            "pas d’écrans après neuf heures",
+            "lire des livres à la place",
+            "ronfler",
+            "avant le réveil",
+            "superpouvoir"
+          ]
+        },
+        {
+          "name": "La nourriture pour l’énergie",
+          "text": "Avant le match, l'entraîneur Antoine parle de la nourriture. Un footballeur ne peut pas courir uniquement avec des bonbons, dit-il. Les garçons nomment leurs plats préférés. Pizza, hamburgers, frites ! crie quelqu'un. L'entraîneur rit : Parfois, oui. Mais ton corps a aussi besoin de légumes, de fruits, de poisson et d'eau. Il montre une assiette simple : la moitié de légumes, un quart de riz ou de pommes de terre, un quart de poisson ou de viande. Hugo regarde sa boîte à déjeuner.",
+          "words": [
+            "nourriture pour l’énergie",
+            "courir avec des bonbons",
+            "plat préféré",
+            "légumes",
+            "fruits",
+            "poisson",
+            "assiette simple",
+            "boîte à déjeuner",
+            "choisir de l’eau",
+            "petits choix"
+          ]
+        },
+        {
+          "name": "Bouger chaque jour",
+          "text": "Le docteur Moreau dit que le sport n'est pas seulement le football. Marcher, faire du vélo, nager et danser comptent aussi. Hugo et Léa font un tableau de leur semaine. Le lundi, ils vont à l'école à pied. Le mardi, Hugo a football. Le mercredi, Léa danse. Le jeudi, toute la famille se promène au parc avec Rex. Le vendredi, Lucas va courir. Le samedi, ils font du vélo. Le dimanche, ils se reposent. Le tableau est plein de petits dessins. Maman dit : Le meilleur exercice est celui qui te plaît.",
+          "words": [
+            "le sport n’est pas que le football",
+            "marcher",
+            "faire du vélo",
+            "nager",
+            "danser",
+            "faire un tableau",
+            "aller à l’école à pied",
+            "faire du vélo",
+            "l’exercice qui te plaît",
+            "pleine de mouvement"
+          ]
+        },
+        {
+          "name": "Eau et repos",
+          "text": "L'entraîneur Antoine pose deux bouteilles sur la table : de l'eau et une boisson sucrée. Il demande à l'équipe de lire les étiquettes. La boisson sucrée contient sept cuillères de sucre. Les garçons sont surpris. L'eau n'en contient pas. Pendant l'entraînement, l'entraîneur les fait boire toutes les quinze minutes. Après, ils se reposent sous un arbre. Le repos n'est pas de la paresse, dit Antoine. Les muscles grandissent quand on se repose. Hugo s'allonge sur l'herbe et regarde les nuages.",
+          "words": [
+            "bouteille d’eau",
+            "boisson sucrée",
+            "lire l’étiquette",
+            "cuillères de sucre",
+            "être surpris",
+            "toutes les quinze minutes",
+            "se reposer sous un arbre",
+            "paresse",
+            "les muscles grandissent",
+            "se coucher tôt"
+          ]
+        },
+        {
+          "name": "Une semaine saine",
+          "text": "À la fin de la semaine, la famille compare ses habitudes saines. Chacun a au moins un point faible. Papa boit trop de café, maman oublie de faire des pauses, Lucas reste trop longtemps devant l'ordinateur et Léa saute parfois le petit-déjeuner. Hugo admet qu'il aime encore les boissons sucrées. Personne n'est parfait. Ils choisissent un petit changement chacun : papa remplace un café par de l'eau, maman marche après le déjeuner, Lucas se lève toutes les heures, Léa mange une banane le matin et Hugo boit de l'eau au dîner.",
+          "words": [
+            "habitudes saines",
+            "point faible",
+            "trop de café",
+            "oublier de faire des pauses",
+            "rester trop longtemps assis",
+            "sauter le petit-déjeuner",
+            "boissons sucrées",
+            "personne n’est parfait",
+            "petit changement",
+            "pas à pas"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Le jour du match",
+      "tasks": [
+        {
+          "name": "Le grand jour",
+          "text": "La finale a lieu dimanche. Hugo se réveille tôt et vérifie son sac trois fois : chaussures, maillot, short, bouteille. La famille prend le petit-déjeuner ensemble, mais personne ne mange beaucoup. Papa dit : Mange quelque chose. Tu auras besoin d'énergie. Hugo arrive à avaler une demi-tartine. Sur le terrain, l'équipe se rassemble dans le vestiaire. L'entraîneur Antoine écrit les noms sur un petit tableau. Hugo est dans l'équipe de départ ! Son cœur bat vite. Georges pose une main sur son épaule : On joue ensemble.",
+          "words": [
+            "match final",
+            "vérifier le sac trois fois",
+            "chaussures",
+            "maillot",
+            "short",
+            "avoir besoin d’énergie",
+            "vestiaire",
+            "équipe de départ",
+            "le cœur bat vite",
+            "encourager sur les côtés"
+          ]
+        },
+        {
+          "name": "La première mi-temps",
+          "text": "L'arbitre siffle, et le match commence. Les deux équipes sont fortes. Le ballon passe d'un côté à l'autre. Hugo court après, mais les défenseurs sont rapides. À la dixième minute, l'autre équipe marque d'un tir puissant. Notre gardien Jules ne peut pas l'atteindre. Les parents se taisent. Hugo regarde Georges, et Georges hoche la tête. On est toujours là. L'équipe essaie encore. Hugo reçoit le ballon, passe deux joueurs et tire, mais le gardien l'attrape. À la pause, le score est de un à zéro.",
+          "words": [
+            "arbitre",
+            "sifflet",
+            "les deux équipes",
+            "défenseur",
+            "marquer d’un tir puissant",
+            "gardien",
+            "les parents se taisent",
+            "hocher la tête",
+            "attraper le ballon",
+            "à la pause"
+          ]
+        },
+        {
+          "name": "La seconde mi-temps",
+          "text": "En seconde mi-temps, l'équipe joue différemment. Les garçons passent plus et courent moins. Hugo reste près de Georges et attend le ballon. À la quinzième minute, Georges le prend et passe dans un petit espace. Hugo court, regarde le but et tire. Le ballon entre dans le filet ! Les parents se lèvent et crient. Hugo n'y croit pas. Georges le serre dans ses bras, et toute l'équipe accourt. Le score est de un partout. Les dernières minutes sont folles. Les deux équipes veulent gagner.",
+          "words": [
+            "seconde mi-temps",
+            "passer plus",
+            "courir moins",
+            "petit espace",
+            "entrer dans le filet",
+            "serrer dans ses bras",
+            "un partout",
+            "tir dangereux",
+            "ballon haut",
+            "trois coups de sifflet courts"
+          ]
+        },
+        {
+          "name": "Fair-play",
+          "text": "Le match se termine sur un match nul, donc il n'y aura pas de vainqueur aujourd'hui. Les deux capitaines se serrent la main. Un garçon de l'autre équipe dit à Hugo : Ton but était incroyable. Hugo répond : Votre défense était très forte. Les équipes s'alignent et applaudissent l'une l'autre. L'entraîneur Antoine dit : Voilà ce qu'est le sport. Vous avez tout donné et vous êtes restés fair-play. Les parents applaudissent sur le côté. Hugo est fatigué, mais il ne peut pas s'empêcher de sourire.",
+          "words": [
+            "fair-play",
+            "capitaine",
+            "but incroyable",
+            "défense solide",
+            "s’aligner",
+            "s’applaudir",
+            "tout donner",
+            "rester fair-play",
+            "étrange mais juste",
+            "quelque chose de plus important"
+          ]
+        },
+        {
+          "name": "La fête de l’équipe",
+          "text": "Après le match, l'équipe va dans le jardin de l'entraîneur Antoine. Il y a des sandwichs, des fruits et un grand gâteau en forme de ballon. Les garçons s'assoient sur l'herbe et parlent du match. Chacun se souvient d'un moment différent : l'arrêt haut de Jules, la passe de Georges, le but de Hugo. L'entraîneur donne à chaque joueur une petite médaille. Elle porte l'inscription : Fair-play et travail d'équipe. Hugo la met autour de son cou. Elle n'est pas en or, mais elle lui semble spéciale.",
+          "words": [
+            "fête de l’équipe",
+            "gâteau en forme de ballon",
+            "se souvenir d’un moment",
+            "arrêt haut",
+            "petite médaille",
+            "fair-play et travail d’équipe",
+            "autour du cou",
+            "pas en or",
+            "photographier l’équipe",
+            "prochaine saison"
+          ]
+        }
+      ]
+    }
+  ]
+}

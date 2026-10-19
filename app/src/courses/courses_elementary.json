@@ -1,0 +1,149 @@
+{
+  "level": "Elementary",
+  "courses": [
+    {
+      "course": "Around the City",
+      "level": "Elementary",
+      "files": {
+        "en": "course_05_around_the_city.en.json",
+        "ru": "course_05_around_the_city.ru.json",
+        "es": "course_05_around_the_city.es.json",
+        "fr": "course_05_around_the_city.fr.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "Around the City",
+          "ru": "Город и транспорт",
+          "es": "La ciudad y el transporte",
+          "fr": "La ville et les transports"
+        },
+        "description": {
+          "en": "Buses, the metro, asking the way, a trip to the old station and a day in the city.",
+          "ru": "Автобусы, метро, как пройти, поездка на старый вокзал и день в городе.",
+          "es": "Autobuses, el metro, preguntar el camino, un viaje a la vieja estación y un día en la ciudad.",
+          "fr": "Bus, métro, demander son chemin, un voyage à la vieille gare et une journée en ville."
+        }
+      }
+    },
+    {
+      "course": "School Days",
+      "level": "Elementary",
+      "files": {
+        "en": "course_06_school_days.en.json",
+        "ru": "course_06_school_days.ru.json",
+        "es": "course_06_school_days.es.json",
+        "fr": "course_06_school_days.fr.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "School Days",
+          "ru": "Школьные дни",
+          "es": "Días de escuela",
+          "fr": "Jours d’école"
+        },
+        "description": {
+          "en": "A school day, lessons and teachers, after-school clubs and the big school fair.",
+          "ru": "Школьный день, уроки и учителя, кружки после школы и большая школьная ярмарка.",
+          "es": "Un día de colegio, clases y profesores, clubes extraescolares y la gran feria escolar.",
+          "fr": "Une journée d’école, les cours et les professeurs, les clubs et la grande fête de l’école."
+        }
+      }
+    },
+    {
+      "course": "Work and Dreams",
+      "level": "Elementary",
+      "files": {
+        "en": "course_07_work_and_dreams.en.json",
+        "ru": "course_07_work_and_dreams.ru.json",
+        "es": "course_07_work_and_dreams.es.json",
+        "fr": "course_07_work_and_dreams.fr.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "Work and Dreams",
+          "ru": "Работа и мечты",
+          "es": "El trabajo y los sueños",
+          "fr": "Le travail et les rêves"
+        },
+        "description": {
+          "en": "Parents at work, a day at the clinic and on the building site, and a career day at school.",
+          "ru": "Родители на работе, день в поликлинике и на стройке, день профессий в школе.",
+          "es": "Los padres en el trabajo, un día en la clínica y en la obra, y el día de las profesiones en el colegio.",
+          "fr": "Les parents au travail, une journée à la clinique et sur le chantier, et la journée des métiers à l'école."
+        }
+      }
+    },
+    {
+      "course": "Weather and Seasons",
+      "level": "Elementary",
+      "files": {
+        "en": "course_08_weather_and_seasons.en.json",
+        "ru": "course_08_weather_and_seasons.ru.json",
+        "es": "course_08_weather_and_seasons.es.json",
+        "fr": "course_08_weather_and_seasons.fr.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "Weather and Seasons",
+          "ru": "Погода и времена года",
+          "es": "El tiempo y las estaciones",
+          "fr": "Le temps et les saisons"
+        },
+        "description": {
+          "en": "A rainy Saturday, the first snow, windy walks and long summer evenings in the city.",
+          "ru": "Дождливая суббота, первый снег, прогулки в ветреную погоду и долгие летние вечера в городе.",
+          "es": "Un sábado de lluvia, la primera nieve, paseos con viento y largas tardes de verano en la ciudad.",
+          "fr": "Un samedi pluvieux, la première neige, des promenades venteuses et de longues soirées d'été en ville."
+        }
+      }
+    },
+    {
+      "course": "Travel and Languages",
+      "level": "Elementary",
+      "files": {
+        "en": "course_09_travel_and_languages.en.json",
+        "ru": "course_09_travel_and_languages.ru.json",
+        "es": "course_09_travel_and_languages.es.json",
+        "fr": "course_09_travel_and_languages.fr.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "Travel and Languages",
+          "ru": "Путешествия и языки",
+          "es": "Viajes e idiomas",
+          "fr": "Voyages et langues"
+        },
+        "description": {
+          "en": "A week in London with the Carters: the airport, red buses, new words and a postcard home.",
+          "ru": "Неделя в Лондоне с Картерами: аэропорт, красные автобусы, новые слова и открытка домой.",
+          "es": "Una semana en Londres con los Carter: el aeropuerto, autobuses rojos, palabras nuevas y una postal a casa.",
+          "fr": "Une semaine à Londres avec les Carter : l'aéroport, les bus rouges, de nouveaux mots et une carte postale."
+        }
+      }
+    },
+    {
+      "course": "Sport and Health",
+      "level": "Elementary",
+      "files": {
+        "en": "course_10_sport_and_health.en.json",
+        "ru": "course_10_sport_and_health.ru.json",
+        "es": "course_10_sport_and_health.es.json",
+        "fr": "course_10_sport_and_health.fr.json"
+      },
+      "i18n": {
+        "course": {
+          "en": "Sport and Health",
+          "ru": "Спорт и здоровье",
+          "es": "Deporte y salud",
+          "fr": "Sport et santé"
+        },
+        "description": {
+          "en": "Football practice, a small injury, healthy habits and a big match with the school team.",
+          "ru": "Футбольная тренировка, небольшая травма, полезные привычки и большой матч школьной команды.",
+          "es": "Entrenamiento de fútbol, una pequeña lesión, hábitos saludables y un gran partido del equipo del colegio.",
+          "fr": "Entraînement de football, une petite blessure, des habitudes saines et un grand match de l'équipe de l'école."
+        }
+      }
+    }
+  ]
+}

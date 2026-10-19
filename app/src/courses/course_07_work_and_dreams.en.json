@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Work and Dreams",
+  "lang": "en",
+  "lessons": [
+    {
+      "name": "Parents at Work",
+      "tasks": [
+        {
+          "name": "A Busy Morning",
+          "text": "On Monday morning everyone in the family is busy. Mum Anna has an early shift at the clinic. She puts on her white coat, takes her bag and kisses the children. Dad David has an important meeting at the building site. He rolls up the big drawings and puts them in the car. Jack has a programming club before school, and Sophie must finish a drawing for her art class. Ollie feeds Buddy and Bella. At half past seven the family leaves the flat together. Everyone has a different road, but they will meet again at dinner.",
+          "words": [
+            "early shift",
+            "white coat",
+            "important meeting",
+            "building site",
+            "to roll up drawings",
+            "programming club",
+            "art class",
+            "to feed",
+            "different road",
+            "to meet at dinner"
+          ]
+        },
+        {
+          "name": "Mum's Clinic",
+          "text": "Mum works as a doctor at a city clinic. Her day begins with a short meeting with the nurses. Then she opens the door of her office and calls the first patient. An old man has a bad cough, a young woman has a headache, and a boy has a broken finger. Anna listens to everyone carefully. She writes prescriptions and explains how to take the medicine. Nurse Rachel brings tea and a fresh folder. At lunch Anna calls home to ask about Ollie's school day. The clinic is noisy and busy, but she loves her work.",
+          "words": [
+            "doctor",
+            "city clinic",
+            "nurse",
+            "patient",
+            "bad cough",
+            "headache",
+            "broken finger",
+            "prescription",
+            "to explain",
+            "calmer"
+          ]
+        },
+        {
+          "name": "Dad's Blueprints",
+          "text": "Dad is an engineer and builds bridges and houses. Today he shows Ollie his blueprints on the kitchen table. The lines look like a secret language. This long line is the road, explains Dad, and these small squares are the windows. Ollie finds the place for the future school and puts his finger on it. Dad laughs: Yes, that is the new school near the park. The project is difficult because the river is deep. Dad and his colleague Peter must measure everything twice. At the site they wear helmets and check the ground.",
+          "words": [
+            "engineer",
+            "blueprint",
+            "secret language",
+            "line",
+            "square",
+            "future school",
+            "deep river",
+            "to measure",
+            "helmet",
+            "patience"
+          ]
+        },
+        {
+          "name": "What Do You Want to Be?",
+          "text": "At school Miss Brown asks the class: What do you want to be when you grow up? The children have many answers. Sam wants to be a footballer, and Amy wants to be a swimmer. Lily dreams of the stage, and Tom wants to build robots. Ollie cannot choose: a vet, a cook, a train driver or a football coach? Miss Brown smiles: You do not have to choose today. Talk to your parents about their jobs. The next day Ollie asks Mum about her work. She says: I like helping people. Maybe that is the most important part of any job.",
+          "words": [
+            "to grow up",
+            "footballer",
+            "swimmer",
+            "stage",
+            "to build robots",
+            "vet",
+            "train driver",
+            "to choose",
+            "to help people",
+            "important part"
+          ]
+        },
+        {
+          "name": "A Family Talk",
+          "text": "In the evening the family sits around the table. Dad tells about the new bridge, and Mum about her patients. Jack says he wants to study programming at university. Sophie shows a drawing for a children's book and says: I want to make pictures like this. Ollie listens and suddenly asks: Is it hard to choose one job? Mum answers: Some people choose early, some later. The important thing is to learn and try. Dad adds: And to do your work well. Buddy puts his head on Ollie's knee. The kitchen is warm, and everyone feels safe.",
+          "words": [
+            "to sit around the table",
+            "to study programming",
+            "university",
+            "children's book",
+            "to choose one job",
+            "early",
+            "later",
+            "to try",
+            "to do your work well",
+            "dreams need time"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A Day at the Clinic",
+      "tasks": [
+        {
+          "name": "The Waiting Room",
+          "text": "The waiting room is full of people. A mother holds a sleeping baby, two students read magazines, and an old man leans on his stick. Nurse Rachel walks between the chairs and smiles at everyone. The doctor will see you soon, she says. Ollie has come after school to bring Mum her forgotten lunch. He sits quietly and watches. His mother opens the office door and calls: Mr. Brown, please! The old man gets up slowly. Ollie feels proud of his mum. She speaks to every patient with the same calm voice.",
+          "words": [
+            "waiting room",
+            "sleeping baby",
+            "magazine",
+            "walking stick",
+            "to smile at everyone",
+            "forgotten lunch",
+            "to watch",
+            "to feel proud",
+            "calm voice",
+            "to help people"
+          ]
+        },
+        {
+          "name": "A Little Patient",
+          "text": "A young mother brings in a boy with a high fever. He is five years old and looks frightened. Anna kneels down and says softly: Hello, I am Anna. I will listen to your heart. The boy hides his face in his mother's coat. Anna gives him a small wooden toy: Can you hold this while I listen? The boy nods. The heart sounds strong and fast. Anna explains what to do: rest, water and medicine. She writes everything on a paper for the mother. At the door the boy turns and waves. Anna waves back.",
+          "words": [
+            "high fever",
+            "frightened",
+            "to kneel down",
+            "to listen to the heart",
+            "wooden toy",
+            "to nod",
+            "strong and fast",
+            "rest",
+            "kind word",
+            "less scary"
+          ]
+        },
+        {
+          "name": "The Long Shift",
+          "text": "The afternoon is especially busy. Two patients arrive at once, the phone rings, and a folder is missing. Anna stays calm and writes everything down. Rachel brings her a cup of coffee, but Anna forgets to drink it. At five o'clock there is an emergency: a boy fell from his bike and hurt his arm. Anna examines him quickly and sends him for an X-ray. The boy's mother cries, and Anna says: He is brave. Everything will be fine. Only at eight o'clock does she take off her white coat. Her feet hurt, but she smiles.",
+          "words": [
+            "afternoon",
+            "especially busy",
+            "at once",
+            "to stay calm",
+            "to write down",
+            "to forget to drink",
+            "emergency",
+            "to hurt an arm",
+            "X-ray",
+            "feet hurt"
+          ]
+        },
+        {
+          "name": "Dr. Miller's Advice",
+          "text": "At the end of the day Dr. Miller, the chief doctor, knocks on Anna's door. She has worked at the clinic for thirty years and knows every corner. You did well today, she says. But remember: you cannot help everyone if you forget to rest. Anna smiles tiredly. Dr. Miller tells her about her first year as a doctor: she also forgot lunch and stayed late. Experience teaches you to listen to your own body too. They drink tea together in the staff room. Rachel tells a funny story about a patient's parrot.",
+          "words": [
+            "chief doctor",
+            "to knock on the door",
+            "thirty years",
+            "to forget to rest",
+            "tiredly",
+            "first year as a doctor",
+            "experience",
+            "to listen to your body",
+            "staff room",
+            "to go home"
+          ]
+        },
+        {
+          "name": "Home After Work",
+          "text": "When Anna comes home, the kitchen smells of soup. David has already set the table, and the children are waiting. How was your day? asks Ollie. Long, answers Mum, but good. She tells about the boy with the broken arm and the little patient who was afraid. Sophie says: You help people every day. That is amazing. Anna takes off her shoes and puts her feet on a small cushion. Buddy lies down next to her. The family talks about small things: school, football, a new recipe. After dinner Anna falls asleep on the sofa.",
+          "words": [
+            "to come home",
+            "smell of soup",
+            "to set the table",
+            "long day",
+            "broken arm",
+            "to be afraid",
+            "to take off shoes",
+            "cushion",
+            "to fall asleep",
+            "to cover with a blanket"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "At the Construction Site",
+      "tasks": [
+        {
+          "name": "Safety First",
+          "text": "On Saturday David takes Ollie and George to the construction site. Before they enter, he gives them helmets and bright vests. Safety first! he says. The boys must stay close and follow the white arrows. A crane lifts heavy blocks high above the ground, and workers in orange jackets move like a team. David shows them the safety rules: no running, no touching machines, always listen to the signal. George asks many questions. Why is that wall covered? Why does the ground shake? David answers patiently.",
+          "words": [
+            "construction site",
+            "helmet",
+            "bright vest",
+            "safety first",
+            "white arrow",
+            "crane",
+            "heavy block",
+            "safety rules",
+            "signal",
+            "careful people"
+          ]
+        },
+        {
+          "name": "The Crane",
+          "text": "The crane operator sits in a small cabin high above the ground. He cannot see every corner of the site, so a worker on the ground gives him signals with his hands and a radio. George watches with open mouth. The crane lifts a long metal beam and turns it slowly through the air. It looks like a giant arm. David explains: One wrong signal and the beam could fall. That is why every movement is planned. Ollie asks if he can try the radio, and the operator lets him say: All clear! His voice sounds small but important.",
+          "words": [
+            "crane operator",
+            "small cabin",
+            "high above the ground",
+            "to give signals",
+            "radio",
+            "metal beam",
+            "giant arm",
+            "wrong signal",
+            "all clear",
+            "to land softly"
+          ]
+        },
+        {
+          "name": "Blueprints",
+          "text": "In the site office David opens a big blueprint on the table. It shows a new bridge across the river. Ollie sees the road, the bicycle lane and the small park under the bridge. What are these numbers? asks George. David explains: They show the length and the height. Every line has a meaning. The workers cannot build without this paper. George tries to read one measurement and makes a mistake. David laughs: Do not worry. I made many mistakes when I started. That is why we check twice.",
+          "words": [
+            "site office",
+            "blueprint",
+            "new bridge",
+            "bicycle lane",
+            "length and height",
+            "measurement",
+            "to make a mistake",
+            "to check twice",
+            "to draw a bridge",
+            "slide"
+          ]
+        },
+        {
+          "name": "Tea Break",
+          "text": "At twelve o'clock the workers stop for a break. They sit on boxes and benches near the site office. David takes out a thermos and pours tea for everyone. The sandwiches are simple but taste wonderful in the fresh air. Peter tells a story about a crane that once lifted a piano. The workers laugh. Another man shows photos of his little daughter. Ollie and George listen to the grown-ups. They learn that people at a site come from many places and do different jobs: drivers, cooks, engineers, electricians.",
+          "words": [
+            "tea break",
+            "thermos",
+            "to pour tea",
+            "simple sandwich",
+            "fresh air",
+            "to tell a story",
+            "to show photos",
+            "grown-ups",
+            "different jobs",
+            "small city"
+          ]
+        },
+        {
+          "name": "The New Bridge",
+          "text": "A year later the new bridge is ready. The whole family comes to the opening. The bridge is white and light, and its bicycle lane shines in the sun. David stands with the workers and the mayor. The mayor says: This bridge connects two parts of the city. But it also shows what people can do together. Everyone claps. Ollie and George are the first children to cross the bridge on their bikes. From the middle they can see the park, the river and the old station clock. David watches them and smiles.",
+          "words": [
+            "opening",
+            "white and light",
+            "mayor",
+            "to connect two parts",
+            "together",
+            "to cross the bridge",
+            "on bikes",
+            "from the middle",
+            "real road",
+            "result stays"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dream Jobs",
+      "tasks": [
+        {
+          "name": "Career Day",
+          "text": "Today is career day at Ollie's school. Parents come to talk about their jobs. A pilot shows photos of clouds, a cook brings small cakes, and a gardener gives everyone a little plant. Mum Anna speaks about being a doctor. She explains that the hardest part is not medicine, but telling people bad news. Dad David shows his helmet and a model of a bridge. The children pass them around. When it is Mr. Carter's turn, he writes three English words on the board: curious, patient and brave. He says: Every job needs them.",
+          "words": [
+            "career day",
+            "pilot",
+            "cook",
+            "gardener",
+            "little plant",
+            "hardest part",
+            "bad news",
+            "to pass around",
+            "curious",
+            "brave"
+          ]
+        },
+        {
+          "name": "Mr. Carter's Lesson",
+          "text": "Mr. Carter has been a teacher for twenty years. He tells the class why he chose this job. As a boy, he was afraid to speak in front of people. One teacher helped him and said: Your voice matters. Years later he wanted to do the same for other children. Teaching is not only grammar, he says. It is helping people find their voice. The class is quiet. Then Amy asks: Is it difficult to learn a language? Mr. Carter answers: At first, yes. But every mistake is a step. He asks the children to say one sentence in English.",
+          "words": [
+            "teacher",
+            "to choose a job",
+            "to be afraid",
+            "in front of people",
+            "your voice matters",
+            "years later",
+            "grammar",
+            "to find your voice",
+            "every mistake is a step",
+            "shy"
+          ]
+        },
+        {
+          "name": "Emily and the Animals",
+          "text": "Emily wants to be a vet. At home she has a whole box of animal books. She knows why cats purr, how rabbits sleep and what dogs need every day. On Sunday she visits the animal shelter with Mrs. Carter. The shelter is full of cats and dogs without a home. Emily helps clean the bowls and brush a big grey dog. The dog is old and shy, but he wags his tail when she speaks to him. The shelter worker says: Animals feel when people are kind. Emily smiles. She is not afraid of dirty work. A vet must be patient and gentle.",
+          "words": [
+            "vet",
+            "animal books",
+            "animal shelter",
+            "without a home",
+            "to clean the bowls",
+            "to brush a dog",
+            "shy",
+            "to wag his tail",
+            "dirty work",
+            "patient and gentle"
+          ]
+        },
+        {
+          "name": "Ollie's Choice",
+          "text": "Ollie still cannot choose a job. On Monday he wants to be a train driver, on Tuesday a cook, on Wednesday a footballer. George laughs: You change your mind every day! Ollie thinks and says: Maybe I want to try many things first. Mum agrees: That is a good plan. You are only ten. At dinner the family plays a game. Everyone describes a job without saying its name, and the others guess. Sophie acts a painter, Jack a programmer, Dad a builder.",
+          "words": [
+            "train driver",
+            "cook",
+            "footballer",
+            "to change your mind",
+            "to try many things",
+            "good plan",
+            "to describe a job",
+            "to guess",
+            "to act",
+            "to be many things"
+          ]
+        },
+        {
+          "name": "Follow Your Dream",
+          "text": "In the evening Ollie sits by the window with Buddy. The city lights shine below, and the old station clock shows nine. He thinks about all the jobs he has seen: doctor, engineer, teacher, vet, cook, driver. Each person does something useful. Maybe a job is not one big answer, he thinks. It is a path you build step by step, like Dad's bridge. Mum comes in and sits beside him. What are you thinking about? she asks. About the future, says Ollie. Mum hugs him: You do not have to know everything now. Learn, try, be kind.",
+          "words": [
+            "city lights",
+            "old station clock",
+            "useful",
+            "one big answer",
+            "path",
+            "step by step",
+            "the future",
+            "to learn and try",
+            "to be kind",
+            "the rest will come"
+          ]
+        }
+      ]
+    }
+  ]
+}

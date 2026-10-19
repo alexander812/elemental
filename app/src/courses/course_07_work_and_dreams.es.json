@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Work and Dreams",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "Los padres en el trabajo",
+      "tasks": [
+        {
+          "name": "Una mañana ocupada",
+          "text": "El lunes por la mañana todos en la familia están ocupados. Mamá Carmen tiene el turno temprano en la clínica. Se pone la bata blanca, coge su bolsa y besa a los niños. Papá Carlos tiene una reunión importante en la obra. Enrolla los planos grandes y los pone en el coche. Javi tiene el club de programación antes del colegio, y Luci debe terminar un dibujo para su clase de arte. Pablito da de comer a Toby y Luna. A las siete y media la familia sale junta del piso.",
+          "words": [
+            "turno temprano",
+            "bata blanca",
+            "reunión importante",
+            "obra",
+            "enrollar planos",
+            "club de programación",
+            "clase de arte",
+            "dar de comer",
+            "camino distinto",
+            "verse en la cena"
+          ]
+        },
+        {
+          "name": "La clínica de mamá",
+          "text": "Mamá trabaja como médico en una clínica de la ciudad. Su día empieza con una breve reunión con las enfermeras. Luego abre la puerta de su consulta y llama al primer paciente. Un señor mayor tiene mucha tos, una joven tiene dolor de cabeza y un niño tiene un dedo roto. Carmen escucha a todos con atención. Escribe recetas y explica cómo tomar la medicina. La enfermera Bea trae té y una carpeta nueva. A mediodía Carmen llama a casa para preguntar por el día de Pablito en el colegio.",
+          "words": [
+            "médico",
+            "clínica de la ciudad",
+            "enfermera",
+            "paciente",
+            "tos fuerte",
+            "dolor de cabeza",
+            "dedo roto",
+            "receta",
+            "explicar",
+            "más tranquilo"
+          ]
+        },
+        {
+          "name": "Los planos de papá",
+          "text": "Papá es ingeniero y construye puentes y casas. Hoy le enseña a Pablito sus planos en la mesa de la cocina. Las líneas parecen un idioma secreto. Esta línea larga es la carretera, explica papá, y estos cuadrados pequeños son las ventanas. Pablito encuentra el lugar del futuro colegio y pone el dedo encima. Carlos se ríe: Sí, es el nuevo colegio cerca del parque. El proyecto es difícil porque el río es profundo. Papá y su compañero Andrés deben medirlo todo dos veces. En la obra llevan cascos y revisan el suelo.",
+          "words": [
+            "ingeniero",
+            "plano",
+            "idioma secreto",
+            "línea",
+            "cuadrado",
+            "futuro colegio",
+            "río profundo",
+            "medir",
+            "casco",
+            "paciencia"
+          ]
+        },
+        {
+          "name": "¿Qué quieres ser?",
+          "text": "En el colegio la señorita Ana pregunta a la clase: ¿Qué queréis ser de mayores? Los niños tienen muchas respuestas. Huguito quiere ser futbolista y Sarita nadadora. Martita sueña con el escenario y Sergi quiere construir robots. Pablito no puede elegir: ¿veterinario, cocinero, maquinista o entrenador de fútbol? La señorita Ana sonríe: No tenéis que elegir hoy. Hablad con vuestros padres sobre su trabajo. Al día siguiente Pablito pregunta a mamá por su trabajo. Ella dice: Me gusta ayudar a la gente.",
+          "words": [
+            "hacerse mayor",
+            "futbolista",
+            "nadadora",
+            "escenario",
+            "construir robots",
+            "veterinario",
+            "maquinista",
+            "elegir",
+            "ayudar a la gente",
+            "parte importante"
+          ]
+        },
+        {
+          "name": "Una charla familiar",
+          "text": "Por la noche la familia se sienta a la mesa. Papá habla del nuevo puente y mamá de sus pacientes. Javi dice que quiere estudiar programación en la universidad. Luci enseña un dibujo para un libro infantil y dice: Quiero hacer imágenes así. Pablito escucha y de repente pregunta: ¿Es difícil elegir un solo trabajo? Mamá responde: Algunos eligen pronto y otros más tarde. Lo importante es aprender y probar. Papá añade: Y hacer bien tu trabajo. Toby apoya la cabeza en la rodilla de Pablito.",
+          "words": [
+            "sentarse a la mesa",
+            "estudiar programación",
+            "universidad",
+            "libro infantil",
+            "elegir un trabajo",
+            "pronto",
+            "más tarde",
+            "probar",
+            "hacer bien tu trabajo",
+            "los sueños necesitan tiempo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Un día en la clínica",
+      "tasks": [
+        {
+          "name": "La sala de espera",
+          "text": "La sala de espera está llena de gente. Una madre sostiene a un bebé dormido, dos estudiantes leen revistas y un señor mayor se apoya en su bastón. La enfermera Bea camina entre las sillas y sonríe a todos. El médico le verá pronto, dice. Pablito ha venido después del colegio para llevar a mamá la comida que olvidó. Se sienta en silencio y observa. Su madre abre la puerta de la consulta y llama: ¡Señor Brown, por favor! El señor mayor se levanta despacio. Pablito se siente orgulloso de su madre.",
+          "words": [
+            "sala de espera",
+            "bebé dormido",
+            "revista",
+            "bastón",
+            "sonreír a todos",
+            "comida olvidada",
+            "observar",
+            "sentirse orgulloso",
+            "voz tranquila",
+            "ayudar a la gente"
+          ]
+        },
+        {
+          "name": "Un pequeño paciente",
+          "text": "Una madre joven trae a un niño con mucha fiebre. Tiene cinco años y parece asustado. Carmen se arrodilla y dice con suavidad: Hola, soy Carmen. Voy a escuchar tu corazón. El niño esconde la cara en el abrigo de su madre. Carmen le da un pequeño juguete de madera: ¿Puedes sujetar esto mientras escucho? El niño asiente. El corazón suena fuerte y rápido. Carmen explica qué hacer: descanso, agua y medicina. Escribe todo en un papel para la madre. En la puerta el niño se gira y saluda con la mano. Carmen le devuelve el saludo.",
+          "words": [
+            "fiebre alta",
+            "asustado",
+            "arrodillarse",
+            "escuchar el corazón",
+            "juguete de madera",
+            "asentir",
+            "fuerte y rápido",
+            "descanso",
+            "palabra amable",
+            "menos miedo"
+          ]
+        },
+        {
+          "name": "El turno largo",
+          "text": "La tarde es especialmente ajetreada. Llegan dos pacientes a la vez, suena el teléfono y falta una carpeta. Carmen mantiene la calma y lo apunta todo. Bea le trae una taza de café, pero Carmen olvida beberla. A las cinco hay una urgencia: un niño se cayó de la bici y se hizo daño en el brazo. Carmen lo examina rápido y lo envía a la radiografía. La madre del niño llora y Carmen dice: Es valiente. Todo irá bien. Solo a las ocho se quita la bata blanca. Le duelen los pies, pero sonríe. Por fin la clínica está tranquila.",
+          "words": [
+            "tarde",
+            "especialmente ajetreada",
+            "a la vez",
+            "mantener la calma",
+            "apuntar",
+            "olvidar beber",
+            "urgencia",
+            "hacerse daño en el brazo",
+            "radiografía",
+            "dolor de pies"
+          ]
+        },
+        {
+          "name": "El consejo de la doctora",
+          "text": "Al final del día, la doctora Vega, la jefa, llama a la puerta de Carmen. Lleva treinta años en la clínica y conoce cada rincón. Hoy lo has hecho bien, dice. Pero recuerda: no puedes ayudar a todos si olvidas descansar. Carmen sonríe, cansada. La doctora Vega le cuenta su primer año como médica: ella también olvidaba comer y se quedaba hasta tarde. La experiencia te enseña a escuchar también tu propio cuerpo. Toman té juntas en la sala de personal. Bea cuenta una historia divertida sobre el loro de un paciente.",
+          "words": [
+            "jefa",
+            "llamar a la puerta",
+            "treinta años",
+            "olvidar descansar",
+            "cansada",
+            "primer año como médica",
+            "experiencia",
+            "escuchar tu cuerpo",
+            "sala de personal",
+            "irse a casa"
+          ]
+        },
+        {
+          "name": "En casa después del trabajo",
+          "text": "Cuando Carmen llega a casa, la cocina huele a sopa. Carlos ya ha puesto la mesa y los niños esperan. ¿Qué tal el día?, pregunta Pablito. Largo, responde mamá, pero bueno. Cuenta lo del niño con el brazo roto y el pequeño paciente que tenía miedo. Luci dice: Ayudas a la gente todos los días. Es increíble. Carmen se quita los zapatos y pone los pies en un cojín pequeño. Toby se tumba a su lado. La familia habla de cosas pequeñas: el colegio, el fútbol, una receta nueva. Después de cenar, Carmen se duerme en el sofá.",
+          "words": [
+            "llegar a casa",
+            "olor a sopa",
+            "poner la mesa",
+            "día largo",
+            "brazo roto",
+            "tener miedo",
+            "quitarse los zapatos",
+            "cojín",
+            "dormirse",
+            "cubrir con una manta"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "En la obra",
+      "tasks": [
+        {
+          "name": "La seguridad primero",
+          "text": "El sábado Carlos lleva a Pablito y Jorge a la obra. Antes de entrar, les da cascos y chalecos brillantes. ¡La seguridad primero!, dice. Los chicos deben quedarse cerca y seguir las flechas blancas. Una grúa levanta bloques pesados muy alto, y los obreros con chaquetas naranjas se mueven como un equipo. Carlos les enseña las reglas de seguridad: no correr, no tocar las máquinas, escuchar siempre la señal. Jorge hace muchas preguntas. ¿Por qué está cubierta esa pared? ¿Por qué tiembla el suelo? Carlos responde con paciencia.",
+          "words": [
+            "obra",
+            "casco",
+            "chaleco brillante",
+            "la seguridad primero",
+            "flecha blanca",
+            "grúa",
+            "bloque pesado",
+            "reglas de seguridad",
+            "señal",
+            "personas cuidadosas"
+          ]
+        },
+        {
+          "name": "La grúa",
+          "text": "El operador de la grúa está en una cabina pequeña muy alta. No puede ver cada rincón de la obra, así que un obrero en el suelo le da señales con las manos y por radio. Jorge mira con la boca abierta. La grúa levanta una viga larga de metal y la gira despacio por el aire. Parece un brazo gigante. Carlos explica: Una señal equivocada y la viga podría caer. Por eso cada movimiento está planeado. Pablito pregunta si puede usar la radio, y el operador le deja decir: ¡Vía libre! Su voz suena pequeña pero importante.",
+          "words": [
+            "operador de la grúa",
+            "cabina pequeña",
+            "muy alto",
+            "dar señales",
+            "radio",
+            "viga de metal",
+            "brazo gigante",
+            "señal equivocada",
+            "vía libre",
+            "aterrizar suavemente"
+          ]
+        },
+        {
+          "name": "Los planos",
+          "text": "En la oficina de la obra, Carlos abre un plano grande sobre la mesa. Muestra un nuevo puente sobre el río. Pablito ve la carretera, el carril bici y un pequeño parque bajo el puente. ¿Qué son estos números?, pregunta Jorge. Carlos explica: Muestran la longitud y la altura. Cada línea tiene un significado. Los obreros no pueden construir sin este papel. Jorge intenta leer una medida y se equivoca. Carlos se ríe: No te preocupes. Yo cometí muchos errores cuando empecé. Por eso comprobamos dos veces.",
+          "words": [
+            "oficina de la obra",
+            "plano",
+            "puente nuevo",
+            "carril bici",
+            "longitud y altura",
+            "medida",
+            "equivocarse",
+            "comprobar dos veces",
+            "dibujar un puente",
+            "tobogán"
+          ]
+        },
+        {
+          "name": "La pausa del té",
+          "text": "A las doce los obreros paran para descansar. Se sientan en cajas y bancos cerca de la oficina. Carlos saca un termo y sirve té para todos. Los bocadillos son sencillos, pero saben de maravilla al aire libre. Andrés cuenta una historia sobre una grúa que una vez levantó un piano. Los obreros se ríen. Otro hombre enseña fotos de su hija pequeña. Pablito y Jorge escuchan a los mayores. Aprenden que en una obra trabajan personas de muchos lugares y oficios: conductores, cocineros, ingenieros, electricistas.",
+          "words": [
+            "pausa del té",
+            "termo",
+            "servir té",
+            "bocadillo sencillo",
+            "aire libre",
+            "contar una historia",
+            "enseñar fotos",
+            "mayores",
+            "oficios diferentes",
+            "pequeña ciudad"
+          ]
+        },
+        {
+          "name": "El puente nuevo",
+          "text": "Un año después, el puente nuevo está listo. Toda la familia viene a la inauguración. El puente es blanco y ligero, y su carril bici brilla al sol. Carlos está con los obreros y el alcalde. El alcalde dice: Este puente une dos partes de la ciudad. Pero también muestra lo que las personas pueden hacer juntas. Todos aplauden. Pablito y Jorge son los primeros niños en cruzar el puente en bicicleta. Desde el centro ven el parque, el río y el reloj de la vieja estación. Carlos los mira y sonríe.",
+          "words": [
+            "inauguración",
+            "blanco y ligero",
+            "alcalde",
+            "unir dos partes",
+            "juntos",
+            "cruzar el puente",
+            "en bicicleta",
+            "desde el centro",
+            "carretera real",
+            "el resultado queda"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Trabajos soñados",
+      "tasks": [
+        {
+          "name": "El día de las profesiones",
+          "text": "Hoy es el día de las profesiones en el colegio de Pablito. Los padres vienen a hablar de su trabajo. Un piloto enseña fotos de nubes, un cocinero trae pastelitos y un jardinero regala una planta pequeña a cada uno. Mamá Carmen habla de ser médica. Explica que lo más difícil no es la medicina, sino dar malas noticias a la gente. Papá Carlos muestra su casco y una maqueta de un puente. Los niños los pasan de mano en mano.",
+          "words": [
+            "día de las profesiones",
+            "piloto",
+            "cocinero",
+            "jardinero",
+            "planta pequeña",
+            "lo más difícil",
+            "malas noticias",
+            "pasar de mano en mano",
+            "curioso",
+            "valiente"
+          ]
+        },
+        {
+          "name": "La lección del señor Carter",
+          "text": "El señor Carter lleva veinte años como profesor. Cuenta a la clase por qué eligió este trabajo. De niño tenía miedo de hablar delante de la gente. Un profesor le ayudó y le dijo: Tu voz importa. Años después quiso hacer lo mismo por otros niños. Enseñar no es solo gramática, dice. Es ayudar a las personas a encontrar su voz. La clase está en silencio. Luego Sarita pregunta: ¿Es difícil aprender un idioma? El señor Carter responde: Al principio, sí. Pero cada error es un paso. Pide a los niños que digan una frase en inglés.",
+          "words": [
+            "profesor",
+            "elegir un trabajo",
+            "tener miedo",
+            "delante de la gente",
+            "tu voz importa",
+            "años después",
+            "gramática",
+            "encontrar tu voz",
+            "cada error es un paso",
+            "tímido"
+          ]
+        },
+        {
+          "name": "Emilia y los animales",
+          "text": "Emilia quiere ser veterinaria. En casa tiene una caja llena de libros sobre animales. Sabe por qué ronronean los gatos, cómo duermen los conejos y qué necesitan los perros cada día. El domingo visita el refugio de animales con la señora Carter. El refugio está lleno de gatos y perros sin hogar. Emilia ayuda a limpiar los cuencos y a cepillar a un perro grande y gris. El perro es viejo y tímido, pero mueve la cola cuando ella le habla. El trabajador del refugio dice: Los animales sienten cuándo las personas son amables.",
+          "words": [
+            "veterinaria",
+            "libros de animales",
+            "refugio de animales",
+            "sin hogar",
+            "limpiar los cuencos",
+            "cepillar a un perro",
+            "tímido",
+            "mover la cola",
+            "trabajo sucio",
+            "paciente y cariñoso"
+          ]
+        },
+        {
+          "name": "La elección de Pablito",
+          "text": "Pablito todavía no puede elegir un trabajo. El lunes quiere ser maquinista, el martes cocinero y el miércoles futbolista. Jorge se ríe: ¡Cambias de idea cada día! Pablito piensa y dice: Quizá primero quiero probar muchas cosas. Mamá está de acuerdo: Es un buen plan. Solo tienes diez años. En la cena la familia juega. Cada uno describe un trabajo sin decir su nombre y los demás adivinan. Luci imita a una pintora, Javi a un programador y papá a un constructor.",
+          "words": [
+            "maquinista",
+            "cocinero",
+            "futbolista",
+            "cambiar de idea",
+            "probar muchas cosas",
+            "buen plan",
+            "describir un trabajo",
+            "adivinar",
+            "imitar",
+            "ser muchas cosas"
+          ]
+        },
+        {
+          "name": "Sigue tu sueño",
+          "text": "Por la noche Pablito se sienta junto a la ventana con Toby. Las luces de la ciudad brillan abajo y el reloj de la vieja estación marca las nueve. Piensa en todos los trabajos que ha visto: médico, ingeniero, profesor, veterinario, cocinero, conductor. Cada persona hace algo útil. Quizá un trabajo no es una sola gran respuesta, piensa. Es un camino que construyes paso a paso, como el puente de papá. Mamá entra y se sienta a su lado. ¿En qué piensas?, pregunta. En el futuro, dice Pablito.",
+          "words": [
+            "luces de la ciudad",
+            "reloj de la vieja estación",
+            "útil",
+            "una gran respuesta",
+            "camino",
+            "paso a paso",
+            "el futuro",
+            "aprender y probar",
+            "ser amable",
+            "lo demás llegará"
+          ]
+        }
+      ]
+    }
+  ]
+}

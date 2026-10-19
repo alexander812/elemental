@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Sport and Health",
+  "lang": "en",
+  "lessons": [
+    {
+      "name": "Football Practice",
+      "tasks": [
+        {
+          "name": "Warm-Up",
+          "text": "On Tuesday afternoon the school football team meets on the field. Coach Jim is already waiting with a whistle and a bag of balls. Before we play, we warm up! he says. The boys run around the field, stretch their legs and pass the ball in pairs. Ollie feels sleepy at first, but after five minutes his body wakes up. George and Sam race to the fence and back. The coach explains: A good warm-up protects your muscles. Nobody wants to get hurt on the first minute. The sky is grey, but the boys are warm. Practice begins.",
+          "words": [
+            "football team",
+            "coach",
+            "whistle",
+            "to warm up",
+            "to stretch legs",
+            "to pass the ball in pairs",
+            "sleepy",
+            "to protect muscles",
+            "to get hurt",
+            "practice begins"
+          ]
+        },
+        {
+          "name": "Passing and Shooting",
+          "text": "Today the team practises passing and shooting. Coach Jim puts five cones on the grass. The boys must run between them, pass to a partner and shoot at the goal. Ollie is fast, but his shots fly too high. Keep your foot low, says the coach. Look at the ball, not at the sky. Ollie tries again. This time the ball goes straight into the net. The team cheers. George is good at passing and finds Sam with a long ball. Sam is the goalkeeper today, so he tries to save every shot.",
+          "words": [
+            "to practise passing",
+            "to shoot",
+            "cone",
+            "partner",
+            "goal",
+            "keep your foot low",
+            "to look at the ball",
+            "into the net",
+            "long ball",
+            "covered in mud"
+          ]
+        },
+        {
+          "name": "Teamwork",
+          "text": "Coach Jim divides the team into two groups. The red team must keep the ball for ten passes. The blue team must take it away. At first the red team loses the ball after three passes. Everyone tries to do everything alone. Stop! says the coach. Football is not a race. Talk to each other! The boys start calling names and pointing. Ollie passes to George, George to Sam, Sam back to Ollie. One, two, three... ten! The red team wins the game. Coach Jim smiles: You see? Eleven players can be stronger than one.",
+          "words": [
+            "to divide into groups",
+            "to keep the ball",
+            "ten passes",
+            "to take the ball away",
+            "to do everything alone",
+            "to talk to each other",
+            "to call names",
+            "to point",
+            "to win as a group",
+            "to drink water"
+          ]
+        },
+        {
+          "name": "The First Match",
+          "text": "On Saturday the team plays its first match against a school from the next district. The boys wear red shirts and white socks. Ollie's hands are cold, but not from the weather. In the first half the other team scores. Our team looks tired and sad. At half-time Coach Jim does not shout. He says: You can lose a goal, but you cannot lose your spirit. In the second half the boys play together. George passes, Ollie runs and Sam scores! The match ends in a draw. Nobody won, but the team walks off the field with heads high.",
+          "words": [
+            "first match",
+            "next district",
+            "red shirt",
+            "white socks",
+            "cold hands",
+            "first half",
+            "to score",
+            "at half-time",
+            "to lose your spirit",
+            "a draw"
+          ]
+        },
+        {
+          "name": "After the Whistle",
+          "text": "After the match the two teams shake hands. A boy from the other team says to Ollie: You run very fast! Ollie smiles: Your goalkeeper is great. They exchange the names of their schools. Coach Jim brings a bag of oranges, and the players sit on the grass. The coach says: Today I saw something more important than goals. I saw a team. The boys cheer. Ollie's legs hurt, and his shirt is dirty, but he feels happy. On the way home Dad asks: Did you win? We did not lose, says Ollie. And we played well.",
+          "words": [
+            "to shake hands",
+            "the other team",
+            "goalkeeper",
+            "to exchange names",
+            "bag of oranges",
+            "more important than goals",
+            "legs hurt",
+            "dirty shirt",
+            "we did not lose",
+            "that is what matters"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A Small Injury",
+      "tasks": [
+        {
+          "name": "The Fall",
+          "text": "During practice Ollie jumps for the ball and lands badly on his ankle. He falls to the grass and holds his leg. It hurts! Coach Jim runs over and tells him to stay still. George brings a cold bottle of water and wraps it in a towel. The coach checks the ankle gently: It is swelling, but I do not think it is broken. Ollie tries to stand, but the pain is sharp. Sam calls Ollie's mother, and she arrives in fifteen minutes. They go to the clinic. Ollie is worried: Will I miss the match?",
+          "words": [
+            "to jump for the ball",
+            "to land badly",
+            "ankle",
+            "to stay still",
+            "cold bottle of water",
+            "to wrap in a towel",
+            "swelling",
+            "broken",
+            "sharp pain",
+            "to miss the match"
+          ]
+        },
+        {
+          "name": "At the Clinic",
+          "text": "At the clinic Dr. Miller looks at Ollie's ankle. She moves it carefully and asks: Does this hurt? A little. And this? No. Good. The X-ray shows no broken bones, only a stretched ligament. You need rest, ice and a bandage, she says. No football for two weeks. Ollie's face falls. Dr. Miller smiles: If you rest now, you will play for many years. If you hurry, you may hurt yourself badly. Mum nods. Nurse Rachel brings a bandage and shows Ollie how to walk with it. On the way home they buy ice cream.",
+          "words": [
+            "to examine the ankle",
+            "does this hurt",
+            "X-ray",
+            "broken bones",
+            "stretched ligament",
+            "rest and ice",
+            "bandage",
+            "two weeks without football",
+            "to hurry",
+            "part of sport"
+          ]
+        },
+        {
+          "name": "Watching from the Bench",
+          "text": "Ollie cannot play, so he comes to practice with his bandage and sits on the bench. At first he feels useless. Then Coach Jim asks him to watch the game and note what the team can improve. Ollie takes a notebook. He sees that the boys run too much without the ball. He also sees that Sam leaves his goal too early. At the end he shows his notes to the coach. Great observations! says Jim. A good player also learns from the bench. Ollie smiles. He still cannot run, but he is part of the team.",
+          "words": [
+            "to sit on the bench",
+            "useless",
+            "to watch the game",
+            "to note",
+            "to improve",
+            "notebook",
+            "without the ball",
+            "to leave the goal",
+            "observation",
+            "part of the team"
+          ]
+        },
+        {
+          "name": "Slow Recovery",
+          "text": "The days without football are long. Ollie does exercises for his ankle every morning. At first they are boring, but Mum makes a chart with stars. Each day he puts a star on the chart. George visits and tells him about practice. The team misses you, he says. Ollie misses the team too. After a week he can walk without pain. Dr. Miller says: Good. Now you can ride a bike, but no running yet. Ollie rides slowly around the park with Buddy running beside him. The wind feels wonderful.",
+          "words": [
+            "long days",
+            "to do exercises",
+            "boring",
+            "chart with stars",
+            "to visit",
+            "to miss the team",
+            "to walk without pain",
+            "to ride a bike",
+            "recovery",
+            "patient and important"
+          ]
+        },
+        {
+          "name": "Back on the Field",
+          "text": "Two weeks later Ollie returns to practice. He arrives early and walks around the field to warm up. His ankle feels strong. Coach Jim gives him a yellow vest and says: Start slowly. Ollie passes the ball, runs a little and stops. Nothing hurts. George smiles: Welcome back! The team makes a circle and claps. Ollie feels shy and happy at the same time. At the end of practice he scores a goal with his left foot. Everyone cheers. He knows he must still be careful, but it is good to be back.",
+          "words": [
+            "to return to practice",
+            "to arrive early",
+            "to warm up",
+            "ankle feels strong",
+            "yellow vest",
+            "to start slowly",
+            "nothing hurts",
+            "welcome back",
+            "to score with the left foot",
+            "good to be back"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Healthy Habits",
+      "tasks": [
+        {
+          "name": "A Good Night’s Sleep",
+          "text": "Ollie has been staying up late with a new computer game. In the morning he cannot open his eyes. Mum says: Your body needs sleep, especially when you play football. She explains that children need about ten hours. Ollie looks at his screen and sighs. That evening the family makes a new rule: no screens after nine. They read books instead. Bella falls asleep on Sophie's feet, and Buddy snores under the bed. Ollie thinks he will not sleep, but his eyes close quickly. In the morning he wakes up before the alarm.",
+          "words": [
+            "to stay up late",
+            "computer game",
+            "to open your eyes",
+            "to need sleep",
+            "about ten hours",
+            "no screens after nine",
+            "to read books instead",
+            "to snore",
+            "before the alarm",
+            "superpower"
+          ]
+        },
+        {
+          "name": "Food for Energy",
+          "text": "Before the match Coach Jim talks about food. A footballer cannot run on sweets alone, he says. The boys name their favourite meals. Pizza, burgers, chips! Someone shouts. The coach laughs: Sometimes, yes. But your body also needs vegetables, fruit, fish and water. He shows a simple plate: half vegetables, one quarter rice or potatoes, one quarter fish or meat. Ollie looks at his lunch box. Mum has put in a carrot, an apple and a cheese sandwich. He eats the carrot first and feels proud.",
+          "words": [
+            "food for energy",
+            "to run on sweets",
+            "favourite meal",
+            "vegetables",
+            "fruit",
+            "fish",
+            "simple plate",
+            "lunch box",
+            "to choose water",
+            "small choices"
+          ]
+        },
+        {
+          "name": "Move Every Day",
+          "text": "Dr. Miller says that sport is not only football. Walking, cycling, swimming and dancing also count. Ollie and Sophie make a chart of their week. On Monday they walk to school. On Tuesday Ollie has football. On Wednesday Sophie dances. On Thursday the whole family walks to the park with Buddy. On Friday Jack goes running. On Saturday they ride bikes. On Sunday they rest. The chart is full of small drawings. Mum says: The best exercise is the one you enjoy. Ollie looks at the chart and smiles.",
+          "words": [
+            "sport is not only football",
+            "walking",
+            "cycling",
+            "swimming",
+            "dancing",
+            "to make a chart",
+            "to walk to school",
+            "to ride bikes",
+            "the exercise you enjoy",
+            "full of movement"
+          ]
+        },
+        {
+          "name": "Water and Rest",
+          "text": "Coach Jim puts two bottles on the table: water and a sweet drink. He asks the team to read the labels. The sweet drink has seven spoons of sugar. The boys are surprised. Water has none. During practice the coach makes them drink every fifteen minutes. After practice they rest under a tree. Rest is not laziness, says Jim. Muscles grow when you rest. Ollie lies on the grass and looks at the clouds. His body feels tired but good. That evening he fills his bottle for school. He also goes to bed early without being asked.",
+          "words": [
+            "bottle of water",
+            "sweet drink",
+            "to read the label",
+            "spoons of sugar",
+            "to be surprised",
+            "every fifteen minutes",
+            "to rest under a tree",
+            "laziness",
+            "muscles grow",
+            "to go to bed early"
+          ]
+        },
+        {
+          "name": "A Healthy Week",
+          "text": "At the end of the week the family compares their healthy habits. Everyone has at least one weak point. Dad drinks too much coffee, Mum forgets to take breaks, Jack sits too long at the computer, and Sophie sometimes skips breakfast. Ollie admits that he still likes sweet drinks. Nobody is perfect. They choose one small change each: Dad switches one coffee for water, Mum walks after lunch, Jack stands up every hour, Sophie eats a banana in the morning, and Ollie drinks water with dinner. A week later they check the results.",
+          "words": [
+            "healthy habits",
+            "weak point",
+            "too much coffee",
+            "to forget to take breaks",
+            "to sit too long",
+            "to skip breakfast",
+            "sweet drinks",
+            "nobody is perfect",
+            "small change",
+            "step by step"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Match Day",
+      "tasks": [
+        {
+          "name": "The Big Day",
+          "text": "The final match is on Sunday. Ollie wakes up early and checks his bag three times: boots, shirt, shorts, bottle. The family eats breakfast together, but nobody eats much. Dad says: Eat something. You will need energy. Ollie manages half a toast. At the field the team gathers in the changing room. Coach Jim writes the names on a small board. Ollie is in the starting team! His heart beats fast. George puts a hand on his shoulder: We play together. The boys walk out under the grey sky.",
+          "words": [
+            "final match",
+            "to check the bag three times",
+            "boots",
+            "shirt",
+            "shorts",
+            "to need energy",
+            "changing room",
+            "starting team",
+            "heart beats fast",
+            "to cheer on the sides"
+          ]
+        },
+        {
+          "name": "The First Half",
+          "text": "The referee blows the whistle, and the match begins. Both teams are strong. The ball moves from one side to the other. Ollie runs after it, but the defenders are fast. In the tenth minute the other team scores with a strong shot. Our goalkeeper Sam cannot reach it. The parents go quiet. Ollie looks at George, and George nods. We are still here. The team tries again. Ollie gets the ball, passes two players and shoots, but the goalkeeper catches it. At half-time the score is one to zero.",
+          "words": [
+            "referee",
+            "whistle",
+            "both teams",
+            "defender",
+            "to score with a strong shot",
+            "goalkeeper",
+            "parents go quiet",
+            "to nod",
+            "to catch the ball",
+            "at half-time"
+          ]
+        },
+        {
+          "name": "The Second Half",
+          "text": "In the second half the team plays differently. The boys pass more and run less. Ollie stays close to George and waits for the ball. In the fifteenth minute George takes it and passes through a small gap. Ollie runs, looks at the goal and shoots. The ball hits the net! The parents jump up and shout. Ollie cannot believe it. George hugs him, and the whole team runs over. The score is one to one. The last minutes are wild. Both teams want to win. A defender blocks a dangerous shot, and Sam catches a high ball.",
+          "words": [
+            "second half",
+            "to pass more",
+            "to run less",
+            "small gap",
+            "to hit the net",
+            "to hug",
+            "one to one",
+            "dangerous shot",
+            "high ball",
+            "three short whistles"
+          ]
+        },
+        {
+          "name": "Fair Play",
+          "text": "The match ends in a draw, so there will be no winner today. The two captains shake hands. A boy from the other team says to Ollie: Your goal was amazing. Ollie answers: Your defence was very strong. The teams line up and clap for each other. Coach Jim says: This is what sport looks like. You gave everything, and you stayed fair. The parents clap from the side. Ollie is tired, but he cannot stop smiling. A draw feels strange, but also fair. Both teams played well. On the way home he says: Maybe next time we will win.",
+          "words": [
+            "fair play",
+            "captain",
+            "amazing goal",
+            "strong defence",
+            "to line up",
+            "to clap for each other",
+            "to give everything",
+            "to stay fair",
+            "strange but fair",
+            "something more important"
+          ]
+        },
+        {
+          "name": "The Team Party",
+          "text": "After the match the team goes to Coach Jim's garden. There are sandwiches, fruit and a big cake shaped like a football. The boys sit on the grass and talk about the game. Everyone remembers a different moment: Sam's high catch, George's pass, Ollie's goal. The coach gives each player a small medal. It says: Fair play and teamwork. Ollie puts it around his neck. It is not gold, but it feels special. Mum takes a photo of the whole team. Buddy runs into the picture at the last second, and everyone laughs.",
+          "words": [
+            "team party",
+            "cake shaped like a football",
+            "to remember a moment",
+            "high catch",
+            "small medal",
+            "fair play and teamwork",
+            "around his neck",
+            "not gold",
+            "to take a photo of the team",
+            "next season"
+          ]
+        }
+      ]
+    }
+  ]
+}

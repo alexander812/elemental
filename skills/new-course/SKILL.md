@@ -1,6 +1,6 @@
 ---
 name: new-course
-description: Создаёт новый готовый курс для Lexi (per-language JSON в app/src/courses + регистрация в courses_beginner.json) и добавляет новый язык в курсы, каталог и персонажей. Use when просят создать/добавить готовый курс, новый курс для каталога, новый язык, перевод курса на другой язык, «создай курс», «добавь курс», «добавь язык», "new course", "add language", "translate course".
+description: Создаёт новый готовый курс для Lexi (per-language JSON в app/src/courses + регистрация в каталоге уровня courses_<level>.json) и добавляет новый язык в курсы, каталог и персонажей. Use when просят создать/добавить готовый курс, новый курс для каталога, новый язык, перевод курса на другой язык, «создай курс», «добавь курс», «добавь язык», "new course", "add language", "translate course".
 ---
 
 # Новый готовый курс и новый язык
@@ -9,7 +9,7 @@ description: Создаёт новый готовый курс для Lexi (per-
 
 - `app/src/courses/characters.txt` — канон мира: персонажи, локализованные имена на 4 языках каталога, города по языкам, питомцы, карта связей, таблица «как использовать в уроках». Любой курс — продолжение этого «сериала».
 - `app/src/courses/image_prompts.md` — внешность персонажей и локации; детали в текстах должны ей соответствовать (рыжий Джордж, чёрно-белая Мурка, Мурка на подоконнике и т.д.).
-- Примеры курсов: `app/src/courses/course_0*.<lang>.json`; пример каталога — `app/src/courses/courses_beginner.json`.
+- Примеры курсов: `app/src/courses/course_0*.<lang>.json`; примеры каталогов — `app/src/courses/courses_beginner.json`, `app/src/courses/courses_elementary.json`.
 - `PROJECT.md` → разделы «Готовые курсы», «Языки», «Модель данных».
 
 ## Формат данных
@@ -43,7 +43,7 @@ description: Создаёт новый готовый курс для Lexi (per-
 
 ## Каталог
 
-`courses_beginner.json` — единственный файл, где есть все языки сразу. Запись курса:
+`courses_<level>.json` (`courses_beginner.json`, `courses_elementary.json`, …) — единственный файл уровня, где есть все языки сразу. Запись курса:
 
 ```json
 {
@@ -69,7 +69,7 @@ description: Создаёт новый готовый курс для Lexi (per-
 1. Прочитать `characters.txt` и 1–2 примерных курса; выбрать следующий свободный номер `NN` и тему, не дублирующую уже описанные арки (см. таблицу тем в `characters.txt` и уже загруженные курсы).
 2. Придумать арку на 4 урока × 5 заданий (например: знакомство → событие → конфликт → развязка).
 3. Написать 4 per-language файла: `en` как база, затем остальные языки (переводчику-модели проще идти задание за заданием по всем языкам сразу).
-4. Зарегистрировать курс в `app/src/courses/courses_beginner.json`: `files` на 4 языка + `i18n.course` и `i18n.description` на 4 языках.
+4. Зарегистрировать курс в каталоге своего уровня (`app/src/courses/courses_<level>.json`): `files` на 4 языка + `i18n.course` и `i18n.description` на 4 языках.
 5. Проверить: `node skills/new-course/scripts/validate-course.mjs course_NN_<slug>`.
 6. Прогнать `npm run lint`, `npm run typecheck`, `npm run build`.
 
@@ -78,7 +78,7 @@ description: Создаёт новый готовый курс для Lexi (per-
 1. Добавить язык в `LANGUAGES_CATALOG` в `app/src/lib/languages.ts` (код + название); при необходимости — в дефолты.
 2. Дополнить `app/src/courses/characters.txt`: имена всех персонажей и города для нового языка.
 3. Для каждого курса создать `course_NN_<slug>.<lang>.json` — полный перевод, `words` выровнены по индексу (10 пар на задание).
-4. Во всех записях `courses_beginner.json` добавить язык в `files` и в `i18n.course`/`i18n.description`.
+4. Во всех записях каталогов `courses_*.json` добавить язык в `files` и в `i18n.course`/`i18n.description`.
 5. Проверить все курсы: `node skills/new-course/scripts/validate-course.mjs --all`.
 6. `npm run lint`, `npm run typecheck`, `npm run build`. Учесть сервисы: перевод (`transport/translate.ts`), озвучка (`transport/speech.ts` — локаль языка в `SPEECH_LANG`; сами локальные нейроголоса живут в Android-обёртке и перечислены там же), OCR, а также списки языков в Android-обёртке (голоса, локали распознавания).
 7. `DATA_VERSION` не поднимать: модели данных и форматы localStorage не менялись.
@@ -91,7 +91,7 @@ node skills/new-course/scripts/validate-course.mjs --all               # все 
 COURSES_DIR=app/src/courses node ...                                   # если запуск не из корня
 ```
 
-Скрипт проверяет: 4 файла на месте и валидны; `lang`/`parentCourse`; 3–5 уроков по 5 заданий; 10 непустых слов на язык; совпадение количества уроков/заданий/слов между языками; регистрацию в `courses_beginner.json` (все 4 языка в `files` и `i18n`). Предупреждает о длине текста вне 400–530.
+Скрипт проверяет: 4 файла на месте и валидны; `lang`/`parentCourse`; 3–5 уроков по 5 заданий; 10 непустых слов на язык; совпадение количества уроков/заданий/слов между языками; регистрацию в любом каталоге `courses_*.json` (все 4 языка в `files` и `i18n`). Предупреждает о длине текста вне 400–530.
 
 ## Частые ошибки
 

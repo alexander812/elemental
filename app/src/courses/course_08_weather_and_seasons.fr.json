@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Weather and Seasons",
+  "lang": "fr",
+  "lessons": [
+    {
+      "name": "La météo",
+      "tasks": [
+        {
+          "name": "L’application météo",
+          "text": "Hugo ouvre l'application météo sur le téléphone de maman. Un nuage gris avec trois gouttes apparaît sur l'écran. Pluie toute la journée, lit-il. Il est déçu, car l'entraînement de football est dehors. Mais l'application montre aussi un petit soleil pour demain. Maman dit : Ici, le temps change vite. Prends ton parapluie et une veste chaude. Au petit-déjeuner, le ciel est encore clair. Mais quand les enfants arrivent à l'école, les premières gouttes tombent sur le trottoir. Hugo ouvre son parapluie avec un sourire fier.",
+          "words": [
+            "application météo",
+            "nuage gris",
+            "goutte de pluie",
+            "déçu",
+            "entraînement de football",
+            "soleil pour demain",
+            "le temps change vite",
+            "parapluie",
+            "veste chaude",
+            "avoir raison"
+          ]
+        },
+        {
+          "name": "Que porter",
+          "text": "Léa se tient devant l'armoire. La météo annonce du vent, de la pluie et peut-être un peu de soleil. Un temps parfait pour plusieurs couches, dit maman. Léa choisit un T-shirt, un pull chaud et un léger imperméable. Elle ajoute une écharpe colorée et ses vieilles bottes. Hugo ne trouve pas son autre botte, et Rex dort dessus. Vilain chien ! rit Hugo. Lucas prend une casquette parce qu'il va courir. Maman vérifie tout le monde à la porte : parapluie, bottes, écharpe. On dirait une équipe météo ! dit-elle.",
+          "words": [
+            "armoire",
+            "météo",
+            "couches de vêtements",
+            "T-shirt",
+            "pull chaud",
+            "imperméable léger",
+            "écharpe colorée",
+            "vieilles bottes",
+            "casquette",
+            "être prêt"
+          ]
+        },
+        {
+          "name": "Le parc venteux",
+          "text": "Après l'école, le vent est si fort que les arbres se penchent. Hugo et Georges emmènent leurs cerfs-volants au parc. Celui de Georges est rouge, celui de Hugo est bleu avec une longue queue. Ils courent sur l'herbe et laissent le vent les soulever de plus en plus haut. Une rafale tire Georges en avant et il manque de tomber. Attention ! crie Hugo. Les feuilles volent autour d'eux comme de petits oiseaux. Rex aboie après les cerfs-volants et essaie d'attraper les queues.",
+          "words": [
+            "vent fort",
+            "arbres se penchent",
+            "cerf-volant",
+            "longue queue",
+            "courir sur l’herbe",
+            "rafale",
+            "attention",
+            "feuilles volent",
+            "aboyer après",
+            "bras fatigués"
+          ]
+        },
+        {
+          "name": "Un arc-en-ciel",
+          "text": "La pluie s'arrête aussi soudainement qu'elle a commencé. Le soleil sort de derrière un nuage, et un arc-en-ciel apparaît au-dessus des toits. Regardez ! crie Léa. Tout le monde court au balcon. L'arc-en-ciel est brillant et parfait, avec toutes ses couleurs. Madame Carter appelle de l'étage au-dessus : Vite, prenez une photo avant qu'il disparaisse ! Papa prend trois photos, mais l'arc-en-ciel s'efface peu à peu. Émilie dit : Peut-être qu'il est encore là, juste invisible. Maman sourit : Quelle jolie idée.",
+          "words": [
+            "la pluie s’arrête",
+            "le soleil sort",
+            "arc-en-ciel",
+            "au-dessus des toits",
+            "toutes ses couleurs",
+            "prendre une photo",
+            "s’effacer",
+            "invisible",
+            "ville mouillée",
+            "tout semble neuf"
+          ]
+        },
+        {
+          "name": "La première gelée",
+          "text": "Un matin, l'herbe est blanche de gel. Hugo sort en pantoufles et rentre aussitôt. Il gèle ! Les flaques près de l'entrée sont couvertes d'une fine glace. Léa la touche avec sa botte, et la glace craque comme du verre. Grand-père appelle du village : Couvrez les jeunes pommiers ce soir. Papa cherche de vieilles couvertures pour le jardin. Maman prépare du thé chaud avec du miel et du citron. La chatte refuse de quitter le radiateur chaud. L'hiver n'est pas encore là, dit maman, mais il frappe déjà à la porte.",
+          "words": [
+            "gelée",
+            "sortir en courant",
+            "pantoufles",
+            "geler",
+            "fine glace",
+            "craquer comme du verre",
+            "couvrir les arbres",
+            "thé chaud au miel",
+            "radiateur",
+            "frapper à la porte"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Un samedi pluvieux",
+      "tasks": [
+        {
+          "name": "Pas de football aujourd’hui",
+          "text": "Hugo se réveille tôt parce que c'est le grand match de football aujourd'hui. Mais quand il regarde par la fenêtre, la cour est grise et la pluie tambourine sur le toit. Le match est annulé. Hugo s'assoit par terre et soupire. Georges l'appelle : Ce n'est que de la pluie. On pourra jouer un autre jour. Mais Hugo a attendu toute la semaine. Maman prépare des crêpes et dit : Un jour de pluie peut aussi être un bon jour. Il faut juste un nouveau plan. Hugo regarde les jeux de société sur l'étagère. Peut-être qu'elle a raison.",
+          "words": [
+            "se réveiller tôt",
+            "grand match",
+            "cour grise",
+            "la pluie tambourine",
+            "le match est annulé",
+            "soupirer",
+            "attendre toute la semaine",
+            "crêpes",
+            "nouveau plan",
+            "jeux de société"
+          ]
+        },
+        {
+          "name": "Jeux de société",
+          "text": "Bientôt, le salon est plein de joueurs. Georges apporte une boîte de cartes, Léa choisit un jeu de société sur les voyageurs et Lucas se joint à eux. Le jeu est simple : répondre à des questions et parcourir le monde. Georges connaît beaucoup de capitales, mais Léa est plus rapide avec les drapeaux. Hugo tombe sur une question difficile : Quel est le fleuve le plus long du monde ? Il réfléchit fort. Le Nil ? Tout le monde applaudit. Minette saute sur le plateau et se couche sur l'Afrique.",
+          "words": [
+            "salon",
+            "jeu de société",
+            "voyageur",
+            "question",
+            "parcourir le monde",
+            "capitale",
+            "drapeau",
+            "fleuve le plus long",
+            "déplacer la chatte",
+            "la pluie continue"
+          ]
+        },
+        {
+          "name": "La pâtisserie avec papa",
+          "text": "L'après-midi, papa et Hugo décident de faire des biscuits. Ils trouvent la recette de grand-mère dans un vieux carnet. Farine, beurre, sucre, œufs et un peu de cannelle. Hugo mesure la farine et en couvre la moitié de la table. Papa rit : La pâtisserie aussi est une science. Il faut être précis. Ils mélangent la pâte, et Hugo découpe des étoiles, des cœurs et un étrange dinosaure. Pendant que les biscuits cuisent, la cuisine sent merveilleusement bon. Léa entre et en prend deux avant qu'ils refroidissent.",
+          "words": [
+            "faire des biscuits",
+            "recette",
+            "farine",
+            "beurre",
+            "cannelle",
+            "mesurer",
+            "pâte",
+            "découper des formes",
+            "four",
+            "première fournée"
+          ]
+        },
+        {
+          "name": "Flaques et bottes",
+          "text": "La pluie devient plus légère, et Hugo ne peut plus rester à l'intérieur. Il met ses bottes et appelle Georges. La cour est pleine de flaques, et chacune est une petite mer. Les garçons sautent de flaque en flaque, en faisant de grands éclaboussements. Georges glisse et tombe sur l'herbe mouillée, mais il rit. Rex court après eux et boit dans une flaque. Une voisine ouvre sa fenêtre et crie : Vous allez prendre froid ! Mais les garçons portent des imperméables et des bottes.",
+          "words": [
+            "la pluie devient légère",
+            "flaque",
+            "petite mer",
+            "éclabousser",
+            "glisser",
+            "herbe mouillée",
+            "boire dans une flaque",
+            "prendre froid",
+            "construire un barrage",
+            "bottes pleines d’eau"
+          ]
+        },
+        {
+          "name": "Une soirée chaleureuse",
+          "text": "Le soir, la pluie revient, mais personne ne s'en plaint. Maman prépare une grande marmite de soupe et papa allume une bougie sur la table. La famille s'assoit ensemble en chaussettes chaudes. Hugo raconte les flaques et Léa montre les biscuits en forme de dinosaure. Lucas met une musique douce. Minette dort sur le radiateur, et Rex se couche sous la table en espérant des miettes. Après le dîner, ils regardent un vieux film sous un plaid. Le vent souffle dehors et la pluie tape contre la fenêtre. On est bien à la maison.",
+          "words": [
+            "marmite de soupe",
+            "allumer une bougie",
+            "chaussettes chaudes",
+            "musique douce",
+            "sous la table",
+            "espérer des miettes",
+            "vieux film",
+            "sous un plaid",
+            "la pluie tape à la fenêtre",
+            "se sentir bien à la maison"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "La première neige",
+      "tasks": [
+        {
+          "name": "Matin blanc",
+          "text": "Hugo se réveille et voit une lumière étrange dans la chambre. Tout est blanc et silencieux. De la neige ! Il court à la fenêtre et colle son nez contre la vitre. La cour, les voitures et les toits ont disparu sous une épaisse couverture blanche. Rex aboie après les flocons et essaie de les attraper avec sa gueule. Léa entre, enroulée dans un plaid, et sourit. L'école commencera peut-être plus tard aujourd'hui, dit maman. Les enfants crient de joie. Au petit-déjeuner, ils regardent la neige tomber et tomber.",
+          "words": [
+            "lumière étrange",
+            "neige",
+            "coller son nez à la vitre",
+            "épaisse couverture blanche",
+            "flocons qui tombent",
+            "attraper avec sa gueule",
+            "l'école commence plus tard",
+            "crier de joie",
+            "gâteau d'anniversaire géant",
+            "bonnet blanc"
+          ]
+        },
+        {
+          "name": "Un bonhomme de neige",
+          "text": "Après le petit-déjeuner, toute la famille sort. La neige est parfaite pour un bonhomme de neige. Hugo roule une petite boule jusqu'à ce qu'elle devienne grande. Georges la pousse à travers la cour. Ils font la deuxième boule et la soulèvent. Léa trouve une carotte pour le nez et deux cailloux pour les yeux. Papa donne sa vieille écharpe et maman apporte un chapeau. Le bonhomme de neige a l'air sérieux et un peu surpris. Émilie lui donne un nom : Monsieur Givre. Rex n'est pas sûr de ce nouveau voisin et aboie après lui.",
+          "words": [
+            "rouler une boule",
+            "pousser",
+            "soulever",
+            "carotte",
+            "cailloux pour les yeux",
+            "vieille écharpe",
+            "chapeau",
+            "sérieux et surpris",
+            "donner un nom",
+            "aboyer après le voisin"
+          ]
+        },
+        {
+          "name": "La luge",
+          "text": "Derrière l'école, il y a une petite colline. Aujourd'hui, elle est blanche et pleine d'enfants. Hugo et Georges apportent une vieille luge en bois du garage. La première descente est rapide et cahoteuse. La neige vole dans leurs visages et ils crient de joie. Puis Émilie veut essayer. Elle a un peu peur, alors Hugo s'assoit derrière elle et tient la corde. Prête ? C'est parti ! La luge dévale la colline et Émilie rit tout le long. En bas, ils tombent dans un tas de neige molle. Papa prend une photo pour l'album de famille.",
+          "words": [
+            "petite colline",
+            "pleine d'enfants",
+            "luge en bois",
+            "rapide et cahoteuse",
+            "neige vole au visage",
+            "crier de joie",
+            "tenir la corde",
+            "tas de neige molle",
+            "album de famille",
+            "remonter la colline"
+          ]
+        },
+        {
+          "name": "Flocons de neige",
+          "text": "Léa veut dessiner un flocon de neige, mais chacun de ses dessins est différent. C'est justement le but, dit Monsieur Laurent à l'école d'art. Les vrais flocons ne sont jamais identiques. Il montre à la classe des photos prises au microscope. Les enfants voient des étoiles, des aiguilles et de petites roues de glace. Léa prend du papier noir et un crayon blanc. Elle dessine lentement, ligne par ligne. Émilie s'assoit à côté d'elle et copie le motif. Leurs flocons ne sont pas parfaits, mais ils sont beaux.",
+          "words": [
+            "flocon de neige",
+            "sembler différent",
+            "le but",
+            "microscope",
+            "aiguille",
+            "petite roue de glace",
+            "papier noir",
+            "ligne par ligne",
+            "copier le motif",
+            "prendre vie"
+          ]
+        },
+        {
+          "name": "Un thé chaud près de la fenêtre",
+          "text": "Le soir, il neige encore. La famille se réunit au salon avec du thé et des biscuits. Grand-mère appelle du village et dit que leur chemin est aussi blanc. Grand-père a déjà dégagé un sentier jusqu'à la barrière. Hugo leur raconte la luge et le bonhomme de neige. Léa promet d'envoyer un dessin. Après l'appel, papa met une autre bûche dans le poêle. Minette s'assoit sur le rebord de la fenêtre et regarde les flocons. Rex dort près du radiateur chaud. Maman ouvre un livre d'histoires d'hiver.",
+          "words": [
+            "il neige encore",
+            "se réunir au salon",
+            "village",
+            "dégager un sentier",
+            "luge",
+            "bonhomme de neige",
+            "envoyer un dessin",
+            "mettre une bûche dans le poêle",
+            "rebord de la fenêtre",
+            "histoires d’hiver"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Projets d’été",
+      "tasks": [
+        {
+          "name": "Le jour le plus long",
+          "text": "Juin apporte le jour le plus long de l'année. Le soleil reste dans le ciel jusqu'à tard le soir. La famille va au parc après le dîner. Les enfants jouent au football et les personnes âgées s'assoient sur les bancs pour parler. Le camion de glaces joue la même petite chanson. Hugo et Léa s'allongent sur l'herbe et regardent les nuages devenir roses. Maman dit : En hiver, ce parc est sombre à cinq heures. Lucas répond : C'est pour ça que l'été ressemble à un cadeau.",
+          "words": [
+            "jour le plus long de l’année",
+            "le soleil reste dans le ciel",
+            "après le dîner",
+            "camion de glaces",
+            "petite chanson",
+            "s’allonger sur l’herbe",
+            "nuages deviennent roses",
+            "sombre à cinq heures",
+            "l’été ressemble à un cadeau",
+            "premières étoiles"
+          ]
+        },
+        {
+          "name": "Une lettre de Sydney",
+          "text": "Une épaisse enveloppe arrive d'Australie. Elle vient de la sœur de madame Carter, qui vit à Sydney. À l'intérieur, il y a des photos de la mer, d'un koala et d'un très grand pont. Elle invite la famille Carter à venir en décembre. Émilie lit la lettre à haute voix. Georges dit : En décembre, c'est l'été là-bas ! Hugo n'arrive pas à imaginer l'hiver sans neige. Madame Carter sourit : Noël à la plage, c'est étrange, mais agréable. Les enfants regardent les photos et posent beaucoup de questions.",
+          "words": [
+            "épaisse enveloppe",
+            "Australie",
+            "sœur",
+            "koala",
+            "très grand pont",
+            "inviter",
+            "décembre",
+            "Noël à la plage",
+            "poser des questions",
+            "vagues chaudes"
+          ]
+        },
+        {
+          "name": "Le projet du jardin",
+          "text": "Grand-mère envoie une boîte de graines du village. Il y a des tomates, des concombres, des tournesols et de minuscules pépins de pomme. Les enfants décident de faire un jardin sur le balcon. Papa apporte des pots et de la terre, et maman trouve de vieux gants. Hugo met les graines dans la terre et les arrose chaque matin. Léa dessine un panneau pour chaque pot. Au bout d'une semaine, les premières pousses vertes apparaissent. Hugo est si heureux qu'il appelle grand-mère aussitôt. Elle dit : Maintenant, sois patient.",
+          "words": [
+            "boîte de graines",
+            "tomate",
+            "concombre",
+            "tournesol",
+            "pépin de pomme",
+            "pot et terre",
+            "vieux gants",
+            "arroser chaque matin",
+            "pousse verte",
+            "être patient"
+          ]
+        },
+        {
+          "name": "Camping au bord du lac",
+          "text": "Fin juillet, la famille part camper au bord d'un lac. Papa monte la tente pendant que maman vérifie la nourriture. Hugo et Léa ramassent des branches sèches pour le feu. Le soir, ils font de la soupe sur les flammes et regardent le soleil se coucher derrière les arbres. Le lac devient sombre et silencieux. Lucas montre les étoiles à Hugo et lui dit le nom de trois constellations. Puis ils entendent un bruit étrange dans les buissons. Tout le monde se fige. Un petit hérisson sort et les regarde. Hugo rit de soulagement.",
+          "words": [
+            "camping",
+            "lac",
+            "monter la tente",
+            "branches sèches",
+            "feu",
+            "faire de la soupe",
+            "coucher du soleil derrière les arbres",
+            "constellation",
+            "hérisson",
+            "avec soulagement"
+          ]
+        },
+        {
+          "name": "Le dernier jour de l’été",
+          "text": "Le dernier jour d'août est chaud et doré. L'école commence demain. Les enfants préparent leurs sacs et trouvent des uniformes propres. Hugo est triste que l'été soit fini, mais impatient de voir ses amis. La famille passe la soirée sur le balcon. Les tomates du jardin sont enfin rouges. Ils font une salade avec et boivent du thé pendant que le ciel devient orange. Léa dit : C'était un bon été. Nous avons eu de la pluie, de la neige au village et du soleil au bord du lac.",
+          "words": [
+            "dernier jour d’août",
+            "l'école commence demain",
+            "uniforme propre",
+            "voir ses amis",
+            "tomates du jardin",
+            "faire une salade",
+            "le ciel devient orange",
+            "bon été",
+            "lever sa tasse",
+            "une nouvelle année"
+          ]
+        }
+      ]
+    }
+  ]
+}

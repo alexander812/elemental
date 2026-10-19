@@ -1,0 +1,346 @@
+{
+  "parentCourse": "Sport and Health",
+  "lang": "es",
+  "lessons": [
+    {
+      "name": "Entrenamiento de fútbol",
+      "tasks": [
+        {
+          "name": "Calentamiento",
+          "text": "El martes por la tarde el equipo de fútbol del colegio se reúne en el campo. El entrenador Óscar ya espera con un silbato y una bolsa de balones. ¡Antes de jugar, calentamos!, dice. Los chicos corren por el campo, estiran las piernas y pasan el balón por parejas. Pablito tiene sueño al principio, pero a los cinco minutos su cuerpo despierta. Jorge y Huguito corren hasta la valla y vuelven. El entrenador explica: Un buen calentamiento protege los músculos. Nadie quiere lesionarse en el primer minuto.",
+          "words": [
+            "equipo de fútbol",
+            "entrenador",
+            "silbato",
+            "calentar",
+            "estirar las piernas",
+            "pasar el balón por parejas",
+            "con sueño",
+            "proteger los músculos",
+            "lesionarse",
+            "empieza el entrenamiento"
+          ]
+        },
+        {
+          "name": "Pases y tiros",
+          "text": "Hoy el equipo practica pases y tiros. El entrenador Óscar pone cinco conos en la hierba. Los chicos deben correr entre ellos, pasar a un compañero y tirar a la portería. Pablito es rápido, pero sus tiros vuelan demasiado alto. Mantén el pie bajo, dice el entrenador. Mira el balón, no el cielo. Pablito lo intenta otra vez. Esta vez el balón entra directo en la red. El equipo vitorea. Jorge pasa bien y encuentra a Huguito con un balón largo. Huguito es portero hoy, así que intenta parar todos los tiros.",
+          "words": [
+            "practicar pases",
+            "tirar",
+            "cono",
+            "compañero",
+            "portería",
+            "mantener el pie bajo",
+            "mirar el balón",
+            "a la red",
+            "balón largo",
+            "lleno de barro"
+          ]
+        },
+        {
+          "name": "Trabajo en equipo",
+          "text": "El entrenador Óscar divide el equipo en dos grupos. El equipo rojo debe mantener el balón diez pases. El azul debe quitárselo. Al principio el rojo pierde el balón a los tres pases. Cada uno intenta hacerlo todo solo. ¡Parad!, dice el entrenador. El fútbol no es una carrera. ¡Hablad entre vosotros! Los chicos empiezan a decir nombres y señalar. Pablito pasa a Jorge, Jorge a Huguito, Huguito a Pablito. Uno, dos, tres... ¡diez! El equipo rojo gana. El entrenador sonríe: ¿Veis? Once jugadores pueden ser más fuertes que uno.",
+          "words": [
+            "dividir en grupos",
+            "mantener el balón",
+            "diez pases",
+            "quitar el balón",
+            "hacerlo todo solo",
+            "hablar entre vosotros",
+            "decir nombres",
+            "señalar",
+            "ganar en grupo",
+            "beber agua"
+          ]
+        },
+        {
+          "name": "El primer partido",
+          "text": "El sábado el equipo juega su primer partido contra un colegio del barrio vecino. Los chicos llevan camisetas rojas y medias blancas. Pablito tiene las manos frías, pero no por el tiempo. En la primera parte el otro equipo marca. Nuestro equipo parece cansado y triste. En el descanso el entrenador Óscar no grita. Dice: Se puede encajar un gol, pero no se puede perder el ánimo. En la segunda parte los chicos juegan juntos. Jorge pasa, Pablito corre y ¡Huguito marca! El partido termina en empate.",
+          "words": [
+            "primer partido",
+            "barrio vecino",
+            "camiseta roja",
+            "medias blancas",
+            "manos frías",
+            "primera parte",
+            "marcar",
+            "en el descanso",
+            "perder el ánimo",
+            "empate"
+          ]
+        },
+        {
+          "name": "Después del silbato",
+          "text": "Después del partido los dos equipos se dan la mano. Un chico del otro equipo le dice a Pablito: ¡Corres muy rápido! Pablito sonríe: Vuestro portero es genial. Intercambian los nombres de sus colegios. El entrenador Óscar trae una bolsa de naranjas y los jugadores se sientan en la hierba. El entrenador dice: Hoy he visto algo más importante que los goles. He visto un equipo. Los chicos vitorean. A Pablito le duelen las piernas y su camiseta está sucia, pero se siente feliz. De camino a casa Carlos pregunta: ¿Habéis ganado?",
+          "words": [
+            "darse la mano",
+            "el otro equipo",
+            "portero",
+            "intercambiar nombres",
+            "bolsa de naranjas",
+            "más importante que los goles",
+            "dolor de piernas",
+            "camiseta sucia",
+            "no hemos perdido",
+            "eso es lo importante"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Una pequeña lesión",
+      "tasks": [
+        {
+          "name": "La caída",
+          "text": "Durante el entrenamiento Pablito salta por el balón y cae mal sobre el tobillo. Se cae a la hierba y se agarra la pierna. ¡Duele! El entrenador Óscar corre y le dice que no se mueva. Jorge trae una botella fría de agua y la envuelve en una toalla. El entrenador examina el tobillo con cuidado: Está hinchado, pero creo que no está roto. Pablito intenta levantarse, pero el dolor es fuerte. Huguito llama a la madre de Pablito, y ella llega en quince minutos. Van a la clínica. Pablito está preocupado: ¿Me perderé el partido?",
+          "words": [
+            "saltar por el balón",
+            "caer mal",
+            "tobillo",
+            "no moverse",
+            "botella fría de agua",
+            "envolver en una toalla",
+            "hinchazón",
+            "roto",
+            "dolor fuerte",
+            "perder el partido"
+          ]
+        },
+        {
+          "name": "En la clínica",
+          "text": "En la clínica la doctora Vega mira el tobillo de Pablito. Lo mueve con cuidado y pregunta: ¿Duele aquí? Un poco. ¿Y aquí? No. Bien. La radiografía no muestra huesos rotos, solo un ligamento estirado. Necesitas descanso, hielo y un vendaje, dice. Dos semanas sin fútbol. Pablito se queda serio. La doctora Vega sonríe: Si descansas ahora, jugarás muchos años. Si tienes prisa, puedes hacerte mucho daño. Carmen asiente. La enfermera Bea trae un vendaje y le enseña a caminar con él. De camino a casa compran helado.",
+          "words": [
+            "examinar el tobillo",
+            "¿duele aquí?",
+            "radiografía",
+            "huesos rotos",
+            "ligamento estirado",
+            "descanso y hielo",
+            "vendaje",
+            "dos semanas sin fútbol",
+            "tener prisa",
+            "parte del deporte"
+          ]
+        },
+        {
+          "name": "Mirar desde el banco",
+          "text": "Pablito no puede jugar, así que viene al entrenamiento con su vendaje y se sienta en el banco. Al principio se siente inútil. Luego el entrenador Óscar le pide que mire el partido y apunte lo que el equipo puede mejorar. Pablito coge un cuaderno. Ve que los chicos corren demasiado sin el balón. También ve que Huguito sale de su portería demasiado pronto. Al final enseña sus notas al entrenador. ¡Excelentes observaciones!, dice Óscar. Un buen jugador también aprende desde el banco. Pablito sonríe.",
+          "words": [
+            "sentarse en el banco",
+            "inútil",
+            "mirar el partido",
+            "apuntar",
+            "mejorar",
+            "cuaderno",
+            "sin el balón",
+            "salir de la portería",
+            "observación",
+            "parte del equipo"
+          ]
+        },
+        {
+          "name": "Recuperación lenta",
+          "text": "Los días sin fútbol son largos. Pablito hace ejercicios para el tobillo cada mañana. Al principio son aburridos, pero mamá hace una tabla con estrellas. Cada día pone una estrella. Jorge lo visita y le cuenta los entrenamientos. El equipo te echa de menos, dice. Pablito también echa de menos al equipo. Después de una semana puede caminar sin dolor. La doctora Vega dice: Bien. Ahora puedes montar en bici, pero todavía no correr. Pablito pedalea despacio por el parque con Toby corriendo a su lado. El viento es maravilloso.",
+          "words": [
+            "días largos",
+            "hacer ejercicios",
+            "aburrido",
+            "tabla con estrellas",
+            "visitar",
+            "echar de menos al equipo",
+            "caminar sin dolor",
+            "montar en bici",
+            "recuperación",
+            "paciente e importante"
+          ]
+        },
+        {
+          "name": "De vuelta al campo",
+          "text": "Dos semanas después Pablito vuelve al entrenamiento. Llega temprano y camina alrededor del campo para calentar. Su tobillo se siente fuerte. El entrenador Óscar le da un chaleco amarillo y dice: Empieza despacio. Pablito pasa el balón, corre un poco y se detiene. No duele nada. Jorge sonríe: ¡Bienvenido de nuevo! El equipo hace un círculo y aplaude. Pablito se siente tímido y feliz a la vez. Al final del entrenamiento marca un gol con el pie izquierdo. Todos vitorean.",
+          "words": [
+            "volver al entrenamiento",
+            "llegar temprano",
+            "calentar",
+            "el tobillo se siente fuerte",
+            "chaleco amarillo",
+            "empezar despacio",
+            "no duele nada",
+            "bienvenido de nuevo",
+            "marcar con el pie izquierdo",
+            "es bueno estar de vuelta"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hábitos saludables",
+      "tasks": [
+        {
+          "name": "Dormir bien",
+          "text": "Pablito se queda despierto hasta tarde con un videojuego nuevo. Por la mañana no puede abrir los ojos. Mamá dice: Tu cuerpo necesita dormir, sobre todo cuando juegas al fútbol. Le explica que los niños necesitan unas diez horas. Pablito mira la pantalla y suspira. Esa noche la familia hace una regla nueva: nada de pantallas después de las nueve. En su lugar leen libros. Luna se duerme en los pies de Luci y Toby ronca bajo la cama. Pablito cree que no dormirá, pero sus ojos se cierran rápido.",
+          "words": [
+            "quedarse despierto hasta tarde",
+            "videojuego",
+            "abrir los ojos",
+            "necesitar dormir",
+            "unas diez horas",
+            "nada de pantallas después de las nueve",
+            "leer libros en su lugar",
+            "roncar",
+            "antes del despertador",
+            "superpoder"
+          ]
+        },
+        {
+          "name": "Comida para la energía",
+          "text": "Antes del partido el entrenador Óscar habla de la comida. Un futbolista no puede correr solo con dulces, dice. Los chicos dicen sus platos favoritos. ¡Pizza, hamburguesas, patatas! grita alguien. El entrenador se ríe: A veces, sí. Pero tu cuerpo también necesita verduras, fruta, pescado y agua. Muestra un plato sencillo: mitad verduras, un cuarto de arroz o patatas, un cuarto de pescado o carne. Pablito mira su fiambrera. Mamá ha puesto una zanahoria, una manzana y un bocadillo de queso.",
+          "words": [
+            "comida para la energía",
+            "correr con dulces",
+            "plato favorito",
+            "verduras",
+            "fruta",
+            "pescado",
+            "plato sencillo",
+            "fiambrera",
+            "elegir agua",
+            "pequeñas decisiones"
+          ]
+        },
+        {
+          "name": "Muévete cada día",
+          "text": "La doctora Vega dice que el deporte no es solo fútbol. Caminar, montar en bici, nadar y bailar también cuentan. Pablito y Luci hacen una tabla de su semana. El lunes van al colegio caminando. El martes Pablito tiene fútbol. El miércoles Luci baila. El jueves toda la familia pasea por el parque con Toby. El viernes Javi sale a correr. El sábado montan en bici. El domingo descansan. La tabla está llena de dibujos pequeños. Mamá dice: El mejor ejercicio es el que te gusta. Pablito mira la tabla y sonríe.",
+          "words": [
+            "el deporte no es solo fútbol",
+            "caminar",
+            "montar en bici",
+            "nadar",
+            "bailar",
+            "hacer una tabla",
+            "ir al colegio caminando",
+            "montar en bici",
+            "el ejercicio que te gusta",
+            "llena de movimiento"
+          ]
+        },
+        {
+          "name": "Agua y descanso",
+          "text": "El entrenador Óscar pone dos botellas en la mesa: agua y una bebida dulce. Pide al equipo que lea las etiquetas. La bebida dulce tiene siete cucharadas de azúcar. Los chicos se sorprenden. El agua no tiene ninguna. Durante el entrenamiento el entrenador les hace beber cada quince minutos. Después descansan bajo un árbol. El descanso no es pereza, dice Óscar. Los músculos crecen cuando descansas. Pablito se tumba en la hierba y mira las nubes. Su cuerpo está cansado pero se siente bien.",
+          "words": [
+            "botella de agua",
+            "bebida dulce",
+            "leer la etiqueta",
+            "cucharadas de azúcar",
+            "sorprenderse",
+            "cada quince minutos",
+            "descansar bajo un árbol",
+            "pereza",
+            "los músculos crecen",
+            "acostarse temprano"
+          ]
+        },
+        {
+          "name": "Una semana saludable",
+          "text": "Al final de la semana la familia compara sus hábitos saludables. Cada uno tiene al menos un punto débil. Papá bebe demasiado café, mamá olvida hacer pausas, Javi se sienta demasiado tiempo al ordenador y Luci a veces se salta el desayuno. Pablito admite que todavía le gustan las bebidas dulces. Nadie es perfecto. Eligen un pequeño cambio cada uno: papá cambia un café por agua, mamá pasea después de comer, Javi se levanta cada hora, Luci come un plátano por la mañana y Pablito bebe agua con la cena.",
+          "words": [
+            "hábitos saludables",
+            "punto débil",
+            "demasiado café",
+            "olvidar hacer pausas",
+            "sentarse demasiado tiempo",
+            "saltarse el desayuno",
+            "bebidas dulces",
+            "nadie es perfecto",
+            "pequeño cambio",
+            "paso a paso"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "El día del partido",
+      "tasks": [
+        {
+          "name": "El gran día",
+          "text": "La final es el domingo. Pablito se despierta temprano y comprueba su bolsa tres veces: botas, camiseta, pantalón, botella. La familia desayuna junta, pero nadie come mucho. Papá dice: Come algo. Necesitarás energía. Pablito consigue comer medio pan tostado. En el campo el equipo se reúne en el vestuario. El entrenador Óscar escribe los nombres en una pizarra pequeña. ¡Pablito está en el equipo titular! Su corazón late rápido. Jorge le pone una mano en el hombro: Jugamos juntos. Los chicos salen bajo el cielo gris.",
+          "words": [
+            "partido final",
+            "comprobar la bolsa tres veces",
+            "botas",
+            "camiseta",
+            "pantalón",
+            "necesitar energía",
+            "vestuario",
+            "equipo titular",
+            "el corazón late rápido",
+            "animar desde la banda"
+          ]
+        },
+        {
+          "name": "La primera parte",
+          "text": "El árbitro hace sonar el silbato y empieza el partido. Los dos equipos son fuertes. El balón va de un lado al otro. Pablito corre tras él, pero los defensas son rápidos. En el minuto diez el otro equipo marca con un tiro fuerte. Nuestro portero Huguito no llega. Los padres se quedan en silencio. Pablito mira a Jorge, y Jorge asiente. Seguimos aquí. El equipo lo intenta otra vez. Pablito recibe el balón, pasa a dos jugadores y tira, pero el portero lo atrapa. En el descanso el marcador es uno a cero.",
+          "words": [
+            "árbitro",
+            "silbato",
+            "los dos equipos",
+            "defensa",
+            "marcar con un tiro fuerte",
+            "portero",
+            "los padres se quedan en silencio",
+            "asentir",
+            "atrapar el balón",
+            "en el descanso"
+          ]
+        },
+        {
+          "name": "La segunda parte",
+          "text": "En la segunda parte el equipo juega distinto. Los chicos pasan más y corren menos. Pablito se queda cerca de Jorge y espera el balón. En el minuto quince Jorge lo recibe y pasa por un hueco pequeño. Pablito corre, mira la portería y tira. ¡El balón entra en la red! Los padres se levantan y gritan. Pablito no puede creerlo. Jorge lo abraza y todo el equipo corre hacia ellos. El marcador es uno a uno. Los últimos minutos son locos. Los dos equipos quieren ganar.",
+          "words": [
+            "segunda parte",
+            "pasar más",
+            "correr menos",
+            "hueco pequeño",
+            "entrar en la red",
+            "abrazar",
+            "uno a uno",
+            "tiro peligroso",
+            "balón alto",
+            "tres silbidos cortos"
+          ]
+        },
+        {
+          "name": "Juego limpio",
+          "text": "El partido termina en empate, así que hoy no habrá ganador. Los dos capitanes se dan la mano. Un chico del otro equipo le dice a Pablito: Tu gol fue increíble. Pablito responde: Vuestra defensa era muy fuerte. Los equipos se alinean y aplauden unos a otros. El entrenador Óscar dice: Así es el deporte. Lo disteis todo y fuisteis justos. Los padres aplauden desde la banda. Pablito está cansado, pero no puede dejar de sonreír. Un empate parece raro, pero también justo. Los dos equipos jugaron bien.",
+          "words": [
+            "juego limpio",
+            "capitán",
+            "gol increíble",
+            "defensa fuerte",
+            "formarse",
+            "aplaudirse",
+            "darlo todo",
+            "ser justo",
+            "raro pero justo",
+            "algo más importante"
+          ]
+        },
+        {
+          "name": "La fiesta del equipo",
+          "text": "Después del partido el equipo va al jardín del entrenador Óscar. Hay bocadillos, fruta y una tarta grande con forma de balón. Los chicos se sientan en la hierba y hablan del partido. Cada uno recuerda un momento distinto: la parada alta de Huguito, el pase de Jorge, el gol de Pablito. El entrenador da a cada jugador una medalla pequeña. Dice: Juego limpio y trabajo en equipo. Pablito se la pone al cuello. No es de oro, pero le parece especial. Mamá hace una foto de todo el equipo.",
+          "words": [
+            "fiesta del equipo",
+            "tarta con forma de balón",
+            "recordar un momento",
+            "parada alta",
+            "medalla pequeña",
+            "juego limpio y trabajo en equipo",
+            "al cuello",
+            "no es de oro",
+            "fotografiar al equipo",
+            "próxima temporada"
+          ]
+        }
+      ]
+    }
+  ]
+}

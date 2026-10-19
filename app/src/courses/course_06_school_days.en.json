@@ -1,0 +1,346 @@
+{
+  "parentCourse": "School Days",
+  "lang": "en",
+  "lessons": [
+    {
+      "name": "The School Day",
+      "tasks": [
+        {
+          "name": "Early Morning",
+          "text": "The alarm rings at seven o'clock. Ollie hides his head under the pillow, but Buddy jumps on the bed and licks his face. All right, all right, I am awake! At breakfast Mum makes porridge and tea. Sophie cannot find her school bag, and Jack helps her look under the sofa. At eight o'clock the children leave the house. The school is only two stops away. The yard is full of voices, bicycles and footballs. When the bell rings, everyone runs to the doors. A new school day begins.",
+          "words": [
+            "alarm clock",
+            "pillow",
+            "to lick",
+            "porridge",
+            "school bag",
+            "to look for",
+            "school yard",
+            "bell",
+            "to run to the doors",
+            "school day"
+          ]
+        },
+        {
+          "name": "The Timetable",
+          "text": "In the classroom Miss Brown writes the timetable on the board. Monday is busy: maths, English, history, art and PE. Ollie looks at the last lesson and smiles. He loves PE! But first there is a maths test. Jack says: Don't worry, it is only ten questions. At the break the children compare their timetables. Some have music, some have geography. The classroom smells of chalk, paper and apples. Ollie writes the lessons in his notebook with different colours.",
+          "words": [
+            "timetable",
+            "board",
+            "maths",
+            "history",
+            "PE lesson",
+            "test",
+            "break",
+            "to compare",
+            "notebook",
+            "school fair"
+          ]
+        },
+        {
+          "name": "First Lesson",
+          "text": "The first lesson is maths. Miss Brown writes three problems on the board. Ollie reads the first one twice and raises his hand. The teacher smiles: Yes, Ollie? I think I know the answer! He explains it slowly, and the class listens. At the next desk Sam draws a rocket instead of numbers. Miss Brown taps his shoulder gently: Sam, the rocket can wait. Everyone laughs, but kindly. After the test the teacher says: You worked well today. Homework is on page twenty. Ollie puts the book in his bag. Maths is not so scary after all.",
+          "words": [
+            "maths lesson",
+            "problem",
+            "to raise a hand",
+            "answer",
+            "to explain",
+            "rocket",
+            "instead of",
+            "gently",
+            "homework",
+            "page twenty"
+          ]
+        },
+        {
+          "name": "The Big Break",
+          "text": "When the bell rings for the big break, the yard becomes a noisy sea of children. Ollie and Sam run to the football field. George joins them with his red ball. Today the teams are mixed: older and younger pupils play together. A girl called Amy scores the first goal, and everyone cheers. At the bench Sophie shares sandwiches with Lily. The autumn sun is warm, and the leaves are gold. Too soon the bell rings again. The boys say goodbye until tomorrow. Football at break is short, but it gives enough energy for the whole day.",
+          "words": [
+            "big break",
+            "noisy sea of children",
+            "football field",
+            "mixed teams",
+            "to score a goal",
+            "to cheer",
+            "sandwich",
+            "autumn leaves",
+            "to say goodbye",
+            "energy"
+          ]
+        },
+        {
+          "name": "Homework",
+          "text": "After school Ollie has a snack and sits down at his desk. Homework today is a short story about his family. He writes about Mum, Dad, Jack and Sophie, then adds Buddy and Bella. But how do you spell 'windowsill'? He asks Sophie, and she shows him the letters. Dad looks at the page and smiles: Your story is funny. I like the part about the cat! At eight o'clock the story is ready. Ollie reads it aloud to the family. Everyone claps. Tomorrow he will read it in class. Writing in English is not as hard as he thought.",
+          "words": [
+            "homework",
+            "to have a snack",
+            "desk",
+            "short story",
+            "to spell",
+            "letter",
+            "aloud",
+            "to clap",
+            "in class",
+            "not as hard as"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lessons and Teachers",
+      "tasks": [
+        {
+          "name": "English Lesson",
+          "text": "In English class Miss Brown writes a question on the board: What did you do at the weekend? The pupils work in pairs. Ollie asks George: What did you do? George answers: I played football and watched a film with my dad. Then George asks Ollie about his Sunday. They try to use new words: museum, bridge, pancakes. Miss Brown walks between the desks and listens. Very good! she says. Remember: past tense for finished actions. At the end everyone tells one sentence to the class. Ollie says: I visited a museum with my family.",
+          "words": [
+            "English class",
+            "question",
+            "in pairs",
+            "weekend",
+            "past tense",
+            "finished action",
+            "to listen",
+            "sentence",
+            "to visit a museum",
+            "great"
+          ]
+        },
+        {
+          "name": "History Comes Alive",
+          "text": "The history lesson is about the old city. The teacher shows photos of the first bridge, the market and the railway station. Jack raises his hand: My grandfather has a radio from that time. Really? asks the teacher. Can you bring a photo? The next day Jack brings an old black-and-white picture. The class sees a young man in a soldier's uniform near the station. It is Grandpa George! He looks serious and very young. The teacher says: History is not only dates. It is people and their stories. Jack feels proud.",
+          "words": [
+            "history lesson",
+            "old city",
+            "first bridge",
+            "railway station",
+            "grandfather",
+            "photo",
+            "black-and-white",
+            "soldier’s uniform",
+            "history is people",
+            "proud"
+          ]
+        },
+        {
+          "name": "The Art Room",
+          "text": "The art room smells of paint and paper. Today the class draws the view from the window. Sophie chooses the old church, Lily the river, and George the football field. Mr. White walks around and gives advice: Look at the light. Where does the shadow fall? Sophie mixes blue and white for the sky. Her church looks like a ship floating above the roofs. At the end the drawings hang on the wall. Everyone votes for their favourite. The winner is a small picture of a cat on a windowsill. Sophie laughs: That is Bella!",
+          "words": [
+            "art room",
+            "paint",
+            "view from the window",
+            "church",
+            "advice",
+            "shadow",
+            "to mix colours",
+            "to hang on the wall",
+            "to vote",
+            "from memory"
+          ]
+        },
+        {
+          "name": "A Difficult Test",
+          "text": "Jack has an important maths test on Friday. On Thursday evening he cannot sleep. What if I fail? he asks. Sophie brings him a glass of water and says: You have studied all week. Trust yourself. In the morning Dad makes him a special breakfast. At school the classroom is silent. Jack reads every question twice and checks his answers. The last problem is difficult, but he remembers a similar one from his notebook. When the results come, Jack sees a high mark. He calls home immediately. Mum says: We knew you could do it!",
+          "words": [
+            "important test",
+            "to fail",
+            "glass of water",
+            "to trust yourself",
+            "special breakfast",
+            "silent",
+            "to check answers",
+            "similar problem",
+            "high mark",
+            "hard work"
+          ]
+        },
+        {
+          "name": "Parent-Teacher Meeting",
+          "text": "On Thursday evening Mum and Dad go to the parent-teacher meeting. Miss Brown shows them Ollie's drawings and test papers. He is good at maths, she says, but he speaks too quietly in class. At home the parents talk with Ollie. We are proud of you, says Mum. But try to speak louder, adds Dad. Ollie promises to practise at dinner. The next day he tells the class about his cat. His voice is still a little quiet, but everyone hears him. Miss Brown gives him a small sticker star. Ollie puts it on his notebook.",
+          "words": [
+            "parent-teacher meeting",
+            "test paper",
+            "to be good at maths",
+            "to speak quietly",
+            "to be proud of",
+            "to speak louder",
+            "to promise",
+            "to practise",
+            "sticker star",
+            "in front of people"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "After-School Clubs",
+      "tasks": [
+        {
+          "name": "Choosing a Club",
+          "text": "On Monday the school corridor is full of colourful posters. Football, choir, drama, science, chess, photography! Ollie reads every poster twice. He wants football, but the science club promises volcanoes and rockets. Sophie chooses drama because she likes costumes. Jack signs up for the chess club and the science club. A teacher explains: You can try one club this week and change it next week. Ollie writes his name on two lists. Then he has an idea: Maybe George wants to join too? At lunch they discuss the clubs.",
+          "words": [
+            "school corridor",
+            "colourful poster",
+            "choir",
+            "drama club",
+            "science club",
+            "chess",
+            "photography",
+            "to sign up",
+            "to try",
+            "to discuss"
+          ]
+        },
+        {
+          "name": "Football Practice",
+          "text": "After school the football club meets on the field. Coach Jim blows his whistle. Today the team practises passing and shooting. Ollie is the smallest player, but he is fast. He takes the ball, runs past two boys and scores! The coach claps: Good job! Remember to look up before you pass. George is a strong defender, and Sam is a clever goalkeeper. At the end they play a short match. The red team wins by one goal. Everyone shakes hands. Coach Jim says: The result is not the most important thing. Teamwork is.",
+          "words": [
+            "football club",
+            "coach",
+            "whistle",
+            "to practise passing",
+            "to shoot",
+            "fast",
+            "to score",
+            "defender",
+            "goalkeeper",
+            "teamwork"
+          ]
+        },
+        {
+          "name": "The School Choir",
+          "text": "The school choir meets in the music room. Miss Brown plays the piano, and twenty children stand in two rows. Today they learn a song about the four seasons. First the sopranos sing, then the lower voices. Ollie sings too loudly and makes George laugh. The teacher stops: Listen to each other. A choir is one voice made of many. They try again, and this time the song sounds beautiful. After practice they prepare for the winter concert. The concert will be in the big hall, with parents and teachers.",
+          "words": [
+            "school choir",
+            "music room",
+            "piano",
+            "song",
+            "soprano",
+            "to sing too loudly",
+            "to listen to each other",
+            "winter concert",
+            "big hall",
+            "to practise the words"
+          ]
+        },
+        {
+          "name": "Drama Club",
+          "text": "The drama club is preparing a short play about a brave princess and a clever dragon. Sophie plays the princess, and George is the dragon. At the first rehearsal everything goes wrong: the crown falls, the dragon forgets his lines, and the castle door will not open. The teacher laughs: That is why we rehearse! They practise again and again. Sophie learns to speak slowly and clearly. George makes his dragon voice deeper. On the day of the show the hall is full. The castle door opens at last, and the audience claps.",
+          "words": [
+            "drama club",
+            "play",
+            "brave princess",
+            "clever dragon",
+            "rehearsal",
+            "crown",
+            "to forget lines",
+            "castle door",
+            "audience",
+            "backstage"
+          ]
+        },
+        {
+          "name": "The Science Club",
+          "text": "In the science club the children build a small volcano. They mix baking soda, vinegar and red food colouring. Stand back! says the teacher. The mixture fizzes and red foam runs down the paper mountain. Everyone says: Wow! Then they try a second experiment with a balloon and a plastic bottle. The balloon grows by itself. Jack explains: The gas pushes it up. Mr. Carter, who helps at the club today, smiles: You explain better than my students! The children write the results in a journal.",
+          "words": [
+            "science club",
+            "volcano",
+            "baking soda",
+            "vinegar",
+            "food colouring",
+            "to fizz",
+            "balloon",
+            "plastic bottle",
+            "gas",
+            "clue"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The School Fair",
+      "tasks": [
+        {
+          "name": "Big Preparations",
+          "text": "The school fair is on Friday. The whole class helps with preparations. Some children paint a big poster, others build stalls from boxes and tables. Ollie's team makes a sign: Games and Prizes. Sophie draws balloons and stars around the letters. Miss Brown brings a box of old toys for the prize table. George and Sam practise a ball game, and Lily arranges books for the book stall. Everyone has a job. The headteacher walks through the hall and smiles: This is what teamwork looks like.",
+          "words": [
+            "school fair",
+            "preparation",
+            "poster",
+            "stall",
+            "sign",
+            "prize",
+            "ball game",
+            "book stall",
+            "headteacher",
+            "teamwork"
+          ]
+        },
+        {
+          "name": "Cakes and Books",
+          "text": "The fair begins at ten o'clock. The hall is full of parents, children and music. At the cake stall Grandma Margaret's apple pie disappears in ten minutes. Ollie works at the games stall: three balls for one coin. George wins a small toy dog and gives it to Emily. At the book stall Sophie sells old stories for very little money. A boy buys a book about dragons and reads it immediately on the floor. Mr. Carter tries to win a prize three times and fails. Everyone laughs with him. The cash box becomes heavier and heavier.",
+          "words": [
+            "cake stall",
+            "apple pie",
+            "to disappear",
+            "games stall",
+            "to win a prize",
+            "toy dog",
+            "book stall",
+            "old stories",
+            "cash box",
+            "almost empty"
+          ]
+        },
+        {
+          "name": "The Talent Show",
+          "text": "At two o'clock the talent show begins. The headteacher welcomes everyone, and the hall becomes quiet. First the choir sings the song about seasons. Then Lily dances, and Sam performs magic tricks with cards. Sophie and George act a short scene from their dragon play. Ollie is nervous before his turn. He will tell a funny story about Buddy. His voice shakes at first, but the audience laughs at the right moment. When he finishes, people clap loudly. Miss Brown gives him a thumbs-up from the side.",
+          "words": [
+            "talent show",
+            "to welcome",
+            "to become quiet",
+            "to dance",
+            "magic tricks",
+            "to act a scene",
+            "nervous",
+            "voice shakes",
+            "to clap loudly",
+            "thumbs-up"
+          ]
+        },
+        {
+          "name": "A Surprise Visitor",
+          "text": "In the middle of the fair a tall man with a red beard enters the hall. It is Mr. Carter! He carries a box of English books for the book stall. The children cheer. Mr. Carter also agrees to judge the drawing competition. He looks at every picture carefully and asks the artists questions. The winner is a drawing of the school yard on a rainy day. The artist is Emily! She hides behind her mother, but everyone claps. Mr. Carter says: Art shows us what we see every day in a new way.",
+          "words": [
+            "surprise visitor",
+            "red beard",
+            "English books",
+            "to cheer",
+            "to judge",
+            "drawing competition",
+            "carefully",
+            "winner",
+            "to hide",
+            "to share"
+          ]
+        },
+        {
+          "name": "After the Fair",
+          "text": "At six o'clock the fair is over. The hall looks like a battlefield of paper, boxes and crumbs. The whole class stays to clean up. Ollie collects balls, Sophie stacks books, and George carries empty boxes to the recycling bin. Miss Brown brings tea and biscuits for everyone. The cash box contains enough money for the animal shelter. The children cheer when they hear the amount. Before leaving, they sit on the stage and look at the empty hall. It was a good day. Next year they will make the fair even bigger.",
+          "words": [
+            "fair is over",
+            "battlefield",
+            "crumbs",
+            "to clean up",
+            "to stack books",
+            "recycling bin",
+            "biscuit",
+            "animal shelter",
+            "amount",
+            "to turn off the lights"
+          ]
+        }
+      ]
+    }
+  ]
+}
