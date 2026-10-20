@@ -35,6 +35,7 @@ export type Screen =
   | { name: 'knowledge'; videoId?: string }
   | { name: 'recognition' }
   | { name: 'checks' }
+  | { name: 'support' }
   | { name: 'about' }
   | { name: 'data' }
   | { name: 'export' }

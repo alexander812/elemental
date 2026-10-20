@@ -10,6 +10,7 @@ import {
   IconSound,
   IconStar,
   IconTasks,
+  IconTelegram,
   IconTranslate,
 } from '@elemental/icons'
 import { Box, Card, Header, ListItem, Stack, Text } from '@elemental/ui-kit'
@@ -127,6 +128,19 @@ export function MenuView() {
                       id="settings_menu_knowledge"
                       defaultMessage="Knowledge base"
                     />
+                  </Text>
+                }
+              />
+              <ListItem.EndBlock
+                content={<IconChevronRight fontSize={16} color="var(--contrast-tertiary)" />}
+              />
+            </ListItem>
+            <ListItem data={{ screen: 'support' }} onClick={() => pushScreen({ name: 'support' })}>
+              <ListItem.StartBlock
+                icon={<IconTelegram fontSize={24} color="var(--accent-text-and-icons)" />}
+                title={
+                  <Text variant="M / Medium">
+                    <FormattedMessage id="settings_menu_support" defaultMessage="Support" />
                   </Text>
                 }
               />

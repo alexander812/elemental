@@ -1,6 +1,6 @@
 # Настройки
 
-`ui/MenuView.tsx` — корневое меню (тема, язык, озвучка, распознавание, проверки, база знаний, о приложении, данные). Экраны: `ThemeView.tsx`, `LanguageView.tsx`, `ChecksView.tsx` (свитчи «Распознавание речи», «Ручной ввод», «Переносить в выученные»), `AboutView.tsx` (эмблема, версия и дата сборки, режим дебага).
+`ui/MenuView.tsx` — корневое меню (тема, язык, озвучка, распознавание, проверки, база знаний, поддержка, о приложении, данные). Экраны: `ThemeView.tsx`, `LanguageView.tsx`, `ChecksView.tsx` (свитчи «Распознавание речи», «Ручной ввод», «Переносить в выученные»), `SupportView.tsx` (кнопка с иконкой Telegram на бота `@lexi_support_bot`), `AboutView.tsx` (эмблема, версия и дата сборки, режим дебага).
 
 Состояние — `features/theme/store`: `$settings`, `setThemeFx`, `setUserLangFx`, `setLearnAfterChecksFx`, `setVoiceCheckEnabledFx`, `setWriteCheckEnabledFx`, `setDebugModeFx`; модель — `Settings` в `lib/types.ts`, дефолты и persist — `transport/settings.ts`.
 

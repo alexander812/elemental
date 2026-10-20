@@ -41,6 +41,7 @@ import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
 import { LessonsView } from '../features/lessons/ui/LessonsView'
 import { SetCreateView } from '../features/set-create/ui/SetCreateView'
 import { MenuView } from '../features/settings/ui/MenuView'
+import { SupportView } from '../features/settings/ui/SupportView'
 import { ThemeView } from '../features/settings/ui/ThemeView'
 import { RecognitionView } from '../features/recognition/ui/RecognitionView'
 import { SetsView } from '../features/sets/ui/SetsView'
@@ -113,6 +114,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <RecognitionView />
     case 'checks':
       return <ChecksView />
+    case 'support':
+      return <SupportView />
     case 'about':
       return <AboutView />
     case 'data':
@@ -131,6 +134,7 @@ function isSettingsScreen(name: Screen['name']): boolean {
     name === 'knowledge' ||
     name === 'recognition' ||
     name === 'checks' ||
+    name === 'support' ||
     name === 'about' ||
     name === 'data' ||
     name === 'export'
