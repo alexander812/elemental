@@ -3,13 +3,13 @@
  * обрезка старта, постер и раскладка готовых файлов в приложение.
  *
  * Запуск из корня репозитория:
- *   node skills/new-video/engine/audio.cjs <name> --trim=auto --webm --poster=0.6 --to=app/public/videos
+ *   node skills/new-video/engine/audio.cjs <name> --trim=auto --poster=0.6 --to=app/public/videos/<locale>
  *
  * Опции:
  *   --trim=<сек|auto>   обрезать начало (auto — до первого кадра приложения из timeline.readyMs)
  *   --poster=<сек>      сделать кадр-постер <name>.jpg на этой секунде итогового видео
- *   --to=<каталог>      скопировать <name>.mp4/.webm/.jpg в каталог (например app/public/videos)
- *   --webm              собрать <name>.webm (VP9, для браузеров без h264) и тоже скопировать
+ *   --to=<каталог>      скопировать <name>.mp4/.jpg в каталог (например app/public/videos/ru)
+ *   --webm              дополнительно собрать <name>.webm (VP9) — не используется в приложении
  *   --offset=<мс>       сдвиг всех реплик
  *   --voice-ru=, --voice-en=, --voice-es=, --voice-fr=
  *

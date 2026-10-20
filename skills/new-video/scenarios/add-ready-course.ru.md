@@ -1,6 +1,6 @@
 # Сценарий ролика «Добавление готового курса» (`add-ready-course`)
 
-- Ролик: `app/public/videos/add-ready-course.{mp4,webm,jpg}` · Программа записи: `scenarios/add-ready-course.cjs`
+- Ролик: `app/public/videos/ru/add-ready-course.{mp4,jpg}` · Программа записи: `scenarios/add-ready-course.ru.cjs`
 - Длительность: ~16 с · Кадр: 390×844, тёмная тема · Постер: экран «Курсы»
 - Статус: опубликован, сценарий без изменений.
 
@@ -31,4 +31,4 @@
 
 ## Проверка
 
-`node skills/new-video/engine/runner.cjs skills/new-video/scenarios/add-ready-course.cjs`
+`node skills/new-video/engine/runner.cjs skills/new-video/scenarios/add-ready-course.ru.cjs`

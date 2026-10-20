@@ -1,6 +1,6 @@
 # Сценарий ролика «Работа с заданиями» (`task`)
 
-- Ролик: `app/public/videos/task.{mp4,webm,jpg}` · Программа записи: `scenarios/task.cjs`
+- Ролик: `app/public/videos/ru/task.{mp4,jpg}` · Программа записи: `scenarios/task.ru.cjs`
 - Длительность: 2:52 · Кадр: 390×844, тёмная тема · Постер: «Курсы» с курсом «Знакомство»
 - Статус: опубликован.
 
@@ -90,5 +90,5 @@
 
 ## Проверка
 
-- Запись: `node skills/new-video/engine/runner.cjs skills/new-video/scenarios/task.cjs`
-- Публикация: `node skills/new-video/engine/audio.cjs task --trim=auto --webm --poster=0.6 --to=app/public/videos`
+- Запись: `node skills/new-video/engine/runner.cjs skills/new-video/scenarios/task.ru.cjs`
+- Публикация: `node skills/new-video/engine/audio.cjs task --trim=auto --poster=0.6 --to=app/public/videos/ru/ru`

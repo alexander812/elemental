@@ -14,7 +14,7 @@
  * - `hold` — длинное нажатие по слову: тултип с переводом.
  *
  * Публикация:
- *   node skills/new-video/engine/audio.cjs task --trim=auto --webm --poster=0.6 --to=app/public/videos
+ *   node skills/new-video/engine/audio.cjs task --trim=auto --poster=0.6 --to=app/public/videos/ru/ru
  */
 
 const NARRATOR = 'edge:ru-RU-DmitryNeural';

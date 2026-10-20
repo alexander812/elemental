@@ -3,11 +3,11 @@
  *
  * Запуск из корня репозитория (нужен dev-сервер приложения, по умолчанию http://localhost:5173):
  *   npm run dev
- *   node skills/new-video/engine/runner.cjs skills/new-video/scenarios/<id>.cjs
+ *   node skills/new-video/engine/runner.cjs skills/new-video/scenarios/<id>.<locale>.cjs
  *
- * Затем публикация (mp4 + webm + постер в app/public/videos):
- *   node skills/new-video/engine/audio.cjs <name> --trim=auto --webm --poster=0.6 \
- *     --to=app/public/videos
+ * Затем публикация (mp4 + постер в app/public/videos/<locale>):
+ *   node skills/new-video/engine/audio.cjs <name> --trim=auto --poster=0.6 \
+ *     --to=app/public/videos/<locale>
  *
  * Каталог результатов: $TUT_OUT, по умолчанию $TMPDIR/opencode/tutorial-out.
  * Адрес приложения: $TUT_BASE (по умолчанию http://localhost:5173/).
@@ -116,7 +116,7 @@ const OUT_DIR = process.env.TUT_OUT || path.join(os.tmpdir(), 'opencode', 'tutor
 const BASE = process.env.TUT_BASE || 'http://localhost:5173/';
 const DATA_VERSION = readDataVersion();
 
-const scenarioPath = process.argv[2] || 'scenarios/add-ready-course.cjs';
+const scenarioPath = process.argv[2] || 'scenarios/add-ready-course.ru.cjs';
 const scenario = require(
   fs.existsSync(path.resolve(process.cwd(), scenarioPath))
     ? path.resolve(process.cwd(), scenarioPath)

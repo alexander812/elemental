@@ -21,7 +21,7 @@
  * (движок сам ставит app.onboarding, если в seed его нет).
  *
  * Публикация:
- *   node skills/new-video/engine/audio.cjs overview --trim=auto --webm --poster=0.6 --to=app/public/videos
+ *   node skills/new-video/engine/audio.cjs overview --trim=auto --poster=0.6 --to=app/public/videos/ru/ru
  */
 
 const NARRATOR = 'edge:ru-RU-DmitryNeural';

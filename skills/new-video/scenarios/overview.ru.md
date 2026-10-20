@@ -1,6 +1,6 @@
 # Сценарий ролика «Знакомство с Lexi» (`overview`)
 
-- Ролик: `app/public/videos/overview.{mp4,webm,jpg}` · Программа записи: `scenarios/overview.cjs`
+- Ролик: `app/public/videos/ru/overview.{mp4,jpg}` · Программа записи: `scenarios/overview.ru.cjs`
 - Длительность: 3:35 · Кадр: 390×844, тёмная тема · Постер: экран «Курсы» (пустой список)
 - Статус: опубликован (2-я версия — полностью озвучен диктором).
 
@@ -91,5 +91,5 @@
 
 ## Проверка
 
-- Запись: `node skills/new-video/engine/runner.cjs skills/new-video/scenarios/overview.cjs`
-- Публикация: `node skills/new-video/engine/audio.cjs overview --trim=auto --webm --poster=0.6 --to=app/public/videos`
+- Запись: `node skills/new-video/engine/runner.cjs skills/new-video/scenarios/overview.ru.cjs`
+- Публикация: `node skills/new-video/engine/audio.cjs overview --trim=auto --poster=0.6 --to=app/public/videos/ru/ru`

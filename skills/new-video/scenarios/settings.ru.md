@@ -1,6 +1,6 @@
 # Сценарий ролика «Настройки и данные» (`settings`)
 
-- Ролик: `app/public/videos/settings.{mp4,webm,jpg}` · Программа записи: `scenarios/settings.cjs`
+- Ролик: `app/public/videos/ru/settings.{mp4,jpg}` · Программа записи: `scenarios/settings.ru.cjs`
 - Длительность: ~3:15 · Кадр: 390×844, тёмная тема · Постер: «Курсы» с курсом «Знакомство (Ru-En)»
 - Платформа: браузер · Все действия комментирует диктор (что делаем и зачем), тултипов нет
 - Статус: опубликован.
@@ -100,7 +100,7 @@
 
 ## Проверка
 
-- Запись: `node skills/new-video/engine/runner.cjs skills/new-video/scenarios/settings.cjs`
+- Запись: `node skills/new-video/engine/runner.cjs skills/new-video/scenarios/settings.ru.cjs`
 - Кадры — через `ffmpeg-static` (см. SKILL.md, шаг 3); глазами проверить тему «Светлая»
   (белый фон, тёмный текст) и нижние шиты.
-- Публикация: `node skills/new-video/engine/audio.cjs settings --trim=auto --webm --poster=0.6 --to=app/public/videos`
+- Публикация: `node skills/new-video/engine/audio.cjs settings --trim=auto --poster=0.6 --to=app/public/videos/ru/ru`

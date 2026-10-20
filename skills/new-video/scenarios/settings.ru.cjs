@@ -14,7 +14,7 @@
  *   приложение. Показываем карточку файла и шит подтверждения, затем «Отмена».
  *
  * Публикация:
- *   node skills/new-video/engine/audio.cjs settings --trim=auto --webm --poster=0.6 --to=app/public/videos
+ *   node skills/new-video/engine/audio.cjs settings --trim=auto --poster=0.6 --to=app/public/videos/ru/ru
  */
 
 const fs = require('fs');

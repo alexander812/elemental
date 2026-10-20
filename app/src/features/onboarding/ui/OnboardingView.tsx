@@ -6,7 +6,12 @@ import type { MessageDescriptor } from 'react-intl'
 import { IconClose } from '@elemental/icons'
 import { Button, ButtonIcon, Stack, Text } from '@elemental/ui-kit'
 
-import { GENERAL_VIDEO_ID, KNOWLEDGE_VIDEOS, TASK_VIDEO_ID } from '../../knowledge/videos'
+import {
+  GENERAL_VIDEO_ID,
+  getKnowledgeVideoVariant,
+  KNOWLEDGE_VIDEOS,
+  TASK_VIDEO_ID,
+} from '../../knowledge/videos'
 import { goToRoot } from '../../navigation/store'
 import { onboardingCompleted, taskOnboardingCompleted } from '../store'
 
@@ -71,6 +76,7 @@ export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVa
     () => KNOWLEDGE_VIDEOS.find((item) => item.id === videoId) ?? null,
     [videoId]
   )
+  const media = video ? getKnowledgeVideoVariant(video, intl.locale) : null
 
   useEffect(() => {
     if (reduceMotion || charCount >= totalLength) return
@@ -107,18 +113,17 @@ export function OnboardingView({ variant = 'general' }: { variant?: OnboardingVa
         />
       </div>
 
-      {videoOpen && video ? (
+      {videoOpen && video && media ? (
         <div className={classes.videoLayer}>
           <video
             autoPlay
             className={classes.videoPlayer}
             controls
             playsInline
-            poster={video.poster}
+            poster={media.poster}
             onEnded={() => setVideoEnded(true)}
           >
-            <source src={video.src} type="video/mp4" />
-            <source src={video.webm} type="video/webm" />
+            <source src={media.src} type="video/mp4" />
           </video>
           {videoEnded ? (
             <div className={classes.videoActions}>

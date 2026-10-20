@@ -1,6 +1,6 @@
 # Сценарий ролика «<Название>» (`<id>`)
 
-- Ролик: `app/public/videos/<id>.{mp4,webm,jpg}` · Программа записи: `scenarios/<id>.cjs`
+- Ролик: `app/public/videos/<locale>/<id>.{mp4,jpg}` · Программа записи: `scenarios/<id>.<locale>.cjs`
 - Длительность: ~X:XX · Платформа: браузер · Кадр: 390×844, тёмная тема
 - Постер: экран, с которого начинается ролик (`--poster=0.6`)
 
@@ -58,4 +58,4 @@
 
 - `node skills/new-video/engine/runner.cjs skills/new-video/scenarios/<id>.cjs`
 - Кадры — через `ffmpeg-static` (см. SKILL.md, шаг 3).
-- Публикация: `node skills/new-video/engine/audio.cjs <id> --trim=auto --webm --poster=0.6 --to=app/public/videos`
+- Публикация: `node skills/new-video/engine/audio.cjs <id> --trim=auto --poster=0.6 --to=app/public/videos/<locale>`

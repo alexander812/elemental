@@ -7,7 +7,7 @@ import { BottomSheet, Box, Header, Stack, Text } from '@elemental/ui-kit'
 
 import { popScreen } from '../../../navigation/store'
 import { knowledgeOpened } from '../../../progression/store'
-import { KNOWLEDGE_VIDEOS } from '../../videos'
+import { getKnowledgeVideoVariant, KNOWLEDGE_VIDEOS } from '../../videos'
 import type { KnowledgeVideo } from '../../videos'
 
 import { VideoCard } from './components/VideoCard'
@@ -19,6 +19,9 @@ export function KnowledgeView({ videoId }: { videoId?: string }) {
   const [activeVideo, setActiveVideo] = useState<KnowledgeVideo | null>(
     () => KNOWLEDGE_VIDEOS.find((video) => video.id === videoId) ?? null
   )
+  const activeMedia = activeVideo
+    ? getKnowledgeVideoVariant(activeVideo, intl.locale)
+    : null
 
   useEffect(() => {
     knowledgeOpened()
@@ -38,7 +41,12 @@ export function KnowledgeView({ videoId }: { videoId?: string }) {
           </Text>
           <div className={classes.list}>
             {KNOWLEDGE_VIDEOS.map((video) => (
-              <VideoCard key={video.id} video={video} onPlay={() => setActiveVideo(video)} />
+              <VideoCard
+                key={video.id}
+                media={getKnowledgeVideoVariant(video, intl.locale)}
+                video={video}
+                onPlay={() => setActiveVideo(video)}
+              />
             ))}
           </div>
         </Stack>
@@ -48,17 +56,16 @@ export function KnowledgeView({ videoId }: { videoId?: string }) {
         opened={activeVideo !== null}
         onClosed={() => setActiveVideo(null)}
       >
-        {activeVideo ? (
+        {activeVideo && activeMedia ? (
           <div className={classes.player}>
             <video
               autoPlay
               className={classes.playerVideo}
               controls
               playsInline
-              poster={activeVideo.poster}
+              poster={activeMedia.poster}
             >
-              <source src={activeVideo.src} type="video/mp4" />
-              <source src={activeVideo.webm} type="video/webm" />
+              <source src={activeMedia.src} type="video/mp4" />
             </video>
             <button
               aria-label={intl.formatMessage({ id: 'common_close', defaultMessage: 'Close' })}
