@@ -6,7 +6,7 @@ import type { Course } from '../../../transport/courses'
 import * as lessonsApi from '../../../transport/lessons'
 import * as setsApi from '../../../transport/sets'
 import { importBackupFx } from '../../backup/store'
-import { loadCoursesFx, loadPoliglotFx } from '../../course-search/store'
+import { loadCoursesFx } from '../../course-search/store'
 
 export const fetchCoursesFx = createEffect(() => coursesApi.fetchCourses())
 
@@ -68,11 +68,12 @@ export const $courses = createStore<Course[]>([])
     result.status === 'done' ? result.ready.courses : state
   )
   .on(importBackupFx.doneData, (_, { courses }) => courses)
-  .on(loadPoliglotFx.doneData, (_, { courses }) => courses)
 
 export const $currentCourseId = createStore<string | null>(null)
   .on(courseSelected, (_, courseId) => courseId)
-  .on(loadPoliglotFx.doneData, (_, { courseId }) => courseId)
+  .on(loadCoursesFx.doneData, (current, result) =>
+    result.status === 'done' ? resolveCurrent(current, result.ready.courses) : current
+  )
   .on([fetchCoursesFx.doneData, updateCourseFx.doneData], (current, courses) =>
     resolveCurrent(current, courses)
   )
@@ -86,7 +87,6 @@ export const $coursesLoading = createStore(false)
 
 export const $addedCourseId = createStore<string | null>(null)
   .on(createCourseFx.doneData, (_, { courseId }) => courseId)
-  .on(loadPoliglotFx.doneData, (_, { courseId, added }) => added ? courseId : null)
   .on(loadCoursesFx.doneData, (_, result) =>
     result.status === 'done' ? (result.addedCourseIds[0] ?? null) : null
   )

@@ -18,6 +18,7 @@ import {
 } from '@elemental/ui-kit'
 import type { SelectOption } from '@elemental/ui-kit'
 
+import poliglotCourse from '../../../courses/poliglot/course_poliglot.en.json'
 import { getLanguageName } from '../../../lib/languages'
 import type { CourseLevel } from '../../../lib/types'
 import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
@@ -30,8 +31,8 @@ import {
   languageSelected,
   levelSelected,
   loadCoursesFx,
-  loadPoliglotFx,
   screenOpened,
+  POLIGLOT_COURSE_KEY,
   $catalog,
   $catalogLoaded,
   $catalogLoading,
@@ -59,7 +60,6 @@ export function CourseSearchView() {
   const catalogLoading = useUnit($catalogLoading)
   const selected = useUnit($selected)
   const loadPending = useUnit($loadPending)
-  const poliglotPending = useUnit(loadPoliglotFx.pending)
   const duplicates = useUnit($duplicates)
   const languages = useUnit($languages)
   const userLang = useUnit($userLang)
@@ -106,11 +106,15 @@ export function CourseSearchView() {
         )
     : ''
 
+  const poliglotSelected = selected.has(POLIGLOT_COURSE_KEY)
+  const hasSelection = poliglotSelected || selectedEntries.length > 0
+
   const handleLoad = (replace: boolean) => {
-    if (!level || selectedEntries.length === 0) return
+    if (!level || !hasSelection || loadPending) return
 
     loadCoursesFx({
       entries: selectedEntries,
+      includePoliglot: poliglotSelected,
       level,
       lang: effectiveLang,
       userLang,
@@ -127,20 +131,30 @@ export function CourseSearchView() {
       />
       <Box grow padding="m">
         <Stack height="100%" spacing="m">
-          <Button
-            fullWidth
-            loading={poliglotPending}
+          <Text as="h2" variant="L / Medium">
+            <FormattedMessage id="course_search_poliglot_section" defaultMessage="Poliglot" />
+          </Text>
+          <CourseSearchCard
+            title={intl.formatMessage({
+              id: 'course_search_poliglot_english',
+              defaultMessage: 'Poliglot English',
+            })}
+            description={poliglotCourse.description}
+            checked={poliglotSelected}
             disabled={loadPending}
-            startIcon={<IconDownload fontSize={24} />}
-            variant="secondary"
-            onClick={() => loadPoliglotFx()}
-          >
-            <FormattedMessage id="poliglot_download" defaultMessage="Download Poliglot" />
-          </Button>
+            onToggle={() => courseToggled(POLIGLOT_COURSE_KEY)}
+          />
+          <Text as="h2" variant="L / Medium">
+            <FormattedMessage
+              id="course_search_trainers_section"
+              defaultMessage="Language trainers"
+            />
+          </Text>
           <Stack direction="row" spacing="s">
             <Box grow>
               <Select
                 fullWidth
+                disabled={loadPending}
                 options={LEVEL_OPTIONS}
                 placeholder={intl.formatMessage({
                   id: 'course_search_level_placeholder',
@@ -153,6 +167,7 @@ export function CourseSearchView() {
             <Box grow>
               <Select
                 fullWidth
+                disabled={loadPending}
                 options={langSelectOptions}
                 value={effectiveLang}
                 onChange={languageSelected}
@@ -187,41 +202,14 @@ export function CourseSearchView() {
             ) : (
               <div className={classes.list}>
                 {catalog.map((entry) => (
-                  <Card
+                  <CourseSearchCard
                     key={entry.course}
-                    padding="m"
-                    onClick={() => courseToggled(entry.course)}
-                  >
-                    <Stack spacing="xs">
-                      <Stack
-                        direction="row"
-                        horizontalAlign="space-between"
-                        spacing="s"
-                        verticalAlign="center"
-                      >
-                        <div
-                          className={classes.checkbox}
-                          onClick={(event) => event.stopPropagation()}
-                        >
-                          <Checkbox
-                            checked={selected.has(entry.course)}
-                            onChange={() => courseToggled(entry.course)}
-                          />
-                        </div>
-                        <div className={classes.title}>
-                          <Text overflow="ellipsis" variant="M / Medium">
-                            {entry.i18n.course[userLang] ?? entry.course} (
-                            {getLanguageName(effectiveLang, languages)})
-                          </Text>
-                        </div>
-                      </Stack>
-                      <div className={classes.description}>
-                        <Text color="contrast-secondary" variant="XS / Medium">
-                          {entry.i18n.description[userLang] ?? ''}
-                        </Text>
-                      </div>
-                    </Stack>
-                  </Card>
+                    title={`${entry.i18n.course[userLang] ?? entry.course} (${getLanguageName(effectiveLang, languages)})`}
+                    description={entry.i18n.description[userLang] ?? ''}
+                    checked={selected.has(entry.course)}
+                    disabled={loadPending}
+                    onToggle={() => courseToggled(entry.course)}
+                  />
                 ))}
               </div>
             )}
@@ -232,7 +220,7 @@ export function CourseSearchView() {
       {level ? (
         <div className={classes.footer}>
           <Button
-            disabled={selectedEntries.length === 0 || poliglotPending}
+            disabled={!hasSelection}
             fullWidth
             loading={loadPending}
             startIcon={<IconDownload fontSize={24} />}
@@ -256,5 +244,46 @@ export function CourseSearchView() {
         </Button>
       </ConfirmSheet>
     </Box>
+  )
+}
+
+function CourseSearchCard({
+  title,
+  description,
+  checked,
+  disabled,
+  onToggle,
+}: {
+  title: string
+  description: string
+  checked: boolean
+  disabled: boolean
+  onToggle: () => void
+}) {
+  return (
+    <Card
+      padding="m"
+      onClick={() => {
+        if (!disabled) onToggle()
+      }}
+    >
+      <Stack spacing="xs">
+        <Stack direction="row" horizontalAlign="space-between" spacing="s" verticalAlign="center">
+          <div className={classes.checkbox} onClick={(event) => event.stopPropagation()}>
+            <Checkbox checked={checked} disabled={disabled} onChange={onToggle} />
+          </div>
+          <div className={classes.title}>
+            <Text overflow="ellipsis" variant="M / Medium">
+              {title}
+            </Text>
+          </div>
+        </Stack>
+        <div className={classes.description}>
+          <Text color="contrast-secondary" variant="XS / Medium">
+            {description}
+          </Text>
+        </div>
+      </Stack>
+    </Card>
   )
 }

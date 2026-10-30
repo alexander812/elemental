@@ -123,8 +123,54 @@
 }
 
 .answer {
+  position: relative;
+  padding-inline-end: 64px;
   border: 1px solid var(--contrast-tertiary);
   border-radius: 12px;
+
+  &[data-feedback] {
+    background-color: color-mix(in srgb, var(--answer-feedback-bg) 22%, var(--surface-canvas));
+    border-color: var(--answer-feedback-border);
+    animation: answerFeedback 380ms ease-in-out;
+  }
+
+  &[data-feedback='correct'] {
+    --answer-feedback-bg: var(--positive-bg-default);
+    --answer-feedback-border: var(--positive-text-and-icons);
+  }
+
+  &[data-feedback='retry'], &[data-feedback='failed'] {
+    --answer-feedback-bg: var(--negative-bg-default);
+    --answer-feedback-border: var(--negative-text-and-icons);
+    animation: answerFeedback 380ms ease-in-out, answerShake 380ms ease-in-out;
+  }
+}
+
+.answerClear {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+@keyframes answerFeedback {
+  0%, 100% {
+    background-color: var(--surface-canvas);
+    border-color: var(--contrast-tertiary);
+  }
+  20%, 40%, 60%, 80% {
+    background-color: color-mix(in srgb, var(--answer-feedback-bg) 22%, var(--surface-canvas));
+    border-color: var(--answer-feedback-border);
+  }
+}
+
+@keyframes answerShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .answer[data-feedback] { animation: none; }
 }
 
 .bank { padding-inline: 0; }
@@ -148,6 +194,18 @@
   min-height: 2.8em;
   font-size: 0.88rem;
   line-height: 1.4;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .controls {

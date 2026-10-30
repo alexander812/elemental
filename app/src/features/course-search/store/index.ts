@@ -11,23 +11,13 @@ import { fetchCourses } from '../../../transport/courses'
 import { loadPoliglot } from '../../../transport/poliglot'
 import { goToRoot } from '../../navigation/store'
 
+export const POLIGLOT_COURSE_KEY = 'poliglot:en'
+
 export const levelSelected = createEvent<CourseLevel>()
 export const languageSelected = createEvent<LanguageCode>()
 export const courseToggled = createEvent<string>()
 export const duplicatesCancelled = createEvent()
 export const screenOpened = createEvent()
-export const loadPoliglotFx = createEffect(loadPoliglot)
-
-loadPoliglotFx.doneData.watch(({ added }) => {
-  showToast(added
-    ? { id: 'poliglot_loaded', defaultMessage: 'Poliglot downloaded' }
-    : { id: 'poliglot_exists', defaultMessage: 'Poliglot is already in your courses. Progress saved.' })
-  goToRoot()
-})
-loadPoliglotFx.fail.watch(() => showToast({
-  id: 'poliglot_download_failed', defaultMessage: 'Could not download Poliglot. Try again.',
-}))
-
 export const fetchCatalogFx = createEffect((level: CourseLevel) =>
   catalogApi.fetchLevelCatalog(level)
 )
@@ -39,6 +29,7 @@ export type LoadCoursesResult =
 export const loadCoursesFx = createEffect(
   async (payload: {
     entries: CatalogCourseEntry[]
+    includePoliglot: boolean
     level: CourseLevel
     lang: LanguageCode
     userLang: LanguageCode
@@ -54,13 +45,17 @@ export const loadCoursesFx = createEffect(
       return { status: 'duplicates', duplicates: duplicates.map((course) => course.name) }
     }
 
-    const applied = await catalogApi.applyReadyCourses(ready, payload.level)
+    let applied =
+      payload.entries.length > 0 ? await catalogApi.applyReadyCourses(ready, payload.level) : ready
+    const addedCourseIds = ready.courses.map((course) => course.id)
 
-    return {
-      status: 'done',
-      ready: applied,
-      addedCourseIds: ready.courses.map((course) => course.id),
+    if (payload.includePoliglot) {
+      const { courses, lessons, sets, courseId, added } = await loadPoliglot()
+      applied = { courses, lessons, sets }
+      if (added) addedCourseIds.push(courseId)
     }
+
+    return { status: 'done', ready: applied, addedCourseIds }
   }
 )
 
@@ -96,7 +91,11 @@ export const $selected = createStore<ReadonlySet<string>>(new Set())
 
     return next
   })
-  .reset(levelSelected, fetchCatalogFx, screenOpened)
+  .on(
+    [levelSelected, fetchCatalogFx],
+    (selected) => new Set([...selected].filter((key) => key === POLIGLOT_COURSE_KEY))
+  )
+  .reset(screenOpened)
 
 export const $duplicates = createStore<string[] | null>(null)
   .on(loadCoursesFx.doneData, (_, result) =>
@@ -110,6 +109,13 @@ export const $loadPending = loadCoursesFx.pending
 sample({ clock: screenOpened, fn: (): CourseLevel => 'beginner', target: fetchCatalogFx })
 
 sample({ clock: levelSelected, target: fetchCatalogFx })
+
+loadCoursesFx.fail.watch(() =>
+  showToast({
+    id: 'course_search_load_failed',
+    defaultMessage: 'Could not load courses. Try again.',
+  })
+)
 
 loadCoursesFx.doneData.watch((result) => {
   if (result.status !== 'done') return
@@ -125,13 +131,23 @@ loadCoursesFx.done.watch(({ params, result }) => {
     result.addedCourseIds.includes(course.id)
   )
 
-  track('course_downloaded', {
-    course_count: addedCourses.length,
-    course_ids: result.addedCourseIds,
-    course_names: addedCourses.map((course) => course.name),
-    level: params.level,
-    course_lang: params.lang,
-    user_lang: params.userLang,
-    replaced: params.replace,
-  })
+  const groups = [
+    addedCourses.filter((course) => course.kind !== 'poliglot'),
+    addedCourses.filter((course) => course.kind === 'poliglot'),
+  ]
+
+  for (const courses of groups) {
+    const first = courses[0]
+    if (!first) continue
+
+    track('course_downloaded', {
+      course_count: courses.length,
+      course_ids: courses.map((course) => course.id),
+      course_names: courses.map((course) => course.name),
+      level: first.level ?? null,
+      course_lang: first.lang,
+      user_lang: first.userLang,
+      replaced: first.kind !== 'poliglot' && params.replace,
+    })
+  }
 })

@@ -3,14 +3,21 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useUnit } from 'effector-react'
 import { FormattedMessage, useIntl } from 'react-intl'
 
-import { IconChevronRight, IconViewList, IconSound } from '@elemental/icons'
+import { IconChevronRight, IconClose, IconViewList, IconSound } from '@elemental/icons'
 import { BottomSheet, Box, Button, ButtonIcon, Header } from '@elemental/ui-kit'
 
 import type { PoliglotQuestionPage, PoliglotTable } from '../../../courses/poliglot/lesson-one'
 import { isPhraseCorrect, normalizePhrase } from '../../../lib/phraseAnswer'
-import { playDisappointment, playTestSuccess, unlockSounds } from '../../../lib/sounds'
+import {
+  playDisappointment,
+  playError,
+  playSuccess,
+  playTestSuccess,
+  unlockSounds,
+} from '../../../lib/sounds'
 import { Confetti } from '../../../shared/ui/Confetti'
 import { ExamSmiley } from '../../../shared/ui/ExamResults'
+import { vibrateError, vibrateSuccess } from '../../../transport/haptics'
 import { canSpeak, cancelSpeech } from '../../../transport/speech'
 import { speakFx } from '../../cards/store'
 import { nextSetScreen, speakErrorText } from '../../cards/ui/CardsView/helpers'
@@ -172,12 +179,26 @@ function PhraseQuestion({
   const [saving, setSaving] = useState(false)
   const [saveFailed, setSaveFailed] = useState(false)
   const checking = useRef(false)
-  const locked = solved || failedQuestion || saving || blocked
+  const interactive = useRef(false)
+  const locked = solved || failedQuestion || saving || blocked || feedback !== null
   const answer = solved
     ? page.answer.map((word) =>
         page.bank.findIndex((token) => normalizePhrase(token) === normalizePhrase(word))
       )
     : selected
+
+  useEffect(() => {
+    interactive.current = !blocked
+    return () => {
+      interactive.current = false
+    }
+  }, [blocked])
+
+  useEffect(() => {
+    if (feedback === null) return
+    const timer = setTimeout(() => setFeedback(null), 380)
+    return () => clearTimeout(timer)
+  }, [feedback])
 
   const check = async () => {
     if (locked || checking.current || selected.length === 0) return
@@ -186,7 +207,17 @@ function PhraseQuestion({
     setSaving(true)
     setSaveFailed(false)
     try {
-      setFeedback(await onCheck(selected.map((index) => page.bank[index])))
+      const verdict = await onCheck(selected.map((index) => page.bank[index]))
+      if (interactive.current) {
+        setFeedback(verdict)
+        if (verdict === 'correct') {
+          playSuccess()
+          vibrateSuccess()
+        } else {
+          playError()
+          vibrateError()
+        }
+      }
     } catch {
       setSaveFailed(true)
     } finally {
@@ -212,6 +243,9 @@ function PhraseQuestion({
         aria-label={intl.formatMessage({ id: 'phrase_answer', defaultMessage: 'Your answer' })}
         className={classes.answer}
         data-test="phrase-answer"
+        data-feedback={feedback ?? undefined}
+        data-attempts={attempts}
+        aria-invalid={feedback === 'retry' || feedback === 'failed' || failedQuestion}
         lang="en"
         role="group"
       >
@@ -235,6 +269,22 @@ function PhraseQuestion({
             </button>
           ))
         )}
+        {answer.length > 0 ? (
+          <div className={classes.answerClear}>
+            <ButtonIcon
+              ariaLabel={intl.formatMessage({ id: 'common_clear', defaultMessage: 'Clear' })}
+              dataTest="phrase-clear"
+              disabled={locked}
+              icon={<IconClose fontSize={24} />}
+              variant="flat"
+              onClick={() => {
+                onSelect([])
+                setFeedback(null)
+                setSaveFailed(false)
+              }}
+            />
+          </div>
+        ) : null}
       </div>
       <div
         aria-label={intl.formatMessage({ id: 'phrase_bank', defaultMessage: 'Word bank' })}
@@ -261,15 +311,13 @@ function PhraseQuestion({
         )}
       </div>
       <p
-        className={`${classes.feedback} ${failedQuestion ? classes.error : ''}`}
+        className={classes.srOnly}
         data-test="phrase-attempts"
         data-attempts={attempts}
         role="status"
         aria-live="polite"
       >
-        {saveFailed ? (
-          <FormattedMessage id="phrase_save_failed" defaultMessage="Could not save. Try again." />
-        ) : failedQuestion ? (
+        {failedQuestion ? (
           <FormattedMessage
             id="phrase_three_errors"
             defaultMessage="Three incorrect attempts. This question counts as an error."
@@ -284,6 +332,11 @@ function PhraseQuestion({
           />
         ) : null}
       </p>
+      {saveFailed ? (
+        <p className={classes.feedback} role="alert">
+          <FormattedMessage id="phrase_save_failed" defaultMessage="Could not save. Try again." />
+        </p>
+      ) : null}
       <Button disabled={locked || answer.length === 0} fullWidth loading={saving} onClick={check}>
         <FormattedMessage id="phrase_check" defaultMessage="Check" />
       </Button>
@@ -470,34 +523,6 @@ export function PhraseTaskView({ setId }: { setId: string }) {
     const renderedPage = task.pages[index] ?? page
     const isCurrent = index === visibleIndex
     const titleId = `phrase-page-title-${setId}-${index}`
-    const controls =
-      !isResult && renderedPage.kind === 'theory' ? (
-        <div className={classes.controls} data-test="phrase-controls">
-          <ButtonIcon
-            dataTest="phrase-page-prev"
-            ariaLabel={intl.formatMessage({ id: 'phrase_back', defaultMessage: 'Back' })}
-            icon={<IconChevronRight fontSize={24} style={{ transform: 'rotate(180deg)' }} />}
-            disabled={index === 0}
-            variant="secondary"
-            onClick={() => {
-              if (isCurrent) void go(index - 1)
-            }}
-          />
-          <ButtonIcon
-            dataTest="phrase-page-next"
-            ariaLabel={
-              task.pages[index + 1]?.kind === 'question'
-                ? intl.formatMessage({ id: 'phrase_start_test', defaultMessage: 'Start test' })
-                : intl.formatMessage({ id: 'phrase_next', defaultMessage: 'Next' })
-            }
-            icon={<IconChevronRight fontSize={24} />}
-            variant="secondary"
-            onClick={() => {
-              if (isCurrent) void go(index + 1)
-            }}
-          />
-        </div>
-      ) : undefined
     return (
       <PagePanel
         key={index}
@@ -509,7 +534,6 @@ export function PhraseTaskView({ setId }: { setId: string }) {
         restoreScroll={restoreScroll}
         rememberScroll={rememberScroll}
         registerScroller={registerScroller}
-        controls={controls}
       >
         <p className={classes.taskName} lang="ru">
           {set.name}
@@ -681,6 +705,30 @@ export function PhraseTaskView({ setId }: { setId: string }) {
       >
         {layers.map(renderPage)}
       </div>
+      {!result && page.kind === 'theory' ? (
+        <div className={classes.controls} data-test="phrase-controls">
+          <ButtonIcon
+            dataTest="phrase-page-prev"
+            ariaLabel={intl.formatMessage({ id: 'phrase_back', defaultMessage: 'Back' })}
+            icon={<IconChevronRight fontSize={24} style={{ transform: 'rotate(180deg)' }} />}
+            disabled={pageIndex === 0 || pagePhase !== 'idle'}
+            variant="secondary"
+            onClick={() => void go(pageIndex - 1)}
+          />
+          <ButtonIcon
+            dataTest="phrase-page-next"
+            ariaLabel={
+              task.pages[pageIndex + 1]?.kind === 'question'
+                ? intl.formatMessage({ id: 'phrase_start_test', defaultMessage: 'Start test' })
+                : intl.formatMessage({ id: 'phrase_next', defaultMessage: 'Next' })
+            }
+            icon={<IconChevronRight fontSize={24} />}
+            disabled={pagePhase !== 'idle'}
+            variant="secondary"
+            onClick={() => void go(pageIndex + 1)}
+          />
+        </div>
+      ) : null}
       {saveFailed ? (
         <p className={classes.feedback} role="alert">
           <FormattedMessage id="phrase_save_failed" defaultMessage="Could not save. Try again." />

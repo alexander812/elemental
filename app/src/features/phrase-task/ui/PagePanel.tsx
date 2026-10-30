@@ -10,7 +10,6 @@ type Props = {
   current: boolean
   busy: boolean
   children: ReactNode
-  controls?: ReactNode
   restoreScroll: (index: number) => number
   registerScroller: (index: number, node: HTMLDivElement | null) => void
   rememberScroll: (index: number, top: number) => void
@@ -23,7 +22,6 @@ export function PagePanel({
   current,
   busy,
   children,
-  controls,
   restoreScroll,
   registerScroller,
   rememberScroll,
@@ -55,7 +53,6 @@ export function PagePanel({
       >
         {children}
       </div>
-      {controls}
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import courseData from '../courses/poliglot/course_poliglot.en.json'
 import { POLIGLOT_LESSON_NAME, POLIGLOT_LESSON_ONE } from '../courses/poliglot/lesson-one'
 import type { CardSet, Course, Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
@@ -13,11 +14,11 @@ export async function loadPoliglot() {
 
   const course: Course = {
     id: uid(),
-    name: 'Полиглот',
+    name: courseData.name,
     kind: 'poliglot',
-    description: 'Простые фразы на английском: настоящее, прошлое и будущее.',
-    lang: 'en',
-    userLang: 'ru',
+    description: courseData.description,
+    lang: courseData.lang,
+    userLang: courseData.userLang,
     order: Math.max(-1, ...courses.map((item) => item.order)) + 1,
   }
   const lesson: Lesson = {
