@@ -1,0 +1,229 @@
+.host {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 65px - env(safe-area-inset-bottom));
+  min-width: 0;
+  color: var(--contrast-primary);
+
+  > :first-child { flex-shrink: 0; }
+}
+
+.viewport {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+.content {
+  box-sizing: border-box;
+  flex: 1;
+  min-height: 0;
+  padding: 0 16px 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: anywhere;
+  overscroll-behavior: contain;
+  touch-action: pan-y pinch-zoom;
+
+  h1 {
+    margin: 12px 0 16px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    outline: none;
+  }
+
+  p { margin: 0 0 12px; }
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--surface-canvas);
+
+  &[data-phase='drag'], &[data-phase='leave'], &[data-phase='snap'] { will-change: transform; }
+}
+
+.error { color: var(--negative-text-and-icons); }
+
+.taskName {
+  color: var(--contrast-secondary);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.theory {
+  font-size: 1rem;
+  line-height: 1.4;
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 0.94rem;
+  }
+
+  th, td {
+    padding: 9px 8px;
+    border: 1px solid var(--contrast-quaternary);
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 400;
+  }
+
+  thead th {
+    background: var(--surface-elevation-1);
+    font-weight: 600;
+  }
+}
+
+.example {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface-elevation-1);
+}
+
+.theory .matrix {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  white-space: pre-line;
+
+  th, td { padding: 9px 6px; }
+  thead th { font-size: 0.72rem; }
+  .english { white-space: nowrap; }
+}
+
+.instruction, .hint, .placeholder {
+  color: var(--contrast-secondary);
+  font-size: 0.88rem;
+}
+
+.question .prompt {
+  margin: 16px 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.answer, .bank {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  min-height: 68px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+.answer {
+  border: 1px solid var(--contrast-tertiary);
+  border-radius: 12px;
+}
+
+.bank { padding-inline: 0; }
+
+.word {
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid var(--contrast-quaternary);
+  border-radius: 10px;
+  background: var(--surface-elevation-1);
+  color: var(--contrast-primary);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:disabled { cursor: default; }
+  &:focus-visible { outline: 2px solid var(--accent-text-and-icons); outline-offset: 2px; }
+}
+
+.feedback {
+  min-height: 2.8em;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 12px;
+  padding: 12px 16px 16px;
+  background: var(--surface-canvas);
+}
+
+.pageMenu { padding: 0 16px 16px; }
+.menuTitle { margin: 8px 0 12px; font-weight: 600; }
+
+.pageLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  gap: 8px;
+  padding: 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--contrast-primary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  &[aria-current] { background: var(--control-bg-hover); font-weight: 600; }
+  &:focus-visible { outline: 2px solid var(--accent-text-and-icons); }
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-block: 20px;
+  text-align: center;
+}
+
+.smiley {
+  align-self: center;
+}
+
+.english {
+  color: var(--accent-text-and-icons);
+}
+
+.theory p .english { white-space: nowrap; }
+
+.spokenForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+
+  > span { min-width: 0; }
+  > button { flex-shrink: 0; }
+}
+
+.cellTranslation {
+  display: block;
+  color: var(--contrast-secondary);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+@media (max-height: 650px) {
+  .content h1 { margin: 6px 0 8px; font-size: 1.25rem; }
+  .content p { margin-bottom: 8px; }
+  .content .taskName { margin-bottom: 6px; }
+  .theory table { margin-block: 6px; }
+  .theory th, .theory td { padding-block: 3px; }
+  .controls { padding-block: 8px; }
+  .answer, .bank { padding-block: 8px; min-height: 60px; margin-block: 8px; }
+}

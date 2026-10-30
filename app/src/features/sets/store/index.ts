@@ -5,11 +5,13 @@ import type { LanguageCode } from '../../../lib/languages'
 import * as setsApi from '../../../transport/sets'
 import type { CardEditPair, CardPair, CardSet, CardTexts } from '../../../transport/sets'
 import { importBackupFx } from '../../backup/store'
-import { loadCoursesFx } from '../../course-search/store'
+import { loadCoursesFx, loadPoliglotFx } from '../../course-search/store'
 import { deleteCourseFx, $courses } from '../../courses/store'
 import { deleteLessonFx, $lessons } from '../../lessons/store'
 
 export const fetchSetsFx = createEffect(() => setsApi.fetchSets())
+export const savePhraseTaskProgressFx = createEffect(setsApi.savePhraseTaskProgress)
+export const restartPhraseTaskFx = createEffect(setsApi.restartPhraseTask)
 
 export const createSetFx = createEffect(
   (payload: { lessonId: string; name: string; cards: CardPair[]; texts?: CardTexts }) =>
@@ -34,9 +36,8 @@ export const setSetSwappedFx = createEffect((payload: { setId: string; swapped: 
   setsApi.setSetSwapped(payload.setId, payload.swapped)
 )
 
-export const setSetExamPassedFx = createEffect(
-  (payload: { setId: string; examPassed: boolean }) =>
-    setsApi.setSetExamPassed(payload.setId, payload.examPassed)
+export const setSetExamPassedFx = createEffect((payload: { setId: string; examPassed: boolean }) =>
+  setsApi.setSetExamPassed(payload.setId, payload.examPassed)
 )
 
 export const updateSetTextFx = createEffect(
@@ -92,6 +93,8 @@ export const $sets = createStore<CardSet[]>([])
   .on(
     [
       fetchSetsFx.doneData,
+      savePhraseTaskProgressFx.doneData,
+      restartPhraseTaskFx.doneData,
       updateSetFx.doneData,
       setSetActiveFx.doneData,
       setSetSwappedFx.doneData,
@@ -118,6 +121,7 @@ export const $sets = createStore<CardSet[]>([])
     result.status === 'done' ? result.ready.sets : state
   )
   .on(importBackupFx.doneData, (_, { sets }) => sets)
+  .on(loadPoliglotFx.doneData, (_, { sets }) => sets)
 
 export const $courseLangByLesson = combine($lessons, $courses, (lessons, courses) => {
   const langByCourse = new Map(courses.map((course) => [course.id, course.lang]))

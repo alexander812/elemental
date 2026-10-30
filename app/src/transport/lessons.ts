@@ -1,6 +1,7 @@
 import { load, save } from '../lib/storage'
 import type { Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
+import { ensurePoliglotExercises } from './poliglot-exercises'
 
 export type { Lesson } from '../lib/types'
 
@@ -16,6 +17,7 @@ function writeLessons(lessons: Lesson[]): Lesson[] {
 }
 
 export async function fetchLessons(): Promise<Lesson[]> {
+  ensurePoliglotExercises()
   return readLessons()
 }
 

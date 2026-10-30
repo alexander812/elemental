@@ -8,6 +8,7 @@ import { showToast } from '../../../shared/ui/Toast'
 import * as catalogApi from '../../../transport/catalog'
 import type { CatalogCourseEntry, ReadyCourses } from '../../../transport/catalog'
 import { fetchCourses } from '../../../transport/courses'
+import { loadPoliglot } from '../../../transport/poliglot'
 import { goToRoot } from '../../navigation/store'
 
 export const levelSelected = createEvent<CourseLevel>()
@@ -15,6 +16,17 @@ export const languageSelected = createEvent<LanguageCode>()
 export const courseToggled = createEvent<string>()
 export const duplicatesCancelled = createEvent()
 export const screenOpened = createEvent()
+export const loadPoliglotFx = createEffect(loadPoliglot)
+
+loadPoliglotFx.doneData.watch(({ added }) => {
+  showToast(added
+    ? { id: 'poliglot_loaded', defaultMessage: 'Poliglot downloaded' }
+    : { id: 'poliglot_exists', defaultMessage: 'Poliglot is already in your courses. Progress saved.' })
+  goToRoot()
+})
+loadPoliglotFx.fail.watch(() => showToast({
+  id: 'poliglot_download_failed', defaultMessage: 'Could not download Poliglot. Try again.',
+}))
 
 export const fetchCatalogFx = createEffect((level: CourseLevel) =>
   catalogApi.fetchLevelCatalog(level)

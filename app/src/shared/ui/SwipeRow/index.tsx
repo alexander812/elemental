@@ -11,7 +11,7 @@ import type { RowReorderRowProps } from './useRowReorder'
 
 import classes from './SwipeRow.module.pcss'
 
-const REVEAL_WIDTH = 144
+const ACTION_WIDTH = 72
 const LONG_PRESS_MS = 420
 const MOVE_SLOP = 10
 
@@ -25,7 +25,7 @@ type SwipeRowProps = RowReorderRowProps & {
   progress?: number
   progressTone?: TileProgressTone
   onDelete: () => void
-  onEdit: () => void
+  onEdit?: () => void
   onTap: () => void
 }
 
@@ -53,6 +53,7 @@ export function SwipeRow({
   onReorderCancel,
   onTap,
 }: SwipeRowProps) {
+  const revealWidth = onEdit ? ACTION_WIDTH * 2 : ACTION_WIDTH
   const [dx, setDx] = useState(0)
   const [phase, setPhase] = useState<'idle' | 'pending' | 'swipe' | 'reorder'>('idle')
   const [prevOpen, setPrevOpen] = useState(open)
@@ -147,7 +148,7 @@ export function SwipeRow({
     }
 
     if (phase === 'swipe') {
-      setDx(clamp(startDx + event.clientX - x, 0, REVEAL_WIDTH))
+      setDx(clamp(startDx + event.clientX - x, 0, revealWidth))
       return
     }
 
@@ -177,7 +178,7 @@ export function SwipeRow({
 
     if (phase === 'swipe') {
       setPhase('idle')
-      const nextDx = dx > REVEAL_WIDTH / 2 ? REVEAL_WIDTH : 0
+      const nextDx = dx > revealWidth / 2 ? revealWidth : 0
       setDx(nextDx)
       onOpen(nextDx > 0 ? id : null)
       return
@@ -215,7 +216,10 @@ export function SwipeRow({
         zIndex: isDragged ? 3 : 1,
       }}
     >
-      <div className={classes.reveal} style={{ opacity: clamp(dx / REVEAL_WIDTH, 0, 1) }}>
+      <div
+        className={classes.reveal}
+        style={{ opacity: clamp(dx / revealWidth, 0, 1), width: revealWidth }}
+      >
         <button
           aria-label={deleteLabel}
           className={`${classes.action} ${classes.deleteAction}`}
@@ -224,14 +228,16 @@ export function SwipeRow({
         >
           <IconTrash fontSize={24} />
         </button>
-        <button
-          aria-label={editLabel}
-          className={`${classes.action} ${classes.editAction}`}
-          type="button"
-          onClick={onEdit}
-        >
-          <IconEdit fontSize={24} />
-        </button>
+        {onEdit ? (
+          <button
+            aria-label={editLabel}
+            className={`${classes.action} ${classes.editAction}`}
+            type="button"
+            onClick={onEdit}
+          >
+            <IconEdit fontSize={24} />
+          </button>
+        ) : null}
       </div>
       <div
         className={classes.content}

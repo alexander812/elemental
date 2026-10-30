@@ -452,7 +452,11 @@ export function LearnMode({ setId }: { setId: string }) {
     setDrag(null)
     dragRef.current = null
     setFlipped({})
-    setTestMode(true)
+    if (set?.phraseTask) {
+      pushScreen({ name: 'phrase-task', setId })
+    } else {
+      setTestMode(true)
+    }
   }
 
   if (testMode) {

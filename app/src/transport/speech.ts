@@ -16,6 +16,10 @@ export function canSpeak(): boolean {
   return isNativeBridgeAvailable() || canBrowserSpeak()
 }
 
+export function cancelSpeech(): void {
+  if (canBrowserSpeak()) window.speechSynthesis.cancel()
+}
+
 function speakInBrowser(query: string, lang: LanguageCode): void {
   if (!canBrowserSpeak()) return
 

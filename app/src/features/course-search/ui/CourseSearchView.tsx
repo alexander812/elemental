@@ -30,6 +30,7 @@ import {
   languageSelected,
   levelSelected,
   loadCoursesFx,
+  loadPoliglotFx,
   screenOpened,
   $catalog,
   $catalogLoaded,
@@ -58,6 +59,7 @@ export function CourseSearchView() {
   const catalogLoading = useUnit($catalogLoading)
   const selected = useUnit($selected)
   const loadPending = useUnit($loadPending)
+  const poliglotPending = useUnit(loadPoliglotFx.pending)
   const duplicates = useUnit($duplicates)
   const languages = useUnit($languages)
   const userLang = useUnit($userLang)
@@ -125,6 +127,16 @@ export function CourseSearchView() {
       />
       <Box grow padding="m">
         <Stack height="100%" spacing="m">
+          <Button
+            fullWidth
+            loading={poliglotPending}
+            disabled={loadPending}
+            startIcon={<IconDownload fontSize={24} />}
+            variant="secondary"
+            onClick={() => loadPoliglotFx()}
+          >
+            <FormattedMessage id="poliglot_download" defaultMessage="Download Poliglot" />
+          </Button>
           <Stack direction="row" spacing="s">
             <Box grow>
               <Select
@@ -220,7 +232,7 @@ export function CourseSearchView() {
       {level ? (
         <div className={classes.footer}>
           <Button
-            disabled={selectedEntries.length === 0}
+            disabled={selectedEntries.length === 0 || poliglotPending}
             fullWidth
             loading={loadPending}
             startIcon={<IconDownload fontSize={24} />}

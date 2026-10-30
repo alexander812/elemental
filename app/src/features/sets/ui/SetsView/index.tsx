@@ -17,6 +17,7 @@ import {
 
 import { DEFAULT_COURSE_LANG } from '../../../../lib/languages'
 import type { CardSet } from '../../../../lib/types'
+import { nextSetScreen } from '../../../cards/ui/CardsView/helpers'
 import { popScreen, pushScreen } from '../../../navigation/store'
 import { $lessons } from '../../../lessons/store'
 import { ProgressChip } from '../../../progression/ui/ProgressChip'
@@ -73,13 +74,12 @@ export function SetsView({ lessonId }: { lessonId: string }) {
     }
 
     const courseLang = courseLangByLesson.get(set.lessonId) ?? DEFAULT_COURSE_LANG
-    const hasText = (set.texts[courseLang] ?? '').trim().length > 0
-
-    pushScreen(hasText ? { name: 'set-intro', setId: set.id } : { name: 'cards', setId: set.id })
+    pushScreen(nextSetScreen(set, courseLang))
   }
 
   const handleEdit = (set: CardSet) => {
     reorder.setOpenRowId(null)
+    if (set.phraseTask && set.cards.length === 0) return
     pushScreen({ name: 'set-create', setId: set.id })
   }
 

@@ -1,1 +1,1 @@
-export { ExamResults } from './ExamResults'
+export { ExamResults, ExamSmiley } from './ExamResults'

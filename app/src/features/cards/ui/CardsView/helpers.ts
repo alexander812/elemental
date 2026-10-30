@@ -25,9 +25,11 @@ export const findNextSet = (sets: CardSet[], set: CardSet): CardSet | undefined 
     .sort((a, b) => a.order - b.order)[0]
 
 export const nextSetScreen = (set: CardSet, courseLang: LanguageCode): Screen =>
-  (set.texts[courseLang] ?? '').trim().length > 0
-    ? { name: 'set-intro', setId: set.id }
-    : { name: 'cards', setId: set.id }
+  set.phraseTask && set.cards.length === 0
+    ? { name: 'phrase-task', setId: set.id }
+    : (set.texts[courseLang] ?? '').trim().length > 0
+      ? { name: 'set-intro', setId: set.id }
+      : { name: 'cards', setId: set.id }
 
 const SPEAK_ERRORS: Record<string, MessageDescriptor> = {
   language_not_supported: {

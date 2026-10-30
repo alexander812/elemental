@@ -194,6 +194,14 @@
   "onboarding_task_description": "Текст — главное в задании, а карточки помогут выучить слова из него. Листайте их свайпами, проверяйте произношение и проходите тест.",
   "onboarding_task_title": "Как работать с заданием",
   "onboarding_watch_video": "Смотреть видео",
+  "phrase_back": "Назад",
+  "phrase_back_tasks": "К заданиям",
+  "phrase_check": "Проверить",
+  "phrase_next": "Далее",
+  "phrase_next_task": "Следующее задание",
+  "phrase_passed": "Задание пройдено",
+  "phrase_start_test": "Начать тест",
+  "poliglot_download": "Скачать Полиглот",
   "progress_burn_days": "До сгорания сгораемых XP: {days, plural, one {# день} few {# дня} many {# дней} other {# дней}}",
   "progress_burn_explainer": "Сгораемые XP исчезают, если пропустить два полных дня без занятий. Монеты помогут их защитить.",
   "progress_burn_tomorrow": "Сгораемые XP сгорят, если пропустить ещё один день без занятий",
@@ -321,5 +329,12 @@
   "voices_title": "Озвучка",
   "words_translate_failed": "Не удалось перевести часть слов — введите перевод вручную",
   "words_translate_title": "Проверьте перевод",
-  "words_translate_translate_all": "Перевести все"
+  "words_translate_translate_all": "Перевести все",
+  "phrase_restart": "Начать сначала",
+  "phrase_not_passed": "Тест не пройден",
+  "phrase_result_error": "Ошибка",
+  "phrase_result_errors": "Ошибок: {count}",
+  "phrase_result_unanswered": "Без ответа: {count}",
+  "phrase_attempts_left": "Ошибка. Осталось попыток: {remaining}.",
+  "phrase_three_errors": "Три ошибки. Вопрос не засчитан."
 }

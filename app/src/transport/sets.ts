@@ -1,11 +1,15 @@
 import { remapTexts } from '../lib/cards'
+import { POLIGLOT_LESSON_ONE } from '../courses/poliglot/lesson-one'
+import { POLIGLOT_EXERCISES } from '../courses/poliglot/exercises'
 import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Card, CardSet, CardTexts } from '../lib/types'
 import { uid } from '../lib/uid'
+import { isPhraseCorrect, normalizePhrase } from '../lib/phraseAnswer'
 import { readCourses } from './courses'
 import { readLessons } from './lessons'
+import { ensurePoliglotExercises } from './poliglot-exercises'
 
 export type { Card, CardSet, CardTexts } from '../lib/types'
 
@@ -69,7 +73,63 @@ function patchSet(sets: CardSet[], setId: string, patch: (set: CardSet) => CardS
 }
 
 export async function fetchSets(): Promise<CardSet[]> {
-  return readSets()
+  ensurePoliglotExercises()
+  const courses = new Set(
+    readCourses()
+      .filter((course) => course.kind === 'poliglot')
+      .map((course) => course.id)
+  )
+  const lessons = new Set(
+    readLessons()
+      .filter((lesson) => courses.has(lesson.courseId))
+      .map((lesson) => lesson.id)
+  )
+  let changed = false
+  const sets = readSets().map((set) => {
+    if (!set.phraseTask || !lessons.has(set.lessonId)) return set
+    const exercise = POLIGLOT_EXERCISES.find(
+      (task) => set.id.endsWith(`:${task.id}`) || set.name === task.name
+    )
+    const current = exercise ?? POLIGLOT_LESSON_ONE.find((task) => task.name === set.name)
+    if (!current || JSON.stringify(current.pages) === JSON.stringify(set.phraseTask.pages))
+      return set
+    changed = true
+    const previous = set.phraseTask
+    const questionKey = (page: (typeof current.pages)[number]) =>
+      page.kind === 'question'
+        ? JSON.stringify([page.prompt, normalizePhrase(page.answer.join(' '))])
+        : null
+    const solvedQuestions = new Set(
+      previous.pages.flatMap((page, index) => {
+        const key = questionKey(page)
+        return key !== null && previous.solved.includes(index) ? [key] : []
+      })
+    )
+    const solved = current.pages.flatMap((page, index) => {
+      const key = questionKey(page)
+      return key !== null && solvedQuestions.has(key) ? [index] : []
+    })
+    const oldPage = previous.pages[previous.pageIndex]
+    const restoredIndex = oldPage
+      ? current.pages.findIndex((page) =>
+          oldPage.kind === 'question'
+            ? questionKey(page) === questionKey(oldPage)
+            : page.kind === 'theory' && page.title === oldPage.title
+        )
+      : -1
+    const pageIndex =
+      restoredIndex >= 0
+        ? restoredIndex
+        : Math.max(0, Math.min(previous.pageIndex, current.pages.length - 1))
+    const questions = current.pages.filter((page) => page.kind === 'question').length
+    return {
+      ...set,
+      examPassed: questions > 0 && solved.length === questions,
+      phraseTask: { pages: current.pages, pageIndex, solved },
+    }
+  })
+
+  return changed ? writeSets(sets) : sets
 }
 
 export async function replaceSets(sets: CardSet[]): Promise<CardSet[]> {
@@ -104,7 +164,9 @@ export async function createSet(payload: {
     swapped: false,
     examPassed: false,
     texts: normalizeTexts(payload.texts),
-    cards: payload.cards.map((card) => createCard(userLang, courseLang, card.original, card.translation)),
+    cards: payload.cards.map((card) =>
+      createCard(userLang, courseLang, card.original, card.translation)
+    ),
   }
 
   return { setId: newSet.id, sets: writeSets([...sets, newSet]) }
@@ -342,6 +404,7 @@ export async function resetSet(setId: string): Promise<CardSet[]> {
     patchSet(sets, setId, (set) => ({
       ...set,
       examPassed: false,
+      phraseTask: set.phraseTask ? { ...set.phraseTask, pageIndex: 0, solved: [] } : undefined,
       cards: set.cards.map((card) => ({
         ...card,
         learned: false,
@@ -349,7 +412,55 @@ export async function resetSet(setId: string): Promise<CardSet[]> {
         voiceCheck: null,
         writeCheck: null,
       })),
-    })),
+    }))
+  )
+}
+
+export async function savePhraseTaskProgress(payload: {
+  setId: string
+  pageIndex: number
+  answer?: string[]
+}): Promise<CardSet[]> {
+  return writeSets(
+    patchSet(readSets(), payload.setId, (set) => {
+      const task = set.phraseTask
+      if (!task) return set
+
+      const pageIndex = Math.max(0, Math.min(task.pages.length - 1, payload.pageIndex))
+      const page = task.pages[pageIndex]
+      const solved = new Set(task.solved)
+      if (
+        page?.kind === 'question' &&
+        payload.answer &&
+        isPhraseCorrect(page.answer, payload.answer)
+      ) {
+        solved.add(pageIndex)
+      }
+      const questionIndices = task.pages.flatMap((item, index) =>
+        item.kind === 'question' ? [index] : []
+      )
+
+      return {
+        ...set,
+        phraseTask: { ...task, pageIndex, solved: [...solved] },
+        examPassed:
+          questionIndices.length > 0 && questionIndices.every((index) => solved.has(index)),
+      }
+    })
+  )
+}
+
+export async function restartPhraseTask(setId: string): Promise<CardSet[]> {
+  return writeSets(
+    patchSet(readSets(), setId, (set) =>
+      set.phraseTask
+        ? {
+            ...set,
+            examPassed: false,
+            phraseTask: { ...set.phraseTask, pageIndex: 0, solved: [] },
+          }
+        : set
+    )
   )
 }
 

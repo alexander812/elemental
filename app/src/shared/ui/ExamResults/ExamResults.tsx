@@ -11,7 +11,7 @@ type ExamResultsProps = {
   passed: boolean
 }
 
-function ExamSmiley({ happy }: { happy: boolean }) {
+export function ExamSmiley({ happy }: { happy: boolean }) {
   return (
     <svg aria-hidden="true" height={80} viewBox="0 0 80 80" width={80}>
       <circle cx="40" cy="40" fill="#ffcc4a" r="35" stroke="#050505" strokeWidth="7" />

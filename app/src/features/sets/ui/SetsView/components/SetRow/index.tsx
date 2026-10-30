@@ -27,7 +27,14 @@ type SetRowProps = {
 export function SetRow({ index, reorder, set, onDelete, onEdit, onTap }: SetRowProps) {
   const { learned, notLearned } = useMemo(() => getCounts(set), [set])
   const total = learned + notLearned
-  const progress = total > 0 ? learned / total : 0
+  const phraseOnly = Boolean(set.phraseTask && set.cards.length === 0)
+  const questionIndices = set.phraseTask?.pages.flatMap((page, index) =>
+    page.kind === 'question' ? [index] : []
+  ) ?? []
+  const solvedQuestions = questionIndices.filter((index) => set.phraseTask?.solved.includes(index)).length
+  const progress = phraseOnly
+    ? (questionIndices.length > 0 ? solvedQuestions / questionIndices.length : 0)
+    : (total > 0 ? learned / total : 0)
   const intl = useIntl()
 
   return (
@@ -39,7 +46,7 @@ export function SetRow({ index, reorder, set, onDelete, onEdit, onTap }: SetRowP
       progress={progress}
       progressTone="accentOver"
       onDelete={() => onDelete(set.id)}
-      onEdit={() => onEdit(set)}
+      onEdit={phraseOnly ? undefined : () => onEdit(set)}
       onTap={() => onTap(set)}
     >
       <Stack direction="row" spacing="m" verticalAlign="center" height="100%">
@@ -51,20 +58,34 @@ export function SetRow({ index, reorder, set, onDelete, onEdit, onTap }: SetRowP
             {set.name}
           </Text>
         </Stack>
-        <Stack shrink={0} spacing="xxs" horizontalAlign="end">
-          <Stack direction="row" spacing="xxs" verticalAlign="center">
-            <IconCheckSmall color="var(--accent-over)" fontSize={16} />
-            <Text color="accent-over" variant="S Compact / Medium">
-              {learned}
+        {phraseOnly ? (
+          <div
+            aria-label={intl.formatMessage({
+              id: 'sets_questions_solved',
+              defaultMessage: '{solved} of {total} questions solved',
+            }, { solved: solvedQuestions, total: questionIndices.length })}
+            style={{ flexShrink: 0 }}
+          >
+            <Text color="accent-over" overflow="nowrap" variant="S Compact / Medium">
+              {solvedQuestions} / {questionIndices.length}
             </Text>
+          </div>
+        ) : (
+          <Stack shrink={0} spacing="xxs" horizontalAlign="end">
+            <Stack direction="row" spacing="xxs" verticalAlign="center">
+              <IconCheckSmall color="var(--accent-over)" fontSize={16} />
+              <Text color="accent-over" variant="S Compact / Medium">
+                {learned}
+              </Text>
+            </Stack>
+            <Stack direction="row" spacing="xxs" verticalAlign="center">
+              <IconClose color="accent-over" fontSize={16} />
+              <Text color="accent-over" variant="S Compact / Medium">
+                {notLearned}
+              </Text>
+            </Stack>
           </Stack>
-          <Stack direction="row" spacing="xxs" verticalAlign="center">
-            <IconClose color="accent-over" fontSize={16} />
-            <Text color="accent-over" variant="S Compact / Medium">
-              {notLearned}
-            </Text>
-          </Stack>
-        </Stack>
+        )}
       </Stack>
     </SwipeRow>
   )

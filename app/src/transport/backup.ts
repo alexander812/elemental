@@ -7,7 +7,7 @@ import { fetchLessons, replaceLessons } from './lessons'
 import { fetchSettings, saveSettings } from './settings'
 import { fetchSets, replaceSets } from './sets'
 
-export const BACKUP_VERSION = 8
+export const BACKUP_VERSION = 9
 
 export type BackupData = {
   version: number
@@ -121,7 +121,9 @@ export function findDuplicateLessons(
   const courseIdMap = new Map<string, string>()
 
   for (const course of data.courses) {
-    const duplicate = existingCourses.find((item) => item.name === course.name)
+    const duplicate = existingCourses.find(
+      (item) => item.name === course.name && item.kind === course.kind
+    )
 
     if (duplicate) courseIdMap.set(course.id, duplicate.id)
   }
@@ -169,7 +171,9 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
   const newCourses: Course[] = []
 
   for (const course of data.courses) {
-    const duplicate = existingCourses.find((item) => item.name === course.name)
+    const duplicate = existingCourses.find(
+      (item) => item.name === course.name && item.kind === course.kind
+    )
 
     if (duplicate) {
       courseIdMap.set(course.id, duplicate.id)
@@ -193,6 +197,7 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
           lang: incoming.lang,
           userLang: incoming.userLang,
           level: incoming.level ?? course.level,
+          kind: incoming.kind,
         }
       : course
   })
@@ -228,6 +233,12 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
     if (duplicate) {
       lessonIdMap.set(lesson.id, duplicate.id)
       overwrittenLessonIds.add(duplicate.id)
+      newLessons.push({
+        ...lesson,
+        id: duplicate.id,
+        courseId: targetCourseId,
+        order: duplicate.order,
+      })
       continue
     }
 
@@ -239,10 +250,12 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
 
   const keptLessons = existingLessons.filter((lesson) => !overwrittenLessonIds.has(lesson.id))
   const keptSets = existingSets.filter((set) => !overwrittenLessonIds.has(set.lessonId))
-  const addedSets = data.sets.map((set) => ({
-    ...set,
-    lessonId: lessonIdMap.get(set.lessonId) ?? set.lessonId,
-  }))
+  const usedSetIds = new Set(keptSets.map((set) => set.id))
+  const addedSets = data.sets.map((set) => {
+    const id = usedSetIds.has(set.id) ? uid() : set.id
+    usedSetIds.add(id)
+    return { ...set, id, lessonId: lessonIdMap.get(set.lessonId) ?? set.lessonId }
+  })
   const savedCourses = await replaceCourses([...courses, ...newCourses])
   const lessons = await replaceLessons([...keptLessons, ...newLessons])
   const sets = await replaceSets([...keptSets, ...addedSets])

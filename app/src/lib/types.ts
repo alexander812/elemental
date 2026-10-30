@@ -1,4 +1,5 @@
 import type { LanguageCode } from './languages'
+import type { PoliglotPage } from '../courses/poliglot/lesson-one'
 
 export type CardTexts = Partial<Record<LanguageCode, string>>
 
@@ -21,6 +22,11 @@ export interface CardSet {
   examPassed: boolean
   texts: CardTexts
   cards: Card[]
+  phraseTask?: {
+    pages: PoliglotPage[]
+    pageIndex: number
+    solved: number[]
+  }
 }
 
 export interface Lesson {
@@ -40,6 +46,7 @@ export interface Course {
   lang: LanguageCode
   userLang: LanguageCode
   level?: CourseLevel
+  kind?: 'poliglot'
 }
 
 export type ThemeName = 'dark' | 'light' | 'terracotta' | 'midnight' | 'stone' | 'amethyst'
