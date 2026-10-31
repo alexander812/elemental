@@ -47,6 +47,10 @@ export interface Course {
   userLang: LanguageCode
   level?: CourseLevel
   kind?: 'poliglot'
+  source?:
+    | { kind: 'catalog'; courseKey: string; langFile: string; userLangFile: string }
+    | { kind: 'poliglot' }
+  contentSummary?: { total: number; completed: number }
 }
 
 export type ThemeName = 'dark' | 'light' | 'terracotta' | 'midnight' | 'stone' | 'amethyst'

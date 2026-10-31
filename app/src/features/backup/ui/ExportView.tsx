@@ -30,6 +30,7 @@ export function ExportView() {
   const exporting = useUnit(exportBackupFx.pending)
 
   const [selected, setSelected] = useState<ReadonlySet<string> | null>(null)
+  const [selectedReady, setSelectedReady] = useState<ReadonlySet<string> | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const sortedCourses = useMemo(() => [...courses].sort((a, b) => a.order - b.order), [courses])
@@ -49,12 +50,25 @@ export function ExportView() {
   }, [lessons])
 
   const allLessonIds = useMemo(
-    () => sortedCourses.flatMap((course) => (lessonsByCourse.get(course.id) ?? []).map((lesson) => lesson.id)),
+    () =>
+      sortedCourses
+        .filter((course) => !course.source)
+        .flatMap((course) => (lessonsByCourse.get(course.id) ?? []).map((lesson) => lesson.id)),
     [sortedCourses, lessonsByCourse]
+  )
+  const readyCourseIds = useMemo(
+    () => sortedCourses.filter((course) => course.source).map((course) => course.id),
+    [sortedCourses]
   )
 
   const effective = selected ?? new Set(allLessonIds)
-  const allSelected = allLessonIds.length > 0 && effective.size === allLessonIds.length
+  const effectiveReady = selectedReady ?? new Set(readyCourseIds)
+  const hasCourses = allLessonIds.length + readyCourseIds.length > 0
+  const hasSelection = effective.size + effectiveReady.size > 0
+  const allSelected =
+    hasCourses &&
+    effective.size === allLessonIds.length &&
+    effectiveReady.size === readyCourseIds.length
 
   const toggleLesson = (lessonId: string) => {
     const next = new Set(effective)
@@ -69,6 +83,13 @@ export function ExportView() {
   }
 
   const toggleCourse = (courseId: string, checked: boolean) => {
+    if (readyCourseIds.includes(courseId)) {
+      const next = new Set(effectiveReady)
+      if (checked) next.add(courseId)
+      else next.delete(courseId)
+      setSelectedReady(next)
+      return
+    }
     const next = new Set(effective)
 
     ;(lessonsByCourse.get(courseId) ?? []).forEach((lesson) => {
@@ -84,15 +105,16 @@ export function ExportView() {
 
   const toggleAll = (checked: boolean) => {
     setSelected(checked ? new Set(allLessonIds) : new Set())
+    setSelectedReady(checked ? new Set(readyCourseIds) : new Set())
   }
 
   const handleExport = async () => {
-    if (effective.size === 0) return
+    if (!hasSelection) return
 
     setError(null)
 
     try {
-      await exportBackupFx([...effective])
+      await exportBackupFx({ lessonIds: [...effective], readyCourseIds: [...effectiveReady] })
       popScreen()
     } catch {
       setError(
@@ -109,7 +131,7 @@ export function ExportView() {
         onBackClick={() => popScreen()}
       />
       <Box grow padding="m">
-        {allLessonIds.length === 0 ? (
+        {!hasCourses ? (
           <EmptyScreen
             fullHeight
             icon={<IconEducation fontSize={24} />}
@@ -125,14 +147,17 @@ export function ExportView() {
                   onChange={toggleAll}
                 />
                 {sortedCourses.map((course) => {
-                  const courseLessons = lessonsByCourse.get(course.id) ?? []
-                  const courseChecked = courseLessons.some((lesson) => effective.has(lesson.id))
+                  const ready = Boolean(course.source)
+                  const courseLessons = ready ? [] : (lessonsByCourse.get(course.id) ?? [])
+                  const courseChecked = ready
+                    ? effectiveReady.has(course.id)
+                    : courseLessons.some((lesson) => effective.has(lesson.id))
 
                   return (
                     <Stack key={course.id} spacing="s">
                       <Checkbox
                         checked={courseChecked}
-                        disabled={courseLessons.length === 0}
+                        disabled={!ready && courseLessons.length === 0}
                         label={course.name}
                         onChange={(value) => toggleCourse(course.id, value)}
                       />
@@ -155,7 +180,7 @@ export function ExportView() {
             {error ? <FormHelperText variant="error">{error}</FormHelperText> : null}
 
             <Button
-              disabled={effective.size === 0}
+              disabled={!hasSelection}
               fullWidth
               loading={exporting}
               startIcon={<IconDownload fontSize={24} />}

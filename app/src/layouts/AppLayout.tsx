@@ -1,11 +1,12 @@
-import { useEffect, useLayoutEffect, useRef } from 'react'
+import { resolveReadyCourseId } from '../transport/ready-content'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { ReactNode } from 'react'
 
 import { useUnit } from 'effector-react'
 import { FormattedMessage } from 'react-intl'
 
 import { IconBookOpen, IconSettings, IconViewList } from '@elemental/icons'
-import { BottomSheetProvider } from '@elemental/ui-kit'
+import { BottomSheetProvider, Box, Button, Spinner, Stack, Text } from '@elemental/ui-kit'
 
 import { DataView } from '../features/backup/ui/DataView'
 import { ExportView } from '../features/backup/ui/ExportView'
@@ -37,6 +38,15 @@ import type { Screen } from '../features/navigation/store'
 import { CourseCreateView } from '../features/courses/ui/CourseCreateView'
 import { CourseSearchView } from '../features/course-search/ui/CourseSearchView'
 import { CoursesView } from '../features/courses/ui/CoursesView'
+import {
+  ensureReadyCourseFx,
+  $courses,
+  $coursesLoaded,
+  $currentCourseId,
+  $readyCourseIds,
+} from '../features/courses/store'
+import { $lessons } from '../features/lessons/store'
+import { $sets } from '../features/sets/store'
 import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
 import { LessonsView } from '../features/lessons/ui/LessonsView'
 import { SetCreateView } from '../features/set-create/ui/SetCreateView'
@@ -126,6 +136,73 @@ function renderScreen(screen: Screen): ReactNode {
     case 'export':
       return <ExportView />
   }
+}
+
+function ReadyCourseScreen({ screen }: { screen: Screen }) {
+  const courses = useUnit($courses)
+  const coursesLoaded = useUnit($coursesLoaded)
+  const currentCourseId = useUnit($currentCourseId)
+  const readyIds = useUnit($readyCourseIds)
+  const lessons = useUnit($lessons)
+  const sets = useUnit($sets)
+  const [retry, setRetry] = useState(0)
+  const [failed, setFailed] = useState<{ courseId: string; attempt: number } | null>(null)
+  const contentId =
+    'setId' in screen && screen.setId
+      ? screen.setId
+      : 'lessonId' in screen
+        ? screen.lessonId
+        : undefined
+  const isLessonList = screen.name === 'lessons'
+  const explicitCourseId = 'courseId' in screen ? screen.courseId : undefined
+  const relatedSet = sets.find((set) => set.id === contentId)
+  const relatedLesson = lessons.find((lesson) => lesson.id === (relatedSet?.lessonId ?? contentId))
+  const courseId =
+    explicitCourseId ??
+    relatedLesson?.courseId ??
+    (contentId ? resolveReadyCourseId(contentId) : undefined) ??
+    (isLessonList || contentId ? (currentCourseId ?? courses[0]?.id) : undefined)
+  const course = courses.find((item) => item.id === courseId)
+  const sourceCourseId = course?.source ? course.id : undefined
+  const loaded = sourceCourseId === undefined || readyIds.has(sourceCourseId)
+
+  useEffect(() => {
+    if (!sourceCourseId || loaded) return
+    let active = true
+    void ensureReadyCourseFx(sourceCourseId).catch(() => {
+      if (active) setFailed({ courseId: sourceCourseId, attempt: retry })
+    })
+    return () => {
+      active = false
+    }
+  }, [sourceCourseId, loaded, retry])
+
+  if ((!coursesLoaded && (isLessonList || contentId || explicitCourseId)) || !loaded) {
+    return (
+      <Box grow height="100%" padding="m">
+        <Stack grow height="100%" verticalAlign="center" horizontalAlign="center" spacing="m">
+          {failed?.courseId === sourceCourseId && failed?.attempt === retry && sourceCourseId ? (
+            <>
+              <Text align="center" variant="M / Medium">
+                <FormattedMessage
+                  id="ready_course_loading_failed"
+                  defaultMessage="Could not open this course. Check your connection and try again."
+                />
+              </Text>
+              <Button onClick={() => setRetry((value) => value + 1)}>
+                <FormattedMessage id="ready_course_retry" defaultMessage="Try again" />
+              </Button>
+            </>
+          ) : (
+            <div data-test="ready-course-loading" role="status">
+              <Spinner size="l" />
+            </div>
+          )}
+        </Stack>
+      </Box>
+    )
+  }
+  return renderScreen(screen)
 }
 
 function isSettingsScreen(name: Screen['name']): boolean {
@@ -243,16 +320,12 @@ export function AppLayout() {
             key={`${stack.length}-${screen.name}`}
             className={`${classes.screen} ${entering ? classes.screenEntering : ''}`}
           >
-            {renderScreen(screen)}
+            {<ReadyCourseScreen screen={screen} />}
           </div>
           {/* inert: the leaving screen is a copy popped from the stack, it must not
               capture focus (autoFocus reopened the keyboard) */}
           {leavingScreen && (
-            <div
-              className={classes.screenExiting}
-              inert
-              onAnimationEnd={() => transitionEnded()}
-            >
+            <div className={classes.screenExiting} inert onAnimationEnd={() => transitionEnded()}>
               {renderScreen(leavingScreen)}
             </div>
           )}

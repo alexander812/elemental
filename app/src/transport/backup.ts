@@ -6,8 +6,17 @@ import { fetchCourses, replaceCourses } from './courses'
 import { fetchLessons, replaceLessons } from './lessons'
 import { fetchSettings, saveSettings } from './settings'
 import { fetchSets, replaceSets } from './sets'
+import {
+  clearReadyContentCache,
+  readContentLessons,
+  readContentSets,
+  readReadyStates,
+  remapReadyState,
+  writeReadyStates,
+} from './ready-content'
+import type { ReadyCourseState } from './ready-content'
 
-export const BACKUP_VERSION = 9
+export const BACKUP_VERSION = 10
 
 export type BackupData = {
   version: number
@@ -15,6 +24,7 @@ export type BackupData = {
   courses: Course[]
   lessons: Lesson[]
   sets: CardSet[]
+  readyStates: Record<string, ReadyCourseState>
   languages: Language[]
   settings: Settings
 }
@@ -31,10 +41,58 @@ export type AppliedBackup = {
 export type DuplicateLesson = {
   courseName: string
   name: string
+  readyCourse?: boolean
 }
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
+
+function sameCourse(a: Course, b: Course): boolean {
+  if (!a.source || !b.source) {
+    return !a.source && !b.source && a.name === b.name && a.kind === b.kind
+  }
+
+  if (a.lang !== b.lang || a.userLang !== b.userLang || a.source.kind !== b.source.kind)
+    return false
+
+  return (
+    a.source.kind === 'poliglot' ||
+    (b.source.kind === 'catalog' && a.source.courseKey === b.source.courseKey)
+  )
+}
+
+function parseReadyStates(value: unknown): Record<string, ReadyCourseState> {
+  if (!isRecord(value)) throw new Error('invalid backup: ready states')
+  for (const state of Object.values(value)) {
+    if (!isRecord(state) || !Array.isArray(state.patches) || !isRecord(state.summary))
+      throw new Error('invalid backup: ready state')
+    const { total, completed } = state.summary
+    if (
+      !Number.isInteger(total) ||
+      !Number.isInteger(completed) ||
+      (total as number) < 0 ||
+      (completed as number) < 0 ||
+      (completed as number) > (total as number)
+    )
+      throw new Error('invalid backup: ready summary')
+    for (const patch of state.patches) {
+      if (
+        !isRecord(patch) ||
+        !Array.isArray(patch.path) ||
+        patch.path.length === 0 ||
+        !['lessons', 'sets'].includes(patch.path[0] as string) ||
+        !patch.path.every((part: unknown) =>
+          typeof part === 'string'
+            ? !['__proto__', 'prototype', 'constructor'].includes(part)
+            : typeof part === 'number' && Number.isInteger(part) && part >= 0
+        ) ||
+        (patch.remove !== undefined && typeof patch.remove !== 'boolean')
+      )
+        throw new Error('invalid backup: ready patch')
+    }
+  }
+  return value as Record<string, ReadyCourseState>
+}
 
 export function parseBackup(raw: string): BackupData {
   let parsed: unknown
@@ -65,26 +123,49 @@ export function parseBackup(raw: string): BackupData {
     courses: parsed.courses as Course[],
     lessons: parsed.lessons as Lesson[],
     sets: parsed.sets as CardSet[],
+    readyStates: parseReadyStates(parsed.readyStates ?? {}),
     languages: LANGUAGES_CATALOG,
     settings: parsed.settings as unknown as Settings,
   }
 }
 
-export async function createBackup(lessonIds?: string[]): Promise<string> {
-  const [allCourses, allLessons, allSets, settings] = await Promise.all([
-    fetchCourses(),
-    fetchLessons(),
-    fetchSets(),
-    fetchSettings(),
-  ])
+export async function createBackup(
+  lessonIds?: string[],
+  readyCourseIds?: string[]
+): Promise<string> {
+  const [allCourses, settings] = await Promise.all([fetchCourses(), fetchSettings()])
+  const readyIds = new Set(allCourses.filter((course) => course.source).map((course) => course.id))
+  const allLessons = readContentLessons()
+  const allSets = readContentSets()
 
-  const lessons = lessonIds
+  const chosenLessons = lessonIds
     ? allLessons.filter((lesson) => lessonIds.includes(lesson.id))
     : allLessons
+  const lessons = chosenLessons.filter((lesson) => !readyIds.has(lesson.courseId))
   const selectedLessonIds = new Set(lessons.map((lesson) => lesson.id))
   const sets = allSets.filter((set) => selectedLessonIds.has(set.lessonId))
   const selectedCourseIds = new Set(lessons.map((lesson) => lesson.courseId))
+  const selectedReadyIds =
+    readyCourseIds ??
+    (lessonIds
+      ? chosenLessons
+          .filter((lesson) => readyIds.has(lesson.courseId))
+          .map((lesson) => lesson.courseId)
+      : [...readyIds])
+  for (const id of selectedReadyIds) if (readyIds.has(id)) selectedCourseIds.add(id)
   const courses = allCourses.filter((course) => selectedCourseIds.has(course.id))
+  const states = readReadyStates()
+  const readyStates = Object.fromEntries(
+    courses
+      .filter((course) => course.source)
+      .map((course) => [
+        course.id,
+        states[course.id] ?? {
+          patches: [],
+          summary: course.contentSummary ?? { total: 0, completed: 0 },
+        },
+      ])
+  )
 
   const data: BackupData = {
     version: BACKUP_VERSION,
@@ -92,6 +173,7 @@ export async function createBackup(lessonIds?: string[]): Promise<string> {
     courses,
     lessons,
     sets,
+    readyStates,
     languages: LANGUAGES_CATALOG,
     settings,
   }
@@ -121,14 +203,17 @@ export function findDuplicateLessons(
   const courseIdMap = new Map<string, string>()
 
   for (const course of data.courses) {
-    const duplicate = existingCourses.find(
-      (item) => item.name === course.name && item.kind === course.kind
-    )
+    const duplicate = existingCourses.find((item) => sameCourse(item, course))
 
     if (duplicate) courseIdMap.set(course.id, duplicate.id)
   }
 
   const duplicates: DuplicateLesson[] = []
+
+  for (const course of data.courses) {
+    if (course.source && courseIdMap.has(course.id))
+      duplicates.push({ courseName: course.name, name: course.name, readyCourse: true })
+  }
 
   for (const lesson of data.lessons) {
     const targetCourseId = courseIdMap.get(lesson.courseId)
@@ -151,6 +236,8 @@ export function findDuplicateLessons(
 
 export async function applyBackup(data: BackupData, mode: ImportMode): Promise<AppliedBackup> {
   if (mode === 'replace') {
+    clearReadyContentCache()
+    writeReadyStates(data.readyStates)
     const courses = await replaceCourses(data.courses)
     const lessons = await replaceLessons(data.lessons)
     const sets = await replaceSets(data.sets)
@@ -159,21 +246,27 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
     return { courses, lessons, sets, settings }
   }
 
-  const [existingCourses, existingLessons, existingSets, settings] = await Promise.all([
+  const [existingCourses, allExistingLessons, allExistingSets, settings] = await Promise.all([
     fetchCourses(),
     fetchLessons(),
     fetchSets(),
     fetchSettings(),
   ])
+  const readyCourseIds = new Set(
+    existingCourses.filter((course) => course.source).map((course) => course.id)
+  )
+  const existingLessons = allExistingLessons.filter(
+    (lesson) => !readyCourseIds.has(lesson.courseId)
+  )
+  const userLessonIds = new Set(existingLessons.map((lesson) => lesson.id))
+  const existingSets = allExistingSets.filter((set) => userLessonIds.has(set.lessonId))
 
   const existingCourseIds = new Set(existingCourses.map((course) => course.id))
   const courseIdMap = new Map<string, string>()
   const newCourses: Course[] = []
 
   for (const course of data.courses) {
-    const duplicate = existingCourses.find(
-      (item) => item.name === course.name && item.kind === course.kind
-    )
+    const duplicate = existingCourses.find((item) => sameCourse(item, course))
 
     if (duplicate) {
       courseIdMap.set(course.id, duplicate.id)
@@ -198,6 +291,8 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
           userLang: incoming.userLang,
           level: incoming.level ?? course.level,
           kind: incoming.kind,
+          source: incoming.source,
+          contentSummary: incoming.contentSummary,
         }
       : course
   })
@@ -256,6 +351,18 @@ export async function applyBackup(data: BackupData, mode: ImportMode): Promise<A
     usedSetIds.add(id)
     return { ...set, id, lessonId: lessonIdMap.get(set.lessonId) ?? set.lessonId }
   })
+  const readyStates = readReadyStates()
+  for (const course of data.courses) {
+    if (!course.source) continue
+    const targetId = courseIdMap.get(course.id) ?? course.id
+    const state = data.readyStates[course.id] ?? {
+      patches: [],
+      summary: course.contentSummary ?? { total: 0, completed: 0 },
+    }
+    readyStates[targetId] = remapReadyState(state, course.id, targetId)
+  }
+  clearReadyContentCache()
+  writeReadyStates(readyStates)
   const savedCourses = await replaceCourses([...courses, ...newCourses])
   const lessons = await replaceLessons([...keptLessons, ...newLessons])
   const sets = await replaceSets([...keptSets, ...addedSets])

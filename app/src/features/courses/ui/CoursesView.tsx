@@ -107,7 +107,6 @@ export function CoursesView() {
           <Button fullWidth variant="secondary" onClick={handleCreateNew}>
             <FormattedMessage id="courses_create_new" defaultMessage="Create new" />
           </Button>
-
         </Stack>
       </Box>
     </BottomSheet>
@@ -166,8 +165,12 @@ export function CoursesView() {
       <Box grow padding="m">
         <div className={classes.list}>
           {visible.map((course) => {
-            const counts = lessonCounts.get(course.id)
-            const count = counts?.total ?? 0
+            const counts =
+              lessonCounts.get(course.id) ??
+              (course.contentSummary
+                ? { total: course.contentSummary.total, passed: course.contentSummary.completed }
+                : undefined)
+            const count = counts?.total ?? (course.source ? undefined : 0)
 
             return (
               <div key={course.id} {...(course.id === addedCourseId ? addedCourseShake : {})}>
@@ -190,15 +193,17 @@ export function CoursesView() {
                       <Text overflow="ellipsis" variant="M / Medium">
                         {course.name} ({langLabel(course.userLang)}-{langLabel(course.lang)})
                       </Text>
-                      <Stack shrink={0}>
-                        <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">
-                          <FormattedMessage
-                            id="courses_lessons_count"
-                            defaultMessage="{count, plural, one {# lesson} other {# lessons}}"
-                            values={{ count }}
-                          />
-                        </Text>
-                      </Stack>
+                      {count !== undefined ? (
+                        <Stack shrink={0}>
+                          <Text color="contrast-secondary" overflow="nowrap" variant="S / Medium">
+                            <FormattedMessage
+                              id="courses_lessons_count"
+                              defaultMessage="{count, plural, one {# lesson} other {# lessons}}"
+                              values={{ count }}
+                            />
+                          </Text>
+                        </Stack>
+                      ) : null}
                     </Stack>
                     <div className={classes.description}>
                       <Text color="contrast-secondary" variant="XS / Medium">

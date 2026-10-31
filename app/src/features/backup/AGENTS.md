@@ -7,3 +7,5 @@
 Внешние связи: `lib/storage.ts`, `lib/types.ts`, `features/courses/store`, `features/lessons/store`, `features/navigation/store`, `shared/ui/ConfirmSheet`.
 
 Инварианты: при изменении моделей данных (`lib/types.ts`, форматы `transport/*`) поднимаются `DATA_VERSION` (`lib/storage.ts` + литерал в `app/index.html`) и `BACKUP_VERSION`; старые данные и бэкапы не читаются («Не удалось прочитать файл»).
+
+Версия бэкапа 10: готовые курсы выбираются целиком, в том числе ещё не открытые; экспортируются метаданные/source и sparse `readyStates`, без поставляемого контента. Пользовательские курсы — прежний выбор уроков с полным содержимым. Импорт очищает RAM cache и восстанавливает ready-state; merge ремапит связанные ID.

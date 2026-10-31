@@ -1,48 +1,32 @@
-import courseData from '../courses/poliglot/course_poliglot.en.json'
-import { POLIGLOT_LESSON_NAME, POLIGLOT_LESSON_ONE } from '../courses/poliglot/lesson-one'
-import type { CardSet, Course, Lesson } from '../lib/types'
+import type { Course } from '../lib/types'
 import { uid } from '../lib/uid'
 import { fetchCourses, replaceCourses } from './courses'
-import { fetchLessons, replaceLessons } from './lessons'
-import { fetchSets, replaceSets } from './sets'
+import { fetchLessons } from './lessons'
+import { fetchSets } from './sets'
+import { POLIGLOT_METADATA } from './poliglot-metadata'
 
 export async function loadPoliglot() {
-  const [courses, lessons, sets] = await Promise.all([fetchCourses(), fetchLessons(), fetchSets()])
-  const existing = courses.find((course) => course.kind === 'poliglot')
+  const courses = await fetchCourses()
+  const existing = courses.find((course) => course.source?.kind === 'poliglot')
 
-  if (existing) return { courses, lessons, sets, courseId: existing.id, added: false }
+  if (existing) {
+    return {
+      courses,
+      lessons: await fetchLessons(),
+      sets: await fetchSets(),
+      courseId: existing.id,
+      added: false,
+    }
+  }
 
   const course: Course = {
     id: uid(),
-    name: courseData.name,
+    ...POLIGLOT_METADATA,
     kind: 'poliglot',
-    description: courseData.description,
-    lang: courseData.lang,
-    userLang: courseData.userLang,
+    source: { kind: 'poliglot' },
     order: Math.max(-1, ...courses.map((item) => item.order)) + 1,
   }
-  const lesson: Lesson = {
-    id: uid(),
-    courseId: course.id,
-    name: POLIGLOT_LESSON_NAME,
-    order: 0,
-  }
-  const tasks: CardSet[] = POLIGLOT_LESSON_ONE.map((task, order) => ({
-    id: uid(),
-    lessonId: lesson.id,
-    name: task.name,
-    active: true,
-    order,
-    swapped: false,
-    examPassed: false,
-    texts: {},
-    cards: [],
-    phraseTask: { pages: task.pages, pageIndex: 0, solved: [] },
-  }))
-
   const savedCourses = await replaceCourses([...courses, course])
-  await replaceLessons([...lessons, lesson])
-  await replaceSets([...sets, ...tasks])
 
   return {
     courses: savedCourses,

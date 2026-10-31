@@ -5,16 +5,7 @@ import { useUnit } from 'effector-react'
 import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconDownload, IconRefresh, IconRestore, IconUpload } from '@elemental/icons'
-import {
-  Box,
-  Button,
-  Card,
-  FormHelperText,
-  Header,
-  ListItem,
-  Stack,
-  Text,
-} from '@elemental/ui-kit'
+import { Box, Button, Card, FormHelperText, Header, ListItem, Stack, Text } from '@elemental/ui-kit'
 
 import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
 import { parseBackup, findDuplicateLessons } from '../../../transport/backup'
@@ -44,6 +35,8 @@ export function DataView() {
     () => (backup ? findDuplicateLessons(backup, courses, lessons) : []),
     [backup, courses, lessons]
   )
+  const duplicateReadyCourses = duplicates.filter((item) => item.readyCourse)
+  const duplicateLessons = duplicates.filter((item) => !item.readyCourse)
 
   const handleExport = () => {
     setError(null)
@@ -198,7 +191,9 @@ export function DataView() {
                 <FormHelperText variant="warning">
                   <FormattedMessage
                     id="data_merge_warning"
-                    defaultMessage={'"Merge" will add the lessons from the file to the current ones, "Replace" will completely replace all the app data'}
+                    defaultMessage={
+                      '"Merge" will add the lessons from the file to the current ones, "Replace" will completely replace all the app data'
+                    }
                   />
                 </FormHelperText>
                 <Button fullWidth loading={importing} onClick={handleMerge}>
@@ -239,15 +234,28 @@ export function DataView() {
       <ConfirmSheet
         opened={confirmMerge}
         text={
-          <FormattedMessage
-            id="data_merge_confirm"
-            defaultMessage="These lessons already exist: {duplicates}. The imported lessons will completely overwrite them along with their sets and cards."
-            values={{
-              duplicates: duplicates
-                .map((item) => `«${item.name}» (${item.courseName})`)
-                .join(', '),
-            }}
-          />
+          <Stack spacing="s">
+            {duplicateLessons.length > 0 ? (
+              <FormattedMessage
+                id="data_merge_confirm"
+                defaultMessage="These lessons already exist: {duplicates}. The imported lessons will completely overwrite them along with their sets and cards."
+                values={{
+                  duplicates: duplicateLessons
+                    .map((item) => `«${item.name}» (${item.courseName})`)
+                    .join(', '),
+                }}
+              />
+            ) : null}
+            {duplicateReadyCourses.length > 0 ? (
+              <FormattedMessage
+                id="data_merge_ready_confirm"
+                defaultMessage="These courses already exist: {courses}. The imported progress and edits will replace your saved progress and edits for these courses."
+                values={{
+                  courses: duplicateReadyCourses.map((item) => `«${item.name}»`).join(', '),
+                }}
+              />
+            ) : null}
+          </Stack>
         }
         onClosed={() => setConfirmMerge(false)}
       >

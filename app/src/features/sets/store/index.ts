@@ -6,6 +6,7 @@ import * as setsApi from '../../../transport/sets'
 import type { CardEditPair, CardPair, CardSet, CardTexts } from '../../../transport/sets'
 import { importBackupFx } from '../../backup/store'
 import { loadCoursesFx } from '../../course-search/store'
+import { ensureReadyCourseFx } from '../../courses/store'
 import { deleteCourseFx, $courses } from '../../courses/store'
 import { deleteLessonFx, $lessons } from '../../lessons/store'
 
@@ -121,6 +122,7 @@ export const $sets = createStore<CardSet[]>([])
     result.status === 'done' ? result.ready.sets : state
   )
   .on(importBackupFx.doneData, (_, { sets }) => sets)
+  .on(ensureReadyCourseFx.doneData, (_, result) => result.sets)
 
 export const $courseLangByLesson = combine($lessons, $courses, (lessons, courses) => {
   const langByCourse = new Map(courses.map((course) => [course.id, course.lang]))

@@ -1,19 +1,14 @@
 import { remapTexts } from '../lib/cards'
-import { POLIGLOT_LESSON_ONE } from '../courses/poliglot/lesson-one'
-import { POLIGLOT_EXERCISES } from '../courses/poliglot/exercises'
 import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG } from '../lib/languages'
 import type { LanguageCode } from '../lib/languages'
-import { load, save } from '../lib/storage'
 import type { Card, CardSet, CardTexts } from '../lib/types'
 import { uid } from '../lib/uid'
-import { isPhraseCorrect, normalizePhrase } from '../lib/phraseAnswer'
+import { isPhraseCorrect } from '../lib/phraseAnswer'
 import { readCourses } from './courses'
 import { readLessons } from './lessons'
-import { ensurePoliglotExercises } from './poliglot-exercises'
+import { readContentSets, writeContentSets } from './ready-content'
 
 export type { Card, CardSet, CardTexts } from '../lib/types'
-
-const SETS_KEY = 'sets'
 
 function normalizeTexts(texts: CardTexts | undefined): CardTexts {
   if (!texts || typeof texts !== 'object') return {}
@@ -45,13 +40,11 @@ function createCard(
 }
 
 function readSets(): CardSet[] {
-  return load<CardSet[]>(SETS_KEY, [])
+  return readContentSets()
 }
 
 function writeSets(sets: CardSet[]): CardSet[] {
-  save(SETS_KEY, sets)
-
-  return sets
+  return writeContentSets(sets)
 }
 
 function resolveCourseLang(lessonId: string): LanguageCode {
@@ -73,63 +66,7 @@ function patchSet(sets: CardSet[], setId: string, patch: (set: CardSet) => CardS
 }
 
 export async function fetchSets(): Promise<CardSet[]> {
-  ensurePoliglotExercises()
-  const courses = new Set(
-    readCourses()
-      .filter((course) => course.kind === 'poliglot')
-      .map((course) => course.id)
-  )
-  const lessons = new Set(
-    readLessons()
-      .filter((lesson) => courses.has(lesson.courseId))
-      .map((lesson) => lesson.id)
-  )
-  let changed = false
-  const sets = readSets().map((set) => {
-    if (!set.phraseTask || !lessons.has(set.lessonId)) return set
-    const exercise = POLIGLOT_EXERCISES.find(
-      (task) => set.id.endsWith(`:${task.id}`) || set.name === task.name
-    )
-    const current = exercise ?? POLIGLOT_LESSON_ONE.find((task) => task.name === set.name)
-    if (!current || JSON.stringify(current.pages) === JSON.stringify(set.phraseTask.pages))
-      return set
-    changed = true
-    const previous = set.phraseTask
-    const questionKey = (page: (typeof current.pages)[number]) =>
-      page.kind === 'question'
-        ? JSON.stringify([page.prompt, normalizePhrase(page.answer.join(' '))])
-        : null
-    const solvedQuestions = new Set(
-      previous.pages.flatMap((page, index) => {
-        const key = questionKey(page)
-        return key !== null && previous.solved.includes(index) ? [key] : []
-      })
-    )
-    const solved = current.pages.flatMap((page, index) => {
-      const key = questionKey(page)
-      return key !== null && solvedQuestions.has(key) ? [index] : []
-    })
-    const oldPage = previous.pages[previous.pageIndex]
-    const restoredIndex = oldPage
-      ? current.pages.findIndex((page) =>
-          oldPage.kind === 'question'
-            ? questionKey(page) === questionKey(oldPage)
-            : page.kind === 'theory' && page.title === oldPage.title
-        )
-      : -1
-    const pageIndex =
-      restoredIndex >= 0
-        ? restoredIndex
-        : Math.max(0, Math.min(previous.pageIndex, current.pages.length - 1))
-    const questions = current.pages.filter((page) => page.kind === 'question').length
-    return {
-      ...set,
-      examPassed: questions > 0 && solved.length === questions,
-      phraseTask: { pages: current.pages, pageIndex, solved },
-    }
-  })
-
-  return changed ? writeSets(sets) : sets
+  return readSets()
 }
 
 export async function replaceSets(sets: CardSet[]): Promise<CardSet[]> {

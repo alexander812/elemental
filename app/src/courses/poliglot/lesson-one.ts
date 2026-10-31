@@ -1,4 +1,4 @@
-import courseData from './course_poliglot.en.json'
+import type courseData from './course_poliglot.en.json'
 
 export type PoliglotTable = {
   headers: string[]
@@ -30,7 +30,7 @@ export type PoliglotTask = {
   pages: PoliglotPage[]
 }
 
-export const POLIGLOT_LESSON_NAME = courseData.lessonOne.name
+export type PoliglotCourseData = typeof courseData
 
 type LessonVerb = {
   base: string
@@ -45,9 +45,7 @@ type LessonVerb = {
   futureRu: string
 }
 
-const LESSON_VERBS: LessonVerb[] = courseData.lessonOne.verbs
-
-const buildMatrixQuestions = (): PoliglotQuestionPage[] => {
+const buildMatrixQuestions = (LESSON_VERBS: LessonVerb[]): PoliglotQuestionPage[] => {
   const total = LESSON_VERBS.length
   return LESSON_VERBS.map<PoliglotQuestionPage>((verb, verbIndex) => {
     const subject = verb.subject === 'I' ? 'I' : verb.subject.toLowerCase()
@@ -133,31 +131,32 @@ const buildMatrixQuestions = (): PoliglotQuestionPage[] => {
   })
 }
 
-export const POLIGLOT_LESSON_ONE: PoliglotTask[] = courseData.lessonOne.tasks.map((task) => ({
-  id: task.id,
-  name: task.name,
-  pages: [
-    ...task.pages.map((page): PoliglotPage => {
-      if (page.kind === 'theory') return { ...page, kind: 'theory' }
-      if (
-        page.kind === 'question' &&
-        'prompt' in page &&
-        'answer' in page &&
-        'bank' in page &&
-        page.prompt !== undefined &&
-        page.answer !== undefined &&
-        page.bank !== undefined
-      ) {
-        return {
-          ...page,
-          kind: 'question',
-          prompt: page.prompt,
-          answer: page.answer,
-          bank: page.bank,
+export const parseLessonOne = (data: PoliglotCourseData['lessonOne']): PoliglotTask[] =>
+  data.tasks.map((task) => ({
+    id: task.id,
+    name: task.name,
+    pages: [
+      ...task.pages.map((page): PoliglotPage => {
+        if (page.kind === 'theory') return { ...page, kind: 'theory' }
+        if (
+          page.kind === 'question' &&
+          'prompt' in page &&
+          'answer' in page &&
+          'bank' in page &&
+          page.prompt !== undefined &&
+          page.answer !== undefined &&
+          page.bank !== undefined
+        ) {
+          return {
+            ...page,
+            kind: 'question',
+            prompt: page.prompt,
+            answer: page.answer,
+            bank: page.bank,
+          }
         }
-      }
-      throw new Error('poliglot_invalid_page')
-    }),
-    ...(task.matrixQuestions ? buildMatrixQuestions() : []),
-  ],
-}))
+        throw new Error('poliglot_invalid_page')
+      }),
+      ...(task.matrixQuestions ? buildMatrixQuestions(data.verbs) : []),
+    ],
+  }))

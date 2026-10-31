@@ -2,13 +2,19 @@ import type { LanguageCode } from '../lib/languages'
 import { load, save } from '../lib/storage'
 import type { Course } from '../lib/types'
 import { uid } from '../lib/uid'
+import { readReadyStates } from './ready-content'
 
 export type { Course } from '../lib/types'
 
 const COURSES_KEY = 'courses'
 
 export function readCourses(): Course[] {
-  return load<Course[]>(COURSES_KEY, [])
+  const states = readReadyStates()
+  return load<Course[]>(COURSES_KEY, []).map((course) =>
+    course.source && states[course.id]
+      ? { ...course, contentSummary: states[course.id].summary }
+      : course
+  )
 }
 
 function writeCourses(courses: Course[]): Course[] {

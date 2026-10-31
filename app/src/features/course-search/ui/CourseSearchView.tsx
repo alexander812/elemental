@@ -18,7 +18,7 @@ import {
 } from '@elemental/ui-kit'
 import type { SelectOption } from '@elemental/ui-kit'
 
-import poliglotCourse from '../../../courses/poliglot/course_poliglot.en.json'
+import { POLIGLOT_METADATA } from '../../../transport/poliglot-metadata'
 import { getLanguageName } from '../../../lib/languages'
 import type { CourseLevel } from '../../../lib/types'
 import { ConfirmSheet } from '../../../shared/ui/ConfirmSheet'
@@ -139,7 +139,7 @@ export function CourseSearchView() {
               id: 'course_search_poliglot_english',
               defaultMessage: 'Poliglot English',
             })}
-            description={poliglotCourse.description}
+            description={POLIGLOT_METADATA.description}
             checked={poliglotSelected}
             disabled={loadPending}
             onToggle={() => courseToggled(POLIGLOT_COURSE_KEY)}

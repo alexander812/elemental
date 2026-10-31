@@ -1,5 +1,5 @@
 import type { LanguageCode } from '../lib/languages'
-import type { Card, CardSet, CardTexts, Course, CourseLevel, Lesson } from '../lib/types'
+import type { CardSet, Course, CourseLevel, Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
 import { fetchCourses, replaceCourses } from './courses'
 import { fetchLessons, replaceLessons } from './lessons'
@@ -48,7 +48,11 @@ const LEVEL_FILES: Record<CourseLevel, string> = {
 }
 
 const levelModules = import.meta.glob('../courses/courses_*.json')
-const courseModules = import.meta.glob('../courses/course_*.json')
+const courseUrls = import.meta.glob<string>('../courses/course_*.json', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
 
 async function loadJson<T>(loader: (() => Promise<unknown>) | undefined): Promise<T> {
   if (!loader) throw new Error('catalog_not_found')
@@ -72,7 +76,11 @@ export async function fetchLevelCatalog(level: CourseLevel): Promise<CatalogCour
 }
 
 export async function fetchCatalogCourse(file: string): Promise<CatalogCourseData> {
-  const data = await loadJson<CatalogCourseData>(courseModules[`../courses/${file}`])
+  const url = courseUrls[`../courses/${file}`]
+  if (!url) throw new Error('catalog_not_found')
+  const response = await fetch(url)
+  if (!response.ok) throw new Error('catalog_download_failed')
+  const data = (await response.json()) as CatalogCourseData
 
   if (!Array.isArray(data.lessons)) throw new Error('catalog_invalid')
 
@@ -87,52 +95,6 @@ function pickText(
   return texts?.[preferred] ?? texts?.[fallback] ?? ''
 }
 
-function buildSet(
-  task: CatalogTask,
-  userTask: CatalogTask | undefined,
-  lessonId: string,
-  order: number,
-  payload: { lang: LanguageCode; userLang: LanguageCode }
-): CardSet {
-  const originals = userTask?.words ?? []
-  const translations = task.words ?? []
-  const count = Math.min(originals.length, translations.length)
-  const cards: Card[] = []
-
-  for (let index = 0; index < count; index += 1) {
-    const original = originals[index]?.trim() ?? ''
-    const translation = translations[index]?.trim() ?? ''
-
-    if (!original || !translation) continue
-
-    cards.push({
-      id: uid(),
-      texts: { [payload.userLang]: original, [payload.lang]: translation },
-      learned: false,
-      deleted: false,
-      voiceCheck: null,
-      writeCheck: null,
-    })
-  }
-
-  const setTexts: CardTexts = {}
-
-  if (userTask?.text) setTexts[payload.userLang] = userTask.text
-  if (task.text) setTexts[payload.lang] = task.text
-
-  return {
-    id: uid(),
-    lessonId,
-    name: userTask?.name || task.name,
-    active: true,
-    order,
-    swapped: false,
-    examPassed: false,
-    texts: setTexts,
-    cards,
-  }
-}
-
 export async function buildReadyCourses(payload: {
   entries: CatalogCourseEntry[]
   level: CourseLevel
@@ -140,65 +102,29 @@ export async function buildReadyCourses(payload: {
   userLang: LanguageCode
 }): Promise<ReadyCourses> {
   const courses: Course[] = []
-  const lessons: Lesson[] = []
-  const sets: CardSet[] = []
 
   for (const entry of payload.entries) {
-    const langFile = entry.files?.[payload.lang]
-
+    const langFile = entry.files[payload.lang]
     if (!langFile) continue
 
-    const userLangFile = entry.files?.[payload.userLang]
-    const data = await fetchCatalogCourse(langFile)
-    const userData =
-      userLangFile && userLangFile !== langFile ? await fetchCatalogCourse(userLangFile) : data
-    const course: Course = {
+    courses.push({
       id: uid(),
-      name: pickText(entry.i18n?.course, payload.userLang, payload.lang) || entry.course,
-      description: pickText(entry.i18n?.description, payload.userLang, payload.lang),
+      name: pickText(entry.i18n.course, payload.userLang, payload.lang) || entry.course,
+      description: pickText(entry.i18n.description, payload.userLang, payload.lang),
       order: courses.length,
       lang: payload.lang,
       userLang: payload.userLang,
       level: payload.level,
-    }
-
-    courses.push(course)
-
-    let lessonIndex = 0
-
-    for (const lesson of data.lessons) {
-      const userLesson = userData.lessons[lessonIndex]
-      lessonIndex += 1
-
-      const model: Lesson = {
-        id: uid(),
-        courseId: course.id,
-        name: userLesson?.name || lesson.name,
-        order: lessons.filter((item) => item.courseId === course.id).length,
-      }
-
-      lessons.push(model)
-
-      let taskIndex = 0
-
-      for (const task of lesson.tasks ?? []) {
-        const userTask = userLesson?.tasks?.[taskIndex]
-        taskIndex += 1
-
-        sets.push(
-          buildSet(
-            task,
-            userTask,
-            model.id,
-            sets.filter((item) => item.lessonId === model.id).length,
-            payload
-          )
-        )
-      }
-    }
+      source: {
+        kind: 'catalog',
+        courseKey: entry.course,
+        langFile,
+        userLangFile: entry.files[payload.userLang] ?? langFile,
+      },
+    })
   }
 
-  return { courses, lessons, sets }
+  return { courses, lessons: [], sets: [] }
 }
 
 function isSameNameAndLang(a: Course, b: Course): boolean {
@@ -242,10 +168,7 @@ export async function applyReadyCourses(
     ...existingLessons.filter((lesson) => !removedLessonIds.has(lesson.id)),
     ...ready.lessons,
   ]
-  const sets = [
-    ...existingSets.filter((set) => !removedLessonIds.has(set.lessonId)),
-    ...ready.sets,
-  ]
+  const sets = [...existingSets.filter((set) => !removedLessonIds.has(set.lessonId)), ...ready.sets]
   const savedCourses = await replaceCourses(courses)
   const savedLessons = await replaceLessons(lessons)
   const savedSets = await replaceSets(sets)

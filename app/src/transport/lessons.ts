@@ -1,23 +1,18 @@
-import { load, save } from '../lib/storage'
 import type { Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
-import { ensurePoliglotExercises } from './poliglot-exercises'
+import { ensureReadyCourse, readContentLessons, writeContentLessons } from './ready-content'
 
 export type { Lesson } from '../lib/types'
 
-const LESSONS_KEY = 'lessons'
-
 export function readLessons(): Lesson[] {
-  return load<Lesson[]>(LESSONS_KEY, [])
+  return readContentLessons()
 }
 
 function writeLessons(lessons: Lesson[]): Lesson[] {
-  save(LESSONS_KEY, lessons)
-  return lessons
+  return writeContentLessons(lessons)
 }
 
 export async function fetchLessons(): Promise<Lesson[]> {
-  ensurePoliglotExercises()
   return readLessons()
 }
 
@@ -29,6 +24,7 @@ export async function createLesson(payload: {
   courseId: string
   name: string
 }): Promise<{ lessonId: string; lessons: Lesson[] }> {
+  await ensureReadyCourse(payload.courseId)
   const lessons = readLessons()
   const maxOrder = lessons.reduce((max, lesson) => Math.max(max, lesson.order), -1)
   const lesson: Lesson = {
@@ -46,6 +42,7 @@ export async function updateLesson(payload: {
   courseId: string
   name: string
 }): Promise<Lesson[]> {
+  await ensureReadyCourse(payload.courseId)
   const lessons = readLessons()
 
   return writeLessons(

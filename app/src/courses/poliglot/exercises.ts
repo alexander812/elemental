@@ -1,5 +1,4 @@
-import courseData from './course_poliglot.en.json'
-import type { PoliglotQuestionPage } from './lesson-one'
+import type { PoliglotCourseData, PoliglotQuestionPage } from './lesson-one'
 
 export type PoliglotExerciseCategory = {
   id: string
@@ -27,10 +26,6 @@ type ExerciseCategory = {
   name: string
   verbs: ExerciseVerb[]
 }
-
-export const POLIGLOT_EXERCISES_LESSON_NAME = courseData.exercises.name
-
-const EXERCISE_CATEGORIES: ExerciseCategory[] = courseData.exercises.categories
 
 const buildQuestion = (
   verb: ExerciseVerb,
@@ -124,8 +119,8 @@ const buildQuestion = (
   }
 }
 
-export const POLIGLOT_EXERCISES: PoliglotExerciseCategory[] = EXERCISE_CATEGORIES.map(
-  (category, categoryIndex) => ({
+export const parseExercises = (data: PoliglotCourseData['exercises']): PoliglotExerciseCategory[] =>
+  (data.categories as ExerciseCategory[]).map((category, categoryIndex) => ({
     id: category.id,
     name: category.name,
     cards: category.verbs.map((verb) => ({
@@ -133,5 +128,4 @@ export const POLIGLOT_EXERCISES: PoliglotExerciseCategory[] = EXERCISE_CATEGORIE
       translation: verb.cardPhrase ?? verb.base,
     })),
     pages: category.verbs.map((verb, verbIndex) => buildQuestion(verb, categoryIndex, verbIndex)),
-  })
-)
+  }))
