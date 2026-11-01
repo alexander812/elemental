@@ -1,0 +1,1009 @@
+{
+  "name": "Рассказываем о себе: профессии и артикли",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "introductions-professions",
+      "name": "Рассказываем о профессии",
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Начни с двух фактов",
+          "paragraphs": [
+            "Для знакомства достаточно сказать, кем ты работаешь и где. Собери две короткие фразы из уже знакомых конструкций с be и work.",
+            "Вопрос What do you do? обычно означает вопрос о работе или занятии. О месте работы спроси: Where do you work?"
+          ],
+          "examples": [
+            "I am a teacher. — Я учитель.",
+            "I work in a school. — Я работаю в школе.",
+            "What is your profession? — Какая у тебя профессия?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Суффиксы помогают узнавать профессии",
+          "paragraphs": [
+            "Окончания -er, -or, -ist и -ian часто встречаются в названиях профессий. Это подсказки для узнавания слов, а не правило, по которому можно образовать любое слово.",
+            "Иногда меняется написание основы: write → writer, music → musician. Nurse — медсестра или медбрат; judge — судья, а глагол judge означает судить."
+          ],
+          "table": {
+            "headers": [
+              "Суффикс",
+              "Примеры"
+            ],
+            "rows": [
+              [
+                "-er",
+                "dancer — танцор\nbuilder — строитель\nwriter — писатель"
+              ],
+              [
+                "-or",
+                "actor — актёр\ninventor — изобретатель\neditor — редактор"
+              ],
+              [
+                "-ist",
+                "journalist — журналист\ntattooist — татуировщик\nphysicist — физик"
+              ],
+              [
+                "-ian",
+                "logistician — специалист по логистике\nmusician — музыкант\nelectrician — электрик"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Профессия в предложении",
+          "paragraphs": [
+            "Перед названием одной профессии обычно стоит a или an: a teacher, an actor. После I ставим am, после he или she — is.",
+            "В настоящем времени work получает -s после he или she. В вопросе с does используем work без -s."
+          ],
+          "examples": [
+            "She is a writer. — Она писательница.",
+            "He works in Moscow. — Он работает в Москве.",
+            "Where does she work? — Где она работает?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Чем ты занимаешься? (спроси о работе)",
+          "answer": [
+            "What",
+            "do",
+            "you",
+            "do?"
+          ],
+          "bank": [
+            "you",
+            "do?",
+            "does",
+            "are",
+            "What",
+            "do"
+          ],
+          "hint": "Вопрос с What и вспомогательным do."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Где ты работаешь?",
+          "answer": [
+            "Where",
+            "do",
+            "you",
+            "work?"
+          ],
+          "bank": [
+            "you",
+            "work?",
+            "does",
+            "works?",
+            "Where",
+            "do"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Какая у тебя профессия?",
+          "answer": [
+            "What",
+            "is",
+            "your",
+            "profession?"
+          ],
+          "bank": [
+            "your",
+            "profession?",
+            "are",
+            "you",
+            "What",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Я учитель.",
+          "answer": [
+            "I",
+            "am",
+            "a",
+            "teacher."
+          ],
+          "bank": [
+            "a",
+            "teacher.",
+            "is",
+            "an",
+            "I",
+            "am"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Она музыкант.",
+          "answer": [
+            "She",
+            "is",
+            "a",
+            "musician."
+          ],
+          "bank": [
+            "a",
+            "musician.",
+            "are",
+            "an",
+            "She",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Он актёр.",
+          "answer": [
+            "He",
+            "is",
+            "an",
+            "actor."
+          ],
+          "bank": [
+            "an",
+            "actor.",
+            "am",
+            "a",
+            "He",
+            "is"
+          ]
+        }
+      ],
+      "matrixQuestions": false
+    },
+    {
+      "id": "work-prepositions",
+      "name": "Указываем место и роль",
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "IN: город, организация, помещение",
+          "paragraphs": [
+            "С городом обычно используем in: in Moscow. Когда говорим о работе внутри организации или здания, тоже часто подходит in: in a company, in a hospital.",
+            "С улицами встречаются in и on в зависимости от варианта английского. Пример in Baker Street характерен для британского английского; точный адрес с номером обычно вводится через at."
+          ],
+          "examples": [
+            "She works in Moscow. — Она работает в Москве.",
+            "He works in a big company. — Он работает в большой компании.",
+            "I work in Baker Street. — Я работаю на Бейкер-стрит."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "AS: в качестве кого",
+          "paragraphs": [
+            "После work as назови должность: work as a teacher — работать учителем. Место и должность можно соединить в одной фразе.",
+            "Перед профессией сохраняется артикль a или an: as a manager, as an engineer."
+          ],
+          "examples": [
+            "I work in a school as a teacher. — Я работаю в школе учителем.",
+            "He works as an engineer. — Он работает инженером.",
+            "You are really good as a manager. — Ты очень хорош в роли менеджера."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "AT: место как точка или привычное занятие",
+          "paragraphs": [
+            "Запомни сочетания at work — на работе, at school — в школе на занятиях, at the airport — в аэропорту. Предлог at может просто обозначать местонахождение; сам по себе он не доказывает цель визита.",
+            "In подчёркивает нахождение внутри, а at часто называет место в целом. Предлоги выбираются по контексту и устойчивому сочетанию."
+          ],
+          "examples": [
+            "He is at work. — Он на работе.",
+            "They are at school. — Они в школе на занятиях.",
+            "I am at the airport. — Я в аэропорту."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 7",
+          "prompt": "Она работает в Москве.",
+          "answer": [
+            "She",
+            "works",
+            "in",
+            "Moscow."
+          ],
+          "bank": [
+            "in",
+            "Moscow.",
+            "work",
+            "to",
+            "She",
+            "works"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 7",
+          "prompt": "Он работает в большой компании.",
+          "answer": [
+            "He",
+            "works",
+            "in",
+            "a",
+            "big",
+            "company."
+          ],
+          "bank": [
+            "in",
+            "a",
+            "big",
+            "company.",
+            "work",
+            "an",
+            "He",
+            "works"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 7",
+          "prompt": "Он работает инженером.",
+          "answer": [
+            "He",
+            "works",
+            "as",
+            "an",
+            "engineer."
+          ],
+          "bank": [
+            "as",
+            "an",
+            "engineer.",
+            "work",
+            "a",
+            "He",
+            "works"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 7",
+          "prompt": "Я работаю в больнице медсестрой.",
+          "answer": [
+            "I",
+            "work",
+            "in",
+            "a",
+            "hospital",
+            "as",
+            "a",
+            "nurse."
+          ],
+          "bank": [
+            "a",
+            "hospital",
+            "as",
+            "a",
+            "nurse.",
+            "works",
+            "an",
+            "I",
+            "work",
+            "in"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 7",
+          "prompt": "Они в школе на занятиях.",
+          "answer": [
+            "They",
+            "are",
+            "at",
+            "school."
+          ],
+          "bank": [
+            "at",
+            "school.",
+            "is",
+            "the",
+            "They",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 7",
+          "prompt": "Я в аэропорту.",
+          "answer": [
+            "I",
+            "am",
+            "at",
+            "the",
+            "airport."
+          ],
+          "bank": [
+            "at",
+            "the",
+            "airport.",
+            "are",
+            "an",
+            "I",
+            "am"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 7",
+          "prompt": "Он на работе.",
+          "answer": [
+            "He",
+            "is",
+            "at",
+            "work."
+          ],
+          "bank": [
+            "at",
+            "work.",
+            "are",
+            "a",
+            "He",
+            "is"
+          ]
+        }
+      ],
+      "matrixQuestions": false
+    },
+    {
+      "id": "articles",
+      "name": "Выбираем артикль",
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "A и AN: один из многих",
+          "paragraphs": [
+            "A и an употребляются с исчисляемым существительным в единственном числе, когда речь об одном представителе группы: a doctor — какой-то доктор, an actor — актёр по профессии.",
+            "Выбор зависит от первого звука следующего слова: a перед согласным звуком, an перед гласным. Сравни a university и an hour: первая буква не всегда подсказывает звук."
+          ],
+          "examples": [
+            "You need a doctor. — Тебе нужен какой-нибудь доктор.",
+            "He is an actor. — Он актёр.",
+            "She is an engineer. — Она инженер."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "THE: понятно, о ком или о чём речь",
+          "paragraphs": [
+            "The показывает, что собеседники могут определить нужный предмет или человека: он уже упоминался или ясен из ситуации.",
+            "The подходит и для единственного, и для множественного числа. Для первого упоминания неопределённого предмета часто нужен a или an, для уже известного — the."
+          ],
+          "examples": [
+            "I work in the factory. — Я работаю на том самом заводе.",
+            "Where is the writer? — Где тот самый писатель?",
+            "I want the apples. — Я хочу те самые яблоки."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Когда артикля нет",
+          "paragraphs": [
+            "A и an нельзя поставить перед множественным числом. Если говорим о предметах вообще, перед множественным числом часто нет артикля: I want apples.",
+            "Неисчисляемые слова при общем значении тоже часто идут без артикля: I read fiction. В сочетаниях с my, your и другими притяжательными словами артикль не нужен: your profession.",
+            "Устойчивые выражения нужно запоминать отдельно: at work, at school. Это основные ориентиры, а не полный список правил."
+          ],
+          "table": {
+            "headers": [
+              "Смысл",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Один, пока не определённый",
+                "a teacher / an actor"
+              ],
+              [
+                "Конкретный, известный",
+                "the teacher / the apples"
+              ],
+              [
+                "Множественное число, без уточнения",
+                "apples"
+              ],
+              [
+                "Притяжательное слово",
+                "your profession"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 7",
+          "prompt": "Тебе нужен какой-нибудь доктор.",
+          "answer": [
+            "You",
+            "need",
+            "a",
+            "doctor."
+          ],
+          "bank": [
+            "a",
+            "doctor.",
+            "an",
+            "needs",
+            "You",
+            "need"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 7",
+          "prompt": "Она инженер.",
+          "answer": [
+            "She",
+            "is",
+            "an",
+            "engineer."
+          ],
+          "bank": [
+            "an",
+            "engineer.",
+            "a",
+            "are",
+            "She",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 7",
+          "prompt": "Я работаю на каком-то заводе.",
+          "answer": [
+            "I",
+            "work",
+            "in",
+            "a",
+            "factory."
+          ],
+          "bank": [
+            "in",
+            "a",
+            "factory.",
+            "an",
+            "works",
+            "I",
+            "work"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 7",
+          "prompt": "Я работаю на том самом заводе.",
+          "answer": [
+            "I",
+            "work",
+            "in",
+            "the",
+            "factory."
+          ],
+          "bank": [
+            "in",
+            "the",
+            "factory.",
+            "an",
+            "works",
+            "I",
+            "work"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 7",
+          "prompt": "Где тот самый писатель?",
+          "answer": [
+            "Where",
+            "is",
+            "the",
+            "writer?"
+          ],
+          "bank": [
+            "the",
+            "writer?",
+            "an",
+            "are",
+            "Where",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 7",
+          "prompt": "Я хочу яблок, неважно каких.",
+          "answer": [
+            "I",
+            "want",
+            "apples."
+          ],
+          "bank": [
+            "want",
+            "apples.",
+            "wants",
+            "am",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 7",
+          "prompt": "Я хочу те самые яблоки.",
+          "answer": [
+            "I",
+            "want",
+            "the",
+            "apples."
+          ],
+          "bank": [
+            "the",
+            "apples.",
+            "wants",
+            "an",
+            "I",
+            "want"
+          ]
+        }
+      ],
+      "matrixQuestions": false
+    },
+    {
+      "id": "conversation-vocabulary",
+      "name": "Говорим о работе и интересах",
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Работа, книги и кино",
+          "paragraphs": [
+            "Добавь к профессии одну фразу об интересах. Не пытайся рассказать всё сразу: короткие знакомые конструкции легче использовать в разговоре."
+          ],
+          "table": {
+            "headers": [
+              "Слово или выражение",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "novel",
+                "роман"
+              ],
+              [
+                "fiction",
+                "художественная литература"
+              ],
+              [
+                "character",
+                "персонаж, действующее лицо"
+              ],
+              [
+                "cinema",
+                "кино"
+              ],
+              [
+                "film director",
+                "кинорежиссёр"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Полезные слова для разговора",
+          "paragraphs": [
+            "Play a role означает играть роль. Фраза You know what I mean помогает проверить, понятна ли твоя мысль. PR — сокращение public relations, связи с общественностью."
+          ],
+          "table": {
+            "headers": [
+              "Слово или выражение",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "order",
+                "заказ; порядок"
+              ],
+              [
+                "jewel",
+                "драгоценный камень"
+              ],
+              [
+                "public relations (PR)",
+                "связи с общественностью"
+              ],
+              [
+                "play a role",
+                "играть роль"
+              ],
+              [
+                "You know what I mean.",
+                "Ты понимаешь, что я имею в виду."
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Две-три фразы о себе",
+          "paragraphs": [
+            "Скажи профессию, место работы и интерес. Вопрос собеседнику поддержит разговор."
+          ],
+          "examples": [
+            "I am a film director. — Я кинорежиссёр.",
+            "I work in Moscow. — Я работаю в Москве.",
+            "I read fiction. — Я читаю художественную литературу.",
+            "What do you do? — Чем ты занимаешься?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Я кинорежиссёр.",
+          "answer": [
+            "I",
+            "am",
+            "a",
+            "film",
+            "director."
+          ],
+          "bank": [
+            "a",
+            "film",
+            "director.",
+            "is",
+            "an",
+            "I",
+            "am"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Я читаю художественную литературу.",
+          "answer": [
+            "I",
+            "read",
+            "fiction."
+          ],
+          "bank": [
+            "read",
+            "fiction.",
+            "reads",
+            "am",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Она будет играть роль.",
+          "answer": [
+            "She",
+            "will",
+            "play",
+            "a",
+            "role."
+          ],
+          "bank": [
+            "play",
+            "a",
+            "role.",
+            "played",
+            "an",
+            "She",
+            "will"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Ты понимаешь, что я имею в виду.",
+          "answer": [
+            "You",
+            "know",
+            "what",
+            "I",
+            "mean."
+          ],
+          "bank": [
+            "what",
+            "I",
+            "mean.",
+            "knows",
+            "means.",
+            "You",
+            "know"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Он пишет романы.",
+          "answer": [
+            "He",
+            "writes",
+            "novels."
+          ],
+          "bank": [
+            "novels.",
+            "write",
+            "an",
+            "He",
+            "writes"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Я работаю в этом музее пиар-менеджером.",
+          "answer": [
+            "I",
+            "work",
+            "in",
+            "the",
+            "museum",
+            "as",
+            "a",
+            "PR",
+            "manager."
+          ],
+          "bank": [
+            "the",
+            "museum",
+            "as",
+            "a",
+            "PR",
+            "manager.",
+            "works",
+            "an",
+            "I",
+            "work",
+            "in"
+          ]
+        }
+      ],
+      "matrixQuestions": false
+    },
+    {
+      "id": "overview",
+      "name": "Рассказываем о себе: итоговый тест",
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Соедини темы урока",
+          "paragraphs": [
+            "Теперь выбери знакомую конструкцию, время и предлог. Реши, нужен ли артикль и какой смысл он передаёт.",
+            "В прошлом после did глагол возвращается к начальной форме work; в будущем после will используем work. Конструкция be меняется отдельно: I am, I was, I will be."
+          ],
+          "examples": [
+            "Where do you work? — Где ты работаешь?",
+            "I worked as a manager. — Я работал менеджером.",
+            "I will work in a bank. — Я буду работать в банке."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 9",
+          "prompt": "Где она работает?",
+          "answer": [
+            "Where",
+            "does",
+            "she",
+            "work?"
+          ],
+          "bank": [
+            "she",
+            "work?",
+            "do",
+            "works?",
+            "Where",
+            "does"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 9",
+          "prompt": "Я журналист.",
+          "answer": [
+            "I",
+            "am",
+            "a",
+            "journalist."
+          ],
+          "bank": [
+            "a",
+            "journalist.",
+            "is",
+            "an",
+            "I",
+            "am"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 9",
+          "prompt": "Я работаю в школе учителем.",
+          "answer": [
+            "I",
+            "work",
+            "in",
+            "a",
+            "school",
+            "as",
+            "a",
+            "teacher."
+          ],
+          "bank": [
+            "a",
+            "school",
+            "as",
+            "a",
+            "teacher.",
+            "works",
+            "an",
+            "I",
+            "work",
+            "in"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 9",
+          "prompt": "Он на работе.",
+          "answer": [
+            "He",
+            "is",
+            "at",
+            "work."
+          ],
+          "bank": [
+            "at",
+            "work.",
+            "are",
+            "an",
+            "He",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 9",
+          "prompt": "Он актёр.",
+          "answer": [
+            "He",
+            "is",
+            "an",
+            "actor."
+          ],
+          "bank": [
+            "an",
+            "actor.",
+            "are",
+            "a",
+            "He",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 9",
+          "prompt": "Где тот самый писатель?",
+          "answer": [
+            "Where",
+            "is",
+            "the",
+            "writer?"
+          ],
+          "bank": [
+            "the",
+            "writer?",
+            "an",
+            "are",
+            "Where",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 9",
+          "prompt": "Я хочу яблок, неважно каких.",
+          "answer": [
+            "I",
+            "want",
+            "apples."
+          ],
+          "bank": [
+            "want",
+            "apples.",
+            "wants",
+            "an",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 9",
+          "prompt": "Она работала продавцом?",
+          "answer": [
+            "Did",
+            "she",
+            "work",
+            "as",
+            "a",
+            "seller?"
+          ],
+          "bank": [
+            "work",
+            "as",
+            "a",
+            "seller?",
+            "Does",
+            "worked",
+            "Did",
+            "she"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 9 из 9",
+          "prompt": "Я буду работать в банке менеджером.",
+          "answer": [
+            "I",
+            "will",
+            "work",
+            "in",
+            "a",
+            "bank",
+            "as",
+            "a",
+            "manager."
+          ],
+          "bank": [
+            "in",
+            "a",
+            "bank",
+            "as",
+            "a",
+            "manager.",
+            "works",
+            "an",
+            "I",
+            "will",
+            "work"
+          ]
+        }
+      ],
+      "matrixQuestions": false
+    }
+  ]
+}

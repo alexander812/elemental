@@ -1,0 +1,807 @@
+{
+  "name": "Разрешаем, советуем и выражаем необходимость",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "let-permission",
+      "name": "Различаем let, lets и let’s",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Let: разрешить кому-то действие",
+          "paragraphs": [
+            "Let — обычный глагол со значением разрешать. В повелительной фразе после let идёт человек в объектной форме, затем глагол без to: let me try.",
+            "В настоящем после he/she/it ставим lets, а в прошедшем форма снова let. Lets без апострофа и let’s с апострофом — разные формы."
+          ],
+          "examples": [
+            "Let them go. — Пусть они идут.",
+            "She lets him try. — Она разрешает ему попробовать.",
+            "We will let her finish. — Мы разрешим ей закончить."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Let’s: предложим сделать вместе",
+          "paragraphs": [
+            "Let’s сокращает let us, когда предлагаем совместное действие: давай или давайте. После let’s ставь начальную форму глагола без to.",
+            "Обычное отрицание предложения — let’s not. Слово «будем» в русском переводе не требует will."
+          ],
+          "examples": [
+            "Let’s discuss our project. — Давайте обсудим наш проект.",
+            "Let’s not argue. — Давай не будем спорить.",
+            "Let me pay for lunch. — Позволь мне заплатить за обед."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Дайте мне попробовать.",
+          "answer": [
+            "Let",
+            "me",
+            "try."
+          ],
+          "bank": [
+            "try.",
+            "to",
+            "me",
+            "Let",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Пусть они идут.",
+          "answer": [
+            "Let",
+            "them",
+            "go."
+          ],
+          "bank": [
+            "they",
+            "Let",
+            "them",
+            "go.",
+            "goes."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Она разрешает ему попробовать.",
+          "answer": [
+            "She",
+            "lets",
+            "him",
+            "try."
+          ],
+          "bank": [
+            "him",
+            "try.",
+            "let",
+            "he",
+            "She",
+            "lets"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Мы разрешим ей закончить.",
+          "answer": [
+            "We",
+            "will",
+            "let",
+            "her",
+            "finish."
+          ],
+          "bank": [
+            "will",
+            "We",
+            "let",
+            "she",
+            "finish.",
+            "lets",
+            "her"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Давайте обсудим наш проект.",
+          "answer": [
+            "Let’s",
+            "discuss",
+            "our",
+            "project."
+          ],
+          "bank": [
+            "discuss",
+            "we",
+            "our",
+            "project.",
+            "discusses",
+            "Let’s"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Давай не будем спорить.",
+          "answer": [
+            "Let’s",
+            "not",
+            "argue."
+          ],
+          "bank": [
+            "argues.",
+            "not",
+            "argue.",
+            "Let’s",
+            "no"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "can-could",
+      "name": "Говорим об умении и возможности",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Can не меняется по лицам",
+          "paragraphs": [
+            "Can передаёт умение, возможность или разрешение. После него нет to и окончания -s: she can swim, а не she can swims.",
+            "Вопрос начинается с can; do и does не нужны."
+          ],
+          "examples": [
+            "I can swim. — Я умею плавать.",
+            "You can take my pen. — Ты можешь взять мою ручку.",
+            "Can you drive? — Ты умеешь водить?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Cannot и can’t",
+          "paragraphs": [
+            "Обычное полное отрицание пишется слитно: cannot. Разговорное сокращение — can’t. Обе формы имеют один смысл; полную форму часто используют для подчёркивания."
+          ],
+          "examples": [
+            "She cannot come. — Она не может прийти.",
+            "I can’t remember. — Я не могу вспомнить."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Could: прошлое или вежливая просьба",
+          "paragraphs": [
+            "Could может обозначать общее умение в прошлом: I could swim — я умел плавать. Could также делает просьбу вежливее: Could you help me?",
+            "Вопрос Could you help me? относится к просьбе сейчас, а не обязательно к прошлому."
+          ],
+          "examples": [
+            "I could swim when I was a child. — Я умел плавать в детстве.",
+            "Could you help me? — Не мог бы ты мне помочь?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 7",
+          "prompt": "Я умею плавать.",
+          "answer": [
+            "I",
+            "can",
+            "swim."
+          ],
+          "bank": [
+            "swims.",
+            "to",
+            "I",
+            "can",
+            "swim."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 7",
+          "prompt": "Ты можешь взять мою ручку.",
+          "answer": [
+            "You",
+            "can",
+            "take",
+            "my",
+            "pen."
+          ],
+          "bank": [
+            "takes",
+            "You",
+            "my",
+            "to",
+            "pen.",
+            "can",
+            "take"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 7",
+          "prompt": "Она не может прийти.",
+          "answer": [
+            "She",
+            "cannot",
+            "come."
+          ],
+          "bank": [
+            "She",
+            "come.",
+            "to",
+            "comes.",
+            "cannot"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 7",
+          "prompt": "Я не могу вспомнить.",
+          "answer": [
+            "I",
+            "can’t",
+            "remember."
+          ],
+          "bank": [
+            "remembers.",
+            "remember.",
+            "can’t",
+            "am",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 7",
+          "prompt": "Ты умеешь водить?",
+          "answer": [
+            "Can",
+            "you",
+            "drive?"
+          ],
+          "bank": [
+            "Does",
+            "Can",
+            "you",
+            "drives?",
+            "drive?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 7",
+          "prompt": "Я умел плавать. (общее умение в прошлом)",
+          "answer": [
+            "I",
+            "could",
+            "swim."
+          ],
+          "bank": [
+            "swims.",
+            "to",
+            "swim.",
+            "I",
+            "could"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 7",
+          "prompt": "Не мог бы ты мне помочь?",
+          "answer": [
+            "Could",
+            "you",
+            "help",
+            "me?"
+          ],
+          "bank": [
+            "I",
+            "you",
+            "Could",
+            "helps",
+            "help",
+            "me?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "should-must",
+      "name": "Совет, обязанность и запрет",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Should: совет",
+          "paragraphs": [
+            "Should выражает совет или разумное действие. После него нужна начальная форма без to; вопрос начинается с should.",
+            "Should not или shouldn’t — совет чего-то не делать, а не сообщение о невозможности."
+          ],
+          "examples": [
+            "You should apologize. — Тебе следует извиниться.",
+            "He should study. — Ему следует учиться.",
+            "We should not eat here. — Нам не следует есть здесь."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Must: сильная необходимость",
+          "paragraphs": [
+            "Must выражает сильную необходимость, требование или обязанность. Правила can/should сохраняются: без -s, без to, вопрос без do.",
+            "Must not или mustn’t означает запрет: нельзя. Это не перевод «не обязан»."
+          ],
+          "examples": [
+            "I must leave. — Мне необходимо уйти.",
+            "Must we leave? — Мы обязаны уйти?",
+            "You must not lie. — Тебе нельзя лгать."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Нет обязанности — не то же самое, что запрет",
+          "paragraphs": [
+            "You must not go означает, что идти запрещено. You do not have to go означает, что идти необязательно, но можно.",
+            "В полном ответе используй отдельное not, если именно такая форма дана в банке."
+          ],
+          "examples": [
+            "You do not have to come. — Тебе необязательно приходить."
+          ],
+          "table": {
+            "headers": [
+              "Смысл",
+              "Форма"
+            ],
+            "rows": [
+              [
+                "совет",
+                "should"
+              ],
+              [
+                "необходимость",
+                "must / have to"
+              ],
+              [
+                "запрет",
+                "must not"
+              ],
+              [
+                "нет необходимости",
+                "do not have to"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 7",
+          "prompt": "Тебе следует извиниться.",
+          "answer": [
+            "You",
+            "should",
+            "apologize."
+          ],
+          "bank": [
+            "should",
+            "apologize.",
+            "apologizes.",
+            "You",
+            "to"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 7",
+          "prompt": "Ему следует учиться.",
+          "answer": [
+            "He",
+            "should",
+            "study."
+          ],
+          "bank": [
+            "He",
+            "study.",
+            "studies.",
+            "should",
+            "to"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 7",
+          "prompt": "Нам не следует есть здесь.",
+          "answer": [
+            "We",
+            "should",
+            "not",
+            "eat",
+            "here."
+          ],
+          "bank": [
+            "here.",
+            "We",
+            "eats",
+            "eat",
+            "should",
+            "not",
+            "no"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 7",
+          "prompt": "Мы обязаны уйти?",
+          "answer": [
+            "Must",
+            "we",
+            "leave?"
+          ],
+          "bank": [
+            "leaves?",
+            "Do",
+            "Must",
+            "we",
+            "leave?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 7",
+          "prompt": "Мне необходимо уйти.",
+          "answer": [
+            "I",
+            "must",
+            "leave."
+          ],
+          "bank": [
+            "must",
+            "leaves.",
+            "leave.",
+            "to",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 7",
+          "prompt": "Тебе нельзя лгать.",
+          "answer": [
+            "You",
+            "must",
+            "not",
+            "lie."
+          ],
+          "bank": [
+            "lie.",
+            "must",
+            "You",
+            "lies.",
+            "not",
+            "no"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 7",
+          "prompt": "Тебе необязательно приходить.",
+          "answer": [
+            "You",
+            "do",
+            "not",
+            "have",
+            "to",
+            "come."
+          ],
+          "bank": [
+            "have",
+            "do",
+            "comes.",
+            "has",
+            "come.",
+            "not",
+            "You",
+            "to"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "short-forms",
+      "name": "Узнаём разговорные сокращения",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Апостроф показывает пропущенные буквы",
+          "paragraphs": [
+            "Сокращения передают те же грамматические формы. I’m = I am, you’re = you are, I’ve = I have, I’ll = I will.",
+            "’s может значить is или has, а ’d — would или had. Смотри на продолжение: He’s ready = He is ready; He’s finished the job = He has finished the job."
+          ],
+          "examples": [
+            "I’m ready. — Я готов.",
+            "I’ve been to Paris. — Я бывал в Париже.",
+            "I’ll be back. — Я вернусь."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Сокращения в отрицаниях и вопросах",
+          "paragraphs": [
+            "Not часто превращается в n’t: don’t, doesn’t, shouldn’t, mustn’t. У cannot получается can’t, у will not — won’t.",
+            "В What’s up? и Who’s there? сокращается is. В What’s happened? сокращается has: What has happened? Само вопросительное слово не заменяется апострофом."
+          ],
+          "examples": [
+            "Who’s there? — Кто там?",
+            "What’s happened? — Что случилось?",
+            "Don’t worry. — Не волнуйся."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 5",
+          "prompt": "Я готов. (используй сокращение)",
+          "answer": [
+            "I’m",
+            "ready."
+          ],
+          "bank": [
+            "are",
+            "is",
+            "ready.",
+            "I’m"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 5",
+          "prompt": "Я вернусь. (используй сокращение)",
+          "answer": [
+            "I’ll",
+            "be",
+            "back."
+          ],
+          "bank": [
+            "I’ll",
+            "am",
+            "back.",
+            "be",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 5",
+          "prompt": "Кто там? (используй сокращение)",
+          "answer": [
+            "Who’s",
+            "there?"
+          ],
+          "bank": [
+            "there?",
+            "What",
+            "Who’s",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 5",
+          "prompt": "Что случилось? (используй сокращение)",
+          "answer": [
+            "What’s",
+            "happened?"
+          ],
+          "bank": [
+            "happened?",
+            "What’s",
+            "happen?",
+            "does"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 5",
+          "prompt": "Не волнуйся.",
+          "answer": [
+            "Don’t",
+            "worry."
+          ],
+          "bank": [
+            "worry.",
+            "worries.",
+            "Not",
+            "Don’t"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modal-overview",
+      "name": "Выбираем форму по смыслу",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Сначала смысл, затем порядок слов",
+          "paragraphs": [
+            "Для разрешения кому-то используй let + me/him/her/us/them. Для совместного предложения — let’s. Can/could говорят об умении или возможности, should — о совете, must — о необходимости.",
+            "В вопросе can/could/should/must выходит вперёд. В отрицании добавляется not. Must not — запрет, do not have to — отсутствие необходимости."
+          ],
+          "examples": [
+            "Let me check. — Дай мне проверить.",
+            "Should we help? — Нам следует помочь?",
+            "They cannot come. — Они не могут прийти."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 8",
+          "prompt": "Позволь мне заплатить за обед.",
+          "answer": [
+            "Let",
+            "me",
+            "pay",
+            "for",
+            "lunch."
+          ],
+          "bank": [
+            "lunch.",
+            "pay",
+            "I",
+            "Let",
+            "for",
+            "pays",
+            "me"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 8",
+          "prompt": "Давай не будем обсуждать этот проект.",
+          "answer": [
+            "Let’s",
+            "not",
+            "discuss",
+            "this",
+            "project."
+          ],
+          "bank": [
+            "this",
+            "discuss",
+            "project.",
+            "Let’s",
+            "discusses",
+            "no",
+            "not"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 8",
+          "prompt": "Она умеет плавать.",
+          "answer": [
+            "She",
+            "can",
+            "swim."
+          ],
+          "bank": [
+            "to",
+            "swims.",
+            "swim.",
+            "can",
+            "She"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 8",
+          "prompt": "Не мог бы ты открыть дверь?",
+          "answer": [
+            "Could",
+            "you",
+            "open",
+            "the",
+            "door?"
+          ],
+          "bank": [
+            "opens",
+            "door?",
+            "your",
+            "you",
+            "open",
+            "Could",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 8",
+          "prompt": "Нам следует помочь?",
+          "answer": [
+            "Should",
+            "we",
+            "help?"
+          ],
+          "bank": [
+            "Should",
+            "helps?",
+            "Does",
+            "we",
+            "help?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 8",
+          "prompt": "Им не следует жаловаться.",
+          "answer": [
+            "They",
+            "should",
+            "not",
+            "complain."
+          ],
+          "bank": [
+            "should",
+            "complain.",
+            "no",
+            "complains.",
+            "They",
+            "not"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 8",
+          "prompt": "Здесь нельзя есть.",
+          "answer": [
+            "You",
+            "must",
+            "not",
+            "eat",
+            "here."
+          ],
+          "bank": [
+            "You",
+            "eat",
+            "must",
+            "eats",
+            "here.",
+            "no",
+            "not"
+          ],
+          "hint": "Обратись к собеседнику: начни с You."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 8",
+          "prompt": "Нам необязательно уходить.",
+          "answer": [
+            "We",
+            "do",
+            "not",
+            "have",
+            "to",
+            "leave."
+          ],
+          "bank": [
+            "to",
+            "leave.",
+            "do",
+            "We",
+            "has",
+            "leaves.",
+            "not",
+            "have"
+          ]
+        }
+      ]
+    }
+  ]
+}

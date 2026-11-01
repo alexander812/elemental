@@ -1,0 +1,1294 @@
+{
+  "name": "Упражнения",
+  "categories": [
+    {
+      "id": "home",
+      "name": "Дом",
+      "verbs": [
+        {
+          "base": "clean",
+          "thirdPerson": "cleans",
+          "past": "cleaned",
+          "meaning": "убирать",
+          "ending": "the room",
+          "presentRu": "убирает комнату",
+          "pastRu": "убирала комнату",
+          "futureRu": "будет убирать комнату"
+        },
+        {
+          "base": "wash",
+          "thirdPerson": "washes",
+          "past": "washed",
+          "meaning": "мыть",
+          "ending": "her clothes",
+          "presentRu": "стирает одежду",
+          "pastRu": "стирала одежду",
+          "futureRu": "будет стирать одежду"
+        },
+        {
+          "base": "cook",
+          "thirdPerson": "cooks",
+          "past": "cooked",
+          "meaning": "готовить",
+          "ending": "dinner",
+          "presentRu": "готовит ужин",
+          "pastRu": "готовила ужин",
+          "futureRu": "будет готовить ужин"
+        },
+        {
+          "base": "open",
+          "thirdPerson": "opens",
+          "past": "opened",
+          "meaning": "открывать",
+          "ending": "the window",
+          "presentRu": "открывает окно",
+          "pastRu": "открывала окно",
+          "futureRu": "будет открывать окно"
+        },
+        {
+          "base": "close",
+          "thirdPerson": "closes",
+          "past": "closed",
+          "meaning": "закрывать",
+          "ending": "the door",
+          "presentRu": "закрывает дверь",
+          "pastRu": "закрывала дверь",
+          "futureRu": "будет закрывать дверь"
+        },
+        {
+          "base": "turn",
+          "thirdPerson": "turns",
+          "past": "turned",
+          "meaning": "поворачивать",
+          "ending": "the key",
+          "presentRu": "поворачивает ключ",
+          "pastRu": "поворачивала ключ",
+          "futureRu": "будет поворачивать ключ"
+        },
+        {
+          "base": "move",
+          "thirdPerson": "moves",
+          "past": "moved",
+          "meaning": "двигать",
+          "ending": "the table",
+          "presentRu": "двигает стол",
+          "pastRu": "двигала стол",
+          "futureRu": "будет двигать стол"
+        },
+        {
+          "base": "paint",
+          "thirdPerson": "paints",
+          "past": "painted",
+          "meaning": "красить",
+          "ending": "the wall",
+          "presentRu": "красит стену",
+          "pastRu": "красила стену",
+          "futureRu": "будет красить стену"
+        },
+        {
+          "base": "build",
+          "thirdPerson": "builds",
+          "past": "built",
+          "meaning": "строить",
+          "ending": "a house",
+          "presentRu": "строит дом",
+          "pastRu": "строила дом",
+          "futureRu": "будет строить дом"
+        },
+        {
+          "base": "live",
+          "thirdPerson": "lives",
+          "past": "lived",
+          "meaning": "жить",
+          "ending": "in this house",
+          "presentRu": "живёт в этом доме",
+          "pastRu": "жила в этом доме",
+          "futureRu": "будет жить в этом доме"
+        },
+        {
+          "base": "break",
+          "thirdPerson": "breaks",
+          "past": "broke",
+          "meaning": "ломать",
+          "ending": "the chair",
+          "presentRu": "ломает стул",
+          "pastRu": "сломала стул",
+          "futureRu": "сломает стул"
+        },
+        {
+          "base": "keep",
+          "thirdPerson": "keeps",
+          "past": "kept",
+          "meaning": "хранить",
+          "ending": "the keys",
+          "presentRu": "хранит ключи",
+          "pastRu": "хранила ключи",
+          "futureRu": "будет хранить ключи"
+        },
+        {
+          "base": "leave",
+          "thirdPerson": "leaves",
+          "past": "left",
+          "meaning": "уходить",
+          "ending": "home",
+          "presentRu": "уходит из дома",
+          "pastRu": "ушла из дома",
+          "futureRu": "уйдёт из дома"
+        },
+        {
+          "base": "put",
+          "thirdPerson": "puts",
+          "past": "put",
+          "meaning": "класть",
+          "ending": "the book here",
+          "presentRu": "кладёт книгу сюда",
+          "pastRu": "положила книгу сюда",
+          "futureRu": "положит книгу сюда",
+          "cardPhrase": "put the book here",
+          "cardTranslation": "положить книгу сюда"
+        },
+        {
+          "base": "do",
+          "thirdPerson": "does",
+          "past": "did",
+          "meaning": "делать",
+          "ending": "the dishes",
+          "presentRu": "моет посуду",
+          "pastRu": "мыла посуду",
+          "futureRu": "будет мыть посуду",
+          "cardPhrase": "do the dishes",
+          "cardTranslation": "мыть посуду"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "Еда",
+      "verbs": [
+        {
+          "base": "eat",
+          "thirdPerson": "eats",
+          "past": "ate",
+          "meaning": "есть",
+          "ending": "an apple",
+          "presentRu": "ест яблоко",
+          "pastRu": "ела яблоко",
+          "futureRu": "будет есть яблоко",
+          "cardPhrase": "eat an apple",
+          "cardTranslation": "съесть яблоко"
+        },
+        {
+          "base": "drink",
+          "thirdPerson": "drinks",
+          "past": "drank",
+          "meaning": "пить",
+          "ending": "water",
+          "presentRu": "пьёт воду",
+          "pastRu": "пила воду",
+          "futureRu": "будет пить воду"
+        },
+        {
+          "base": "cut",
+          "thirdPerson": "cuts",
+          "past": "cut",
+          "meaning": "резать",
+          "ending": "the bread",
+          "presentRu": "режет хлеб",
+          "pastRu": "резала хлеб",
+          "futureRu": "будет резать хлеб",
+          "cardPhrase": "cut the bread",
+          "cardTranslation": "нарезать хлеб"
+        },
+        {
+          "base": "make",
+          "thirdPerson": "makes",
+          "past": "made",
+          "meaning": "делать",
+          "ending": "a sandwich",
+          "presentRu": "делает сэндвич",
+          "pastRu": "сделала сэндвич",
+          "futureRu": "сделает сэндвич"
+        },
+        {
+          "base": "mix",
+          "thirdPerson": "mixes",
+          "past": "mixed",
+          "meaning": "смешивать",
+          "ending": "the salad",
+          "presentRu": "перемешивает салат",
+          "pastRu": "перемешивала салат",
+          "futureRu": "будет перемешивать салат",
+          "cardPhrase": "mix the salad",
+          "cardTranslation": "перемешать салат"
+        },
+        {
+          "base": "boil",
+          "thirdPerson": "boils",
+          "past": "boiled",
+          "meaning": "кипятить",
+          "ending": "water",
+          "presentRu": "кипятит воду",
+          "pastRu": "кипятила воду",
+          "futureRu": "будет кипятить воду"
+        },
+        {
+          "base": "fry",
+          "thirdPerson": "fries",
+          "past": "fried",
+          "meaning": "жарить",
+          "ending": "an egg",
+          "presentRu": "жарит яйцо",
+          "pastRu": "жарила яйцо",
+          "futureRu": "будет жарить яйцо",
+          "cardPhrase": "fry an egg",
+          "cardTranslation": "пожарить яйцо"
+        },
+        {
+          "base": "bake",
+          "thirdPerson": "bakes",
+          "past": "baked",
+          "meaning": "печь",
+          "ending": "a pie",
+          "presentRu": "печёт пирог",
+          "pastRu": "пекла пирог",
+          "futureRu": "будет печь пирог"
+        },
+        {
+          "base": "taste",
+          "thirdPerson": "tastes",
+          "past": "tasted",
+          "meaning": "пробовать на вкус",
+          "ending": "the soup",
+          "presentRu": "пробует суп",
+          "pastRu": "пробовала суп",
+          "futureRu": "будет пробовать суп"
+        },
+        {
+          "base": "smell",
+          "thirdPerson": "smells",
+          "past": "smelled",
+          "meaning": "нюхать",
+          "ending": "the milk",
+          "presentRu": "нюхает молоко",
+          "pastRu": "нюхала молоко",
+          "futureRu": "будет нюхать молоко"
+        },
+        {
+          "base": "pour",
+          "thirdPerson": "pours",
+          "past": "poured",
+          "meaning": "наливать",
+          "ending": "some tea",
+          "presentRu": "наливает чай",
+          "pastRu": "наливала чай",
+          "futureRu": "будет наливать чай"
+        },
+        {
+          "base": "serve",
+          "thirdPerson": "serves",
+          "past": "served",
+          "meaning": "подавать",
+          "ending": "lunch",
+          "presentRu": "подаёт обед",
+          "pastRu": "подавала обед",
+          "futureRu": "будет подавать обед"
+        },
+        {
+          "base": "order",
+          "thirdPerson": "orders",
+          "past": "ordered",
+          "meaning": "заказывать",
+          "ending": "dinner",
+          "presentRu": "заказывает ужин",
+          "pastRu": "заказывала ужин",
+          "futureRu": "будет заказывать ужин"
+        },
+        {
+          "base": "add",
+          "thirdPerson": "adds",
+          "past": "added",
+          "meaning": "добавлять",
+          "ending": "some salt",
+          "presentRu": "добавляет немного соли",
+          "pastRu": "добавляла немного соли",
+          "futureRu": "будет добавлять немного соли",
+          "cardPhrase": "add some salt",
+          "cardTranslation": "добавить немного соли"
+        },
+        {
+          "base": "feed",
+          "thirdPerson": "feeds",
+          "past": "fed",
+          "meaning": "кормить",
+          "ending": "the cat",
+          "presentRu": "кормит кошку",
+          "pastRu": "кормила кошку",
+          "futureRu": "будет кормить кошку"
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "name": "Работа",
+      "verbs": [
+        {
+          "base": "work",
+          "thirdPerson": "works",
+          "past": "worked",
+          "meaning": "работать",
+          "ending": "at home",
+          "presentRu": "работает дома",
+          "pastRu": "работала дома",
+          "futureRu": "будет работать дома"
+        },
+        {
+          "base": "start",
+          "thirdPerson": "starts",
+          "past": "started",
+          "meaning": "начинать",
+          "ending": "the meeting",
+          "presentRu": "начинает встречу",
+          "pastRu": "начала встречу",
+          "futureRu": "начнёт встречу"
+        },
+        {
+          "base": "finish",
+          "thirdPerson": "finishes",
+          "past": "finished",
+          "meaning": "заканчивать",
+          "ending": "the report",
+          "presentRu": "заканчивает отчёт",
+          "pastRu": "закончила отчёт",
+          "futureRu": "закончит отчёт"
+        },
+        {
+          "base": "plan",
+          "thirdPerson": "plans",
+          "past": "planned",
+          "meaning": "планировать",
+          "ending": "the project",
+          "presentRu": "планирует проект",
+          "pastRu": "планировала проект",
+          "futureRu": "будет планировать проект"
+        },
+        {
+          "base": "write",
+          "thirdPerson": "writes",
+          "past": "wrote",
+          "meaning": "писать",
+          "ending": "a letter",
+          "presentRu": "пишет письмо",
+          "pastRu": "писала письмо",
+          "futureRu": "будет писать письмо"
+        },
+        {
+          "base": "read",
+          "thirdPerson": "reads",
+          "past": "read",
+          "meaning": "читать",
+          "ending": "the email",
+          "presentRu": "читает электронное письмо",
+          "pastRu": "читала электронное письмо",
+          "futureRu": "будет читать электронное письмо"
+        },
+        {
+          "base": "send",
+          "thirdPerson": "sends",
+          "past": "sent",
+          "meaning": "отправлять",
+          "ending": "the file",
+          "presentRu": "отправляет файл",
+          "pastRu": "отправила файл",
+          "futureRu": "отправит файл"
+        },
+        {
+          "base": "receive",
+          "thirdPerson": "receives",
+          "past": "received",
+          "meaning": "получать",
+          "ending": "a message",
+          "presentRu": "получает сообщение",
+          "pastRu": "получила сообщение",
+          "futureRu": "получит сообщение"
+        },
+        {
+          "base": "create",
+          "thirdPerson": "creates",
+          "past": "created",
+          "meaning": "создавать",
+          "ending": "a new page",
+          "presentRu": "создаёт новую страницу",
+          "pastRu": "создала новую страницу",
+          "futureRu": "создаст новую страницу"
+        },
+        {
+          "base": "use",
+          "thirdPerson": "uses",
+          "past": "used",
+          "meaning": "использовать",
+          "ending": "a computer",
+          "presentRu": "пользуется компьютером",
+          "pastRu": "пользовалась компьютером",
+          "futureRu": "будет пользоваться компьютером",
+          "cardPhrase": "use a computer",
+          "cardTranslation": "пользоваться компьютером"
+        },
+        {
+          "base": "manage",
+          "thirdPerson": "manages",
+          "past": "managed",
+          "meaning": "руководить",
+          "ending": "the team",
+          "presentRu": "руководит командой",
+          "pastRu": "руководила командой",
+          "futureRu": "будет руководить командой"
+        },
+        {
+          "base": "organize",
+          "thirdPerson": "organizes",
+          "past": "organized",
+          "meaning": "организовывать",
+          "ending": "the meeting",
+          "presentRu": "организует встречу",
+          "pastRu": "организовала встречу",
+          "futureRu": "будет организовывать встречу"
+        },
+        {
+          "base": "prepare",
+          "thirdPerson": "prepares",
+          "past": "prepared",
+          "meaning": "готовить",
+          "ending": "the documents",
+          "presentRu": "готовит документы",
+          "pastRu": "готовила документы",
+          "futureRu": "будет готовить документы"
+        },
+        {
+          "base": "check",
+          "thirdPerson": "checks",
+          "past": "checked",
+          "meaning": "проверять",
+          "ending": "the numbers",
+          "presentRu": "проверяет числа",
+          "pastRu": "проверяла числа",
+          "futureRu": "будет проверять числа"
+        },
+        {
+          "base": "solve",
+          "thirdPerson": "solves",
+          "past": "solved",
+          "meaning": "решать",
+          "ending": "the problem",
+          "presentRu": "решает проблему",
+          "pastRu": "решила проблему",
+          "futureRu": "решит проблему"
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "Общение",
+      "verbs": [
+        {
+          "base": "speak",
+          "thirdPerson": "speaks",
+          "past": "spoke",
+          "meaning": "говорить",
+          "ending": "English",
+          "presentRu": "говорит по-английски",
+          "pastRu": "говорила по-английски",
+          "futureRu": "будет говорить по-английски"
+        },
+        {
+          "base": "talk",
+          "thirdPerson": "talks",
+          "past": "talked",
+          "meaning": "разговаривать",
+          "ending": "to her friend",
+          "presentRu": "разговаривает с подругой",
+          "pastRu": "разговаривала с подругой",
+          "futureRu": "будет разговаривать с подругой"
+        },
+        {
+          "base": "say",
+          "thirdPerson": "says",
+          "past": "said",
+          "meaning": "сказать",
+          "ending": "hello to her",
+          "presentRu": "здоровается с ней",
+          "pastRu": "поздоровалась с ней",
+          "futureRu": "поздоровается с ней",
+          "cardPhrase": "say hello to her",
+          "cardTranslation": "поздороваться с ней"
+        },
+        {
+          "base": "tell",
+          "thirdPerson": "tells",
+          "past": "told",
+          "meaning": "рассказывать",
+          "ending": "a story",
+          "presentRu": "рассказывает историю",
+          "pastRu": "рассказала историю",
+          "futureRu": "расскажет историю"
+        },
+        {
+          "base": "ask",
+          "thirdPerson": "asks",
+          "past": "asked",
+          "meaning": "спрашивать",
+          "ending": "a question",
+          "presentRu": "задаёт вопрос",
+          "pastRu": "задала вопрос",
+          "futureRu": "задаст вопрос",
+          "cardPhrase": "ask a question",
+          "cardTranslation": "задать вопрос"
+        },
+        {
+          "base": "answer",
+          "thirdPerson": "answers",
+          "past": "answered",
+          "meaning": "отвечать",
+          "ending": "the question",
+          "presentRu": "отвечает на вопрос",
+          "pastRu": "ответила на вопрос",
+          "futureRu": "ответит на вопрос"
+        },
+        {
+          "base": "listen",
+          "thirdPerson": "listens",
+          "past": "listened",
+          "meaning": "слушать",
+          "ending": "to the teacher",
+          "presentRu": "слушает учителя",
+          "pastRu": "слушала учителя",
+          "futureRu": "будет слушать учителя"
+        },
+        {
+          "base": "hear",
+          "thirdPerson": "hears",
+          "past": "heard",
+          "meaning": "слышать",
+          "ending": "the music",
+          "presentRu": "слышит музыку",
+          "pastRu": "слышала музыку",
+          "futureRu": "услышит музыку"
+        },
+        {
+          "base": "call",
+          "thirdPerson": "calls",
+          "past": "called",
+          "meaning": "звонить",
+          "ending": "her mother",
+          "presentRu": "звонит маме",
+          "pastRu": "позвонила маме",
+          "futureRu": "позвонит маме"
+        },
+        {
+          "base": "explain",
+          "thirdPerson": "explains",
+          "past": "explained",
+          "meaning": "объяснять",
+          "ending": "the rules",
+          "presentRu": "объясняет правила",
+          "pastRu": "объясняла правила",
+          "futureRu": "будет объяснять правила"
+        },
+        {
+          "base": "discuss",
+          "thirdPerson": "discusses",
+          "past": "discussed",
+          "meaning": "обсуждать",
+          "ending": "the plan",
+          "presentRu": "обсуждает план",
+          "pastRu": "обсуждала план",
+          "futureRu": "будет обсуждать план"
+        },
+        {
+          "base": "agree",
+          "thirdPerson": "agrees",
+          "past": "agreed",
+          "meaning": "соглашаться",
+          "ending": "with him",
+          "presentRu": "соглашается с ним",
+          "pastRu": "согласилась с ним",
+          "futureRu": "согласится с ним"
+        },
+        {
+          "base": "thank",
+          "thirdPerson": "thanks",
+          "past": "thanked",
+          "meaning": "благодарить",
+          "ending": "her friend",
+          "presentRu": "благодарит подругу",
+          "pastRu": "поблагодарила подругу",
+          "futureRu": "поблагодарит подругу"
+        },
+        {
+          "base": "invite",
+          "thirdPerson": "invites",
+          "past": "invited",
+          "meaning": "приглашать",
+          "ending": "her friends",
+          "presentRu": "приглашает друзей",
+          "pastRu": "пригласила друзей",
+          "futureRu": "пригласит друзей"
+        },
+        {
+          "base": "give",
+          "thirdPerson": "gives",
+          "past": "gave",
+          "meaning": "давать",
+          "ending": "some advice",
+          "presentRu": "даёт совет",
+          "presentNegativeRu": "не даёт советов",
+          "pastRu": "дала совет",
+          "futureRu": "даст совет"
+        }
+      ]
+    },
+    {
+      "id": "travel",
+      "name": "Путешествия",
+      "verbs": [
+        {
+          "base": "go",
+          "thirdPerson": "goes",
+          "past": "went",
+          "meaning": "идти",
+          "ending": "back home",
+          "presentRu": "возвращается домой",
+          "pastRu": "вернулась домой",
+          "futureRu": "вернётся домой",
+          "cardPhrase": "go back home",
+          "cardTranslation": "возвращаться домой"
+        },
+        {
+          "base": "come",
+          "thirdPerson": "comes",
+          "past": "came",
+          "meaning": "приходить",
+          "ending": "to the station",
+          "presentRu": "приходит на вокзал",
+          "pastRu": "пришла на вокзал",
+          "futureRu": "придёт на вокзал"
+        },
+        {
+          "base": "travel",
+          "thirdPerson": "travels",
+          "past": "traveled",
+          "meaning": "путешествовать",
+          "ending": "by train",
+          "presentRu": "путешествует на поезде",
+          "pastRu": "путешествовала на поезде",
+          "futureRu": "будет путешествовать на поезде"
+        },
+        {
+          "base": "drive",
+          "thirdPerson": "drives",
+          "past": "drove",
+          "meaning": "водить",
+          "ending": "a car",
+          "presentRu": "водит машину",
+          "pastRu": "водила машину",
+          "futureRu": "будет водить машину"
+        },
+        {
+          "base": "fly",
+          "thirdPerson": "flies",
+          "past": "flew",
+          "meaning": "лететь",
+          "ending": "to London",
+          "presentRu": "летит в Лондон",
+          "pastRu": "летела в Лондон",
+          "futureRu": "полетит в Лондон",
+          "cardPhrase": "fly to London",
+          "cardTranslation": "лететь в Лондон"
+        },
+        {
+          "base": "ride",
+          "thirdPerson": "rides",
+          "past": "rode",
+          "meaning": "ездить верхом",
+          "ending": "a horse",
+          "presentRu": "ездит на лошади",
+          "pastRu": "ездила на лошади",
+          "futureRu": "будет ездить на лошади"
+        },
+        {
+          "base": "walk",
+          "thirdPerson": "walks",
+          "past": "walked",
+          "meaning": "ходить пешком",
+          "ending": "to the park",
+          "presentRu": "идёт в парк пешком",
+          "pastRu": "шла в парк пешком",
+          "futureRu": "пойдёт в парк пешком"
+        },
+        {
+          "base": "arrive",
+          "thirdPerson": "arrives",
+          "past": "arrived",
+          "meaning": "прибывать",
+          "ending": "at the airport",
+          "presentRu": "прибывает в аэропорт",
+          "pastRu": "прибыла в аэропорт",
+          "futureRu": "прибудет в аэропорт"
+        },
+        {
+          "base": "return",
+          "thirdPerson": "returns",
+          "past": "returned",
+          "meaning": "возвращаться",
+          "ending": "home",
+          "presentRu": "возвращается домой",
+          "pastRu": "вернулась домой",
+          "futureRu": "вернётся домой"
+        },
+        {
+          "base": "visit",
+          "thirdPerson": "visits",
+          "past": "visited",
+          "meaning": "посещать",
+          "ending": "the museum",
+          "presentRu": "посещает музей",
+          "pastRu": "посетила музей",
+          "futureRu": "посетит музей"
+        },
+        {
+          "base": "stay",
+          "thirdPerson": "stays",
+          "past": "stayed",
+          "meaning": "оставаться",
+          "ending": "at the hotel",
+          "presentRu": "останавливается в отеле",
+          "pastRu": "останавливалась в отеле",
+          "futureRu": "остановится в отеле"
+        },
+        {
+          "base": "book",
+          "thirdPerson": "books",
+          "past": "booked",
+          "meaning": "бронировать",
+          "ending": "a room",
+          "presentRu": "бронирует номер",
+          "pastRu": "забронировала номер",
+          "futureRu": "забронирует номер"
+        },
+        {
+          "base": "pack",
+          "thirdPerson": "packs",
+          "past": "packed",
+          "meaning": "упаковывать",
+          "ending": "her bag",
+          "presentRu": "собирает сумку",
+          "pastRu": "собрала сумку",
+          "futureRu": "соберёт сумку"
+        },
+        {
+          "base": "carry",
+          "thirdPerson": "carries",
+          "past": "carried",
+          "meaning": "нести",
+          "ending": "the suitcase",
+          "presentRu": "несёт чемодан",
+          "pastRu": "несла чемодан",
+          "futureRu": "будет нести чемодан"
+        },
+        {
+          "base": "follow",
+          "thirdPerson": "follows",
+          "past": "followed",
+          "meaning": "следовать",
+          "ending": "the guide",
+          "presentRu": "следует за гидом",
+          "pastRu": "следовала за гидом",
+          "futureRu": "будет следовать за гидом"
+        }
+      ]
+    },
+    {
+      "id": "shopping",
+      "name": "Покупки",
+      "verbs": [
+        {
+          "base": "buy",
+          "thirdPerson": "buys",
+          "past": "bought",
+          "meaning": "покупать",
+          "ending": "some bread",
+          "presentRu": "покупает хлеб",
+          "pastRu": "купила хлеб",
+          "futureRu": "купит хлеб",
+          "cardPhrase": "buy some bread",
+          "cardTranslation": "купить хлеб"
+        },
+        {
+          "base": "sell",
+          "thirdPerson": "sells",
+          "past": "sold",
+          "meaning": "продавать",
+          "ending": "her car",
+          "presentRu": "продаёт свою машину",
+          "pastRu": "продала свою машину",
+          "futureRu": "продаст свою машину"
+        },
+        {
+          "base": "pay",
+          "thirdPerson": "pays",
+          "past": "paid",
+          "meaning": "платить",
+          "ending": "the bill",
+          "presentRu": "оплачивает счёт",
+          "pastRu": "оплатила счёт",
+          "futureRu": "оплатит счёт",
+          "cardPhrase": "pay the bill",
+          "cardTranslation": "оплатить счёт"
+        },
+        {
+          "base": "cost",
+          "thirdPerson": "costs",
+          "past": "cost",
+          "meaning": "стоить",
+          "ending": "ten dollars",
+          "presentRu": "стоит десять долларов",
+          "pastRu": "стоило десять долларов",
+          "futureRu": "будет стоить десять долларов"
+        },
+        {
+          "base": "choose",
+          "thirdPerson": "chooses",
+          "past": "chose",
+          "meaning": "выбирать",
+          "ending": "a gift",
+          "presentRu": "выбирает подарок",
+          "pastRu": "выбрала подарок",
+          "futureRu": "выберет подарок"
+        },
+        {
+          "base": "try",
+          "thirdPerson": "tries",
+          "past": "tried",
+          "meaning": "пробовать",
+          "ending": "on a coat",
+          "presentRu": "примеряет пальто",
+          "pastRu": "примеряла пальто",
+          "futureRu": "будет примерять пальто",
+          "cardPhrase": "try on a coat",
+          "cardTranslation": "примерить пальто"
+        },
+        {
+          "base": "wear",
+          "thirdPerson": "wears",
+          "past": "wore",
+          "meaning": "носить",
+          "ending": "a blue coat",
+          "presentRu": "носит синее пальто",
+          "pastRu": "носила синее пальто",
+          "futureRu": "будет носить синее пальто"
+        },
+        {
+          "base": "need",
+          "thirdPerson": "needs",
+          "past": "needed",
+          "meaning": "нуждаться",
+          "ending": "a new bag",
+          "presentRu": "нуждается в новой сумке",
+          "pastRu": "нуждалась в новой сумке",
+          "futureRu": "будет нуждаться в новой сумке"
+        },
+        {
+          "base": "want",
+          "thirdPerson": "wants",
+          "past": "wanted",
+          "meaning": "хотеть",
+          "ending": "a new phone",
+          "presentRu": "хочет новый телефон",
+          "pastRu": "хотела новый телефон",
+          "futureRu": "захочет новый телефон"
+        },
+        {
+          "base": "spend",
+          "thirdPerson": "spends",
+          "past": "spent",
+          "meaning": "тратить",
+          "ending": "some money",
+          "presentRu": "тратит деньги",
+          "pastRu": "потратила деньги",
+          "futureRu": "потратит деньги"
+        },
+        {
+          "base": "save",
+          "thirdPerson": "saves",
+          "past": "saved",
+          "meaning": "экономить",
+          "ending": "some money",
+          "presentRu": "экономит деньги",
+          "pastRu": "экономила деньги",
+          "futureRu": "будет экономить деньги"
+        },
+        {
+          "base": "bring",
+          "thirdPerson": "brings",
+          "past": "brought",
+          "meaning": "приносить",
+          "ending": "the receipt",
+          "presentRu": "приносит чек",
+          "pastRu": "принесла чек",
+          "futureRu": "принесёт чек"
+        },
+        {
+          "base": "take",
+          "thirdPerson": "takes",
+          "past": "took",
+          "meaning": "брать",
+          "ending": "the bag",
+          "presentRu": "берёт сумку",
+          "pastRu": "взяла сумку",
+          "futureRu": "возьмёт сумку"
+        },
+        {
+          "base": "find",
+          "thirdPerson": "finds",
+          "past": "found",
+          "meaning": "находить",
+          "ending": "a shop",
+          "presentRu": "находит магазин",
+          "pastRu": "нашла магазин",
+          "futureRu": "найдёт магазин"
+        },
+        {
+          "base": "compare",
+          "thirdPerson": "compares",
+          "past": "compared",
+          "meaning": "сравнивать",
+          "ending": "the prices",
+          "presentRu": "сравнивает цены",
+          "pastRu": "сравнивала цены",
+          "futureRu": "будет сравнивать цены"
+        }
+      ]
+    },
+    {
+      "id": "leisure",
+      "name": "Досуг и обучение",
+      "verbs": [
+        {
+          "base": "play",
+          "thirdPerson": "plays",
+          "past": "played",
+          "meaning": "играть",
+          "ending": "the guitar",
+          "presentRu": "играет на гитаре",
+          "pastRu": "играла на гитаре",
+          "futureRu": "будет играть на гитаре"
+        },
+        {
+          "base": "watch",
+          "thirdPerson": "watches",
+          "past": "watched",
+          "meaning": "смотреть",
+          "ending": "a film",
+          "presentRu": "смотрит фильм",
+          "pastRu": "смотрела фильм",
+          "futureRu": "будет смотреть фильм"
+        },
+        {
+          "base": "draw",
+          "thirdPerson": "draws",
+          "past": "drew",
+          "meaning": "рисовать",
+          "ending": "a picture",
+          "presentRu": "рисует картину",
+          "pastRu": "рисовала картину",
+          "futureRu": "будет рисовать картину"
+        },
+        {
+          "base": "sing",
+          "thirdPerson": "sings",
+          "past": "sang",
+          "meaning": "петь",
+          "ending": "a song",
+          "presentRu": "поёт песню",
+          "pastRu": "пела песню",
+          "futureRu": "будет петь песню"
+        },
+        {
+          "base": "dance",
+          "thirdPerson": "dances",
+          "past": "danced",
+          "meaning": "танцевать",
+          "ending": "with her friend",
+          "presentRu": "танцует с подругой",
+          "pastRu": "танцевала с подругой",
+          "futureRu": "будет танцевать с подругой"
+        },
+        {
+          "base": "learn",
+          "thirdPerson": "learns",
+          "past": "learned",
+          "meaning": "учиться",
+          "ending": "a new word",
+          "presentRu": "учит новое слово",
+          "pastRu": "выучила новое слово",
+          "futureRu": "выучит новое слово"
+        },
+        {
+          "base": "study",
+          "thirdPerson": "studies",
+          "past": "studied",
+          "meaning": "изучать",
+          "ending": "English",
+          "presentRu": "изучает английский",
+          "pastRu": "изучала английский",
+          "futureRu": "будет изучать английский"
+        },
+        {
+          "base": "think",
+          "thirdPerson": "thinks",
+          "past": "thought",
+          "meaning": "думать",
+          "ending": "about the book",
+          "presentRu": "думает о книге",
+          "pastRu": "думала о книге",
+          "futureRu": "будет думать о книге"
+        },
+        {
+          "base": "remember",
+          "thirdPerson": "remembers",
+          "past": "remembered",
+          "meaning": "помнить",
+          "ending": "this day",
+          "presentRu": "помнит этот день",
+          "pastRu": "помнила этот день",
+          "futureRu": "будет помнить этот день"
+        },
+        {
+          "base": "forget",
+          "thirdPerson": "forgets",
+          "past": "forgot",
+          "meaning": "забывать",
+          "ending": "his name",
+          "presentRu": "забывает его имя",
+          "pastRu": "забыла его имя",
+          "futureRu": "забудет его имя"
+        },
+        {
+          "base": "understand",
+          "thirdPerson": "understands",
+          "past": "understood",
+          "meaning": "понимать",
+          "ending": "the question",
+          "presentRu": "понимает вопрос",
+          "pastRu": "понимала вопрос",
+          "futureRu": "поймёт вопрос"
+        },
+        {
+          "base": "know",
+          "thirdPerson": "knows",
+          "past": "knew",
+          "meaning": "знать",
+          "ending": "the answer",
+          "presentRu": "знает ответ",
+          "pastRu": "знала ответ",
+          "futureRu": "будет знать ответ"
+        },
+        {
+          "base": "love",
+          "thirdPerson": "loves",
+          "past": "loved",
+          "meaning": "любить",
+          "ending": "music",
+          "presentRu": "любит музыку",
+          "pastRu": "любила музыку",
+          "futureRu": "будет любить музыку"
+        },
+        {
+          "base": "like",
+          "thirdPerson": "likes",
+          "past": "liked",
+          "meaning": "нравиться",
+          "ending": "this book",
+          "presentRu": "нравится эта книга",
+          "pastRu": "нравилась эта книга",
+          "futureRu": "понравится эта книга"
+        },
+        {
+          "base": "see",
+          "thirdPerson": "sees",
+          "past": "saw",
+          "meaning": "видеть",
+          "ending": "her friend",
+          "presentRu": "видит подругу",
+          "pastRu": "видела подругу",
+          "futureRu": "увидит подругу",
+          "cardPhrase": "see her friend",
+          "cardTranslation": "видеть подругу"
+        }
+      ]
+    },
+    {
+      "id": "health",
+      "name": "Здоровье и движение",
+      "verbs": [
+        {
+          "base": "feel",
+          "thirdPerson": "feels",
+          "past": "felt",
+          "meaning": "чувствовать",
+          "ending": "the cold",
+          "presentRu": "чувствует холод",
+          "pastRu": "чувствовала холод",
+          "futureRu": "почувствует холод"
+        },
+        {
+          "base": "rest",
+          "thirdPerson": "rests",
+          "past": "rested",
+          "meaning": "отдыхать",
+          "ending": "at home",
+          "presentRu": "отдыхает дома",
+          "pastRu": "отдыхала дома",
+          "futureRu": "будет отдыхать дома"
+        },
+        {
+          "base": "sleep",
+          "thirdPerson": "sleeps",
+          "past": "slept",
+          "meaning": "спать",
+          "ending": "well",
+          "presentRu": "спит хорошо",
+          "pastRu": "спала хорошо",
+          "futureRu": "будет хорошо спать"
+        },
+        {
+          "base": "wake",
+          "thirdPerson": "wakes",
+          "past": "woke",
+          "meaning": "просыпаться",
+          "ending": "early",
+          "presentRu": "просыпается рано",
+          "pastRu": "проснулась рано",
+          "futureRu": "проснётся рано"
+        },
+        {
+          "base": "run",
+          "thirdPerson": "runs",
+          "past": "ran",
+          "meaning": "бегать",
+          "ending": "in the park",
+          "presentRu": "бегает в парке",
+          "pastRu": "бегала в парке",
+          "futureRu": "будет бегать в парке",
+          "cardPhrase": "run in the park",
+          "cardTranslation": "бегать в парке"
+        },
+        {
+          "base": "swim",
+          "thirdPerson": "swims",
+          "past": "swam",
+          "meaning": "плавать",
+          "ending": "in the pool",
+          "presentRu": "плавает в бассейне",
+          "pastRu": "плавала в бассейне",
+          "futureRu": "будет плавать в бассейне"
+        },
+        {
+          "base": "jump",
+          "thirdPerson": "jumps",
+          "past": "jumped",
+          "meaning": "прыгать",
+          "ending": "over the line",
+          "presentRu": "перепрыгивает через линию",
+          "pastRu": "перепрыгнула через линию",
+          "futureRu": "перепрыгнет через линию"
+        },
+        {
+          "base": "sit",
+          "thirdPerson": "sits",
+          "past": "sat",
+          "meaning": "сидеть",
+          "ending": "on the chair",
+          "presentRu": "сидит на стуле",
+          "pastRu": "сидела на стуле",
+          "futureRu": "будет сидеть на стуле",
+          "cardPhrase": "sit on the chair",
+          "cardTranslation": "сидеть на стуле"
+        },
+        {
+          "base": "stand",
+          "thirdPerson": "stands",
+          "past": "stood",
+          "meaning": "стоять",
+          "ending": "near the door",
+          "presentRu": "стоит у двери",
+          "pastRu": "стояла у двери",
+          "futureRu": "будет стоять у двери"
+        },
+        {
+          "base": "lie",
+          "thirdPerson": "lies",
+          "past": "lay",
+          "meaning": "лежать",
+          "ending": "on the sofa",
+          "presentRu": "лежит на диване",
+          "pastRu": "лежала на диване",
+          "futureRu": "будет лежать на диване",
+          "cardPhrase": "lie on the sofa",
+          "cardTranslation": "лежать на диване"
+        },
+        {
+          "base": "fall",
+          "thirdPerson": "falls",
+          "past": "fell",
+          "meaning": "падать",
+          "ending": "on the ice",
+          "presentRu": "падает на льду",
+          "pastRu": "упала на льду",
+          "futureRu": "упадёт на льду"
+        },
+        {
+          "base": "hurt",
+          "thirdPerson": "hurts",
+          "past": "hurt",
+          "meaning": "повреждать",
+          "ending": "her knee",
+          "presentRu": "повреждает колено",
+          "pastRu": "повредила колено",
+          "futureRu": "повредит колено"
+        },
+        {
+          "base": "help",
+          "thirdPerson": "helps",
+          "past": "helped",
+          "meaning": "помогать",
+          "ending": "her friend",
+          "presentRu": "помогает подруге",
+          "pastRu": "помогала подруге",
+          "futureRu": "поможет подруге"
+        },
+        {
+          "base": "stop",
+          "thirdPerson": "stops",
+          "past": "stopped",
+          "meaning": "останавливаться",
+          "ending": "near the park",
+          "presentRu": "останавливается возле парка",
+          "pastRu": "остановилась возле парка",
+          "futureRu": "остановится возле парка"
+        },
+        {
+          "base": "get",
+          "thirdPerson": "gets",
+          "past": "got",
+          "meaning": "получать",
+          "ending": "some rest",
+          "presentRu": "отдыхает",
+          "pastRu": "отдыхала",
+          "futureRu": "отдохнёт",
+          "cardPhrase": "get some rest",
+          "cardTranslation": "немного отдохнуть"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1039 @@
+{
+  "name": "Процесс и результат: Continuous и третья форма",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "present-continuous",
+      "name": "Отличаем факт от процесса сейчас",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Две роли be",
+          "paragraphs": [
+            "В She is a teacher форма is связывает человека и профессию. В She is working она помогает построить Continuous: be + смысловой глагол с -ing.",
+            "Simple описывает факты, привычки или завершённые события — в зависимости от времени. Continuous показывает процесс в рассматриваемый момент или период, а не обязательно только ровно в эту секунду."
+          ],
+          "examples": [
+            "I speak English. — Я говорю по-английски, умею это делать.",
+            "I am speaking English. — Я сейчас говорю по-английски.",
+            "I cook well. — Я хорошо готовлю."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Am, is, are + глагол с -ing",
+          "paragraphs": [
+            "В Present Continuous после I ставь am, после he/she/it — is, после you/we/they — are. Смысловой глагол не получает -s: She is working.",
+            "Обычно добавляем -ing: work → working. Конечная немая e часто исчезает: make → making, have → having. У некоторых глаголов удваивается согласная: run → running. Глаголы состояния, например know, обычно не ставят в Continuous."
+          ],
+          "table": {
+            "headers": [
+              "Утверждение",
+              "Вопрос",
+              "Отрицание"
+            ],
+            "rows": [
+              [
+                "She is working.",
+                "Is she working?",
+                "She is not working."
+              ],
+              [
+                "They are reading.",
+                "Are they reading?",
+                "They are not reading."
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я сейчас работаю.",
+          "answer": [
+            "I",
+            "am",
+            "working",
+            "now."
+          ],
+          "bank": [
+            "working",
+            "I",
+            "am",
+            "is",
+            "work",
+            "now."
+          ],
+          "hint": "Present Continuous. Now поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Она сейчас читает книгу.",
+          "answer": [
+            "She",
+            "is",
+            "reading",
+            "a",
+            "book",
+            "now."
+          ],
+          "bank": [
+            "are",
+            "now.",
+            "She",
+            "is",
+            "a",
+            "book",
+            "reads",
+            "reading"
+          ],
+          "hint": "Поставь now в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Мои родители сейчас ужинают.",
+          "answer": [
+            "My",
+            "parents",
+            "are",
+            "having",
+            "dinner",
+            "now."
+          ],
+          "bank": [
+            "having",
+            "has",
+            "are",
+            "now.",
+            "is",
+            "My",
+            "parents",
+            "dinner"
+          ],
+          "hint": "Поставь now в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Ты сейчас работаешь?",
+          "answer": [
+            "Are",
+            "you",
+            "working",
+            "now?"
+          ],
+          "bank": [
+            "work",
+            "Are",
+            "working",
+            "you",
+            "Do",
+            "now?"
+          ],
+          "hint": "Present Continuous. Now поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Я сейчас не работаю.",
+          "answer": [
+            "I",
+            "am",
+            "not",
+            "working",
+            "now."
+          ],
+          "bank": [
+            "am",
+            "not",
+            "working",
+            "do",
+            "I",
+            "now.",
+            "work"
+          ],
+          "hint": "Порядок: I am not working, затем now."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Я хорошо готовлю. (это моё умение)",
+          "answer": [
+            "I",
+            "cook",
+            "well."
+          ],
+          "bank": [
+            "am",
+            "well.",
+            "cooking",
+            "I",
+            "cook"
+          ],
+          "hint": "Факт или умение: Present Simple."
+        }
+      ]
+    },
+    {
+      "id": "past-continuous",
+      "name": "Описываем процесс в прошлом",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Was или were + глагол с -ing",
+          "paragraphs": [
+            "Для процесса в прошлом после I/he/she/it используй was, после you/we/they — were. Сам глагол с -ing не меняется.",
+            "Момент может быть указан временем или событием: I was reading when she came. Continuous показывает фон, came — завершённое событие на этом фоне."
+          ],
+          "examples": [
+            "My parents were having dinner at six. — Мои родители ужинали в шесть.",
+            "My sister was watching TV when I came. — Моя сестра смотрела телевизор, когда я пришёл."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Вопрос и отрицание в прошлом",
+          "paragraphs": [
+            "Для вопроса вынеси was или were перед подлежащим. Для отрицания поставь not после was или were. Did в такой конструкции не нужен.",
+            "Указание времени само по себе не заставляет выбирать Continuous: важно, что говорящий описывает процесс. В этих заданиях процесс указан в русском контексте или подсказке."
+          ],
+          "table": {
+            "headers": [
+              "Форма",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Утверждение",
+                "I was working."
+              ],
+              [
+                "Вопрос",
+                "Were you working?"
+              ],
+              [
+                "Отрицание",
+                "I was not working."
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "В тот момент я работал.",
+          "answer": [
+            "I",
+            "was",
+            "working."
+          ],
+          "bank": [
+            "worked",
+            "I",
+            "working.",
+            "was",
+            "were"
+          ],
+          "hint": "Опиши процесс в прошлом, без отдельного обстоятельства времени."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Мои родители ужинали в шесть.",
+          "answer": [
+            "My",
+            "parents",
+            "were",
+            "having",
+            "dinner",
+            "at",
+            "six."
+          ],
+          "bank": [
+            "have",
+            "parents",
+            "were",
+            "having",
+            "six.",
+            "at",
+            "My",
+            "was",
+            "dinner"
+          ],
+          "hint": "Процесс в прошлом; at six поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Моя сестра смотрела телевизор, когда я пришёл.",
+          "answer": [
+            "My",
+            "sister",
+            "was",
+            "watching",
+            "TV",
+            "when",
+            "I",
+            "came."
+          ],
+          "bank": [
+            "My",
+            "watching",
+            "TV",
+            "came.",
+            "watched",
+            "was",
+            "when",
+            "sister",
+            "were",
+            "I"
+          ],
+          "hint": "Начни с My sister; when I came поставь после TV."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Ты тогда работал?",
+          "answer": [
+            "Were",
+            "you",
+            "working?"
+          ],
+          "bank": [
+            "you",
+            "Did",
+            "working?",
+            "work",
+            "Were"
+          ],
+          "hint": "Вопрос о процессе в прошлом, без отдельного then."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Он тогда не спал.",
+          "answer": [
+            "He",
+            "was",
+            "not",
+            "sleeping."
+          ],
+          "bank": [
+            "slept",
+            "were",
+            "was",
+            "not",
+            "He",
+            "sleeping."
+          ],
+          "hint": "Past Continuous, без отдельного then."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Мы тогда читали.",
+          "answer": [
+            "We",
+            "were",
+            "reading."
+          ],
+          "bank": [
+            "were",
+            "reading.",
+            "was",
+            "read",
+            "We"
+          ],
+          "hint": "Past Continuous, без отдельного then."
+        }
+      ]
+    },
+    {
+      "id": "future-continuous",
+      "name": "Представляем процесс в будущем",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Will be + глагол с -ing",
+          "paragraphs": [
+            "Будущий процесс строится одинаково для всех: will be + глагол с -ing. Например, I will be working at six — в шесть я буду в процессе работы.",
+            "Это отличается от простого решения или факта I will work. Для Continuous важен процесс в будущий момент или период."
+          ],
+          "examples": [
+            "My friends will be watching this film at three. — Мои друзья будут смотреть этот фильм в три.",
+            "I will be going to Moscow at this time tomorrow. — В это время завтра я буду ехать в Москву."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Вперёд выходит will",
+          "paragraphs": [
+            "В вопросе will ставится перед подлежащим; be остаётся после него. В отрицании not ставится сразу после will, перед be.",
+            "В упражнениях собирай полные формы. В речи will not часто сокращается до won’t."
+          ],
+          "table": {
+            "headers": [
+              "Форма",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Утверждение",
+                "She will be working."
+              ],
+              [
+                "Вопрос",
+                "Will she be working?"
+              ],
+              [
+                "Отрицание",
+                "She will not be working."
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "В это время завтра я буду работать.",
+          "answer": [
+            "I",
+            "will",
+            "be",
+            "working",
+            "at",
+            "this",
+            "time",
+            "tomorrow."
+          ],
+          "bank": [
+            "will",
+            "at",
+            "be",
+            "worked",
+            "am",
+            "working",
+            "this",
+            "time",
+            "tomorrow.",
+            "I"
+          ],
+          "hint": "Начни с I; всё обстоятельство at this time tomorrow поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Мои друзья будут смотреть этот фильм в три.",
+          "answer": [
+            "My",
+            "friends",
+            "will",
+            "be",
+            "watching",
+            "this",
+            "film",
+            "at",
+            "three."
+          ],
+          "bank": [
+            "at",
+            "three.",
+            "are",
+            "be",
+            "My",
+            "film",
+            "will",
+            "friends",
+            "this",
+            "watching",
+            "watched"
+          ],
+          "hint": "Опиши будущий процесс; at three поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Ты будешь тогда работать?",
+          "answer": [
+            "Will",
+            "you",
+            "be",
+            "working?"
+          ],
+          "bank": [
+            "be",
+            "worked",
+            "working?",
+            "Do",
+            "Will",
+            "you"
+          ],
+          "hint": "Future Continuous; отдельное then не добавляй."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Она не будет тогда спать.",
+          "answer": [
+            "She",
+            "will",
+            "not",
+            "be",
+            "sleeping."
+          ],
+          "bank": [
+            "not",
+            "She",
+            "is",
+            "sleeping.",
+            "will",
+            "be",
+            "slept"
+          ],
+          "hint": "Future Continuous; отдельное then не добавляй."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Мы будем тогда ужинать.",
+          "answer": [
+            "We",
+            "will",
+            "be",
+            "having",
+            "dinner."
+          ],
+          "bank": [
+            "be",
+            "had",
+            "We",
+            "dinner.",
+            "having",
+            "will",
+            "are"
+          ],
+          "hint": "Future Continuous; отдельное then не добавляй."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Он будет тогда читать?",
+          "answer": [
+            "Will",
+            "he",
+            "be",
+            "reading?"
+          ],
+          "bank": [
+            "read",
+            "be",
+            "Does",
+            "Will",
+            "he",
+            "reading?"
+          ],
+          "hint": "Future Continuous; отдельное then не добавляй."
+        }
+      ]
+    },
+    {
+      "id": "perfect-third-form",
+      "name": "Узнаём третью форму и Perfect",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "У глагола есть третья форма",
+          "paragraphs": [
+            "В Perfect после вспомогательного have нужна третья форма, V3. У правильных глаголов она совпадает с прошедшей формой на -ed: work — worked — worked. У неправильных её запоминают отдельно.",
+            "Третья форма не означает отдельное время сама по себе. Seen без has/have не образует Present Perfect."
+          ],
+          "examples": [
+            "Read в начальной форме произносится иначе, чем read в прошлом и третьей форме. Написание одинаковое."
+          ],
+          "table": {
+            "headers": [
+              "Начальная",
+              "Прошедшая",
+              "Третья"
+            ],
+            "rows": [
+              [
+                "be",
+                "was / were",
+                "been"
+              ],
+              [
+                "see",
+                "saw",
+                "seen"
+              ],
+              [
+                "go",
+                "went",
+                "gone"
+              ],
+              [
+                "do",
+                "did",
+                "done"
+              ],
+              [
+                "read",
+                "read",
+                "read"
+              ],
+              [
+                "write",
+                "wrote",
+                "written"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Perfect связывает действие с точкой отсчёта",
+          "paragraphs": [
+            "Present Perfect: have/has + V3. Он может сообщать об опыте к настоящему моменту или о результате, важном сейчас. Has нужно после he/she/it. С законченным временем вроде yesterday обычно выбирают Past Simple.",
+            "Past Perfect: had + V3 — действие раньше другой точки в прошлом. Future Perfect: will have + V3 — действие будет завершено к будущей точке. Упрощение «Perfect = результат» полезно как ориентир, но не описывает все случаи."
+          ],
+          "table": {
+            "headers": [
+              "Точка отсчёта",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Сейчас",
+                "He has seen this film."
+              ],
+              [
+                "Раньше события в прошлом",
+                "We had returned before the rain started."
+              ],
+              [
+                "К моменту в будущем",
+                "I will have finished by Sunday."
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Вопросы, отрицания и слова-подсказки",
+          "paragraphs": [
+            "В вопросе Present Perfect have или has выходит вперёд: Have you seen it? В отрицании добавляется not: She has not seen it.",
+            "Never означает никогда и само передаёт отрицание: I have never been to Italy. Already — уже; в этой тренировке ставь already между have/has и третьей формой. By Sunday означает к воскресенью, это срок завершения.",
+            "Yet в отрицании означает ещё: She has not seen it yet — она ещё не видела это. В этой тренировке yet стоит в конце фразы."
+          ],
+          "examples": [
+            "Have you already seen this film? — Ты уже видел этот фильм?",
+            "I have never been to Italy. — Я никогда не был в Италии."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 7",
+          "prompt": "Он видел этот фильм. (опыт к настоящему моменту)",
+          "answer": [
+            "He",
+            "has",
+            "seen",
+            "this",
+            "film."
+          ],
+          "bank": [
+            "film.",
+            "saw",
+            "seen",
+            "this",
+            "have",
+            "has",
+            "He"
+          ],
+          "hint": "Используй Present Perfect."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 7",
+          "prompt": "Я никогда не был в Италии.",
+          "answer": [
+            "I",
+            "have",
+            "never",
+            "been",
+            "to",
+            "Italy."
+          ],
+          "bank": [
+            "to",
+            "Italy.",
+            "was",
+            "never",
+            "been",
+            "has",
+            "have",
+            "I"
+          ],
+          "hint": "Present Perfect; never поставь между have и been."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 7",
+          "prompt": "Я уже закончил работу.",
+          "answer": [
+            "I",
+            "have",
+            "already",
+            "finished",
+            "the",
+            "work."
+          ],
+          "bank": [
+            "have",
+            "already",
+            "has",
+            "finishing",
+            "work.",
+            "I",
+            "finished",
+            "the"
+          ],
+          "hint": "Present Perfect; already поставь между have и finished."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 7",
+          "prompt": "Она прочитала десять книг к этому моменту.",
+          "answer": [
+            "She",
+            "has",
+            "read",
+            "ten",
+            "books."
+          ],
+          "bank": [
+            "reading",
+            "has",
+            "ten",
+            "have",
+            "read",
+            "books.",
+            "She"
+          ],
+          "hint": "Используй Present Perfect."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 7",
+          "prompt": "Мы вернулись до того, как начался дождь.",
+          "answer": [
+            "We",
+            "had",
+            "returned",
+            "before",
+            "the",
+            "rain",
+            "started."
+          ],
+          "bank": [
+            "rain",
+            "return",
+            "We",
+            "before",
+            "had",
+            "the",
+            "started.",
+            "have",
+            "returned"
+          ],
+          "hint": "Начни с We had returned (Past Perfect), затем before the rain started."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 7",
+          "prompt": "Я закончу эту работу к воскресенью.",
+          "answer": [
+            "I",
+            "will",
+            "have",
+            "finished",
+            "this",
+            "work",
+            "by",
+            "Sunday."
+          ],
+          "bank": [
+            "I",
+            "Sunday.",
+            "have",
+            "finishing",
+            "by",
+            "will",
+            "work",
+            "has",
+            "finished",
+            "this"
+          ],
+          "hint": "Future Perfect; by Sunday поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 7",
+          "prompt": "Ты уже видел этот фильм?",
+          "answer": [
+            "Have",
+            "you",
+            "already",
+            "seen",
+            "this",
+            "film?"
+          ],
+          "bank": [
+            "you",
+            "already",
+            "Has",
+            "film?",
+            "seen",
+            "Have",
+            "this",
+            "saw"
+          ],
+          "hint": "Present Perfect; already поставь между you и seen."
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Выбираем факт, процесс или связь с моментом",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Сначала смысл, затем форма",
+          "paragraphs": [
+            "Для обычного факта подходит Simple. Для процесса в нужный момент — форма be + -ing. Для опыта, результата или действия относительно другой точки — форма have + V3.",
+            "Внутри каждого времени проверь подлежащее, вспомогательный глагол и порядок вопроса или отрицания. В итоговых вопросах подсказка уточняет требуемый смысл."
+          ],
+          "examples": [
+            "I work. — Я работаю вообще.",
+            "I am working. — Я в процессе работы.",
+            "I have worked here. — У меня есть опыт работы здесь."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 9",
+          "prompt": "Он сейчас чинит твою машину?",
+          "answer": [
+            "Is",
+            "he",
+            "repairing",
+            "your",
+            "car",
+            "now?"
+          ],
+          "bank": [
+            "repair",
+            "now?",
+            "Does",
+            "your",
+            "he",
+            "repairing",
+            "car",
+            "Is"
+          ],
+          "hint": "Present Continuous; now поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 9",
+          "prompt": "Дети сейчас играют в футбол.",
+          "answer": [
+            "The",
+            "children",
+            "are",
+            "playing",
+            "football",
+            "now."
+          ],
+          "bank": [
+            "now.",
+            "is",
+            "playing",
+            "The",
+            "children",
+            "football",
+            "are",
+            "play"
+          ],
+          "hint": "Present Continuous; now поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 9",
+          "prompt": "Мы тогда не работали.",
+          "answer": [
+            "We",
+            "were",
+            "not",
+            "working."
+          ],
+          "bank": [
+            "not",
+            "worked",
+            "were",
+            "We",
+            "was",
+            "working."
+          ],
+          "hint": "Процесс в прошлом; отдельное then не добавляй."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 9",
+          "prompt": "Она тогда читала.",
+          "answer": [
+            "She",
+            "was",
+            "reading."
+          ],
+          "bank": [
+            "reading.",
+            "read",
+            "were",
+            "She",
+            "was"
+          ],
+          "hint": "Процесс в прошлом; отдельное then не добавляй."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 9",
+          "prompt": "Ты будешь тогда смотреть этот фильм?",
+          "answer": [
+            "Will",
+            "you",
+            "be",
+            "watching",
+            "this",
+            "film?"
+          ],
+          "bank": [
+            "be",
+            "film?",
+            "watched",
+            "this",
+            "Will",
+            "you",
+            "watching",
+            "Do"
+          ],
+          "hint": "Future Continuous; отдельное then не добавляй."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 9",
+          "prompt": "Я не буду тогда работать.",
+          "answer": [
+            "I",
+            "will",
+            "not",
+            "be",
+            "working."
+          ],
+          "bank": [
+            "worked",
+            "be",
+            "I",
+            "will",
+            "am",
+            "working.",
+            "not"
+          ],
+          "hint": "Future Continuous; отдельное then не добавляй."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 9",
+          "prompt": "Она ещё не видела этот фильм.",
+          "answer": [
+            "She",
+            "has",
+            "not",
+            "seen",
+            "this",
+            "film",
+            "yet."
+          ],
+          "bank": [
+            "seen",
+            "She",
+            "yet.",
+            "has",
+            "this",
+            "film",
+            "saw",
+            "have",
+            "not"
+          ],
+          "hint": "Present Perfect; yet поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 9",
+          "prompt": "Мы закончили до того, как он пришёл.",
+          "answer": [
+            "We",
+            "had",
+            "finished",
+            "before",
+            "he",
+            "came."
+          ],
+          "bank": [
+            "had",
+            "he",
+            "have",
+            "finish",
+            "came.",
+            "finished",
+            "before",
+            "We"
+          ],
+          "hint": "Начни с We had finished (Past Perfect), затем before he came."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 9 из 9",
+          "prompt": "Мы закончим к воскресенью.",
+          "answer": [
+            "We",
+            "will",
+            "have",
+            "finished",
+            "by",
+            "Sunday."
+          ],
+          "bank": [
+            "will",
+            "finished",
+            "has",
+            "by",
+            "have",
+            "Sunday.",
+            "We",
+            "finishing"
+          ],
+          "hint": "Future Perfect; by Sunday поставь в конец."
+        }
+      ]
+    }
+  ]
+}

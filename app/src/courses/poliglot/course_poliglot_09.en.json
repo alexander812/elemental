@@ -1,0 +1,852 @@
+{
+  "name": "Себя, лично и самостоятельно: self и selves",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "reflexive-singular",
+      "name": "Говорим о себе: формы с self",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Кто действует и на кого направлено действие",
+          "paragraphs": [
+            "Возвратное местоимение нужно, когда действующее лицо и объект совпадают: I see myself — я вижу себя. Если речь о другом человеке, выбирай обычную объектную форму: I see him.",
+            "Myself, yourself, himself, herself и itself пишутся слитно. Формы himself и themselves не образуются от his и their: запоминай готовые слова."
+          ],
+          "table": {
+            "headers": [
+              "Кто",
+              "Себя / сам"
+            ],
+            "rows": [
+              [
+                "I",
+                "myself"
+              ],
+              [
+                "you — ты",
+                "yourself"
+              ],
+              [
+                "he",
+                "himself"
+              ],
+              [
+                "she",
+                "herself"
+              ],
+              [
+                "it",
+                "itself"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Не каждое русское -ся превращается в self",
+          "paragraphs": [
+            "Английские wash и dress часто употребляются без возвратного местоимения: I wash, I get dressed. А The door opens — дверь открывается — не требует itself как объекта.",
+            "Reflexive может понадобиться, чтобы явно назвать объект действия: She cut herself — она порезалась. Cut имеет ту же форму в настоящем и прошлом; время определяет контекст."
+          ],
+          "examples": [
+            "He corrected himself. — Он поправил себя.",
+            "She cut herself. — Она порезалась.",
+            "Look at yourself. — Посмотри на себя."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я вижу себя.",
+          "answer": [
+            "I",
+            "see",
+            "myself."
+          ],
+          "bank": [
+            "sees",
+            "I",
+            "see",
+            "myself.",
+            "me"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Посмотри на себя. (одному человеку)",
+          "answer": [
+            "Look",
+            "at",
+            "yourself."
+          ],
+          "bank": [
+            "you",
+            "yourself.",
+            "myself.",
+            "Look",
+            "at"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Он поправил себя.",
+          "answer": [
+            "He",
+            "corrected",
+            "himself."
+          ],
+          "bank": [
+            "himself.",
+            "herself.",
+            "corrected",
+            "He",
+            "correct"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Она порезалась.",
+          "answer": [
+            "She",
+            "cut",
+            "herself."
+          ],
+          "bank": [
+            "She",
+            "cuts",
+            "herself.",
+            "cut",
+            "himself."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Кот поранил себя.",
+          "answer": [
+            "The",
+            "cat",
+            "hurt",
+            "itself."
+          ],
+          "bank": [
+            "themselves.",
+            "hurt",
+            "The",
+            "cat",
+            "itself.",
+            "hurts"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Не порань себя. (одному человеку)",
+          "answer": [
+            "Do",
+            "not",
+            "hurt",
+            "yourself."
+          ],
+          "bank": [
+            "yourself.",
+            "your",
+            "hurt",
+            "not",
+            "hurts",
+            "Do"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reflexive-plural",
+      "name": "Выбираем ourselves, yourselves, themselves",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Для нескольких людей — selves",
+          "paragraphs": [
+            "После we используй ourselves, после they — themselves. Yourself относится к одному собеседнику, yourselves — к нескольким.",
+            "Окончание множественного числа — selves. Согласуй возвратную форму с тем, кто действует, а не с ближайшим словом."
+          ],
+          "table": {
+            "headers": [
+              "Кто",
+              "Возвратная форма"
+            ],
+            "rows": [
+              [
+                "we",
+                "ourselves"
+              ],
+              [
+                "you — вы, несколько людей",
+                "yourselves"
+              ],
+              [
+                "they",
+                "themselves"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Защищаем, контролируем и готовим себя",
+          "paragraphs": [
+            "Protect — защищать, control — контролировать, prepare — готовить. Prepare ourselves означает подготовить себя; prepare dinner — приготовить ужин.",
+            "После try нужно to перед следующим глаголом: Try to control yourselves. При обращении к группе используй yourselves."
+          ],
+          "examples": [
+            "We protected ourselves. — Мы защитили себя.",
+            "They prepared themselves. — Они подготовились.",
+            "Try to control yourselves. — Старайтесь себя контролировать."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Мы защитили себя.",
+          "answer": [
+            "We",
+            "protected",
+            "ourselves."
+          ],
+          "bank": [
+            "ourselves.",
+            "protect",
+            "protected",
+            "We",
+            "themselves."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Они защитили себя.",
+          "answer": [
+            "They",
+            "protected",
+            "themselves."
+          ],
+          "bank": [
+            "themselves.",
+            "protect",
+            "They",
+            "ourselves.",
+            "protected"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Старайтесь себя контролировать. (несколько человек)",
+          "answer": [
+            "Try",
+            "to",
+            "control",
+            "yourselves."
+          ],
+          "bank": [
+            "yourself.",
+            "Try",
+            "controls",
+            "control",
+            "yourselves.",
+            "to"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Мы подготовили себя.",
+          "answer": [
+            "We",
+            "prepared",
+            "ourselves."
+          ],
+          "bank": [
+            "ourselves.",
+            "themselves.",
+            "prepare",
+            "We",
+            "prepared"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Они знают себя.",
+          "answer": [
+            "They",
+            "know",
+            "themselves."
+          ],
+          "bank": [
+            "know",
+            "themselves.",
+            "They",
+            "knows",
+            "them."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Вы видите себя. (несколько человек)",
+          "answer": [
+            "You",
+            "see",
+            "yourselves."
+          ],
+          "bank": [
+            "sees",
+            "You",
+            "yourselves.",
+            "yourself.",
+            "see"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emphatic-self",
+      "name": "Подчёркиваем: сам, лично",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Усиление отличается от объекта",
+          "paragraphs": [
+            "Возвратные формы могут подчёркивать того, кто совершил действие: I myself did it — я сам это сделал. Если убрать myself, останется полное предложение I did it.",
+            "В She cut herself слово herself называет объект: без него меняется смысл. В She herself cooked dinner оно подчёркивает: готовила она лично."
+          ],
+          "examples": [
+            "The film itself was interesting. — Сам фильм был интересным.",
+            "The president said it himself. — Президент сказал это лично."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Усиление может стоять в разных местах",
+          "paragraphs": [
+            "We ourselves repaired the car и We repaired the car ourselves могут передать один смысл. В этих упражнениях подсказка задаёт место усиления, чтобы тренировать конкретный порядок.",
+            "My daughter — моя дочь; her children — её дети; their homework — их домашнее задание. Для домашнего задания используем do, а не make."
+          ],
+          "examples": [
+            "Her children themselves do their homework. — Её дети сами делают домашнее задание.",
+            "My daughter cooked it herself. — Моя дочь приготовила это сама."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я сам сделал это.",
+          "answer": [
+            "I",
+            "myself",
+            "did",
+            "it."
+          ],
+          "bank": [
+            "myself",
+            "it.",
+            "did",
+            "do",
+            "I",
+            "me"
+          ],
+          "hint": "Поставь myself сразу после I."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Мы сами починили машину.",
+          "answer": [
+            "We",
+            "ourselves",
+            "repaired",
+            "the",
+            "car."
+          ],
+          "bank": [
+            "us",
+            "car.",
+            "the",
+            "We",
+            "repaired",
+            "ourselves",
+            "repair"
+          ],
+          "hint": "Поставь ourselves сразу после We."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Сам фильм был интересным.",
+          "answer": [
+            "The",
+            "film",
+            "itself",
+            "was",
+            "interesting."
+          ],
+          "bank": [
+            "was",
+            "film",
+            "itself",
+            "himself",
+            "were",
+            "The",
+            "interesting."
+          ],
+          "hint": "Поставь itself сразу после film."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Президент сказал это лично.",
+          "answer": [
+            "The",
+            "president",
+            "said",
+            "it",
+            "himself."
+          ],
+          "bank": [
+            "said",
+            "say",
+            "herself.",
+            "The",
+            "it",
+            "president",
+            "himself."
+          ],
+          "hint": "Поставь himself в конец фразы."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Моя дочь приготовила это сама.",
+          "answer": [
+            "My",
+            "daughter",
+            "cooked",
+            "it",
+            "herself."
+          ],
+          "bank": [
+            "it",
+            "cooked",
+            "cook",
+            "daughter",
+            "herself.",
+            "My",
+            "himself."
+          ],
+          "hint": "Поставь herself в конец фразы."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Её дети сами делают домашнее задание.",
+          "answer": [
+            "Her",
+            "children",
+            "themselves",
+            "do",
+            "their",
+            "homework."
+          ],
+          "bank": [
+            "does",
+            "do",
+            "herself",
+            "children",
+            "homework.",
+            "their",
+            "themselves",
+            "Her"
+          ],
+          "hint": "Поставь themselves сразу после children."
+        }
+      ]
+    },
+    {
+      "id": "by-oneself",
+      "name": "Самостоятельно и без помощи",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "By myself: один или без помощи",
+          "paragraphs": [
+            "By + возвратная форма может означать без помощи или в одиночку: I did it by myself. Точный смысл подсказывает ситуация.",
+            "Усиление I myself did it сообщает, кто именно действовал. By myself дополнительно подчёркивает самостоятельность или отсутствие компании."
+          ],
+          "examples": [
+            "She lives by herself. — Она живёт одна.",
+            "They did it by themselves. — Они сделали это без помощи.",
+            "The door opened by itself. — Дверь открылась сама."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Учить себя и быть собой",
+          "paragraphs": [
+            "Teach myself English означает самостоятельно учить английский, буквально обучать себя. Teach — taught в прошлом. Study English не требует reflexive.",
+            "В be myself / be himself говорится о том, чтобы оставаться собой. После wants нужен инфинитив to be."
+          ],
+          "examples": [
+            "I teach myself English. — Я самостоятельно учу английский.",
+            "He wants to be himself. — Он хочет быть собой.",
+            "Do it yourself at night. — Сделай это сам ночью."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я сделал это без помощи.",
+          "answer": [
+            "I",
+            "did",
+            "it",
+            "by",
+            "myself."
+          ],
+          "bank": [
+            "by",
+            "did",
+            "it",
+            "do",
+            "I",
+            "myself.",
+            "me."
+          ],
+          "hint": "Поставь by myself в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Она живёт одна.",
+          "answer": [
+            "She",
+            "lives",
+            "by",
+            "herself."
+          ],
+          "bank": [
+            "herself.",
+            "himself.",
+            "by",
+            "She",
+            "live",
+            "lives"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Дверь открылась сама.",
+          "answer": [
+            "The",
+            "door",
+            "opened",
+            "by",
+            "itself."
+          ],
+          "bank": [
+            "opened",
+            "by",
+            "door",
+            "The",
+            "itself.",
+            "herself.",
+            "open"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Я самостоятельно учу английский.",
+          "answer": [
+            "I",
+            "teach",
+            "myself",
+            "English."
+          ],
+          "bank": [
+            "teaches",
+            "teach",
+            "I",
+            "English.",
+            "myself",
+            "me"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Он хочет быть собой.",
+          "answer": [
+            "He",
+            "wants",
+            "to",
+            "be",
+            "himself."
+          ],
+          "bank": [
+            "him.",
+            "want",
+            "to",
+            "be",
+            "He",
+            "himself.",
+            "wants"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Сделай это сам ночью. (одному человеку)",
+          "answer": [
+            "Do",
+            "it",
+            "yourself",
+            "at",
+            "night."
+          ],
+          "bank": [
+            "yourself",
+            "yourselves",
+            "night.",
+            "it",
+            "does",
+            "at",
+            "Do"
+          ],
+          "hint": "Порядок: действие + yourself + at night."
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Собираем фразы с self и selves",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Проверь смысл, лицо и число",
+          "paragraphs": [
+            "Себя как объект: She cut herself. Лично: She herself did it. Без помощи или в одиночку: She did it by herself. Форма выбирается по действующему лицу.",
+            "Русское сам по себе иногда просто усиливает предмет: The film itself was interesting. Оно не всегда переводится с by. В тесте следуй указанному расположению усиления."
+          ],
+          "table": {
+            "headers": [
+              "Смысл",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Действие на себя",
+                "We protected ourselves."
+              ],
+              [
+                "Лично",
+                "We ourselves did it."
+              ],
+              [
+                "Без помощи",
+                "We did it by ourselves."
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 9",
+          "prompt": "Он видит себя.",
+          "answer": [
+            "He",
+            "sees",
+            "himself."
+          ],
+          "bank": [
+            "him.",
+            "sees",
+            "He",
+            "see",
+            "himself."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 9",
+          "prompt": "Она поправила себя.",
+          "answer": [
+            "She",
+            "corrected",
+            "herself."
+          ],
+          "bank": [
+            "corrected",
+            "himself.",
+            "correct",
+            "She",
+            "herself."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 9",
+          "prompt": "Вы контролируете себя. (несколько человек)",
+          "answer": [
+            "You",
+            "control",
+            "yourselves."
+          ],
+          "bank": [
+            "yourselves.",
+            "controls",
+            "You",
+            "yourself.",
+            "control"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 9",
+          "prompt": "Они сделали это сами.",
+          "answer": [
+            "They",
+            "did",
+            "it",
+            "themselves."
+          ],
+          "bank": [
+            "it",
+            "themselves.",
+            "themselves",
+            "They",
+            "did",
+            "do"
+          ],
+          "hint": "Поставь themselves в конец фразы."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 9",
+          "prompt": "Мы защитили себя.",
+          "answer": [
+            "We",
+            "protected",
+            "ourselves."
+          ],
+          "bank": [
+            "protect",
+            "protected",
+            "ourselves.",
+            "us.",
+            "We"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 9",
+          "prompt": "Я редко говорю сам с собой.",
+          "answer": [
+            "I",
+            "seldom",
+            "talk",
+            "to",
+            "myself."
+          ],
+          "bank": [
+            "I",
+            "to",
+            "me.",
+            "seldom",
+            "talk",
+            "myself.",
+            "talks"
+          ],
+          "hint": "Поставь seldom после I, to myself — после talk."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 9",
+          "prompt": "Она починила машину без помощи.",
+          "answer": [
+            "She",
+            "repaired",
+            "the",
+            "car",
+            "by",
+            "herself."
+          ],
+          "bank": [
+            "himself.",
+            "repaired",
+            "car",
+            "by",
+            "She",
+            "repair",
+            "herself.",
+            "the"
+          ],
+          "hint": "Поставь by herself в конец фразы."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 9",
+          "prompt": "Сам фильм был интересным.",
+          "answer": [
+            "The",
+            "film",
+            "itself",
+            "was",
+            "interesting."
+          ],
+          "bank": [
+            "was",
+            "itself",
+            "herself",
+            "were",
+            "interesting.",
+            "The",
+            "film"
+          ],
+          "hint": "Поставь itself сразу после film."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 9 из 9",
+          "prompt": "Они хотят быть собой.",
+          "answer": [
+            "They",
+            "want",
+            "to",
+            "be",
+            "themselves."
+          ],
+          "bank": [
+            "to",
+            "wants",
+            "themselves.",
+            "them.",
+            "want",
+            "be",
+            "They"
+          ]
+        }
+      ]
+    }
+  ]
+}

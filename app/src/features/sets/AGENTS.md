@@ -15,3 +15,5 @@
 `restartPhraseTaskFx` / `transport/sets.restartPhraseTask` возвращают к первой странице и сбрасывают только solved/examPassed, сохраняя learned/deleted/checks карточек. Общий `resetSetFx` по-прежнему сбрасывает всё задание вместе с карточками.
 
 `transport/sets.readSets/writeSets` используют `ready-content`: свой контент сохраняется целиком, для готового курса — только sparse patches прогресса и пользовательских правок относительно RAM baseline. Boot `fetchSets` не импортирует Полиглот и не загружает контент. `ensureReadyCourseFx.doneData` обновляет `$sets` после загрузки.
+
+Полиглот загружает полный контент только при запуске урока через `ensureReadyLessonFx` (его doneData обновляет `$sets`). До этого в RAM находятся оболочки заданий с метаданными и сохранённым завершением; их карточные/фразовые patches остаются в ready-state до загрузки базового контента.

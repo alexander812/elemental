@@ -1,6 +1,11 @@
 import type { Lesson } from '../lib/types'
 import { uid } from '../lib/uid'
-import { ensureReadyCourse, readContentLessons, writeContentLessons } from './ready-content'
+import {
+  ensureReadyCourse,
+  ensureReadyLesson,
+  readContentLessons,
+  writeContentLessons,
+} from './ready-content'
 
 export type { Lesson } from '../lib/types'
 
@@ -42,6 +47,7 @@ export async function updateLesson(payload: {
   courseId: string
   name: string
 }): Promise<Lesson[]> {
+  await ensureReadyLesson(payload.lessonId)
   await ensureReadyCourse(payload.courseId)
   const lessons = readLessons()
 

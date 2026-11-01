@@ -1,0 +1,949 @@
+{
+  "name": "Предлоги, направления и глагольные сочетания",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "to-from-in-at",
+      "name": "Называем направление и место",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "TO и FROM: к цели и от источника",
+          "paragraphs": [
+            "To указывает направление или получателя: go to school, give it to me. From обозначает исходную точку или происхождение: from London. После предлога местоимению нужна объектная форма: to him, from her.",
+            "С home после go обычно нет to: go home. Выбор предлога не сводится к переводу русского слова «в»."
+          ],
+          "examples": [
+            "He flew from England. — Он прилетел из Англии.",
+            "Throw your ball to me. — Брось свой мяч мне.",
+            "Welcome to Russia. — Добро пожаловать в Россию."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "IN и AT: разные способы назвать место",
+          "paragraphs": [
+            "In подчёркивает нахождение внутри или в пределах: in the kitchen, in London. At часто называет точку или место в целом: at home, at the meeting. В некоторых контекстах возможны оба предлога с разным оттенком.",
+            "С месяцем in означает «в»: in June. С интервалом от настоящего in может означать «через»: in two days. At используется со временем на часах; с календарной датой обычно нужен on."
+          ],
+          "table": {
+            "headers": [
+              "Сочетание",
+              "Перевод"
+            ],
+            "rows": [
+              [
+                "in the kitchen",
+                "на кухне"
+              ],
+              [
+                "in London",
+                "в Лондоне"
+              ],
+              [
+                "at home",
+                "дома"
+              ],
+              [
+                "at six o’clock",
+                "в шесть часов"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Не переноси русское управление",
+          "paragraphs": [
+            "По-английски можно refuse an offer или refuse alcohol без from. Нельзя автоматически добавлять from потому, что по-русски говорят «отказаться от». Сочетание глагола и дополнения запоминается отдельно."
+          ],
+          "examples": [
+            "I am from Moscow. — Я из Москвы.",
+            "She works at home. — Она работает дома.",
+            "Made in Russia. — Сделано в России."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Я пойду в школу.",
+          "answer": [
+            "I",
+            "will",
+            "go",
+            "to",
+            "school."
+          ],
+          "bank": [
+            "go",
+            "to",
+            "school.",
+            "at",
+            "on",
+            "I",
+            "will"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Он прилетел из Англии.",
+          "answer": [
+            "He",
+            "flew",
+            "from",
+            "England."
+          ],
+          "bank": [
+            "England.",
+            "fly",
+            "to",
+            "He",
+            "flew",
+            "from"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Я из Москвы.",
+          "answer": [
+            "I",
+            "am",
+            "from",
+            "Moscow."
+          ],
+          "bank": [
+            "is",
+            "to",
+            "I",
+            "am",
+            "from",
+            "Moscow."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Она на кухне.",
+          "answer": [
+            "She",
+            "is",
+            "in",
+            "the",
+            "kitchen."
+          ],
+          "bank": [
+            "are",
+            "on",
+            "She",
+            "is",
+            "in",
+            "the",
+            "kitchen."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Она работает дома.",
+          "answer": [
+            "She",
+            "works",
+            "at",
+            "home."
+          ],
+          "bank": [
+            "works",
+            "at",
+            "home.",
+            "work",
+            "in",
+            "She"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Мы встретимся в шесть часов.",
+          "answer": [
+            "We",
+            "will",
+            "meet",
+            "at",
+            "six",
+            "o’clock."
+          ],
+          "bank": [
+            "on",
+            "We",
+            "will",
+            "meet",
+            "at",
+            "six",
+            "o’clock.",
+            "in"
+          ],
+          "hint": "Указание времени поставь в конце."
+        }
+      ]
+    },
+    {
+      "id": "positions",
+      "name": "Говорим о поверхности и положении",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "ON и UNDER",
+          "paragraphs": [
+            "On часто обозначает контакт с поверхностью, under — положение ниже чего-либо. У отдельных сочетаний есть дополнительные значения: work under somebody — работать под чьим-то руководством."
+          ],
+          "examples": [
+            "I sat on a bench. — Я сел на скамейку.",
+            "I hid under the table. — Я спрятался под столом.",
+            "He works under me. — Он работает под моим руководством."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "OVER и BETWEEN",
+          "paragraphs": [
+            "Over может обозначать положение над чем-то или движение поверх препятствия. Between связывает предмет с отдельными ориентирами: между двумя домами, между нами. Это слово бывает уместно и более чем с двумя отдельными участниками."
+          ],
+          "examples": [
+            "He climbed over the wall. — Он перелез через стену.",
+            "I flew over the city. — Я летел над городом.",
+            "This is between us. — Это между нами.",
+            "Read between the lines. — Читай между строк."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Я сел на скамейку.",
+          "answer": [
+            "I",
+            "sat",
+            "on",
+            "a",
+            "bench."
+          ],
+          "bank": [
+            "on",
+            "a",
+            "bench.",
+            "in",
+            "under",
+            "I",
+            "sat"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Я спрятался под столом.",
+          "answer": [
+            "I",
+            "hid",
+            "under",
+            "the",
+            "table."
+          ],
+          "bank": [
+            "the",
+            "table.",
+            "on",
+            "over",
+            "I",
+            "hid",
+            "under"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Он перелез через стену.",
+          "answer": [
+            "He",
+            "climbed",
+            "over",
+            "the",
+            "wall."
+          ],
+          "bank": [
+            "wall.",
+            "under",
+            "in",
+            "He",
+            "climbed",
+            "over",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Я летел над городом.",
+          "answer": [
+            "I",
+            "flew",
+            "over",
+            "the",
+            "city."
+          ],
+          "bank": [
+            "under",
+            "on",
+            "I",
+            "flew",
+            "over",
+            "the",
+            "city."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Это между нами.",
+          "answer": [
+            "This",
+            "is",
+            "between",
+            "us."
+          ],
+          "bank": [
+            "is",
+            "between",
+            "us.",
+            "we",
+            "for",
+            "This"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Выбери между этими двумя.",
+          "answer": [
+            "Choose",
+            "between",
+            "these",
+            "two."
+          ],
+          "bank": [
+            "between",
+            "these",
+            "two.",
+            "under",
+            "from",
+            "Choose"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "with-without-for-about",
+      "name": "Уточняем компанию, цель и тему",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "WITH и WITHOUT",
+          "paragraphs": [
+            "With обозначает компанию или средство действия: with them, with chalk. Without — отсутствие: without me. Chalk — мел, gift — подарок, lunch — обед."
+          ],
+          "examples": [
+            "I work with them. — Я работаю вместе с ними.",
+            "They draw with chalk. — Они рисуют мелом.",
+            "They went without me. — Они пошли без меня."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "FOR: для кого, за что и как долго",
+          "paragraphs": [
+            "For может вводить получателя пользы, причину оплаты или длительность: for you, pay for lunch, for two years. Предлог сам не выбирает время глагола.",
+            "Для завершённого периода подойдёт She studied English for two years — Она учила английский два года. Если обучение продолжается до настоящего, позже понадобятся другие временные формы."
+          ],
+          "examples": [
+            "This gift is for you. — Этот подарок для тебя.",
+            "We paid for lunch. — Мы заплатили за обед."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "ABOUT: о ком или о чём",
+          "paragraphs": [
+            "About вводит тему мысли или разговора: think about, talk about, forget about. После предлога остаётся объектная форма местоимения."
+          ],
+          "examples": [
+            "Think about me. — Подумай обо мне.",
+            "Forget about her. — Забудь о ней.",
+            "Talk about it. — Расскажи об этом."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Я работаю вместе с ними.",
+          "answer": [
+            "I",
+            "work",
+            "with",
+            "them."
+          ],
+          "bank": [
+            "with",
+            "them.",
+            "we",
+            "without",
+            "I",
+            "work"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Они рисуют мелом.",
+          "answer": [
+            "They",
+            "draw",
+            "with",
+            "chalk."
+          ],
+          "bank": [
+            "chalk.",
+            "draws",
+            "without",
+            "They",
+            "draw",
+            "with"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Они пошли без меня.",
+          "answer": [
+            "They",
+            "went",
+            "without",
+            "me."
+          ],
+          "bank": [
+            "with",
+            "I",
+            "They",
+            "went",
+            "without",
+            "me."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Этот подарок для тебя.",
+          "answer": [
+            "This",
+            "gift",
+            "is",
+            "for",
+            "you."
+          ],
+          "bank": [
+            "with",
+            "to",
+            "This",
+            "gift",
+            "is",
+            "for",
+            "you."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Мы заплатили за обед.",
+          "answer": [
+            "We",
+            "paid",
+            "for",
+            "lunch."
+          ],
+          "bank": [
+            "paid",
+            "for",
+            "lunch.",
+            "pay",
+            "to",
+            "We"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Подумай обо мне.",
+          "answer": [
+            "Think",
+            "about",
+            "me."
+          ],
+          "bank": [
+            "me.",
+            "to",
+            "I",
+            "Think",
+            "about"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verb-combinations",
+      "name": "Понимаем глаголы с предлогами и частицами",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Видеть и смотреть — разные действия",
+          "paragraphs": [
+            "See — видеть, look at — направить взгляд, watch — наблюдать за чем-то некоторое время. Listen to — намеренно слушать; hear — слышать. Предлоги at и to принадлежат соответствующим сочетаниям, но see/hear перед прямым дополнением их не требуют."
+          ],
+          "table": {
+            "headers": [
+              "Сочетание",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "see her",
+                "видеть её"
+              ],
+              [
+                "look at her",
+                "посмотреть на неё"
+              ],
+              [
+                "watch a film",
+                "смотреть фильм"
+              ],
+              [
+                "listen to her",
+                "слушать её"
+              ],
+              [
+                "hear her",
+                "слышать её"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Не всякое сочетание — фразовый глагол",
+          "paragraphs": [
+            "После глагола может быть обычный предлог с дополнением или частица. Иногда смысл сохраняется буквально, иногда меняется и запоминается целиком. Название «фразовый глагол» не означает, что любой предлог создаёт новый глагол.",
+            "Ask a question — задать вопрос; ask for help — попросить о помощи. Сравни look at — смотреть на и look for — искать."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Направления с GO",
+          "paragraphs": [
+            "Частицы и предлоги уточняют движение. Не все эти сочетания имеют переносный смысл."
+          ],
+          "table": {
+            "headers": [
+              "Сочетание",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "go up / go down",
+                "подниматься / спускаться"
+              ],
+              [
+                "go away / go back",
+                "уходить / возвращаться"
+              ],
+              [
+                "go along the street",
+                "идти вдоль улицы"
+              ],
+              [
+                "go for a walk",
+                "идти на прогулку"
+              ],
+              [
+                "time goes by",
+                "время проходит"
+              ],
+              [
+                "go in for sports",
+                "заниматься спортом (устойчивое сочетание)"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Ищем и присматриваем",
+          "paragraphs": [
+            "Look for — искать, look after — присматривать. Look up/down может обозначать направление взгляда, look away — отвести взгляд, look back — оглянуться. У тех же сочетаний могут быть и другие значения в другом контексте."
+          ],
+          "examples": [
+            "Who looks after the children? — Кто присматривает за детьми?",
+            "They looked back and saw us. — Они оглянулись и увидели нас.",
+            "She looked away from him. — Она отвела взгляд от него."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 8",
+          "prompt": "Посмотри на меня.",
+          "answer": [
+            "Look",
+            "at",
+            "me."
+          ],
+          "bank": [
+            "me.",
+            "Looks",
+            "to",
+            "Look",
+            "at"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 8",
+          "prompt": "Послушай меня.",
+          "answer": [
+            "Listen",
+            "to",
+            "me."
+          ],
+          "bank": [
+            "Listens",
+            "at",
+            "Listen",
+            "to",
+            "me."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 8",
+          "prompt": "Я слышу тебя.",
+          "answer": [
+            "I",
+            "hear",
+            "you."
+          ],
+          "bank": [
+            "at",
+            "I",
+            "hear",
+            "you.",
+            "listen"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 8",
+          "prompt": "Я ищу её.",
+          "answer": [
+            "I",
+            "look",
+            "for",
+            "her."
+          ],
+          "bank": [
+            "she",
+            "I",
+            "look",
+            "for",
+            "her.",
+            "after"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 8",
+          "prompt": "Кто присматривает за детьми?",
+          "answer": [
+            "Who",
+            "looks",
+            "after",
+            "the",
+            "children?"
+          ],
+          "bank": [
+            "for",
+            "Who",
+            "looks",
+            "after",
+            "the",
+            "children?",
+            "look"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 8",
+          "prompt": "Поднимайся по лестнице.",
+          "answer": [
+            "Go",
+            "up",
+            "the",
+            "stairs."
+          ],
+          "bank": [
+            "up",
+            "the",
+            "stairs.",
+            "down",
+            "under",
+            "Go"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 8",
+          "prompt": "Возвращайся домой.",
+          "answer": [
+            "Go",
+            "back",
+            "home."
+          ],
+          "bank": [
+            "away",
+            "to",
+            "Go",
+            "back",
+            "home."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 8",
+          "prompt": "Иди вдоль этой улицы.",
+          "answer": [
+            "Go",
+            "along",
+            "this",
+            "street."
+          ],
+          "bank": [
+            "street.",
+            "in",
+            "under",
+            "Go",
+            "along",
+            "this"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Выбираем предлог по смыслу: итоговый тест",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Проверяем всю связь",
+          "paragraphs": [
+            "Выбирай предлог по значению английского сочетания, а не по одному русскому слову. Различай направление и положение, компанию и отсутствие, цель и тему.",
+            "Go up может буквально описывать подъём, а look after нужно запомнить как «присматривать». После предлога нужны me/him/her/us/them. В обстоятельствах времени следуй указанию порядка в вопросе."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 9",
+          "prompt": "Брось свой мяч мне.",
+          "answer": [
+            "Throw",
+            "your",
+            "ball",
+            "to",
+            "me."
+          ],
+          "bank": [
+            "ball",
+            "to",
+            "me.",
+            "from",
+            "I",
+            "Throw",
+            "your"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 9",
+          "prompt": "Мы дома в воскресенье.",
+          "answer": [
+            "We",
+            "are",
+            "at",
+            "home",
+            "on",
+            "Sunday."
+          ],
+          "bank": [
+            "home",
+            "on",
+            "Sunday.",
+            "in",
+            "under",
+            "We",
+            "are",
+            "at"
+          ],
+          "hint": "Сначала место, затем день недели."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 9",
+          "prompt": "Он работает под моим руководством.",
+          "answer": [
+            "He",
+            "works",
+            "under",
+            "me."
+          ],
+          "bank": [
+            "work",
+            "over",
+            "He",
+            "works",
+            "under",
+            "me."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 9",
+          "prompt": "Читай между строк.",
+          "answer": [
+            "Read",
+            "between",
+            "the",
+            "lines."
+          ],
+          "bank": [
+            "from",
+            "Read",
+            "between",
+            "the",
+            "lines.",
+            "under"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 9",
+          "prompt": "Потанцуй со мной.",
+          "answer": [
+            "Dance",
+            "with",
+            "me."
+          ],
+          "bank": [
+            "with",
+            "me.",
+            "without",
+            "I",
+            "Dance"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 9",
+          "prompt": "Она учила английский два года.",
+          "answer": [
+            "She",
+            "studied",
+            "English",
+            "for",
+            "two",
+            "years."
+          ],
+          "bank": [
+            "to",
+            "She",
+            "studied",
+            "English",
+            "for",
+            "two",
+            "years.",
+            "studies"
+          ],
+          "hint": "Завершённый период в прошлом; длительность поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 9",
+          "prompt": "Забудь о ней.",
+          "answer": [
+            "Forget",
+            "about",
+            "her."
+          ],
+          "bank": [
+            "to",
+            "she",
+            "Forget",
+            "about",
+            "her."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 9",
+          "prompt": "Не смотри вверх.",
+          "answer": [
+            "Do",
+            "not",
+            "look",
+            "up."
+          ],
+          "bank": [
+            "up.",
+            "looks",
+            "down.",
+            "Do",
+            "not",
+            "look"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 9 из 9",
+          "prompt": "Они оглянулись и увидели нас.",
+          "answer": [
+            "They",
+            "looked",
+            "back",
+            "and",
+            "saw",
+            "us."
+          ],
+          "bank": [
+            "back",
+            "and",
+            "saw",
+            "us.",
+            "look",
+            "see",
+            "They",
+            "looked"
+          ]
+        }
+      ]
+    }
+  ]
+}

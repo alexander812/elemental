@@ -1,0 +1,925 @@
+{
+  "name": "Говорим о количестве, людях и вещах",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "much-many",
+      "name": "Различаем much и many",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Не всё считаем одинаково",
+          "paragraphs": [
+            "Many употребляется с исчисляемым существительным во множественном числе: many books. Much — с неисчисляемым: much water. Важно не то, можно ли измерить вещь, а то, как устроено конкретное английское существительное.",
+            "Money — неисчисляемое, но dollars — исчисляемое; water — неисчисляемое, но bottles — исчисляемое."
+          ],
+          "table": {
+            "headers": [
+              "Much",
+              "Many"
+            ],
+            "rows": [
+              [
+                "much time — много времени",
+                "many hours — много часов"
+              ],
+              [
+                "much money — много денег",
+                "many dollars — много долларов"
+              ],
+              [
+                "much water — много воды",
+                "many bottles — много бутылок"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Сколько именно?",
+          "paragraphs": [
+            "В начале вопроса используй how much или how many. Если вопросительная группа сама выполняет действие, дополнительное do не нужно: How many people work here?",
+            "Need — нуждаться; have — иметь; is left — осталось."
+          ],
+          "examples": [
+            "How much money do you have? — Сколько у тебя денег?",
+            "How many days do you need? — Сколько дней тебе нужно?",
+            "How much time is left? — Сколько времени осталось?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Сколько у тебя денег?",
+          "answer": [
+            "How",
+            "much",
+            "money",
+            "do",
+            "you",
+            "have?"
+          ],
+          "bank": [
+            "money",
+            "do",
+            "you",
+            "have?",
+            "many",
+            "moneys",
+            "How",
+            "much"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Сколько дней тебе нужно?",
+          "answer": [
+            "How",
+            "many",
+            "days",
+            "do",
+            "you",
+            "need?"
+          ],
+          "bank": [
+            "do",
+            "you",
+            "need?",
+            "much",
+            "needs?",
+            "How",
+            "many",
+            "days"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Сколько времени осталось?",
+          "answer": [
+            "How",
+            "much",
+            "time",
+            "is",
+            "left?"
+          ],
+          "bank": [
+            "left?",
+            "many",
+            "are",
+            "How",
+            "much",
+            "time",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Сколько людей работает здесь?",
+          "answer": [
+            "How",
+            "many",
+            "people",
+            "work",
+            "here?"
+          ],
+          "bank": [
+            "much",
+            "works",
+            "How",
+            "many",
+            "people",
+            "work",
+            "here?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "У меня не много времени.",
+          "answer": [
+            "I",
+            "do",
+            "not",
+            "have",
+            "much",
+            "time."
+          ],
+          "bank": [
+            "many",
+            "times",
+            "I",
+            "do",
+            "not",
+            "have",
+            "much",
+            "time."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "У нас не много английских книг.",
+          "answer": [
+            "We",
+            "do",
+            "not",
+            "have",
+            "many",
+            "English",
+            "books."
+          ],
+          "bank": [
+            "much",
+            "book.",
+            "We",
+            "do",
+            "not",
+            "have",
+            "many",
+            "English",
+            "books."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a-lot-plenty",
+      "name": "Говорим «много» и «предостаточно»",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "A lot of подходит к обоим типам",
+          "paragraphs": [
+            "A lot of можно поставить перед неисчисляемым словом или множественным числом исчисляемого: a lot of rice, a lot of doctors. В обычных утвердительных фразах это часто естественнее, чем much.",
+            "Но выражение не отменяет правил существительного: нельзя сказать a lot of book, когда имеешь в виду много книг. Нужно a lot of books."
+          ],
+          "examples": [
+            "They eat a lot of rice. — Они едят много риса.",
+            "He knows a lot of doctors. — Он знает много врачей."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Достаточно с запасом",
+          "paragraphs": [
+            "Plenty of означает не просто большое количество, а достаточное или более чем достаточное. Его тоже можно использовать с обоими типами существительных."
+          ],
+          "examples": [
+            "I have plenty of time. — У меня времени предостаточно.",
+            "We have plenty of books. — У нас книг предостаточно."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Too much, so many и неисчисляемые слова",
+          "paragraphs": [
+            "После too и so используй much или many: too much water, so many questions. Very much имеет свои позиции и значения; это не универсальная замена a lot of перед любым существительным.",
+            "Advice, news, research и travel в обычном общем значении неисчисляемые. Для отдельных единиц нужны другие слова: a piece of advice, a news item, a trip."
+          ],
+          "table": {
+            "headers": [
+              "Слово",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "advice",
+                "советы, совет"
+              ],
+              [
+                "news",
+                "новости"
+              ],
+              [
+                "research",
+                "исследовательская работа"
+              ],
+              [
+                "travel",
+                "путешествия как занятие"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Они едят много риса.",
+          "answer": [
+            "They",
+            "eat",
+            "a",
+            "lot",
+            "of",
+            "rice."
+          ],
+          "bank": [
+            "a",
+            "lot",
+            "of",
+            "rice.",
+            "many",
+            "eats",
+            "They",
+            "eat"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Он знает много врачей.",
+          "answer": [
+            "He",
+            "knows",
+            "a",
+            "lot",
+            "of",
+            "doctors."
+          ],
+          "bank": [
+            "lot",
+            "of",
+            "doctors.",
+            "know",
+            "doctor.",
+            "He",
+            "knows",
+            "a"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "У меня времени предостаточно.",
+          "answer": [
+            "I",
+            "have",
+            "plenty",
+            "of",
+            "time."
+          ],
+          "bank": [
+            "time.",
+            "has",
+            "many",
+            "I",
+            "have",
+            "plenty",
+            "of"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "У нас книг предостаточно.",
+          "answer": [
+            "We",
+            "have",
+            "plenty",
+            "of",
+            "books."
+          ],
+          "bank": [
+            "has",
+            "book.",
+            "We",
+            "have",
+            "plenty",
+            "of",
+            "books."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "У нас слишком много воды.",
+          "answer": [
+            "We",
+            "have",
+            "too",
+            "much",
+            "water."
+          ],
+          "bank": [
+            "waters.",
+            "We",
+            "have",
+            "too",
+            "much",
+            "water.",
+            "many"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "У неё так много вопросов.",
+          "answer": [
+            "She",
+            "has",
+            "so",
+            "many",
+            "questions."
+          ],
+          "bank": [
+            "has",
+            "so",
+            "many",
+            "questions.",
+            "much",
+            "question.",
+            "She"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "few-little",
+      "name": "Различаем мало и немного",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Few и little подчёркивают нехватку",
+          "paragraphs": [
+            "Few ставится перед множественным числом исчисляемых существительных, little — перед неисчисляемыми. Часто эти формы передают мысль «мало, меньше желаемого»."
+          ],
+          "table": {
+            "headers": [
+              "Few",
+              "Little"
+            ],
+            "rows": [
+              [
+                "few days — мало дней",
+                "little time — мало времени"
+              ],
+              [
+                "few bottles — мало бутылок",
+                "little milk — мало молока"
+              ],
+              [
+                "few books — мало книг",
+                "little money — мало денег"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Небольшое количество всё-таки есть",
+          "paragraphs": [
+            "A few означает несколько, a little — немного. Артикль меняет оттенок смысла: I have little time — времени мало; I have a little time — немного времени есть.",
+            "Only a few и only a little означают «всего несколько» и «всего немного». Не опускай a в этих сочетаниях."
+          ],
+          "examples": [
+            "I took a few books. — Я взял несколько книг.",
+            "We drank a little tea. — Мы выпили немного чая.",
+            "They want a little sugar. — Они хотят немного сахара."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "У меня мало английских книг.",
+          "answer": [
+            "I",
+            "have",
+            "few",
+            "English",
+            "books."
+          ],
+          "bank": [
+            "few",
+            "English",
+            "books.",
+            "little",
+            "book.",
+            "I",
+            "have"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "У тебя очень мало времени.",
+          "answer": [
+            "You",
+            "have",
+            "very",
+            "little",
+            "time."
+          ],
+          "bank": [
+            "little",
+            "time.",
+            "few",
+            "times.",
+            "You",
+            "have",
+            "very"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Я взял несколько книг.",
+          "answer": [
+            "I",
+            "took",
+            "a",
+            "few",
+            "books."
+          ],
+          "bank": [
+            "books.",
+            "little",
+            "book.",
+            "I",
+            "took",
+            "a",
+            "few"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Мы выпили немного чая.",
+          "answer": [
+            "We",
+            "drank",
+            "a",
+            "little",
+            "tea."
+          ],
+          "bank": [
+            "few",
+            "teas.",
+            "We",
+            "drank",
+            "a",
+            "little",
+            "tea."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Они хотят немного сахара.",
+          "answer": [
+            "They",
+            "want",
+            "a",
+            "little",
+            "sugar."
+          ],
+          "bank": [
+            "sugars.",
+            "They",
+            "want",
+            "a",
+            "little",
+            "sugar.",
+            "few"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "У нас всего несколько дней.",
+          "answer": [
+            "We",
+            "have",
+            "only",
+            "a",
+            "few",
+            "days."
+          ],
+          "bank": [
+            "day.",
+            "We",
+            "have",
+            "only",
+            "a",
+            "few",
+            "days.",
+            "little"
+          ],
+          "hint": "Only поставь после have."
+        }
+      ]
+    },
+    {
+      "id": "parameter-words",
+      "name": "Говорим о людях, вещах, месте и частоте",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Кто-то, всё и нигде",
+          "paragraphs": [
+            "Эти слова заменяют человека, вещь или место. Everybody и everyone близки по смыслу, как somebody и someone. В упражнениях выбирай форму, которая есть в банке."
+          ],
+          "table": {
+            "headers": [
+              "Люди",
+              "Вещи",
+              "Место"
+            ],
+            "rows": [
+              [
+                "everybody / everyone — все",
+                "everything — всё",
+                "everywhere — везде"
+              ],
+              [
+                "somebody / someone — кто-то",
+                "something — что-то",
+                "somewhere — где-то"
+              ],
+              [
+                "nobody / no one — никто",
+                "nothing — ничего",
+                "nowhere — нигде"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Any и отрицание",
+          "paragraphs": [
+            "Anybody/anyone, anything и anywhere часто появляются в вопросах и отрицаниях: Did you see anybody? I did not see anybody. В утвердительной фразе они могут означать «кто угодно», «что угодно», «где угодно».",
+            "Nobody, nothing, nowhere и never уже несут отрицание. В стандартной фразе не добавляй второе not: I have nothing, а не I do not have nothing. Everybody и nobody согласуются с глаголом как he/she: everybody knows."
+          ],
+          "examples": [
+            "We found something. — Мы кое-что нашли.",
+            "He saw nobody. — Он никого не видел.",
+            "I have nothing. — У меня ничего нет."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Всегда, иногда, никогда",
+          "paragraphs": [
+            "Always — всегда, sometimes — иногда, never — никогда. Обычно они стоят перед обычным глаголом, но после формы be: He never lies; He is always busy. Sometimes может занимать и другие позиции; здесь тренируем положение перед глаголом."
+          ],
+          "examples": [
+            "You always forget. — Ты всегда забываешь.",
+            "I sometimes cook. — Я иногда готовлю.",
+            "She is always busy. — Она всегда занята."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Я вижу кого-то.",
+          "answer": [
+            "I",
+            "see",
+            "somebody."
+          ],
+          "bank": [
+            "somebody.",
+            "sees",
+            "nobody.",
+            "I",
+            "see"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Мы кое-что нашли.",
+          "answer": [
+            "We",
+            "found",
+            "something."
+          ],
+          "bank": [
+            "find",
+            "nothing.",
+            "We",
+            "found",
+            "something."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Он никого не видел.",
+          "answer": [
+            "He",
+            "saw",
+            "nobody."
+          ],
+          "bank": [
+            "everybody.",
+            "He",
+            "saw",
+            "nobody.",
+            "see"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Она всегда занята.",
+          "answer": [
+            "She",
+            "is",
+            "always",
+            "busy."
+          ],
+          "bank": [
+            "never",
+            "She",
+            "is",
+            "always",
+            "busy.",
+            "are"
+          ],
+          "hint": "Начни с She; always поставь после is."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Я иногда готовлю.",
+          "answer": [
+            "I",
+            "sometimes",
+            "cook."
+          ],
+          "bank": [
+            "sometimes",
+            "cook.",
+            "cooks",
+            "always",
+            "I"
+          ],
+          "hint": "Начни с I; sometimes поставь перед cook."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Ты видел кого-нибудь?",
+          "answer": [
+            "Did",
+            "you",
+            "see",
+            "anybody?"
+          ],
+          "bank": [
+            "you",
+            "see",
+            "anybody?",
+            "saw",
+            "nobody?",
+            "Did"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Количество и подробности: итоговый тест",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Проверь существительное и смысл",
+          "paragraphs": [
+            "Для количества выбери much/many или little/few. A few и a little сообщают, что немного всё же есть. A lot of подходит к неисчисляемому слову и к исчисляемому во множественном числе.",
+            "У слов nobody/nothing/nowhere/never отрицание уже встроено. Не добавляй к ним not. Для everybody/nobody в настоящем времени помни форму третьего лица."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 9",
+          "prompt": "Сколько бутылок тебе нужно?",
+          "answer": [
+            "How",
+            "many",
+            "bottles",
+            "do",
+            "you",
+            "need?"
+          ],
+          "bank": [
+            "bottles",
+            "do",
+            "you",
+            "need?",
+            "much",
+            "bottle",
+            "How",
+            "many"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 9",
+          "prompt": "Сколько молока у тебя есть?",
+          "answer": [
+            "How",
+            "much",
+            "milk",
+            "do",
+            "you",
+            "have?"
+          ],
+          "bank": [
+            "do",
+            "you",
+            "have?",
+            "many",
+            "milks",
+            "How",
+            "much",
+            "milk"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 9",
+          "prompt": "Они хотят много советов.",
+          "answer": [
+            "They",
+            "want",
+            "a",
+            "lot",
+            "of",
+            "advice."
+          ],
+          "bank": [
+            "of",
+            "advice.",
+            "many",
+            "advices.",
+            "They",
+            "want",
+            "a",
+            "lot"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 9",
+          "prompt": "У нас сейчас мало денег.",
+          "answer": [
+            "We",
+            "have",
+            "little",
+            "money",
+            "now."
+          ],
+          "bank": [
+            "few",
+            "moneys",
+            "We",
+            "have",
+            "little",
+            "money",
+            "now."
+          ],
+          "hint": "Начни с We; now поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 9",
+          "prompt": "Она знает несколько врачей.",
+          "answer": [
+            "She",
+            "knows",
+            "a",
+            "few",
+            "doctors."
+          ],
+          "bank": [
+            "doctor.",
+            "She",
+            "knows",
+            "a",
+            "few",
+            "doctors.",
+            "little"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 9",
+          "prompt": "Все знают это.",
+          "answer": [
+            "Everybody",
+            "knows",
+            "it."
+          ],
+          "bank": [
+            "it.",
+            "know",
+            "them.",
+            "Everybody",
+            "knows"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 9",
+          "prompt": "Он никогда не лжёт.",
+          "answer": [
+            "He",
+            "never",
+            "lies."
+          ],
+          "bank": [
+            "lie",
+            "always",
+            "He",
+            "never",
+            "lies."
+          ],
+          "hint": "Начни с He; never поставь перед lies."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 9",
+          "prompt": "Его нигде нет.",
+          "answer": [
+            "He",
+            "is",
+            "nowhere."
+          ],
+          "bank": [
+            "everywhere.",
+            "He",
+            "is",
+            "nowhere.",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 9 из 9",
+          "prompt": "У меня ничего нет.",
+          "answer": [
+            "I",
+            "have",
+            "nothing."
+          ],
+          "bank": [
+            "have",
+            "nothing.",
+            "has",
+            "everything.",
+            "I"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,971 @@
+{
+  "name": "Описываем, что и где есть: there is и there are",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "there-present",
+      "name": "Сообщаем о наличии предметов",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Сначала сообщаем, что что-то есть",
+          "paragraphs": [
+            "Оборот there is/there are вводит человека, предмет или вещество: сообщает, что они существуют или находятся в каком-то месте.",
+            "There здесь служебное слово. Оно не обязано означать «там»: место можно отдельно указать словами here, in the room, on the table."
+          ],
+          "examples": [
+            "There is a TV in the room. — В комнате есть телевизор.",
+            "There are books on the desk. — На столе лежат книги."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Согласуем is или are",
+          "paragraphs": [
+            "Для одного исчисляемого предмета и неисчисляемого вещества нужна форма is. Для нескольких предметов — are.",
+            "В русском часто удобно начать перевод с места, но это не обязательный закон перевода."
+          ],
+          "examples": [
+            "There is milk in the fridge. — В холодильнике есть молоко."
+          ],
+          "table": {
+            "headers": [
+              "О чём говорим",
+              "Форма"
+            ],
+            "rows": [
+              [
+                "один предмет",
+                "There is a cat"
+              ],
+              [
+                "вещество",
+                "There is some sugar"
+              ],
+              [
+                "несколько предметов",
+                "There are apples"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Новый предмет или уже известный?",
+          "paragraphs": [
+            "There is a book on the desk впервые сообщает о книге на столе. The book is on the desk сообщает, где находится уже известная книга.",
+            "В обоих случаях русское предложение может начинаться с места, но английский порядок различается."
+          ],
+          "examples": [
+            "There is a cat in the tree. — На дереве сидит кошка.",
+            "The cat is in the tree. — Эта кошка на дереве."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "В комнате есть телевизор.",
+          "answer": [
+            "There",
+            "is",
+            "a",
+            "TV",
+            "in",
+            "the",
+            "room."
+          ],
+          "bank": [
+            "a",
+            "room.",
+            "TV",
+            "in",
+            "There",
+            "is",
+            "are",
+            "an",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "На столе лежат книги.",
+          "answer": [
+            "There",
+            "are",
+            "books",
+            "on",
+            "the",
+            "desk."
+          ],
+          "bank": [
+            "the",
+            "are",
+            "on",
+            "There",
+            "book",
+            "desk.",
+            "is",
+            "books"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "В холодильнике есть молоко.",
+          "answer": [
+            "There",
+            "is",
+            "milk",
+            "in",
+            "the",
+            "fridge."
+          ],
+          "bank": [
+            "fridge.",
+            "are",
+            "is",
+            "There",
+            "milk",
+            "the",
+            "a",
+            "in"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "В корзине есть яблоки.",
+          "answer": [
+            "There",
+            "are",
+            "apples",
+            "in",
+            "the",
+            "basket."
+          ],
+          "bank": [
+            "There",
+            "is",
+            "in",
+            "are",
+            "apples",
+            "an",
+            "the",
+            "basket."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "В шкафу есть немного сахара.",
+          "answer": [
+            "There",
+            "is",
+            "some",
+            "sugar",
+            "in",
+            "the",
+            "cupboard."
+          ],
+          "bank": [
+            "the",
+            "are",
+            "There",
+            "is",
+            "a",
+            "some",
+            "sugar",
+            "in",
+            "cupboard."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "На дереве сидит кошка.",
+          "answer": [
+            "There",
+            "is",
+            "a",
+            "cat",
+            "in",
+            "the",
+            "tree."
+          ],
+          "bank": [
+            "are",
+            "There",
+            "in",
+            "cat",
+            "is",
+            "the",
+            "a",
+            "cats",
+            "tree."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "there-past-future",
+      "name": "Переносим описание в прошлое и будущее",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "В прошлом: was и were",
+          "paragraphs": [
+            "В прошлом для одного предмета или вещества используй there was. Для нескольких — there were. После них укажи, что находилось в нужном месте."
+          ],
+          "examples": [
+            "There was a ball on the grass. — На траве лежал мяч.",
+            "There were keys on the chair. — На стуле лежали ключи."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "В будущем: will be для всех",
+          "paragraphs": [
+            "В будущем форма одна для любого числа: there will be. После will нельзя подставлять is или are.",
+            "Вопрос начинается с Will there be…? Сокращение there’ll be передаёт тот же смысл."
+          ],
+          "examples": [
+            "There will be a kitchen here. — Здесь будет кухня.",
+            "There will be two bedrooms there. — Там будет две спальни."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "На траве лежал мяч.",
+          "answer": [
+            "There",
+            "was",
+            "a",
+            "ball",
+            "on",
+            "the",
+            "grass."
+          ],
+          "bank": [
+            "balls",
+            "was",
+            "grass.",
+            "ball",
+            "a",
+            "were",
+            "on",
+            "the",
+            "There"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "На стуле лежали ключи.",
+          "answer": [
+            "There",
+            "were",
+            "keys",
+            "on",
+            "the",
+            "chair."
+          ],
+          "bank": [
+            "There",
+            "were",
+            "chair.",
+            "key",
+            "keys",
+            "the",
+            "was",
+            "on"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "В холодильнике было молоко.",
+          "answer": [
+            "There",
+            "was",
+            "milk",
+            "in",
+            "the",
+            "fridge."
+          ],
+          "bank": [
+            "are",
+            "fridge.",
+            "in",
+            "There",
+            "milk",
+            "the",
+            "was",
+            "were"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Здесь будет кухня.",
+          "answer": [
+            "There",
+            "will",
+            "be",
+            "a",
+            "kitchen",
+            "here."
+          ],
+          "bank": [
+            "a",
+            "are",
+            "kitchen",
+            "There",
+            "be",
+            "will",
+            "is",
+            "here."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Там будет две спальни.",
+          "answer": [
+            "There",
+            "will",
+            "be",
+            "two",
+            "bedrooms",
+            "there."
+          ],
+          "bank": [
+            "is",
+            "be",
+            "bedrooms",
+            "two",
+            "will",
+            "there.",
+            "bedroom",
+            "There"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "В комнате будут столы.",
+          "answer": [
+            "There",
+            "will",
+            "be",
+            "tables",
+            "in",
+            "the",
+            "room."
+          ],
+          "bank": [
+            "tables",
+            "be",
+            "in",
+            "the",
+            "room.",
+            "is",
+            "table",
+            "There",
+            "will"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "there-negatives",
+      "name": "Говорим, чего нет",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Not any и no",
+          "paragraphs": [
+            "Перед неисчисляемым словом или множественным числом можно сказать not any либо no: There is not any milk / There is no milk.",
+            "No уже несёт отрицание. Не добавляй к нему ещё not. Для одного предмета возможна форма not a: There is not a picture."
+          ],
+          "examples": [
+            "There are no people in the house. — В доме нет людей.",
+            "There is no money in the wallet. — В кошельке нет денег."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Отрицание в других временах",
+          "paragraphs": [
+            "В прошлом not ставится после was/were. В будущем порядок такой: there will not be. Форма will be not здесь не используется.",
+            "Nobody означает «никто» и обычно согласуется с единственным числом: there was nobody. С ним дополнительное not не нужно."
+          ],
+          "examples": [
+            "There was nobody in the garden. — В саду никого не было.",
+            "There will not be a meeting. — Встречи не будет.",
+            "There isn’t = There is not; There aren’t = There are not; There won’t be = There will not be."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "В доме нет людей.",
+          "answer": [
+            "There",
+            "are",
+            "no",
+            "people",
+            "in",
+            "the",
+            "house."
+          ],
+          "bank": [
+            "house.",
+            "the",
+            "no",
+            "people",
+            "There",
+            "person",
+            "is",
+            "in",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "В кошельке нет денег.",
+          "answer": [
+            "There",
+            "is",
+            "no",
+            "money",
+            "in",
+            "the",
+            "wallet."
+          ],
+          "bank": [
+            "are",
+            "money",
+            "There",
+            "the",
+            "is",
+            "in",
+            "wallet.",
+            "a",
+            "no"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "В моём кофе нет сахара.",
+          "answer": [
+            "There",
+            "is",
+            "not",
+            "any",
+            "sugar",
+            "in",
+            "my",
+            "coffee."
+          ],
+          "bank": [
+            "There",
+            "some",
+            "are",
+            "in",
+            "coffee.",
+            "sugar",
+            "not",
+            "my",
+            "is",
+            "any"
+          ],
+          "hint": "Используй полную форму not any."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "На стене нет картины.",
+          "answer": [
+            "There",
+            "is",
+            "not",
+            "a",
+            "picture",
+            "on",
+            "the",
+            "wall."
+          ],
+          "bank": [
+            "an",
+            "on",
+            "picture",
+            "is",
+            "a",
+            "wall.",
+            "are",
+            "the",
+            "There",
+            "not"
+          ],
+          "hint": "Используй полную форму not a."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "В саду никого не было.",
+          "answer": [
+            "There",
+            "was",
+            "nobody",
+            "in",
+            "the",
+            "garden."
+          ],
+          "bank": [
+            "the",
+            "garden.",
+            "There",
+            "was",
+            "in",
+            "are",
+            "were",
+            "nobody"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Встречи не будет.",
+          "answer": [
+            "There",
+            "will",
+            "not",
+            "be",
+            "a",
+            "meeting."
+          ],
+          "bank": [
+            "not",
+            "will",
+            "a",
+            "be",
+            "meeting.",
+            "no",
+            "is",
+            "There"
+          ],
+          "hint": "Используй полную форму will not be."
+        }
+      ]
+    },
+    {
+      "id": "there-questions",
+      "name": "Задаём вопросы о наличии и количестве",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Вынеси первую глагольную форму вперёд",
+          "paragraphs": [
+            "В настоящем вопрос начинается с Is there или Are there; в прошлом — Was there или Were there. В будущем — Will there be.",
+            "Для неопределённого количества в вопросах часто используют any."
+          ],
+          "examples": [
+            "Are there any cats on the roof? — На крыше есть кошки?",
+            "Will there be a kitchen here? — Здесь будет кухня?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "How much и how many",
+          "paragraphs": [
+            "How much подходит к неисчисляемому слову: how much water. How many — к множественному числу исчисляемого: how many books.",
+            "После вопросительной группы сохраняется порядок вопроса: How much water is there…?"
+          ],
+          "examples": [
+            "How much water is there in the bottle? — Сколько воды в бутылке?",
+            "What is there in the box? — Что есть в коробке?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Есть ли кошки на крыше?",
+          "answer": [
+            "Are",
+            "there",
+            "any",
+            "cats",
+            "on",
+            "the",
+            "roof?"
+          ],
+          "bank": [
+            "any",
+            "there",
+            "cats",
+            "on",
+            "the",
+            "Are",
+            "Is",
+            "cat",
+            "roof?"
+          ],
+          "hint": "Собери вопрос с there и any."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Есть ли молоко в холодильнике?",
+          "answer": [
+            "Is",
+            "there",
+            "milk",
+            "in",
+            "the",
+            "fridge?"
+          ],
+          "bank": [
+            "Are",
+            "in",
+            "there",
+            "fridge?",
+            "a",
+            "Is",
+            "milk",
+            "the"
+          ],
+          "hint": "Собери вопрос с there."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "В комнате был телевизор?",
+          "answer": [
+            "Was",
+            "there",
+            "a",
+            "TV",
+            "in",
+            "the",
+            "room?"
+          ],
+          "bank": [
+            "the",
+            "in",
+            "an",
+            "Were",
+            "room?",
+            "a",
+            "Was",
+            "there",
+            "TV"
+          ],
+          "hint": "Собери вопрос с there."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Здесь будет кухня?",
+          "answer": [
+            "Will",
+            "there",
+            "be",
+            "a",
+            "kitchen",
+            "here?"
+          ],
+          "bank": [
+            "there",
+            "here?",
+            "are",
+            "kitchen",
+            "Will",
+            "be",
+            "a",
+            "is"
+          ],
+          "hint": "Собери вопрос с there."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Сколько воды в бутылке?",
+          "answer": [
+            "How",
+            "much",
+            "water",
+            "is",
+            "there",
+            "in",
+            "the",
+            "bottle?"
+          ],
+          "bank": [
+            "water",
+            "many",
+            "is",
+            "bottle?",
+            "in",
+            "the",
+            "are",
+            "much",
+            "How",
+            "there"
+          ],
+          "hint": "Собери вопрос с there."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Что есть в коробке?",
+          "answer": [
+            "What",
+            "is",
+            "there",
+            "in",
+            "the",
+            "box?"
+          ],
+          "bank": [
+            "is",
+            "box?",
+            "the",
+            "are",
+            "What",
+            "in",
+            "was",
+            "there"
+          ],
+          "hint": "Собери вопрос с there."
+        }
+      ]
+    },
+    {
+      "id": "there-overview",
+      "name": "Описываем место в трёх временах",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Число, время и тип фразы",
+          "paragraphs": [
+            "Сначала реши, один предмет перед тобой, вещество или несколько предметов. Затем выбери время: is/are, was/were или will be.",
+            "В вопросе первая глагольная форма идёт перед there. В отрицании используй no либо not с подходящим продолжением. Не ставь одновременно no и not."
+          ],
+          "examples": [
+            "There are apples. — Есть яблоки.",
+            "Were there apples? — Были яблоки?",
+            "There will not be any apples. — Яблок не будет."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 8",
+          "prompt": "В классе есть десять столов.",
+          "answer": [
+            "There",
+            "are",
+            "ten",
+            "tables",
+            "in",
+            "the",
+            "classroom."
+          ],
+          "bank": [
+            "table",
+            "in",
+            "are",
+            "is",
+            "classroom.",
+            "There",
+            "ten",
+            "the",
+            "tables"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 8",
+          "prompt": "В саду был кот.",
+          "answer": [
+            "There",
+            "was",
+            "a",
+            "cat",
+            "in",
+            "the",
+            "garden."
+          ],
+          "bank": [
+            "There",
+            "in",
+            "the",
+            "garden.",
+            "was",
+            "cats",
+            "were",
+            "cat",
+            "a"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 8",
+          "prompt": "На стуле были ключи?",
+          "answer": [
+            "Were",
+            "there",
+            "keys",
+            "on",
+            "the",
+            "chair?"
+          ],
+          "bank": [
+            "Were",
+            "key",
+            "Was",
+            "keys",
+            "there",
+            "chair?",
+            "on",
+            "the"
+          ],
+          "hint": "Собери вопрос с there."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 8",
+          "prompt": "Здесь будет две комнаты.",
+          "answer": [
+            "There",
+            "will",
+            "be",
+            "two",
+            "rooms",
+            "here."
+          ],
+          "bank": [
+            "here.",
+            "There",
+            "rooms",
+            "will",
+            "two",
+            "is",
+            "room",
+            "be"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 8",
+          "prompt": "В холодильнике нет молока.",
+          "answer": [
+            "There",
+            "is",
+            "no",
+            "milk",
+            "in",
+            "the",
+            "fridge."
+          ],
+          "bank": [
+            "in",
+            "is",
+            "are",
+            "There",
+            "the",
+            "fridge.",
+            "a",
+            "no",
+            "milk"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 8",
+          "prompt": "В саду никого не было.",
+          "answer": [
+            "There",
+            "was",
+            "nobody",
+            "in",
+            "the",
+            "garden."
+          ],
+          "bank": [
+            "the",
+            "garden.",
+            "There",
+            "was",
+            "in",
+            "is",
+            "were",
+            "nobody"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 8",
+          "prompt": "Завтра не будет встречи.",
+          "answer": [
+            "There",
+            "will",
+            "not",
+            "be",
+            "a",
+            "meeting",
+            "tomorrow."
+          ],
+          "bank": [
+            "a",
+            "be",
+            "will",
+            "There",
+            "is",
+            "no",
+            "meeting",
+            "tomorrow.",
+            "not"
+          ],
+          "hint": "Начни с There; tomorrow поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 8",
+          "prompt": "Сколько книг на столе?",
+          "answer": [
+            "How",
+            "many",
+            "books",
+            "are",
+            "there",
+            "on",
+            "the",
+            "desk?"
+          ],
+          "bank": [
+            "are",
+            "the",
+            "there",
+            "is",
+            "on",
+            "How",
+            "much",
+            "desk?",
+            "many",
+            "books"
+          ],
+          "hint": "Собери вопрос с there."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,881 @@
+{
+  "name": "Строим условия и вопросы к подлежащему",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "first-conditional",
+      "name": "Говорим об условии в будущем",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Если условие выполнится",
+          "paragraphs": [
+            "В реальном условии о будущем после if обычно стоит Present Simple, а в результате — will + глагол. Русское будущее в обеих частях не нужно переводить двумя will.",
+            "Если начинаем с if, после условной части обычно ставится запятая. Части можно поменять местами, но тренажёр будет указывать нужный порядок."
+          ],
+          "examples": [
+            "If I work, I will earn money. — Если я буду работать, я заработаю деньги.",
+            "I will visit you if I have time. — Я навещу тебя, если у меня будет время."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Отрицание остаётся в своей части",
+          "paragraphs": [
+            "После if отрицание строится через do not/does not, а с be — через am/is/are not. В результате о будущем нужно will not.",
+            "Правило относится к if со значением условия. If может также означать «ли»: I don’t know if she will come — я не знаю, придёт ли она. Это уже не условное придаточное."
+          ],
+          "examples": [
+            "If she asks, I will help. — Если она попросит, я помогу.",
+            "If you do not hurry, you will be late. — Если ты не поторопишься, ты опоздаешь."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Если я буду работать, я заработаю деньги.",
+          "answer": [
+            "If",
+            "I",
+            "work,",
+            "I",
+            "will",
+            "earn",
+            "money."
+          ],
+          "bank": [
+            "will",
+            "money.",
+            "If",
+            "works,",
+            "am",
+            "work,",
+            "earn",
+            "I",
+            "I"
+          ],
+          "hint": "Начни с If и поставь условие первым."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Если у меня будет время, я навещу тебя.",
+          "answer": [
+            "If",
+            "I",
+            "have",
+            "time,",
+            "I",
+            "will",
+            "visit",
+            "you."
+          ],
+          "bank": [
+            "If",
+            "visit",
+            "I",
+            "have",
+            "visits",
+            "time,",
+            "you.",
+            "will",
+            "I",
+            "has"
+          ],
+          "hint": "Начни с If и поставь условие первым."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Если она попросит, я помогу.",
+          "answer": [
+            "If",
+            "she",
+            "asks,",
+            "I",
+            "will",
+            "help."
+          ],
+          "bank": [
+            "help.",
+            "will",
+            "asks,",
+            "she",
+            "I",
+            "ask,",
+            "helps.",
+            "If"
+          ],
+          "hint": "Начни с If и поставь условие первым."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Если ты не поторопишься, ты опоздаешь.",
+          "answer": [
+            "If",
+            "you",
+            "do",
+            "not",
+            "hurry,",
+            "you",
+            "will",
+            "be",
+            "late."
+          ],
+          "bank": [
+            "late.",
+            "be",
+            "will",
+            "If",
+            "do",
+            "hurries,",
+            "you",
+            "you",
+            "hurry,",
+            "does",
+            "not"
+          ],
+          "hint": "Начни с If и поставь условие первым."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Если он будет занят, мы подождём.",
+          "answer": [
+            "If",
+            "he",
+            "is",
+            "busy,",
+            "we",
+            "will",
+            "wait."
+          ],
+          "bank": [
+            "If",
+            "waits.",
+            "is",
+            "he",
+            "are",
+            "busy,",
+            "will",
+            "wait.",
+            "we"
+          ],
+          "hint": "Начни с If и поставь условие первым."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Если пойдёт дождь, мы не пойдём гулять.",
+          "answer": [
+            "If",
+            "it",
+            "rains,",
+            "we",
+            "will",
+            "not",
+            "go",
+            "out."
+          ],
+          "bank": [
+            "it",
+            "goes",
+            "we",
+            "will",
+            "out.",
+            "go",
+            "If",
+            "not",
+            "rain,",
+            "rains,"
+          ],
+          "hint": "Начни с If и поставь условие первым."
+        }
+      ]
+    },
+    {
+      "id": "when-time",
+      "name": "Соединяем время и результат",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Когда событие произойдёт",
+          "paragraphs": [
+            "When вводит событие, которого ожидаем; if — условие, которое может выполниться. В придаточном времени о будущем после when тоже обычно ставят настоящее.",
+            "Сравни: When she comes, we will begin — когда она придёт, мы начнём. В прямом вопросе When will she come? слово will нужно: придаточного времени здесь нет."
+          ],
+          "examples": [
+            "When the weather is good, we will go to the pool. — Когда погода будет хорошей, мы пойдём в бассейн.",
+            "We will go out when the rain stops. — Мы выйдем, когда дождь прекратится."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "В главной части не обязательно will",
+          "paragraphs": [
+            "Результат может быть просьбой, приказом или вопросом с can: Tell her if she asks; Can I come when you are not busy?",
+            "Если описываем привычку, настоящее может стоять в обеих частях. После he/she/it не забываем -s."
+          ],
+          "examples": [
+            "Tell her everything if she asks. — Расскажи ей всё, если она спросит.",
+            "He often visits his parents when he comes to Moscow. — Он часто навещает родителей, когда приезжает в Москву."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Когда она придёт, мы начнём.",
+          "answer": [
+            "When",
+            "she",
+            "comes,",
+            "we",
+            "will",
+            "begin."
+          ],
+          "bank": [
+            "When",
+            "begins.",
+            "will",
+            "she",
+            "we",
+            "come,",
+            "comes,",
+            "begin."
+          ],
+          "hint": "Начни с When и поставь придаточную часть первой."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Когда погода будет хорошей, мы пойдём в бассейн.",
+          "answer": [
+            "When",
+            "the",
+            "weather",
+            "is",
+            "good,",
+            "we",
+            "will",
+            "go",
+            "to",
+            "the",
+            "pool."
+          ],
+          "bank": [
+            "to",
+            "will",
+            "is",
+            "go",
+            "pool.",
+            "When",
+            "we",
+            "the",
+            "weather",
+            "are",
+            "the",
+            "goes",
+            "good,"
+          ],
+          "hint": "Начни с When и поставь придаточную часть первой."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Мы выйдем, когда дождь прекратится.",
+          "answer": [
+            "We",
+            "will",
+            "go",
+            "out",
+            "when",
+            "the",
+            "rain",
+            "stops."
+          ],
+          "bank": [
+            "goes",
+            "will",
+            "rain",
+            "stop.",
+            "out",
+            "go",
+            "We",
+            "when",
+            "the",
+            "stops."
+          ],
+          "hint": "Начни с We, затем поставь часть с when."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Могу я прийти, когда ты не будешь занят?",
+          "answer": [
+            "Can",
+            "I",
+            "come",
+            "when",
+            "you",
+            "are",
+            "not",
+            "busy?"
+          ],
+          "bank": [
+            "are",
+            "is",
+            "when",
+            "I",
+            "you",
+            "Can",
+            "comes",
+            "busy?",
+            "come",
+            "not"
+          ],
+          "hint": "Начни с Can I come."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Расскажи ей всё, если она спросит.",
+          "answer": [
+            "Tell",
+            "her",
+            "everything",
+            "if",
+            "she",
+            "asks."
+          ],
+          "bank": [
+            "she",
+            "Tell",
+            "her",
+            "ask.",
+            "if",
+            "everything",
+            "asks.",
+            "she"
+          ],
+          "hint": "Начни с просьбы Tell her."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Он часто навещает родителей, когда приезжает в Москву.",
+          "answer": [
+            "He",
+            "often",
+            "visits",
+            "his",
+            "parents",
+            "when",
+            "he",
+            "comes",
+            "to",
+            "Moscow."
+          ],
+          "bank": [
+            "he",
+            "his",
+            "visits",
+            "to",
+            "Moscow.",
+            "parents",
+            "He",
+            "when",
+            "often",
+            "come",
+            "visit",
+            "comes"
+          ],
+          "hint": "Начни с He often visits, часть с when поставь в конце."
+        }
+      ]
+    },
+    {
+      "id": "subject-present",
+      "name": "Спрашиваем, кто делает действие",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Who и what заменяют подлежащее",
+          "paragraphs": [
+            "Чтобы узнать, кто действует, замени подлежащее на who. Для предмета, явления или события используй what. В простом утвердительном вопросе отдельное do/does не добавляется.",
+            "В нейтральном вопросе о неизвестном действующем лице или предмете обычно нужна форма третьего лица единственного числа."
+          ],
+          "examples": [
+            "He opens the door. → Who opens the door? — Кто открывает дверь?",
+            "It works well. → What works well? — Что работает хорошо?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Кто? — не то же самое, что кого?",
+          "paragraphs": [
+            "Who helps you? спрашивает о помощнике: who — подлежащее. Who do you help? спрашивает о том, кому помогаешь ты: подлежащее уже you.",
+            "Разницу создаёт роль слова в предложении, а не сам по себе перевод who. Вопросы с отрицанием могут содержать do: Who does not know?"
+          ],
+          "examples": [
+            "Who sees her? — Кто видит её?",
+            "Who do you see? — Кого ты видишь?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Кто открывает дверь?",
+          "answer": [
+            "Who",
+            "opens",
+            "the",
+            "door?"
+          ],
+          "bank": [
+            "open",
+            "door?",
+            "opens",
+            "the",
+            "is",
+            "Who"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Что работает хорошо?",
+          "answer": [
+            "What",
+            "works",
+            "well?"
+          ],
+          "bank": [
+            "What",
+            "work",
+            "good?",
+            "works",
+            "well?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Кто тебе помогает?",
+          "answer": [
+            "Who",
+            "helps",
+            "you?"
+          ],
+          "bank": [
+            "you?",
+            "helps",
+            "help",
+            "Who",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Кто видит её?",
+          "answer": [
+            "Who",
+            "sees",
+            "her?"
+          ],
+          "bank": [
+            "her?",
+            "sees",
+            "she?",
+            "Who",
+            "see"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Кто здесь живёт?",
+          "answer": [
+            "Who",
+            "lives",
+            "here?"
+          ],
+          "bank": [
+            "Who",
+            "live",
+            "here?",
+            "am",
+            "lives"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Кого ты видишь?",
+          "answer": [
+            "Who",
+            "do",
+            "you",
+            "see?"
+          ],
+          "bank": [
+            "do",
+            "Who",
+            "sees?",
+            "does",
+            "you",
+            "see?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "subject-past-future",
+      "name": "Спрашиваем о прошлом и будущем",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "В прошлом сохраняется прошедшая форма",
+          "paragraphs": [
+            "В вопросе к подлежащему Past Simple не нужно добавлять did: Who opened the window? Who saw you?",
+            "Если подлежащее уже есть, обычный вопрос об объекте строится с did и начальной формой: Who did you see?"
+          ],
+          "examples": [
+            "Who called you? — Кто позвонил тебе?",
+            "Who did you call? — Кому ты позвонил?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "В будущем сохраняется will",
+          "paragraphs": [
+            "Who will help? — кто поможет? Will остаётся перед начальной формой глагола. Правило «без do/did» не означает, что в таком вопросе вообще не бывает вспомогательных глаголов.",
+            "Форма зависит от времени: opens — настоящее, opened — прошлое, will open — будущее."
+          ],
+          "examples": [
+            "Who will open the door? — Кто откроет дверь?",
+            "What will help you? — Что поможет тебе?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Кто открыл окно?",
+          "answer": [
+            "Who",
+            "opened",
+            "the",
+            "window?"
+          ],
+          "bank": [
+            "does",
+            "opened",
+            "Who",
+            "window?",
+            "open",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Кто тебя видел?",
+          "answer": [
+            "Who",
+            "saw",
+            "you?"
+          ],
+          "bank": [
+            "see",
+            "you?",
+            "Who",
+            "saw",
+            "sees"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Кого ты видел?",
+          "answer": [
+            "Who",
+            "did",
+            "you",
+            "see?"
+          ],
+          "bank": [
+            "you",
+            "did",
+            "does",
+            "see?",
+            "saw?",
+            "Who"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Кто тебе позвонил?",
+          "answer": [
+            "Who",
+            "called",
+            "you?"
+          ],
+          "bank": [
+            "call",
+            "Who",
+            "called",
+            "you?",
+            "does"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Кто откроет дверь?",
+          "answer": [
+            "Who",
+            "will",
+            "open",
+            "the",
+            "door?"
+          ],
+          "bank": [
+            "do",
+            "opens",
+            "Who",
+            "door?",
+            "will",
+            "the",
+            "open"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Что поможет тебе?",
+          "answer": [
+            "What",
+            "will",
+            "help",
+            "you?"
+          ],
+          "bank": [
+            "helps",
+            "will",
+            "What",
+            "you?",
+            "help",
+            "does"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conditions-overview",
+      "name": "Соединяем условия и вопросы",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Проверь две разные конструкции",
+          "paragraphs": [
+            "В условии или придаточном времени о будущем: if/when + настоящее. В главной части выбирай нужную форму: will, can или повелительное наклонение.",
+            "В вопросе найди подлежащее. Если who/what само занимает его место, отдельные do/does/did в обычном положительном вопросе не нужны."
+          ],
+          "examples": [
+            "If you help, we will finish. — Если ты поможешь, мы закончим.",
+            "Who helped them? — Кто помог им?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 8",
+          "prompt": "Если ты поможешь, мы закончим.",
+          "answer": [
+            "If",
+            "you",
+            "help,",
+            "we",
+            "will",
+            "finish."
+          ],
+          "bank": [
+            "will",
+            "finish.",
+            "you",
+            "finishes.",
+            "we",
+            "help,",
+            "helps,",
+            "If"
+          ],
+          "hint": "Начни с If и поставь условие первым."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 8",
+          "prompt": "Когда я закончу, я позвоню тебе.",
+          "answer": [
+            "When",
+            "I",
+            "finish,",
+            "I",
+            "will",
+            "call",
+            "you."
+          ],
+          "bank": [
+            "will",
+            "called",
+            "When",
+            "I",
+            "call",
+            "finish,",
+            "finishes,",
+            "you.",
+            "I"
+          ],
+          "hint": "Начни с When и поставь придаточную часть первой."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 8",
+          "prompt": "Мы пойдём домой, если фильм будет скучным.",
+          "answer": [
+            "We",
+            "will",
+            "go",
+            "home",
+            "if",
+            "the",
+            "film",
+            "is",
+            "boring."
+          ],
+          "bank": [
+            "are",
+            "go",
+            "if",
+            "We",
+            "goes",
+            "home",
+            "will",
+            "is",
+            "the",
+            "film",
+            "boring."
+          ],
+          "hint": "Начни с We, часть с if поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 8",
+          "prompt": "Если ты простишь меня, я никогда этого не забуду.",
+          "answer": [
+            "If",
+            "you",
+            "forgive",
+            "me,",
+            "I",
+            "will",
+            "never",
+            "forget",
+            "it."
+          ],
+          "bank": [
+            "forgive",
+            "never",
+            "forgives",
+            "me,",
+            "forgot",
+            "it.",
+            "If",
+            "will",
+            "I",
+            "forget",
+            "you"
+          ],
+          "hint": "Начни с If; в результате поставь never сразу после will."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 8",
+          "prompt": "Кто знает ответ?",
+          "answer": [
+            "Who",
+            "knows",
+            "the",
+            "answer?"
+          ],
+          "bank": [
+            "knows",
+            "are",
+            "know",
+            "the",
+            "Who",
+            "answer?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 8",
+          "prompt": "Кто помог им?",
+          "answer": [
+            "Who",
+            "helped",
+            "them?"
+          ],
+          "bank": [
+            "they?",
+            "helped",
+            "Who",
+            "them?",
+            "helps"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 8",
+          "prompt": "Кому ты помог?",
+          "answer": [
+            "Who",
+            "did",
+            "you",
+            "help?"
+          ],
+          "bank": [
+            "does",
+            "helped?",
+            "Who",
+            "you",
+            "help?",
+            "did"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 8",
+          "prompt": "Что будет работать?",
+          "answer": [
+            "What",
+            "will",
+            "work?"
+          ],
+          "bank": [
+            "work?",
+            "What",
+            "works?",
+            "will",
+            "does"
+          ]
+        }
+      ]
+    }
+  ]
+}

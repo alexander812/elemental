@@ -1,0 +1,1094 @@
+{
+  "name": "Количество, порядок, даты и годы",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "cardinal-numbers",
+      "name": "Считаем предметы и называем возраст",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Количество: сколько?",
+          "paragraphs": [
+            "Количественные числительные отвечают на вопрос сколько: one book, two books. Они также используются для возраста: She is thirty-two — ей тридцать два.",
+            "От one до twelve формы нужно запомнить. Для нуля часто используется zero."
+          ],
+          "table": {
+            "headers": [
+              "Число",
+              "Слово"
+            ],
+            "rows": [
+              [
+                "0 / 1 / 2",
+                "zero / one / two"
+              ],
+              [
+                "3 / 4 / 5",
+                "three / four / five"
+              ],
+              [
+                "6 / 7 / 8",
+                "six / seven / eight"
+              ],
+              [
+                "9 / 10 / 11 / 12",
+                "nine / ten / eleven / twelve"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "От тринадцати до девятнадцати",
+          "paragraphs": [
+            "В числах 13–19 обычно встречается -teen. Следи за особыми написаниями thirteen, fifteen и eighteen.",
+            "Не путай -teen и -ty: thirteen — 13, thirty — 30; fourteen — 14, forty — 40. Fourty — неверное написание."
+          ],
+          "table": {
+            "headers": [
+              "Число",
+              "Слово"
+            ],
+            "rows": [
+              [
+                "13 / 14",
+                "thirteen / fourteen"
+              ],
+              [
+                "15 / 16",
+                "fifteen / sixteen"
+              ],
+              [
+                "17 / 18 / 19",
+                "seventeen / eighteen / nineteen"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Десятки и составные числа",
+          "paragraphs": [
+            "Для числа между десятками соедини десяток и единицу дефисом: twenty-one, thirty-four, ninety-nine.",
+            "В простом примере на вычитание minus — минус, equals — равно: Seven minus two equals five."
+          ],
+          "examples": [
+            "She is thirty-two. — Ей тридцать два.",
+            "I have twenty-one books. — У меня двадцать одна книга."
+          ],
+          "table": {
+            "headers": [
+              "Число",
+              "Слово"
+            ],
+            "rows": [
+              [
+                "20 / 30 / 40",
+                "twenty / thirty / forty"
+              ],
+              [
+                "50 / 60 / 70",
+                "fifty / sixty / seventy"
+              ],
+              [
+                "80 / 90",
+                "eighty / ninety"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "У меня две книги.",
+          "answer": [
+            "I",
+            "have",
+            "two",
+            "books."
+          ],
+          "bank": [
+            "second",
+            "have",
+            "I",
+            "has",
+            "two",
+            "books."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Ей тринадцать.",
+          "answer": [
+            "She",
+            "is",
+            "thirteen."
+          ],
+          "bank": [
+            "thirty.",
+            "are",
+            "is",
+            "thirteen.",
+            "She"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Ему сорок.",
+          "answer": [
+            "He",
+            "is",
+            "forty."
+          ],
+          "bank": [
+            "fourteen.",
+            "He",
+            "forty.",
+            "is",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Ей тридцать два.",
+          "answer": [
+            "She",
+            "is",
+            "thirty-two."
+          ],
+          "bank": [
+            "She",
+            "thirty-two.",
+            "are",
+            "is",
+            "thirty-second."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "У меня двадцать одна книга.",
+          "answer": [
+            "I",
+            "have",
+            "twenty-one",
+            "books."
+          ],
+          "bank": [
+            "books.",
+            "has",
+            "I",
+            "twenty-first",
+            "twenty-one",
+            "have"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Семь минус два равно пять.",
+          "answer": [
+            "Seven",
+            "minus",
+            "two",
+            "equals",
+            "five."
+          ],
+          "bank": [
+            "minus",
+            "plus",
+            "equal",
+            "equals",
+            "two",
+            "five.",
+            "Seven"
+          ],
+          "hint": "Начни с Seven minus two, затем equals five."
+        }
+      ]
+    },
+    {
+      "id": "large-numbers",
+      "name": "Называем сотни, тысячи и цены",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Hundred, thousand, million, billion",
+          "paragraphs": [
+            "Сто — one hundred, тысяча — one thousand, миллион — one million, миллиард — one billion. После точного числа не добавляй -s: five thousand dollars, не five thousands dollars.",
+            "Hundreds of people означает сотни людей без точного количества. Это другой случай: здесь -s и of нужны."
+          ],
+          "table": {
+            "headers": [
+              "Число",
+              "Написание"
+            ],
+            "rows": [
+              [
+                "100 / 200",
+                "one hundred / two hundred"
+              ],
+              [
+                "1 000 / 5 000",
+                "one thousand / five thousand"
+              ],
+              [
+                "1 000 000",
+                "one million"
+              ],
+              [
+                "1 000 000 000",
+                "one billion"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Соединяем части большого числа",
+          "paragraphs": [
+            "В британском варианте после сотен перед десятками или единицами часто ставится and: one hundred and fifty. В американском варианте and часто опускается. Оба варианта возможны; в этих заданиях подсказка задаёт написание с and.",
+            "После суммы для цены покупки подходит for: I bought the car for five thousand dollars. Cost — стоить, costs — стоит после it/this car."
+          ],
+          "examples": [
+            "one hundred and fifty — сто пятьдесят",
+            "seven hundred and fifty thousand — семьсот пятьдесят тысяч",
+            "She has one hundred and fifty pairs of shoes. — У неё сто пятьдесят пар обуви."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "У меня сто книг.",
+          "answer": [
+            "I",
+            "have",
+            "one",
+            "hundred",
+            "books."
+          ],
+          "bank": [
+            "one",
+            "hundred",
+            "hundreds",
+            "have",
+            "books.",
+            "has",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "У неё двести книг.",
+          "answer": [
+            "She",
+            "has",
+            "two",
+            "hundred",
+            "books."
+          ],
+          "bank": [
+            "have",
+            "books.",
+            "two",
+            "has",
+            "hundreds",
+            "She",
+            "hundred"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Я зарабатываю тысячу долларов.",
+          "answer": [
+            "I",
+            "earn",
+            "one",
+            "thousand",
+            "dollars."
+          ],
+          "bank": [
+            "earns",
+            "thousand",
+            "one",
+            "I",
+            "earn",
+            "thousands",
+            "dollars."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Я купил эту машину за пять тысяч долларов.",
+          "answer": [
+            "I",
+            "bought",
+            "this",
+            "car",
+            "for",
+            "five",
+            "thousand",
+            "dollars."
+          ],
+          "bank": [
+            "I",
+            "this",
+            "thousands",
+            "five",
+            "dollars.",
+            "car",
+            "for",
+            "thousand",
+            "bought",
+            "buy"
+          ],
+          "hint": "Начни с I bought this car, затем цену с for."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "У неё сто пятьдесят пар обуви.",
+          "answer": [
+            "She",
+            "has",
+            "one",
+            "hundred",
+            "and",
+            "fifty",
+            "pairs",
+            "of",
+            "shoes."
+          ],
+          "bank": [
+            "have",
+            "of",
+            "fifteenth",
+            "and",
+            "one",
+            "fifty",
+            "pairs",
+            "hundred",
+            "has",
+            "She",
+            "shoes."
+          ],
+          "hint": "В числе используй one hundred and fifty с and."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Эта машина стоит семьсот пятьдесят тысяч рублей.",
+          "answer": [
+            "This",
+            "car",
+            "costs",
+            "seven",
+            "hundred",
+            "and",
+            "fifty",
+            "thousand",
+            "rubles."
+          ],
+          "bank": [
+            "fifty",
+            "This",
+            "seven",
+            "thousand",
+            "and",
+            "costs",
+            "rubles.",
+            "cost",
+            "car",
+            "hundred",
+            "thousands"
+          ],
+          "hint": "В числе используй seven hundred and fifty thousand с and."
+        }
+      ]
+    },
+    {
+      "id": "ordinal-numbers",
+      "name": "Указываем порядок и номер",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Порядок: который по счёту?",
+          "paragraphs": [
+            "Порядковые числительные обозначают место в последовательности. First, second и third отличаются от количественных one, two и three. Большинство остальных форм получает -th.",
+            "В составном числе меняется только последняя часть: twenty-one → twenty-first, one hundred and two → one hundred and second."
+          ],
+          "table": {
+            "headers": [
+              "Количество",
+              "Порядок"
+            ],
+            "rows": [
+              [
+                "one / two / three",
+                "first / second / third"
+              ],
+              [
+                "four / five",
+                "fourth / fifth"
+              ],
+              [
+                "eight / nine",
+                "eighth / ninth"
+              ],
+              [
+                "twelve",
+                "twelfth"
+              ],
+              [
+                "twenty / thirty",
+                "twentieth / thirtieth"
+              ],
+              [
+                "one hundred / one thousand",
+                "one hundredth / one thousandth"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "The first, но my first",
+          "paragraphs": [
+            "Для определённого места в последовательности обычно нужен the: the fourth floor. Притяжательное слово заменяет артикль: my twenty-fifth birthday, без the после my.",
+            "С номером комнаты или страницы после существительного часто используется количественное число: Room twenty-four, page thirty-five. Сравни the fourth room — четвёртая по счёту комната.",
+            "В сокращениях пишут 1st, 2nd, 3rd, 4th. У 11, 12 и 13 окончания всегда th: 11th, 12th, 13th; поэтому 21st, но 111th."
+          ],
+          "examples": [
+            "I live on the fourth floor. — Я живу на четвёртом этаже.",
+            "He lives in Room twenty-four. — Он живёт в комнате номер двадцать четыре.",
+            "This is my twenty-fifth birthday. — Это мой двадцать пятый день рождения."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я живу на четвёртом этаже.",
+          "answer": [
+            "I",
+            "live",
+            "on",
+            "the",
+            "fourth",
+            "floor."
+          ],
+          "bank": [
+            "on",
+            "live",
+            "floor.",
+            "fourth",
+            "four",
+            "lives",
+            "the",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Он живёт в комнате номер двадцать четыре.",
+          "answer": [
+            "He",
+            "lives",
+            "in",
+            "Room",
+            "twenty-four."
+          ],
+          "bank": [
+            "twenty-four.",
+            "live",
+            "in",
+            "twenty-fourth.",
+            "lives",
+            "Room",
+            "He"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Это мой двадцать пятый день рождения.",
+          "answer": [
+            "This",
+            "is",
+            "my",
+            "twenty-fifth",
+            "birthday."
+          ],
+          "bank": [
+            "twenty-fifth",
+            "birthday.",
+            "twenty-five",
+            "the",
+            "my",
+            "This",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Я прочитал вторую часть книги.",
+          "answer": [
+            "I",
+            "read",
+            "the",
+            "second",
+            "part",
+            "of",
+            "the",
+            "book."
+          ],
+          "bank": [
+            "at",
+            "the",
+            "two",
+            "read",
+            "the",
+            "second",
+            "part",
+            "I",
+            "of",
+            "book."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Мы были пятыми в очереди.",
+          "answer": [
+            "We",
+            "were",
+            "fifth",
+            "in",
+            "line."
+          ],
+          "bank": [
+            "fifth",
+            "line.",
+            "We",
+            "were",
+            "was",
+            "five",
+            "in"
+          ],
+          "hint": "Используй устойчивое выражение fifth in line, без the."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Пятнадцатая конференция открыта.",
+          "answer": [
+            "The",
+            "fifteenth",
+            "conference",
+            "is",
+            "open."
+          ],
+          "bank": [
+            "is",
+            "The",
+            "fifteen",
+            "are",
+            "fifteenth",
+            "conference",
+            "open."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dates-years",
+      "name": "Говорим о датах и годах",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Даты читаются с порядковым числительным",
+          "paragraphs": [
+            "В британском чтении даты встречается the twenty-third of April. В американском порядке месяц часто идёт первым: April twenty-third. На письме варианты могут выглядеть как 23 April или April 23.",
+            "Перед конкретным днём используй on: on the first of January. Перед отдельным годом — in: in nineteen seventy-seven. Названия месяцев и дней недели начинаются с большой буквы."
+          ],
+          "examples": [
+            "My birthday is on the twenty-third of April. — Мой день рождения двадцать третьего апреля.",
+            "New Year’s Day is on the first of January. — Новый год первого января."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Названия месяцев",
+          "paragraphs": [
+            "Для даты сначала назови день по порядку, затем месяц. В упражнениях используем порядок the + день + of + месяц."
+          ],
+          "table": {
+            "headers": [
+              "Месяц",
+              "Перевод"
+            ],
+            "rows": [
+              [
+                "January / February",
+                "январь / февраль"
+              ],
+              [
+                "March / April",
+                "март / апрель"
+              ],
+              [
+                "May / June",
+                "май / июнь"
+              ],
+              [
+                "July / August",
+                "июль / август"
+              ],
+              [
+                "September / October",
+                "сентябрь / октябрь"
+              ],
+              [
+                "November / December",
+                "ноябрь / декабрь"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Годы допускают разные чтения",
+          "paragraphs": [
+            "1977 часто читается nineteen seventy-seven; 1905 — nineteen oh five. В годе используются количественные, а не порядковые числительные.",
+            "2001 можно прочитать two thousand one или two thousand and one. Для 2010 встречаются twenty ten и two thousand (and) ten. Это варианты, а не одно универсальное правило для всех годов.",
+            "Born означает рождённый. Для даты рождения в прошлом нужна связка: He was born, а не He born."
+          ],
+          "examples": [
+            "He was born in nineteen seventy-seven. — Он родился в 1977 году.",
+            "We got married in two thousand three. — Мы поженились в 2003 году."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Мой день рождения двадцать третьего апреля.",
+          "answer": [
+            "My",
+            "birthday",
+            "is",
+            "on",
+            "the",
+            "twenty-third",
+            "of",
+            "April."
+          ],
+          "bank": [
+            "on",
+            "twenty-third",
+            "are",
+            "April.",
+            "birthday",
+            "is",
+            "of",
+            "the",
+            "My",
+            "twenty-three"
+          ],
+          "hint": "Используй британское чтение: the twenty-third of April."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Новый год первого января.",
+          "answer": [
+            "New",
+            "Year’s",
+            "Day",
+            "is",
+            "on",
+            "the",
+            "first",
+            "of",
+            "January."
+          ],
+          "bank": [
+            "one",
+            "Day",
+            "of",
+            "New",
+            "January.",
+            "first",
+            "on",
+            "the",
+            "Year’s",
+            "are",
+            "is"
+          ],
+          "hint": "Используй New Year’s Day; затем дату с on the first of January."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Женский день восьмого марта.",
+          "answer": [
+            "Women’s",
+            "Day",
+            "is",
+            "on",
+            "the",
+            "eighth",
+            "of",
+            "March."
+          ],
+          "bank": [
+            "Women’s",
+            "eight",
+            "of",
+            "the",
+            "is",
+            "eighth",
+            "are",
+            "March.",
+            "on",
+            "Day"
+          ],
+          "hint": "Порядок даты: on the eighth of March."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Он родился в тысяча девятьсот семьдесят седьмом году.",
+          "answer": [
+            "He",
+            "was",
+            "born",
+            "in",
+            "nineteen",
+            "seventy-seven."
+          ],
+          "bank": [
+            "is",
+            "seventy-seven.",
+            "was",
+            "He",
+            "nineteen",
+            "nineteenth",
+            "in",
+            "born"
+          ],
+          "hint": "Используй чтение года nineteen seventy-seven."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Мы поженились в две тысячи третьем году.",
+          "answer": [
+            "We",
+            "got",
+            "married",
+            "in",
+            "two",
+            "thousand",
+            "three."
+          ],
+          "bank": [
+            "three.",
+            "in",
+            "We",
+            "two",
+            "married",
+            "got",
+            "thousand",
+            "get",
+            "third"
+          ],
+          "hint": "Используй got married и чтение two thousand three, без and."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Он родился десятого апреля.",
+          "answer": [
+            "He",
+            "was",
+            "born",
+            "on",
+            "the",
+            "tenth",
+            "of",
+            "April."
+          ],
+          "bank": [
+            "ten",
+            "were",
+            "of",
+            "April.",
+            "tenth",
+            "was",
+            "on",
+            "the",
+            "born",
+            "He"
+          ],
+          "hint": "Дата: on the tenth of April."
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Соединяем количество, порядок и даты",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Сначала реши, что обозначает число",
+          "paragraphs": [
+            "Количество и номер после Room/page обычно называются количественными числами. Позиция в последовательности и день месяца — порядковыми. Для возраста используется be, для цены — cost или покупка с for.",
+            "Проверь окончания first/second/third и -th, отсутствие -s у hundred/thousand после точного числа, предлоги on для дня и in для года. В заданиях с and сохрани указанный вариант чтения."
+          ],
+          "table": {
+            "headers": [
+              "Значение",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Количество",
+                "twenty-one books"
+              ],
+              [
+                "Порядок",
+                "the twenty-first lesson"
+              ],
+              [
+                "Дата",
+                "on the twenty-first of April"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 9",
+          "prompt": "Ей тридцать два.",
+          "answer": [
+            "She",
+            "is",
+            "thirty-two."
+          ],
+          "bank": [
+            "are",
+            "is",
+            "thirty-second.",
+            "thirty-two.",
+            "She"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 9",
+          "prompt": "Он пропустил два последних урока.",
+          "answer": [
+            "He",
+            "missed",
+            "the",
+            "last",
+            "two",
+            "lessons."
+          ],
+          "bank": [
+            "lessons.",
+            "second",
+            "the",
+            "missed",
+            "last",
+            "He",
+            "two",
+            "miss"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 9",
+          "prompt": "Я купил эту машину за пять тысяч долларов.",
+          "answer": [
+            "I",
+            "bought",
+            "this",
+            "car",
+            "for",
+            "five",
+            "thousand",
+            "dollars."
+          ],
+          "bank": [
+            "for",
+            "dollars.",
+            "car",
+            "buy",
+            "bought",
+            "thousands",
+            "I",
+            "this",
+            "thousand",
+            "five"
+          ],
+          "hint": "Начни с I bought this car; цену с for поставь после car."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 9",
+          "prompt": "Я живу на четвёртом этаже.",
+          "answer": [
+            "I",
+            "live",
+            "on",
+            "the",
+            "fourth",
+            "floor."
+          ],
+          "bank": [
+            "four",
+            "floor.",
+            "on",
+            "I",
+            "the",
+            "live",
+            "fourth",
+            "lives"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 9",
+          "prompt": "Это моя первая книга.",
+          "answer": [
+            "This",
+            "is",
+            "my",
+            "first",
+            "book."
+          ],
+          "bank": [
+            "one",
+            "This",
+            "book.",
+            "first",
+            "the",
+            "my",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 9",
+          "prompt": "Открой страницу тридцать пять.",
+          "answer": [
+            "Open",
+            "page",
+            "thirty-five."
+          ],
+          "bank": [
+            "thirty-fifth.",
+            "Open",
+            "thirty-five.",
+            "Opens",
+            "page"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 9",
+          "prompt": "Мой день рождения двадцать третьего апреля.",
+          "answer": [
+            "My",
+            "birthday",
+            "is",
+            "on",
+            "the",
+            "twenty-third",
+            "of",
+            "April."
+          ],
+          "bank": [
+            "on",
+            "April.",
+            "the",
+            "twenty-three",
+            "are",
+            "My",
+            "is",
+            "twenty-third",
+            "of",
+            "birthday"
+          ],
+          "hint": "Порядок даты: on the twenty-third of April."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 9",
+          "prompt": "Он родился в две тысячи первом году.",
+          "answer": [
+            "He",
+            "was",
+            "born",
+            "in",
+            "two",
+            "thousand",
+            "one."
+          ],
+          "bank": [
+            "one.",
+            "were",
+            "He",
+            "born",
+            "in",
+            "was",
+            "thousand",
+            "first",
+            "two"
+          ],
+          "hint": "Читай год two thousand one, без and."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 9 из 9",
+          "prompt": "У неё сто пятьдесят книг.",
+          "answer": [
+            "She",
+            "has",
+            "one",
+            "hundred",
+            "and",
+            "fifty",
+            "books."
+          ],
+          "bank": [
+            "one",
+            "books.",
+            "She",
+            "has",
+            "fifty",
+            "fiftieth",
+            "and",
+            "have",
+            "hundred"
+          ],
+          "hint": "В числе используй one hundred and fifty с and."
+        }
+      ]
+    }
+  ]
+}

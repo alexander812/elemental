@@ -1,4 +1,4 @@
-import type courseData from './course_poliglot.en.json'
+import type lessonData from './course_poliglot_01.en.json'
 
 export type PoliglotTable = {
   headers: string[]
@@ -30,7 +30,7 @@ export type PoliglotTask = {
   pages: PoliglotPage[]
 }
 
-export type PoliglotCourseData = typeof courseData
+export type PoliglotLessonData = typeof lessonData
 
 type LessonVerb = {
   base: string
@@ -131,7 +131,7 @@ const buildMatrixQuestions = (LESSON_VERBS: LessonVerb[]): PoliglotQuestionPage[
   })
 }
 
-export const parseLessonOne = (data: PoliglotCourseData['lessonOne']): PoliglotTask[] =>
+export const parseLessonOne = (data: PoliglotLessonData): PoliglotTask[] =>
   data.tasks.map((task) => ({
     id: task.id,
     name: task.name,

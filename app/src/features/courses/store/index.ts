@@ -5,7 +5,11 @@ import * as coursesApi from '../../../transport/courses'
 import type { Course } from '../../../transport/courses'
 import * as lessonsApi from '../../../transport/lessons'
 import * as setsApi from '../../../transport/sets'
-import { ensureReadyCourse } from '../../../transport/ready-content'
+import {
+  ensureAllReadyLessons,
+  ensureReadyCourse,
+  ensureReadyLesson,
+} from '../../../transport/ready-content'
 import { importBackupFx } from '../../backup/store'
 import { loadCoursesFx } from '../../course-search/store'
 
@@ -19,6 +23,16 @@ export const ensureReadyCourseFx = createEffect(async (courseId: string) => {
     setsApi.fetchSets(),
   ])
   return { courseId, courses, lessons, sets }
+})
+
+export const ensureReadyLessonFx = createEffect(async (lessonId: string) => {
+  await ensureReadyLesson(lessonId)
+  const [courses, lessons, sets] = await Promise.all([
+    coursesApi.fetchCourses(),
+    lessonsApi.fetchLessons(),
+    setsApi.fetchSets(),
+  ])
+  return { lessonId, courses, lessons, sets }
 })
 
 export const createCourseFx = createEffect(
@@ -39,7 +53,10 @@ export type DeleteCourseMode = 'with-lessons' | 'course-only'
 export const deleteCourseFx = createEffect(
   async (payload: { courseId: string; baseCourseId: string; mode: DeleteCourseMode }) => {
     await ensureReadyCourse(payload.courseId)
-    if (payload.mode === 'course-only') await ensureReadyCourse(payload.baseCourseId)
+    if (payload.mode === 'course-only') {
+      await ensureAllReadyLessons(payload.courseId)
+      await ensureReadyCourse(payload.baseCourseId)
+    }
     const courses = await coursesApi.deleteCourse(payload.courseId)
     const allLessons = await lessonsApi.fetchLessons()
 
@@ -80,9 +97,14 @@ export const $courses = createStore<Course[]>([])
   )
   .on(importBackupFx.doneData, (_, { courses }) => courses)
   .on(ensureReadyCourseFx.doneData, (_, { courses }) => courses)
+  .on(ensureReadyLessonFx.doneData, (_, { courses }) => courses)
 
 export const $readyCourseIds = createStore<ReadonlySet<string>>(new Set())
   .on(ensureReadyCourseFx.doneData, (ids, { courseId }) => new Set([...ids, courseId]))
+  .reset(loadCoursesFx.doneData, importBackupFx.doneData, deleteCourseFx.doneData)
+
+export const $readyLessonIds = createStore<ReadonlySet<string>>(new Set())
+  .on(ensureReadyLessonFx.doneData, (ids, { lessonId }) => new Set([...ids, lessonId]))
   .reset(loadCoursesFx.doneData, importBackupFx.doneData, deleteCourseFx.doneData)
 
 export const $currentCourseId = createStore<string | null>(null)

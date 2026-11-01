@@ -1,0 +1,1067 @@
+{
+  "name": "Сравниваем и говорим о времени",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "short-adjectives",
+      "name": "Сравниваем короткие признаки",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Как описать предмет",
+          "paragraphs": [
+            "Прилагательное описывает человека или предмет. В английском оно не меняется по роду и числу: a big house, big houses. После be оно тоже остаётся без изменений: The house is big."
+          ],
+          "table": {
+            "headers": [
+              "Слово",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "big / small",
+                "большой / маленький"
+              ],
+              [
+                "fast / slow",
+                "быстрый / медленный"
+              ],
+              [
+                "young / old",
+                "молодой / старый"
+              ],
+              [
+                "short / long",
+                "короткий / длинный"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Больше, быстрее, старше",
+          "paragraphs": [
+            "У многих односложных прилагательных сравнение образуется с -er, а превосходная степень — с -est. Односложное слово содержит один слог. Часть двусложных слов тоже использует эти окончания: simple → simpler → simplest.",
+            "Than вводит второй объект сравнения. Перед превосходной степенью обычно нужен the; притяжательное слово может заменить его: my best friend."
+          ],
+          "table": {
+            "headers": [
+              "Исходная форма",
+              "Сравнение",
+              "Превосходная"
+            ],
+            "rows": [
+              [
+                "old",
+                "older",
+                "the oldest"
+              ],
+              [
+                "young",
+                "younger",
+                "the youngest"
+              ],
+              [
+                "fast",
+                "faster",
+                "the fastest"
+              ],
+              [
+                "small",
+                "smaller",
+                "the smallest"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Что происходит с написанием",
+          "paragraphs": [
+            "После конечной -e добавляем -r или -st: large → larger → largest. В big и hot последняя согласная удваивается: bigger, biggest; hotter, hottest. Эти изменения написания нужно учитывать вместе с формой."
+          ],
+          "examples": [
+            "This house is older than that one. — Этот дом старше того.",
+            "My car is the fastest. — Моя машина самая быстрая."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Эта машина быстрее того велосипеда.",
+          "answer": [
+            "This",
+            "car",
+            "is",
+            "faster",
+            "than",
+            "that",
+            "bicycle."
+          ],
+          "bank": [
+            "is",
+            "faster",
+            "than",
+            "that",
+            "bicycle.",
+            "fast",
+            "fastest",
+            "This",
+            "car"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Она моложе их.",
+          "answer": [
+            "She",
+            "is",
+            "younger",
+            "than",
+            "them."
+          ],
+          "bank": [
+            "than",
+            "them.",
+            "young",
+            "youngest",
+            "She",
+            "is",
+            "younger"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Этот дом старше того.",
+          "answer": [
+            "This",
+            "house",
+            "is",
+            "older",
+            "than",
+            "that",
+            "one."
+          ],
+          "bank": [
+            "than",
+            "that",
+            "one.",
+            "old",
+            "oldest",
+            "This",
+            "house",
+            "is",
+            "older"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Моя машина самая быстрая.",
+          "answer": [
+            "My",
+            "car",
+            "is",
+            "the",
+            "fastest."
+          ],
+          "bank": [
+            "faster",
+            "fast",
+            "My",
+            "car",
+            "is",
+            "the",
+            "fastest."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Этот дом самый большой.",
+          "answer": [
+            "This",
+            "house",
+            "is",
+            "the",
+            "biggest."
+          ],
+          "bank": [
+            "big",
+            "This",
+            "house",
+            "is",
+            "the",
+            "biggest.",
+            "bigger"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Она самая молодая здесь.",
+          "answer": [
+            "She",
+            "is",
+            "the",
+            "youngest",
+            "here."
+          ],
+          "bank": [
+            "is",
+            "the",
+            "youngest",
+            "here.",
+            "younger",
+            "young",
+            "She"
+          ],
+          "hint": "Начни с She; here поставь в конце."
+        }
+      ]
+    },
+    {
+      "id": "long-and-irregular",
+      "name": "Выбираем more, most и исключения",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Длинные прилагательные",
+          "paragraphs": [
+            "У длинных прилагательных обычно ставим more для сравнения и the most для превосходной степени. Не добавляй к этой же форме ещё и -er или -est."
+          ],
+          "table": {
+            "headers": [
+              "Признак",
+              "Сравнение",
+              "Превосходная"
+            ],
+            "rows": [
+              [
+                "expensive — дорогой",
+                "more expensive",
+                "the most expensive"
+              ],
+              [
+                "beautiful — красивый",
+                "more beautiful",
+                "the most beautiful"
+              ],
+              [
+                "comfortable — удобный",
+                "more comfortable",
+                "the most comfortable"
+              ],
+              [
+                "interesting — интересный",
+                "more interesting",
+                "the most interesting"
+              ],
+              [
+                "famous — известный",
+                "more famous",
+                "the most famous"
+              ],
+              [
+                "prepared — подготовленный",
+                "more prepared",
+                "the most prepared"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Особые формы",
+          "paragraphs": [
+            "Good и bad меняют основу. Формы much/many и little связаны с количеством: more — больше, less — меньше. Для размера маленького предмета используй small → smaller, а не less."
+          ],
+          "table": {
+            "headers": [
+              "Исходная форма",
+              "Сравнение",
+              "Превосходная"
+            ],
+            "rows": [
+              [
+                "good — хороший",
+                "better",
+                "the best"
+              ],
+              [
+                "bad — плохой",
+                "worse",
+                "the worst"
+              ],
+              [
+                "much / many — много",
+                "more",
+                "the most"
+              ],
+              [
+                "little — мало",
+                "less",
+                "the least"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Позднее и самое позднее",
+          "paragraphs": [
+            "Late образует later и latest. Simple часто образует simpler и simplest. Не все слова с двумя слогами ведут себя одинаково — проверяй форму нового прилагательного."
+          ],
+          "examples": [
+            "This house is more comfortable. — Этот дом удобнее.",
+            "She plays better than me. — Она играет лучше меня."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Эта машина дороже того велосипеда.",
+          "answer": [
+            "This",
+            "car",
+            "is",
+            "more",
+            "expensive",
+            "than",
+            "that",
+            "bicycle."
+          ],
+          "bank": [
+            "is",
+            "more",
+            "expensive",
+            "than",
+            "that",
+            "bicycle.",
+            "most",
+            "expensiveer",
+            "This",
+            "car"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Она самая красивая здесь.",
+          "answer": [
+            "She",
+            "is",
+            "the",
+            "most",
+            "beautiful",
+            "here."
+          ],
+          "bank": [
+            "most",
+            "beautiful",
+            "here.",
+            "more",
+            "beautifulest",
+            "She",
+            "is",
+            "the"
+          ],
+          "hint": "Начни с She; here поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Этот дом самый удобный.",
+          "answer": [
+            "This",
+            "house",
+            "is",
+            "the",
+            "most",
+            "comfortable."
+          ],
+          "bank": [
+            "most",
+            "comfortable.",
+            "more",
+            "comfortablest",
+            "This",
+            "house",
+            "is",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Она играет лучше меня.",
+          "answer": [
+            "She",
+            "plays",
+            "better",
+            "than",
+            "me."
+          ],
+          "bank": [
+            "best",
+            "good",
+            "She",
+            "plays",
+            "better",
+            "than",
+            "me."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Этот фильм хуже.",
+          "answer": [
+            "This",
+            "film",
+            "is",
+            "worse."
+          ],
+          "bank": [
+            "film",
+            "is",
+            "worse.",
+            "worst",
+            "bad",
+            "This"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Это самый простой вопрос.",
+          "answer": [
+            "This",
+            "is",
+            "the",
+            "simplest",
+            "question."
+          ],
+          "bank": [
+            "is",
+            "the",
+            "simplest",
+            "question.",
+            "simpler",
+            "simple",
+            "This"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "time-intervals",
+      "name": "Указываем сейчас, вчера и через неделю",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Слова времени без предлога",
+          "paragraphs": [
+            "Now — сейчас, today — сегодня, yesterday — вчера, tomorrow — завтра. Обычно перед ними не нужен предлог. Слово времени помогает уточнить смысл, но форму глагола всё равно нужно выбрать отдельно."
+          ],
+          "examples": [
+            "Do it now. — Сделай это сейчас.",
+            "He spoke yesterday. — Он говорил вчера.",
+            "Call her tomorrow. — Позвони ей завтра."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Через и назад",
+          "paragraphs": [
+            "Для срока от настоящего в будущее: in + промежуток времени. Для момента до настоящего: промежуток + ago. Ago обычно сочетается с прошедшим временем."
+          ],
+          "table": {
+            "headers": [
+              "Будущее",
+              "Прошлое"
+            ],
+            "rows": [
+              [
+                "in a week — через неделю",
+                "a week ago — неделю назад"
+              ],
+              [
+                "in two months — через два месяца",
+                "two months ago — два месяца назад"
+              ],
+              [
+                "in three days — через три дня",
+                "three days ago — три дня назад"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "До и после",
+          "paragraphs": [
+            "Before — до, after — после. Не добавляй ещё in или at между этим предлогом и указанием времени."
+          ],
+          "examples": [
+            "Come home before six. — Приходи домой до шести.",
+            "It was after five o’clock. — Это было после пяти часов."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Сделай это сейчас.",
+          "answer": [
+            "Do",
+            "it",
+            "now."
+          ],
+          "bank": [
+            "now.",
+            "yesterday",
+            "tomorrow",
+            "Do",
+            "it"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Позвони ей завтра.",
+          "answer": [
+            "Call",
+            "her",
+            "tomorrow."
+          ],
+          "bank": [
+            "yesterday",
+            "now",
+            "Call",
+            "her",
+            "tomorrow."
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Я буду там через две недели.",
+          "answer": [
+            "I",
+            "will",
+            "be",
+            "there",
+            "in",
+            "two",
+            "weeks."
+          ],
+          "bank": [
+            "in",
+            "two",
+            "weeks.",
+            "ago",
+            "on",
+            "I",
+            "will",
+            "be",
+            "there"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Он был здесь три года назад.",
+          "answer": [
+            "He",
+            "was",
+            "here",
+            "three",
+            "years",
+            "ago."
+          ],
+          "bank": [
+            "ago.",
+            "in",
+            "tomorrow",
+            "He",
+            "was",
+            "here",
+            "three",
+            "years"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Я видел его неделю назад.",
+          "answer": [
+            "I",
+            "saw",
+            "him",
+            "a",
+            "week",
+            "ago."
+          ],
+          "bank": [
+            "see",
+            "in",
+            "I",
+            "saw",
+            "him",
+            "a",
+            "week",
+            "ago."
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Приходи домой до шести.",
+          "answer": [
+            "Come",
+            "home",
+            "before",
+            "six."
+          ],
+          "bank": [
+            "home",
+            "before",
+            "six.",
+            "after",
+            "in",
+            "Come"
+          ],
+          "hint": "Указание времени поставь в конце."
+        }
+      ]
+    },
+    {
+      "id": "calendar",
+      "name": "Выбираем in, on и at со временем",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Месяцы и времена года",
+          "paragraphs": [
+            "С месяцами и временами года обычно нужен in: in June, in winter. Названия месяцев в английском пишутся с большой буквы, названия сезонов обычно с маленькой."
+          ],
+          "table": {
+            "headers": [
+              "Месяц",
+              "Перевод"
+            ],
+            "rows": [
+              [
+                "January / February / March",
+                "январь / февраль / март"
+              ],
+              [
+                "April / May / June",
+                "апрель / май / июнь"
+              ],
+              [
+                "July / August / September",
+                "июль / август / сентябрь"
+              ],
+              [
+                "October / November / December",
+                "октябрь / ноябрь / декабрь"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Четыре сезона",
+          "paragraphs": [
+            "Spring — весна, summer — лето, autumn — осень, winter — зима. Fall — ещё одно название осени, особенно в американском английском."
+          ],
+          "examples": [
+            "He will come in June. — Он приедет в июне.",
+            "We will be there in autumn. — Мы будем там осенью."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Дни недели и часы",
+          "paragraphs": [
+            "С днём недели или датой используем on, с точным временем на часах — at. В тренажёре собирай o’clock как отдельное слово."
+          ],
+          "table": {
+            "headers": [
+              "Дни недели",
+              "Перевод"
+            ],
+            "rows": [
+              [
+                "Monday / Tuesday",
+                "понедельник / вторник"
+              ],
+              [
+                "Wednesday / Thursday",
+                "среда / четверг"
+              ],
+              [
+                "Friday / Saturday / Sunday",
+                "пятница / суббота / воскресенье"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Last, this и next",
+          "paragraphs": [
+            "Перед last week, this month, next year и похожими сочетаниями обычно не ставим in/on/at. Это отличается от in a week — через неделю."
+          ],
+          "examples": [
+            "I work on Saturday. — Я работаю в субботу.",
+            "The bank opens at nine o’clock. — Банк открывается в девять часов.",
+            "I will come next year. — Я приду в следующем году."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Он приедет в июне.",
+          "answer": [
+            "He",
+            "will",
+            "come",
+            "in",
+            "June."
+          ],
+          "bank": [
+            "come",
+            "in",
+            "June.",
+            "on",
+            "at",
+            "He",
+            "will"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Мы будем там осенью.",
+          "answer": [
+            "We",
+            "will",
+            "be",
+            "there",
+            "in",
+            "autumn."
+          ],
+          "bank": [
+            "there",
+            "in",
+            "autumn.",
+            "on",
+            "at",
+            "We",
+            "will",
+            "be"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Я буду здесь в понедельник.",
+          "answer": [
+            "I",
+            "will",
+            "be",
+            "here",
+            "on",
+            "Monday."
+          ],
+          "bank": [
+            "on",
+            "Monday.",
+            "in",
+            "at",
+            "I",
+            "will",
+            "be",
+            "here"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Позвони мне в четверг.",
+          "answer": [
+            "Call",
+            "me",
+            "on",
+            "Thursday."
+          ],
+          "bank": [
+            "at",
+            "Call",
+            "me",
+            "on",
+            "Thursday.",
+            "in"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Банк открывается в девять часов.",
+          "answer": [
+            "The",
+            "bank",
+            "opens",
+            "at",
+            "nine",
+            "o’clock."
+          ],
+          "bank": [
+            "in",
+            "on",
+            "The",
+            "bank",
+            "opens",
+            "at",
+            "nine",
+            "o’clock."
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Я приду в следующем году.",
+          "answer": [
+            "I",
+            "will",
+            "come",
+            "next",
+            "year."
+          ],
+          "bank": [
+            "will",
+            "come",
+            "next",
+            "year.",
+            "in",
+            "on",
+            "I"
+          ],
+          "hint": "Указание времени поставь в конце."
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Сравниваем и планируем: итоговый тест",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Соедини признак и время",
+          "paragraphs": [
+            "Для сравнения выбери -er или more, для превосходной степени — the ...-est или the most. Good и bad требуют особых форм.",
+            "Для времени различай in a week, a week ago, in June, on Monday и at six. С last, this, next предлог обычно не нужен."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 8",
+          "prompt": "Этот дом меньше того.",
+          "answer": [
+            "This",
+            "house",
+            "is",
+            "smaller",
+            "than",
+            "that",
+            "one."
+          ],
+          "bank": [
+            "is",
+            "smaller",
+            "than",
+            "that",
+            "one.",
+            "small",
+            "smallest",
+            "This",
+            "house"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 8",
+          "prompt": "Моя машина самая дорогая.",
+          "answer": [
+            "My",
+            "car",
+            "is",
+            "the",
+            "most",
+            "expensive."
+          ],
+          "bank": [
+            "the",
+            "most",
+            "expensive.",
+            "more",
+            "expensiveer",
+            "My",
+            "car",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 8",
+          "prompt": "Она лучшая здесь.",
+          "answer": [
+            "She",
+            "is",
+            "the",
+            "best",
+            "here."
+          ],
+          "bank": [
+            "here.",
+            "better",
+            "good",
+            "She",
+            "is",
+            "the",
+            "best"
+          ],
+          "hint": "Начни с She; here поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 8",
+          "prompt": "Он говорил вчера.",
+          "answer": [
+            "He",
+            "spoke",
+            "yesterday."
+          ],
+          "bank": [
+            "spoke",
+            "yesterday.",
+            "speak",
+            "tomorrow",
+            "He"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 8",
+          "prompt": "Он придёт через три дня.",
+          "answer": [
+            "He",
+            "will",
+            "come",
+            "in",
+            "three",
+            "days."
+          ],
+          "bank": [
+            "ago",
+            "on",
+            "He",
+            "will",
+            "come",
+            "in",
+            "three",
+            "days."
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 8",
+          "prompt": "Она была здесь в прошлом ноябре?",
+          "answer": [
+            "Was",
+            "she",
+            "here",
+            "last",
+            "November?"
+          ],
+          "bank": [
+            "she",
+            "here",
+            "last",
+            "November?",
+            "in",
+            "on",
+            "Was"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 8",
+          "prompt": "Май наступает после апреля.",
+          "answer": [
+            "May",
+            "comes",
+            "after",
+            "April."
+          ],
+          "bank": [
+            "after",
+            "April.",
+            "before",
+            "in",
+            "May",
+            "comes"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 8",
+          "prompt": "Я поеду в Москву зимой.",
+          "answer": [
+            "I",
+            "will",
+            "go",
+            "to",
+            "Moscow",
+            "in",
+            "winter."
+          ],
+          "bank": [
+            "will",
+            "go",
+            "to",
+            "Moscow",
+            "in",
+            "winter.",
+            "on",
+            "at",
+            "I"
+          ],
+          "hint": "Начни с I; сначала направление, затем время."
+        }
+      ]
+    }
+  ]
+}

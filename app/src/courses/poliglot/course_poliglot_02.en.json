@@ -1,0 +1,1223 @@
+{
+  "name": "Местоимения, вопросы и направления",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "pronouns",
+      "name": "Кого, кому и чей?",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Знакомые корни помогают понимать слова",
+          "paragraphs": [
+            "Некоторые английские слова похожи на русские: общий корень помогает догадаться о значении.",
+            "Окончания -tion и -sion часто соответствуют русским -ция и -сия. Это подсказка, а не правило для любого слова: значение и произношение нужно проверять."
+          ],
+          "table": {
+            "headers": [
+              "Английский",
+              "Русский"
+            ],
+            "rows": [
+              [
+                "nation",
+                "нация"
+              ],
+              [
+                "information",
+                "информация"
+              ],
+              [
+                "profession",
+                "профессия"
+              ],
+              [
+                "discussion",
+                "дискуссия"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Кто делает — и кого касается действие",
+          "paragraphs": [
+            "Перед глаголом обычно стоит тот, кто действует: I see — я вижу. После глагола ставим того, кого видят: see me — видеть меня.",
+            "У английских местоимений есть разные формы. Одна объектная форма может передавать несколько русских падежей: help me — помогать мне, see me — видеть меня."
+          ],
+          "table": {
+            "headers": [
+              "Кто?",
+              "Кого? Кому?"
+            ],
+            "rows": [
+              [
+                "I — я",
+                "me — меня, мне"
+              ],
+              [
+                "you — ты, вы",
+                "you — тебя, тебе, вас, вам"
+              ],
+              [
+                "he — он",
+                "him — его, ему"
+              ],
+              [
+                "she — она",
+                "her — её, ей"
+              ],
+              [
+                "it — оно, это",
+                "it — его, её, это"
+              ],
+              [
+                "we — мы",
+                "us — нас, нам"
+              ],
+              [
+                "they — они",
+                "them — их, им"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Чей предмет или человек?",
+          "paragraphs": [
+            "Перед существительным my, your, his, her, its, our и their показывают принадлежность: my book — моя книга. Такая форма не заменяет существительное, а уточняет его.",
+            "Сравни: I know her — я знаю её; I know her brother — я знаю её брата. После her во втором примере есть существительное brother."
+          ],
+          "table": {
+            "headers": [
+              "Кто?",
+              "Чей?"
+            ],
+            "rows": [
+              [
+                "I",
+                "my — мой"
+              ],
+              [
+                "you",
+                "your — твой, ваш"
+              ],
+              [
+                "he",
+                "his — его"
+              ],
+              [
+                "she",
+                "her — её"
+              ],
+              [
+                "it",
+                "its — его, её (о предмете или животном)"
+              ],
+              [
+                "we",
+                "our — наш"
+              ],
+              [
+                "they",
+                "their — их"
+              ]
+            ]
+          },
+          "examples": [
+            "your sister — твоя сестра",
+            "her brother — её брат",
+            "their teacher — их учитель",
+            "my book — моя книга"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "В английской фразе может поменяться точка зрения",
+          "paragraphs": [
+            "В She likes me подлежащее — she: симпатию испытывает она. По-русски естественно сказать «я ей нравлюсь».",
+            "Сначала найди английское подлежащее, затем форму глагола, потом объект. Для he, she и it в настоящем времени добавляется -s: knows, loves, likes."
+          ],
+          "examples": [
+            "I see him — Я вижу его",
+            "We help them — Мы помогаем им",
+            "She likes me — Я ей нравлюсь"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 10",
+          "prompt": "Я вижу его",
+          "answer": [
+            "I",
+            "see",
+            "him"
+          ],
+          "bank": [
+            "him",
+            "sees",
+            "I",
+            "he",
+            "see"
+          ],
+          "hint": "После see нужна объектная форма местоимения."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 10",
+          "prompt": "Она любит тебя",
+          "answer": [
+            "She",
+            "loves",
+            "you"
+          ],
+          "bank": [
+            "love",
+            "you",
+            "She",
+            "loves",
+            "your"
+          ],
+          "hint": "После she в настоящем времени: loves."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 10",
+          "prompt": "Он знает её",
+          "answer": [
+            "He",
+            "knows",
+            "her"
+          ],
+          "bank": [
+            "her",
+            "know",
+            "He",
+            "she",
+            "knows"
+          ],
+          "hint": "Her здесь заменяет человека, которого он знает."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 10",
+          "prompt": "Мы помогаем им",
+          "answer": [
+            "We",
+            "help",
+            "them"
+          ],
+          "bank": [
+            "they",
+            "help",
+            "them",
+            "We",
+            "helps"
+          ],
+          "hint": "После help: them, а не they."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 10",
+          "prompt": "Я ей нравлюсь",
+          "answer": [
+            "She",
+            "likes",
+            "me"
+          ],
+          "bank": [
+            "me",
+            "like",
+            "She",
+            "I",
+            "likes"
+          ],
+          "hint": "В английской фразе начинает she: она испытывает симпатию."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 10",
+          "prompt": "Они знают нас",
+          "answer": [
+            "They",
+            "know",
+            "us"
+          ],
+          "bank": [
+            "knows",
+            "us",
+            "They",
+            "we",
+            "know"
+          ],
+          "hint": "Кто? They. Кого? Us."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 10",
+          "prompt": "Я вижу это",
+          "answer": [
+            "I",
+            "see",
+            "it"
+          ],
+          "bank": [
+            "its",
+            "see",
+            "I",
+            "sees",
+            "it"
+          ],
+          "hint": "It заменяет предмет. Its стоит перед названием предмета."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 10",
+          "prompt": "Я знаю твою сестру",
+          "answer": [
+            "I",
+            "know",
+            "your",
+            "sister"
+          ],
+          "bank": [
+            "you",
+            "sister",
+            "know",
+            "I",
+            "your",
+            "knows"
+          ],
+          "hint": "Перед sister нужна форма со значением «твоя»."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 9 из 10",
+          "prompt": "Она любит своего брата",
+          "answer": [
+            "She",
+            "loves",
+            "her",
+            "brother"
+          ],
+          "bank": [
+            "brother",
+            "love",
+            "her",
+            "She",
+            "she",
+            "loves"
+          ],
+          "hint": "Брат принадлежит семье той, о ком говорится: her brother."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 10 из 10",
+          "prompt": "Мы знаем их учителя",
+          "answer": [
+            "We",
+            "know",
+            "their",
+            "teacher"
+          ],
+          "bank": [
+            "them",
+            "teacher",
+            "We",
+            "their",
+            "know",
+            "knows"
+          ],
+          "hint": "Перед teacher: their — их, а не them — им/их."
+        }
+      ]
+    },
+    {
+      "id": "more-verbs",
+      "name": "Расширяем фразы новыми глаголами",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Спрашиваем, отвечаем и помогаем",
+          "paragraphs": [
+            "Новые глаголы встраиваются в знакомую схему первого урока. После глагола можно указать человека: ask him — спросить его, answer me — ответить мне.",
+            "У правильных глаголов прошедшее время заканчивается на -ed. В третьем лице настоящего времени нужна форма с -s: asks, answers, helps, hopes."
+          ],
+          "table": {
+            "headers": [
+              "Глагол",
+              "Прошедшее",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "ask",
+                "asked",
+                "спрашивать, просить"
+              ],
+              [
+                "answer",
+                "answered",
+                "отвечать"
+              ],
+              [
+                "help",
+                "helped",
+                "помогать"
+              ],
+              [
+                "hope",
+                "hoped",
+                "надеяться"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Берём, даём, говорим и путешествуем",
+          "paragraphs": [
+            "У give, take и speak особые формы прошедшего времени. Их нужно запомнить: gave, took, spoke.",
+            "В этом курсе используем написание traveled; британский вариант travelled тоже существует. English означает «английский язык», а a book — «книгу»."
+          ],
+          "table": {
+            "headers": [
+              "Глагол",
+              "Прошедшее",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "travel",
+                "traveled",
+                "путешествовать"
+              ],
+              [
+                "give",
+                "gave",
+                "давать"
+              ],
+              [
+                "take",
+                "took",
+                "брать"
+              ],
+              [
+                "speak",
+                "spoke",
+                "говорить"
+              ]
+            ]
+          },
+          "examples": [
+            "He gave me a book — Он дал мне книгу",
+            "She took it — Она взяла это",
+            "We speak English — Мы говорим по-английски"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Дополнение не меняет схему времени",
+          "paragraphs": [
+            "Объект ставится после глагола и в настоящем, и в прошлом, и в будущем: I help her → I helped her → I will help her.",
+            "После did not и will возвращается начальная форма: did not give, will give. Форма gave нужна в утвердительной фразе о прошлом."
+          ],
+          "examples": [
+            "She will answer me — Она ответит мне",
+            "They did not help us — Они не помогли нам",
+            "We will speak English — Мы будем говорить по-английски"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 8",
+          "prompt": "Я спросил его",
+          "answer": [
+            "I",
+            "asked",
+            "him"
+          ],
+          "bank": [
+            "ask",
+            "him",
+            "I",
+            "asked",
+            "he"
+          ],
+          "hint": "В утверждении о прошлом: asked."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 8",
+          "prompt": "Она ответит мне",
+          "answer": [
+            "She",
+            "will",
+            "answer",
+            "me"
+          ],
+          "bank": [
+            "answered",
+            "will",
+            "me",
+            "She",
+            "answer",
+            "I"
+          ],
+          "hint": "Будущее: will + начальная форма."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 8",
+          "prompt": "Они не помогли нам",
+          "answer": [
+            "They",
+            "did",
+            "not",
+            "help",
+            "us"
+          ],
+          "bank": [
+            "helped",
+            "us",
+            "not",
+            "They",
+            "help",
+            "did",
+            "we"
+          ],
+          "hint": "Отрицание в прошлом: did not help."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 8",
+          "prompt": "Я надеюсь",
+          "answer": [
+            "I",
+            "hope"
+          ],
+          "bank": [
+            "hopes",
+            "I",
+            "hoped",
+            "hope"
+          ],
+          "hint": "С I в настоящем времени — начальная форма."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 8",
+          "prompt": "Они путешествовали",
+          "answer": [
+            "They",
+            "traveled"
+          ],
+          "bank": [
+            "travel",
+            "They",
+            "traveled",
+            "travels"
+          ],
+          "hint": "Утвердительная фраза о прошлом."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 8",
+          "prompt": "Он дал мне книгу",
+          "answer": [
+            "He",
+            "gave",
+            "me",
+            "a",
+            "book"
+          ],
+          "bank": [
+            "a",
+            "book",
+            "give",
+            "He",
+            "me",
+            "gave",
+            "I"
+          ],
+          "hint": "Прошедшее от give — gave; «мне» — me."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 8",
+          "prompt": "Она взяла это",
+          "answer": [
+            "She",
+            "took",
+            "it"
+          ],
+          "bank": [
+            "take",
+            "it",
+            "She",
+            "took",
+            "its"
+          ],
+          "hint": "Прошедшее от take — took."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 8",
+          "prompt": "Мы будем говорить по-английски",
+          "answer": [
+            "We",
+            "will",
+            "speak",
+            "English"
+          ],
+          "bank": [
+            "English",
+            "spoke",
+            "We",
+            "will",
+            "speak",
+            "speaks"
+          ],
+          "hint": "После will нужна форма speak."
+        }
+      ]
+    },
+    {
+      "id": "question-words",
+      "name": "Уточняем: что, где, когда и кто?",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Вопросительное слово ставится в начало",
+          "paragraphs": [
+            "Если спрашиваем о месте, времени или причине, добавляем вопросительное слово перед уже знакомым вопросом: do you live? → where do you live?",
+            "Порядок слов: вопросительное слово + do/does/did/will + кто + глагол. После does и did глагол остаётся в начальной форме."
+          ],
+          "table": {
+            "headers": [
+              "Слово",
+              "О чём спрашиваем"
+            ],
+            "rows": [
+              [
+                "what",
+                "что"
+              ],
+              [
+                "where",
+                "где, куда"
+              ],
+              [
+                "when",
+                "когда"
+              ],
+              [
+                "why",
+                "почему"
+              ],
+              [
+                "who",
+                "кто"
+              ],
+              [
+                "how",
+                "как"
+              ]
+            ]
+          },
+          "examples": [
+            "What did you take? — Что ты взял?",
+            "When will she help? — Когда она поможет?",
+            "Why do you ask? — Почему ты спрашиваешь?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Если who само выполняет действие",
+          "paragraphs": [
+            "В вопросе Who helped you? слово who заменяет подлежащее: мы спрашиваем, кто помог. В таком вопросе без отрицания do/does/did обычно не добавляется.",
+            "В настоящем времени с who обычно нужна форма третьего лица: Who knows her? В прошлом ставим прошедшую форму: Who watched? Watch — смотреть, наблюдать."
+          ],
+          "examples": [
+            "Who helped you? — Кто помог тебе?",
+            "Who watched? — Кто наблюдал?",
+            "Who knows them? — Кто знает их?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Вопросительные слова можно сочетать",
+          "paragraphs": [
+            "How much означает «сколько», если говорим о количестве того, что не считаем отдельными предметами: how much money — сколько денег.",
+            "После такого сочетания сохраняется обычный порядок вопроса: How much money did you take?"
+          ],
+          "examples": [
+            "How do you work? — Как ты работаешь?",
+            "How much money did you take? — Сколько денег ты взял?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 8",
+          "prompt": "Что ты взял?",
+          "answer": [
+            "What",
+            "did",
+            "you",
+            "take?"
+          ],
+          "bank": [
+            "took?",
+            "you",
+            "What",
+            "take?",
+            "did",
+            "do"
+          ],
+          "hint": "После did — take, не took."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 8",
+          "prompt": "Где ты живёшь?",
+          "answer": [
+            "Where",
+            "do",
+            "you",
+            "live?"
+          ],
+          "bank": [
+            "you",
+            "lives?",
+            "Where",
+            "live?",
+            "does",
+            "do"
+          ],
+          "hint": "Где? Where. С you — do."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 8",
+          "prompt": "Когда она поможет?",
+          "answer": [
+            "When",
+            "will",
+            "she",
+            "help?"
+          ],
+          "bank": [
+            "help?",
+            "she",
+            "When",
+            "will",
+            "helps?",
+            "her"
+          ],
+          "hint": "После will — начальная форма help."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 8",
+          "prompt": "Почему ты спрашиваешь?",
+          "answer": [
+            "Why",
+            "do",
+            "you",
+            "ask?"
+          ],
+          "bank": [
+            "asks?",
+            "you",
+            "do",
+            "Why",
+            "ask?",
+            "does"
+          ],
+          "hint": "Почему? Why."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 8",
+          "prompt": "Кто наблюдал?",
+          "answer": [
+            "Who",
+            "watched?"
+          ],
+          "bank": [
+            "watch?",
+            "Who",
+            "watched?",
+            "does"
+          ],
+          "hint": "Who — подлежащее, поэтому did не нужен."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 8",
+          "prompt": "Как ты работаешь?",
+          "answer": [
+            "How",
+            "do",
+            "you",
+            "work?"
+          ],
+          "bank": [
+            "you",
+            "How",
+            "works?",
+            "work?",
+            "do",
+            "does"
+          ],
+          "hint": "Как? How. Дальше обычный вопрос с do."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 8",
+          "prompt": "Сколько денег ты взял?",
+          "answer": [
+            "How",
+            "much",
+            "money",
+            "did",
+            "you",
+            "take?"
+          ],
+          "bank": [
+            "money",
+            "take?",
+            "How",
+            "you",
+            "much",
+            "took?",
+            "did",
+            "does"
+          ],
+          "hint": "Сколько денег? How much money."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 8",
+          "prompt": "Кто помог тебе?",
+          "answer": [
+            "Who",
+            "helped",
+            "you?"
+          ],
+          "bank": [
+            "you?",
+            "Who",
+            "help",
+            "helped",
+            "does"
+          ],
+          "hint": "Who выполняет действие; в прошлом — helped."
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "name": "Где, куда и откуда?",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Три предлога — три разных смысла",
+          "paragraphs": [
+            "In указывает место внутри чего-либо или в городе; to — направление к человеку или месту; from — исходную точку движения.",
+            "Сравни: live in London — жить в Лондоне, go to London — ехать в Лондон, come from London — приехать из Лондона."
+          ],
+          "table": {
+            "headers": [
+              "Предлог",
+              "Вопрос",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "in",
+                "где?",
+                "in London — в Лондоне"
+              ],
+              [
+                "to",
+                "куда? к кому?",
+                "to you — к тебе"
+              ],
+              [
+                "from",
+                "откуда? от кого?",
+                "from Moscow — из Москвы"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "После предлога — объектная форма",
+          "paragraphs": [
+            "После to и from местоимение тоже имеет объектную форму: to him, to us, from her. Для you форма не меняется.",
+            "Для «он живёт в доме» нужна полная фраза He lives in a house. Слово a перед house не пропускаем; подробно артикли разберём в четвёртом уроке.",
+            "Fly — летать; flies — летает; flew — летал. В этом задании You fly from Moscow описывает обычный маршрут, а не полёт прямо сейчас."
+          ],
+          "examples": [
+            "I will come to you — Я приду к тебе",
+            "They will go to him — Они пойдут к нему",
+            "We speak to them — Мы говорим с ними",
+            "He lives in a house — Он живёт в доме"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Мы работали в Лондоне",
+          "answer": [
+            "We",
+            "worked",
+            "in",
+            "London"
+          ],
+          "bank": [
+            "from",
+            "London",
+            "We",
+            "worked",
+            "in",
+            "work"
+          ],
+          "hint": "Где работали? In London."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Я приду к тебе",
+          "answer": [
+            "I",
+            "will",
+            "come",
+            "to",
+            "you"
+          ],
+          "bank": [
+            "you",
+            "came",
+            "to",
+            "I",
+            "come",
+            "will",
+            "from"
+          ],
+          "hint": "К тебе — to you; после will — come."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Ты обычно летаешь из Москвы",
+          "answer": [
+            "You",
+            "fly",
+            "from",
+            "Moscow"
+          ],
+          "bank": [
+            "Moscow",
+            "flies",
+            "from",
+            "You",
+            "to",
+            "fly"
+          ],
+          "hint": "Из Москвы — from Moscow."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Он живёт в доме",
+          "answer": [
+            "He",
+            "lives",
+            "in",
+            "a",
+            "house"
+          ],
+          "bank": [
+            "a",
+            "house",
+            "He",
+            "lives",
+            "to",
+            "in",
+            "live"
+          ],
+          "hint": "В доме — in a house. С he — lives."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Она приехала из Лондона",
+          "answer": [
+            "She",
+            "came",
+            "from",
+            "London"
+          ],
+          "bank": [
+            "London",
+            "come",
+            "She",
+            "from",
+            "came",
+            "to"
+          ],
+          "hint": "Приехала — came; из — from."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Они пойдут к нему",
+          "answer": [
+            "They",
+            "will",
+            "go",
+            "to",
+            "him"
+          ],
+          "bank": [
+            "he",
+            "will",
+            "him",
+            "They",
+            "go",
+            "to",
+            "went"
+          ],
+          "hint": "После to нужна форма him."
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Соединяем всё в одной фразе",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Сначала каркас, затем подробности",
+          "paragraphs": [
+            "Выбери время и тип фразы. Добавь того, кто действует, затем глагол, объект и место или направление.",
+            "В вопросе сначала поставь вопросительное слово. Если who само означает действующее лицо, строй вопрос без do/does/did.",
+            "Различай them — их/им и their + существительное — их предмет или человек. После предлога нужны me, him, her, us или them."
+          ],
+          "examples": [
+            "Where did he see her? — Где он видел её?",
+            "We will not take their book — Мы не возьмём их книгу",
+            "They spoke to us — Они говорили с нами"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 9",
+          "prompt": "Почему она спросила меня?",
+          "answer": [
+            "Why",
+            "did",
+            "she",
+            "ask",
+            "me?"
+          ],
+          "bank": [
+            "me?",
+            "asked",
+            "Why",
+            "she",
+            "did",
+            "ask",
+            "does"
+          ],
+          "hint": "Почему + вопрос о прошлом: Why did she ask…?"
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 9",
+          "prompt": "Когда ты дашь нам книгу?",
+          "answer": [
+            "When",
+            "will",
+            "you",
+            "give",
+            "us",
+            "a",
+            "book?"
+          ],
+          "bank": [
+            "us",
+            "book?",
+            "give",
+            "When",
+            "a",
+            "you",
+            "will",
+            "gave",
+            "we"
+          ],
+          "hint": "После will — give; «нам» — us."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 9",
+          "prompt": "Кто знает их?",
+          "answer": [
+            "Who",
+            "knows",
+            "them?"
+          ],
+          "bank": [
+            "them?",
+            "Who",
+            "know",
+            "knows",
+            "they?"
+          ],
+          "hint": "Who выполняет действие: knows, без does."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 9",
+          "prompt": "Как они помогают тебе?",
+          "answer": [
+            "How",
+            "do",
+            "they",
+            "help",
+            "you?"
+          ],
+          "bank": [
+            "they",
+            "How",
+            "helps",
+            "help",
+            "do",
+            "you?",
+            "does"
+          ],
+          "hint": "С they в настоящем вопросе — do help."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 9",
+          "prompt": "Мы не возьмём их книгу",
+          "answer": [
+            "We",
+            "will",
+            "not",
+            "take",
+            "their",
+            "book"
+          ],
+          "bank": [
+            "their",
+            "book",
+            "We",
+            "take",
+            "not",
+            "will",
+            "them",
+            "took"
+          ],
+          "hint": "Будущее отрицание — will not take; их книга — their book."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 9",
+          "prompt": "Она не знает мою сестру",
+          "answer": [
+            "She",
+            "does",
+            "not",
+            "know",
+            "my",
+            "sister"
+          ],
+          "bank": [
+            "sister",
+            "knows",
+            "She",
+            "not",
+            "my",
+            "does",
+            "know",
+            "me"
+          ],
+          "hint": "После does not — know; перед sister — my."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 9",
+          "prompt": "Они говорили с нами",
+          "answer": [
+            "They",
+            "spoke",
+            "to",
+            "us"
+          ],
+          "bank": [
+            "us",
+            "speak",
+            "They",
+            "to",
+            "spoke",
+            "we"
+          ],
+          "hint": "Говорили — spoke; с нами — to us."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 9",
+          "prompt": "Я путешествовал из Москвы",
+          "answer": [
+            "I",
+            "traveled",
+            "from",
+            "Moscow"
+          ],
+          "bank": [
+            "Moscow",
+            "traveled",
+            "I",
+            "to",
+            "from",
+            "travel"
+          ],
+          "hint": "Прошлое — traveled; из Москвы — from Moscow."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 9 из 9",
+          "prompt": "Где он видел её?",
+          "answer": [
+            "Where",
+            "did",
+            "he",
+            "see",
+            "her?"
+          ],
+          "bank": [
+            "saw",
+            "her?",
+            "Where",
+            "he",
+            "did",
+            "see",
+            "she?"
+          ],
+          "hint": "После did — see, а не saw."
+        }
+      ]
+    }
+  ]
+}

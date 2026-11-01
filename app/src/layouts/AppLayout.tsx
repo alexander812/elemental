@@ -40,10 +40,12 @@ import { CourseSearchView } from '../features/course-search/ui/CourseSearchView'
 import { CoursesView } from '../features/courses/ui/CoursesView'
 import {
   ensureReadyCourseFx,
+  ensureReadyLessonFx,
   $courses,
   $coursesLoaded,
   $currentCourseId,
   $readyCourseIds,
+  $readyLessonIds,
 } from '../features/courses/store'
 import { $lessons } from '../features/lessons/store'
 import { $sets } from '../features/sets/store'
@@ -143,10 +145,11 @@ function ReadyCourseScreen({ screen }: { screen: Screen }) {
   const coursesLoaded = useUnit($coursesLoaded)
   const currentCourseId = useUnit($currentCourseId)
   const readyIds = useUnit($readyCourseIds)
+  const readyLessonIds = useUnit($readyLessonIds)
   const lessons = useUnit($lessons)
   const sets = useUnit($sets)
   const [retry, setRetry] = useState(0)
-  const [failed, setFailed] = useState<{ courseId: string; attempt: number } | null>(null)
+  const [failed, setFailed] = useState<{ key: string; attempt: number } | null>(null)
   const contentId =
     'setId' in screen && screen.setId
       ? screen.setId
@@ -164,24 +167,33 @@ function ReadyCourseScreen({ screen }: { screen: Screen }) {
     (isLessonList || contentId ? (currentCourseId ?? courses[0]?.id) : undefined)
   const course = courses.find((item) => item.id === courseId)
   const sourceCourseId = course?.source ? course.id : undefined
-  const loaded = sourceCourseId === undefined || readyIds.has(sourceCourseId)
+  // Stable supplied IDs also resolve a restored task before its course metadata is in RAM.
+  const lessonId = relatedLesson?.id ?? contentId?.split(':set:')[0]
+  const courseLoaded = sourceCourseId === undefined || readyIds.has(sourceCourseId)
+  const needsLesson = course?.source?.kind === 'poliglot' && !!lessonId && !!contentId
+  const loaded = courseLoaded && (!needsLesson || readyLessonIds.has(lessonId))
+  const loadingKey = needsLesson ? lessonId : sourceCourseId
 
   useEffect(() => {
     if (!sourceCourseId || loaded) return
     let active = true
-    void ensureReadyCourseFx(sourceCourseId).catch(() => {
-      if (active) setFailed({ courseId: sourceCourseId, attempt: retry })
+    const request =
+      courseLoaded && needsLesson
+        ? ensureReadyLessonFx(lessonId)
+        : ensureReadyCourseFx(sourceCourseId)
+    void request.catch(() => {
+      if (active && loadingKey) setFailed({ key: loadingKey, attempt: retry })
     })
     return () => {
       active = false
     }
-  }, [sourceCourseId, loaded, retry])
+  }, [sourceCourseId, courseLoaded, needsLesson, lessonId, loadingKey, loaded, retry])
 
   if ((!coursesLoaded && (isLessonList || contentId || explicitCourseId)) || !loaded) {
     return (
       <Box grow height="100%" padding="m">
         <Stack grow height="100%" verticalAlign="center" horizontalAlign="center" spacing="m">
-          {failed?.courseId === sourceCourseId && failed?.attempt === retry && sourceCourseId ? (
+          {failed?.key === loadingKey && failed?.attempt === retry && sourceCourseId ? (
             <>
               <Text align="center" variant="M / Medium">
                 <FormattedMessage

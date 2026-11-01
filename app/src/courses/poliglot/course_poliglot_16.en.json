@@ -1,0 +1,926 @@
+{
+  "name": "Выбираем активный и пассивный залог",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "passive-basics",
+      "name": "Меняем фокус: кто делает и что происходит",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Актив: действует подлежащее",
+          "paragraphs": [
+            "В активном залоге подлежащее выполняет действие: They built a house — они построили дом.",
+            "В пассивном залоге подлежащее обозначает того, на кого направлено действие: The house was built — дом был построен. Исполнитель может быть неизвестен, очевиден или неважен."
+          ],
+          "examples": [
+            "She opened the door. — Она открыла дверь.",
+            "The door was opened. — Дверь открыли."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Пассив: be + третья форма",
+          "paragraphs": [
+            "Время и согласование показывает be. После него идёт причастие прошедшего времени: для правильного глагола форма на -ed, для неправильного — третья форма.",
+            "Пассив может описывать и процесс, и результат. Обычно его строят от глагола, у которого есть объект действия: build a house → a house was built. Не каждый глагол допускает такой переход."
+          ],
+          "examples": [
+            "open → opened; sign → signed; build → built; write → written.",
+            "They arrived. — Они прибыли. Здесь arrived нельзя механически заменить на were arrived."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "By называет исполнителя, with — инструмент",
+          "paragraphs": [
+            "By вводит исполнителя или причину действия, причём это может быть не только человек: damaged by the wind — повреждённый ветром.",
+            "With показывает, чем пользовались: opened with a key — открытый ключом. Правило не сводится к одушевлённости: by bees — пчёлами, by the wind — ветром, with a key — ключом."
+          ],
+          "examples": [
+            "The letter was written by her. — Письмо было написано ею.",
+            "The box was opened with a key. — Коробку открыли ключом."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Рабочие строят дома. (обычно, активный залог)",
+          "answer": [
+            "Workers",
+            "build",
+            "houses."
+          ],
+          "bank": [
+            "build",
+            "built",
+            "is",
+            "Workers",
+            "houses."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Дома строятся. (обычно, пассивный залог)",
+          "answer": [
+            "Houses",
+            "are",
+            "built."
+          ],
+          "bank": [
+            "is",
+            "Houses",
+            "build.",
+            "are",
+            "built."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Они построили дом. (активный залог)",
+          "answer": [
+            "They",
+            "built",
+            "a",
+            "house."
+          ],
+          "bank": [
+            "build",
+            "house.",
+            "was",
+            "built",
+            "a",
+            "They"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Этот дом был построен.",
+          "answer": [
+            "This",
+            "house",
+            "was",
+            "built."
+          ],
+          "bank": [
+            "were",
+            "house",
+            "was",
+            "This",
+            "build.",
+            "built."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Дверь открыли. (пассивный залог)",
+          "answer": [
+            "The",
+            "door",
+            "was",
+            "opened."
+          ],
+          "bank": [
+            "was",
+            "The",
+            "were",
+            "opened.",
+            "open.",
+            "door"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Она открыла дверь. (активный залог)",
+          "answer": [
+            "She",
+            "opened",
+            "the",
+            "door."
+          ],
+          "bank": [
+            "open",
+            "the",
+            "was",
+            "opened",
+            "door.",
+            "She"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passive-simple",
+      "name": "Выбираем время в пассивном залоге",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Simple: меняется форма be",
+          "paragraphs": [
+            "В настоящем используются am/is/are + третья форма. В прошлом — was/were + третья форма. В будущем — will be + третья форма.",
+            "Начальная форма после be не подходит: was built, а не was build."
+          ],
+          "examples": [
+            "The contract is signed. — Договор подписан.",
+            "The photos were taken in Moscow. — Фотографии были сделаны в Москве.",
+            "The machines will be sent. — Машины будут отправлены."
+          ],
+          "table": {
+            "headers": [
+              "Время",
+              "Схема"
+            ],
+            "rows": [
+              [
+                "Present Simple",
+                "am/is/are + V3"
+              ],
+              [
+                "Past Simple",
+                "was/were + V3"
+              ],
+              [
+                "Future Simple",
+                "will be + V3"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Запоминаем нужные третьи формы",
+          "paragraphs": [
+            "Take — took — taken; send — sent — sent; meet — met — met; break — broke — broken. Третья форма не всегда совпадает с простым прошедшим.",
+            "Правильные глаголы: sign — signed, open — opened, punish — punished, deliver — delivered."
+          ],
+          "examples": [
+            "You will be met at the airport. — Тебя встретят в аэропорту.",
+            "My phone is broken. — Мой телефон сломан."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 7",
+          "prompt": "Договор подписан. (Present Simple)",
+          "answer": [
+            "The",
+            "contract",
+            "is",
+            "signed."
+          ],
+          "bank": [
+            "The",
+            "contract",
+            "are",
+            "is",
+            "signed.",
+            "sign."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 7",
+          "prompt": "Фотографии были сделаны в Москве.",
+          "answer": [
+            "The",
+            "photos",
+            "were",
+            "taken",
+            "in",
+            "Moscow."
+          ],
+          "bank": [
+            "Moscow.",
+            "took",
+            "in",
+            "taken",
+            "was",
+            "were",
+            "The",
+            "photos"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 7",
+          "prompt": "Эти машины будут отправлены в Москву.",
+          "answer": [
+            "These",
+            "machines",
+            "will",
+            "be",
+            "sent",
+            "to",
+            "Moscow."
+          ],
+          "bank": [
+            "is",
+            "These",
+            "Moscow.",
+            "sent",
+            "be",
+            "will",
+            "send",
+            "to",
+            "machines"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 7",
+          "prompt": "Мой телефон сломан.",
+          "answer": [
+            "My",
+            "phone",
+            "is",
+            "broken."
+          ],
+          "bank": [
+            "My",
+            "are",
+            "break.",
+            "broken.",
+            "is",
+            "phone"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 7",
+          "prompt": "Тебя встретят в аэропорту.",
+          "answer": [
+            "You",
+            "will",
+            "be",
+            "met",
+            "at",
+            "the",
+            "airport."
+          ],
+          "bank": [
+            "met",
+            "airport.",
+            "You",
+            "at",
+            "the",
+            "be",
+            "is",
+            "will",
+            "meet"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 7",
+          "prompt": "Письмо было написано ею.",
+          "answer": [
+            "The",
+            "letter",
+            "was",
+            "written",
+            "by",
+            "her."
+          ],
+          "bank": [
+            "letter",
+            "her.",
+            "write",
+            "by",
+            "was",
+            "The",
+            "written",
+            "with"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 7",
+          "prompt": "Коробку открыли ключом. (пассивный залог)",
+          "answer": [
+            "The",
+            "box",
+            "was",
+            "opened",
+            "with",
+            "a",
+            "key."
+          ],
+          "bank": [
+            "The",
+            "with",
+            "key.",
+            "opened",
+            "by",
+            "was",
+            "a",
+            "open",
+            "box"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passive-questions-negatives",
+      "name": "Спрашиваем и отрицаем",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Not следует за первой вспомогательной формой",
+          "paragraphs": [
+            "В отрицании поставь not после is/are/was/were. В будущем порядок такой: will not be + третья форма.",
+            "Если вспомогательных слов несколько, not ставится после первого: has not been sent, is not being done."
+          ],
+          "examples": [
+            "The light was not turned off. — Свет не был выключен.",
+            "The exam will not be held. — Экзамен не будет проведён."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "В вопросе первая форма выходит вперёд",
+          "paragraphs": [
+            "Общий вопрос начинается с Is/Are/Was/Were или Will. Третья форма смыслового глагола сохраняется.",
+            "Специальный вопрос сначала получает вопросительное слово, затем обычный порядок вопроса."
+          ],
+          "examples": [
+            "Was the last email sent? — Последнее письмо было отправлено?",
+            "Will our apology be accepted? — Наши извинения будут приняты?",
+            "Where was the box opened? — Где открыли коробку?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Свет не был выключен.",
+          "answer": [
+            "The",
+            "light",
+            "was",
+            "not",
+            "turned",
+            "off."
+          ],
+          "bank": [
+            "turned",
+            "were",
+            "light",
+            "The",
+            "turn",
+            "off.",
+            "not",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Экзамен не будет проведён.",
+          "answer": [
+            "The",
+            "exam",
+            "will",
+            "not",
+            "be",
+            "held."
+          ],
+          "bank": [
+            "held.",
+            "The",
+            "is",
+            "hold.",
+            "will",
+            "be",
+            "not",
+            "exam"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Эта книга не была закончена.",
+          "answer": [
+            "This",
+            "book",
+            "was",
+            "not",
+            "finished."
+          ],
+          "bank": [
+            "was",
+            "finish.",
+            "were",
+            "book",
+            "not",
+            "This",
+            "finished."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Последнее письмо было отправлено?",
+          "answer": [
+            "Was",
+            "the",
+            "last",
+            "email",
+            "sent?"
+          ],
+          "bank": [
+            "send?",
+            "email",
+            "Were",
+            "sent?",
+            "Was",
+            "last",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Наши извинения будут приняты?",
+          "answer": [
+            "Will",
+            "our",
+            "apology",
+            "be",
+            "accepted?"
+          ],
+          "bank": [
+            "accept?",
+            "Will",
+            "be",
+            "apology",
+            "our",
+            "accepted?",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Где открыли коробку? (пассивный залог)",
+          "answer": [
+            "Where",
+            "was",
+            "the",
+            "box",
+            "opened?"
+          ],
+          "bank": [
+            "opened?",
+            "were",
+            "Where",
+            "open?",
+            "was",
+            "box",
+            "the"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passive-continuous-perfect",
+      "name": "Различаем процесс и завершённое действие",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Continuous Passive: действие в процессе",
+          "paragraphs": [
+            "Для пассивного процесса в настоящем нужны am/is/are + being + третья форма. В прошлом — was/were + being + третья форма.",
+            "Future Continuous Passive — крайне редкая и громоздкая форма; здесь её не тренируем. Обычно мысль можно выразить активным залогом или более простой конструкцией."
+          ],
+          "examples": [
+            "The house is being built. — Дом сейчас строится.",
+            "The room was being cleaned. — В тот момент комнату убирали."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Perfect Passive: результат к моменту",
+          "paragraphs": [
+            "Perfect Passive соединяет have/has/had с been и третьей формой. Для результата к будущему моменту — will have been + третья форма.",
+            "Past Perfect связывает результат с другим моментом в прошлом. Без такого контекста обычно достаточно Past Simple."
+          ],
+          "examples": [
+            "Our order has been delivered. — Наш заказ уже доставлен.",
+            "The letter had been sent before we arrived. — Письмо уже отправили до нашего приезда."
+          ],
+          "table": {
+            "headers": [
+              "Время",
+              "Схема"
+            ],
+            "rows": [
+              [
+                "Present Perfect",
+                "have/has been + V3"
+              ],
+              [
+                "Past Perfect",
+                "had been + V3"
+              ],
+              [
+                "Future Perfect",
+                "will have been + V3"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Время выбирается по смыслу, а не только по переводу",
+          "paragraphs": [
+            "Фраза «дом построен» сама по себе не выбирает между was built и has been built: нужен контекст. В этих упражнениях ориентир указан в задании.",
+            "Вопросы и отрицания строятся с первой вспомогательной формой: Has the order been delivered?; The order has not been delivered."
+          ],
+          "examples": [
+            "The windows have been broken. — Окна разбиты, это важно сейчас.",
+            "The work will have been finished by noon. — К полудню работа будет завершена."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Дом сейчас строится. (Present Continuous Passive)",
+          "answer": [
+            "The",
+            "house",
+            "is",
+            "being",
+            "built."
+          ],
+          "bank": [
+            "built.",
+            "build.",
+            "house",
+            "The",
+            "is",
+            "are",
+            "being"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "В тот момент комнату убирали. (Past Continuous Passive)",
+          "answer": [
+            "The",
+            "room",
+            "was",
+            "being",
+            "cleaned."
+          ],
+          "bank": [
+            "The",
+            "were",
+            "clean.",
+            "cleaned.",
+            "was",
+            "being",
+            "room"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Наш заказ уже доставлен. (Present Perfect Passive)",
+          "answer": [
+            "Our",
+            "order",
+            "has",
+            "been",
+            "delivered."
+          ],
+          "bank": [
+            "order",
+            "have",
+            "been",
+            "delivered.",
+            "deliver.",
+            "Our",
+            "has"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Письмо уже отправили до нашего приезда. (Past Perfect Passive)",
+          "answer": [
+            "The",
+            "letter",
+            "had",
+            "been",
+            "sent",
+            "before",
+            "we",
+            "arrived."
+          ],
+          "bank": [
+            "arrived.",
+            "we",
+            "The",
+            "before",
+            "had",
+            "has",
+            "send",
+            "sent",
+            "been",
+            "letter"
+          ],
+          "hint": "Начни с The letter; часть с before поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "К полудню работа будет завершена. (Future Perfect Passive)",
+          "answer": [
+            "The",
+            "work",
+            "will",
+            "have",
+            "been",
+            "finished",
+            "by",
+            "noon."
+          ],
+          "bank": [
+            "been",
+            "noon.",
+            "by",
+            "has",
+            "finish",
+            "The",
+            "have",
+            "finished",
+            "work",
+            "will"
+          ],
+          "hint": "Начни с The work; by noon поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Заказ уже доставлен? (Present Perfect Passive)",
+          "answer": [
+            "Has",
+            "the",
+            "order",
+            "been",
+            "delivered?"
+          ],
+          "bank": [
+            "Has",
+            "Have",
+            "been",
+            "order",
+            "delivered?",
+            "the",
+            "deliver?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "passive-overview",
+      "name": "Выбираем залог и нужную форму",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Проверь четыре шага",
+          "paragraphs": [
+            "Реши, кто выполняет действие и на кого оно направлено. Если нужен пассив, выбери время, правильную форму be и третью форму смыслового глагола.",
+            "Для процесса добавляется being, для Perfect — been после have/has/had. By называет исполнителя или причину, with — инструмент."
+          ],
+          "examples": [
+            "They are repairing the car. — Они сейчас чинят машину.",
+            "The car is being repaired. — Машину сейчас чинят."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 8",
+          "prompt": "Пчёлы производят мёд? (пассивный залог)",
+          "answer": [
+            "Is",
+            "honey",
+            "made",
+            "by",
+            "bees?"
+          ],
+          "bank": [
+            "by",
+            "with",
+            "make",
+            "made",
+            "Is",
+            "bees?",
+            "honey"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 8",
+          "prompt": "Этот дом был построен.",
+          "answer": [
+            "This",
+            "house",
+            "was",
+            "built."
+          ],
+          "bank": [
+            "build.",
+            "house",
+            "was",
+            "This",
+            "were",
+            "built."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 8",
+          "prompt": "Эти машины будут отправлены.",
+          "answer": [
+            "These",
+            "machines",
+            "will",
+            "be",
+            "sent."
+          ],
+          "bank": [
+            "machines",
+            "These",
+            "sent.",
+            "send.",
+            "are",
+            "be",
+            "will"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 8",
+          "prompt": "Свет не был выключен.",
+          "answer": [
+            "The",
+            "light",
+            "was",
+            "not",
+            "turned",
+            "off."
+          ],
+          "bank": [
+            "turned",
+            "turn",
+            "light",
+            "The",
+            "were",
+            "off.",
+            "not",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 8",
+          "prompt": "Где открыли коробку? (пассивный залог)",
+          "answer": [
+            "Where",
+            "was",
+            "the",
+            "box",
+            "opened?"
+          ],
+          "bank": [
+            "opened?",
+            "open?",
+            "Where",
+            "were",
+            "was",
+            "box",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 8",
+          "prompt": "Коробку открыли ключом. (пассивный залог)",
+          "answer": [
+            "The",
+            "box",
+            "was",
+            "opened",
+            "with",
+            "a",
+            "key."
+          ],
+          "bank": [
+            "The",
+            "with",
+            "key.",
+            "opened",
+            "by",
+            "was",
+            "a",
+            "open",
+            "box"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 8",
+          "prompt": "Машину сейчас чинят. (Present Continuous Passive)",
+          "answer": [
+            "The",
+            "car",
+            "is",
+            "being",
+            "repaired."
+          ],
+          "bank": [
+            "being",
+            "are",
+            "repair.",
+            "repaired.",
+            "car",
+            "The",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 8",
+          "prompt": "Окна разбиты; результат важен сейчас. (Present Perfect Passive)",
+          "answer": [
+            "The",
+            "windows",
+            "have",
+            "been",
+            "broken."
+          ],
+          "bank": [
+            "been",
+            "broken.",
+            "windows",
+            "has",
+            "broke.",
+            "The",
+            "have"
+          ]
+        }
+      ]
+    }
+  ]
+}

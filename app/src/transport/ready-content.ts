@@ -13,8 +13,10 @@ export type ReadyCourseState = {
   phraseProgress?: Record<string, { solved: string[]; page: string; index: number }>
 }
 
-const cache = new Map<string, { baseline: Graph; content: Content }>()
+type CachedContent = { baseline: Graph; content: Content; deferredLessons: Set<string> }
+const cache = new Map<string, CachedContent>()
 const pending = new Map<string, Promise<void>>()
+const pendingLessons = new Map<string, Promise<void>>()
 let generation = 0
 
 export const readReadyStates = (): Record<string, ReadyCourseState> => load('ready-state', {})
@@ -123,6 +125,107 @@ export function clearReadyContentCache(): void {
   generation += 1
   cache.clear()
   pending.clear()
+  pendingLessons.clear()
+}
+
+// Card and page patches must wait for the actual baseline, never an empty task shell.
+function isDeferredPatch(entry: CachedContent, patch: ContentPatch): boolean {
+  if (
+    patch.path[0] !== 'sets' ||
+    !['cards', 'cardOrder', 'phraseTask'].includes(String(patch.path[2]))
+  )
+    return false
+  const set = entry.baseline.sets[String(patch.path[1])]
+  return !!set && entry.deferredLessons.has(set.lessonId)
+}
+
+function restoreContent(entry: CachedContent, state: ReadyCourseState | undefined): void {
+  entry.content = expand(
+    applyPatches(
+      entry.baseline,
+      (state?.patches ?? []).filter((patch) => !isDeferredPatch(entry, patch))
+    )
+  )
+  for (const set of entry.content.sets) {
+    const progress = state?.phraseProgress?.[set.id]
+    const task = set.phraseTask
+    if (!progress || !task) continue
+    task.solved = task.pages.flatMap((page, index) =>
+      page.kind === 'question' && progress.solved.includes(pageKey(page)) ? [index] : []
+    )
+    const restored = task.pages.findIndex((page) => pageKey(page) === progress.page)
+    task.pageIndex =
+      restored >= 0 ? restored : Math.max(0, Math.min(progress.index, task.pages.length - 1))
+    const questions = task.pages.filter((page) => page.kind === 'question').length
+    set.examPassed = questions > 0 && task.solved.length === questions
+  }
+}
+
+function snapshot(
+  entry: CachedContent,
+  courseId: string,
+  previous?: ReadyCourseState
+): ReadyCourseState {
+  const graph = normalize(entry.content)
+  return {
+    patches: [
+      ...(previous?.patches ?? []).filter(
+        (patch) => isDeferredPatch(entry, patch) && graph.sets[String(patch.path[1])]
+      ),
+      ...diff(entry.baseline, graph).filter((patch) => !isDeferredPatch(entry, patch)),
+    ],
+    summary: summarize(entry.content, courseId),
+    phraseProgress: {
+      ...Object.fromEntries(
+        Object.entries(previous?.phraseProgress ?? {}).filter(
+          ([id]) => graph.sets[id] && entry.deferredLessons.has(graph.sets[id].lessonId)
+        )
+      ),
+      ...phraseProgress(entry.content.sets),
+    },
+  }
+}
+
+export async function ensureReadyLesson(lessonId: string): Promise<void> {
+  const courseId = resolveReadyCourseId(lessonId)
+  if (!courseId) return
+  await ensureReadyCourse(courseId)
+  const entry = cache.get(courseId)
+  if (!entry?.deferredLessons.has(lessonId)) return
+  const running = pendingLessons.get(lessonId)
+  if (running) return running
+  const course = load<Course[]>('courses', []).find((item) => item.id === courseId)
+  if (!course) return
+  const started = generation
+  const request = (async () => {
+    const { buildReadyLesson } = await import('./ready-builders')
+    const sets = await buildReadyLesson(course, lessonId)
+    if (
+      started !== generation ||
+      cache.get(courseId) !== entry ||
+      !load<Course[]>('courses', []).some((item) => item.id === courseId)
+    )
+      return
+    const states = readReadyStates()
+    for (const [id, set] of Object.entries(entry.baseline.sets))
+      if (set.lessonId === lessonId) delete entry.baseline.sets[id]
+    Object.assign(entry.baseline.sets, normalize({ lessons: [], sets }).sets)
+    entry.deferredLessons.delete(lessonId)
+    restoreContent(entry, states[courseId])
+    states[courseId] = snapshot(entry, courseId, states[courseId])
+    writeReadyStates(states)
+  })()
+  pendingLessons.set(lessonId, request)
+  try {
+    await request
+  } finally {
+    if (pendingLessons.get(lessonId) === request) pendingLessons.delete(lessonId)
+  }
+}
+
+export async function ensureAllReadyLessons(courseId: string): Promise<void> {
+  await ensureReadyCourse(courseId)
+  await Promise.all([...(cache.get(courseId)?.deferredLessons ?? [])].map(ensureReadyLesson))
 }
 
 export function resolveReadyCourseId(contentId: string): string | undefined {
@@ -150,29 +253,17 @@ export async function ensureReadyCourse(courseId: string): Promise<void> {
       return
     const baseline = structuredClone(normalize(built))
     const state = readReadyStates()[courseId]
-    const content = expand(
-      state ? applyPatches(baseline, state.patches) : structuredClone(baseline)
-    )
-    for (const set of content.sets) {
-      const progress = state?.phraseProgress?.[set.id]
-      const task = set.phraseTask
-      if (!progress || !task) continue
-      task.solved = task.pages.flatMap((page, index) =>
-        page.kind === 'question' && progress.solved.includes(pageKey(page)) ? [index] : []
-      )
-      const restored = task.pages.findIndex((page) => pageKey(page) === progress.page)
-      task.pageIndex =
-        restored >= 0 ? restored : Math.max(0, Math.min(progress.index, task.pages.length - 1))
-      const questions = task.pages.filter((page) => page.kind === 'question').length
-      set.examPassed = questions > 0 && task.solved.length === questions
+    const entry: CachedContent = {
+      baseline,
+      content: built,
+      deferredLessons: new Set(
+        course.source?.kind === 'poliglot' ? built.lessons.map((lesson) => lesson.id) : []
+      ),
     }
-    cache.set(courseId, { baseline, content })
+    restoreContent(entry, state)
+    cache.set(courseId, entry)
     const states = readReadyStates()
-    states[courseId] = {
-      patches: diff(baseline, normalize(content)),
-      summary: summarize(content, courseId),
-      phraseProgress: phraseProgress(content.sets),
-    }
+    states[courseId] = snapshot(entry, courseId, states[courseId])
     writeReadyStates(states)
   })()
   pending.set(courseId, request)
@@ -214,12 +305,7 @@ function writeContent(content: Content): void {
       (set) => lessonOwners.get(set.lessonId) === courseId && sourceIds.has(courseId)
     )
     entry.content = structuredClone({ lessons, sets })
-    if (sourceIds.has(courseId))
-      states[courseId] = {
-        patches: diff(entry.baseline, normalize(entry.content)),
-        summary: summarize(entry.content, courseId),
-        phraseProgress: phraseProgress(sets),
-      }
+    if (sourceIds.has(courseId)) states[courseId] = snapshot(entry, courseId, states[courseId])
   }
   for (const courseId of Object.keys(states)) if (!sourceIds.has(courseId)) delete states[courseId]
   save(

@@ -1,5 +1,5 @@
-import poliglotUrl from '../courses/poliglot/course_poliglot.en.json?url'
-import type { PoliglotCourseData } from '../courses/poliglot/lesson-one'
+import poliglot from '../courses/poliglot/course_poliglot.en.json'
+import type { PoliglotLessonData } from '../courses/poliglot/lesson-one'
 import type { CardSet, Course, Lesson } from '../lib/types'
 import { fetchCatalogCourse } from './catalog'
 
@@ -11,62 +11,28 @@ export async function buildReadyContent(course: Course): Promise<{
   if (!source) return { lessons: [], sets: [] }
 
   if (source.kind === 'poliglot') {
-    const [lessonContent, exercises] = await Promise.all([
-      import('../courses/poliglot/lesson-one'),
-      import('../courses/poliglot/exercises'),
-    ])
-    const response = await fetch(poliglotUrl)
-    if (!response.ok) throw new Error('poliglot_download_failed')
-    const data = (await response.json()) as PoliglotCourseData
-    const tasks = lessonContent.parseLessonOne(data.lessonOne)
-    const categories = exercises.parseExercises(data.exercises)
-    const lessonId = `${course.id}:lesson:0`
-    const exerciseLessonId = `${course.id}:lesson:exercises`
-    const lessons: Lesson[] = [
-      { id: lessonId, courseId: course.id, name: data.lessonOne.name, order: 0 },
-      {
-        id: exerciseLessonId,
+    return {
+      lessons: poliglot.lessons.map((lesson) => ({
+        id: `${course.id}:lesson:${lesson.id}`,
         courseId: course.id,
-        name: data.exercises.name,
-        order: 16,
-      },
-    ]
-    const sets: CardSet[] = tasks.map((task, order) => ({
-      id: `${lessonId}:set:${task.id}`,
-      lessonId,
-      name: task.name,
-      active: true,
-      order,
-      swapped: false,
-      examPassed: false,
-      texts: {},
-      cards: [],
-      phraseTask: { pages: task.pages, pageIndex: 0, solved: [] },
-    }))
-
-    for (const [order, category] of categories.entries()) {
-      const setId = `${exerciseLessonId}:set:${category.id}`
-      sets.push({
-        id: setId,
-        lessonId: exerciseLessonId,
-        name: category.name,
-        active: true,
-        order,
-        swapped: false,
-        examPassed: false,
-        texts: {},
-        cards: category.cards.map((card, index) => ({
-          id: `${setId}:card:${index}`,
-          texts: { [course.userLang]: card.original, [course.lang]: card.translation },
-          learned: false,
-          deleted: false,
-          voiceCheck: null,
-          writeCheck: null,
-        })),
-        phraseTask: { pages: category.pages, pageIndex: 0, solved: [] },
-      })
+        name: lesson.name,
+        order: lesson.order,
+      })),
+      // Lightweight task metadata keeps lesson counts and saved completion visible.
+      sets: poliglot.lessons.flatMap((lesson) =>
+        lesson.tasks.map((task, order) => ({
+          id: `${course.id}:lesson:${lesson.id}:set:${task.id}`,
+          lessonId: `${course.id}:lesson:${lesson.id}`,
+          name: task.name,
+          active: true,
+          order,
+          swapped: false,
+          examPassed: false,
+          texts: {},
+          cards: [],
+        }))
+      ),
     }
-    return { lessons, sets }
   }
 
   const data = await fetchCatalogCourse(source.langFile)
@@ -120,4 +86,58 @@ export async function buildReadyContent(course: Course): Promise<{
     }
   }
   return { lessons, sets }
+}
+
+const poliglotFiles = import.meta.glob<string>('../courses/poliglot/course_poliglot_*.en.json', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+})
+
+export async function buildReadyLesson(course: Course, lessonId: string): Promise<CardSet[]> {
+  const lesson = poliglot.lessons.find((item) => `${course.id}:lesson:${item.id}` === lessonId)
+  if (course.source?.kind !== 'poliglot' || !lesson) return []
+  const url = poliglotFiles[`../courses/poliglot/${lesson.file}`]
+  if (!url) throw new Error('poliglot_lesson_not_found')
+  const response = await fetch(url)
+  if (!response.ok) throw new Error('poliglot_download_failed')
+  const data = await response.json()
+  if (lesson.kind === 'exercises') {
+    const { parseExercises } = await import('../courses/poliglot/exercises')
+    return parseExercises(data).map((category, order) => {
+      const setId = `${lessonId}:set:${category.id}`
+      return {
+        id: setId,
+        lessonId,
+        name: category.name,
+        active: true,
+        order,
+        swapped: false,
+        examPassed: false,
+        texts: {},
+        cards: category.cards.map((card, index) => ({
+          id: `${setId}:card:${index}`,
+          texts: { [course.userLang]: card.original, [course.lang]: card.translation },
+          learned: false,
+          deleted: false,
+          voiceCheck: null,
+          writeCheck: null,
+        })),
+        phraseTask: { pages: category.pages, pageIndex: 0, solved: [] },
+      }
+    })
+  }
+  const { parseLessonOne } = await import('../courses/poliglot/lesson-one')
+  return parseLessonOne(data as PoliglotLessonData).map((task, order) => ({
+    id: `${lessonId}:set:${task.id}`,
+    lessonId,
+    name: task.name,
+    active: true,
+    order,
+    swapped: false,
+    examPassed: false,
+    texts: {},
+    cards: [],
+    phraseTask: { pages: task.pages, pageIndex: 0, solved: [] },
+  }))
 }

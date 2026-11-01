@@ -1,4 +1,5 @@
-import type { PoliglotCourseData, PoliglotQuestionPage } from './lesson-one'
+import type exerciseData from './course_poliglot_exercises.en.json'
+import type { PoliglotQuestionPage } from './lesson-one'
 
 export type PoliglotExerciseCategory = {
   id: string
@@ -119,7 +120,7 @@ const buildQuestion = (
   }
 }
 
-export const parseExercises = (data: PoliglotCourseData['exercises']): PoliglotExerciseCategory[] =>
+export const parseExercises = (data: typeof exerciseData): PoliglotExerciseCategory[] =>
   (data.categories as ExerciseCategory[]).map((category, categoryIndex) => ({
     id: category.id,
     name: category.name,

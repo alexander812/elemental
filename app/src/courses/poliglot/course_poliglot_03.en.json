@@ -1,0 +1,930 @@
+{
+  "name": "Быть, находиться, являться: to be",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "be-present",
+      "name": "Выбираем am, is или are",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Когда нужен to be",
+          "paragraphs": [
+            "To be помогает сказать, кто человек, какой он или где находится. В русском настоящем времени связка часто не звучит: Она учитель. В английском нужна форма be: She is a teacher.",
+            "Не добавляй be к любому глаголу. Я работаю — I work, а не I am work. В этом уроке учимся говорить о месте, состоянии и профессии."
+          ],
+          "examples": [
+            "I am here — Я здесь",
+            "She is a teacher — Она учитель",
+            "He is happy — Он счастлив"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Три формы настоящего времени",
+          "paragraphs": [
+            "После I ставь am. После he, she и it — is. После you, we и they — are. You означает и ты, и вы, но форма всегда are."
+          ],
+          "table": {
+            "headers": [
+              "Кто",
+              "Форма",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "I",
+                "am",
+                "I am here"
+              ],
+              [
+                "he / she / it",
+                "is",
+                "She is happy"
+              ],
+              [
+                "you / we / they",
+                "are",
+                "They are students"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Собираем фразу",
+          "paragraphs": [
+            "Порядок слов: кто + am/is/are + где, какой или кто по профессии. Here — здесь, there — там, happy — счастливый, ready — готовый.",
+            "A teacher — учитель, a doctor — врач. Перед students артикля a нет: речь о нескольких студентах. Подробно артикли разберём в следующем уроке."
+          ],
+          "examples": [
+            "We are in Moscow — Мы в Москве",
+            "You are a teacher — Ты учитель",
+            "They are students — Они студенты"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я здесь",
+          "answer": [
+            "I",
+            "am",
+            "here"
+          ],
+          "bank": [
+            "here",
+            "is",
+            "I",
+            "are",
+            "am",
+            "there"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Она учитель",
+          "answer": [
+            "She",
+            "is",
+            "a",
+            "teacher"
+          ],
+          "bank": [
+            "teacher",
+            "are",
+            "She",
+            "a",
+            "am",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Ты готов",
+          "answer": [
+            "You",
+            "are",
+            "ready"
+          ],
+          "bank": [
+            "is",
+            "ready",
+            "am",
+            "You",
+            "are",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Мы в Москве",
+          "answer": [
+            "We",
+            "are",
+            "in",
+            "Moscow"
+          ],
+          "bank": [
+            "Moscow",
+            "are",
+            "to",
+            "We",
+            "in",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Они студенты",
+          "answer": [
+            "They",
+            "are",
+            "students"
+          ],
+          "bank": [
+            "students",
+            "a",
+            "They",
+            "is",
+            "are",
+            "am"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Он счастлив",
+          "answer": [
+            "He",
+            "is",
+            "happy"
+          ],
+          "bank": [
+            "am",
+            "happy",
+            "are",
+            "He",
+            "is",
+            "be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be-past",
+      "name": "Говорим о прошлом: was и were",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Не каждый глагол получает -ed",
+          "paragraphs": [
+            "У неправильных глаголов форму прошедшего запоминают отдельно: go — went, see — saw, come — came. После did или did not обычный глагол возвращается в начальную форму: Did she go?",
+            "Be тоже неправильный глагол, но в простом прошедшем у него две формы: was и were. Вопросы и отрицания с ними строятся без did."
+          ],
+          "examples": [
+            "She went — Она пошла",
+            "She was here — Она была здесь"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Кому was, кому were",
+          "paragraphs": [
+            "Was соответствует был, была или было после I, he, she и it. Were нужно после you, we и they. После you выбирай were, даже если обращаешься к одному человеку."
+          ],
+          "table": {
+            "headers": [
+              "Кто",
+              "Форма",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "I / he / she / it",
+                "was",
+                "She was a teacher"
+              ],
+              [
+                "you / we / they",
+                "were",
+                "You were a teacher"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Меняется связка, а не остальная фраза",
+          "paragraphs": [
+            "Чтобы перенести состояние или место в прошлое, замени am/is на was, а are на were. Здесь не нужны ни -ed, ни начальная форма be после was или were."
+          ],
+          "examples": [
+            "He is there → He was there — Он там → Он был там",
+            "They are students → They were students — Они студенты → Они были студентами"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я был здесь",
+          "answer": [
+            "I",
+            "was",
+            "here"
+          ],
+          "bank": [
+            "were",
+            "here",
+            "I",
+            "am",
+            "was",
+            "there"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Она была учителем",
+          "answer": [
+            "She",
+            "was",
+            "a",
+            "teacher"
+          ],
+          "bank": [
+            "teacher",
+            "were",
+            "She",
+            "is",
+            "a",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Ты был учителем",
+          "answer": [
+            "You",
+            "were",
+            "a",
+            "teacher"
+          ],
+          "bank": [
+            "a",
+            "was",
+            "teacher",
+            "You",
+            "were",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Мы были в Москве",
+          "answer": [
+            "We",
+            "were",
+            "in",
+            "Moscow"
+          ],
+          "bank": [
+            "Moscow",
+            "was",
+            "in",
+            "We",
+            "are",
+            "were"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Они были студентами",
+          "answer": [
+            "They",
+            "were",
+            "students"
+          ],
+          "bank": [
+            "was",
+            "students",
+            "are",
+            "They",
+            "were",
+            "a"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Оно было здесь",
+          "answer": [
+            "It",
+            "was",
+            "here"
+          ],
+          "bank": [
+            "here",
+            "is",
+            "It",
+            "were",
+            "was",
+            "there"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be-future",
+      "name": "Говорим о будущем: will be",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Одна форма для всех",
+          "paragraphs": [
+            "В будущем простом времени используй will be после любого местоимения. Не выбирай am, is или are после will: здесь нужна начальная форма be без to."
+          ],
+          "table": {
+            "headers": [
+              "Кто",
+              "Форма",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "I / you / he / she / it / we / they",
+                "will be",
+                "They will be students"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Переходим из прошлого в будущее",
+          "paragraphs": [
+            "Смысловая часть остаётся на месте: кто + will + be + где, какой или кто по профессии. В тренажёре will и be выбираются отдельно."
+          ],
+          "examples": [
+            "I was here → I will be here — Я был здесь → Я буду здесь",
+            "He will be ready — Он будет готов",
+            "We will be in Moscow — Мы будем в Москве"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 5",
+          "prompt": "Я буду здесь",
+          "answer": [
+            "I",
+            "will",
+            "be",
+            "here"
+          ],
+          "bank": [
+            "here",
+            "am",
+            "be",
+            "I",
+            "will",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 5",
+          "prompt": "Он будет там",
+          "answer": [
+            "He",
+            "will",
+            "be",
+            "there"
+          ],
+          "bank": [
+            "is",
+            "there",
+            "He",
+            "will",
+            "was",
+            "be"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 5",
+          "prompt": "Ты будешь учителем",
+          "answer": [
+            "You",
+            "will",
+            "be",
+            "a",
+            "teacher"
+          ],
+          "bank": [
+            "teacher",
+            "are",
+            "You",
+            "be",
+            "a",
+            "were",
+            "will"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 5",
+          "prompt": "Мы будем в Москве",
+          "answer": [
+            "We",
+            "will",
+            "be",
+            "in",
+            "Moscow"
+          ],
+          "bank": [
+            "Moscow",
+            "are",
+            "in",
+            "will",
+            "We",
+            "be",
+            "were"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 5",
+          "prompt": "Они будут студентами",
+          "answer": [
+            "They",
+            "will",
+            "be",
+            "students"
+          ],
+          "bank": [
+            "are",
+            "students",
+            "will",
+            "They",
+            "were",
+            "be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be-questions-negatives",
+      "name": "Спрашиваем и отрицаем с to be",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Вопрос без do и did",
+          "paragraphs": [
+            "В настоящем и прошлом вынеси am, is, are, was или were перед тем, о ком спрашиваешь. Do, does и did для таких вопросов не нужны."
+          ],
+          "examples": [
+            "She is here → Is she here? — Она здесь → Она здесь?",
+            "He was happy → Was he happy? — Он был счастлив → Он был счастлив?",
+            "Are you a teacher? — Ты учитель?",
+            "Is she your sister? — Она твоя сестра?",
+            "Am I right? — Я прав?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "В будущем вперёд выходит will",
+          "paragraphs": [
+            "В будущем вопрос начинается с will, затем идёт местоимение, а be остаётся после него: Will + кто + be + остальная фраза?"
+          ],
+          "examples": [
+            "Will he be ready? — Он будет готов?",
+            "Will she be a teacher? — Она будет учителем?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Где поставить not",
+          "paragraphs": [
+            "В отрицании ставь not после am/is/are или was/were. В будущем порядок такой: кто + will + not + be. Здесь не нужны don’t, doesn’t и didn’t.",
+            "В этой тренировке собирай полные формы с отдельным not. В речи встречаются сокращения: is not → isn’t, are not → aren’t, was not → wasn’t, were not → weren’t, will not → won’t."
+          ],
+          "examples": [
+            "I am not a doctor — Я не врач",
+            "He was not in Moscow — Он не был в Москве",
+            "You will not be a doctor — Ты не будешь врачом"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Вопрос с отрицанием",
+          "paragraphs": [
+            "В полном вопросе с отрицанием not идёт после местоимения: Are you not ready? — Ты не готов? Такая форма часто выражает удивление или ожидание подтверждения.",
+            "Для обычных вопросов сначала закрепи порядок Are you ready? Вопрос с отрицанием — отдельный вариант, а не замена всем вопросам."
+          ],
+          "examples": [
+            "Are they not students? — Они не студенты?",
+            "Will he not be ready? — Он не будет готов?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 8",
+          "prompt": "Она твоя сестра?",
+          "answer": [
+            "Is",
+            "she",
+            "your",
+            "sister?"
+          ],
+          "bank": [
+            "sister?",
+            "Does",
+            "your",
+            "she",
+            "Is",
+            "Are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 8",
+          "prompt": "Мы были в Москве?",
+          "answer": [
+            "Were",
+            "we",
+            "in",
+            "Moscow?"
+          ],
+          "bank": [
+            "Moscow?",
+            "Was",
+            "in",
+            "we",
+            "Did",
+            "Were"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 8",
+          "prompt": "Он будет готов?",
+          "answer": [
+            "Will",
+            "he",
+            "be",
+            "ready?"
+          ],
+          "bank": [
+            "be",
+            "ready?",
+            "Does",
+            "Will",
+            "is",
+            "he"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 8",
+          "prompt": "Я не врач",
+          "answer": [
+            "I",
+            "am",
+            "not",
+            "a",
+            "doctor"
+          ],
+          "bank": [
+            "doctor",
+            "is",
+            "a",
+            "I",
+            "not",
+            "am",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 8",
+          "prompt": "Они не из Англии",
+          "answer": [
+            "They",
+            "are",
+            "not",
+            "from",
+            "England"
+          ],
+          "bank": [
+            "England",
+            "is",
+            "from",
+            "They",
+            "not",
+            "are",
+            "in"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 8",
+          "prompt": "Он не был в Москве",
+          "answer": [
+            "He",
+            "was",
+            "not",
+            "in",
+            "Moscow"
+          ],
+          "bank": [
+            "in",
+            "were",
+            "Moscow",
+            "He",
+            "not",
+            "was",
+            "is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 8",
+          "prompt": "Ты не будешь врачом",
+          "answer": [
+            "You",
+            "will",
+            "not",
+            "be",
+            "a",
+            "doctor"
+          ],
+          "bank": [
+            "doctor",
+            "are",
+            "be",
+            "not",
+            "You",
+            "a",
+            "will",
+            "were"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 8",
+          "prompt": "Они не студенты?",
+          "answer": [
+            "Are",
+            "they",
+            "not",
+            "students?"
+          ],
+          "bank": [
+            "students?",
+            "Is",
+            "they",
+            "not",
+            "Do",
+            "Are"
+          ],
+          "hint": "Собери полный вопрос с отдельным not."
+        }
+      ]
+    },
+    {
+      "id": "be-overview",
+      "name": "Собираем матрицу to be",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Девять форм с to be",
+          "paragraphs": [
+            "Как и в первом уроке, выбери время и тип фразы. В строках сверху вниз: будущее, настоящее, прошлое. В настоящем и прошлом согласуй форму be с тем, о ком говоришь."
+          ],
+          "table": {
+            "headers": [
+              "Вопрос",
+              "Утверждение",
+              "Отрицание"
+            ],
+            "rows": [
+              [
+                "Will she be here?",
+                "She will be here",
+                "She will not be here"
+              ],
+              [
+                "Is she here?",
+                "She is here",
+                "She is not here"
+              ],
+              [
+                "Was she here?",
+                "She was here",
+                "She was not here"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Проверь связку и порядок слов",
+          "paragraphs": [
+            "Место или состояние в настоящем: am/is/are. В прошлом: was/were. В будущем: will be. Для вопроса вынеси первую глагольную форму вперёд; для отрицания поставь после неё not.",
+            "В итоговом тесте девять вопросов: по одному на каждую ячейку матрицы. Они проверяют место, профессию и состояние. Используй полные формы, которые есть в банке."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 9",
+          "prompt": "Он будет учителем?",
+          "answer": [
+            "Will",
+            "he",
+            "be",
+            "a",
+            "teacher?"
+          ],
+          "bank": [
+            "teacher?",
+            "Is",
+            "a",
+            "he",
+            "Will",
+            "be",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 9",
+          "prompt": "Мы будем студентами",
+          "answer": [
+            "We",
+            "will",
+            "be",
+            "students"
+          ],
+          "bank": [
+            "were",
+            "students",
+            "will",
+            "We",
+            "are",
+            "be"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 9",
+          "prompt": "Он не будет там",
+          "answer": [
+            "He",
+            "will",
+            "not",
+            "be",
+            "there"
+          ],
+          "bank": [
+            "is",
+            "there",
+            "not",
+            "He",
+            "be",
+            "will",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 9",
+          "prompt": "Я прав?",
+          "answer": [
+            "Am",
+            "I",
+            "right?"
+          ],
+          "bank": [
+            "right?",
+            "Is",
+            "I",
+            "Do",
+            "Am",
+            "Are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 9",
+          "prompt": "Ты учитель",
+          "answer": [
+            "You",
+            "are",
+            "a",
+            "teacher"
+          ],
+          "bank": [
+            "a",
+            "is",
+            "teacher",
+            "You",
+            "am",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 9",
+          "prompt": "Она не готова",
+          "answer": [
+            "She",
+            "is",
+            "not",
+            "ready"
+          ],
+          "bank": [
+            "are",
+            "ready",
+            "not",
+            "She",
+            "is",
+            "am"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 9",
+          "prompt": "Он был счастлив?",
+          "answer": [
+            "Was",
+            "he",
+            "happy?"
+          ],
+          "bank": [
+            "happy?",
+            "Did",
+            "he",
+            "Were",
+            "Was",
+            "Is"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 9",
+          "prompt": "Они были в Москве",
+          "answer": [
+            "They",
+            "were",
+            "in",
+            "Moscow"
+          ],
+          "bank": [
+            "Moscow",
+            "was",
+            "in",
+            "They",
+            "were",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 9 из 9",
+          "prompt": "Мы не были в комнате",
+          "answer": [
+            "We",
+            "were",
+            "not",
+            "in",
+            "the",
+            "room"
+          ],
+          "bank": [
+            "room",
+            "was",
+            "the",
+            "We",
+            "in",
+            "not",
+            "were",
+            "are"
+          ],
+          "hint": "Речь об уже известной комнате: the room."
+        }
+      ]
+    }
+  ]
+}

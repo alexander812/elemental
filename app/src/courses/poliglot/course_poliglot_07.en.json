@@ -1,0 +1,1013 @@
+{
+  "name": "Закрепляем Simple и предлагаем действовать",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "future-simple",
+      "name": "Строим планы и вопросы с will",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Будущее: will и начальная форма",
+          "paragraphs": [
+            "Утверждение строится как кто + will + глагол. В вопросе will выходит перед подлежащим, в отрицании после will появляется not. После will не ставь -s или форму прошедшего.",
+            "Если речь о месте, состоянии или профессии, нужен be: will be here. Для действия be не добавляем: will live, а не will be live."
+          ],
+          "table": {
+            "headers": [
+              "Тип фразы",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Утверждение",
+                "She will come"
+              ],
+              [
+                "Вопрос",
+                "Will she come?"
+              ],
+              [
+                "Отрицание",
+                "She will not come"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Уточняем планы",
+          "paragraphs": [
+            "Вопросительное слово ставится перед will: When will she come? This evening и next year употребляются без предлога. Для срока от настоящего используй in: in two years."
+          ],
+          "table": {
+            "headers": [
+              "Глагол",
+              "Прошедшее",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "become",
+                "became",
+                "становиться"
+              ],
+              [
+                "cost",
+                "cost",
+                "стоить"
+              ],
+              [
+                "pay",
+                "paid",
+                "платить"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Возвращение и способы оплаты",
+          "paragraphs": [
+            "Be back означает вернуться или снова быть на месте. Pay in cash — заплатить наличными, pay by card — заплатить картой."
+          ],
+          "examples": [
+            "She will become a doctor in two years. — Она станет врачом через два года.",
+            "Will you pay in cash or by card? — Вы заплатите наличными или картой?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Она станет врачом через два года.",
+          "answer": [
+            "She",
+            "will",
+            "become",
+            "a",
+            "doctor",
+            "in",
+            "two",
+            "years."
+          ],
+          "bank": [
+            "become",
+            "a",
+            "doctor",
+            "in",
+            "two",
+            "years.",
+            "became",
+            "on",
+            "She",
+            "will"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Он будет жить в Москве в следующем году.",
+          "answer": [
+            "He",
+            "will",
+            "live",
+            "in",
+            "Moscow",
+            "next",
+            "year."
+          ],
+          "bank": [
+            "in",
+            "Moscow",
+            "next",
+            "year.",
+            "lived",
+            "on",
+            "He",
+            "will",
+            "live"
+          ],
+          "hint": "Начни с He; сначала место, затем время."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Когда она приедет в Москву?",
+          "answer": [
+            "When",
+            "will",
+            "she",
+            "come",
+            "to",
+            "Moscow?"
+          ],
+          "bank": [
+            "to",
+            "Moscow?",
+            "came",
+            "in",
+            "When",
+            "will",
+            "she",
+            "come"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Она вернётся домой в пять?",
+          "answer": [
+            "Will",
+            "she",
+            "be",
+            "back",
+            "home",
+            "at",
+            "five?"
+          ],
+          "bank": [
+            "at",
+            "five?",
+            "is",
+            "in",
+            "Will",
+            "she",
+            "be",
+            "back",
+            "home"
+          ],
+          "hint": "После back поставь home, затем время."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Он не пойдёт в школу завтра.",
+          "answer": [
+            "He",
+            "will",
+            "not",
+            "go",
+            "to",
+            "school",
+            "tomorrow."
+          ],
+          "bank": [
+            "tomorrow.",
+            "went",
+            "on",
+            "He",
+            "will",
+            "not",
+            "go",
+            "to",
+            "school"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Сколько это будет стоить?",
+          "answer": [
+            "How",
+            "much",
+            "will",
+            "it",
+            "cost?"
+          ],
+          "bank": [
+            "much",
+            "will",
+            "it",
+            "cost?",
+            "many",
+            "costs?",
+            "How"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "present-simple",
+      "name": "Говорим о привычках и фактах",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Когда нужен Simple",
+          "paragraphs": [
+            "Present Simple подходит для привычек, регулярных действий и фактов. После I/you/we/they ставь начальную форму, после he/she/it — форму с -s или -es.",
+            "В вопросах и отрицаниях с does окончание -s уже не повторяется у смыслового глагола."
+          ],
+          "table": {
+            "headers": [
+              "Тип фразы",
+              "Пример"
+            ],
+            "rows": [
+              [
+                "Утверждение",
+                "He writes texts"
+              ],
+              [
+                "Вопрос",
+                "Does he write texts?"
+              ],
+              [
+                "Отрицание",
+                "He does not write texts"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Сравнение не меняет каркас",
+          "paragraphs": [
+            "После глагола можно добавить уже знакомое сравнение или объект. Look здесь означает выглядеть: She looks older. Like — нравиться, want — хотеть. После want перед другим глаголом обычно нужен to."
+          ],
+          "examples": [
+            "She looks older than him. — Она выглядит старше него.",
+            "He buys the most expensive flowers. — Он покупает самые дорогие цветы.",
+            "Do you want to talk to me? — Ты хочешь поговорить со мной?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Она выглядит старше него.",
+          "answer": [
+            "She",
+            "looks",
+            "older",
+            "than",
+            "him."
+          ],
+          "bank": [
+            "older",
+            "than",
+            "him.",
+            "look",
+            "oldest",
+            "She",
+            "looks"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Он покупает самые дорогие цветы.",
+          "answer": [
+            "He",
+            "buys",
+            "the",
+            "most",
+            "expensive",
+            "flowers."
+          ],
+          "bank": [
+            "most",
+            "expensive",
+            "flowers.",
+            "buy",
+            "more",
+            "He",
+            "buys",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Он пишет тексты по-английски?",
+          "answer": [
+            "Does",
+            "he",
+            "write",
+            "texts",
+            "in",
+            "English?"
+          ],
+          "bank": [
+            "in",
+            "English?",
+            "writes",
+            "Do",
+            "Does",
+            "he",
+            "write",
+            "texts"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Ты хочешь поговорить со мной?",
+          "answer": [
+            "Do",
+            "you",
+            "want",
+            "to",
+            "talk",
+            "to",
+            "me?"
+          ],
+          "bank": [
+            "to",
+            "me?",
+            "Does",
+            "wants",
+            "Do",
+            "you",
+            "want",
+            "to",
+            "talk"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Я не хочу есть сейчас.",
+          "answer": [
+            "I",
+            "do",
+            "not",
+            "want",
+            "to",
+            "eat",
+            "now."
+          ],
+          "bank": [
+            "now.",
+            "does",
+            "wants",
+            "I",
+            "do",
+            "not",
+            "want",
+            "to",
+            "eat"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Она не работает по субботам.",
+          "answer": [
+            "She",
+            "does",
+            "not",
+            "work",
+            "on",
+            "Saturdays."
+          ],
+          "bank": [
+            "do",
+            "She",
+            "does",
+            "not",
+            "work",
+            "on",
+            "Saturdays.",
+            "works"
+          ],
+          "hint": "Указание времени поставь в конце."
+        }
+      ]
+    },
+    {
+      "id": "past-simple",
+      "name": "Рассказываем о завершённом прошлом",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "В утверждении выбираем прошедшую форму",
+          "paragraphs": [
+            "Правильные глаголы образуют прошедшее с -ed: play → played, change → changed. Неправильные формы запоминаются отдельно.",
+            "В вопросах с did и отрицаниях с did not снова нужна начальная форма: Did he buy? He did not buy."
+          ],
+          "table": {
+            "headers": [
+              "Глагол",
+              "Прошедшее",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "pay",
+                "paid",
+                "платить"
+              ],
+              [
+                "make",
+                "made",
+                "делать, создавать"
+              ],
+              [
+                "buy",
+                "bought",
+                "покупать"
+              ],
+              [
+                "show",
+                "showed",
+                "показывать"
+              ],
+              [
+                "change",
+                "changed",
+                "менять"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Соединяем прошлое с подробностями",
+          "paragraphs": [
+            "On Wednesday — в среду, two days ago — два дня назад, last week — на прошлой неделе. Они не заменяют форму прошедшего глагола.",
+            "A few mistakes означает несколько ошибок. Cash — наличные, passport — паспорт."
+          ],
+          "examples": [
+            "We paid cash on Wednesday. — Мы заплатили наличными в среду.",
+            "They made a few mistakes. — Они сделали несколько ошибок."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Мы заплатили наличными в среду.",
+          "answer": [
+            "We",
+            "paid",
+            "cash",
+            "on",
+            "Wednesday."
+          ],
+          "bank": [
+            "cash",
+            "on",
+            "Wednesday.",
+            "pay",
+            "in",
+            "We",
+            "paid"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Он играл в теннис во вторник.",
+          "answer": [
+            "He",
+            "played",
+            "tennis",
+            "on",
+            "Tuesday."
+          ],
+          "bank": [
+            "on",
+            "Tuesday.",
+            "play",
+            "at",
+            "He",
+            "played",
+            "tennis"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Они сделали несколько ошибок.",
+          "answer": [
+            "They",
+            "made",
+            "a",
+            "few",
+            "mistakes."
+          ],
+          "bank": [
+            "mistakes.",
+            "make",
+            "little",
+            "They",
+            "made",
+            "a",
+            "few"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Он покупал молоко два дня назад?",
+          "answer": [
+            "Did",
+            "he",
+            "buy",
+            "milk",
+            "two",
+            "days",
+            "ago?"
+          ],
+          "bank": [
+            "days",
+            "ago?",
+            "bought",
+            "Does",
+            "Did",
+            "he",
+            "buy",
+            "milk",
+            "two"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Я не показал ему самое лучшее место.",
+          "answer": [
+            "I",
+            "did",
+            "not",
+            "show",
+            "him",
+            "the",
+            "best",
+            "place."
+          ],
+          "bank": [
+            "best",
+            "place.",
+            "showed",
+            "better",
+            "I",
+            "did",
+            "not",
+            "show",
+            "him",
+            "the"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Он не менял свой паспорт на прошлой неделе.",
+          "answer": [
+            "He",
+            "did",
+            "not",
+            "change",
+            "his",
+            "passport",
+            "last",
+            "week."
+          ],
+          "bank": [
+            "week.",
+            "changed",
+            "does",
+            "He",
+            "did",
+            "not",
+            "change",
+            "his",
+            "passport",
+            "last"
+          ],
+          "hint": "Указание времени поставь в конце."
+        }
+      ]
+    },
+    {
+      "id": "imperatives",
+      "name": "Просим и предлагаем с let’s",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Просьба или указание без подлежащего",
+          "paragraphs": [
+            "Обычное повелительное предложение начинается с начальной формы без to: Come here. Для отрицания поставь do not или don’t перед глаголом.",
+            "Please делает просьбу вежливее. Оно может быть в начале или в конце; в этой тренировке ставь please в конец."
+          ],
+          "examples": [
+            "Call me, please. — Позвони мне, пожалуйста.",
+            "Do not go. — Не уходи."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Предложим сделать что-то вместе",
+          "paragraphs": [
+            "Let’s — сокращение let us в предложении совместного действия. После let’s нужна начальная форма без to. Обычно это «давай» или «давайте».",
+            "Для отрицательного предложения подходит let’s not: Let’s not go. Не смешивай обычную просьбу к собеседнику с предложением действовать вместе."
+          ],
+          "examples": [
+            "Let’s talk about your problem. — Давай поговорим о твоей проблеме.",
+            "Let’s look at his house. — Давай посмотрим на его дом.",
+            "Let’s go home. — Давай пойдём домой."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 6",
+          "prompt": "Позвони мне, пожалуйста.",
+          "answer": [
+            "Call",
+            "me",
+            "please."
+          ],
+          "bank": [
+            "please.",
+            "Calls",
+            "I",
+            "Call",
+            "me"
+          ],
+          "hint": "Please поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 6",
+          "prompt": "Не уходи.",
+          "answer": [
+            "Do",
+            "not",
+            "go."
+          ],
+          "bank": [
+            "Does",
+            "went.",
+            "Do",
+            "not",
+            "go."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 6",
+          "prompt": "Давай поговорим о твоей проблеме.",
+          "answer": [
+            "Let’s",
+            "talk",
+            "about",
+            "your",
+            "problem."
+          ],
+          "bank": [
+            "problem.",
+            "talked",
+            "you",
+            "Let’s",
+            "talk",
+            "about",
+            "your"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 6",
+          "prompt": "Давай посмотрим на его дом.",
+          "answer": [
+            "Let’s",
+            "look",
+            "at",
+            "his",
+            "house."
+          ],
+          "bank": [
+            "looks",
+            "he",
+            "Let’s",
+            "look",
+            "at",
+            "his",
+            "house."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 6",
+          "prompt": "Давай пойдём домой.",
+          "answer": [
+            "Let’s",
+            "go",
+            "home."
+          ],
+          "bank": [
+            "go",
+            "home.",
+            "goes",
+            "to",
+            "Let’s"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 6",
+          "prompt": "Давай не будем ждать.",
+          "answer": [
+            "Let’s",
+            "not",
+            "wait."
+          ],
+          "bank": [
+            "wait.",
+            "waited",
+            "no",
+            "Let’s",
+            "not"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Собираем девять форм: итоговый тест",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Одна схема, разные подробности",
+          "paragraphs": [
+            "В итоговом тесте чередуются три времени и три вида фразы. В настоящем следи за -s/does, в прошлом — за прошедшей формой/did, в будущем — за will.",
+            "После does, did и will смысловой глагол стоит в начальной форме. Для времени, места и дополнений используй материалы прошлых уроков."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 1 из 9",
+          "prompt": "Он придёт к ним сегодня вечером?",
+          "answer": [
+            "Will",
+            "he",
+            "come",
+            "to",
+            "them",
+            "this",
+            "evening?"
+          ],
+          "bank": [
+            "come",
+            "to",
+            "them",
+            "this",
+            "evening?",
+            "came",
+            "in",
+            "Will",
+            "he"
+          ],
+          "hint": "Сначала направление, затем указание времени."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 2 из 9",
+          "prompt": "Я буду там через несколько часов.",
+          "answer": [
+            "I",
+            "will",
+            "be",
+            "there",
+            "in",
+            "a",
+            "few",
+            "hours."
+          ],
+          "bank": [
+            "there",
+            "in",
+            "a",
+            "few",
+            "hours.",
+            "on",
+            "little",
+            "I",
+            "will",
+            "be"
+          ],
+          "hint": "Сначала there, затем срок."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 3 из 9",
+          "prompt": "Она не придёт на нашу вечеринку.",
+          "answer": [
+            "She",
+            "will",
+            "not",
+            "come",
+            "to",
+            "our",
+            "party."
+          ],
+          "bank": [
+            "to",
+            "our",
+            "party.",
+            "came",
+            "us",
+            "She",
+            "will",
+            "not",
+            "come"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 4 из 9",
+          "prompt": "Тебе нравится моя одежда?",
+          "answer": [
+            "Do",
+            "you",
+            "like",
+            "my",
+            "clothes?"
+          ],
+          "bank": [
+            "Does",
+            "likes",
+            "Do",
+            "you",
+            "like",
+            "my",
+            "clothes?"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 5 из 9",
+          "prompt": "Мы обычно идём домой в десять часов.",
+          "answer": [
+            "We",
+            "usually",
+            "go",
+            "home",
+            "at",
+            "ten",
+            "o’clock."
+          ],
+          "bank": [
+            "o’clock.",
+            "goes",
+            "in",
+            "We",
+            "usually",
+            "go",
+            "home",
+            "at",
+            "ten"
+          ],
+          "hint": "Usually поставь перед go; сначала home, затем время."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 6 из 9",
+          "prompt": "Он не играет лучше меня.",
+          "answer": [
+            "He",
+            "does",
+            "not",
+            "play",
+            "better",
+            "than",
+            "me."
+          ],
+          "bank": [
+            "plays",
+            "best",
+            "He",
+            "does",
+            "not",
+            "play",
+            "better",
+            "than",
+            "me."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 7 из 9",
+          "prompt": "Ты говорил с ним в понедельник?",
+          "answer": [
+            "Did",
+            "you",
+            "talk",
+            "to",
+            "him",
+            "on",
+            "Monday?"
+          ],
+          "bank": [
+            "Does",
+            "Did",
+            "you",
+            "talk",
+            "to",
+            "him",
+            "on",
+            "Monday?",
+            "talked"
+          ],
+          "hint": "Указание времени поставь в конце."
+        },
+        {
+          "kind": "question",
+          "title": "Практика 8 из 9",
+          "prompt": "Они сделали несколько ошибок.",
+          "answer": [
+            "They",
+            "made",
+            "a",
+            "few",
+            "mistakes."
+          ],
+          "bank": [
+            "a",
+            "few",
+            "mistakes.",
+            "make",
+            "little",
+            "They",
+            "made"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Практика 9 из 9",
+          "prompt": "Они не говорили с ним в четверг.",
+          "answer": [
+            "They",
+            "did",
+            "not",
+            "talk",
+            "to",
+            "him",
+            "on",
+            "Thursday."
+          ],
+          "bank": [
+            "did",
+            "not",
+            "talk",
+            "to",
+            "him",
+            "on",
+            "Thursday.",
+            "talked",
+            "do",
+            "They"
+          ],
+          "hint": "Указание времени поставь в конце."
+        }
+      ]
+    }
+  ]
+}

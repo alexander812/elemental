@@ -1,0 +1,989 @@
+{
+  "name": "Практикуем общение: истории, поездки и работа",
+  "verbs": [],
+  "tasks": [
+    {
+      "id": "real-life-stories",
+      "name": "Начинаем рассказ и задаём вопросы",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Расскажи об одном реальном событии",
+          "paragraphs": [
+            "Начни с того, где ты был и что сделал. Простые знакомые фразы помогают говорить свободнее; для первой истории не нужна вся грамматика сразу.",
+            "Вопрос о прошлом действия строится с did и начальной формой: What did you do? Для состояния или места нужна форма was/were: Where were you?"
+          ],
+          "examples": [
+            "I worked yesterday. — Я работал вчера.",
+            "What did you do on Sunday? — Что ты делал в воскресенье?",
+            "Where were you? — Где ты был?"
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Поддерживаем разговор",
+          "paragraphs": [
+            "Anything interesting — что-нибудь интересное. В нейтральных вопросах часто встречается anything; само прилагательное стоит после anything.",
+            "Tell us означает рассказать нам. После will используй tell, а не told. Между предметами или людьми сравнение можно ввести через between them — между ними."
+          ],
+          "examples": [
+            "Will you tell us anything interesting? — Расскажешь нам что-нибудь интересное?",
+            "What is the difference between them? — В чём разница между ними?",
+            "I hope that we will see it. — Я надеюсь, что мы это увидим."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Что ты делал в воскресенье?",
+          "answer": [
+            "What",
+            "did",
+            "you",
+            "do",
+            "on",
+            "Sunday?"
+          ],
+          "bank": [
+            "you",
+            "did",
+            "Sunday?",
+            "done",
+            "on",
+            "does",
+            "do",
+            "What"
+          ],
+          "hint": "Начни с What; on Sunday поставь в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Где ты был?",
+          "answer": [
+            "Where",
+            "were",
+            "you?"
+          ],
+          "bank": [
+            "were",
+            "Where",
+            "are",
+            "you?",
+            "was"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Я работал вчера.",
+          "answer": [
+            "I",
+            "worked",
+            "yesterday."
+          ],
+          "bank": [
+            "yesterday.",
+            "works",
+            "worked",
+            "work",
+            "I"
+          ],
+          "hint": "Поставь yesterday в конец."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Расскажешь нам что-нибудь интересное?",
+          "answer": [
+            "Will",
+            "you",
+            "tell",
+            "us",
+            "anything",
+            "interesting?"
+          ],
+          "bank": [
+            "told",
+            "you",
+            "anything",
+            "interests?",
+            "Will",
+            "tell",
+            "interesting?",
+            "us"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "В чём разница между ними?",
+          "answer": [
+            "What",
+            "is",
+            "the",
+            "difference",
+            "between",
+            "them?"
+          ],
+          "bank": [
+            "between",
+            "is",
+            "What",
+            "they?",
+            "them?",
+            "the",
+            "difference",
+            "are"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Я надеюсь, что мы это увидим.",
+          "answer": [
+            "I",
+            "hope",
+            "that",
+            "we",
+            "will",
+            "see",
+            "it."
+          ],
+          "bank": [
+            "saw",
+            "hopes",
+            "I",
+            "will",
+            "it.",
+            "hope",
+            "we",
+            "that",
+            "see"
+          ],
+          "hint": "Поставь that сразу после hope."
+        }
+      ]
+    },
+    {
+      "id": "travel-performance",
+      "name": "Рассказываем о поездке и спектакле",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Как добрался и куда поехал",
+          "paragraphs": [
+            "В рассказе о поездке пригодятся неправильные формы go — went, fly — flew, see — saw. После went направление вводится через to; перед there предлог to не нужен.",
+            "By plane — на самолёте, flight — рейс или полёт. Имена городов пишутся с большой буквы."
+          ],
+          "examples": [
+            "I went to Riga and Tallinn. — Я ездил в Ригу и Таллинн.",
+            "I flew there by plane. — Я летел туда на самолёте.",
+            "We saw a performance. — Мы посмотрели спектакль."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Обсуждаем культурное событие",
+          "paragraphs": [
+            "Performance — спектакль или выступление; title — название; audience — публика. Event — событие, cultural life — культурная жизнь.",
+            "После hope that может идти целое предложение о будущем: I hope that we will see this performance. В вопросе о названии выбирай What, а не How."
+          ],
+          "examples": [
+            "What is the title of the performance? — Как называется спектакль?",
+            "The performance is a big event. — Этот спектакль — большое событие."
+          ],
+          "table": {
+            "headers": [
+              "Слово",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "performance / title",
+                "спектакль / название"
+              ],
+              [
+                "audience / event",
+                "публика / событие"
+              ],
+              [
+                "foreign / cultural",
+                "зарубежный / культурный"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я ездил в Ригу и Таллинн.",
+          "answer": [
+            "I",
+            "went",
+            "to",
+            "Riga",
+            "and",
+            "Tallinn."
+          ],
+          "bank": [
+            "at",
+            "Tallinn.",
+            "I",
+            "and",
+            "to",
+            "go",
+            "went",
+            "Riga"
+          ],
+          "hint": "Порядок городов: Riga, затем Tallinn."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Я летел туда на самолёте.",
+          "answer": [
+            "I",
+            "flew",
+            "there",
+            "by",
+            "plane."
+          ],
+          "bank": [
+            "there",
+            "I",
+            "flew",
+            "to",
+            "by",
+            "plane.",
+            "fly"
+          ],
+          "hint": "Порядок после flew: there, затем by plane."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Мы посмотрели спектакль.",
+          "answer": [
+            "We",
+            "saw",
+            "a",
+            "performance."
+          ],
+          "bank": [
+            "saw",
+            "We",
+            "performance.",
+            "a",
+            "see",
+            "an"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Как называется спектакль?",
+          "answer": [
+            "What",
+            "is",
+            "the",
+            "title",
+            "of",
+            "the",
+            "performance?"
+          ],
+          "bank": [
+            "the",
+            "of",
+            "are",
+            "at",
+            "the",
+            "What",
+            "is",
+            "performance?",
+            "title"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Этот спектакль — большое событие.",
+          "answer": [
+            "The",
+            "performance",
+            "is",
+            "a",
+            "big",
+            "event."
+          ],
+          "bank": [
+            "are",
+            "The",
+            "event.",
+            "is",
+            "big",
+            "a",
+            "an",
+            "performance"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Я надеюсь, что мы увидим этот спектакль.",
+          "answer": [
+            "I",
+            "hope",
+            "that",
+            "we",
+            "will",
+            "see",
+            "this",
+            "performance."
+          ],
+          "bank": [
+            "I",
+            "will",
+            "see",
+            "we",
+            "that",
+            "this",
+            "hopes",
+            "performance.",
+            "saw",
+            "hope"
+          ],
+          "hint": "Поставь that сразу после hope."
+        }
+      ]
+    },
+    {
+      "id": "exhibition-art",
+      "name": "Обсуждаем выставку и картины",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Где был и что увидел",
+          "paragraphs": [
+            "Для посещения выставки подходит at the exhibition. Название места можно добавить после in: in the gallery. В упражнении сохраняй порядок: сначала выставка, затем галерея.",
+            "Painting — картина, portrait — портрет, collection — коллекция, gallery — галерея. Work может означать работу вообще, а works — произведения художника."
+          ],
+          "examples": [
+            "I was at the exhibition in the gallery. — Я был на выставке в галерее.",
+            "I saw portraits and paintings. — Я видел портреты и картины.",
+            "The exhibition includes many paintings. — На выставке представлено много картин."
+          ]
+        },
+        {
+          "kind": "theory",
+          "title": "Добавляем подробность и впечатление",
+          "paragraphs": [
+            "Unique начинается с согласного звука, поэтому a unique chance. После chance можно поставить to + глагол: a chance to see.",
+            "Говоря об условиях хранения, используй storage conditions. Needs согласуется с it или одним предметом. Involve означает включать или вовлекать; для участия человека подходит take part."
+          ],
+          "examples": [
+            "This icon needs special storage conditions. — Этой иконе нужны особые условия хранения.",
+            "You have a unique chance to see his works. — У тебя есть уникальная возможность увидеть его работы."
+          ],
+          "table": {
+            "headers": [
+              "Выражение",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "a unique chance",
+                "уникальная возможность"
+              ],
+              [
+                "special storage conditions",
+                "особые условия хранения"
+              ],
+              [
+                "religious paintings",
+                "религиозные картины"
+              ],
+              [
+                "compare / represent",
+                "сравнивать / представлять"
+              ],
+              [
+                "impressionist / surrealist",
+                "импрессионист / сюрреалист"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я был на выставке в галерее.",
+          "answer": [
+            "I",
+            "was",
+            "at",
+            "the",
+            "exhibition",
+            "in",
+            "the",
+            "gallery."
+          ],
+          "bank": [
+            "to",
+            "gallery.",
+            "in",
+            "I",
+            "was",
+            "the",
+            "were",
+            "at",
+            "exhibition",
+            "the"
+          ],
+          "hint": "Сначала at the exhibition, затем in the gallery."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Я видел портреты и картины.",
+          "answer": [
+            "I",
+            "saw",
+            "portraits",
+            "and",
+            "paintings."
+          ],
+          "bank": [
+            "I",
+            "sees",
+            "and",
+            "paintings.",
+            "see",
+            "saw",
+            "portraits"
+          ],
+          "hint": "Сначала portraits, затем paintings."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "На выставке представлено много картин.",
+          "answer": [
+            "The",
+            "exhibition",
+            "includes",
+            "many",
+            "paintings."
+          ],
+          "bank": [
+            "paintings.",
+            "include",
+            "much",
+            "The",
+            "exhibition",
+            "many",
+            "includes"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "Этой иконе нужны особые условия хранения.",
+          "answer": [
+            "This",
+            "icon",
+            "needs",
+            "special",
+            "storage",
+            "conditions."
+          ],
+          "bank": [
+            "storage",
+            "special",
+            "condition.",
+            "need",
+            "This",
+            "icon",
+            "needs",
+            "conditions."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "У тебя есть уникальная возможность увидеть его работы.",
+          "answer": [
+            "You",
+            "have",
+            "a",
+            "unique",
+            "chance",
+            "to",
+            "see",
+            "his",
+            "works."
+          ],
+          "bank": [
+            "You",
+            "works.",
+            "unique",
+            "an",
+            "chance",
+            "have",
+            "to",
+            "his",
+            "see",
+            "a",
+            "has"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Эта коллекция самая богатая.",
+          "answer": [
+            "This",
+            "collection",
+            "is",
+            "the",
+            "richest."
+          ],
+          "bank": [
+            "rich",
+            "is",
+            "are",
+            "collection",
+            "This",
+            "the",
+            "richest."
+          ],
+          "hint": "Используй превосходную степень richest."
+        }
+      ]
+    },
+    {
+      "id": "workshop-restaurant",
+      "name": "Говорим о работе и планах после неё",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Мастерская, изделия и ресторан",
+          "paragraphs": [
+            "Workshop — мастерская; item — отдельный предмет или изделие; jewelry — украшения как неисчисляемое слово. Одно украшение — a piece of jewelry. Британское написание этого слова — jewellery.",
+            "Для изготовления используем make, а для действий или работы вообще — do. Sell — продавать. Для заказа столика пригодятся reserve a table и by phone."
+          ],
+          "examples": [
+            "I make jewelry and then sell it. — Я делаю украшения, а затем продаю их.",
+            "I went to the restaurant with my friends. — Я ходил в ресторан с друзьями.",
+            "It was a restaurant with Italian cuisine. — Это был ресторан с итальянской кухней."
+          ],
+          "table": {
+            "headers": [
+              "Слово",
+              "Значение"
+            ],
+            "rows": [
+              [
+                "owner / design",
+                "владелец / дизайн, разрабатывать"
+              ],
+              [
+                "item / jewelry",
+                "изделие / ювелирные украшения"
+              ],
+              [
+                "reserve / cuisine",
+                "заказывать заранее / кухня страны"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "theory",
+          "title": "Косвенный вопрос сохраняет прямой порядок",
+          "paragraphs": [
+            "Прямой вопрос: How much jewelry do you make? Внутри просьбы порядок меняется: Please tell me how much jewelry you make. После how much jewelry уже нет инверсии do you.",
+            "Before you come — перед тем как ты придёшь. В придаточном времени после before для обычного будущего не нужен will: Reserve a table before you come."
+          ],
+          "examples": [
+            "Please tell me how much jewelry you make. — Пожалуйста, скажи, сколько украшений ты делаешь.",
+            "Some items take three months. — На некоторые изделия уходит три месяца.",
+            "Reserve a table by phone. — Закажи столик по телефону."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 6",
+          "prompt": "Я ходил в ресторан с друзьями.",
+          "answer": [
+            "I",
+            "went",
+            "to",
+            "the",
+            "restaurant",
+            "with",
+            "my",
+            "friends."
+          ],
+          "bank": [
+            "with",
+            "I",
+            "went",
+            "the",
+            "go",
+            "friends.",
+            "restaurant",
+            "from",
+            "to",
+            "my"
+          ],
+          "hint": "После went: to the restaurant, затем with my friends."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 6",
+          "prompt": "Это был ресторан с итальянской кухней.",
+          "answer": [
+            "It",
+            "was",
+            "a",
+            "restaurant",
+            "with",
+            "Italian",
+            "cuisine."
+          ],
+          "bank": [
+            "a",
+            "Italian",
+            "was",
+            "with",
+            "cuisine.",
+            "restaurant",
+            "It",
+            "were",
+            "an"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 6",
+          "prompt": "Я делаю украшения, а затем продаю их.",
+          "answer": [
+            "I",
+            "make",
+            "jewelry",
+            "and",
+            "then",
+            "sell",
+            "it."
+          ],
+          "bank": [
+            "jewelry",
+            "then",
+            "makes",
+            "and",
+            "it.",
+            "make",
+            "them.",
+            "sell",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 6",
+          "prompt": "На некоторые изделия уходит три месяца.",
+          "answer": [
+            "Some",
+            "items",
+            "take",
+            "three",
+            "months."
+          ],
+          "bank": [
+            "Some",
+            "take",
+            "items",
+            "takes",
+            "months.",
+            "month.",
+            "three"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 6",
+          "prompt": "Закажи столик по телефону.",
+          "answer": [
+            "Reserve",
+            "a",
+            "table",
+            "by",
+            "phone."
+          ],
+          "bank": [
+            "table",
+            "Reserve",
+            "a",
+            "phone.",
+            "by",
+            "Reserves",
+            "an"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 6",
+          "prompt": "Пожалуйста, скажи, сколько украшений ты делаешь.",
+          "answer": [
+            "Please",
+            "tell",
+            "me",
+            "how",
+            "much",
+            "jewelry",
+            "you",
+            "make."
+          ],
+          "bank": [
+            "you",
+            "me",
+            "make.",
+            "makes.",
+            "much",
+            "tell",
+            "do",
+            "Please",
+            "jewelry",
+            "how"
+          ],
+          "hint": "После Please tell me используй прямой порядок: how much jewelry you make."
+        }
+      ]
+    },
+    {
+      "id": "overview",
+      "name": "Соединяем вопросы и истории",
+      "matrixQuestions": false,
+      "pages": [
+        {
+          "kind": "theory",
+          "title": "Из коротких фраз получается рассказ",
+          "paragraphs": [
+            "Назови событие, место и одно впечатление. После этого задай собеседнику вопрос. Past Simple подходит для завершённого эпизода, а hope + will помогает добавить план или ожидание.",
+            "Не переноси порядок прямого вопроса внутрь Please tell me. Сохраняй изученные сочетания: by plane, at the exhibition, with my friends, a piece of jewelry."
+          ],
+          "examples": [
+            "I went to Riga. I saw a performance. — Я ездил в Ригу. Я посмотрел спектакль.",
+            "What did you do after work? — Что ты делал после работы?",
+            "I am grateful to them. — Я благодарен им."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 1 из 9",
+          "prompt": "Что ты делал после работы вчера?",
+          "answer": [
+            "What",
+            "did",
+            "you",
+            "do",
+            "after",
+            "work",
+            "yesterday?"
+          ],
+          "bank": [
+            "work",
+            "done",
+            "do",
+            "What",
+            "you",
+            "did",
+            "does",
+            "yesterday?",
+            "after"
+          ],
+          "hint": "Порядок после do: after work, затем yesterday."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 2 из 9",
+          "prompt": "Я летел туда на самолёте.",
+          "answer": [
+            "I",
+            "flew",
+            "there",
+            "by",
+            "plane."
+          ],
+          "bank": [
+            "fly",
+            "plane.",
+            "I",
+            "by",
+            "flew",
+            "there",
+            "to"
+          ],
+          "hint": "После flew: there, затем by plane."
+        },
+        {
+          "kind": "question",
+          "title": "Тест 3 из 9",
+          "prompt": "Мы посмотрели этот спектакль.",
+          "answer": [
+            "We",
+            "saw",
+            "this",
+            "performance."
+          ],
+          "bank": [
+            "this",
+            "We",
+            "sees",
+            "saw",
+            "performance.",
+            "see"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 4 из 9",
+          "prompt": "Я был на выставке.",
+          "answer": [
+            "I",
+            "was",
+            "at",
+            "the",
+            "exhibition."
+          ],
+          "bank": [
+            "were",
+            "at",
+            "to",
+            "the",
+            "was",
+            "exhibition.",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 5 из 9",
+          "prompt": "У тебя есть возможность увидеть его работы.",
+          "answer": [
+            "You",
+            "have",
+            "a",
+            "chance",
+            "to",
+            "see",
+            "his",
+            "works."
+          ],
+          "bank": [
+            "You",
+            "a",
+            "has",
+            "have",
+            "an",
+            "see",
+            "chance",
+            "his",
+            "works.",
+            "to"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 6 из 9",
+          "prompt": "Я делаю украшения.",
+          "answer": [
+            "I",
+            "make",
+            "jewelry."
+          ],
+          "bank": [
+            "jewelry.",
+            "make",
+            "makes",
+            "a",
+            "I"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 7 из 9",
+          "prompt": "Сколько украшений ты делаешь?",
+          "answer": [
+            "How",
+            "much",
+            "jewelry",
+            "do",
+            "you",
+            "make?"
+          ],
+          "bank": [
+            "jewelry",
+            "make?",
+            "you",
+            "How",
+            "much",
+            "do",
+            "makes?",
+            "many"
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 8 из 9",
+          "prompt": "Я благодарен им.",
+          "answer": [
+            "I",
+            "am",
+            "grateful",
+            "to",
+            "them."
+          ],
+          "bank": [
+            "is",
+            "to",
+            "am",
+            "them.",
+            "grateful",
+            "I",
+            "they."
+          ]
+        },
+        {
+          "kind": "question",
+          "title": "Тест 9 из 9",
+          "prompt": "Пожалуйста, скажи, что ты делаешь.",
+          "answer": [
+            "Please",
+            "tell",
+            "me",
+            "what",
+            "you",
+            "do."
+          ],
+          "bank": [
+            "Please",
+            "do.",
+            "you",
+            "what",
+            "me",
+            "tell",
+            "are.",
+            "does"
+          ],
+          "hint": "Косвенный вопрос: после what сразу you, затем do."
+        }
+      ]
+    }
+  ]
+}
