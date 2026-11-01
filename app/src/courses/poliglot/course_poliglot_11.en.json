@@ -225,7 +225,7 @@
         {
           "kind": "question",
           "title": "Тест 1 из 6",
-          "prompt": "В тот момент я работал.",
+          "prompt": "Я работал. (процесс в прошлом)",
           "answer": [
             "I",
             "was",
@@ -238,7 +238,7 @@
             "was",
             "were"
           ],
-          "hint": "Опиши процесс в прошлом, без отдельного обстоятельства времени."
+          "hint": "Используй Past Continuous."
         },
         {
           "kind": "question",
@@ -297,7 +297,7 @@
         {
           "kind": "question",
           "title": "Тест 4 из 6",
-          "prompt": "Ты тогда работал?",
+          "prompt": "Ты работал? (процесс в прошлом)",
           "answer": [
             "Were",
             "you",
@@ -310,12 +310,12 @@
             "work",
             "Were"
           ],
-          "hint": "Вопрос о процессе в прошлом, без отдельного then."
+          "hint": "Вопрос в Past Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 5 из 6",
-          "prompt": "Он тогда не спал.",
+          "prompt": "Он не спал. (процесс в прошлом)",
           "answer": [
             "He",
             "was",
@@ -330,12 +330,12 @@
             "He",
             "sleeping."
           ],
-          "hint": "Past Continuous, без отдельного then."
+          "hint": "Используй Past Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 6 из 6",
-          "prompt": "Мы тогда читали.",
+          "prompt": "Мы читали. (процесс в прошлом)",
           "answer": [
             "We",
             "were",
@@ -348,7 +348,7 @@
             "read",
             "We"
           ],
-          "hint": "Past Continuous, без отдельного then."
+          "hint": "Используй Past Continuous."
         }
       ]
     },
@@ -458,7 +458,7 @@
         {
           "kind": "question",
           "title": "Тест 3 из 6",
-          "prompt": "Ты будешь тогда работать?",
+          "prompt": "Ты будешь работать? (процесс в будущем)",
           "answer": [
             "Will",
             "you",
@@ -473,12 +473,12 @@
             "Will",
             "you"
           ],
-          "hint": "Future Continuous; отдельное then не добавляй."
+          "hint": "Используй Future Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 4 из 6",
-          "prompt": "Она не будет тогда спать.",
+          "prompt": "Она не будет спать. (процесс в будущем)",
           "answer": [
             "She",
             "will",
@@ -495,12 +495,12 @@
             "be",
             "slept"
           ],
-          "hint": "Future Continuous; отдельное then не добавляй."
+          "hint": "Используй Future Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 5 из 6",
-          "prompt": "Мы будем тогда ужинать.",
+          "prompt": "Мы будем ужинать. (процесс в будущем)",
           "answer": [
             "We",
             "will",
@@ -517,12 +517,12 @@
             "will",
             "are"
           ],
-          "hint": "Future Continuous; отдельное then не добавляй."
+          "hint": "Используй Future Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 6 из 6",
-          "prompt": "Он будет тогда читать?",
+          "prompt": "Он будет читать? (процесс в будущем)",
           "answer": [
             "Will",
             "he",
@@ -537,7 +537,7 @@
             "he",
             "reading?"
           ],
-          "hint": "Future Continuous; отдельное then не добавляй."
+          "hint": "Используй Future Continuous."
         }
       ]
     },
@@ -878,7 +878,7 @@
         {
           "kind": "question",
           "title": "Тест 3 из 9",
-          "prompt": "Мы тогда не работали.",
+          "prompt": "Мы не работали. (процесс в прошлом)",
           "answer": [
             "We",
             "were",
@@ -893,12 +893,12 @@
             "was",
             "working."
           ],
-          "hint": "Процесс в прошлом; отдельное then не добавляй."
+          "hint": "Используй Past Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 4 из 9",
-          "prompt": "Она тогда читала.",
+          "prompt": "Она читала. (процесс в прошлом)",
           "answer": [
             "She",
             "was",
@@ -911,12 +911,12 @@
             "She",
             "was"
           ],
-          "hint": "Процесс в прошлом; отдельное then не добавляй."
+          "hint": "Используй Past Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 5 из 9",
-          "prompt": "Ты будешь тогда смотреть этот фильм?",
+          "prompt": "Ты будешь смотреть этот фильм? (процесс в будущем)",
           "answer": [
             "Will",
             "you",
@@ -935,12 +935,12 @@
             "watching",
             "Do"
           ],
-          "hint": "Future Continuous; отдельное then не добавляй."
+          "hint": "Используй Future Continuous."
         },
         {
           "kind": "question",
           "title": "Тест 6 из 9",
-          "prompt": "Я не буду тогда работать.",
+          "prompt": "Я не буду работать. (процесс в будущем)",
           "answer": [
             "I",
             "will",
@@ -957,7 +957,7 @@
             "working.",
             "not"
           ],
-          "hint": "Future Continuous; отдельное then не добавляй."
+          "hint": "Используй Future Continuous."
         },
         {
           "kind": "question",

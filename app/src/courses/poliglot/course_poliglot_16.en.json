@@ -613,7 +613,7 @@
         {
           "kind": "question",
           "title": "Практика 2 из 6",
-          "prompt": "В тот момент комнату убирали. (Past Continuous Passive)",
+          "prompt": "Комнату убирали. (Past Continuous Passive)",
           "answer": [
             "The",
             "room",
@@ -634,7 +634,7 @@
         {
           "kind": "question",
           "title": "Практика 3 из 6",
-          "prompt": "Наш заказ уже доставлен. (Present Perfect Passive)",
+          "prompt": "Наш заказ доставлен. (Present Perfect Passive)",
           "answer": [
             "Our",
             "order",
@@ -711,7 +711,7 @@
         {
           "kind": "question",
           "title": "Практика 6 из 6",
-          "prompt": "Заказ уже доставлен? (Present Perfect Passive)",
+          "prompt": "Заказ доставлен? (Present Perfect Passive)",
           "answer": [
             "Has",
             "the",

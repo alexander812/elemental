@@ -121,6 +121,354 @@
       ]
     },
     {
+      "id": "4",
+      "name": "Сравниваем и говорим о времени",
+      "order": 4,
+      "file": "course_poliglot_05.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "short-adjectives",
+          "name": "Сравниваем короткие признаки"
+        },
+        {
+          "id": "long-and-irregular",
+          "name": "Выбираем more, most и исключения"
+        },
+        {
+          "id": "time-intervals",
+          "name": "Указываем сейчас, вчера и через неделю"
+        },
+        {
+          "id": "calendar",
+          "name": "Выбираем in, on и at со временем"
+        },
+        {
+          "id": "overview",
+          "name": "Сравниваем и планируем: итоговый тест"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Говорим о количестве, людях и вещах",
+      "order": 5,
+      "file": "course_poliglot_06.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "much-many",
+          "name": "Различаем much и many"
+        },
+        {
+          "id": "a-lot-plenty",
+          "name": "Говорим «много» и «предостаточно»"
+        },
+        {
+          "id": "few-little",
+          "name": "Различаем мало и немного"
+        },
+        {
+          "id": "parameter-words",
+          "name": "Говорим о людях, вещах, месте и частоте"
+        },
+        {
+          "id": "overview",
+          "name": "Количество и подробности: итоговый тест"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Закрепляем Simple и предлагаем действовать",
+      "order": 6,
+      "file": "course_poliglot_07.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "future-simple",
+          "name": "Строим планы и вопросы с will"
+        },
+        {
+          "id": "present-simple",
+          "name": "Говорим о привычках и фактах"
+        },
+        {
+          "id": "past-simple",
+          "name": "Рассказываем о завершённом прошлом"
+        },
+        {
+          "id": "imperatives",
+          "name": "Просим и предлагаем с let’s"
+        },
+        {
+          "id": "overview",
+          "name": "Собираем девять форм: итоговый тест"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Предлоги, направления и глагольные сочетания",
+      "order": 7,
+      "file": "course_poliglot_08.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "to-from-in-at",
+          "name": "Называем направление и место"
+        },
+        {
+          "id": "positions",
+          "name": "Говорим о поверхности и положении"
+        },
+        {
+          "id": "with-without-for-about",
+          "name": "Уточняем компанию, цель и тему"
+        },
+        {
+          "id": "verb-combinations",
+          "name": "Понимаем глаголы с предлогами и частицами"
+        },
+        {
+          "id": "overview",
+          "name": "Выбираем предлог по смыслу: итоговый тест"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Себя, лично и самостоятельно: self и selves",
+      "order": 8,
+      "file": "course_poliglot_09.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "reflexive-singular",
+          "name": "Говорим о себе: формы с self"
+        },
+        {
+          "id": "reflexive-plural",
+          "name": "Выбираем ourselves, yourselves, themselves"
+        },
+        {
+          "id": "emphatic-self",
+          "name": "Подчёркиваем: сам, лично"
+        },
+        {
+          "id": "by-oneself",
+          "name": "Самостоятельно и без помощи"
+        },
+        {
+          "id": "overview",
+          "name": "Собираем фразы с self и selves"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Практикуем общение: истории, поездки и работа",
+      "order": 9,
+      "file": "course_poliglot_10.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "real-life-stories",
+          "name": "Начинаем рассказ и задаём вопросы"
+        },
+        {
+          "id": "travel-performance",
+          "name": "Рассказываем о поездке и спектакле"
+        },
+        {
+          "id": "exhibition-art",
+          "name": "Обсуждаем выставку и картины"
+        },
+        {
+          "id": "workshop-restaurant",
+          "name": "Говорим о работе и планах после неё"
+        },
+        {
+          "id": "overview",
+          "name": "Соединяем вопросы и истории"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Процесс и результат: Continuous и третья форма",
+      "order": 10,
+      "file": "course_poliglot_11.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "present-continuous",
+          "name": "Отличаем факт от процесса сейчас"
+        },
+        {
+          "id": "past-continuous",
+          "name": "Описываем процесс в прошлом"
+        },
+        {
+          "id": "future-continuous",
+          "name": "Представляем процесс в будущем"
+        },
+        {
+          "id": "perfect-third-form",
+          "name": "Узнаём третью форму и Perfect"
+        },
+        {
+          "id": "overview",
+          "name": "Выбираем факт, процесс или связь с моментом"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Количество, порядок, даты и годы",
+      "order": 11,
+      "file": "course_poliglot_12.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "cardinal-numbers",
+          "name": "Считаем предметы и называем возраст"
+        },
+        {
+          "id": "large-numbers",
+          "name": "Называем сотни, тысячи и цены"
+        },
+        {
+          "id": "ordinal-numbers",
+          "name": "Указываем порядок и номер"
+        },
+        {
+          "id": "dates-years",
+          "name": "Говорим о датах и годах"
+        },
+        {
+          "id": "overview",
+          "name": "Соединяем количество, порядок и даты"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Разрешаем, советуем и выражаем необходимость",
+      "order": 12,
+      "file": "course_poliglot_13.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "let-permission",
+          "name": "Различаем let, lets и let’s"
+        },
+        {
+          "id": "can-could",
+          "name": "Говорим об умении и возможности"
+        },
+        {
+          "id": "should-must",
+          "name": "Совет, обязанность и запрет"
+        },
+        {
+          "id": "short-forms",
+          "name": "Узнаём разговорные сокращения"
+        },
+        {
+          "id": "modal-overview",
+          "name": "Выбираем форму по смыслу"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Строим условия и вопросы к подлежащему",
+      "order": 13,
+      "file": "course_poliglot_14.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "first-conditional",
+          "name": "Говорим об условии в будущем"
+        },
+        {
+          "id": "when-time",
+          "name": "Соединяем время и результат"
+        },
+        {
+          "id": "subject-present",
+          "name": "Спрашиваем, кто делает действие"
+        },
+        {
+          "id": "subject-past-future",
+          "name": "Спрашиваем о прошлом и будущем"
+        },
+        {
+          "id": "conditions-overview",
+          "name": "Соединяем условия и вопросы"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Описываем, что и где есть: there is и there are",
+      "order": 14,
+      "file": "course_poliglot_15.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "there-present",
+          "name": "Сообщаем о наличии предметов"
+        },
+        {
+          "id": "there-past-future",
+          "name": "Переносим описание в прошлое и будущее"
+        },
+        {
+          "id": "there-negatives",
+          "name": "Говорим, чего нет"
+        },
+        {
+          "id": "there-questions",
+          "name": "Задаём вопросы о наличии и количестве"
+        },
+        {
+          "id": "there-overview",
+          "name": "Описываем место в трёх временах"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Выбираем активный и пассивный залог",
+      "order": 15,
+      "file": "course_poliglot_16.en.json",
+      "kind": "lesson",
+      "tasks": [
+        {
+          "id": "passive-basics",
+          "name": "Меняем фокус: кто делает и что происходит"
+        },
+        {
+          "id": "passive-simple",
+          "name": "Выбираем время в пассивном залоге"
+        },
+        {
+          "id": "passive-questions-negatives",
+          "name": "Спрашиваем и отрицаем"
+        },
+        {
+          "id": "passive-continuous-perfect",
+          "name": "Различаем процесс и завершённое действие"
+        },
+        {
+          "id": "passive-overview",
+          "name": "Выбираем залог и нужную форму"
+        }
+      ]
+    },
+    {
       "id": "exercises",
       "name": "Упражнения",
       "order": 16,

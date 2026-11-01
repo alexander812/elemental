@@ -653,17 +653,15 @@
         {
           "kind": "question",
           "title": "Практика 4 из 8",
-          "prompt": "Я ищу её.",
+          "prompt": "Ищи её.",
           "answer": [
-            "I",
-            "look",
+            "Look",
             "for",
             "her."
           ],
           "bank": [
             "she",
-            "I",
-            "look",
+            "Look",
             "for",
             "her.",
             "after"
