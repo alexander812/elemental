@@ -22,7 +22,14 @@ export type PoliglotQuestionPage = {
   hint?: string
 }
 
-export type PoliglotPage = PoliglotTheoryPage | PoliglotQuestionPage
+export type PoliglotVocabularyPage = {
+  kind: 'vocabulary'
+  title: string
+  texts: Record<string, string>
+  words: { original: string; translation: string }[]
+}
+
+export type PoliglotPage = PoliglotTheoryPage | PoliglotQuestionPage | PoliglotVocabularyPage
 
 export type PoliglotTask = {
   id: string

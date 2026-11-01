@@ -13,15 +13,21 @@ import { popScreen } from '../../../navigation/store'
 import {
   fetchSetsFx,
   $courseLangByLesson,
-  $sets,
+  $cardSets,
   $setsLoading,
   $userLangByLesson,
 } from '../../../sets/store'
 import { taskAnalyticsProperties } from '../../analytics'
 import { LearnMode } from './components/LearnMode'
 
-export function CardsView({ setId }: { setId: string }) {
-  const sets = useUnit($sets)
+export type NestedCardsOptions = {
+  embedded?: boolean
+  onBack?: () => void
+  onPassed?: () => void | Promise<void>
+}
+
+export function CardsView({ setId, onBack, ...options }: { setId: string } & NestedCardsOptions) {
+  const sets = useUnit($cardSets)
   const setsLoading = useUnit($setsLoading)
   const lessons = useUnit($lessons)
   const courseLangByLesson = useUnit($courseLangByLesson)
@@ -63,7 +69,7 @@ export function CardsView({ setId }: { setId: string }) {
         <Header
           back
           text={<FormattedMessage id="cards_set_title" defaultMessage="Set" />}
-          onBackClick={() => popScreen()}
+          onBackClick={onBack ?? (() => popScreen())}
         />
         {setsLoading ? (
           <Stack grow verticalAlign="center" horizontalAlign="center" height="100%">
@@ -80,5 +86,5 @@ export function CardsView({ setId }: { setId: string }) {
     )
   }
 
-  return <LearnMode setId={setId} />
+  return <LearnMode {...options} setId={setId} onBack={onBack} />
 }

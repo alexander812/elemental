@@ -4,7 +4,16 @@ import { useUnit } from 'effector-react'
 import { FormattedMessage, useIntl } from 'react-intl'
 
 import { IconEducation, IconPlay, IconStop } from '@elemental/icons'
-import { Box, Button, ButtonIcon, EmptyScreen, Header, Stack, Text } from '@elemental/ui-kit'
+import {
+  Box,
+  Button,
+  ButtonIcon,
+  EmptyScreen,
+  Header,
+  Spinner,
+  Stack,
+  Text,
+} from '@elemental/ui-kit'
 
 import { track } from '../../../../../../lib/analytics'
 import { getCardText, getCardTextStrict } from '../../../../../../lib/cards'
@@ -41,6 +50,7 @@ import { ProgressChip } from '../../../../../progression/ui/ProgressChip'
 import {
   setCardLearnedFx,
   setSetExamPassedFx,
+  $cardSets,
   $courseLangByLesson,
   $sets,
   $userLangByLesson,
@@ -69,8 +79,17 @@ const TEST_MAX_ATTEMPTS = 3
 
 type MicFlash = { cardId: string; kind: 'error' | 'success' }
 
-export function TestMode({ setId, onExit }: { setId: string; onExit: () => void }) {
-  const sets = useUnit($sets)
+export function TestMode({
+  setId,
+  onExit,
+  onPassed,
+}: {
+  setId: string
+  onExit: () => void
+  onPassed?: () => void | Promise<void>
+}) {
+  const sets = useUnit($cardSets)
+  const permanentSets = useUnit($sets)
   const languages = useUnit($languages)
   const stack = useUnit($stack)
   const lessons = useUnit($lessons)
@@ -105,6 +124,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const [leaving, setLeaving] = useState<Leaving | null>(null)
   const [listeningCardId, setListeningCardId] = useState<string | null>(null)
   const [micFlash, setMicFlash] = useState<MicFlash | null>(null)
+  const [completionFailed, setCompletionFailed] = useState(false)
 
   const activeRef = useRef(true)
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -121,6 +141,7 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   const testAutoCardRef = useRef<string | null>(null)
   const testCardIdRef = useRef<string | null>(null)
   const testVoiceFailuresRef = useRef<Map<string, number>>(new Map())
+  const retryCompletionRef = useRef<(() => Promise<void>) | null>(null)
 
   const set = useMemo(() => sets.find((item) => item.id === setId), [sets, setId])
   const courseLang = (set ? courseLangByLesson.get(set.lessonId) : undefined) ?? DEFAULT_COURSE_LANG
@@ -139,7 +160,9 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     () =>
       set
         ? set.cards
-            .filter((card) => !card.deleted && getCardTextStrict(card, courseLang).trim().length > 0)
+            .filter(
+              (card) => !card.deleted && getCardTextStrict(card, courseLang).trim().length > 0
+            )
             .map((card) => card.id)
         : [],
     [set, courseLang]
@@ -201,10 +224,12 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
     testAdvancingRef.current = false
     testAutoCardRef.current = null
     testVoiceFailuresRef.current = new Map()
+    retryCompletionRef.current = null
     setTestIndex(0)
     setTestResults([])
     setTestStatus(null)
     setTestWriteFallbackCards(new Set())
+    setCompletionFailed(false)
   }
 
   const offerTestWriteFallback = (cardId: string, expected: string): boolean => {
@@ -432,7 +457,9 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
       playDisappointment()
     }
 
-    setSetExamPassedFx({ setId, examPassed: passed })
+    const saves: (() => Promise<unknown>)[] = [
+      () => setSetExamPassedFx({ setId, examPassed: passed }),
+    ]
 
     if (taskProperties) {
       const correct = results.filter(Boolean).length
@@ -454,10 +481,28 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
       const learned = results[index] === true
 
       if (card && card.learned !== learned) {
-        setCardLearnedFx({ setId, cardId, learned })
+        saves.push(() => setCardLearnedFx({ setId, cardId, learned }))
       }
     })
-  }, [byId, setId, taskProperties, testFinished, testQueue])
+
+    if (passed && onPassed) {
+      const complete = async () => {
+        setCompletionFailed(false)
+
+        try {
+          await Promise.all(saves.map((save) => save()))
+          if (activeRef.current) await onPassed()
+        } catch {
+          if (activeRef.current) setCompletionFailed(true)
+        }
+      }
+
+      retryCompletionRef.current = complete
+      void complete()
+    } else {
+      saves.forEach((save) => void save())
+    }
+  }, [byId, onPassed, setId, taskProperties, testFinished, testQueue])
 
   useEffect(() => {
     if (!voiceCheckEnabled && testAutoRef.current) stopTestAuto()
@@ -503,9 +548,14 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
   }
 
   const handleNextSet = () => {
+    if (onPassed) {
+      handleExit()
+      return
+    }
+
     if (!set) return
 
-    const next = findNextSet(sets, set)
+    const next = findNextSet(permanentSets, set)
 
     if (next) {
       pushScreen(nextSetScreen(next, courseLang))
@@ -621,7 +671,27 @@ export function TestMode({ setId, onExit }: { setId: string; onExit: () => void 
 
       <Box grow padding="m">
         <Stack spacing="l" height="100%">
-          {testFinished ? (
+          {testFinished && testPassed && onPassed ? (
+            <Stack grow spacing="m" verticalAlign="center" horizontalAlign="center">
+              {completionFailed ? (
+                <>
+                  <div role="alert">
+                    <Text align="center" color="contrast-secondary" variant="S / Medium">
+                      <FormattedMessage
+                        id="phrase_save_failed"
+                        defaultMessage="Could not save. Try again."
+                      />
+                    </Text>
+                  </div>
+                  <Button onClick={() => void retryCompletionRef.current?.()}>
+                    <FormattedMessage id="ready_course_retry" defaultMessage="Try again" />
+                  </Button>
+                </>
+              ) : (
+                <Spinner size="l" />
+              )}
+            </Stack>
+          ) : testFinished ? (
             <ExamResults
               correctCount={testCorrectCount}
               errorCount={testErrorCount}

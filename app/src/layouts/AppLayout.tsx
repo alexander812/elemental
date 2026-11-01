@@ -53,6 +53,7 @@ import { LessonCreateView } from '../features/lessons/ui/LessonCreateView'
 import { LessonsView } from '../features/lessons/ui/LessonsView'
 import { SetCreateView } from '../features/set-create/ui/SetCreateView'
 import { PhraseTaskView } from '../features/phrase-task/ui/PhraseTaskView'
+import { VocabularyCardsView } from '../features/phrase-task/ui/VocabularyCardsView'
 import { MenuView } from '../features/settings/ui/MenuView'
 import { SupportView } from '../features/settings/ui/SupportView'
 import { ThemeView } from '../features/settings/ui/ThemeView'
@@ -95,6 +96,8 @@ function renderScreen(screen: Screen): ReactNode {
       return <CardsView key={screen.setId} setId={screen.setId} />
     case 'phrase-task':
       return <PhraseTaskView key={screen.setId} setId={screen.setId} />
+    case 'vocabulary-cards':
+      return <VocabularyCardsView setId={screen.setId} temporarySetId={screen.temporarySetId} />
     case 'set-intro':
       return <SetTextView key={screen.setId} setId={screen.setId} welcome />
     case 'set-text':

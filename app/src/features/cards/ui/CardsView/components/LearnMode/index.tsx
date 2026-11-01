@@ -31,6 +31,7 @@ import {
   resetSetFx,
   setCardLearnedFx,
   $courseLangByLesson,
+  $cardSets,
   $sets,
   $userLangByLesson,
 } from '../../../../../sets/store'
@@ -43,6 +44,7 @@ import {
 import { taskAnalyticsProperties } from '../../../../analytics'
 import { cancelRecognizeFx, recognizeFx } from '../../../../store'
 import { DECK_DEPTH, findNextSet, LEAVE_MS, nextSetScreen } from '../../helpers'
+import type { NestedCardsOptions } from '../../index'
 import { FlashCard } from '../FlashCard'
 import type { DragPos, Leaving } from '../FlashCard'
 import { TestMode } from '../TestMode'
@@ -58,8 +60,14 @@ const UP_THRESHOLD = 110
 
 const now = (): number => Date.now()
 
-export function LearnMode({ setId }: { setId: string }) {
-  const sets = useUnit($sets)
+export function LearnMode({
+  setId,
+  embedded = false,
+  onBack,
+  onPassed,
+}: { setId: string } & NestedCardsOptions) {
+  const sets = useUnit($cardSets)
+  const permanentSets = useUnit($sets)
   const asrProgress = useUnit($asrProgress)
   const languages = useUnit($languages)
   const lessons = useUnit($lessons)
@@ -399,12 +407,18 @@ export function LearnMode({ setId }: { setId: string }) {
   }
 
   const handleNextSet = () => {
+    if (embedded) {
+      if (onBack) onBack()
+      else popScreen()
+      return
+    }
+
     if (!set) {
       popScreen()
       return
     }
 
-    const next = findNextSet(sets, set)
+    const next = findNextSet(permanentSets, set)
 
     if (next) {
       pushScreen(nextSetScreen(next, courseLang))
@@ -460,7 +474,9 @@ export function LearnMode({ setId }: { setId: string }) {
   }
 
   if (testMode) {
-    return <TestMode setId={setId} onExit={() => setTestMode(false)} />
+    return (
+      <TestMode setId={setId} onExit={onBack ?? (() => setTestMode(false))} onPassed={onPassed} />
+    )
   }
 
   const learnDeck = displayedQueue.slice(0, DECK_DEPTH)
@@ -488,17 +504,19 @@ export function LearnMode({ setId }: { setId: string }) {
       <Header
         back
         endToolbar={
-          <SetMenu
-            setId={setId}
-            swapped={set?.swapped ?? false}
-            onAddCard={handleAddWord}
-            onDeleteCards={handleDeleteAll}
-            onDeleteSet={() => setConfirmDelete(true)}
-            onResetSet={() => setConfirmReset(true)}
-          />
+          embedded ? undefined : (
+            <SetMenu
+              setId={setId}
+              swapped={set?.swapped ?? false}
+              onAddCard={handleAddWord}
+              onDeleteCards={handleDeleteAll}
+              onDeleteSet={() => setConfirmDelete(true)}
+              onResetSet={() => setConfirmReset(true)}
+            />
+          )
         }
         text={progressionEnabled ? <ProgressChip /> : (set?.name ?? '')}
-        onBackClick={() => popScreen()}
+        onBackClick={onBack ?? (() => popScreen())}
       />
 
       <Box grow padding="m">
@@ -508,7 +526,7 @@ export function LearnMode({ setId }: { setId: string }) {
             learnedCount={learnedCount}
             unlearnedCount={unlearnedCount}
             onFilterChange={handleFilterChange}
-            onOpenSetText={handleOpenSetText}
+            onOpenSetText={embedded ? undefined : handleOpenSetText}
           />
 
           {finishVariant ? (
@@ -546,6 +564,7 @@ export function LearnMode({ setId }: { setId: string }) {
                     drag={index === 0 ? drag : null}
                     flipped={!!flipped[id]}
                     frontText={front.text}
+                    hideEdit={embedded}
                     interactive={index === 0}
                     language={courseLang}
                     leaving={leaving?.id === id ? leaving : null}
@@ -577,7 +596,11 @@ export function LearnMode({ setId }: { setId: string }) {
 
           {!noCards && !confirmDelete ? (
             <div {...testHintShake}>
-              <Button fullWidth startIcon={<IconEducation fontSize={16} />} onClick={handleStartTest}>
+              <Button
+                fullWidth
+                startIcon={<IconEducation fontSize={16} />}
+                onClick={handleStartTest}
+              >
                 <FormattedMessage id="cards_mode_test" defaultMessage="Test" />
               </Button>
             </div>

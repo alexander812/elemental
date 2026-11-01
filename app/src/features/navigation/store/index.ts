@@ -21,6 +21,7 @@ export type Screen =
   | { name: 'set-create'; setId?: string; lessonId?: string }
   | { name: 'cards'; setId: string }
   | { name: 'phrase-task'; setId: string }
+  | { name: 'vocabulary-cards'; setId: string; temporarySetId: string }
   | { name: 'set-intro'; setId: string }
   | { name: 'set-text'; setId: string }
   | { name: 'set-text'; draft: TextAddDraft }

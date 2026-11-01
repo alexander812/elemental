@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useUnit } from 'effector-react'
 import { FormattedMessage, useIntl } from 'react-intl'
 
-import { IconChevronRight, IconClose, IconViewList, IconSound } from '@elemental/icons'
+import { IconCheck, IconChevronRight, IconClose, IconViewList, IconSound } from '@elemental/icons'
 import { BottomSheet, Box, Button, ButtonIcon, Header } from '@elemental/ui-kit'
 
 import type { PoliglotQuestionPage, PoliglotTable } from '../../../courses/poliglot/lesson-one'
@@ -21,10 +21,11 @@ import { vibrateError, vibrateSuccess } from '../../../transport/haptics'
 import { canSpeak, cancelSpeech } from '../../../transport/speech'
 import { speakFx } from '../../cards/store'
 import { nextSetScreen, speakErrorText } from '../../cards/ui/CardsView/helpers'
-import { popScreen, popTo, replaceScreen, $stack } from '../../navigation/store'
+import { popScreen, popTo, pushScreen, replaceScreen, $stack } from '../../navigation/store'
 import {
   $courseLangByLesson,
   $sets,
+  createTemporaryVocabularySetFx,
   restartPhraseTaskFx,
   savePhraseTaskProgressFx,
 } from '../../sets/store'
@@ -360,6 +361,8 @@ export function PhraseTaskView({ setId }: { setId: string }) {
   const [saveFailed, setSaveFailed] = useState(false)
   const [celebrate, setCelebrate] = useState(false)
   const [restarting, setRestarting] = useState(false)
+  const [openingVocabulary, setOpeningVocabulary] = useState(false)
+  const openingVocabularyRef = useRef(false)
   const [run, setRun] = useState(emptyPhraseRun)
   const runRef = useRef(run)
   const celebrated = useRef(false)
@@ -610,8 +613,19 @@ export function PhraseTaskView({ setId }: { setId: string }) {
           </section>
         ) : (
           <article aria-labelledby={titleId}>
-            <h1 id={titleId} lang="ru" tabIndex={-1}>
-              {accented(renderedPage.title)}
+            <h1
+              id={titleId}
+              lang={renderedPage.kind === 'vocabulary' ? undefined : 'ru'}
+              tabIndex={-1}
+            >
+              {renderedPage.kind === 'vocabulary' ? (
+                <FormattedMessage
+                  id="phrase_vocabulary_title"
+                  defaultMessage="Words and expressions"
+                />
+              ) : (
+                accented(renderedPage.title)
+              )}
             </h1>
             {renderedPage.kind === 'theory' ? (
               <div className={classes.theory} lang="ru">
@@ -630,6 +644,73 @@ export function PhraseTaskView({ setId }: { setId: string }) {
                     {accented(text)}
                   </p>
                 ))}
+              </div>
+            ) : renderedPage.kind === 'vocabulary' ? (
+              <div className={classes.theory} data-test="phrase-vocabulary">
+                <table aria-labelledby={titleId}>
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        <FormattedMessage id="phrase_vocabulary_expression" defaultMessage="English" />
+                      </th>
+                      <th scope="col">
+                        <FormattedMessage
+                          id="phrase_vocabulary_translation"
+                          defaultMessage="Translation"
+                        />
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {renderedPage.words.map((word, wordIndex) => (
+                      <tr key={wordIndex}>
+                        <th scope="row" lang="en" className={classes.english}>
+                          {word.translation}
+                        </th>
+                        <td lang="ru">{word.original}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {task.vocabularyPassed ? (
+                  <p
+                    className={classes.vocabularyPassed}
+                    data-test="phrase-vocabulary-passed"
+                    role="status"
+                  >
+                    <IconCheck fontSize={24} />
+                    <FormattedMessage id="phrase_vocabulary_learned" defaultMessage="Learned" />
+                  </p>
+                ) : (
+                  <Button
+                    fullWidth
+                    loading={openingVocabulary}
+                    disabled={pageBusy || !isCurrent}
+                    onClick={async () => {
+                      if (!isCurrent || pageBusy || openingVocabularyRef.current) return
+                      openingVocabularyRef.current = true
+                      setOpeningVocabulary(true)
+                      setSaveFailed(false)
+                      clearAuto()
+                      cancelSpeech()
+                      try {
+                        const temporarySetId = await createTemporaryVocabularySetFx({
+                          parentSetId: setId,
+                          page: renderedPage,
+                        })
+                        if (active.current)
+                          pushScreen({ name: 'vocabulary-cards', setId, temporarySetId })
+                      } catch {
+                        if (active.current) setSaveFailed(true)
+                      } finally {
+                        openingVocabularyRef.current = false
+                        if (active.current) setOpeningVocabulary(false)
+                      }
+                    }}
+                  >
+                    <FormattedMessage id="phrase_vocabulary_learn" defaultMessage="Learn" />
+                  </Button>
+                )}
               </div>
             ) : (
               <PhraseQuestion
@@ -705,7 +786,7 @@ export function PhraseTaskView({ setId }: { setId: string }) {
       >
         {layers.map(renderPage)}
       </div>
-      {!result && page.kind === 'theory' ? (
+      {!result && page.kind !== 'question' ? (
         <div className={classes.controls} data-test="phrase-controls">
           <ButtonIcon
             dataTest="phrase-page-prev"

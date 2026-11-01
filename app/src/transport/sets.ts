@@ -7,6 +7,7 @@ import { isPhraseCorrect } from '../lib/phraseAnswer'
 import { readCourses } from './courses'
 import { readLessons } from './lessons'
 import { readContentSets, writeContentSets } from './ready-content'
+import { isTemporarySet, readTemporarySets, writeTemporarySets } from './temporary-sets'
 
 export type { Card, CardSet, CardTexts } from '../lib/types'
 
@@ -40,11 +41,12 @@ function createCard(
 }
 
 function readSets(): CardSet[] {
-  return readContentSets()
+  return [...readContentSets(), ...readTemporarySets()]
 }
 
 function writeSets(sets: CardSet[]): CardSet[] {
-  return writeContentSets(sets)
+  writeTemporarySets(sets.filter((set) => isTemporarySet(set.id)))
+  return writeContentSets(sets.filter((set) => !isTemporarySet(set.id)))
 }
 
 function resolveCourseLang(lessonId: string): LanguageCode {
@@ -66,7 +68,7 @@ function patchSet(sets: CardSet[], setId: string, patch: (set: CardSet) => CardS
 }
 
 export async function fetchSets(): Promise<CardSet[]> {
-  return readSets()
+  return readContentSets()
 }
 
 export async function replaceSets(sets: CardSet[]): Promise<CardSet[]> {
@@ -198,6 +200,16 @@ export async function setSetSwapped(setId: string, swapped: boolean): Promise<Ca
 export async function setSetExamPassed(setId: string, examPassed: boolean): Promise<CardSet[]> {
   const sets = readSets()
   return writeSets(patchSet(sets, setId, (set) => ({ ...set, examPassed })))
+}
+
+export async function saveVocabularyPassed(setId: string, passed: boolean): Promise<CardSet[]> {
+  return writeSets(
+    patchSet(readSets(), setId, (set) =>
+      set.phraseTask
+        ? { ...set, phraseTask: { ...set.phraseTask, vocabularyPassed: passed } }
+        : set
+    )
+  )
 }
 
 export async function deleteSet(setId: string): Promise<CardSet[]> {
@@ -341,7 +353,9 @@ export async function resetSet(setId: string): Promise<CardSet[]> {
     patchSet(sets, setId, (set) => ({
       ...set,
       examPassed: false,
-      phraseTask: set.phraseTask ? { ...set.phraseTask, pageIndex: 0, solved: [] } : undefined,
+      phraseTask: set.phraseTask
+        ? { ...set.phraseTask, pageIndex: 0, solved: [], vocabularyPassed: false }
+        : undefined,
       cards: set.cards.map((card) => ({
         ...card,
         learned: false,

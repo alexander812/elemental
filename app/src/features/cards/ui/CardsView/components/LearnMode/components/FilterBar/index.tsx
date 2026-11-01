@@ -10,7 +10,7 @@ type FilterBarProps = {
   learnedCount: number
   unlearnedCount: number
   onFilterChange: (filter: Filter) => void
-  onOpenSetText: () => void
+  onOpenSetText?: () => void
 }
 
 export function FilterBar({
@@ -33,13 +33,18 @@ export function FilterBar({
       >
         {learnedCount}
       </Button>
-      <ButtonIcon
-        ariaLabel={intl.formatMessage({ id: 'cards_filter_set_text', defaultMessage: 'Set text' })}
-        color="neutral"
-        icon={<IconViewList fontSize={24} />}
-        variant="secondary"
-        onClick={onOpenSetText}
-      />
+      {onOpenSetText ? (
+        <ButtonIcon
+          ariaLabel={intl.formatMessage({
+            id: 'cards_filter_set_text',
+            defaultMessage: 'Set text',
+          })}
+          color="neutral"
+          icon={<IconViewList fontSize={24} />}
+          variant="secondary"
+          onClick={onOpenSetText}
+        />
+      ) : null}
       <Button
         checked={!isLearnedFilter}
         color="neutral"

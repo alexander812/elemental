@@ -2,6 +2,7 @@ import poliglot from '../courses/poliglot/course_poliglot.en.json'
 import type { PoliglotLessonData } from '../courses/poliglot/lesson-one'
 import type { CardSet, Course, Lesson } from '../lib/types'
 import { fetchCatalogCourse } from './catalog'
+import { fetchPoliglotVocabulary } from './poliglot-vocabulary'
 
 export async function buildReadyContent(course: Course): Promise<{
   lessons: Lesson[]
@@ -128,7 +129,9 @@ export async function buildReadyLesson(course: Course, lessonId: string): Promis
     })
   }
   const { parseLessonOne } = await import('../courses/poliglot/lesson-one')
-  return parseLessonOne(data as PoliglotLessonData).map((task, order) => ({
+  const tasks = parseLessonOne(data as PoliglotLessonData)
+  const vocabulary = await fetchPoliglotVocabulary(lesson.order, tasks.length)
+  return tasks.map((task, order) => ({
     id: `${lessonId}:set:${task.id}`,
     lessonId,
     name: task.name,
@@ -138,6 +141,14 @@ export async function buildReadyLesson(course: Course, lessonId: string): Promis
     examPassed: false,
     texts: {},
     cards: [],
-    phraseTask: { pages: task.pages, pageIndex: 0, solved: [] },
+    phraseTask: {
+      pages: task.pages.flatMap((page, index) =>
+        page.kind === 'question' && task.pages.findIndex((item) => item.kind === 'question') === index
+          ? [vocabulary[order], page]
+          : [page]
+      ),
+      pageIndex: 0,
+      solved: [],
+    },
   }))
 }

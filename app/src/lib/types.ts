@@ -26,6 +26,7 @@ export interface CardSet {
     pages: PoliglotPage[]
     pageIndex: number
     solved: number[]
+    vocabularyPassed?: boolean
   }
 }
 

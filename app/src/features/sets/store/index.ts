@@ -1,9 +1,16 @@
-import { combine, createEffect, createStore } from 'effector'
+import { combine, createEffect, createEvent, createStore } from 'effector'
 
 import { DEFAULT_COURSE_LANG, DEFAULT_USER_LANG } from '../../../lib/languages'
 import type { LanguageCode } from '../../../lib/languages'
 import * as setsApi from '../../../transport/sets'
 import type { CardEditPair, CardPair, CardSet, CardTexts } from '../../../transport/sets'
+import {
+  createTemporaryVocabularySet,
+  readTemporarySets,
+  removeTemporarySet,
+  subscribeTemporarySets,
+} from '../../../transport/temporary-sets'
+import type { PoliglotVocabularyPage } from '../../../courses/poliglot/lesson-one'
 import { importBackupFx } from '../../backup/store'
 import { loadCoursesFx } from '../../course-search/store'
 import { ensureReadyCourseFx, ensureReadyLessonFx } from '../../courses/store'
@@ -13,6 +20,22 @@ import { deleteLessonFx, $lessons } from '../../lessons/store'
 export const fetchSetsFx = createEffect(() => setsApi.fetchSets())
 export const savePhraseTaskProgressFx = createEffect(setsApi.savePhraseTaskProgress)
 export const restartPhraseTaskFx = createEffect(setsApi.restartPhraseTask)
+export const createTemporaryVocabularySetFx = createEffect(
+  ({ parentSetId, page }: { parentSetId: string; page: PoliglotVocabularyPage }) =>
+    createTemporaryVocabularySet(parentSetId, page)
+)
+export const removeTemporarySetFx = createEffect(removeTemporarySet)
+export const saveVocabularyPassedFx = createEffect(
+  ({ setId, passed }: { setId: string; passed: boolean }) =>
+    setsApi.saveVocabularyPassed(setId, passed)
+)
+
+const temporarySetsChanged = createEvent<CardSet[]>()
+export const $temporarySets = createStore<CardSet[]>(readTemporarySets()).on(
+  temporarySetsChanged,
+  (_, sets) => sets
+)
+subscribeTemporarySets(temporarySetsChanged)
 
 export const createSetFx = createEffect(
   (payload: { lessonId: string; name: string; cards: CardPair[]; texts?: CardTexts }) =>
@@ -96,6 +119,7 @@ export const $sets = createStore<CardSet[]>([])
       fetchSetsFx.doneData,
       savePhraseTaskProgressFx.doneData,
       restartPhraseTaskFx.doneData,
+      saveVocabularyPassedFx.doneData,
       updateSetFx.doneData,
       setSetActiveFx.doneData,
       setSetSwappedFx.doneData,
@@ -123,6 +147,11 @@ export const $sets = createStore<CardSet[]>([])
   )
   .on(importBackupFx.doneData, (_, { sets }) => sets)
   .on([ensureReadyCourseFx.doneData, ensureReadyLessonFx.doneData], (_, result) => result.sets)
+
+export const $cardSets = combine($sets, $temporarySets, (sets, temporarySets) => [
+  ...sets,
+  ...temporarySets,
+])
 
 export const $courseLangByLesson = combine($lessons, $courses, (lessons, courses) => {
   const langByCourse = new Map(courses.map((course) => [course.id, course.lang]))

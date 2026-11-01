@@ -338,5 +338,7 @@
   "phrase_result_errors": "Ошибок: {count}",
   "phrase_result_unanswered": "Без ответа: {count}",
   "phrase_attempts_left": "Ошибка. Осталось попыток: {remaining}.",
-  "phrase_three_errors": "Три ошибки. Вопрос не засчитан."
+  "phrase_three_errors": "Три ошибки. Вопрос не засчитан.",
+  "phrase_vocabulary_learn": "Выучить",
+  "phrase_vocabulary_learned": "Выучено"
 }

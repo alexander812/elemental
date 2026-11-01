@@ -90,7 +90,7 @@ const pageKey = (page: NonNullable<CardSet['phraseTask']>['pages'][number]): str
   hash(
     page.kind === 'question'
       ? JSON.stringify([page.prompt, normalizePhrase(page.answer.join(' '))])
-      : page.title
+      : page.kind === 'vocabulary' ? `vocabulary:${page.title}` : page.title
   )
 
 function phraseProgress(sets: CardSet[]): NonNullable<ReadyCourseState['phraseProgress']> {

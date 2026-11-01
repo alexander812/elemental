@@ -73,6 +73,7 @@ export type FlashCardProps = {
   drag: DragPos | null
   flipped: boolean
   frontText: string
+  hideEdit?: boolean
   interactive: boolean
   language: LanguageCode
   leaving: Leaving | null
@@ -105,6 +106,7 @@ export function FlashCard({
   drag,
   flipped,
   frontText,
+  hideEdit = false,
   interactive,
   language,
   leaving,
@@ -259,11 +261,13 @@ export function FlashCard({
 
   const cardActions = (onSpeak: () => void) => (
     <div className={classes.cardActions}>
-      {actionButton(
-        intl.formatMessage({ id: 'cards_edit', defaultMessage: 'Edit' }),
-        <IconEdit fontSize={24} />,
-        onEdit
-      )}
+      {hideEdit
+        ? null
+        : actionButton(
+            intl.formatMessage({ id: 'cards_edit', defaultMessage: 'Edit' }),
+            <IconEdit fontSize={24} />,
+            onEdit
+          )}
       {canSpeak()
         ? actionButton(
             intl.formatMessage({ id: 'cards_card_speak', defaultMessage: 'Speak' }),

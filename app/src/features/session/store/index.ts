@@ -109,7 +109,7 @@ export const saveSession = (): void => {
 
   save<SessionSnapshot>('session', {
     token: callNativeSync<string>('sessionToken') ?? '',
-    nav: $nav.getState().stack,
+    nav: $nav.getState().stack.filter((screen) => screen.name !== 'vocabulary-cards'),
     textAdd: {
       text: $text.getState(),
       words: $words.getState(),

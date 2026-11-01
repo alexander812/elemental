@@ -1,0 +1,1100 @@
+{
+  "parentCourse": "Poliglot vocabulary",
+  "lang": "en",
+  "lessons": [
+    {
+      "name": "Building simple sentences",
+      "tasks": [
+        {
+          "name": "Present statements",
+          "text": "I work\nShe loves\nI live\nWe open\nHe closes",
+          "words": [
+            "I work",
+            "She loves",
+            "I live",
+            "We open",
+            "He closes"
+          ]
+        },
+        {
+          "name": "Negatives and questions",
+          "text": "Do you work?\nHe doesn’t come\nYou don’t love",
+          "words": [
+            "Do you work?",
+            "He doesn’t come",
+            "You don’t love"
+          ]
+        },
+        {
+          "name": "Talking about the past",
+          "text": "She closed\nYou didn’t go\nHe went\nWe opened\nShe loved\nThey didn’t see\nDid you come?\nI knew",
+          "words": [
+            "She closed",
+            "You didn’t go",
+            "He went",
+            "We opened",
+            "She loved",
+            "They didn’t see",
+            "Did you come?",
+            "I knew"
+          ]
+        },
+        {
+          "name": "Talking about the future",
+          "text": "I will go\nYou will not see\nHe will not love",
+          "words": [
+            "I will go",
+            "You will not see",
+            "He will not love"
+          ]
+        },
+        {
+          "name": "The complete Simple pattern",
+          "text": "Will I love?\nYou will live\nShe will not work\nDo we open?\nHe closes\nThey don’t see\nDid you come?\nShe went\nI didn’t know",
+          "words": [
+            "Will I love?",
+            "You will live",
+            "She will not work",
+            "Do we open?",
+            "He closes",
+            "They don’t see",
+            "Did you come?",
+            "She went",
+            "I didn’t know"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pronouns, questions and directions",
+      "tasks": [
+        {
+          "name": "Object and possessive pronouns",
+          "text": "I see him\nShe loves you\nHe knows her\nWe help them\nShe likes me\nThey know us\nI see it\nI know your sister\nShe loves her brother\nWe know their teacher",
+          "words": [
+            "I see him",
+            "She loves you",
+            "He knows her",
+            "We help them",
+            "She likes me",
+            "They know us",
+            "I see it",
+            "I know your sister",
+            "She loves her brother",
+            "We know their teacher"
+          ]
+        },
+        {
+          "name": "Adding more verbs",
+          "text": "I asked him\nShe will answer me\nThey did not help us\nI hope\nThey traveled\nHe gave me a book\nShe took it\nWe will speak English",
+          "words": [
+            "I asked him",
+            "She will answer me",
+            "They did not help us",
+            "I hope",
+            "They traveled",
+            "He gave me a book",
+            "She took it",
+            "We will speak English"
+          ]
+        },
+        {
+          "name": "Question words",
+          "text": "What did you take?\nWhere do you live?\nWhen will she help?\nWhy do you ask?\nWho watched?\nHow do you work?\nHow much money did you take?\nWho helped you?",
+          "words": [
+            "What did you take?",
+            "Where do you live?",
+            "When will she help?",
+            "Why do you ask?",
+            "Who watched?",
+            "How do you work?",
+            "How much money did you take?",
+            "Who helped you?"
+          ]
+        },
+        {
+          "name": "Place, destination and origin",
+          "text": "We worked in London\nI will come to you\nYou fly from Moscow\nHe lives in a house\nShe came from London\nThey will go to him",
+          "words": [
+            "We worked in London",
+            "I will come to you",
+            "You fly from Moscow",
+            "He lives in a house",
+            "She came from London",
+            "They will go to him"
+          ]
+        },
+        {
+          "name": "Combining sentence patterns",
+          "text": "Why did she ask me?\nWhen will you give us a book?\nWho knows them?\nHow do they help you?\nWe will not take their book\nShe does not know my sister\nThey spoke to us\nI traveled from Moscow\nWhere did he see her?",
+          "words": [
+            "Why did she ask me?",
+            "When will you give us a book?",
+            "Who knows them?",
+            "How do they help you?",
+            "We will not take their book",
+            "She does not know my sister",
+            "They spoke to us",
+            "I traveled from Moscow",
+            "Where did he see her?"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The verb to be",
+      "tasks": [
+        {
+          "name": "Choosing am, is or are",
+          "text": "I am here\nShe is a teacher\nYou are ready\nWe are in Moscow\nThey are students\nHe is happy",
+          "words": [
+            "I am here",
+            "She is a teacher",
+            "You are ready",
+            "We are in Moscow",
+            "They are students",
+            "He is happy"
+          ]
+        },
+        {
+          "name": "Talking about the past with was and were",
+          "text": "I was here\nShe was a teacher\nYou were a teacher\nWe were in Moscow\nThey were students\nIt was here",
+          "words": [
+            "I was here",
+            "She was a teacher",
+            "You were a teacher",
+            "We were in Moscow",
+            "They were students",
+            "It was here"
+          ]
+        },
+        {
+          "name": "Talking about the future with will be",
+          "text": "I will be here\nHe will be there\nYou will be a teacher\nWe will be in Moscow\nThey will be students",
+          "words": [
+            "I will be here",
+            "He will be there",
+            "You will be a teacher",
+            "We will be in Moscow",
+            "They will be students"
+          ]
+        },
+        {
+          "name": "Questions and negatives with to be",
+          "text": "Is she your sister?\nWere we in Moscow?\nWill he be ready?\nI am not a doctor\nThey are not from England\nHe was not in Moscow\nYou will not be a doctor\nAre they not students?",
+          "words": [
+            "Is she your sister?",
+            "Were we in Moscow?",
+            "Will he be ready?",
+            "I am not a doctor",
+            "They are not from England",
+            "He was not in Moscow",
+            "You will not be a doctor",
+            "Are they not students?"
+          ]
+        },
+        {
+          "name": "The complete to be pattern",
+          "text": "Will he be a teacher?\nWe will be students\nHe will not be there\nAm I right?\nYou are a teacher\nShe is not ready\nWas he happy?\nThey were in Moscow\nWe were not in the room",
+          "words": [
+            "Will he be a teacher?",
+            "We will be students",
+            "He will not be there",
+            "Am I right?",
+            "You are a teacher",
+            "She is not ready",
+            "Was he happy?",
+            "They were in Moscow",
+            "We were not in the room"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Talking about yourself: professions and articles",
+      "tasks": [
+        {
+          "name": "Talking about professions",
+          "text": "What do you do?\nWhere do you work?\nWhat is your profession?\nI am a teacher.\nShe is a musician.\nHe is an actor.",
+          "words": [
+            "What do you do?",
+            "Where do you work?",
+            "What is your profession?",
+            "I am a teacher.",
+            "She is a musician.",
+            "He is an actor."
+          ]
+        },
+        {
+          "name": "Places and roles at work",
+          "text": "She works in Moscow.\nHe works in a big company.\nHe works as an engineer.\nI work in a hospital as a nurse.\nThey are at school.\nI am at the airport.\nHe is at work.",
+          "words": [
+            "She works in Moscow.",
+            "He works in a big company.",
+            "He works as an engineer.",
+            "I work in a hospital as a nurse.",
+            "They are at school.",
+            "I am at the airport.",
+            "He is at work."
+          ]
+        },
+        {
+          "name": "Choosing articles",
+          "text": "You need a doctor.\nShe is an engineer.\nI work in a factory.\nI work in the factory.\nWhere is the writer?\nI want apples.\nI want the apples.",
+          "words": [
+            "You need a doctor.",
+            "She is an engineer.",
+            "I work in a factory.",
+            "I work in the factory.",
+            "Where is the writer?",
+            "I want apples.",
+            "I want the apples."
+          ]
+        },
+        {
+          "name": "Work and interests",
+          "text": "I am a film director.\nI read fiction.\nShe will play a role.\nYou know what I mean.\nHe writes novels.\nI work in the museum as a PR manager.",
+          "words": [
+            "I am a film director.",
+            "I read fiction.",
+            "She will play a role.",
+            "You know what I mean.",
+            "He writes novels.",
+            "I work in the museum as a PR manager."
+          ]
+        },
+        {
+          "name": "Talking about yourself: review",
+          "text": "Where does she work?\nI am a journalist.\nI work in a school as a teacher.\nHe is at work.\nHe is an actor.\nWhere is the writer?\nI want apples.\nDid she work as a seller?\nI will work in a bank as a manager.",
+          "words": [
+            "Where does she work?",
+            "I am a journalist.",
+            "I work in a school as a teacher.",
+            "He is at work.",
+            "He is an actor.",
+            "Where is the writer?",
+            "I want apples.",
+            "Did she work as a seller?",
+            "I will work in a bank as a manager."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Comparisons and time",
+      "tasks": [
+        {
+          "name": "Comparing short adjectives",
+          "text": "This car is faster than that bicycle.\nShe is younger than them.\nThis house is older than that one.\nMy car is the fastest.\nThis house is the biggest.\nShe is the youngest here.",
+          "words": [
+            "This car is faster than that bicycle.",
+            "She is younger than them.",
+            "This house is older than that one.",
+            "My car is the fastest.",
+            "This house is the biggest.",
+            "She is the youngest here."
+          ]
+        },
+        {
+          "name": "More, most and irregular comparisons",
+          "text": "This car is more expensive than that bicycle.\nShe is the most beautiful here.\nThis house is the most comfortable.\nShe plays better than me.\nThis film is worse.\nThis is the simplest question.",
+          "words": [
+            "This car is more expensive than that bicycle.",
+            "She is the most beautiful here.",
+            "This house is the most comfortable.",
+            "She plays better than me.",
+            "This film is worse.",
+            "This is the simplest question."
+          ]
+        },
+        {
+          "name": "Now, yesterday and in a week",
+          "text": "Do it now.\nCall her tomorrow.\nI will be there in two weeks.\nHe was here three years ago.\nI saw him a week ago.\nCome home before six.",
+          "words": [
+            "Do it now.",
+            "Call her tomorrow.",
+            "I will be there in two weeks.",
+            "He was here three years ago.",
+            "I saw him a week ago.",
+            "Come home before six."
+          ]
+        },
+        {
+          "name": "In, on and at with time",
+          "text": "He will come in June.\nWe will be there in autumn.\nI will be here on Monday.\nCall me on Thursday.\nThe bank opens at nine o’clock.\nI will come next year.",
+          "words": [
+            "He will come in June.",
+            "We will be there in autumn.",
+            "I will be here on Monday.",
+            "Call me on Thursday.",
+            "The bank opens at nine o’clock.",
+            "I will come next year."
+          ]
+        },
+        {
+          "name": "Comparisons and plans: review",
+          "text": "This house is smaller than that one.\nMy car is the most expensive.\nShe is the best here.\nHe spoke yesterday.\nHe will come in three days.\nWas she here last November?\nMay comes after April.\nI will go to Moscow in winter.",
+          "words": [
+            "This house is smaller than that one.",
+            "My car is the most expensive.",
+            "She is the best here.",
+            "He spoke yesterday.",
+            "He will come in three days.",
+            "Was she here last November?",
+            "May comes after April.",
+            "I will go to Moscow in winter."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Quantities, people and things",
+      "tasks": [
+        {
+          "name": "Much and many",
+          "text": "How much money do you have?\nHow many days do you need?\nHow much time is left?\nHow many people work here?\nI do not have much time.\nWe do not have many English books.",
+          "words": [
+            "How much money do you have?",
+            "How many days do you need?",
+            "How much time is left?",
+            "How many people work here?",
+            "I do not have much time.",
+            "We do not have many English books."
+          ]
+        },
+        {
+          "name": "A lot and plenty",
+          "text": "They eat a lot of rice.\nHe knows a lot of doctors.\nI have plenty of time.\nWe have plenty of books.\nWe have too much water.\nShe has so many questions.",
+          "words": [
+            "They eat a lot of rice.",
+            "He knows a lot of doctors.",
+            "I have plenty of time.",
+            "We have plenty of books.",
+            "We have too much water.",
+            "She has so many questions."
+          ]
+        },
+        {
+          "name": "Few and little",
+          "text": "I have few English books.\nYou have very little time.\nI took a few books.\nWe drank a little tea.\nThey want a little sugar.\nWe have only a few days.",
+          "words": [
+            "I have few English books.",
+            "You have very little time.",
+            "I took a few books.",
+            "We drank a little tea.",
+            "They want a little sugar.",
+            "We have only a few days."
+          ]
+        },
+        {
+          "name": "Some, every and no",
+          "text": "I see somebody.\nWe found something.\nHe saw nobody.\nShe is always busy.\nI sometimes cook.\nDid you see anybody?",
+          "words": [
+            "I see somebody.",
+            "We found something.",
+            "He saw nobody.",
+            "She is always busy.",
+            "I sometimes cook.",
+            "Did you see anybody?"
+          ]
+        },
+        {
+          "name": "Quantities: review",
+          "text": "How many bottles do you need?\nHow much milk do you have?\nThey want a lot of advice.\nWe have little money now.\nShe knows a few doctors.\nEverybody knows it.\nHe never lies.\nHe is nowhere.\nI have nothing.",
+          "words": [
+            "How many bottles do you need?",
+            "How much milk do you have?",
+            "They want a lot of advice.",
+            "We have little money now.",
+            "She knows a few doctors.",
+            "Everybody knows it.",
+            "He never lies.",
+            "He is nowhere.",
+            "I have nothing."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Simple tenses and invitations to act",
+      "tasks": [
+        {
+          "name": "Future Simple",
+          "text": "She will become a doctor in two years.\nHe will live in Moscow next year.\nWhen will she come to Moscow?\nWill she be back home at five?\nHe will not go to school tomorrow.\nHow much will it cost?",
+          "words": [
+            "She will become a doctor in two years.",
+            "He will live in Moscow next year.",
+            "When will she come to Moscow?",
+            "Will she be back home at five?",
+            "He will not go to school tomorrow.",
+            "How much will it cost?"
+          ]
+        },
+        {
+          "name": "Present Simple",
+          "text": "She looks older than him.\nHe buys the most expensive flowers.\nDoes he write texts in English?\nDo you want to talk to me?\nI do not want to eat now.\nShe does not work on Saturdays.",
+          "words": [
+            "She looks older than him.",
+            "He buys the most expensive flowers.",
+            "Does he write texts in English?",
+            "Do you want to talk to me?",
+            "I do not want to eat now.",
+            "She does not work on Saturdays."
+          ]
+        },
+        {
+          "name": "Past Simple",
+          "text": "We paid cash on Wednesday.\nHe played tennis on Tuesday.\nThey made a few mistakes.\nDid he buy milk two days ago?\nI did not show him the best place.\nHe did not change his passport last week.",
+          "words": [
+            "We paid cash on Wednesday.",
+            "He played tennis on Tuesday.",
+            "They made a few mistakes.",
+            "Did he buy milk two days ago?",
+            "I did not show him the best place.",
+            "He did not change his passport last week."
+          ]
+        },
+        {
+          "name": "Requests and commands",
+          "text": "Call me please.\nDo not go.\nLet’s talk about your problem.\nLet’s look at his house.\nLet’s go home.\nLet’s not wait.",
+          "words": [
+            "Call me please.",
+            "Do not go.",
+            "Let’s talk about your problem.",
+            "Let’s look at his house.",
+            "Let’s go home.",
+            "Let’s not wait."
+          ]
+        },
+        {
+          "name": "Simple tenses: review",
+          "text": "Will he come to them this evening?\nI will be there in a few hours.\nShe will not come to our party.\nDo you like my clothes?\nWe usually go home at ten o’clock.\nHe does not play better than me.\nDid you talk to him on Monday?\nThey made a few mistakes.\nThey did not talk to him on Thursday.",
+          "words": [
+            "Will he come to them this evening?",
+            "I will be there in a few hours.",
+            "She will not come to our party.",
+            "Do you like my clothes?",
+            "We usually go home at ten o’clock.",
+            "He does not play better than me.",
+            "Did you talk to him on Monday?",
+            "They made a few mistakes.",
+            "They did not talk to him on Thursday."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Prepositions, directions and verb combinations",
+      "tasks": [
+        {
+          "name": "To, from, in and at",
+          "text": "I will go to school.\nHe flew from England.\nI am from Moscow.\nShe is in the kitchen.\nShe works at home.\nWe will meet at six o’clock.",
+          "words": [
+            "I will go to school.",
+            "He flew from England.",
+            "I am from Moscow.",
+            "She is in the kitchen.",
+            "She works at home.",
+            "We will meet at six o’clock."
+          ]
+        },
+        {
+          "name": "Positions",
+          "text": "I sat on a bench.\nI hid under the table.\nHe climbed over the wall.\nI flew over the city.\nThis is between us.\nChoose between these two.",
+          "words": [
+            "I sat on a bench.",
+            "I hid under the table.",
+            "He climbed over the wall.",
+            "I flew over the city.",
+            "This is between us.",
+            "Choose between these two."
+          ]
+        },
+        {
+          "name": "With, without, for and about",
+          "text": "I work with them.\nThey draw with chalk.\nThey went without me.\nThis gift is for you.\nWe paid for lunch.\nThink about me.",
+          "words": [
+            "I work with them.",
+            "They draw with chalk.",
+            "They went without me.",
+            "This gift is for you.",
+            "We paid for lunch.",
+            "Think about me."
+          ]
+        },
+        {
+          "name": "Verbs with prepositions",
+          "text": "Look at me.\nListen to me.\nI hear you.\nLook for her.\nWho looks after the children?\nGo up the stairs.\nGo back home.\nGo along this street.",
+          "words": [
+            "Look at me.",
+            "Listen to me.",
+            "I hear you.",
+            "Look for her.",
+            "Who looks after the children?",
+            "Go up the stairs.",
+            "Go back home.",
+            "Go along this street."
+          ]
+        },
+        {
+          "name": "Prepositions: review",
+          "text": "Throw your ball to me.\nWe are at home on Sunday.\nHe works under me.\nRead between the lines.\nDance with me.\nShe studied English for two years.\nForget about her.\nDo not look up.\nThey looked back and saw us.",
+          "words": [
+            "Throw your ball to me.",
+            "We are at home on Sunday.",
+            "He works under me.",
+            "Read between the lines.",
+            "Dance with me.",
+            "She studied English for two years.",
+            "Forget about her.",
+            "Do not look up.",
+            "They looked back and saw us."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reflexive and emphatic pronouns",
+      "tasks": [
+        {
+          "name": "Singular reflexive pronouns",
+          "text": "I see myself.\nLook at yourself.\nHe corrected himself.\nShe cut herself.\nThe cat hurt itself.\nDo not hurt yourself.",
+          "words": [
+            "I see myself.",
+            "Look at yourself.",
+            "He corrected himself.",
+            "She cut herself.",
+            "The cat hurt itself.",
+            "Do not hurt yourself."
+          ]
+        },
+        {
+          "name": "Plural reflexive pronouns",
+          "text": "We protected ourselves.\nThey protected themselves.\nTry to control yourselves.\nWe prepared ourselves.\nThey know themselves.\nYou see yourselves.",
+          "words": [
+            "We protected ourselves.",
+            "They protected themselves.",
+            "Try to control yourselves.",
+            "We prepared ourselves.",
+            "They know themselves.",
+            "You see yourselves."
+          ]
+        },
+        {
+          "name": "Emphasizing who acts",
+          "text": "I myself did it.\nWe ourselves repaired the car.\nThe film itself was interesting.\nThe president said it himself.\nMy daughter cooked it herself.\nHer children themselves do their homework.",
+          "words": [
+            "I myself did it.",
+            "We ourselves repaired the car.",
+            "The film itself was interesting.",
+            "The president said it himself.",
+            "My daughter cooked it herself.",
+            "Her children themselves do their homework."
+          ]
+        },
+        {
+          "name": "On your own",
+          "text": "I did it by myself.\nShe lives by herself.\nThe door opened by itself.\nI teach myself English.\nHe wants to be himself.\nDo it yourself at night.",
+          "words": [
+            "I did it by myself.",
+            "She lives by herself.",
+            "The door opened by itself.",
+            "I teach myself English.",
+            "He wants to be himself.",
+            "Do it yourself at night."
+          ]
+        },
+        {
+          "name": "Self and selves: review",
+          "text": "He sees himself.\nShe corrected herself.\nYou control yourselves.\nThey did it themselves.\nWe protected ourselves.\nI seldom talk to myself.\nShe repaired the car by herself.\nThe film itself was interesting.\nThey want to be themselves.",
+          "words": [
+            "He sees himself.",
+            "She corrected herself.",
+            "You control yourselves.",
+            "They did it themselves.",
+            "We protected ourselves.",
+            "I seldom talk to myself.",
+            "She repaired the car by herself.",
+            "The film itself was interesting.",
+            "They want to be themselves."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Conversations: stories, travel and work",
+      "tasks": [
+        {
+          "name": "Everyday stories",
+          "text": "What did you do on Sunday?\nWhere were you?\nI worked yesterday.\nWill you tell us anything interesting?\nWhat is the difference between them?\nI hope that we will see it.",
+          "words": [
+            "What did you do on Sunday?",
+            "Where were you?",
+            "I worked yesterday.",
+            "Will you tell us anything interesting?",
+            "What is the difference between them?",
+            "I hope that we will see it."
+          ]
+        },
+        {
+          "name": "Travel and performances",
+          "text": "I went to Riga and Tallinn.\nI flew there by plane.\nWe saw a performance.\nWhat is the title of the performance?\nThe performance is a big event.\nI hope that we will see this performance.",
+          "words": [
+            "I went to Riga and Tallinn.",
+            "I flew there by plane.",
+            "We saw a performance.",
+            "What is the title of the performance?",
+            "The performance is a big event.",
+            "I hope that we will see this performance."
+          ]
+        },
+        {
+          "name": "Exhibitions and art",
+          "text": "I was at the exhibition in the gallery.\nI saw portraits and paintings.\nThe exhibition includes many paintings.\nThis icon needs special storage conditions.\nYou have a unique chance to see his works.\nThis collection is the richest.",
+          "words": [
+            "I was at the exhibition in the gallery.",
+            "I saw portraits and paintings.",
+            "The exhibition includes many paintings.",
+            "This icon needs special storage conditions.",
+            "You have a unique chance to see his works.",
+            "This collection is the richest."
+          ]
+        },
+        {
+          "name": "Workshops and restaurants",
+          "text": "I went to the restaurant with my friends.\nIt was a restaurant with Italian cuisine.\nI make jewelry and then sell it.\nSome items take three months.\nReserve a table by phone.\nPlease tell me how much jewelry you make.",
+          "words": [
+            "I went to the restaurant with my friends.",
+            "It was a restaurant with Italian cuisine.",
+            "I make jewelry and then sell it.",
+            "Some items take three months.",
+            "Reserve a table by phone.",
+            "Please tell me how much jewelry you make."
+          ]
+        },
+        {
+          "name": "Conversations: review",
+          "text": "What did you do after work yesterday?\nI flew there by plane.\nWe saw this performance.\nI was at the exhibition.\nYou have a chance to see his works.\nI make jewelry.\nHow much jewelry do you make?\nI am grateful to them.\nPlease tell me what you do.",
+          "words": [
+            "What did you do after work yesterday?",
+            "I flew there by plane.",
+            "We saw this performance.",
+            "I was at the exhibition.",
+            "You have a chance to see his works.",
+            "I make jewelry.",
+            "How much jewelry do you make?",
+            "I am grateful to them.",
+            "Please tell me what you do."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Processes and results: Continuous and past participles",
+      "tasks": [
+        {
+          "name": "Present Continuous",
+          "text": "I am working now.\nShe is reading a book now.\nMy parents are having dinner now.\nAre you working now?\nI am not working now.\nI cook well.",
+          "words": [
+            "I am working now.",
+            "She is reading a book now.",
+            "My parents are having dinner now.",
+            "Are you working now?",
+            "I am not working now.",
+            "I cook well."
+          ]
+        },
+        {
+          "name": "Past Continuous",
+          "text": "I was working.\nMy parents were having dinner at six.\nMy sister was watching TV when I came.\nWere you working?\nHe was not sleeping.\nWe were reading.",
+          "words": [
+            "I was working.",
+            "My parents were having dinner at six.",
+            "My sister was watching TV when I came.",
+            "Were you working?",
+            "He was not sleeping.",
+            "We were reading."
+          ]
+        },
+        {
+          "name": "Future Continuous",
+          "text": "I will be working at this time tomorrow.\nMy friends will be watching this film at three.\nWill you be working?\nShe will not be sleeping.\nWe will be having dinner.\nWill he be reading?",
+          "words": [
+            "I will be working at this time tomorrow.",
+            "My friends will be watching this film at three.",
+            "Will you be working?",
+            "She will not be sleeping.",
+            "We will be having dinner.",
+            "Will he be reading?"
+          ]
+        },
+        {
+          "name": "Perfect tenses and past participles",
+          "text": "He has seen this film.\nI have never been to Italy.\nI have already finished the work.\nShe has read ten books.\nWe had returned before the rain started.\nI will have finished this work by Sunday.\nHave you already seen this film?",
+          "words": [
+            "He has seen this film.",
+            "I have never been to Italy.",
+            "I have already finished the work.",
+            "She has read ten books.",
+            "We had returned before the rain started.",
+            "I will have finished this work by Sunday.",
+            "Have you already seen this film?"
+          ]
+        },
+        {
+          "name": "Processes and results: review",
+          "text": "Is he repairing your car now?\nThe children are playing football now.\nWe were not working.\nShe was reading.\nWill you be watching this film?\nI will not be working.\nShe has not seen this film yet.\nWe had finished before he came.\nWe will have finished by Sunday.",
+          "words": [
+            "Is he repairing your car now?",
+            "The children are playing football now.",
+            "We were not working.",
+            "She was reading.",
+            "Will you be watching this film?",
+            "I will not be working.",
+            "She has not seen this film yet.",
+            "We had finished before he came.",
+            "We will have finished by Sunday."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Numbers, order, dates and years",
+      "tasks": [
+        {
+          "name": "Cardinal numbers",
+          "text": "I have two books.\nShe is thirteen.\nHe is forty.\nShe is thirty-two.\nI have twenty-one books.\nSeven minus two equals five.",
+          "words": [
+            "I have two books.",
+            "She is thirteen.",
+            "He is forty.",
+            "She is thirty-two.",
+            "I have twenty-one books.",
+            "Seven minus two equals five."
+          ]
+        },
+        {
+          "name": "Large numbers",
+          "text": "I have one hundred books.\nShe has two hundred books.\nI earn one thousand dollars.\nI bought this car for five thousand dollars.\nShe has one hundred and fifty pairs of shoes.\nThis car costs seven hundred and fifty thousand rubles.",
+          "words": [
+            "I have one hundred books.",
+            "She has two hundred books.",
+            "I earn one thousand dollars.",
+            "I bought this car for five thousand dollars.",
+            "She has one hundred and fifty pairs of shoes.",
+            "This car costs seven hundred and fifty thousand rubles."
+          ]
+        },
+        {
+          "name": "Ordinal numbers",
+          "text": "I live on the fourth floor.\nHe lives in Room twenty-four.\nThis is my twenty-fifth birthday.\nI read the second part of the book.\nWe were fifth in line.\nThe fifteenth conference is open.",
+          "words": [
+            "I live on the fourth floor.",
+            "He lives in Room twenty-four.",
+            "This is my twenty-fifth birthday.",
+            "I read the second part of the book.",
+            "We were fifth in line.",
+            "The fifteenth conference is open."
+          ]
+        },
+        {
+          "name": "Dates and years",
+          "text": "My birthday is on the twenty-third of April.\nNew Year’s Day is on the first of January.\nWomen’s Day is on the eighth of March.\nHe was born in nineteen seventy-seven.\nWe got married in two thousand three.\nHe was born on the tenth of April.",
+          "words": [
+            "My birthday is on the twenty-third of April.",
+            "New Year’s Day is on the first of January.",
+            "Women’s Day is on the eighth of March.",
+            "He was born in nineteen seventy-seven.",
+            "We got married in two thousand three.",
+            "He was born on the tenth of April."
+          ]
+        },
+        {
+          "name": "Numbers and dates: review",
+          "text": "She is thirty-two.\nHe missed the last two lessons.\nI bought this car for five thousand dollars.\nI live on the fourth floor.\nThis is my first book.\nOpen page thirty-five.\nMy birthday is on the twenty-third of April.\nHe was born in two thousand one.\nShe has one hundred and fifty books.",
+          "words": [
+            "She is thirty-two.",
+            "He missed the last two lessons.",
+            "I bought this car for five thousand dollars.",
+            "I live on the fourth floor.",
+            "This is my first book.",
+            "Open page thirty-five.",
+            "My birthday is on the twenty-third of April.",
+            "He was born in two thousand one.",
+            "She has one hundred and fifty books."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Permission, advice and necessity",
+      "tasks": [
+        {
+          "name": "Permission with let",
+          "text": "Let me try.\nLet them go.\nShe lets him try.\nWe will let her finish.\nLet’s discuss our project.\nLet’s not argue.",
+          "words": [
+            "Let me try.",
+            "Let them go.",
+            "She lets him try.",
+            "We will let her finish.",
+            "Let’s discuss our project.",
+            "Let’s not argue."
+          ]
+        },
+        {
+          "name": "Can and could",
+          "text": "I can swim.\nYou can take my pen.\nShe cannot come.\nI can’t remember.\nCan you drive?\nI could swim.\nCould you help me?",
+          "words": [
+            "I can swim.",
+            "You can take my pen.",
+            "She cannot come.",
+            "I can’t remember.",
+            "Can you drive?",
+            "I could swim.",
+            "Could you help me?"
+          ]
+        },
+        {
+          "name": "Should and must",
+          "text": "You should apologize.\nHe should study.\nWe should not eat here.\nMust we leave?\nI must leave.\nYou must not lie.\nYou do not have to come.",
+          "words": [
+            "You should apologize.",
+            "He should study.",
+            "We should not eat here.",
+            "Must we leave?",
+            "I must leave.",
+            "You must not lie.",
+            "You do not have to come."
+          ]
+        },
+        {
+          "name": "Short forms",
+          "text": "I’m ready.\nI’ll be back.\nWho’s there?\nWhat’s happened?\nDon’t worry.",
+          "words": [
+            "I’m ready.",
+            "I’ll be back.",
+            "Who’s there?",
+            "What’s happened?",
+            "Don’t worry."
+          ]
+        },
+        {
+          "name": "Modal verbs: review",
+          "text": "Let me pay for lunch.\nLet’s not discuss this project.\nShe can swim.\nCould you open the door?\nShould we help?\nThey should not complain.\nYou must not eat here.\nWe do not have to leave.",
+          "words": [
+            "Let me pay for lunch.",
+            "Let’s not discuss this project.",
+            "She can swim.",
+            "Could you open the door?",
+            "Should we help?",
+            "They should not complain.",
+            "You must not eat here.",
+            "We do not have to leave."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Conditions and subject questions",
+      "tasks": [
+        {
+          "name": "First Conditional",
+          "text": "If I work, I will earn money.\nIf I have time, I will visit you.\nIf she asks, I will help.\nIf you do not hurry, you will be late.\nIf he is busy, we will wait.\nIf it rains, we will not go out.",
+          "words": [
+            "If I work, I will earn money.",
+            "If I have time, I will visit you.",
+            "If she asks, I will help.",
+            "If you do not hurry, you will be late.",
+            "If he is busy, we will wait.",
+            "If it rains, we will not go out."
+          ]
+        },
+        {
+          "name": "Time clauses with when",
+          "text": "When she comes, we will begin.\nWhen the weather is good, we will go to the pool.\nWe will go out when the rain stops.\nCan I come when you are not busy?\nTell her everything if she asks.\nHe often visits his parents when he comes to Moscow.",
+          "words": [
+            "When she comes, we will begin.",
+            "When the weather is good, we will go to the pool.",
+            "We will go out when the rain stops.",
+            "Can I come when you are not busy?",
+            "Tell her everything if she asks.",
+            "He often visits his parents when he comes to Moscow."
+          ]
+        },
+        {
+          "name": "Present subject questions",
+          "text": "Who opens the door?\nWhat works well?\nWho helps you?\nWho sees her?\nWho lives here?\nWho do you see?",
+          "words": [
+            "Who opens the door?",
+            "What works well?",
+            "Who helps you?",
+            "Who sees her?",
+            "Who lives here?",
+            "Who do you see?"
+          ]
+        },
+        {
+          "name": "Past and future subject questions",
+          "text": "Who opened the window?\nWho saw you?\nWho did you see?\nWho called you?\nWho will open the door?\nWhat will help you?",
+          "words": [
+            "Who opened the window?",
+            "Who saw you?",
+            "Who did you see?",
+            "Who called you?",
+            "Who will open the door?",
+            "What will help you?"
+          ]
+        },
+        {
+          "name": "Conditions and questions: review",
+          "text": "If you help, we will finish.\nWhen I finish, I will call you.\nWe will go home if the film is boring.\nIf you forgive me, I will never forget it.\nWho knows the answer?\nWho helped them?\nWho did you help?\nWhat will work?",
+          "words": [
+            "If you help, we will finish.",
+            "When I finish, I will call you.",
+            "We will go home if the film is boring.",
+            "If you forgive me, I will never forget it.",
+            "Who knows the answer?",
+            "Who helped them?",
+            "Who did you help?",
+            "What will work?"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "There is and there are",
+      "tasks": [
+        {
+          "name": "There is and there are in the present",
+          "text": "There is a TV in the room.\nThere are books on the desk.\nThere is milk in the fridge.\nThere are apples in the basket.\nThere is some sugar in the cupboard.\nThere is a cat in the tree.",
+          "words": [
+            "There is a TV in the room.",
+            "There are books on the desk.",
+            "There is milk in the fridge.",
+            "There are apples in the basket.",
+            "There is some sugar in the cupboard.",
+            "There is a cat in the tree."
+          ]
+        },
+        {
+          "name": "There was, there were and there will be",
+          "text": "There was a ball on the grass.\nThere were keys on the chair.\nThere was milk in the fridge.\nThere will be a kitchen here.\nThere will be two bedrooms there.\nThere will be tables in the room.",
+          "words": [
+            "There was a ball on the grass.",
+            "There were keys on the chair.",
+            "There was milk in the fridge.",
+            "There will be a kitchen here.",
+            "There will be two bedrooms there.",
+            "There will be tables in the room."
+          ]
+        },
+        {
+          "name": "Negative there sentences",
+          "text": "There are no people in the house.\nThere is no money in the wallet.\nThere is not any sugar in my coffee.\nThere is not a picture on the wall.\nThere was nobody in the garden.\nThere will not be a meeting.",
+          "words": [
+            "There are no people in the house.",
+            "There is no money in the wallet.",
+            "There is not any sugar in my coffee.",
+            "There is not a picture on the wall.",
+            "There was nobody in the garden.",
+            "There will not be a meeting."
+          ]
+        },
+        {
+          "name": "Questions with there",
+          "text": "Are there any cats on the roof?\nIs there milk in the fridge?\nWas there a TV in the room?\nWill there be a kitchen here?\nHow much water is there in the bottle?\nWhat is there in the box?",
+          "words": [
+            "Are there any cats on the roof?",
+            "Is there milk in the fridge?",
+            "Was there a TV in the room?",
+            "Will there be a kitchen here?",
+            "How much water is there in the bottle?",
+            "What is there in the box?"
+          ]
+        },
+        {
+          "name": "There sentences: review",
+          "text": "There are ten tables in the classroom.\nThere was a cat in the garden.\nWere there keys on the chair?\nThere will be two rooms here.\nThere is no milk in the fridge.\nThere was nobody in the garden.\nThere will not be a meeting tomorrow.\nHow many books are there on the desk?",
+          "words": [
+            "There are ten tables in the classroom.",
+            "There was a cat in the garden.",
+            "Were there keys on the chair?",
+            "There will be two rooms here.",
+            "There is no milk in the fridge.",
+            "There was nobody in the garden.",
+            "There will not be a meeting tomorrow.",
+            "How many books are there on the desk?"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Active and passive voice",
+      "tasks": [
+        {
+          "name": "Active and passive basics",
+          "text": "Workers build houses.\nHouses are built.\nThey built a house.\nThis house was built.\nThe door was opened.\nShe opened the door.",
+          "words": [
+            "Workers build houses.",
+            "Houses are built.",
+            "They built a house.",
+            "This house was built.",
+            "The door was opened.",
+            "She opened the door."
+          ]
+        },
+        {
+          "name": "Simple passive tenses",
+          "text": "The contract is signed.\nThe photos were taken in Moscow.\nThese machines will be sent to Moscow.\nMy phone is broken.\nYou will be met at the airport.\nThe letter was written by her.\nThe box was opened with a key.",
+          "words": [
+            "The contract is signed.",
+            "The photos were taken in Moscow.",
+            "These machines will be sent to Moscow.",
+            "My phone is broken.",
+            "You will be met at the airport.",
+            "The letter was written by her.",
+            "The box was opened with a key."
+          ]
+        },
+        {
+          "name": "Passive questions and negatives",
+          "text": "The light was not turned off.\nThe exam will not be held.\nThis book was not finished.\nWas the last email sent?\nWill our apology be accepted?\nWhere was the box opened?",
+          "words": [
+            "The light was not turned off.",
+            "The exam will not be held.",
+            "This book was not finished.",
+            "Was the last email sent?",
+            "Will our apology be accepted?",
+            "Where was the box opened?"
+          ]
+        },
+        {
+          "name": "Continuous and Perfect passive",
+          "text": "The house is being built.\nThe room was being cleaned.\nOur order has been delivered.\nThe letter had been sent before we arrived.\nThe work will have been finished by noon.\nHas the order been delivered?",
+          "words": [
+            "The house is being built.",
+            "The room was being cleaned.",
+            "Our order has been delivered.",
+            "The letter had been sent before we arrived.",
+            "The work will have been finished by noon.",
+            "Has the order been delivered?"
+          ]
+        },
+        {
+          "name": "Passive voice: review",
+          "text": "Is honey made by bees?\nThis house was built.\nThese machines will be sent.\nThe light was not turned off.\nWhere was the box opened?\nThe box was opened with a key.\nThe car is being repaired.\nThe windows have been broken.",
+          "words": [
+            "Is honey made by bees?",
+            "This house was built.",
+            "These machines will be sent.",
+            "The light was not turned off.",
+            "Where was the box opened?",
+            "The box was opened with a key.",
+            "The car is being repaired.",
+            "The windows have been broken."
+          ]
+        }
+      ]
+    }
+  ]
+}

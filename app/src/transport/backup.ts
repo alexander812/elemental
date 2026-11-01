@@ -16,7 +16,7 @@ import {
 } from './ready-content'
 import type { ReadyCourseState } from './ready-content'
 
-export const BACKUP_VERSION = 10
+export const BACKUP_VERSION = 11
 
 export type BackupData = {
   version: number
